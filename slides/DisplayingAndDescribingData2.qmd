@@ -24,7 +24,7 @@ format:
 code-link: true
 execute:
   echo: true
-  freeze: false
+  freeze: auto
 knitr: 
   opts_chunk:
     tidy: true
@@ -174,7 +174,7 @@ df |> ggplot(aes(x = vals, fill = skew)) +
 
 **Middle: Symmetric** As many large as small values. $\sim1/2$ of values exceed the mean.
 
-**Right: Asymmetric** Few large values. $<1/2$ of values exceed the mean.
+**Right: Asymmetric** Few large values. $>1/2$ of values are less than the mean.
 
 ```{r echo=FALSE, fig.height=4, fig.width=8, message=FALSE, warning=FALSE}
 df<-data.frame(vals = c(rbeta(100000,2,5), 
@@ -243,7 +243,7 @@ ggplot(iris ,
 
 -   Quartiles, interquartile range \[`75th percentile - 25th percentile`\]
 
--   Variance \[<font color = #00a1b7> estimate = $s^2$ =$\frac{\Sigma(x_i - \bar{x})^2}{n-1}$</font>, <font color = #ad7237>param = $\sigma ^2$ = $\frac{\Sigma(x_i - \bar{x})^2}{n}$ \]</font>
+-   Variance \[<font color = #00a1b7> estimate = $s^2$ =$\frac{\Sigma(x_i - \bar{x})^2}{n-1}$</font>, <font color = #ad7237>param = $\sigma ^2$ = $\frac{\Sigma(x_i - \mu)^2}{n}$ \]</font>
 
 -   Standard deviation \[<font color =  #00a1b7> estimate = $s$ =$\sqrt{s^2}$</font>, <font color = #ad7237>param = $\sigma$ = $\sqrt{\sigma^2}$ \]</font>
 

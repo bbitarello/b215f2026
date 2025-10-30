@@ -10,3 +10,5 @@ census-key.R
 lab-notes
 /*/.DS_Store
 
+
+**/*.quarto_ipynb

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -31,14 +31,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-54f0065fef14266c202334da9f6db56b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-32fcef5be86bd6c2561bc906153f7552.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -93,13 +94,12 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">BIOL B215: Biostatistics with R</a> 
-        <div class="sidebar-tools-main">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      <div class="sidebar-tools-main">
     <a href="https://github.com/bbitarello/b215f2025" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
     <a href="https://posit.cloud/spaces/678147/join?access_code=hl0WMhTu8LNwvW1hn-uIdm_lx1Xm8sCjIUMwCW24" title="RStudio Cloud" class="quarto-navigation-tool px-1" aria-label="RStudio Cloud"><i class="bi bi-cloud-fill"></i></a>
 </div>
-    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -128,14 +128,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rlearn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R resources</span></a>
+  <a href="./slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./slides.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Slides</span></a>
+  <a href="./CA1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coding Assignment 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rlearn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R resources</span></a>
   </div>
 </li>
     </ul>
@@ -185,10 +191,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Chapters refer to the assigned textbook (3rd edition). Corresponding chapters exist in the 2nd edition but may have a different number.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 7%">
 <col style="width: 13%">
-<col style="width: 39%">
-<col style="width: 39%">
+<col style="width: 17%">
+<col style="width: 34%">
+<col style="width: 34%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -220,7 +226,7 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td style="text-align: left;">3</td>
 <td style="text-align: left;">9/15</td>
-<td style="text-align: left;">1.4 Statistics and Samples</td>
+<td style="text-align: left;">1.4 Statistics &amp; Samples</td>
 <td style="text-align: left;">Interleaf 6: Controls in medical studies</td>
 </tr>
 <tr class="odd">
@@ -232,68 +238,44 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td style="text-align: left;">3</td>
 <td style="text-align: left;">9/17</td>
-<td style="text-align: left;">2.2 Displaying &amp; Describing Data</td>
+<td style="text-align: left;">2.2 Displaying &amp; Describing Data (center)</td>
 <td style="text-align: left;">Ch.2-3</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">4</td>
 <td style="text-align: left;">9/22</td>
-<td style="text-align: left;">2.3 Displaying &amp; Describing Data</td>
-<td style="text-align: left;">Ch.5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">4.1 Probability</td>
-<td style="text-align: left;">Ch.5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">9/22</td>
-<td style="text-align: left;">4.2 Probability</td>
-<td style="text-align: left;">Ch. 5</td>
+<td style="text-align: left;">2.3 Displaying &amp; Describing Data (spread)</td>
+<td style="text-align: left;">Ch.2-3</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">4</td>
 <td style="text-align: left;">9/24</td>
-<td style="text-align: left;">4.3 Probability</td>
-<td style="text-align: left;">Ch. 5</td>
+<td style="text-align: left;">2.4 Displaying &amp; Describing Data (plots)</td>
+<td style="text-align: left;">Ch. 2-3</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">5</td>
 <td style="text-align: left;">9/29</td>
-<td style="text-align: left;">4.4 Probability</td>
-<td style="text-align: left;">Ch.5</td>
+<td style="text-align: left;">2.5 Displaying &amp; Describing Data (plots)</td>
+<td style="text-align: left;">Ch. 2-3</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">5</td>
-<td style="text-align: left;">9/29</td>
-<td style="text-align: left;">5.1 Estimation</td>
-<td style="text-align: left;">Ch.4</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">5</td>
 <td style="text-align: left;">10/1</td>
-<td style="text-align: left;">5.2 Estimation</td>
-<td style="text-align: left;">Ch.4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">5</td>
-<td style="text-align: left;">10/6</td>
-<td style="text-align: left;">5.3 Estimation</td>
-<td style="text-align: left;">Ch.4</td>
+<td style="text-align: left;">3.1 Probability</td>
+<td style="text-align: left;">Ch.5</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">6</td>
 <td style="text-align: left;">10/6</td>
-<td style="text-align: left;">6.1 Hypothesis Testing</td>
-<td style="text-align: left;">Ch.6</td>
+<td style="text-align: left;">3.2 Probability</td>
+<td style="text-align: left;">Ch.5</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">6</td>
 <td style="text-align: left;">10/8</td>
-<td style="text-align: left;">6.2 Hypothesis Testing</td>
-<td style="text-align: left;">Ch. 6</td>
+<td style="text-align: left;">3.3 Probability</td>
+<td style="text-align: left;">Ch.5</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"></td>
@@ -304,20 +286,20 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td style="text-align: left;">7</td>
 <td style="text-align: left;">10/20</td>
-<td style="text-align: left;">6.3 Hypothesis Testing</td>
-<td style="text-align: left;">Ch. 6</td>
+<td style="text-align: left;">4.1 Estimation &amp; Hypothesis Testing</td>
+<td style="text-align: left;">Ch.4</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">7</td>
 <td style="text-align: left;">10/22</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">4.2 Estimation &amp; Hypothesis Testing</td>
+<td style="text-align: left;">Ch.4-6</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">8</td>
 <td style="text-align: left;">10/27</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">4.3 Estimation &amp; Hypothesis Testing</td>
+<td style="text-align: left;">Ch.4-6</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">8</td>
@@ -404,10 +386,10 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="2" class="anchored" data-anchor-id="sec-labs"><span class="header-section-number">2</span> Labs</h2>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 20%">
-<col style="width: 54%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 24%">
+<col style="width: 60%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -422,61 +404,61 @@ ul.task-list li input[type="checkbox"] {
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">2/9</td>
 <td style="text-align: left;">Course Logistics</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">-</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">1</td>
 <td style="text-align: left;">2/9</td>
 <td style="text-align: left;">Rstudio/R introduction</td>
-<td style="text-align: left;">DC<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> “Introduction to R” (all chapters)</td>
+<td style="text-align: left;">DC<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <em>Introduction to R</em></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">2</td>
 <td style="text-align: left;">9/9</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Data Types</td>
+<td style="text-align: left;">DC <em>Introduction to R</em></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">3</td>
 <td style="text-align: left;">9/16</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Data Structures</td>
+<td style="text-align: left;">DC <em>Introduction to Importing Data With R</em></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">4</td>
 <td style="text-align: left;">9/23</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Describing Data: Summary Statistics &amp; Plots</td>
+<td style="text-align: left;">DC <em>Data Manipulation with dplyr</em> <br> <em>Introduction to the Tidyverse (Grouping and Summarizing; Data Wrangling; Data Visualization; Types of visualizations)</em></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">5</td>
 <td style="text-align: left;">9/30</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">R markdown, Tidyverse, &amp; Exploratory Data Analysis</td>
+<td style="text-align: left;">DC <em>Reporting with Rmarkdown (Getting Started; Adding Analyses and Visualizations)</em></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">6</td>
 <td style="text-align: left;">10/7</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Soft Intro to Loops and Sampling in R</td>
+<td style="text-align: left;">DC <em>Introduction to Data Visualization with ggplot2</em> <br> DC <em>Data Manipulation with dplyr</em></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">10/14</td>
-<td style="text-align: left;">No lab (fall break!)</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">NO LAB</td>
+<td style="text-align: left;">(fall break!)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">7</td>
 <td style="text-align: left;">10/21</td>
 <td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">DC <em>Categorical Data in the Tidyverse</em> <br> DC <em>Intermediate R (Loops)</em></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"></td>
 <td style="text-align: left;">10/28</td>
-<td style="text-align: left;">No lab (in class Midterm)</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">NO LAB</td>
+<td style="text-align: left;">(in class Midterm!)</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">8</td>
@@ -520,6 +502,13 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-PS" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="sec-PS"><span class="header-section-number">3</span> Problem sets</h2>
 <table class="caption-top table">
+<colgroup>
+<col style="width: 23%">
+<col style="width: 12%">
+<col style="width: 20%">
+<col style="width: 23%">
+<col style="width: 20%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Problem set</th>
@@ -532,22 +521,22 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Ch. 1-3</td>
 <td style="text-align: left;">Fri 10/3</td>
 <td style="text-align: left;">Easy/Medium</td>
 <td style="text-align: left;">Formative</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">Probability</td>
 <td style="text-align: left;">Wed 10/22</td>
 <td style="text-align: left;">Medium/Hard</td>
 <td style="text-align: left;">Formative</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">Fri 11/7</td>
+<td style="text-align: left;">Estimation &amp; Hypothesis Testing</td>
+<td style="text-align: left;">Thu 11/13</td>
 <td style="text-align: left;">Medium/Hard</td>
 <td style="text-align: left;">Formative</td>
 </tr>
@@ -582,14 +571,14 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">1</td>
+<td style="text-align: left;"><a href="CodingAssignments/CA1.html">Coding Assignment 1</a></td>
 <td style="text-align: left;">TBD</td>
-<td style="text-align: left;">Fri 10/31</td>
+<td style="text-align: left;">Fri 11/7</td>
 <td style="text-align: left;">Hard</td>
 <td style="text-align: left;">Summative</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">2</td>
+<td style="text-align: left;">Coding Assignment 2</td>
 <td style="text-align: left;">TBD</td>
 <td style="text-align: left;">Fri 12/05</td>
 <td style="text-align: left;">Hard</td>
@@ -621,14 +610,14 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td style="text-align: left;">Midterm 1</td>
 <td style="text-align: left;">Week 1-7</td>
-<td style="text-align: left;">10/28, during lab</td>
+<td style="text-align: left;">10/28, Park 243</td>
 <td style="text-align: left;">Hard</td>
 <td style="text-align: left;">Summative</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Midterm 2</td>
 <td style="text-align: left;">Weeks 1-14</td>
-<td style="text-align: left;">Finals week, scheduled (TBD)</td>
+<td style="text-align: left;">12/17, 2-5pm, Park 228</td>
 <td style="text-align: left;">Hard</td>
 <td style="text-align: left;">Summative</td>
 </tr>
@@ -654,7 +643,7 @@ ul.task-list li input[type="checkbox"] {
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">Professor drop-in hours</td>
-<td style="text-align: left;">Monday 2-3:30pm</td>
+<td style="text-align: left;">Monday 2-3pm</td>
 <td style="text-align: left;">Park 211</td>
 </tr>
 <tr class="even">
@@ -664,7 +653,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Professor drop-in hours</td>
-<td style="text-align: left;">Thursday 2-3:30pm</td>
+<td style="text-align: left;">Thursday 2:30-3:30pm</td>
 <td style="text-align: left;">Zoom<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></td>
 </tr>
 <tr class="even">
@@ -684,7 +673,7 @@ ul.task-list li input[type="checkbox"] {
 
 <ol>
 <li id="fn1"><p>DataCamp<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Note: no drop-in hours on 09/08; 10/13 and 10/15 (Fall break); 12/01<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Note: no drop-in hours on 9/8; 9/29; 10/13 and 10/15 (Fall break); 12/01<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>Please email if planning to attend. If I am also available in person, I will send an announcement.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
@@ -739,13 +728,14 @@ ul.task-list li input[type="checkbox"] {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

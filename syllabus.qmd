@@ -47,7 +47,7 @@ Problem sets and coding assignments are typically due on Fridays, but always che
 
 **Classes will not be recorded.** You may not record classes without explicit permission from me.
 
-# Grade Distribution
+# Grade Distribution {#sec-grades}
 
 **Note:** The overall course grade visible on Moodle is not a reflection of your current grade for the course. This is confusing for students because the Moodle gradebook requires the instructor to enter percentages for each assignment at the beginning of the course and is somewhat inflexible if changes are required during the semester. Always refer to the list below to understand your current grade.
 
@@ -61,14 +61,14 @@ Problem sets and coding assignments are typically due on Fridays, but always che
 | Midterm 1           | $30$%           |
 | Midterm 2           | $30$%           |
 
-**Low stakes assignments.** Several assignments in this course will be graded for completion/effort, as they are intended to motivate and aid your learning. These include: DataCamp coding exercises, the weekly R Labs, and multiple choice moodle quizzes based on readings (roughly one quiz per topic). The three lowest grades in the low-stakes assignments category will be dropped. Quizzes will be graded as the average of your (unlimited) attempts until the hard deadline and will be open until the end of the course, though you are required to complete the quiz at least once before the soft deadline.
+**Low stakes assignments.** Several assignments in this course will be graded for completion/effort, as they are intended to motivate and aid your learning. These include: DataCamp coding exercises, the weekly R Labs, and multiple choice moodle quizzes based on readings (roughly one quiz per topic). The three lowest grades in the low-stakes assignments category will be dropped. Quizzes will be graded as the ~~average~~ mean of your (unlimited) attempts until the hard deadline and will be open until the end of the course, though you are required to complete the quiz at least once before the soft deadline.
 
 Since problem sets and the first coding assignment are formative[^1], i.e, their purpose is learning, I will grade them benevolently following this rubric:
 
 [^1]: Formative *vs.* Summative Assessments: Formative assessments are focused on supporting the learning process throughout the course. Summative assessments typically occur at the end of a learning period and assess student mastery of the material and whether they have met learning objectives. Learn more: <https://teachers.institute/assessment-for-learning/formative-vs-summative-evaluation-differences/>
 
 | Grade (%) | Description |
-|:----------------|:------------------------------------------------------|
+|:-----------------|:-----------------------------------------------------|
 | 100 | Grades $> 90%$ will be rounded up. |
 | 70-90 | Complete and various degrees of incorrect answers: 3 + major errors (\~$70$%) to a few minor errors (\~ $90$%) |
 | 60 | Complete but sloppy or excessive amount of major errors. |
@@ -99,7 +99,7 @@ Second coding assignment: The 2nd coding assignment will be an assessment of wha
 
 # Participation
 
-The course is not the same without you. The best way to participate is to come to class and office hours and ask questions. Shy students can also earn participation points by posting question or answers on Piazza, which can be done anonymously. See @sec-FAQs(Q.2).
+The course is not the same without you. The best way to participate is to come to class and office hours and ask questions. Shy students can also earn participation points by posting question or answers on Piazza, which can be done anonymously. See @seq-FAQs (Q.2).
 
 # Late work {#sec-late}
 
@@ -252,3 +252,7 @@ In an ideal world, it would be possible for scientific practice to be done in a 
 11. **What if I cannot afford the course materials?**
 
     If you have concerns about being able to afford course materials, please reach out by email.
+    
+12. **I am confused about soft and hard deadlines. For which assignments do they apply?**
+
+For certain activities we have suggested deadlines (soft) and hard deadlines. These apply to DataCamp activities and Moodle Quizzes. However, note that for the Moodle quizzes you are still required to take it at least once before the soft deadline as detailed in @sec-grades.

@@ -1,5 +1,11 @@
 [
   {
+    "listing": "/handouts.html",
+    "items": [
+      "/handouts/Handout1.html"
+    ]
+  },
+  {
     "listing": "/psets.html",
     "items": []
   },
@@ -12,7 +18,18 @@
       "/slides/Statistics_and_Samples3.html",
       "/slides/Statistics_and_Samples4.html",
       "/slides/DisplayingAndDescribingData.html",
-      "/slides/DisplayingAndDescribingData2.html"
+      "/slides/DisplayingAndDescribingData2.html",
+      "/slides/DisplayingAndDescribingData3.html",
+      "/slides/DisplayingAndDescribingData4.html",
+      "/slides/DisplayingAndDescribingData5.html",
+      "/slides/DisplayingAndDescribingData6.html",
+      "/slides/Probability.html",
+      "/slides/Probability2.html",
+      "/slides/Probability3.html",
+      "/slides/Probability4.html",
+      "/slides/Estimation.html",
+      "/slides/Estimation2.html",
+      "/slides/Estimation3.html"
     ]
   }
 ]

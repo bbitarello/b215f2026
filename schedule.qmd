@@ -10,27 +10,23 @@ Please check often. Subject to change. New material is added approximately on a 
 Chapters refer to the assigned textbook (3rd edition). Corresponding chapters exist in the 2nd edition but may have a different number.
 
 | Week | Dates | Topic | Recommended Readings |
-|:--|:----|:--------------|:--------------|
+|:--|:---|:-------|:-------|
 | 1 | 9/3 | 1.1 Statistics & Samples| Ch. 1 |
 | 2 | 9/8 | 1.2 Statistics & Samples | Ch.1, Interleaf 1: Correlation does not require causation |
 | 2 | 9/10 | 1.3 Statistics & Samples| Ch.1, Interleaf 1: Correlation does not require causation |
-|3 | 9/15| 1.4 Statistics and Samples | Interleaf 6: Controls in medical studies|
+|3 | 9/15| 1.4 Statistics & Samples | Interleaf 6: Controls in medical studies|
 || |2.1 Displaying & Describing Data | Ch.2-3 |
-| 3 | 9/17 | 2.2 Displaying & Describing Data | Ch.2-3 |
-| 4 | 9/22| 2.3 Displaying & Describing Data   | Ch.5 |
-|  | | 4.1 Probability  | Ch.5 |
-| 4 | 9/22 | 4.2 Probability | Ch. 5 |
-| 4 | 9/24 | 4.3 Probability | Ch. 5 |
-| 5 | 9/29 | 4.4 Probability| Ch.5 |
-| 5 | 9/29 | 5.1 Estimation | Ch.4 |
-| 5 | 10/1 | 5.2 Estimation | Ch.4 |
-| 5 | 10/6 | 5.3 Estimation | Ch.4 |
-| 6 | 10/6 | 6.1 Hypothesis Testing | Ch.6 |
-| 6 | 10/8 | 6.2 Hypothesis Testing | Ch. 6 |
+| 3 | 9/17 | 2.2 Displaying & Describing Data (center)| Ch.2-3 |
+| 4 | 9/22| 2.3 Displaying & Describing Data (spread)  | Ch.2-3 |
+| 4 | 9/24 | 2.4 Displaying & Describing Data (plots) | Ch. 2-3 |
+| 5 | 9/29 | 2.5 Displaying & Describing Data (plots) | Ch. 2-3 |
+| 5 | 10/1 | 3.1 Probability | Ch.5 |
+| 6 | 10/6 | 3.2 Probability | Ch.5 |
+| 6 | 10/8 | 3.3 Probability | Ch.5 |
 |  | 10/13 | No classes (Fall Break!) |  |
-| 7 | 10/20 |6.3 Hypothesis Testing | Ch. 6 |
-| 7 | 10/22 |  |  |
-| 8 | 10/27 |  |  |
+| 7 | 10/20 |4.1 Estimation & Hypothesis Testing| Ch.4 |
+| 7 | 10/22 | 4.2 Estimation & Hypothesis Testing |  Ch.4-6|
+| 8 | 10/27 | 4.3 Estimation & Hypothesis Testing  | Ch.4-6|
 | 8 | 10/30 |  |  |
 | 9 | 11/3 |  |  |
 | 9 | 11/5 |  |  |
@@ -49,17 +45,17 @@ Chapters refer to the assigned textbook (3rd edition). Corresponding chapters ex
 
 
 | Week | Date  | Topic                     | Prep  |
-|:--|:--|:----|:------------|
-| 1    | 2/9   | Course Logistics          |       |
-| 1    | 2/9   | Rstudio/R introduction    | DC[^1] "Introduction to R" (all chapters)
-| 2    | 9/9   |                           |       |
-| 3    | 9/16  |                           |       |
-| 4    | 9/23  |                           |       |
-| 5    | 9/30  |                           |       |
-| 6    | 10/7  |                           |       |
-|      | 10/14 | No lab (fall break!)      |       |
-| 7    | 10/21 |                           |       |
-|      | 10/28 | No lab (in class Midterm) |       |
+|:-|:-|:-----|:--------------|
+| 1    | 2/9   | Course Logistics          |       - |
+| 1    | 2/9   | Rstudio/R introduction    | DC[^1] *Introduction to R*|
+| 2    | 9/9   | Data Types                           | DC *Introduction to R* |
+| 3    | 9/16  | Data Structures                           | DC *Introduction to Importing Data With R*     |
+| 4    | 9/23  | Describing Data: Summary Statistics & Plots                           |  DC *Data Manipulation with dplyr* </br> *Introduction to the Tidyverse  (Grouping and Summarizing; Data Wrangling; Data Visualization; Types of visualizations)* |
+| 5    | 9/30  |  R markdown, Tidyverse, & Exploratory Data Analysis                         | DC *Reporting with Rmarkdown (Getting Started; Adding Analyses and Visualizations)*    |
+| 6    | 10/7  |Soft Intro to Loops and Sampling in R |DC *Introduction to Data Visualization with ggplot2*  </br>   DC *Data Manipulation with dplyr*
+|      | 10/14 | NO LAB      |   (fall break!) |
+| 7    | 10/21 ||DC *Categorical Data in the Tidyverse*       </br>  DC   *Intermediate R (Loops)*          |       |               |       |
+|      | 10/28 | NO LAB  | (in class Midterm!)       |
 | 8    | 11/4  |                           |       |
 | 9    | 11/10 |                           |       |
 | 10   | 11/18 |                           |       |
@@ -74,9 +70,9 @@ Chapters refer to the assigned textbook (3rd edition). Corresponding chapters ex
 
 | Problem set | Topic | Due Date  | Difficulty  | Type      |
 |:------------|:------|:----------|:------------|:----------|
-| 1           |       | Fri 10/3  | Easy/Medium | Formative |
-| 2           |       | Wed 10/22 | Medium/Hard | Formative |
-| 3           |       | Fri 11/7  | Medium/Hard | Formative |
+| 1           |  Ch. 1-3     | Fri 10/3  | Easy/Medium | Formative |
+| 2           |  Probability     | Wed 10/22 | Medium/Hard | Formative |
+| 3           |  Estimation & Hypothesis Testing    | Thu 11/13  | Medium/Hard | Formative |
 | 4           |       | T 11/25   | Medium/Hard | Formative |
 | 5           |       | W 12/10   | Medium/Hard | Formative |
 
@@ -84,15 +80,15 @@ Chapters refer to the assigned textbook (3rd edition). Corresponding chapters ex
 
 | Coding Assignment | Topics | Due Date  | Difficulty | Type      |
 |:------------------|:-------|:----------|:-----------|:----------|
-| 1                 | TBD    | Fri 10/31 | Hard       | Summative |
-| 2                 | TBD    | Fri 12/05 | Hard       | Summative |
+| [Coding Assignment 1](CodingAssignments/CA1.html)                 | TBD    | Fri 11/7 | Hard       | Summative |
+|Coding Assignment 2               | TBD    | Fri 12/05 | Hard       | Summative |
 
 ## Midterms {#sec-exams}
 
 | Assessment | Topics     | When/Where                   | Difficulty | Type      |
 |:------------|:------------|:---------------------|:------------|:------------|
-| Midterm 1  | Week 1-7   | 10/28, during lab            | Hard       | Summative |
-| Midterm 2  | Weeks 1-14 | Finals week, scheduled (TBD) | Hard       | Summative |
+| Midterm 1  | Week 1-7   | 10/28, Park 243        | Hard       | Summative |
+| Midterm 2  | Weeks 1-14 | 12/17, 2-5pm, Park 228 | Hard       | Summative |
 
 ## Office Hours {#sec-oh}
 
@@ -101,12 +97,12 @@ Please attend OH ***at least 2x*** during the semester (the more the merrier).
 
 | Who | When[^2] | Where |
 |:-----------------------|:-----------------------|:-----------------------|
-| Professor drop-in hours | Monday 2-3:30pm | Park 211 |
+| Professor drop-in hours | Monday 2-3pm | Park 211 |
 | Professor drop-in hours | Wednesday 2-3:30pm | Park 211 |
-| Professor drop-in hours | Thursday 2-3:30pm | Zoom[^3] |
+| Professor drop-in hours | Thursday 2:30-3:30pm | Zoom[^3] |
 | TA | Thursday 4-6pm | Park 227 |
 
-[^2]: Note: no drop-in hours on 09/08; 10/13 and 10/15 (Fall break); 12/01
+[^2]: Note: no drop-in hours on 9/8; 9/29; 10/13 and 10/15 (Fall break); 12/01
 
 [^3]: Please email if planning to attend. If I am also available in person, I will send an announcement.
 

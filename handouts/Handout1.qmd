@@ -1,0 +1,122 @@
+---
+title: "Statistics and Samples"
+subtitle: "Study Guide" # only for html output
+author: "Bárbara D. Bitarello"
+keywords: "Displaying & Describing Data"
+date: "09-03-2025"
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+```
+
+# Learning Goals
+
+-   Understand the major goal of statistics.
+-   Distinguish between a sample and a population.
+-   Distinguish between an estimate and a parameter.
+-   Identify why estimates from samples may deviate from the parameters of populations.
+-   Identify the properties of a good sample.
+-   Describe the differences between observational and experimental studies.
+-   Identify whether a variable is numeric or categorical (and subtypes).
+-   Distinguish between sampling bias and sampling error.
+-   Distinguish between accuracy and precision and how these terms relate to sampling bias and sampling error.
+-   Understand the distinction between the term “population” in a statistical and a biological context.
+-   Distinguish between correlation and causation.
+
+# Key terms
+
+You should be able to explain and apply these concepts in their relevant concepts. Try to define them below with your own words. Then look them up and check.
+
+
+**Population (statistical):** a collection of all individuals of a circumscribed type, or a generative process from which we can generate samples.
+
+**Sample:** a subset of a population – individuals we measure.
+
+**Parameter:** a true measure of a population.
+
+**Estimate:** a guess at a parameter that is made from a finite sample.
+
+**Estimation:** Estimation is the process of inferring an unknown quantity of a population using sample data.
+
+**Sampling error:** describes the deviation between parameter and estimate attributable to the finite process of sampling.
+
+**Sampling bias:** describes the deviation between parameter and estimate attributable to non-representative sampling.
+
+**Independence:** samples are independent if the probability that one individual is studied is unrelated to the probability that any other individual is studied.
+
+**Explanatory variables:** variables we think underlie or are associated with the biological process of interest.
+
+**Response variables:** the outcome we aim to understand.
+
+**Quantitative variables:** can be continuous or discrete.
+
+**Continuous variables:** can assume any value in some possible unbounded interval of real numbers. Common examples: height, temperature, volume, weight, length. They arise from measurement and if the measuring instrument can be improved, more precision in the measurement can be achieved.
+
+**Discrete variables:** assume only isolated values. Examples: trees per hectare, arms per sea star. They arise from counting.
+
+**Categorical variables:** are qualitative data. Can be nominal or ordinal.
+
+**Ordinal variables:** not measured (categorical) but have ordering nonetheless. For example: ranking of political candidates by voters, ordering and ranking students by height without actually measuring their heights. The rank value has no inherent meaning outside the “order” they provide. A candidate ranked as #2 is not twice as preferable as the candidate ranked as #1.
+
+**Nominal variables:** there is no “natural ordering” that can be assigned to the categories. Examples: species, gender, sex, genotype, phenotype, healthy/diseased, marital status.
+
+# Supporting Materials for Learning
+
+-   Ch.1 + Interleaf 1 from textbook.
+
+# Key points
+
+-   Most of statistics revolves around **estimating values** of **population parameters based on samples**, measuring the **uncertainty of our estimates**, and **testing hypotheses** about the parameters of interest based on our sample(s).
+
+-   Biostatistics lies at the intersection of critical thinking, thinking with numbers, and biology.
+
+-   Biostatistics practices involve thinking of a motivation or biological question, the experiments that have been or could be done and/or data that could be collected to answer such a question, designing experiments that could help answer the question, assessing whether results (based on samples) support interesting conclusions about the population of interest.
+
+-   To a statistician, the TRUTH is a population – a collection of all individuals of a circumscribed type (e.g. all grasshoppers in North America), or a process for generating these individuals (see note below). We characterize a population by its parameters (e.g. its TRUE mean, or its TRUE variance).
+
+-   However, it is often impractical or impossible to study every individual in a population. As such, we often deal with a sample – a subset of a population. We characterize a sample by taking an estimate of population parameters.
+
+-   Parameters are constants. Estimates are random variables. Because of this, estimates are always prone to sampling error.
+
+-   So a major goal of a statistical analysis is how to go from conclusions about a sample which we can measure and observe, to the population(s) we care about. In doing so we must worry about random differences between a sample and a population (known as Sampling Error), as well as any systematic issues in our sampling or measuring procedure which will cause estimates to reliably differ from the population (known as Sampling Bias).
+
+-   Estimates of any sample will differ somewhat from population parameters by chance sampling and/or imprecise measurement. This is why we always consider and report uncertainty in estimates and note that chance can contribute to any result. Much of this course focuses on acknowledging and accommodating sampling error. We can reliably decrease sampling error by increasing the sample size. Note that despite its name, sampling error does not imply that the researcher made a mistake.
+
+-   There are many ways for samples to systematically deviate from the population (bias). For example: volunteer bias, samples of convenience, and survivorship bias (in which survivors differ from a population in critical ways).
+
+-   The third major goal of statistics (in addition to estimation and hypothesis testing) is inferring causation. Causation cannot be inferred from correlation alone. Experimental evidence from carefully planned experiments is necessary.
+
+-   A probability distribution represents the proportion of a population with a given value. The frequency distribution represents the number of times a value occurs in a sample. Ideally, the frequency distribution from an unbiased sample should give you a decent estimate for the probabilities that pertain to the population. Understanding how much your sample gives you a good picture of the population is a big part of the challenge.
+
+-   In a random sample, each member of a population has an equal and independent chance of being selected.
+
+-   Samples are independent if the probability that one individual is studied is unrelated to the probability that any other individual is studied.
+
+-   Sampling does not always mean taking a subsample from a larger population. For example, in an experiment we interfere with a system and see how this intervention changes some outcome, or in flipping a coin we generate a new outcome that had not yet happened. Nonetheless, we can use the metaphor of sampling in all of these cases.
+
+-   Different types of data summaries, plots, and statistical tests are applicable to different types of variables.
+
+-   The distinction between an experimental and an observational experimental study is not about the equipment used or the lab vs. the field. For example, comparing patterns of methylation between live bearing and egg laying species of fish is an observation, not an experiment, as we did not randomly assign live-bearing or egg-laying to fish in this study.
+
+-   When conducting an experiment, the treatment variable (the one manipulated by the researcher) is the explanatory variable, and the measured effect of the treatment is the response variable.
+
+-   An association (or correlation) between variables is a powerful clue that there may be a causal relationship between those variables.
+
+-   The observation of correlation between two variables, even if statistically significant, cannot be the sole basis to infer causation.
+
+-   For example, the finding that people who smoke are more likely to get cancer comes from many observational studies. In an observational study, treatments are not randomly assigned to individuals. Therefore, confounding variables – unmodelled variables which distort the relationship between explanatory and response variables – can bias our interpretation. A simple association between smoking and lung cancer might suggest smoking causes lung cancer, or both are caused by stress, or genetics or whatever. We therefore must show extreme caution when attempting to learn about causation from observational studies. (Brandvain 2022).
+
+-   However, some caution is warranted here – a causal relationship in a controlled experiment under specified settings may not imply a causal relationship in nature. For example, exceptionally high doses of a pesticide may cause squirrels to die, but this does not mean that the smaller dose of insecticide found around farm fields is responsible for squirrel death.
+
+-   Experiments can also introduce bias via artifacts. E.g. the placebo effect. Appropriate controls are, therefore, critical.
+
+
+## References
+
+Brandvain, Y. (2022). Applied Biostats. Bookdown. https://bookdown.org/ybrandvain/Applied_Biostats_2022/
+
+Whitlock, M., & Schluter, D. (2020). The analysis of biological data. Macmillan. https://whitlockschluter3e.zoology.ubc.ca/

@@ -1,5 +1,5 @@
 suppressPackageStartupMessages({
-  library(tidyverse)
+  #library(tidyverse)
   library(cols4all)
 })
 # Fonts ----
@@ -14,6 +14,24 @@ fonts <- systemfonts::system_fonts()
 systemfonts::fonts_as_import(family = "Roboto Condensed")
 systemfonts::match_fonts("Roboto Condensed")
 showtext::showtext_opts(dpi = 150)
+myokabe_ito<-c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7",
+"#999999")
+asteroidcity1<-wesanderson::wes_palette("AsteroidCity1")
+banff<-function (n = NULL) {
+
+ banFF <- c("#006475", "#00A1B7", "#55CFD8", "#586028", "#898928", "#616571", 
+            "#9DA7BF")
+  if (is.null(n)) 
+    banFF
+  else banFF[seq_len(n)]
+}
+asteroidcity1<-function (n = NULL) {
+  
+  asteroidCity <- c("#0A9F9D", "#CEB175", "#E54E21", "#6C8645", "#C18748")
+  if (is.null(n)) 
+    asteroidCity
+  else asteroidCity[seq_len(n)]
+}
 
 bb_theme <-  function() {
   theme(
@@ -38,7 +56,8 @@ bb_theme <-  function() {
       size = 16,
       hjust = 1,
       family = "Roboto Condensed",
-      face = "plain"
+      face = "plain",
+      angle = 90
     ),
     legend.position = "right",
     legend.title = element_blank(),
@@ -47,18 +66,19 @@ bb_theme <-  function() {
       family = "Roboto Condensed",
       face = "plain"
     ),
-    plot.title = element_text(family = "Roboto Condensed", size = 18),
+    plot.title = element_text(family = "Roboto Condensed", size = 20),
+    plot.subtitle = element_text(family = "Roboto Condensed", size = 16),
     strip.text =  element_text(size = 14),
     panel.background = element_blank(),
-    panel.grid.major.x = element_line(color = "gray", linewidth = 0.1),
-    strip.background = element_blank()
+    #panel.grid.major.x = element_line(color = "gray", linewidth = 0.1),
+    #strip.background = element_blank()
   )
 }
 
 
 
 #-----rstudio-font-settings
-if(TRUE){
+if(FALSE){
   showtext::showtext_auto()
   showtext::showtext_opts(dpi=300)
   

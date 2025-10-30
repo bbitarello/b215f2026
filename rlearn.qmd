@@ -17,6 +17,8 @@ Updated often. If you're an enrolled students and would like to contribute conte
 
 ## Free Online Books
 
+- ["R Graphic Cookbook"](https://r-graphics.org/)
+
 -   ["R Markdown Cookbook"](https://bookdown.org/yihui/rmarkdown-cookbook/)
 
 -   ["Introduction to Data Science: Data Wrangling and Visualization with R"](https://rafalab.dfci.harvard.edu/dsbook-part-1/R/intro-to-R.html), by Refael Irizarry
@@ -33,15 +35,26 @@ Updated often. If you're an enrolled students and would like to contribute conte
 
 -   ["Applied Biostats"](https://ybrandvain.github.io/biostats/), by Yaniv Brandvain.
 
+-   ["ggplot2: Elegant Graphics for Data Analysis (3e)"](https://ggplot2-book.org/)
+
+
+
+
 ## Videos {#r-vids}
 
+
+- [Overview of R Markdown: a crash course](https://youtu.be/mcTB7h9lpCg?si=oLCBDUIGKL2Dowdn)
 -   [Code Like a Pro](https://www.youtube.com/watch?embed=no&v=91LmBj29-Sc&list=PLA3ArwPxU4My_bKb7bJrb78aq5Gx1rTfs&index=7)
 -   [Intro to Rstudio and Rstudio Cloud](https://www.youtube.com/watch?embed=no&v=mcTB7h9lpCg&list=PLA3ArwPxU4My_bKb7bJrb78aq5Gx1rTfs&index=8&ab_channel=JoshuaFrench)
 -   [Overview of R markdown](https://www.youtube.com/watch?embed=no&v=mcTB7h9lpCg&list=PLA3ArwPxU4My_bKb7bJrb78aq5Gx1rTfs&index=8&ab_channel=JoshuaFrench)
 -   [Rmarkdown with Rstudio](https://www.youtube.com/watch?embed=no&v=DNS7i2m4sB0&list=PLA3ArwPxU4My_bKb7bJrb78aq5Gx1rTfs&index=9&t=2s&ab_channel=RogerPeng)
+- [R markdown Gallery](https://rmarkdown.rstudio.com/gallery.html): Check out the range of outputs and formats you can create using R Markdown.
 -   [This youtube playlist](https://www.youtube.com/playlist?embed=no&list=PLA3ArwPxU4MxphgeREPfnxznb8llUtTzX) - I curated this and it contains both R info and biostatistics in general.
 
 ## Tutorials & Simulations
+
+- [r-statistics.co, by Selva Prabhakaran](https://r-statistics.co/) - includes [very good section on ggplot](https://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)!
+
 
 -   [From your textbook](https://whitlockschluter3e.zoology.ubc.ca/)
 -   [Quick-R](https://www.statmethods.net/r-tutorial/index.html)

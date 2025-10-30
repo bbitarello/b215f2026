@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -31,14 +31,15 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-54f0065fef14266c202334da9f6db56b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-32fcef5be86bd6c2561bc906153f7552.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -81,7 +82,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -122,13 +123,12 @@ window.Quarto = {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-    <div class="sidebar-title mb-0 py-0">
-      <a href="./">BIOL B215: Biostatistics with R</a> 
-        <div class="sidebar-tools-main">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+      <div class="sidebar-tools-main">
     <a href="https://github.com/bbitarello/b215f2025" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
     <a href="https://posit.cloud/spaces/678147/join?access_code=hl0WMhTu8LNwvW1hn-uIdm_lx1Xm8sCjIUMwCW24" title="RStudio Cloud" class="quarto-navigation-tool px-1" aria-label="RStudio Cloud"><i class="bi bi-cloud-fill"></i></a>
 </div>
-    </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
@@ -157,14 +157,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rlearn.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R resources</span></a>
+  <a href="./slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./slides.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Slides</span></a>
+  <a href="./CA1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coding Assignment 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./rlearn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R resources</span></a>
   </div>
 </li>
     </ul>
@@ -180,7 +186,7 @@ window.Quarto = {
   <li><a href="#course-description" id="toc-course-description" class="nav-link active" data-scroll-target="#course-description"><span class="header-section-number">1</span> Course Description</a></li>
   <li><a href="#sec-textbook" id="toc-sec-textbook" class="nav-link" data-scroll-target="#sec-textbook"><span class="header-section-number">2</span> Textbook</a></li>
   <li><a href="#weekly-course-structure" id="toc-weekly-course-structure" class="nav-link" data-scroll-target="#weekly-course-structure"><span class="header-section-number">3</span> Weekly Course Structure</a></li>
-  <li><a href="#grade-distribution" id="toc-grade-distribution" class="nav-link" data-scroll-target="#grade-distribution"><span class="header-section-number">4</span> Grade Distribution</a></li>
+  <li><a href="#sec-grades" id="toc-sec-grades" class="nav-link" data-scroll-target="#sec-grades"><span class="header-section-number">4</span> Grade Distribution</a></li>
   <li><a href="#problem-sets-coding-assignments" id="toc-problem-sets-coding-assignments" class="nav-link" data-scroll-target="#problem-sets-coding-assignments"><span class="header-section-number">5</span> Problem Sets &amp; Coding Assignments</a></li>
   <li><a href="#participation" id="toc-participation" class="nav-link" data-scroll-target="#participation"><span class="header-section-number">6</span> Participation</a></li>
   <li><a href="#sec-late" id="toc-sec-late" class="nav-link" data-scroll-target="#sec-late"><span class="header-section-number">7</span> Late work</a></li>
@@ -261,7 +267,7 @@ window.Quarto = {
 <p>Problem sets and coding assignments are typically due on Fridays, but always check case by case. Moodle quizzes are typically due weekly on Sundays (soft deadline) though you may retake them later until the hard deadlines (see <a href="./schedule.html">Schedule</a>).</p>
 <p><strong>Classes will not be recorded.</strong> You may not record classes without explicit permission from me.</p>
 </section>
-<section id="grade-distribution" class="level1" data-number="4">
+<section id="sec-grades" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Grade Distribution</h1>
 <p><strong>Note:</strong> The overall course grade visible on Moodle is not a reflection of your current grade for the course. This is confusing for students because the Moodle gradebook requires the instructor to enter percentages for each assignment at the beginning of the course and is somewhat inflexible if changes are required during the semester. Always refer to the list below to understand your current grade.</p>
 <table class="caption-top table">
@@ -302,12 +308,12 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
-<p><strong>Low stakes assignments.</strong> Several assignments in this course will be graded for completion/effort, as they are intended to motivate and aid your learning. These include: DataCamp coding exercises, the weekly R Labs, and multiple choice moodle quizzes based on readings (roughly one quiz per topic). The three lowest grades in the low-stakes assignments category will be dropped. Quizzes will be graded as the average of your (unlimited) attempts until the hard deadline and will be open until the end of the course, though you are required to complete the quiz at least once before the soft deadline.</p>
+<p><strong>Low stakes assignments.</strong> Several assignments in this course will be graded for completion/effort, as they are intended to motivate and aid your learning. These include: DataCamp coding exercises, the weekly R Labs, and multiple choice moodle quizzes based on readings (roughly one quiz per topic). The three lowest grades in the low-stakes assignments category will be dropped. Quizzes will be graded as the <del>average</del> mean of your (unlimited) attempts until the hard deadline and will be open until the end of the course, though you are required to complete the quiz at least once before the soft deadline.</p>
 <p>Since problem sets and the first coding assignment are formative<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, i.e, their purpose is learning, I will grade them benevolently following this rubric:</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 76%">
+<col style="width: 25%">
+<col style="width: 75%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -387,7 +393,7 @@ window.Quarto = {
 </section>
 <section id="participation" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Participation</h1>
-<p>The course is not the same without you. The best way to participate is to come to class and office hours and ask questions. Shy students can also earn participation points by posting question or answers on Piazza, which can be done anonymously. See <strong>?@sec-FAQs</strong>(Q.2).</p>
+<p>The course is not the same without you. The best way to participate is to come to class and office hours and ask questions. Shy students can also earn participation points by posting question or answers on Piazza, which can be done anonymously. See <span class="citation" data-cites="seq-FAQs">@seq-FAQs</span> (Q.2).</p>
 </section>
 <section id="sec-late" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> Late work</h1>
@@ -491,7 +497,9 @@ window.Quarto = {
 <p>Check the schedule and if you foresee conflicts due to religious observance, please reach out as soon as possible by email.</p></li>
 <li><p><strong>What if I cannot afford the course materials?</strong></p>
 <p>If you have concerns about being able to afford course materials, please reach out by email.</p></li>
+<li><p><strong>I am confused about soft and hard deadlines. For which assignments do they apply?</strong></p></li>
 </ol>
+<p>For certain activities we have suggested deadlines (soft) and hard deadlines. These apply to DataCamp activities and Moodle Quizzes. However, note that for the Moodle quizzes you are still required to take it at least once before the soft deadline as detailed in <a href="#sec-grades" class="quarto-xref">Section&nbsp;4</a>.</p>
 
 
 </section>
@@ -561,13 +569,14 @@ window.Quarto = {
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
