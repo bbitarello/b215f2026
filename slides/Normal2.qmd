@@ -1,0 +1,607 @@
+---
+title: "9.2. Normal Distribution"
+subtitle: "Normal Distribution| Acknowledgments to Y. Brandvain for code used in some slides"
+author: "Bárbara D. Bitarello"
+date: "12-03-2025"
+keywords: "CLT, z- and t-distributions"
+format:
+  revealjs:
+    hash-type: number
+    embed-resources: false
+    smaller: true
+    scrollable: false
+    incremental: false
+    slide-number: true
+    transition: slide
+    background-transition: fade
+    highlight-style: ayu-dark
+    #footer: "B215: Biostatistics with R"
+    center-title-slide: false
+    theme: [custom.scss]
+    callout-appearance: simple
+    code-fold: false
+    chalkboard: true
+    auto-slide: 133000
+code-link: true
+execute:
+  echo: false
+  freeze: false
+knitr: 
+  opts_chunk:
+    tidy: true
+    tidy-opts: { "value": "list(width.cutoff = I(60))", "tag": "!expr" }
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse=T)
+library(tidyverse)
+#library(forcats)
+#library(ggforce)
+#library(stringr)
+library(knitr)
+library(ggthemes)
+library(wesanderson)
+library(gt)
+library(RColorBrewer)
+library(plotly)
+#library(readr)
+library(thematic)
+library(infer)
+library(kableExtra)
+library(gridExtra)
+library(emoGG)
+library(emo)
+
+gg_color_hue <- function(n) {
+  hues = seq(15, 375, length = n + 1)
+  hcl(h = hues, l = 65, c = 100)[1:n]
+}
+source("bb_theme.R")
+options(digits = 5)
+
+# set the bb_theme()
+theme_set(bb_theme())
+
+birds_original <- data.frame(Age = c("Old","Young","Old", "Young"),
+                      Species = c("Junco", "Junco", "Finch", "Finch"),
+                      Number = c(4, 7, 9, 9))
+nhl <- tibble( month = c("Jan", "Feb", "Mar", "Apr", "May", "June", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"),
+        month.num = 1:12,
+        births = c(133, 125, 114, 119, 119, 123, 96, 91, 83, 84,73,85)) |> 
+  mutate(month = fct_reorder(.f = month, .x = month.num,.desc = TRUE))
+
+
+human_births<-tibble( month = c("Jan","Feb","Mar","April","May",
+                                "June","Jul","Aug","Sept","Oct","Nov","Dec"),
+                             `births (%)`  = 100*c(Jan = 0.0794, Feb = .0763, Mar = .0872,
+                              April = .0863, May = .0895, June = .0857, Jul = .0876,
+                              Aug = .085, Sept =  .0854, Oct = .0819, Nov = .0770,
+                              Dec = .0787) )
+
+lousy.fish <- tibble(num_parasites = 0:9, num_fish = c(103, 72, 44, 14, 3, 1, 1,0,0,0)) 
+fish.sum   <- lousy.fish |> summarise(total_fish = sum(num_fish), 
+                                       total_parasites = sum(num_fish* num_parasites))
+
+births<-tibble( month = c("Jan","Feb","Mar","April","May","June","Jul","Aug","Sept","Oct","Nov","Dec"),
+        `births (%)`  = 100*c(Jan = 0.0794, Feb = .0763, Mar = .0872, April = .0863, May = .0895, June = .0857, Jul = .0876, Aug = .085, Sept =  .0854, Oct = .0819, Nov = .0770, Dec = .0787) ) 
+
+birth.weight <- data.frame( weight = seq(.25,14.75,.25) , 
+                            count = c(0,0,1,9,5,8,17,25,12,20,21,27,
+                                      28,33,24,57,65,98,107,161,189,
+                                      310,393,611,837,1096,1273,1682,
+                                      1684,1814,1520,1681,1220,1028,
+                                      718,702,385,294,173,135,69,36,
+                                      29,24,9,4,7,3,0,0,0,0,0,0,0,1,
+                                      0,0,0))
+mean.birth <- with(birth.weight, sum(weight * count)/sum(count))
+sdev.birth <- with(birth.weight, sd(rep(weight , count)))
+norm.birth <- dnorm(birth.weight$weight, mean = mean.birth, sdev.birth)
+norm.birth <- (norm.birth/sum(norm.birth)) * sum(birth.weight$count)
+
+temp.data<- read_delim("data/temp_data.txt",
+                       col_names = FALSE,delim = "    ")%>% 
+  dplyr::mutate(X1 = as.numeric(X1), X3 = as.numeric(X3), X2 = dplyr::case_when(X2 == 1~"male", X2 == 2~"female")) %>% 
+  dplyr::select(temp = X1, gender = X2, heart_rate = X3) %>% na.omit()
+
+temp.data.hist <- hist(temp.data$temp, breaks = seq(96,101,.3), plot=FALSE)
+mean.temp <- mean(temp.data$temp)
+sdev.temp <- sd(temp.data$temp)
+norm.temp <- dnorm(temp.data.hist$mids, mean = mean.temp, sd = sdev.temp)
+norm.temp <- (norm.temp/sum(norm.temp)) * length(temp.data$temp)
+temp.data <- data.frame(temp = temp.data.hist$mids, count = temp.data.hist$counts)
+
+
+
+egg.data <- c(5308, 3908, 5093, 5519, 3467, 5526, 5594, 8824, 5931, 
+              3665, 4739,5587, 4735, 5350, 4851, 4726, 5912, 5852, 
+              4410, 3838, 6317, 6059, 5790, 5786, 6418, 6363, 4309, 
+              4861, 4477, 6182, 6133, 6819, 4727, 6370, 5757, 7232, 
+              7368, 6757, 6959, 4323, 6708, 5171)
+egg.data.hist <- hist(egg.data, breaks = seq(0,10000,500), plot=FALSE)
+mean.egg <- mean(egg.data)
+sdev.egg <- sd(egg.data)
+norm.egg <- dnorm(egg.data.hist$mids, mean = mean.egg, sd = sdev.egg)
+norm.egg <- (norm.egg/sum(norm.egg)) * length(egg.data)
+egg.data <- data.frame(number_eggs = egg.data.hist$mids, count = egg.data.hist$counts)
+mean.birth <- with(birth.weight, sum(weight * count)/sum(count))
+sdev.birth <- with(birth.weight, sd(rep(weight , count)))
+norm.birth <- dnorm(birth.weight$weight, mean = mean.birth, sdev.birth)
+norm.birth <- (norm.birth/sum(norm.birth)) * sum(birth.weight$count)
+
+temp.data<- read_delim("data/temp_data.txt",
+                       col_names = FALSE,delim = "    ")%>% 
+  dplyr::mutate(X1 = as.numeric(X1), X3 = as.numeric(X3), X2 = dplyr::case_when(X2 == 1~"male", X2 == 2~"female")) %>% 
+  dplyr::select(temp = X1, gender = X2, heart_rate = X3) %>% na.omit()
+
+
+temp.data.hist <- hist(temp.data$temp, breaks = seq(96,101,.3), plot=FALSE)
+mean.temp <- mean(temp.data$temp)
+sdev.temp <- sd(temp.data$temp)
+norm.temp <- dnorm(temp.data.hist$mids, mean = mean.temp, sd = sdev.temp)
+norm.temp <- (norm.temp/sum(norm.temp)) * length(temp.data$temp)
+temp.data <- data.frame(temp = temp.data.hist$mids, count = temp.data.hist$counts)
+
+
+
+egg.data <- c(5308, 3908, 5093, 5519, 3467, 5526, 5594, 8824, 5931, 
+              3665, 4739,5587, 4735, 5350, 4851, 4726, 5912, 5852, 
+              4410, 3838, 6317, 6059, 5790, 5786, 6418, 6363, 4309, 
+              4861, 4477, 6182, 6133, 6819, 4727, 6370, 5757, 7232, 
+              7368, 6757, 6959, 4323, 6708, 5171)
+egg.data.hist <- hist(egg.data, breaks = seq(0,10000,500), plot=FALSE)
+mean.egg <- mean(egg.data)
+sdev.egg <- sd(egg.data)
+norm.egg <- dnorm(egg.data.hist$mids, mean = mean.egg, sd = sdev.egg)
+norm.egg <- (norm.egg/sum(norm.egg)) * length(egg.data)
+egg.data <- data.frame(number_eggs = egg.data.hist$mids, count = egg.data.hist$counts)
+```
+
+## Outline/Learning Goals {visibility="hidden"}
+- CLT
+- Probability of sample mean in a given range
+- T-distribution
+- One sample t-test
+- CI
+
+## Recap
+
+- The normal distribution is a continuous distribution: probability is measured by the area under
+the curve, not by the height of the curve
+- It is symmetrical around its mean
+- The probability density is highest around the mean
+- The mean and variance (or standard deviation) are sufficient to characterize any normal
+distribution
+- For a normally distributed variable, ROUGHLY 2/3 of values are within 1 SD of the mean and ROUGHLY 95% are within 2 SD of the mean
+
+## The Sampling Distribution of Samples from a Normal Distribution 
+
+
+:::goal
+Means of normally distributed variables are normally distributed
+
+:::
+
+- The mean of the sample means is $\mu$
+
+- The standard deviation of the sample means is the <font color = "black">standard error,</font> and equals $\sigma_{\overline{Y}}=\frac{\sigma }{\sqrt{n}}$ 
+
+
+$$\mathcal{N}(\mu = \overline{Y}, \sigma_{\overline{Y}}=\frac{\sigma }{\sqrt{n}})$$
+
+## Law of Large Numbers  
+
+Larger samples make for tighter distributions & smaller standard errors
+
+
+```{r fig.height=4}
+s <- seq(0,60,.25);   this.mu <- 33;   this.sd <- 10
+sim <- data.frame(do.call(rbind,lapply(c(10, 50, 100, 1000),function(n){
+  vals <- matrix(rnorm(n * 1000,this.mu, this.sd),ncol=n)
+  data.frame(n=factor(paste("n = ",n), levels = c("n =  10", "n =  50", "n =  100", "n =  1000")),means =rowMeans(vals))     } )))
+ggplot(data = sim, aes(x = means, fill=n)) + facet_grid(~n) +
+  scale_fill_manual(values = asteroidcity1())+
+  geom_histogram(binwidth = .20, show.legend = FALSE) +
+  theme_tufte() + 
+  bb_theme()
+```
+
+
+## Central limit theorem {.dark-theme .center}
+
+## Central limit theorem
+
+
+> The sum or mean of a large number of measurements randomly sampled from  **ANY** population is approximately normally distributed.
+
+
+
+## Web Apps
+
+Seriously it's the best way to grasp this: do it yourself. All of these will REALLY help you when studying this content
+
+CLT: [https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm](https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm)
+
+
+Sampling from the Normal:
+[https://brandvain.shinyapps.io/standardnormal/](https://brandvain.shinyapps.io/standardnormal/)
+
+Sample means with a normal distribution:
+[https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm](https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm)
+
+
+CLT: [https://shiny.maths.nottingham.ac.uk/pmzdjc/YujingCLTApp/?showcase=0](https://shiny.maths.nottingham.ac.uk/pmzdjc/YujingCLTApp/?showcase=0)
+
+Confidence intervals for the mean:
+[https://www.zoology.ubc.ca/~whitlock/Kingfisher/CIMean.htm](https://www.zoology.ubc.ca/~whitlock/Kingfisher/CIMean.htm)
+
+
+Another one from CLT: [https://shiny.maths.nottingham.ac.uk/pmzdjc/YujingCLTApp/?showcase=0](https://shiny.maths.nottingham.ac.uk/pmzdjc/YujingCLTApp/?showcase=0)
+
+
+## Example: Button pushing (1/)
+
+Imagine 20,000 people are asked to press a button. Time is measured in seconds.
+
+- Half are anxious & do this quickly $\mathcal{N}(10,1)$
+- Half are not & do this slowly $\mathcal{N}(70,15)$
+
+
+Imagine that 20000 people are asked to press a button.   
+
+![](https://media.giphy.com/media/l2JdSlA1a1zKVAyze/giphy.gif)
+
+## Example: Button pushing (2/)
+
+### This is **NOT** normally distributed
+```{r, echo=F, eval=requireNamespace("ggplot2", quietly=TRUE),warning=FALSE, fig.height=3.5}
+set.seed(123)
+x3<-data.frame(Value=c(rnorm(10000,10,1), rnorm(10000, 70,15)), Group=c(rep("Anxious",10000), rep("Not anxious",10000)))
+p4a<-ggplot(x3, aes(x=Value)) +
+  geom_histogram(color="black", fill="#046C9A",bins=25, alpha=0.4, linewidth=1.5)+
+  labs(x = "Time (seconds)", y = "Frequency")+
+  bb_theme()
+p4a
+```
+
+
+## Example: Button pushing (3/)
+* The sampling distribution becomes normal as $n$ gets **BIG**.
+* 20,000 replicates used in each plot.
+```{r, echo=F, eval=requireNamespace("ggplot2", quietly=TRUE),warning=FALSE}
+nreps=20000
+meanx<-mean(x3$Value)
+sdx<-sd(x3$Value)/sqrt(1)
+pp1<-x3 %>% 
+  rep_slice_sample(n=1,replace = T,reps = nreps) %>% 
+  group_by(replicate) %>% 
+  summarise(Mean_x=mean(Value), N=1) %>% 
+  ggplot(aes(x=Mean_x)) +
+   geom_histogram(colour="black", fill="#046C9A", 
+               alpha=0.4, linewidth=1.5)+
+   #stat_function(fun = dnorm, args = list(mean = meanx, sd = sdx),
+  #             colour = "#C27D38", linewidth=2, alpha=0.6)+
+  labs(x="Sample mean", y="Frequency")+
+  ggtitle("n=1")+
+  theme(plot.title = element_text(size=15),
+        axis.title=element_text(size=15), 
+        axis.text = element_text(size=12),
+        panel.background = element_blank())
+sdx<-sd(x3$Value)/sqrt(2)
+pp2<-x3 %>% 
+  rep_slice_sample(n=2,replace = T,reps = nreps) %>% 
+  group_by(replicate) %>% 
+  summarise(Mean_x=mean(Value), N=2) %>% 
+  ggplot(aes(x=Mean_x)) +
+   geom_histogram( 
+               colour="black", fill="#046C9A", 
+               alpha=0.4, linewidth=1.5)+
+  # stat_function(fun = dnorm, args = list(mean = meanx, sd = sdx),
+ #              colour = "#C27D38", linewidth=2, alpha=0.6)+
+  labs(x="Sample mean", y="Frequency")+
+  ggtitle("n=2")+
+  theme(plot.title = element_text(size=15),
+        axis.title=element_text(size=15), 
+        axis.text = element_text(size=12),
+        panel.background = element_blank())
+sdx<-sd(x3$Value)/sqrt(4)
+pp4<-x3 %>% 
+  rep_slice_sample(n=4,replace = T,reps = nreps) %>% 
+  group_by(replicate) %>% 
+  summarise(Mean_x=mean(Value), N=4) %>% 
+  ggplot(aes(x=Mean_x)) +
+   geom_histogram(aes(y=after_stat(density)), 
+               colour="black", fill="#046C9A", 
+               alpha=0.4, linewidth=1.5)+
+   stat_function(fun = dnorm, args = list(mean = meanx, sd = sdx),
+               colour = "#C27D38", linewidth=2, alpha=0.6)+
+  labs(x="Sample mean", y="Frequency")+
+  ggtitle("n=4")+
+  theme(plot.title = element_text(size=15),
+        axis.title=element_text(size=15), 
+        axis.text = element_text(size=12),
+        panel.background = element_blank())
+sdx<-sd(x3$Value)/sqrt(16)
+ pp16<-x3 %>% 
+  rep_slice_sample(n=16,replace = T,reps = nreps) %>% 
+  group_by(replicate) %>% 
+  summarise(Mean_x=mean(Value), N=18) %>% 
+  ggplot(aes(x=Mean_x)) +
+   geom_histogram(aes(y=after_stat(density)), 
+               colour="black", fill="#046C9A", 
+               alpha=0.4, linewidth=1.5)+
+   stat_function(fun = dnorm, args = list(mean = meanx, sd = sdx),
+               colour = "#C27D38", linewidth=2, alpha=0.6)+
+  labs(x="Sample mean", y="Frequency")+
+  ggtitle("n=16")+
+  theme(plot.title = element_text(size=15),
+        axis.title=element_text(size=15), 
+        axis.text = element_text(size=12),
+        panel.background = element_blank())
+sdx<-sd(x3$Value)/sqrt(32)
+ pp32<-x3 %>% 
+  rep_slice_sample(n=32,replace = T,reps =nreps) %>% 
+  group_by(replicate) %>% 
+  summarise(Mean_x=mean(Value), N=36) %>% 
+  ggplot(aes(x=Mean_x)) +
+   geom_histogram(aes(y=after_stat(density)), 
+               colour="black", fill="#046C9A", 
+               alpha=0.4, linewidth=1.5)+
+   stat_function(fun = dnorm, args = list(mean = meanx, sd = sdx),
+               colour = "#C27D38", linewidth=2, alpha=0.6)+
+  labs(x="Sample mean", y="Frequency")+
+  ggtitle("n=36")+
+  theme(plot.title = element_text(size=15),
+        axis.title=element_text(size=15), 
+        axis.text = element_text(size=12),
+        panel.background = element_blank())
+ cowplot::plot_grid(pp1, pp2, pp4, pp16,nrow=2)
+```
+
+
+
+## Utility of the Central Limit Theorem `r ji("sparkles")`
+
+
+
+- The Central Limit Theorem explains why so much in the world is normally distributed!!!   
+
+- It also means that (with large sample sizes) many statistical tests that assume data are normal still work ok, if data are not totally normal. E.g. ANOVA (difference in means between groups)
+
+
+- Finally, we can use the CLT to speed up tedious calculations for large samples from non-normal distributions. 
+
+
+
+
+
+## Approximating the Binomial
+
+
+When can you do this?
+a) When number of trials ($n$) is large and b) probability of success  ($p$) is not too close to 0 or 1.  
+
+Remember: the expected mean number of successes under the binomial is $np$, so you can
+can approximate the binomial by a normal distribution with $\mu = np$ and $\sigma =  \sqrt{np(1-p)}$
+
+NOTE: The sampling distribution of the binomial looks normal for large samples:
+
+```{r fig.height=2.5}
+par(mfrow = c(1,2), mar = c(2.5,2,1,1))
+hist(rbinom(10000,10,.8)/10, breaks = seq(0,1,.1), col="#D55E00", main = "Binomial dist, n = 10, p = .8", xlab = "proportion success",ylab="",yaxt='n');box()
+hist(rbinom(10000,100,.8)/100,breaks = seq(0,1,.01), col="#D55E00", main = "Binomial dist, n = 100, p = .8", xlab = "proportion success",ylab="",yaxt='n');box()
+```
+
+
+## Takeaways 
+
+
+- The normal distribution is common in nature.   
+
+- A normal distribution is fully characterized by its mean and standard deviation.  
+
+
+- The distribution of sample means from a normal is normal distributed with mean = $\mu$ and standard deviation = $\sigma/\sqrt{n}$. 
+
+
+- Any normal distribution can be transformed into the standard normal.  
+
+- The CLT implies that with sufficiently large sample sizes, the sampling distribution of non-normally distributed populations is normal. 
+
+## Student's t distribution  (1/)
+
+- The sampling distribution for the sample mean
+is a normal distribution if the variable is itself normally distributed. As a result, we could use the to calculate probabilities for under the normal curve:
+
+
+$$Z=\frac{\bar{Y}-\mu}{\sigma_{\bar{Y}}}$$
+where $\sigma_{\bar{Y}}$ is the standard error of the mean, aka, the standard deviation of the sampling distribution.
+
+- But...in most cases, we don't know the real population distribution, so we don't know $\sigma$. We only have a sample
+
+## Student's t distribution  (2/)
+
+- We do know $s$, the standard deviation of our sample. We can use that as an estimate of $\sigma$
+
+- A good approximation to the standard normal, Z, is, then:
+
+
+$$t=\frac{\bar Y - \mu}{SEM_{\bar Y}}=\frac{\bar Y-\mu}{s/\sqrt{n}}$$
+- Because of this, the standard normal distribution (aka the Z distribution) is not quite right (although it is almost right), because it does not incorporate uncertainty in our estimate of the standard deviation.
+
+- **We can use the $t$ distribution instead!**
+
+## The solution: the T distribution
+
+* A sampling distribution that **includes uncertainty** in our estimate of the standard deviation. 
+- There are **many $t$-distributions** – each associated with some numbers of degrees of freedom
+- The $t$-distribution assumes that
+
+* Data are collected without bias
+* Data are independent
+* The mean is a meaningful summary of the data
+* The variable of interest is normally distributed in the population
+
+## T is a common statistic (1/2)
+
+* Most sampling distributions are normal
+* We almost never know the true population standard deviation
+* So we deal with t-values a lot in statistics
+* Every time we see a t-value, t is the **number of standard errors away our estimate is from its hypothesized parameter value under the null hypothesis.** 
+
+## T is a common statistic (2/2)
+
+* Like the $Z$ distribution for a sample mean, the $t$-value describes the number of standard errors between our sample mean and the population parameter.
+
+$$t=\frac{\bar X-\mu_{0}}{SEM_{\bar X}}=\frac{\bar X- \mu_{0}}{s/\sqrt{n}}$$
+
+$\mu_{0}$ is the hypothesized population parameter.
+
+$df=n-1$, where $n$ is the sample size.
+
+## Calculating the degrees of freedom  
+
+The number of degrees of freedom describes how many individual values we need to know after building our model of interest, before we know every data point.
+
+For example, if you have a sample of size:
+
+* $n = 1$, and  I tell  you the sample mean, you know every data point, and there are zero degrees of freedom.  
+* $n = 2$, and  I tell  you the sample mean, you need one more data point to fill in the rest, and there is one degree of freedom.   
+* $n = 3$, and  I tell  you the sample mean, you need two more data points to fill in the rest, and there are two degrees of freedom.   
+
+- So, when we are estimating a sample mean $\bar{X}$ , the degrees of freedom equals the sample size minus one: $df = n-1$
+
+
+
+## Comparing T and Z distributions (1/)
+* A $t$-distribution **looks a lot like the standard normal** distribution
+
+```{r, fig.height=2.2, echo=F, fig.cap="From: bookdown.org/ybrandvain/Applied-Biostats/images/tvz.gif"}
+include_graphics("https://bookdown.org/ybrandvain/Applied-Biostats/images/tvz.gif")
+```
+
+## Comparing T and Z distributions (2/)
+
+* $Z=\frac{\bar Y-\mu}{\sigma_{\bar Y}}$; $t=\frac{\bar Y-\mu}{SEM_{\bar Y}}$; using $SEM_{\bar Y}$ instead of ${\sigma_{\bar Y}}$ introduces sampling error. 
+* As a result, the sampling distribution for $t$ is wider ("fatter") on the tails than the one for $Z$ (the standard normal)
+* I.e., the tails of the t-distribution have more probability than those of the Z-distribution. 
+* Why? $t$ models the possibility that our estimate $s$ is an underestimation of $\sigma$.
+* As our sample (and therefore our degrees of freedom) gets larger, the $t$ distribution gets **closer and closer to the standard normal** distribution because our confidence in the estimate of the standard deviation increases.
+
+This difference in the tails is *_CRUCIAL_*! The tails matter most when calculating confidence intervals and testing hypotheses.
+
+## What do we use the t-distribution for?
+
+
+1. Confidence intervals
+1. Hypothesis testing
+
+## Exact CI
+
+* We find the $1-\alpha$ confidence interval for the estimated mean of a sample from a normal distribution.  
+* To estimate the upper (or lower) $1-\alpha$ confidence intervals: 
+
+$$(1-\alpha)\%\text{ CI } = \bar{X} \pm t_{\alpha(2)} \times SEM_{\bar X}$$
+
+$$ =  \bar{X} \pm t_{\alpha(2)} \times s / \sqrt{n}$$
+
+, where $t_{\alpha(2)}$ is the critical two-tailed t value for a specified  $\alpha$ value. 
+
+This makes sense because this should contain 95% of sample means estimated from a population.
+
+
+## CI example: Elephant gestational period (1/)
+
+* A sample of 5 pregnant elephants
+* Five elephants that gave birth after 547, 551, 571, 567, 580 days pregnant.
+* How confident are we about our mean estimate here? Let's find the 95% CI.
+
+$df=5-1=4$
+
+$t_{0.05(2),4}$
+
+$\bar{Y}=563.2$
+
+$s=13.864$
+
+$SEM_{\bar{Y}}=\frac{s}{\sqrt{n}}=\frac{13.864}{2.2361}\approx6.2$
+
+
+## CI example: Elephant gestational period (2/)
+
+$$(1-\alpha)\%\text{ CI } = \bar{Y} \pm t_{\alpha(2), df} \times SEM_{\bar Y}$$
+
+
+
+$$95\%\text{ CI } = 563.2 \pm (t_{\alpha(2),4} \times 6.2)$$
+
+
+* What is $t_{.05/2,df = 4}$?  Let's find out!
+
+
+## CI example: Elephant gestational period (3/)
+
+```{r t9, echo=FALSE, fig.height=4, fig.width=6}
+df <- 4
+plot_t<-tibble(x = seq(-5,5,.001), y = dt(x=x,df = df))%>% 
+  mutate(l = case_when( x > abs(qt(p = 0.025, df = df))~ "f1",
+                        x < -1*abs(qt(p = 0.025, df = df))~ "f2",
+                        TRUE~"a"))%>%
+  ggplot(aes(x=x, y=y, fill = l )) +
+  geom_area(color = "black")+ 
+  scale_fill_manual(values = c("white","#C27D38", "#C27D38"))+
+  theme(legend.position = "none")+
+  geom_vline(xintercept = c(-1,1)*qt(p = 0.025, df = df), color ="#C27D38",lty = 2)+
+  labs(x = "t-value", y = "probability density", title = "Sampling distribution", subtitle = expression(paste("Lines show critical value for ", alpha," = 0.05, df = 4")))+
+  annotate(label = "95% of sample means\nare here", x = 0, y = .05, geom = "text")+
+  bb_theme() +  theme(legend.position="none")
+plot_t
+```
+
+
+## CI example: Elephant gestational period (4/)
+
+In R:
+
+* We  find $t_{\alpha/2}$ in R with the `qt()` function: $t_{\alpha/2}$ = `qt(p = alpha/2, df = 4)`. **Remember** that we divide $\alpha$ by two in this calculation to include both sides of the sampling distribution. 
+
+```{r, echo=T, eval=F}
+#lower bound
+qt(p = 0.025, df = 4, lower.tail = TRUE)
+#[1] -2.776445
+#and the upper bound 
+qt(p=0.975, df=4, lower.tail=TRUE)
+#[1] 2.776445
+#or qt(p=0.025, df=4, lower.tail=F)
+```
+
+
+## Elephant gestational period (5/)
+
+Lower 95% CI with 4 df 
+
+$$95\%\text{ CI } = 563.2 \pm (t_{\alpha(2),4} \times 6.2)$$
+
+* $t_{0.05(2),4}$ indicates the 5% critical t-value for $df=4$. <br> 
+* $\alpha$: the fraction of the area under the curve lying in the tails of the distribution. 
+* <br> “(2)”: indicates that the 5% area is divided between the two tails of the —that is, 2.5% of the area under the curve lies above and 2.5% lies below 
+
+## Elephant gestational period (6/)
+
+```{r,  echo=F}
+include_graphics("images/tdistrib.png")
+```
+
+## Elephant gestational period (7/)
+
+$95\%\text{ CI } = 563.2 \pm (t_{\alpha(2),4} \times 6.2)$
+
+$$ = 563.2 + (2.776445 \times 6.2)=580.41$$
+$$ = 563.2 - (2.776445 \times 6.2)=545.986$$
+$$545.99<\mu<580.41$$
+
+##
+
+![](images/clipboard-3661136366.png)

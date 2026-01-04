@@ -14,9 +14,11 @@ fonts <- systemfonts::system_fonts()
 systemfonts::fonts_as_import(family = "Roboto Condensed")
 systemfonts::match_fonts("Roboto Condensed")
 showtext::showtext_opts(dpi = 150)
-myokabe_ito<-c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7",
+myokabe_ito<-c("#000000", "#E69F00", "#56B4E9", "#6C8645", "#F0E442", "#0072B2", "#D55E00", "#CC79A7",
 "#999999")
+names(myokabe_ito)<-c("oki_black", "oki_orange", "oki_blue", "oki_green", "oki_yellow", "oki_darkblue", "oki_darkorange", "oki_pink", "oki_gray")
 asteroidcity1<-wesanderson::wes_palette("AsteroidCity1")
+
 banff<-function (n = NULL) {
 
  banFF <- c("#006475", "#00A1B7", "#55CFD8", "#586028", "#898928", "#616571", 
@@ -33,6 +35,33 @@ asteroidcity1<-function (n = NULL) {
   else asteroidCity[seq_len(n)]
 }
 
+# scale_color_qual_bb<-function (n = NULL) {
+#   scale_color_manual(values = myokabe_ito)
+# }
+# 
+# scale_color_qual2_bb<-function(n = NULL){
+#   require(cols4all)
+#   scale_color_manual(values = cols4all::c4a("kings_canyon"))
+# }
+# 
+# scale_fill_qual_bb<-function (n = NULL) {
+#   scale_fill_manual(values = myokabe_ito)
+# }
+# 
+# scale_fill_qual2_bb<-function (n = NULL) {
+#   scale_fill_manual(values = myokabe_ito)
+# }
+
+kings_canyon_palette<-cols4all::c4a("kings_canyon")
+kings_canyon_pal<-function(){scales::manual_pal(kings_canyon_palette)}
+
+scale_color_kings_canyon<-function(...) {
+  discrete_scale(aesthetics="color",palette=kings_canyon_pal(),...)
+}
+
+scale_fill_kings_canyon<-function(...) {
+  discrete_scale(aesthetics="fill",palette=kings_canyon_pal(),...)
+}
 bb_theme <-  function() {
   theme(
     text = element_text(face = "plain", family = "Roboto Condensed"),
@@ -70,7 +99,8 @@ bb_theme <-  function() {
     plot.subtitle = element_text(family = "Roboto Condensed", size = 16),
     strip.text =  element_text(size = 14),
     panel.background = element_blank(),
-    #panel.grid.major.x = element_line(color = "gray", linewidth = 0.1),
+    panel.grid.major.y = element_line(color = "gray", linewidth = 0.1),
+    panel.grid.major.x = element_line(color = "gray", linewidth = 0.1)
     #strip.background = element_blank()
   )
 }

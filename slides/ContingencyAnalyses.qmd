@@ -1,0 +1,419 @@
+---
+title: "8.1.Contingency Analyses"
+subtitle: "Contingency Analyses"
+author: "Bárbara D. Bitarello"
+date: "11-26-2025"
+keywords: "Estimation (RR & OR)"
+format:
+  revealjs:
+    hash-type: number
+    embed-resources: false
+    smaller: true
+    scrollable: false
+    incremental: false
+    slide-number: true
+    transition: slide
+    background-transition: fade
+    highlight-style: ayu-dark
+    footer: "B215: Biostatistics with R"
+    center-title-slide: false
+    theme: [custom.scss]
+    callout-appearance: simple
+    code-fold: true
+    chalkboard: true
+    auto-slide: 133000
+code-link: true
+execute:
+  echo: false
+  freeze: false
+knitr: 
+  opts_chunk:
+    tidy: true
+    tidy-opts: { "value": "list(width.cutoff = I(60))", "tag": "!expr" }
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse=T)
+library(tidyverse)
+library(forcats)
+library(dplyr)
+library(ggplot2)
+library(ggforce)
+library(tidyr)
+library(stringr)
+library(knitr)
+library(ggthemes)
+library(wesanderson)
+library(gt)
+library(RColorBrewer)
+library(plotly)
+library(readr)
+library(thematic)
+library(infer)
+library(kableExtra)
+library(gridExtra)
+library(emoGG)
+library(emo)
+library(ggmosaic)
+
+gg_color_hue <- function(n) {
+  hues = seq(15, 375, length = n + 1)
+  hcl(h = hues, l = 65, c = 100)[1:n]
+}
+source("bb_theme.R")
+options(digits = 3)
+
+# set the themeb_theme()
+theme_set(bb_theme())
+
+birds_original <- data.frame(Age = c("Old","Young","Old", "Young"),
+                      Species = c("Junco", "Junco", "Finch", "Finch"),
+                      Number = c(4, 7, 9, 9))
+nhl <- tibble( month = c("Jan", "Feb", "Mar", "Apr", "May", "June", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"),
+        month.num = 1:12,
+        births = c(133, 125, 114, 119, 119, 123, 96, 91, 83, 84,73,85)) |> 
+  mutate(month = fct_reorder(.f = month, .x = month.num,.desc = TRUE))
+
+
+human_births<-tibble( month = c("Jan","Feb","Mar","April","May",
+                                "June","Jul","Aug","Sept","Oct","Nov","Dec"),
+                             `births (%)`  = 100*c(Jan = 0.0794, Feb = .0763, Mar = .0872,
+                              April = .0863, May = .0895, June = .0857, Jul = .0876,
+                              Aug = .085, Sept =  .0854, Oct = .0819, Nov = .0770,
+                              Dec = .0787) )
+
+lousy.fish <- tibble(num_parasites = 0:9, num_fish = c(103, 72, 44, 14, 3, 1, 1,0,0,0)) 
+fish.sum   <- lousy.fish |> summarise(total_fish = sum(num_fish), 
+                                       total_parasites = sum(num_fish* num_parasites))
+
+births<-tibble( month = c("Jan","Feb","Mar","April","May","June","Jul","Aug","Sept","Oct","Nov","Dec"),
+        `births (%)`  = 100*c(Jan = 0.0794, Feb = .0763, Mar = .0872, April = .0863, May = .0895, June = .0857, Jul = .0876, Aug = .085, Sept =  .0854, Oct = .0819, Nov = .0770, Dec = .0787) ) 
+```
+
+## Outline
+
+-   Quantifying associations between two categorical variables
+
+-   Relative risk
+
+-   Odds-ratio
+
+-   Testing associations between categorical variables
+
+-   $\chi^2$ contingency test
+
+-   G-test
+
+-   Fisher's test
+
+## We Often Care About Associations
+
+-   Does eating chocolate decrease the chance you’ll have a bad day?
+-   Does the home team have an advantage?
+-   Is the use of “bath salts” associated with cannibalism?\*
+-   Does fertilizing tomatoes increase the chance they set fruit?
+-   Does a given drug affect the disease outcome in patients?
+
+::: aside
+-   Story:
+    https://www.smithsonianmag.com/science-nature/no-bath-salts-wont-turn-you-into-cannibal-180953418/
+:::
+
+## Two kinds of chi-squared tests (1/2)
+
+1)  Chi-square goodness-of-fit tests
+
+-   one variable (observed vs. expected)
+-   the chi-square distribution in tests where we compare observed
+    frequencies for one variable in a sample to a theoretical
+    expectation based on a distribution (e.g. the proportional model,
+    the poisson model, etc
+
+## Two kinds of chi-squared tests (2/2)
+
+Chi-square contingency (independence) tests (2x2)
+
+-   the chi-square statistic in tests that compare frequencies/counts
+    for two categorical variables
+-   the $\chi^2$ contingency test is a special application of the more
+    general goodness-of-fit test for which the probability model being
+    tested is the independence of variables
+
+## Quantifying Associations Between Categorical Variables {.dark-theme .center}
+
+-   Relative risk
+-   Odds ratio
+
+## Relative Risk: Definition
+
+::: goal
+Relative risk is the probability of an undesired outcome in the
+treatment group divided by the probability of that outcome in the
+control group.
+:::
+
+:::::: columns
+:::: column
+Parameter: <font color= #006475>$\ RR=\frac{p_1}{p_2}$</font>
+
+Estimate:
+<font color= #C0532B>$\hat {RR}=\frac{\hat{p_1}}{\hat{p_2}}$</font>
+
+, where
+
+$\hat{p_i}=\frac{n_{\text{bad outcomes in group i}}}{n_{\text{individuals in group i}}}$
+
+::: nonincremental
+-   Probabilities ($p1, p2$) range from 0 to 1.
+-   RR ranges from 0 to $\infty$.
+:::
+::::
+
+::: column
+$\hat {RR} < 0$: Relative risk is lower in group 1
+
+$\hat {RR} > 0$: Relative risk is higher in group 1
+
+Reduction in relative risk is also of interest: $1- \hat {RR}$
+:::
+::::::
+
+## Relative risk vs. Odds-ratio: Titanic example! {.dark-theme .center}
+
+![Wikipedia
+Commons](images/clipboard-705104102.png){fig-alt="decorative figure of the titanic"
+fig-align="center"}
+
+## Surviving the Titanic: RR (1/)
+
+::::: columns
+::: column
+```{r fig.height=3.5, fig.width=4, warning=FALSE, message=FALSE,fig.alt='Mosaic plot plotted in R showing on the x axis the SEX variable and on the y axis the SURVIVED variable; clearly shows proportion of women who died was less than 1/2 and for men it was > 3/4.'}
+titan <- read.csv(
+  "chap09f1.1Titanic.csv", 
+  stringsAsFactors = FALSE)
+
+
+#titan <- data.frame(rbind(colSums(Titanic)[,,1],colSums(Titanic)[,,2]) )%>% 
+#  mutate(fate   = rep(c("Died","Survived"), each = 2),
+#        gender = rep(c("Male","Female"), times = 2)) %>%
+#  gather(Child, Adult, key = age, value = Inds) %>%
+#  filter(age == "Adult") %>%
+#  select(-age)
+
+titanicTable <- table(titan$survival, titan$Sex)
+
+titanicTable<-cbind(titanicTable[,2], titanicTable[1,])
+colnames(titanicTable)<-c("women", "men")
+
+titan.plot <-  mosaicplot( t(titanicTable), col = c("firebrick", "goldenrod1"), cex.axis = 1, 
+    sub = "Sex", ylab = "Relative frequency", main = "")
+titan.plot 
+```
+:::
+
+::: column
+-   What is being calculated?
+-   What is the focal outcome?
+-   What’s the treatment group?
+-   What’s the control group?
+-   How to interpret RR?
+-   How to interpret OR?
+:::
+:::::
+
+## Surviving the Titanic: RR (2/)
+
+-   Comparing the risk of death for women to men.
+-   Relative Risk: female as treatment, and male as control.
+
+::::: columns
+::: column
+```{r fig.height=3.5, fig.width=4, warning=FALSE, message=FALSE,fig.alt='Mosaic plot plotted in R showing on the x axis the SEX variable and on the y axis the SURVIVED variable; clearly shows proportion of women who died was less than 1/2 and for men it was > 3/4.'}
+titan.plot 
+```
+:::
+
+::: column
+Women’s relative risk of dying in the titanic compared to men:
+
+$$\hat {RR}=\frac{\hat{p}_{women}}{\hat{p}_{men}}$$ , where
+
+$\hat{p_{w}}=\frac{death}{\text{all women}}$
+
+$\hat{p_{m}}=\frac{death}{\text{all men}}$
+:::
+:::::
+
+## Surviving the Titanic: RR (3/)
+
+-   Comparing the risk of death for women to men.
+-   Relative Risk: female as treatment, and male as control.
+
+::::: columns
+::: column
+```{r fig.height=3.5, fig.width=4, warning=FALSE, message=FALSE,fig.alt='Mosaic plot plotted in R showing on the x axis the SEX variable and on the y axis the SURVIVED variable; clearly shows proportion of women who died was less than 1/2 and for men it was > 3/4.'}
+titan.plot 
+```
+:::
+
+::: column
+$\hat p_{w}=\frac{109}{(109+316)}\approx0.256$
+
+$\hat p_{men}=\frac{1329}{(1329+109)}\approx0.924$
+
+Women’s RR of dying compared to men:
+
+$\hat {RR}=\frac{0.256}{0.924}=0.277$ (women's RR of dying was less than 1/3that of men)
+
+Women’s *reduction* in relative risk of dying compared to men:
+
+$1-\hat {RR}=0.723$
+:::
+:::::
+
+## Relative Risk: Pros and Cons
+
+![](images/clipboard-3449922574.png){width="25" height="21"}Good:
+
+-   Straightforward, intuitive interpretation
+-   Should be reported whenever probabilities ($p_{1},p_{2}$) can be
+    estimated without bias
+
+![](images/clipboard-533154731.png){width="25" height="21"}Bad:
+
+-   We often cannot study rare outcomes without some selection bias
+-   It has some non-desirable properties for statistical modeling.
+-   In those cases we might have to deal with the much less intuitive
+    Odds Ratio (or log Odds Ratio)
+
+## Odds: Definition (1/)
+
+-   Probability of success divided by probability of failure “Success”
+    refers to the focal outcome
+-   Note: Odds range from 0 to $\infty$, unlike probabilities that range
+    from 0 to 1.
+
+::::: columns
+::: column
+Parameter: <font color = #006475>$O=\frac{p}{1-p}$</font>
+
+Estimate:
+<font color = #C0532B>$\hat {O}=\frac{\hat p}{1-\hat p}$</font>
+:::
+
+::: column
+$\hat{O}>1$ : Success more likely than failure
+
+$\hat{O}<1$ : Success less likely than failure
+
+$\hat{O}>1$ : Success and failure equally likely
+:::
+:::::
+
+## Odds Ratio (OR) (1/)
+
+Contingency table: Cells contain counts
+
+```{r,tab.cap="This is a two-way contingency table"}
+df<-data.frame(Treatment=c("a", "c"), Control=c("b", "d"))
+rownames(df)<-c("Success", "Failure")
+kable(df) 
+
+```
+
+Success: the focal outcome
+
+Treatment/Control: The two categories identify the two groups whose probability of success is being compared.
+
+## Odds Ratio (OR) (2/)
+
+Contingency table: Cells contain counts
+
+```{r,tab.cap="This is a two-way contingency table"}
+df<-data.frame(Treatment=c("a", "c"), Control=c("b", "d"))
+rownames(df)<-c("Success", "Failure")
+kable(df) 
+
+```
+
+$O_{1}=\frac{P(Success|Group_1)}{1-P(Success|Group_1)}$
+
+$O_{2}=\frac{P(Success|Group_2)}{1-P(Success|Group_2)}$
+
+$OR=\frac{O_{1}}{O_{2}}$
+
+## Odds Ratio (OR) (3/)
+
+Contingency table: Cells contain counts
+
+```{r,tab.cap="This is a two-way contingency table"}
+df<-data.frame(Treatment=c("a", "c"), Control=c("b", "d"))
+rownames(df)<-c("Success", "Failure")
+kable(df) 
+
+```
+
+$OR=\frac{O_{1}}{O_{2}}$
+
+$\hat{OR}=\frac{\hat{O_{1}}}{\hat{O_{2}}}$
+$\hat{OR}=\frac{a/c}{b/d}=\frac{ad}{bc}$
+
+## Surviving the titanic: OR (1/)
+
+-   “Success” refers to the focal outcome: dying in the titanic
+
+```{r}
+df2<-data.frame(Women=c(109, 316), Men=c(1329, 109))
+rownames(df2)<-c("Death", "Survival")
+kable(df2) 
+```
+
+## Surviving the titanic: OR (2/)
+
+```{r}
+kable(df2) 
+```
+
+$\hat{OR}=\frac{\hat{O}_{women}}{\hat{O}_{men}}$.
+
+$\hat {O}_{women}=\frac{\hat p}{1-\hat p}=\frac{0.256}{1-0.256}\approx 0.344$.
+We have $\hat{p_{w}}$ from before
+
+$\hat {O}_{men}=\frac{\hat p}{1-\hat p}=\frac{0.924}{1-0.924}\approx 12.2$.
+We have $\hat{p_{w}}$ from before
+
+$$\hat{OR}=\frac{\hat{O}_{women}}{\hat{O}_{men}}=\frac{0.344}{12.2}\approx 0.0282$$
+
+## Surviving the titanic: OR (3/)
+
+```{r}
+kable(df2) 
+```
+
+Alternatively, even without $\hat{p_{w}}$ and $\hat{p_{m}}$, we can use
+this table:
+
+$\hat{OR}=\frac{a/c}{b/d}=\frac{109/316}{1329/109}=0.0766782\approx 0.08283
+
+## Odds Ratio: Pros and Cons
+
+![](images/clipboard-3449922574.png){width="25" height="21"}Good:
+
+-   Not intuitive at all
+-   The odds ratio does not equal the relative risk.
+
+![](images/clipboard-533154731.png){width="25" height="21"}Bad:
+
+-   The denominator drops out of the top and bottom – meaning this will
+    work even if we don’t have true absolute probabilities.
+-   This will be the case in studies of rare outcomes in which it makes
+    sense to increase the number of these rare outcomes in our sample
+    (as we do in case-control studies).
+
+## 
+
+![](images/clipboard-3661136366.png)

@@ -1,5 +1,6 @@
 ---
 title: "1.1.Statistics and Samples"
+subtitle: "Acknowledgments to Y. Brandvain, Freeman & Company, and M. Whitlock for some materials used in these slides"
 author: "Bárbara D. Bitarello"
 date: "09-03-2025"
 keywords: "Statistics & Samples"
@@ -19,7 +20,7 @@ format:
 code-link: true
 execute:
   echo: true
-  freeze: auto
+  freeze: false
 knitr: 
   opts_chunk:
     tidy: true
@@ -84,17 +85,17 @@ These learning goals are for the entire topic/unit. They will also be available 
 :::
 
 ::: column
-![This is my adorable dog, Cashew](images/cashew.jpeg){fig-align="\"center\"" width="339"}
+![This is my adorable dog, Cashew](images/cashew.jpeg){fig-align="center" width="339"}
 :::
 :::::
 
 ## Challenge: data deluge
 
-![Cover from "The Economist" (Feb 27-March 10, 2010)](images/datadeluge.png){fig-alt="Cover of the magazine “The economist”. The heading reads: “The data deluge - And how to handle it: A 14-page special report”. Under the heading is a drawing of a person holding an umbrella in a rainstorm, but the rain is all 1s and 0s. The umbrella top is open but upside-down, collecting water which the person is using to water a plant from the handle of the umbrella." width="460"}
+![Cover from "The Economist" (Feb 27-March 10, 2010)](images/datadeluge.png){fig-alt="Cover of the magazine “The economist”. The heading reads: “The data deluge - And how to handle it: A 14-page special report”. Under the heading is a drawing of a person holding an umbrella in a rainstorm, but the rain is all 1s and 0s. The umbrella top is open but upside-down, collecting water which the person is using to water a plant from the handle of the umbrella." fig-align="center" width="460"}
 
 ## Challenge: understanding
 
-![From: https://xkcd.com/1478/](images/pvaluexkcd.png){fig-alt="Comic from xfcd.com: lists p-values ranging from 0.001 to >=0.1 on the left, and on the right offers and interpretation." width="467"}
+![From: https://xkcd.com/1478/](images/pvaluexkcd.png){fig-alt="Comic from xfcd.com: lists p-values ranging from 0.001 to >=0.1 on the left, and on the right offers and interpretation." fig-align="center" width="467"}
 
 ## Goals
 
@@ -169,7 +170,7 @@ Goal: learn about the world
 
 A parameter is some property of the world, i.e., the “truth”
 
-![](images/xfiles.png){fig-align="center" width="605"}
+![Decorative image. Poster from the show "The X-files"](images/xfiles.png){fig-align="center" width="605"}
 
 ::: aside
 Seriously, though, \\\<3 X-files!
@@ -184,7 +185,7 @@ Seriously, though, \\\<3 X-files!
 :::
 
 ::: column
-![](images/starfish.png){width="526"}
+![](images/starfish.png){fig-alt="Several starfish, some orange, some pink." width="526"}
 :::
 :::::
 
@@ -197,7 +198,7 @@ Seriously, though, \\\<3 X-files!
 :::
 
 ::: column
-![](images/starfish2.png){width="449"}
+![](images/starfish2.png){fig-alt="Several starfish, some orange, some pink. A rectangle surrounds three of them, one pink and two orange." width="449"}
 :::
 :::::
 
@@ -248,11 +249,11 @@ Case study: Polls in the 1936 US Election.
 :::::: r-fit-text
 ::::: columns
 ::: {.column width="\"50%\""}
-![Republican Alf Landon](https://upload.wikimedia.org/wikipedia/commons/c/c6/Alf_Landon_closeupcrop.jpg){width="244"}
+![Republican Alf Landon](https://upload.wikimedia.org/wikipedia/commons/c/c6/Alf_Landon_closeupcrop.jpg){fig-alt="Picture of Alf Landon" width="244"}
 :::
 
 ::: {.column width="\"50%\""}
-![Democrat Franklin Roosevelt](https://upload.wikimedia.org/wikipedia/commons/3/37/FDR_and_Fala_at_table.jpg){width="206"}
+![Democrat Franklin Roosevelt](https://upload.wikimedia.org/wikipedia/commons/3/37/FDR_and_Fala_at_table.jpg){fig-alt="Picture of F. Roosevelt" width="206"}
 :::
 :::::
 ::::::

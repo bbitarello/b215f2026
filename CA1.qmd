@@ -52,7 +52,7 @@ To provide an exploratory data analysis (EDA) and craft a detailed report of you
 :::
 
 
-A detailed explanation of Dr. Williamson’s dataset and experiment are provided in a separate document (Backgrund Information).
+A detailed explanation of Dr. Williamson’s dataset and experiment are provided in a separate document on Moodle (Background Information).
 
 
 
@@ -242,12 +242,15 @@ If your grade was less than 90% in this assignment, you may resubmit it based on
 - Make a new Markdown adding _v2.Rmd at the end. Leave a copy of the markdown in the Posit Cloud space for this assignment.
 - Knit the markdown into a PDF.
 - Upload both files by the new due date: TBD
+- Add the two extra portions below to the front of your PDF.
 
 ::: {.callout-import}
 Very important: write a document separately or add it as a cover to your PDF where you explain IN DETAIL what you changed in this second version. I don’t have time to re-grade the assignment if you don’t tell me what to look for. 
 :::
 
-
+::: {.callout-import}
+Very important: Use two copies of the rubric posted on Moodle to evaluate your version 1 and your updated version. This is a required part of your re-submission.
+:::
 
 
 # Learn more about EDA and R markdown {#learn}

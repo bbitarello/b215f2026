@@ -6,7 +6,7 @@ date: "10-01-2025"
 keywords: "Why study probability"
 format:
   revealjs:
-    embed-resources: false
+    embed-resources: true
     smaller: true
     scrollable: true
     incremental: false
@@ -17,10 +17,11 @@ format:
     footer: "B215: Biostatistics with R"
     center-title-slide: false
     theme: [custom.scss]
-    chalkboard: true
+    chalkboard: false
     callout-appearance: simple
     code-fold: true
-    auto-slide: 133000
+    #auto-slide: 133000
+    #axe: true
 code-link: true
 execute:
   echo: true

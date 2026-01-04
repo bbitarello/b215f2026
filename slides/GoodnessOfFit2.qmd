@@ -1,0 +1,590 @@
+---
+title: "7.2.Goodness-of-fit tests"
+subtitle: "Poisson distribution"
+author: "Bárbara D. Bitarello"
+date: "11-25-2025"
+keywords: "Poisson distribution"
+format:
+  revealjs:
+    hash-type: number
+    embed-resources: false
+    smaller: true
+    scrollable: false
+    incremental: true
+    slide-number: true
+    transition: slide
+    background-transition: fade
+    highlight-style: ayu-dark
+    footer: "B215: Biostatistics with R"
+    center-title-slide: false
+    theme: [custom.scss]
+    callout-appearance: simple
+    code-fold: true
+    chalkboard: true
+    auto-slide: 133000
+code-link: true
+execute:
+  echo: false
+  freeze: false
+knitr: 
+  opts_chunk:
+    tidy: true
+    tidy-opts: { "value": "list(width.cutoff = I(60))", "tag": "!expr" }
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse=T)
+library(tidyverse)
+library(forcats)
+library(dplyr)
+library(ggplot2)
+library(ggforce)
+library(tidyr)
+library(stringr)
+library(knitr)
+library(ggthemes)
+library(wesanderson)
+library(gt)
+library(RColorBrewer)
+library(plotly)
+library(readr)
+library(thematic)
+library(infer)
+library(kableExtra)
+library(gridExtra)
+library(emoGG)
+library(emo)
+
+gg_color_hue <- function(n) {
+  hues = seq(15, 375, length = n + 1)
+  hcl(h = hues, l = 65, c = 100)[1:n]
+}
+source("bb_theme.R")
+options(digits = 3)
+
+# set the themeb_theme()
+theme_set(bb_theme())
+
+birds_original <- data.frame(Age = c("Old","Young","Old", "Young"),
+                      Species = c("Junco", "Junco", "Finch", "Finch"),
+                      Number = c(4, 7, 9, 9))
+nhl <- tibble( month = c("Jan", "Feb", "Mar", "Apr", "May", "June", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"),
+        month.num = 1:12,
+        births = c(133, 125, 114, 119, 119, 123, 96, 91, 83, 84,73,85)) |> 
+  mutate(month = fct_reorder(.f = month, .x = month.num,.desc = TRUE))
+
+
+human_births<-tibble( month = c("Jan","Feb","Mar","April","May",
+                                "June","Jul","Aug","Sept","Oct","Nov","Dec"),
+                             `births (%)`  = 100*c(Jan = 0.0794, Feb = .0763, Mar = .0872,
+                              April = .0863, May = .0895, June = .0857, Jul = .0876,
+                              Aug = .085, Sept =  .0854, Oct = .0819, Nov = .0770,
+                              Dec = .0787) )
+
+lousy.fish <- tibble(num_parasites = 0:9, num_fish = c(103, 72, 44, 14, 3, 1, 1,0,0,0)) 
+fish.sum   <- lousy.fish |> summarise(total_fish = sum(num_fish), 
+                                       total_parasites = sum(num_fish* num_parasites))
+
+births<-tibble( month = c("Jan","Feb","Mar","April","May","June","Jul","Aug","Sept","Oct","Nov","Dec"),
+        `births (%)`  = 100*c(Jan = 0.0794, Feb = .0763, Mar = .0872, April = .0863, May = .0895, June = .0857, Jul = .0876, Aug = .085, Sept =  .0854, Oct = .0819, Nov = .0770, Dec = .0787) ) 
+```
+
+## Outline
+
+~~•Goodness-of-fit tests~~
+
+~~•The proportional model~~
+
+~~•The~~ $\chi^2$ ~~distribution~~
+
+~~•Degrees of freedom~~
+
+~~•The~~ $\chi^2$ ~~test~~
+
+•Using $\chi^2$ to test if data are distributed according to a Poisson
+distribution
+
+## Recap: Goodness of Fit Tests
+
+::: r-fit-text
+<font size = 7>Does <font color = "#E69F00">data</font> come from a
+<font color = "#56B4E9">given distribution</font> with specified
+<font color = "#56B4E9">parameters</font>?</font>
+:::
+
+## Using the $\chi^2$ statistic to test if data are Poisson distributed ! {.dark-theme .center}
+
+[ ](images/clipboard-3845085915.png)
+
+## Why Poisson? (1/2)
+
+We often want to know if events independent in time/space. E.g.:
+
+-   Are some people lucky? `r ji("shamrock")`\
+-   Do baseball players go on streaks? `r ji("baseball")`\
+-   Do cats stick together, or avoid one another? `r ji("tiger")`
+
+Perhaps we can use real data and contrast it to expectations under a
+null model and test. What might that distribution look like?
+
+## Why Poisson? (2/2)
+
+::: r-fit-text
+Assuming events are independent the Poisson distribution, the Poisson
+describes the expected probability of $X$ of events (successes) in a block of time or
+space.
+:::
+
+## Poisson experiments (1/3)
+
+Random Events in Time or Space
+
+- The number of successes in the experiment can be *counted*
+(discrete).
+
+- The *mean number of events* (successes) that occurs during a specific
+interval of time (or space) is known.
+
+- Each outcome is **independent**.
+
+- The probability that a success will occur is *proportional to the
+size of the interval*.
+
+## Poisson experiments (2/3)
+
+Random Events in Time or Space
+
+::: goal
+Example: Number of births per hour in a given hospital
+:::
+
+- The number of successes in the experiment can be counted
+(discrete). ![](images/clipboard-421996784.png){width="28"}
+
+- The mean number of successes that occurs during a specific
+interval of time (or space) is known.
+![](images/clipboard-421996784.png){width="28"}
+
+- Each outcome is independent.
+![](images/clipboard-421996784.png){width="28"}
+
+- The probability that a success will occur is proportional to the
+size of the interval. ![](images/clipboard-421996784.png){width="28"}
+
+## The Poisson distribution (1/)
+
+
+Formally: a mathematical description of the probability of $X$ successful outcomes when:
+
+
+1.  the number of attempts, $n$, is high
+
+2. the probability of success for each attempt, $p$, is low and
+    determined through a random process
+
+3. the probability of each attempt, $p$, is independent of prior
+    success or failure
+
+::: aside
+Remember: a discrete probability distribution (can only take values in the range 0,1,2,…
+:::
+
+## The Poisson distribution (2/)
+
+
+The Poisson distribution describes the expected probability of $X$
+independent events in time/space.
+
+```{r,echo=FALSE, fig.height=4}
+x.start <- sample(rep(1:10,rpois(10,1)))
+y.start <- sample(rep(1:10,rpois(10,10)),length(x.start))
+clumped.dat <- cbind(jitter(rep(x.start,4), amount = .7),jitter(rep(y.start,4), amount = .7))
+
+
+x.pois <- sample(rep(1:10,rpois(10,10)), nrow(clumped.dat) )
+y.pois <- sample(rep(1:10,rpois(10,10)), nrow(clumped.dat) )
+pois.dat <- cbind(jitter(x.pois, amount = 1.5),jitter(y.pois, amount = .15))
+
+
+
+my.n.col <- floor(sqrt(nrow(clumped.dat)))
+overdisp.dat <-jitter(10*cbind(rep(  (1:my.n.col),my.n.col),rep(1:my.n.col,each=my.n.col))/(my.n.col+.3),amount= .5)
+par(mfrow = c(1,3),mar = c(16,3,2,1))
+plot(clumped.dat,col="#0072B2", main = "Clumped", axes=FALSE, xlab="",ylab="", pch=16, cex =1.2);box()
+plot(pois.dat,col="#0072B2", main = "Random", axes=FALSE, xlab="",ylab="", pch=16, cex = 1.2);box()
+plot(overdisp.dat,col="#0072B2", main = "Dispersed",axes=FALSE, xlab="",ylab="", pch=16, cex =1.2);box()
+```
+
+## The Poisson distribution (4/)
+
+The Poisson distribution describes the expected probability of $X$
+independent events in time/space.
+
+```{r}
+my.n.col <- floor(sqrt(nrow(clumped.dat)))
+overdisp.dat <-jitter(10*cbind(rep(  (1:my.n.col),my.n.col),rep(1:my.n.col,each=my.n.col))/(my.n.col+.3),amount= .5)
+par(mfrow = c(1,3),mar = c(16,3,2,1))
+plot(clumped.dat,col="#0072B2", main = "Clumped", axes=FALSE, xlab="Contagious disease\noutbreaks",ylab="", pch=16, cex =1.5);box()
+plot(pois.dat,col="#0072B2", main = "Random", axes=FALSE, xlab="Number of mutations carried\nby an individual",ylab="", pch=16, cex = 1.5);box()
+plot(overdisp.dat,col="#0072B2", main = "Dispersed",axes=FALSE, xlab="Dispersal of territorial\nanimals along an area",ylab="", pch=16, cex =1.5);box()
+```
+
+## The Poisson Equation
+
+Assuming events are random and independent, the probability of observing
+$X$ events in a block of time or space equals:
+
+$$\Huge{Pr[X] =\frac{e^{-\lambda} \lambda^{X}}{X!}}$$
+
+- $X$: Number of successes
+
+- $P[X]$: probability of occurrence of $X$ successes in one trial
+
+- $\lambda$ (or $\mu$): the expected (mean) number of events in a block.
+
+- $e$ is the base of $ln()$, aka Euler’s number (a constant, `exp(1)` in R).
+
+::: aside
+Note: Many people use $\mu$ in place of $\lambda$
+:::
+
+## Poisson: Fish Example (1/) `r ji("fish")`
+
+::: columns
+
+::: {.column width="40%"}
+![](https://upload.wikimedia.org/wikipedia/commons/7/7f/Alosa_sapidissima_%28line_art%29.jpg)
+
+Parasites are a major force in human health, as well as evolution,
+    ecology, and agronomy, animal husbandry.\
+
+
+:::
+
+::: {.column width="60%"}
+
+Shaw et al. asked if the distribution of parasites or across
+    individual Shad fish was random, or if some have an exceptional
+    parasite burden? Here are their data:
+
+
+```{r lousyfish,collapse=T}
+lousy.fish |> kable() |> kable_styling(font_size = 16)
+#lousy.fish |> summarise(Nr_fish=sum(num_fish), Nr_parasites=sum(num_parasites)) |> kable()
+```
+:::
+
+:::
+
+::: aside
+Shaw et al. 1998. [Parasitology 117: 567 -
+610](https://www.ncbi.nlm.nih.gov/pubmed/9881385).
+:::
+
+## Poisson: Fish Example (2/) `r ji("fish")`
+
+
+
+$H_0$: Parasites are placed randomly on fish in a population
+i.e. parasite numbers follow a Poisson Distribution. 
+
+
+```{r}
+plot(pois.dat,col="#0072B2", main = "Random", axes=FALSE, xlab="",ylab="", pch=16, cex = 1.2);box()
+```
+
+
+
+
+## Poisson: Fish Example (3/) `r ji("fish")`
+
+
+
+$H_A$: Parasites are not placed randomly on fish in a population 
+i.e. parasite numbers do *_not_* follow a Poisson Distribution.
+
+
+
+
+```{r}
+par(mfrow = c(1,2),mar = c(16,3,2,1))
+plot(clumped.dat,col="#0072B2", main = "Clumped", axes=FALSE, xlab="",ylab="", pch=16, cex =1.2);box()
+
+plot(overdisp.dat,col="#0072B2", main = "Dispersed",axes=FALSE, xlab="",ylab="", pch=16, cex =1.2);box()
+```
+
+
+
+## Steps in Hypothesis Testing
+
+::: columns
+
+::: {.column width="30%"}
+
+- ~~State hypotheses~~
+
+- Find expectations (via simulation or via model)
+
+:::
+
+
+::: {.column width="70%"}
+
+
+```{r,collapse=T}
+lousy.fish |> kable() |> kable_styling(font_size = 16)
+
+fish.sum |> kable()
+```
+
+:::
+:::
+
+## Option 1: A Lousy Simulation (1/) `r ji("fish")`
+
+We can put `r fish.sum$total_parasites` on `r fish.sum$total_fish` fish many times to generate a null.
+
+1)  Take 225 parasites and:
+
+    randomly place one parasite in one of 238 fish
+    
+    repeat for each parasite
+    
+    the same fish can be the target more than once
+
+. . .
+
+2)  At the end, count the number of parasites in each fish
+
+. . .
+
+3)  Repeat this many, many times
+
+## Option 1: A Lousy Simulation (2/) `r ji("fish")`
+
+```{r option1, fig.cap="Note: the observed data does not include X > 6 but they are possible and are thus shown here."}
+n.reps <- 1000
+sim <-  tibble(x = sample(factor(1:238), size = n.reps  * 225, replace = TRUE),
+       replicate = rep(1:n.reps , each = 225)) |> 
+  group_by(replicate ,x) |> 
+  summarize(num_parasites = n()) |>
+  group_by(replicate ,num_parasites) |> 
+  summarize(num_fish = n()) 
+
+sim <-  bind_rows(sim |> summarise(num_fish = 238 - sum(num_fish)) |> mutate(num_parasites=0) |> select(replicate, num_parasites, num_fish), ungroup(sim )) |>
+  bind_rows(lousy.fish|> mutate(replicate = 0)) |>
+  complete(num_parasites,replicate, fill = list(num_fish = 0)) |>
+  mutate(data = ifelse(replicate >0 ,"simulated","observed"))
+
+ggplot()+
+  geom_jitter(data = sim |> filter(data == "simulated"), 
+              aes(x = num_parasites, y= num_fish), 
+              color = "#999999", alpha = .5) +
+  geom_point(data = sim |> filter(data == "observed"), 
+              aes(x = num_parasites, y= num_fish), color = "#C0532B")  +
+  annotate(geom = "text", x = c(6,6) , y = c(90,75), size = 6,
+           label = c("Observed","Simulation of Null Model"),
+           color = c("#C0532B","#999999"), alpha = c(1,1)) +
+  ggtitle(label = "Comparing observations to null distribution",
+          subtitle = "Are results unexpected under the null?")+
+  ylab("Number of fish")+ 
+  xlab("Number of parasites")+
+  scale_x_continuous(breaks = 0:9)+
+  theme_tufte() +
+  bb_theme() +
+  theme(axis.ticks = element_blank())
+```
+
+## Option 2: Derived by formula `r ji("fish")`
+
+
+
+$P[X]=\frac{e^{-\lambda}\lambda^X}{X!}$
+
+$e=2.718282$
+
+$\lambda = \frac{tot.paras}{tot.fish}=225/238$
+
+Let’s try the first row:
+
+$X=0$
+
+$P[0]=\frac{e^{-0.945}\times 0.945^0}{0!}\approx 0.388$
+
+$\text{\# fish expected}=0.388\times 238=92.5$
+
+Repeat for each row...
+
+
+## Option 2: Derived by formula `r ji("fish")`
+
+::: columns
+
+::: column
+```{r}
+lousy.fish |>mutate(expect=238*dpois(x=num_parasites, lambda = 225/238)) |> kable() |> kable_styling()
+
+```
+
+:::
+
+::: column
+```{r}
+fish.sum |> kable()
+```
+
+:::
+:::
+## Proceed with testing?
+
+
+::: columns
+
+::: column
+-   <font color = "black">Find degrees of freedom</font>\
+    df = \# categories - 1 - \# params estimated
+
+<font color = "black">Do we meet $\chi^2$ assumptions?</font>\
+
+-   No expected values $< 1$ &\
+-   No more than 20% of expected values $< 5$.
+
+If yes, go on. If no, brainstorm.
+
+:::
+
+::: column
+
+
+```{r}
+lousy.fish |>mutate(expect=238*dpois(x=num_parasites, lambda = 0.9453782)) |> kable() |> kable_styling()
+fish.sum |> kable()
+```
+
+
+:::
+:::
+
+
+## We do not meet assumptions, now what?
+
+Options:
+
+-   Go on despite this: if test is robust to violations. (I don’t
+    support this option!)
+
+-   Combine categories: if biologically sensible.
+
+-   Find a more appropriate test.
+
+-   Bypass traditional tests by using simulations (which we've done)
+
+## We can combine 4+ to meet assumptions
+
+```{r, echo=FALSE}
+expecting.fish <- lousy.fish %>% 
+  mutate(n = num_parasites * num_fish) %>% 
+  mutate(tot.fish = sum(num_fish), 
+            tot.parasite = sum(num_parasites * num_fish), 
+            mu = tot.parasite / tot.fish  ) %>%
+  mutate(expect = tot.fish * dpois(x = num_parasites, lambda = mu))
+this.lambda <- with(fish.sum,total_parasites / total_fish )
+new.expect <- bind_rows(expecting.fish[1:4,]|> 
+  mutate(num_parasites = as.character(num_parasites)) ,
+  expecting.fish[-c(1:4),] |> summarise(num_parasites="4+", num_fish = sum(num_fish), n=NA, tot.fish=238, tot.parasite=225, mu=this.lambda, expect=tot.fish*sum(dpois(x = 4:9,lambda = this.lambda))))     
+new.expect<-new.expect|> 
+  mutate(sq_dev = (expect - num_fish)^2 /expect 	 ) |> mutate(expect = round(expect, digits = 2),sq_dev  = round(sq_dev , digits = 2)) |>  select(-n)
+new.expect |> kable() |> kable_styling(full_width = FALSE)
+```
+
+$\chi^ 2= 1.20 + 2.72 + 0.17 + 0.07 + 0.40 =  4.56$
+
+## Hypothesis test
+
+df = \# categories - 1 - \# params estimated = 5 - 1 - 1 = 3
+
+```{r, echo = T}
+new.expect |> 
+  summarise(chi2 = sum(sq_dev), 
+            p_value = pchisq(q = chi2,df =  3, lower.tail = FALSE))                                 
+```
+
+## Old fashioned moment
+
+$df=3; \chi^2 = 4.56$
+```{r table}
+tmp <- bind_cols(df = 1:3,data.frame(t(sapply(1:3, function(X){
+  qchisq(p = c(.1,.05,10^(-2:-7)), df = X, lower.tail = FALSE)}
+  )))) |> 
+  select('df | a' = df, '0.1' = X1, '0.05' = X2, `10^-2` = X3, `10^-3` = X4, `10^-4` = X5 ,  
+         `10^-5` = X6,  `10^-6` = X7 ,  `10^-7` = X8)
+tmp |>  kable(format = "html", escape = F, digits = 2) |> 
+  kable_styling( position = "left") |>
+  row_spec(0,  color = "lightgrey", background = "black") |>
+  #row_spec(1:12, font_size =  0) |>
+  column_spec(2:8, width_min = 10, width_max = 10) 
+
+```
+
+Assuming $\alpha=0.05$, we fail to reject the NULL hypothesis ($P>\alpha$). We cannot exclude the idea that parasites are distributed at random across fish.
+
+# Are counts over or underdispersed {.dark-theme .center}
+
+## Over or underdispersed
+
+- A particular feature of the Poisson distribution is that the variance equals the mean. 
+
+- Sample counts therefore vary more as the mean increases.
+
+
+
+If the variance greatly exceeds the mean events are clumped
+
+If the variance is much less than the mean events are dispersed.
+
+```{r,echo=FALSE, fig.height=4}
+x.start <- sample(rep(1:10,rpois(10,1)))
+y.start <- sample(rep(1:10,rpois(10,10)),length(x.start))
+clumped.dat <- cbind(jitter(rep(x.start,4), amount = .7),jitter(rep(y.start,4), amount = .7))
+
+
+x.pois <- sample(rep(1:10,rpois(10,10)), nrow(clumped.dat) )
+y.pois <- sample(rep(1:10,rpois(10,10)), nrow(clumped.dat) )
+pois.dat <- cbind(jitter(x.pois, amount = 1.5),jitter(y.pois, amount = .15))
+
+
+
+my.n.col <- floor(sqrt(nrow(clumped.dat)))
+overdisp.dat <-jitter(10*cbind(rep(  (1:my.n.col),my.n.col),rep(1:my.n.col,each=my.n.col))/(my.n.col+.3),amount= .5)
+par(mfrow = c(1,3),mar = c(16,3,2,1))
+plot(clumped.dat,col="#0072B2", main = expression(Clumped~sigma^2 > lambda), axes=FALSE, xlab="",ylab="", pch=16, cex =1.2);box()
+plot(pois.dat,col="#0072B2", main = expression(Random~sigma^2 == lambda), axes=FALSE, xlab="",ylab="", pch=16, cex = 1.2);box()
+plot(overdisp.dat,col="#0072B2", main = expression(Dispersed~sigma^2 < lambda),axes=FALSE, xlab="",ylab="", pch=16, cex =1.2);box()
+```
+
+## Goodness of fit: Key points (1/)
+
+- A test of $\chi^2$ goodness of fit compares the frequency distribution of a discrete or categorical variable with the frequencies expected from a probability model.
+- The test can be applied to many distributions
+- More general than the binomial test because it
+can handle more than two categories.
+- Goodness of fit is measured with the $\chi^2$ test statistic. Its theoretical distribution is continuous. Probability is measured by the area under the curve.
+- The $\chi^2$ distribution predicts the deviation of count data from expectations under $H_0$.
+
+
+## Goodness of fit: Key points (2/)
+
+
+• Proportional probability model: events fall in
+different categories in proportion to the number of
+opportunities.
+• The Poisson distribution model: describes the
+frequency distribution of successes in blocks of
+time or space when successes happen
+independently and with equal probability over
+time or space.
+
+

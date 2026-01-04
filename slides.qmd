@@ -23,6 +23,21 @@ listing:
       - slides/Estimation.qmd
       - slides/Estimation2.qmd
       - slides/Estimation3.qmd
+      - slides/Estimation4.qmd
+      - slides/Estimation5.qmd
+      - slides/HypothesisTesting.qmd
+      - slides/HypothesisTesting2.qmd
+      - slides/HypothesisTesting3.qmd
+      - slides/AnalyzingProportions.qmd
+      - slides/AnalyzingProportions2.qmd
+      - slides/AnalyzingProportions3.qmd
+      - slides/GoodnessOfFit.qmd
+      - slides/GoodnessOfFit2.qmd
+      - slides/ContingencyAnalyses.qmd
+      - slides/ContingencyAnalyses2.qmd
+      - slides/Normal.qmd
+      - slides/Normal2.qmd
+      - slides/Normal3.qmd
     type: table
     fields: [keywords, title, date]
     date-format: "ddd, MMM DD"

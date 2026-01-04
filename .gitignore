@@ -9,6 +9,7 @@ census-key.R
 *_cache
 lab-notes
 /*/.DS_Store
+*.DS_Store*
 
 
 **/*.quarto_ipynb

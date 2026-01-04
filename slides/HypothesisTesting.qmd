@@ -1,0 +1,391 @@
+---
+title: "5.1.Hypothesis Testing"
+subtitle: "General framework | Acknowledgments: Y. Brandvain's code snippets"
+author: "Bárbara D. Bitarello"
+date: "11-5-2025"
+keywords: "Hypothesis Testing"
+format:
+  revealjs:
+    embed-resources: false
+    smaller: true
+    scrollable: false
+    incremental: false
+    slide-number: true
+    transition: slide
+    background-transition: fade
+    highlight-style: ayu-dark
+    footer: "B215: Biostatistics with R"
+    center-title-slide: false
+    theme: [custom.scss]
+    callout-appearance: simple
+    code-fold: true
+    chalkboard: true
+    auto-slide: 133000
+code-link: true
+execute:
+  echo: false
+  freeze: false
+knitr: 
+  opts_chunk:
+    tidy: true
+    tidy-opts: { "value": "list(width.cutoff = I(60))", "tag": "!expr" }
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse=T)
+library(tidyverse)
+library(forcats)
+library(dplyr)
+library(ggplot2)
+library(ggforce)
+library(tidyr)
+library(stringr)
+library(knitr)
+library(ggthemes)
+library(wesanderson)
+library(gt)
+library(RColorBrewer)
+library(plotly)
+library(readr)
+library(thematic)
+library(infer)
+library(kableExtra)
+library(gridExtra)
+library(emoGG)
+library(emo)
+
+sample.dist  <- data.frame(estimate = replicate(50000,mean(rnorm(20,0,1))) )
+
+gg_color_hue <- function(n) {
+  hues = seq(15, 375, length = n + 1)
+  hcl(h = hues, l = 65, c = 100)[1:n]
+}
+source("bb_theme.R")
+
+# set the theme
+theme_set(bb_theme())
+```
+
+# Key learning goals
+
+-   Be able to describe the Null Hypothesis.
+-   Understand the practice of Null Hypothesis Significance Testing.
+-   Master the meaning of a P-value.
+-   Have the basis to be critical and skeptical of P-values.
+-   Explain the concepts of false positives and false negatives and why
+    they happen.
+-   Understand when to use one vs two-tailed tests.
+-   Understand the relationship between p-values and CIs
+
+## Outline
+
+-   Intro to hypothesis testing
+-   Example of hypothesis testing step-by-step
+-   Type I and type II errors in hypothesis testing
+-   Cautionary tales
+-   Philosophical/historical digression/discussion about p-values (will
+    post extra optional readings)
+-   Estimation vs. hypothesis testing
+
+## Hypothesis Testing
+
+In addition to estimation, hypothesis testing is a major goal of
+statistics.
+
+Example Hypotheses:
+
+-   Does a treatment have an effect?
+-   Are two groups different?
+-   Do the number of problems grow with a person's income?
+
+Statistical hypothesis testing automates decision making
+
+Statistical hypothesis (null and alternative) $neq$ Scientific
+hypothesis (statements about the existence and possible causes of
+natural phenomena)
+
+## The Dilemma
+
+We take samples to understand the world out there.
+
+::: goal
+So, can our estimates be simply explained by chance, or are they
+special?
+:::
+
+## The solution {transition="convex" transition-speed="fast"}
+
+We can only take a <font size = #E54E21 >sample</font> and make
+<font color = #E54E21 >estimates.</font>
+
+We can imagine taking infinite <font color =  #E54E21 >samples</font>
+from a <font color = #0072B2>population</font>
+
+<font color = "black">Build a sampling dist. from a
+<font color = #CC79A7>boring</font> population we can describe. </font>
+
+<font color = "black">Where would or estimate fall on this
+distribution</font>
+
+```{r warning = FALSE, message = FALSE}
+a <- ggplot(data = sample.dist, aes(x = estimate)) +
+  geom_histogram(bins = 100, color = "white", lwd = .1, aes(y = after_stat(count)/sum(count)), fill = "#E69F00", alpha = .8) +
+  ylab("") + 
+  xlab("Estimates from sampling distribution") +  
+  annotate(geom = "text", x = .55, y = .02, label = "Estimate from \nmy sample", size = 5.5)+
+  theme_tufte() +
+  bb_theme()    
+
+  
+fail_to_reject <- a +  
+  ggtitle(label = "Likely sample from population")+
+  ylab("frequency") + 
+  geom_segment(aes(x=.55, xend=.2, y=.016, yend=0), linewidth = 1, color = "#D55E00",arrow = arrow(length = unit(0.1, "npc")), alpha = .4)
+
+reject <- a +  
+  ggtitle(label = "Unlikely sample from population")+
+  geom_segment(aes(x=.55, xend=.7, y=.016, yend=0), size = 1, color = "#D55E00",arrow = arrow(length = unit(0.1, "npc")), alpha = .4)
+
+grid.arrange(fail_to_reject ,reject, nrow = 1)
+```
+
+## Critical Assumption
+
+Hypothesis testing assumes <font color = #6C8645>random sampling </font>
+-- or that we account for non-random sampling in building the null
+model.
+
+<font size = 16 > Repeat after me:
+
+. . .
+
+Hypothesis tests account for sampling error, NOT for sampling bias.
+</font>
+
+![Inspirational figure to remind you that: Hypothesis tests from biased
+samples are misleading and cannot be
+trusted](images/clipboard-518242254.png){fig-alt="Inspirational figure to remind you that: Hypothesis tests from biased samples are misleading and cannot be trusted"}
+
+## Null Hypothesis {.dark-theme .center}
+
+## Hypotheses are about POPULATIONS
+
+-   We conduct hypothesis testing by checking if our estimate is
+    surprising (unlikely) under the null model.
+
+-   The hypothesis is about the population - not about your sample.
+
+-   The null hypothesis ($H_0$) skeptically argues that data come from a
+    boring population described by the **null model**.
+
+-   Building a sampling distribution from the appropriate null model is
+    key to hypothesis testing.
+
+## We ask
+
+> Is the <font color = #006475>population</font> from which we sampled
+> different from a *boring* population?
+
+```{r}
+
+grid.arrange(fail_to_reject ,reject, nrow = 1)
+
+```
+
+## The null hypothesis: Definition
+
+::: goal
+**Null hypothesis:** a specific statement about a ~~boring~~ population
+made for the sake of argument (aka — the *skeptical view*).
+:::
+
+A Good `r ji("unamused")` <font color = #CC79A7>Null Hypothesis: </font>
+`r ji("unamused")`
+
+-   Reflects all aspects of the null / boring population, except those
+    posed by $H_0$
+
+-   Asks *"Can the results be easily explained by chance?"*
+
+-   Would be interesting if proven wrong.
+
+-   Reflects the process of sampling.
+
+## `r ji("unamused")`<font color = #999999> $H_0$ </font> `r ji("unamused")` is specific, `r ji("nerd_face")` <font color = #CC79A7> $H_A$</font> `r ji("nerd_face")` is not.
+
+<font size = 10> What does this mean? </font>
+
+It means that a null hypothesis specifies a model that can be used to
+build a sampling distribution
+
+-   For example: $\mu = 0$ and $\sigma^2 = 1$ or
+    $\mu_{pop1} = \mu_{pop2}$.
+
+By contrast the alternative hypothesis is less specific.
+
+-   That is, "*The sample does not come from a population with the
+    parameter specified by the null model*" or "*x \> y*" etc...
+
+## Caution: Remember Why We Do Stats!
+
+<font size = 10>
+
+Our goal is to learn about the <font color =#006475>World Out There (the
+population)</font> from our <font color = #C18748>finite view (the
+sample)</font>
+
+Rejecting the null hypothesis is *not our goal* (although it can be
+satisfying / exciting).</font>
+
+</font>
+
+## Hypothesis testing example: red vs blue wrestlers {.dark-theme .center}
+
+::::: columns
+::: {.column width="50%"}
+-   “Real world” question: Does wearing a red shirt help win a wrestling
+    match
+
+-   First: Turn this into a more “statistical” question, gather some
+    data, and get to work!
+:::
+
+::: {.column width="50%"}
+![From: Source:
+https://commons.wikimedia.org/](images/clipboard-2396145161.png){fig-alt="figure shows two wrestlers, one wearing red and the other wearing blue"
+width="293"}
+:::
+:::::
+
+## The questions
+
+-   **Question:** Does red influence the outcome of wrestling,
+    taekwondo, and boxing?
+
+-   **Clearer (statistical) question:** are the colors of outfits won by
+    wrestlers predictors of victory/defeat?
+
+-   **“Scientific” question:** could be something about the impact of
+    the color red on aggression levels, hormones, neurotransmitters,
+    etc.
+
+## The experiment and results
+
+**Data / experiment:**
+
+-   16 of 20 rounds had more red-shirted than blue-shirted winners in in
+    the 2004 Olympics.
+-   Shirt color was randomly assigned.
+-   Interpretation: Potentially related to red as a sign of aggression
+    in animals?
+
+## The Steps of Hypothesis Testing {transition="convex" transition-speed="fast"}
+
+::: incremental
+1.  State $H_0$ and $H_A$.
+
+2.  Calculate a test statistic.
+
+3.  Generate the null distribution.
+
+4.  Find critical value at specified $\alpha$, and the p-value.
+
+5.  Decide: <br> Reject the $H_0$ if the test stat is $\geq$ the
+    critical value ($p\leq\alpha$). <br> OR<br> Fail to reject $H_0$ if
+    the test stat is $<$ the critical value ($p>\alpha$).
+
+Notice that step 5 makes this a YES/NO kind of answer in the end, rather
+than a quantification of the eﬀect of red on victories
+:::
+
+## 1.State $H_0$ and $H_a$
+
+Are the colors of outfits won by wrestlers predictors of victory/defeat?
+
+::: incremental
+-   $H_0$: Red and blue-shirted athletes are equally likely to win
+    (proportion of red among winners $= 0.5$). (notice how this is very
+    specific)
+
+-   $H_a$: Red & blue-shirted athletes are not equally likely to win
+    (proportion of red among winners $\neq 0.5$). (not specific)
+
+-   One of these must be true. One is very specific, the other is not.
+    Which one do the data support?
+:::
+
+## 2. Calculate a Test Statistic
+
+16 of 20 rounds had more red-shirted than blue-shirted winners.
+
+Our test statistic here the difference between our observation (16 of 20
+wins) and our expectation (10 of twenty wins).
+
+::: goal
+Note: Test statistics: numbers calculated from the data and used to
+compare out results with those expected under the null hypothesis. They
+are variable and are related to the type of test we use. E.g. the
+statistic $\chi^2$ (chi-square) is the test statistic used in the
+$\chi^2$ test; the one-sample t-test uses the $t$ statistic, etc.
+:::
+
+## 3. Generate the Null Distribution
+
+This is a binomial distribution, which we will learn about next week.
+
+```{r}
+wrestle.sim <- data.frame(red_wins = rbinom(n = 10000,size = 20, prob = .5)) |>
+  mutate(as_or_more_extreme = abs(10 - red_wins) >= 6)
+
+ggplot(wrestle.sim, aes(x = red_wins)) +
+  geom_histogram(fill = "#999999", binwidth = 1, color = "white", aes(y = after_stat(count)/sum(count))) +
+  ylab(stringr::str_wrap("Expected proportion under the null",20)) + 
+#  scale_fill_manual(values = c("#999999","red"), name = "As (or more)\nextreme than\nobserved")+
+  scale_y_continuous(expand = c(0,0)) +
+  xlab("Number of red victories (of 20 bouts)") +
+  ggtitle(stringr::str_wrap("Null distribution for number of red victories", 40)) +
+  theme_tufte() +
+  bb_theme() #+ theme(legend.position = c(0.85, 0.75))
+
+```
+
+## 4-5: Find the critical Value & P-Value
+
+-   What is the probability of obtaining data as extreme or more extreme
+    (in relation to the null distribution) than the one I obtained?
+-   If the probability is very low, we reject the null hypothesis
+-   If it is not, we fail to reject the null
+-   Because finding the critical value depends on the sampling
+    distribution, we will not go into it now but we will once we talk
+    about specific tests. In this problem specifically we are trying to
+    find $P(X\geq 16 \text{ OR }X \leq 4)$
+
+## 
+
+-   More formally, we use a significance level ($\alpha$): a probability
+    used as criterion to reject the $H_0$.
+
+```{r}
+each.side <- round(pbinom(4,20,.5),digits = 4)
+ggplot(wrestle.sim,aes(x = red_wins, fill =as_or_more_extreme )) +
+  geom_histogram(binwidth = 1, color = "white", aes(y = after_stat(count)/sum(count))) +
+  ylab("Expected proportion under the null") + 
+  scale_fill_manual(values = c("lightgrey","#E54E21"), name = "As (or more) extreme than observed")+
+  scale_y_continuous(expand = c(0,0)) +
+  xlab("Number of red victories (of 20 bouts)") +
+  ggtitle("Null distribution for number of red victories", subtitle = sprintf("Of twenty bouts. p = %s", 2*each.side))  +
+  theme_tufte() +
+  geom_vline(xintercept = c(5,15), lty = 2)+
+  annotate(geom = "text",x = 15,y = .1,label = " critical value \n (alpha = 0.05)", hjust = 0) +
+  annotate(geom = "text",x = 15.8,y = .015,label = sprintf(" Area = %s",each.side), color = "#E54E21", hjust = 0)+
+  annotate(geom = "text",x = 4.2,y = .015,label = sprintf(" Area = %s",each.side), color = "#E54E21", hjust = 1)+
+  theme(legend.position = "top", legend.direction = "horizontal")+
+  bb_theme()
+```
+
+## 
+
+![](images/clipboard-3661136366.png)
