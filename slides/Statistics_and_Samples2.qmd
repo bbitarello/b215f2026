@@ -1,7 +1,7 @@
 ---
-title: "1.2.Statistics and Samples"
+title: "1.2.Sampling error, sampling bias, and the ideal random sample"
 author: "Bárbara D. Bitarello"
-date: "09-08-2025"
+date: "09-03-2026"
 keywords: "Statistics & Samples"
 format:
   revealjs:
@@ -65,6 +65,80 @@ Ask for volunteers to remind these concepts
 ::: notes
 These learning goals are for the entire topic/unit. They will also be available in the study guide.
 :::
+
+## Sampling: What could go wrong?
+
+Meet **sampling error** and **sampling bias**
+
+## Sampling bias
+
+::::: columns
+::: {.column width="\"45%\""}
+-   If you collected these against a dark background without careful procedures… ![](images/starfish3.png){width="501"}
+:::
+
+::: {.column width="\"45%\""}
+-   This sample is biased. There is a higher proportion of orange stars than the population from which it was taken. Therefore, it is not a representative sample of the underlying population. ![](images/starfish4.png){width="445"}
+:::
+:::::
+
+## Sampling bias
+
+Systematic difference between parameters & estimates.
+
+::: aside
+Case study: Polls in the 1936 US Election.
+:::
+
+## The 1936 Election
+
+:::::: r-fit-text
+::::: columns
+::: {.column width="\"50%\""}
+![Republican Alf Landon](https://upload.wikimedia.org/wikipedia/commons/c/c6/Alf_Landon_closeupcrop.jpg){fig-alt="Picture of Alf Landon" width="244"}
+:::
+
+::: {.column width="\"50%\""}
+![Democrat Franklin Roosevelt](https://upload.wikimedia.org/wikipedia/commons/3/37/FDR_and_Fala_at_table.jpg){fig-alt="Picture of F. Roosevelt" width="206"}
+:::
+:::::
+::::::
+
+## 1936 Literary Digest poll
+
+2.4 million responses to 10 million questionnaires , sent to people from telephone books and club lists.
+
+## 1936 Literary Digest poll
+
+```{r echo=F, fig.height=4, fig.cap="Figure made in R with code borrowed from Y. Brandvain"}
+##| label: 1936-election
+library(ggplot2)
+source("bb_theme.R")
+ggplot(data.frame(Candidate = c("Landon","Roosevelt"), 
+                          support = 2.4 * c(.57,.43)),
+               aes(x = Candidate , y = support, fill = Candidate)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  bb_theme() +
+  ylab(label = "support (millions of respondents)")+
+  geom_hline(yintercept = seq(0,1.40,.50), color = "white") +
+  coord_flip() +
+  ##theme(plot.title = element_text(size = 22),
+  ##      axis.title = element_text(size = 18),
+  ##      axis.text.x=element_text(size=16),
+  ##      axis.text.y=element_text(size=16)) +
+  scale_y_continuous(expand = c(0,0)) +
+  ggtitle(label = "1936 literary digest poll results")
+```
+
+## Election: Roosevelt won in a landslide
+
+![This plot was made in R](images/clipboard-2748303540.png)
+
+## Sampling Bias in the 1936 Polls
+
+-   Questionnaire was more likely to reach rich people (who could afford phones & attend book clubs) than those with fewer means.
+-   Voting and party preference are correlated with wealth.
+-   Poorer people (underrepresented in the poll) supported Roosevelt, carrying him to victory.
 
 ## Volunteer bias
 

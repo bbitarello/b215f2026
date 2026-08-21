@@ -1,213 +1,281 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-html/tabby.min.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1df33b310b25e824b5acc70bcebddb02.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.25">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Bárbara D. Bitarello">
 <meta name="dcterms.date" content="2025-10-06">
 <meta name="keywords" content="Probability - Foundational Concepts">
-<title>BIOL B215: Biostatistics with R – 3.2.Probability</title>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-<link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-<link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+<title>3.2.Probability – BIOL B215: Biostatistics with R</title>
 <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-      vertical-align: middle;
-    }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-32fcef5be86bd6c2561bc906153f7552.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
       }
-    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-    div.sourceCode
-      { color: #b3b1ad; background-color: #0a0e14; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
-    code span { color: #b3b1ad; } /* Normal */
-    code span.al { color: #ff3333; background-color: #2a0f15; font-weight: bold; } /* Alert */
-    code span.an { color: #e6b673; } /* Annotation */
-    code span.at { color: #59c2ff; } /* Attribute */
-    code span.bn { color: #e6b450; } /* BaseN */
-    code span.bu { color: #95e6cb; } /* BuiltIn */
-    code span.cf { color: #ff8f40; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #95e6cb; } /* Char */
-    code span.cn { color: #ffee99; } /* Constant */
-    code span.co { color: #626a73; font-style: italic; } /* Comment */
-    code span.cv { color: #ffee99; } /* CommentVar */
-    code span.do { color: #626a73; } /* Documentation */
-    code span.dt { color: #ff8f40; } /* DataType */
-    code span.dv { color: #e6b450; } /* DecVal */
-    code span.er { color: #ff3333; text-decoration: underline; } /* Error */
-    code span.ex { color: #59c2ff; font-weight: bold; } /* Extension */
-    code span.fl { color: #e6b450; } /* Float */
-    code span.fu { color: #ffb454; } /* Function */
-    code span.im { color: #c2d94c; } /* Import */
-    code span.in { color: #e6b450; } /* Information */
-    code span.kw { color: #ff8f40; font-weight: bold; } /* Keyword */
-    code span.op { color: #f29668; } /* Operator */
-    code span.ot { color: #39bae6; } /* Other */
-    code span.pp { color: #f07178; } /* Preprocessor */
-    code span.re { color: #59c2ff; background-color: #173649; } /* RegionMarker */
-    code span.sc { color: #95e6cb; } /* SpecialChar */
-    code span.ss { color: #95e6cb; } /* SpecialString */
-    code span.st { color: #c2d94c; } /* String */
-    code span.va { color: #39bae6; } /* Variable */
-    code span.vs { color: #c2d94c; } /* VerbatimString */
-    code span.wa { color: #f07178; } /* Warning */
-  </style>
-<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f584ff78a3af22586ffe44530b07a055.css">
-<link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-<link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-<link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-<link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-<style type="text/css">
-    .reveal div.sourceCode {
-      margin: 0;
-      overflow: auto;
-    }
-    .reveal div.hanging-indent {
-      margin-left: 1em;
-      text-indent: -1em;
-    }
-    .reveal .slide:not(.center) {
-      height: 100%;
-      overflow-y: auto;
-    }
-    .reveal .slide.scrollable {
-      overflow-y: auto;
-    }
-    .reveal .footnotes {
-      height: 100%;
-      overflow-y: auto;
-    }
-    .reveal .slide .absolute {
-      position: absolute;
-      display: block;
-    }
-    .reveal .footnotes ol {
-      counter-reset: ol;
-      list-style-type: none; 
-      margin-left: 0;
-    }
-    .reveal .footnotes ol li:before {
-      counter-increment: ol;
-      content: counter(ol) ". "; 
-    }
-    .reveal .footnotes ol li > p:first-child {
-      display: inline-block;
-    }
-    .reveal .slide ul,
-    .reveal .slide ol {
-      margin-bottom: 0.5em;
-    }
-    .reveal .slide ul li,
-    .reveal .slide ol li {
-      margin-top: 0.4em;
-      margin-bottom: 0.2em;
-    }
-    .reveal .slide ul[role="tablist"] li {
-      margin-bottom: 0;
-    }
-    .reveal .slide ul li > *:first-child,
-    .reveal .slide ol li > *:first-child {
-      margin-block-start: 0;
-    }
-    .reveal .slide ul li > *:last-child,
-    .reveal .slide ol li > *:last-child {
-      margin-block-end: 0;
-    }
-    .reveal .slide .columns:nth-child(3) {
-      margin-block-start: 0.8em;
-    }
-    .reveal blockquote {
-      box-shadow: none;
-    }
-    .reveal .tippy-content>* {
-      margin-top: 0.2em;
-      margin-bottom: 0.7em;
-    }
-    .reveal .tippy-content>*:last-child {
-      margin-bottom: 0.2em;
-    }
-    .reveal .slide > img.stretch.quarto-figure-center,
-    .reveal .slide > img.r-stretch.quarto-figure-center {
-      display: block;
-      margin-left: auto;
-      margin-right: auto; 
-    }
-    .reveal .slide > img.stretch.quarto-figure-left,
-    .reveal .slide > img.r-stretch.quarto-figure-left  {
-      display: block;
-      margin-left: 0;
-      margin-right: auto; 
-    }
-    .reveal .slide > img.stretch.quarto-figure-right,
-    .reveal .slide > img.r-stretch.quarto-figure-right  {
-      display: block;
-      margin-left: auto;
-      margin-right: 0; 
-    }
-  </style>
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 </head>
-<body class="quarto-light">
-  <div class="reveal">
-    <div class="slides">
+<body class="nav-sidebar docked slimcontent quarto-light">
 
-<section id="title-slide" class="quarto-title-block"><h1 class="title">3.2.Probability</h1>
-  <p class="subtitle">Acknowledgments: many code snippets borrowed from Y. Brandvain</p>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">3.2.Probability</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/bbitarello/b215f2025" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://posit.cloud/spaces/678147/join?access_code=hl0WMhTu8LNwvW1hn-uIdm_lx1Xm8sCjIUMwCW24" title="RStudio Cloud" class="quarto-navigation-tool px-1" aria-label="RStudio Cloud"><i class="bi bi-cloud-fill"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../CA1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coding Assignment 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rlearn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R resources</span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#outline" id="toc-outline" class="nav-link active" data-scroll-target="#outline">Outline</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#to-help-us-when-generalizing-from-sample-to-population-we-need-probability-theory-the-foundation-of-statistical-thinking" id="toc-to-help-us-when-generalizing-from-sample-to-population-we-need-probability-theory-the-foundation-of-statistical-thinking" class="nav-link" data-scroll-target="#to-help-us-when-generalizing-from-sample-to-population-we-need-probability-theory-the-foundation-of-statistical-thinking">To help us when generalizing from sample to population, we need Probability Theory: The foundation of statistical thinking</a></li>
+  <li><a href="#definitions-terminologies-and-notations" id="toc-definitions-terminologies-and-notations" class="nav-link" data-scroll-target="#definitions-terminologies-and-notations">Definitions, Terminologies, and Notations</a></li>
+  <li><a href="#why-do-we-need-probabilities" id="toc-why-do-we-need-probabilities" class="nav-link" data-scroll-target="#why-do-we-need-probabilities">Why do we need probabilities?</a></li>
+  <li><a href="#what-is-probability" id="toc-what-is-probability" class="nav-link" data-scroll-target="#what-is-probability">What is probability?</a></li>
+  <li><a href="#some-definitions" id="toc-some-definitions" class="nav-link" data-scroll-target="#some-definitions">Some definitions</a></li>
+  <li><a href="#probability-out-there---outside-your-head" id="toc-probability-out-there---outside-your-head" class="nav-link" data-scroll-target="#probability-out-there---outside-your-head">Probability “out there” - outside your head</a></li>
+  <li><a href="#probability-as-long-term-frequency" id="toc-probability-as-long-term-frequency" class="nav-link" data-scroll-target="#probability-as-long-term-frequency">Probability as long-term frequency</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#probability-as-long-term-frequency-1" id="toc-probability-as-long-term-frequency-1" class="nav-link" data-scroll-target="#probability-as-long-term-frequency-1">Probability as long-term frequency</a></li>
+  <li><a href="#probability-theory-statistics" id="toc-probability-theory-statistics" class="nav-link" data-scroll-target="#probability-theory-statistics">Probability Theory &amp; Statistics</a></li>
+  <li><a href="#lingo-odds-vs-probability" id="toc-lingo-odds-vs-probability" class="nav-link" data-scroll-target="#lingo-odds-vs-probability">Lingo: Odds vs probability</a></li>
+  <li><a href="#example-sex-ratio" id="toc-example-sex-ratio" class="nav-link" data-scroll-target="#example-sex-ratio">Example: Sex ratio</a></li>
+  <li><a href="#foundational-concepts-in-probability-theory" id="toc-foundational-concepts-in-probability-theory" class="nav-link" data-scroll-target="#foundational-concepts-in-probability-theory">Foundational Concepts in Probability Theory</a></li>
+  <li><a href="#random-trials" id="toc-random-trials" class="nav-link" data-scroll-target="#random-trials">Random Trials</a></li>
+  <li><a href="#types-of-events" id="toc-types-of-events" class="nav-link" data-scroll-target="#types-of-events">Types of Events</a></li>
+  <li><a href="#types-of-events-1" id="toc-types-of-events-1" class="nav-link" data-scroll-target="#types-of-events-1">Types of Events</a></li>
+  <li><a href="#probability-distributions" id="toc-probability-distributions" class="nav-link" data-scroll-target="#probability-distributions">Probability distributions</a></li>
+  <li><a href="#probability-distributions-vs.-densities" id="toc-probability-distributions-vs.-densities" class="nav-link" data-scroll-target="#probability-distributions-vs.-densities">Probability: Distributions vs.&nbsp;Densities</a></li>
+  <li><a href="#example-probability-distribution-for-rolling-a-die" id="toc-example-probability-distribution-for-rolling-a-die" class="nav-link" data-scroll-target="#example-probability-distribution-for-rolling-a-die">Example: probability distribution for rolling a die</a></li>
+  <li><a href="#probability-distributions-vs.-densities-1" id="toc-probability-distributions-vs.-densities-1" class="nav-link" data-scroll-target="#probability-distributions-vs.-densities-1">Probability: Distributions <em>vs.</em> Densities</a></li>
+  <li><a href="#example-the-normal-distribution" id="toc-example-the-normal-distribution" class="nav-link" data-scroll-target="#example-the-normal-distribution">Example: the normal distribution!</a></li>
+  <li><a href="#proportion" id="toc-proportion" class="nav-link" data-scroll-target="#proportion">Proportion</a></li>
+  <li><a href="#proportion-outcome-of-a-die" id="toc-proportion-outcome-of-a-die" class="nav-link" data-scroll-target="#proportion-outcome-of-a-die">Proportion: Outcome of a Die 🎲</a></li>
+  <li><a href="#the-sampling-distribution" id="toc-the-sampling-distribution" class="nav-link" data-scroll-target="#the-sampling-distribution">The Sampling Distribution</a></li>
+  <li><a href="#sampling-distribution" id="toc-sampling-distribution" class="nav-link" data-scroll-target="#sampling-distribution">Sampling Distribution 🎲</a></li>
+  <li><a href="#probability-rules" id="toc-probability-rules" class="nav-link" data-scroll-target="#probability-rules">Probability rules</a></li>
+  <li><a href="#the-general-addition-principle-this-or-that" id="toc-the-general-addition-principle-this-or-that" class="nav-link" data-scroll-target="#the-general-addition-principle-this-or-that">The general addition principle (“this OR that”)</a></li>
+  <li><a href="#lets-practice" id="toc-lets-practice" class="nav-link" data-scroll-target="#lets-practice">Let’s practice</a></li>
+  <li><a href="#lets-practice-1" id="toc-lets-practice-1" class="nav-link" data-scroll-target="#lets-practice-1">Let’s practice</a></li>
+  <li><a href="#a-special-case-of-the-addition-principle" id="toc-a-special-case-of-the-addition-principle" class="nav-link" data-scroll-target="#a-special-case-of-the-addition-principle">A special case of the addition principle</a></li>
+  <li><a href="#example-1-probability-of-a-range" id="toc-example-1-probability-of-a-range" class="nav-link" data-scroll-target="#example-1-probability-of-a-range">Example 1: probability of a range</a></li>
+  <li><a href="#example-1-cont." id="toc-example-1-cont." class="nav-link" data-scroll-target="#example-1-cont.">Example 1 (cont.)</a></li>
+  <li><a href="#example-2-probability-of-not" id="toc-example-2-probability-of-not" class="nav-link" data-scroll-target="#example-2-probability-of-not">Example 2: probability of NOT</a></li>
+  <li><a href="#another-example" id="toc-another-example" class="nav-link" data-scroll-target="#another-example">Another example</a></li>
+  <li><a href="#thats-all-for-today" id="toc-thats-all-for-today" class="nav-link" data-scroll-target="#thats-all-for-today">That’s all for today</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/bbitarello/b215f2026/blob/main/slides/Probability2.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Probability2.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">3.2.Probability</h1>
+<p class="subtitle lead">Acknowledgments: many code snippets borrowed from Y. Brandvain</p>
+</div>
 
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Bárbara D. Bitarello 
-</div>
-</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Bárbara D. Bitarello </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 6, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>Probability - Foundational Concepts</p>
+  </div>
 </div>
 
-  <p class="date">2025-10-06</p>
-</section><section id="outline" class="slide level2"><h2>Outline</h2>
+</header><section id="outline" class="level2"><h2 class="anchored" data-anchor-id="outline">Outline</h2>
 <ul>
 <li>Definition(s) &amp; Foundational Concepts
 <ul>
@@ -224,7 +292,7 @@ Bárbara D. Bitarello
 <li>the general multiplication principle</li>
 </ul>
 </li>
-</ul></section><section id="recap" class="slide level2"><h2>Recap</h2>
+</ul></section><section id="recap" class="level2"><h2 class="anchored" data-anchor-id="recap">Recap</h2>
 <div class="goal">
 <p>Statistics and probability are not intuitive. Our brains do a bad job of interpreting data</p>
 </div>
@@ -237,20 +305,12 @@ Bárbara D. Bitarello
 <li>we don’t expect variability to depend on sample size</li>
 <li>we find it hard to combine probabilities (coming up soon)</li>
 </ul>
-<aside class="notes"><p>We saw a lot of these last week</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section id="to-help-us-when-generalizing-from-sample-to-population-we-need-probability-theory-the-foundation-of-statistical-thinking" class="slide level2 dark-theme center"><h2>To help us when generalizing from sample to population, we need Probability Theory: The foundation of statistical thinking</h2>
-</section><section id="definitions-terminologies-and-notations" class="slide level2 dark-theme center"><h2>Definitions, Terminologies, and Notations</h2>
-</section><section id="why-do-we-need-probabilities" class="slide level2"><h2>Why do we need probabilities?</h2>
+<div class="notes">
+<p>We saw a lot of these last week</p>
+</div>
+</section><section id="to-help-us-when-generalizing-from-sample-to-population-we-need-probability-theory-the-foundation-of-statistical-thinking" class="level2 dark-theme center"><h2 class="dark-theme center anchored" data-anchor-id="to-help-us-when-generalizing-from-sample-to-population-we-need-probability-theory-the-foundation-of-statistical-thinking">To help us when generalizing from sample to population, we need Probability Theory: The foundation of statistical thinking</h2>
+</section><section id="definitions-terminologies-and-notations" class="level2 dark-theme center"><h2 class="dark-theme center anchored" data-anchor-id="definitions-terminologies-and-notations">Definitions, Terminologies, and Notations</h2>
+</section><section id="why-do-we-need-probabilities" class="level2"><h2 class="anchored" data-anchor-id="why-do-we-need-probabilities">Why do we need probabilities?</h2>
 <p>We can use probability theory to connect <font color="#C0532B">sample <strong>estimates</strong></font></p>
 <ul>
 <li>Which we can obtain from data.</li>
@@ -260,25 +320,27 @@ Bárbara D. Bitarello
 <ul>
 <li>Which we can almost never obtain.</li>
 <li>With values free from chance (<font color="#00a1b7">population <strong>constant</strong></font>).</li>
-</ul></section><section id="what-is-probability" class="slide level2"><h2>What is probability?</h2>
+</ul></section><section id="what-is-probability" class="level2"><h2 class="anchored" data-anchor-id="what-is-probability">What is probability?</h2>
 <ul>
 <li>It depends.</li>
 <li>Probability is super complex.</li>
 <li>Entire books have been written on it and there are fiery debates about what even <em>IS</em> a probability.</li>
-</ul></section><section id="some-definitions" class="slide level2 scrollable"><h2>Some definitions</h2>
+</ul></section><section id="some-definitions" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="some-definitions">Some definitions</h2>
 <ol type="1">
 <li>Probability “out there” - outside your head.</li>
 </ol>
 <p>But also…</p>
-<ol start="2" type="1">
-<li class="fragment"><p>Probability that is “inside your head” — as strength of subjective beliefs; may vary among people or even different assessments by the same person.</p></li>
-<li class="fragment"><p>“Probabilities” used to quantify ignorance – e.g.&nbsp;probability that a pregnant person is pregnant with a girl</p></li>
-<li class="fragment"><p>Quantitive predictions of one time events – e.g., presidential polls</p></li>
+<div class="incremental">
+<ol class="incremental" start="2" type="1">
+<li><p>Probability that is “inside your head” — as strength of subjective beliefs; may vary among people or even different assessments by the same person.</p></li>
+<li><p>“Probabilities” used to quantify ignorance – e.g.&nbsp;probability that a pregnant person is pregnant with a girl</p></li>
+<li><p>Quantitive predictions of one time events – e.g., presidential polls</p></li>
 </ol>
+</div>
 
-<aside><div>
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>From: Kruschke’s (2011) terminology.</p>
-</div></aside></section><section id="probability-out-there---outside-your-head" class="slide level2"><h2>Probability “out there” - outside your head</h2>
+</div></div></section><section id="probability-out-there---outside-your-head" class="level2"><h2 class="anchored" data-anchor-id="probability-out-there---outside-your-head">Probability “out there” - outside your head</h2>
 <p>What we deal with in biology most of the time</p>
 <div class="goal">
 <ul>
@@ -287,11 +349,11 @@ Bárbara D. Bitarello
 <li>We rarely have enough data to know that value precisely (or good data to know it accurately), but we estimate it and give it different levels of confidence</li>
 </ul>
 </div>
-</section><section id="probability-as-long-term-frequency" class="slide level2"><h2>Probability as long-term frequency</h2>
+</section><section id="probability-as-long-term-frequency" class="level2"><h2 class="anchored" data-anchor-id="probability-as-long-term-frequency">Probability as long-term frequency</h2>
 <ul>
 <li><p>The probability of an event is its true relative frequency - “out there”</p></li>
 <li><p>This is the proportion of times the event would occur if we repeated the same process over and over again</p></li>
-</ul></section><section id="example" class="slide level2"><h2>Example</h2>
+</ul></section><section id="example" class="level2"><h2 class="anchored" data-anchor-id="example">Example</h2>
 <div class="goal">
 <p>Example: what’s the probability that a fair die will give me 2 if I roll it once?</p>
 </div>
@@ -301,8 +363,11 @@ Bárbara D. Bitarello
 <li>So we say the answer here is <span class="math inline">\(1/6\)</span>
 </li>
 </ul>
-
-<img data-src="images/clipboard-2248999926.png" class="r-stretch quarto-figure-center"><p class="caption">Figure caption: figure 5.2-1 from the textbook.</p></section><section id="probability-as-long-term-frequency-1" class="slide level2"><h2>Probability as long-term frequency</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="images/clipboard-2248999926.png" class="img-fluid figure-img"></p>
+<figcaption>Figure caption: figure 5.2-1 from the textbook.</figcaption></figure>
+</div>
+</section><section id="probability-as-long-term-frequency-1" class="level2"><h2 class="anchored" data-anchor-id="probability-as-long-term-frequency-1">Probability as long-term frequency</h2>
 <p>Two subtypes:</p>
 <p><strong>1) Probabilities as predictions from a model</strong></p>
 <ul>
@@ -311,7 +376,7 @@ Bárbara D. Bitarello
 <p><strong>2) Probabilities based on data</strong></p>
 <ul>
 <li>in reality, long-term data cross many countries suggest odds of XY to XX baby are 51.7:50</li>
-</ul></section><section id="probability-theory-statistics" class="slide level2"><h2>Probability Theory &amp; Statistics</h2>
+</ul></section><section id="probability-theory-statistics" class="level2"><h2 class="anchored" data-anchor-id="probability-theory-statistics">Probability Theory &amp; Statistics</h2>
 <p>Probabilities take values from 0-1 (or 0-100%)</p>
 <p>They are used to quantify a prediction about a future event <strong><em>OR</em></strong> the certainty of a belief</p>
 <div class="quarto-layout-panel" data-layout-ncol="3">
@@ -327,7 +392,8 @@ Bárbara D. Bitarello
 </ul>
 </div>
 </div>
-</div><div class="column quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+</div>
+<div class="column quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="goal">
 <div class="fragment fade-in">
 <p>A probability of one (100%) indicates:</p>
@@ -338,7 +404,8 @@ Bárbara D. Bitarello
 </ul>
 </div>
 </div>
-</div><div class="column quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+</div>
+<div class="column quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <div class="goal">
 <div class="fragment fade-in">
 <p>A probability of 0.5 (50%) indicates:</p>
@@ -349,29 +416,29 @@ Bárbara D. Bitarello
 </ul>
 </div>
 </div>
-</div></div>
 </div>
-</section><section id="lingo-odds-vs-probability" class="slide level2"><h2>Lingo: Odds vs probability</h2>
+</div>
+</div>
+</section><section id="lingo-odds-vs-probability" class="level2"><h2 class="anchored" data-anchor-id="lingo-odds-vs-probability">Lingo: Odds vs probability</h2>
 <ul>
 <li>They express the same thing</li>
 <li>Probabilities can be expressed as odds</li>
 <li>Odds can be expressed as probability</li>
 <li>No consistency across fields and no advantage of one over the other</li>
 <li>I learned and most often use “probability” - It sounds less ambiguous to me than odds, which people use more in normal parlance</li>
-</ul></section><section id="example-sex-ratio" class="slide level2"><h2>Example: Sex ratio</h2>
+</ul></section><section id="example-sex-ratio" class="level2"><h2 class="anchored" data-anchor-id="example-sex-ratio">Example: Sex ratio</h2>
 <div class="goal">
 <p>Worldwide, the boy to girl sex ratio of babies born has been estimated to be 1.07. What is the probability of a random birth being a boy?</p>
 </div>
-<div class="fragment">
+<p>. . .</p>
 <p><u><strong>Odds:</strong></u> Probability that event will occur (male born) divided by probability it will not occur (female born). Can be any value 0 or positive (not negative).</p>
 <ul>
 <li><p>Odds of having boy versus girl is:<span class="math inline">\(p[boy]/p[girl]=1.07\)</span> – can also be phrased as <span class="math inline">\(1.07 \text{ to } 1\)</span> or <span class="math inline">\(1.07:1\)</span></p></li>
 <li><p>Equivalent to <span class="math inline">\(107 \text{ to } 100\)</span> (<span class="math inline">\(107:100\)</span>), <span class="math inline">\(1070 \text{ to } 1000\)</span> (<span class="math inline">\(1070:1000\)</span>), etc</p></li>
 </ul>
 <p><u><strong>Probability:</strong></u> if there are 107 boys born for every 100 girls, <span class="math inline">\(107/(100+107)=51.7\%\)</span> or <span class="math inline">\(0.517\)</span> is the probability of having a boy.</p>
-</div>
-</section><section id="foundational-concepts-in-probability-theory" class="slide level2 center dark-theme"><h2>Foundational Concepts in Probability Theory</h2>
-</section><section id="random-trials" class="slide level2"><h2>Random Trials</h2>
+</section><section id="foundational-concepts-in-probability-theory" class="level2 center dark-theme"><h2 class="center dark-theme anchored" data-anchor-id="foundational-concepts-in-probability-theory">Foundational Concepts in Probability Theory</h2>
+</section><section id="random-trials" class="level2"><h2 class="anchored" data-anchor-id="random-trials">Random Trials</h2>
 <div class="goal">
 <p>Example: Probability of getting a 4 in one roll (trial) of a six-sided die</p>
 </div>
@@ -379,8 +446,11 @@ Bárbara D. Bitarello
 <li><p>A random trial is a process or experiment that has two or more possible outcomes whose occurrence cannot be predicted with certainty.</p></li>
 <li><p>Only one outcome is observed from each repetition of a random trial.</p></li>
 </ul>
-
-<img data-src="images/clipboard-2248999926.png" class="r-stretch quarto-figure-center"><p class="caption">Figure caption: figure 5.2-1 from the textbook.</p></section><section id="types-of-events" class="slide level2"><h2>Types of Events</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="images/clipboard-2248999926.png" class="img-fluid figure-img"></p>
+<figcaption>Figure caption: figure 5.2-1 from the textbook.</figcaption></figure>
+</div>
+</section><section id="types-of-events" class="level2"><h2 class="anchored" data-anchor-id="types-of-events">Types of Events</h2>
 <div class="goal">
 <p>Example: possible numbers in a die roll</p>
 </div>
@@ -395,25 +465,26 @@ Bárbara D. Bitarello
 </ul>
 </div><div class="column" style="width:70%;">
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>even_numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
-<span id="cb1-2"><a></a>odd_numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)</span>
-<span id="cb1-3"><a></a>l <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">even =</span> even_numbers, <span class="at">odd =</span> odd_numbers, <span class="at">all =</span> <span class="fu">sort</span>(<span class="fu">c</span>(even_numbers, odd_numbers)))</span>
-<span id="cb1-4"><a></a><span class="fu">library</span>(ggvenn)</span>
-<span id="cb1-5"><a></a></span>
-<span id="cb1-6"><a></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggvenn</span>(l[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)], <span class="at">fill_color =</span> <span class="fu">asteroidcity1</span>(), <span class="at">show_elements =</span> <span class="cn">TRUE</span>, <span class="at">text_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
-<span id="cb1-7"><a></a>    <span class="fu">ggtitle</span>(<span class="st">"Cannot be even AND odd"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Roboto Condensed"</span>,</span>
-<span id="cb1-8"><a></a>    <span class="at">size =</span> <span class="dv">20</span>))</span>
-<span id="cb1-9"><a></a>p1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">even_numbers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">6</span><span class="op">)</span></span>
+<span><span class="va">odd_numbers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">5</span><span class="op">)</span></span>
+<span><span class="va">l</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>even <span class="op">=</span> <span class="va">even_numbers</span>, odd <span class="op">=</span> <span class="va">odd_numbers</span>, all <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sort.html">sort</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">even_numbers</span>, <span class="va">odd_numbers</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yanlinlin82.github.io/ggvenn/">ggvenn</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">p1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://yanlinlin82.github.io/ggvenn/reference/ggvenn.html">ggvenn</a></span><span class="op">(</span><span class="va">l</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">]</span>, fill_color <span class="op">=</span> <span class="fu">asteroidcity1</span><span class="op">(</span><span class="op">)</span>, show_elements <span class="op">=</span> <span class="cn">TRUE</span>, text_size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Cannot be even AND odd"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"Roboto Condensed"</span>,</span>
+<span>    size <span class="op">=</span> <span class="fl">20</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">p1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
 <div>
-<figure><p><img data-src="Probability2_files/figure-revealjs/even_odd-1.png" width="960"></p>
+<figure class="figure"><p><img src="Probability2_files/figure-revealjs/even_odd-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>E.g., <span class="math inline">\(P(\text{even AND odd})=0\)</span> in a die roll</p>
-</div></div>
-</section><section id="types-of-events-1" class="slide level2"><h2>Types of Events</h2>
+</div>
+</div>
+</section><section id="types-of-events-1" class="level2"><h2 class="anchored" data-anchor-id="types-of-events-1">Types of Events</h2>
 <div class="goal">
 <p>Example: possible numbers in a die roll</p>
 </div>
@@ -429,34 +500,27 @@ Bárbara D. Bitarello
 </ul>
 </div><div class="column" style="width:70%;">
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>l2 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">even =</span> even_numbers, <span class="at">prime =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>))</span>
-<span id="cb2-2"><a></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggvenn</span>(l2, <span class="at">fill_color =</span> <span class="fu">asteroidcity1</span>(), <span class="at">show_elements =</span> <span class="cn">TRUE</span>, <span class="at">text_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
-<span id="cb2-3"><a></a>    <span class="fu">ggtitle</span>(<span class="st">"Can be even AND prime"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"Roboto Condensed"</span>,</span>
-<span id="cb2-4"><a></a>    <span class="at">size =</span> <span class="dv">19</span>))</span>
-<span id="cb2-5"><a></a>p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">l2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>even <span class="op">=</span> <span class="va">even_numbers</span>, prime <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">p2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://yanlinlin82.github.io/ggvenn/reference/ggvenn.html">ggvenn</a></span><span class="op">(</span><span class="va">l2</span>, fill_color <span class="op">=</span> <span class="fu">asteroidcity1</span><span class="op">(</span><span class="op">)</span>, show_elements <span class="op">=</span> <span class="cn">TRUE</span>, text_size <span class="op">=</span> <span class="fl">12</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Can be even AND prime"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>plot.title <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>family <span class="op">=</span> <span class="st">"Roboto Condensed"</span>,</span>
+<span>    size <span class="op">=</span> <span class="fl">19</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">p2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
 <div>
-<figure><p><img data-src="Probability2_files/figure-revealjs/even_prime-1.png" width="960"></p>
+<figure class="figure"><p><img src="Probability2_files/figure-revealjs/even_prime-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>E.g., <span class="math inline">\(P(\text{even AND prime}) \neq 0\)</span> in a die roll – in fact, what is it?</p>
-</div></div>
-<aside class="notes"><p>only one nummber out of the six is both even and prime,so: 2/6=1/3</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section id="probability-distributions" class="slide level2 dark-theme center"><h2>Probability distributions</h2>
+</div>
+</div>
+<div class="notes">
+<p>only one nummber out of the six is both even and prime,so: 2/6=1/3</p>
+</div>
+</section><section id="probability-distributions" class="level2 dark-theme center"><h2 class="dark-theme center anchored" data-anchor-id="probability-distributions">Probability distributions</h2>
 <p>A probability distribution is the true relative frequency of all possible values of a random variable.</p>
-</section><section id="probability-distributions-vs.-densities" class="slide level2"><h2>Probability: Distributions vs.&nbsp;Densities</h2>
+</section><section id="probability-distributions-vs.-densities" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="probability-distributions-vs.-densities">Probability: Distributions vs.&nbsp;Densities</h2>
 <div class="columns">
 <div class="column" style="width:25%;">
 <p>Probability distributions describe <strong>discrete</strong> variables.</p>
@@ -464,24 +528,24 @@ Bárbara D. Bitarello
 <p><span class="math inline">\(\sum{p[x]}=1\)</span></p>
 </div><div class="column" style="width:75%;">
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>ns <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fl">1e+06</span>)</span>
-<span id="cb3-2"><a></a><span class="fu">ggplot</span>(<span class="fu">tibble</span>(<span class="at">x =</span> ns), <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="fu">banff</span>()[<span class="dv">7</span>], <span class="at">fill =</span> <span class="st">"#00a1b7"</span>,</span>
-<span id="cb3-3"><a></a>    <span class="at">bins =</span> <span class="dv">30</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Probability Distribution"</span>) <span class="sc">+</span> <span class="fu">annotate</span>(<span class="st">"text"</span>,</span>
-<span id="cb3-4"><a></a>    <span class="at">x =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fl">1e+05</span>, <span class="at">parse =</span> <span class="cn">TRUE</span>, <span class="at">label =</span> <span class="st">"sum(P(x))==1"</span>, <span class="at">size =</span> <span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ns</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1e+06</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu">tibble</span><span class="op">(</span>x <span class="op">=</span> <span class="va">ns</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram</a></span><span class="op">(</span>color <span class="op">=</span> <span class="fu">banff</span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="fl">7</span><span class="op">]</span>, fill <span class="op">=</span> <span class="st">"#00a1b7"</span>,</span>
+<span>    bins <span class="op">=</span> <span class="fl">30</span>, alpha <span class="op">=</span> <span class="fl">0.4</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Probability Distribution"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>,</span>
+<span>    x <span class="op">=</span> <span class="op">-</span><span class="fl">4</span>, y <span class="op">=</span> <span class="fl">1e+05</span>, parse <span class="op">=</span> <span class="cn">TRUE</span>, label <span class="op">=</span> <span class="st">"sum(P(x))==1"</span>, size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
 <div>
-<figure><p><img data-src="Probability2_files/figure-revealjs/probdist-1.png" width="960"></p>
+<figure class="figure"><p><img src="Probability2_files/figure-revealjs/probdist-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># bb_theme()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># bb_theme()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div></div>
+</div>
+</div>
 
-<aside><div>
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>Technically, only discrete variables have probability distributions,as all discrete values have a finite probability.</p>
-</div></aside></section><section id="example-probability-distribution-for-rolling-a-die" class="slide level2"><h2>Example: probability distribution for rolling a die</h2>
+</div></div></section><section id="example-probability-distribution-for-rolling-a-die" class="level2"><h2 class="anchored" data-anchor-id="example-probability-distribution-for-rolling-a-die">Example: probability distribution for rolling a die</h2>
 <div class="columns">
 <div class="column" style="width:25%;">
 <p>All possible values: <span class="math inline">\(x=\{1,2,3,4,5,6\}\)</span></p>
@@ -491,11 +555,12 @@ Bárbara D. Bitarello
 <p><span class="math inline">\(\sum{p[x]}=1\)</span></p>
 </div><div class="column" style="width:75%;">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/clipboard-4068246779.png"></p>
+<figure class="figure"><p><img src="images/clipboard-4068246779.png" class="img-fluid figure-img"></p>
 <figcaption>Figure caption: figure 5.4-1 from the textbook.</figcaption></figure>
 </div>
-</div></div>
-</section><section id="probability-distributions-vs.-densities-1" class="slide level2"><h2>Probability: Distributions <em>vs.</em> Densities</h2>
+</div>
+</div>
+</section><section id="probability-distributions-vs.-densities-1" class="level2"><h2 class="anchored" data-anchor-id="probability-distributions-vs.-densities-1">Probability: Distributions <em>vs.</em> Densities</h2>
 <div class="columns">
 <div class="column" style="width:25%;">
 <ul>
@@ -504,58 +569,73 @@ Bárbara D. Bitarello
 </ul>
 <p><span class="math inline">\(\int{p[x]}=1\)</span></p>
 </div><div class="column" style="width:75%;">
-<p><img data-src="images/clipboard-419390973.png" width="374"></p>
+<p><img src="images/clipboard-419390973.png" class="img-fluid" width="374"></p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">ggplot</span>(<span class="fu">tibble</span>(<span class="at">x =</span> ns), <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="fu">banff</span>()[<span class="dv">5</span>], <span class="at">color =</span> <span class="fu">banff</span>()[<span class="dv">7</span>],</span>
-<span id="cb5-2"><a></a>    <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Probability Density"</span>) <span class="sc">+</span> <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fl">0.3</span>,</span>
-<span id="cb5-3"><a></a>    <span class="at">parse =</span> <span class="cn">TRUE</span>, <span class="at">label =</span> <span class="st">"integral(f(x)*dx, a, b)"</span>, <span class="at">size =</span> <span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu">tibble</span><span class="op">(</span>x <span class="op">=</span> <span class="va">ns</span><span class="op">)</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="fu">banff</span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span>, color <span class="op">=</span> <span class="fu">banff</span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="fl">7</span><span class="op">]</span>,</span>
+<span>    alpha <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Probability Density"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"text"</span>, x <span class="op">=</span> <span class="op">-</span><span class="fl">4</span>, y <span class="op">=</span> <span class="fl">0.3</span>,</span>
+<span>    parse <span class="op">=</span> <span class="cn">TRUE</span>, label <span class="op">=</span> <span class="st">"integral(f(x)*dx, a, b)"</span>, size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div></div>
-</section><section id="example-the-normal-distribution" class="slide level2"><h2>Example: the normal distribution!</h2>
+</div>
+</div>
+</section><section id="example-the-normal-distribution" class="level2"><h2 class="anchored" data-anchor-id="example-the-normal-distribution">Example: the normal distribution!</h2>
 <p>Area under the curve gives you the probability of values in a range <span class="math inline">\(\left[a,b\right]\)</span> Each value has an an infinitesimal probability value</p>
-
-<img data-src="images/clipboard-1619218967.png" class="r-stretch quarto-figure-center"><p class="caption">Figure caption: figure 5.4-4 from the textbook.</p></section><section id="proportion" class="slide level2"><h2>Proportion</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="images/clipboard-1619218967.png" class="img-fluid figure-img"></p>
+<figcaption>Figure caption: figure 5.4-4 from the textbook.</figcaption></figure>
+</div>
+</section><section id="proportion" class="level2"><h2 class="anchored" data-anchor-id="proportion">Proportion</h2>
 <ul>
 <li><p>The proportion is the number of times an event occurs divided by the number of tries.</p></li>
 <li><p>We can think of a proportion as a realized sample from our probability distribution.</p></li>
-</ul></section><section id="proportion-outcome-of-a-die" class="slide level2"><h2>Proportion: Outcome of a Die 🎲</h2>
+</ul></section><section id="proportion-outcome-of-a-die" class="level2"><h2 class="anchored" data-anchor-id="proportion-outcome-of-a-die">Proportion: Outcome of a Die 🎲</h2>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>plot.one.dice.prob <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">outcome =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>), <span class="at">probability =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>) <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> outcome, <span class="at">y =</span> probability, <span class="at">fill =</span> <span class="fu">factor</span>(outcome))) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>,</span>
-<span id="cb6-3"><a></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Probability Distribution"</span>, <span class="at">subtitle =</span> <span class="st">"Outcome of a fair die"</span>) <span class="sc">+</span></span>
-<span id="cb6-4"><a></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,</span>
-<span id="cb6-5"><a></a>    <span class="fl">0.32</span>)) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Expected probability"</span>) <span class="sc">+</span> <span class="fu">bb_theme</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">banff</span>()) <span class="sc">+</span></span>
-<span id="cb6-6"><a></a><span class="fu">theme</span>(<span class="at">axis.ticks =</span> <span class="fu">element_blank</span>())</span>
-<span id="cb6-7"><a></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Outcome =</span> <span class="fu">DieRoll</span>(<span class="at">times =</span> <span class="dv">6</span>), <span class="at">NrRolls =</span> <span class="dv">6</span>)</span>
-<span id="cb6-8"><a></a></span>
-<span id="cb6-9"><a></a>one.roll <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Outcome, <span class="at">fill =</span> <span class="fu">factor</span>(Outcome))) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(count)),</span>
-<span id="cb6-10"><a></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Proportions Observed"</span>, <span class="at">subtitle =</span> <span class="st">"Outcome of a fair die</span><span class="sc">\n</span><span class="st">(n = 6 trials)"</span>) <span class="sc">+</span></span>
-<span id="cb6-11"><a></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">banff</span>()) <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="at">label =</span> <span class="st">"Observed proportion"</span>) <span class="sc">+</span></span>
-<span id="cb6-12"><a></a>    <span class="fu">theme</span>(<span class="at">axis.ticks =</span> <span class="fu">element_blank</span>())</span>
-<span id="cb6-13"><a></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb6-14"><a></a>plot.one.dice.prob <span class="sc">+</span> one.roll</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plot.one.dice.prob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>outcome <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span>, probability <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">6</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">outcome</span>, y <span class="op">=</span> <span class="va">probability</span>, fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">outcome</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>,</span>
+<span>    show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Probability Distribution"</span>, subtitle <span class="op">=</span> <span class="st">"Outcome of a fair die"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,</span>
+<span>    <span class="fl">0.32</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Expected probability"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">bb_theme</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu">banff</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.ticks <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Outcome <span class="op">=</span> <span class="fu">DieRoll</span><span class="op">(</span>times <span class="op">=</span> <span class="fl">6</span><span class="op">)</span>, NrRolls <span class="op">=</span> <span class="fl">6</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">one.roll</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Outcome</span>, fill <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Outcome</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>    show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Proportions Observed"</span>, subtitle <span class="op">=</span> <span class="st">"Outcome of a fair die\n(n = 6 trials)"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu">banff</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">12</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span>label <span class="op">=</span> <span class="st">"Observed proportion"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.ticks <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></span>
+<span><span class="va">plot.one.dice.prob</span> <span class="op">+</span> <span class="va">one.roll</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="Probability2_files/figure-revealjs/dice1-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
 </div>
-<img data-src="Probability2_files/figure-revealjs/dice1-1.png" width="960" class="r-stretch"></section><section id="the-sampling-distribution" class="slide level2"><h2>The Sampling Distribution</h2>
+</div>
+</div>
+</section><section id="the-sampling-distribution" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="the-sampling-distribution">The Sampling Distribution</h2>
 <p>The sampling distribution is the distribution of the parameter estimate of interest from these samples.</p>
 <p>The sampling distribution is among the most important probability distributions for statistics.</p>
 
-<aside><div>
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>We will come back to this a lot in the coming weeks.</p>
-</div></aside></section><section id="sampling-distribution" class="slide level2"><h2>Sampling Distribution 🎲</h2>
+</div></div></section><section id="sampling-distribution" class="level2"><h2 class="anchored" data-anchor-id="sampling-distribution">Sampling Distribution 🎲</h2>
 <p>If we repeat die rolls a number of times, we can plot the proportions of {1,2,3,4,5,6} observed throughout many trials</p>
-
-<img data-src="Probability2_files/figure-revealjs/dice3-1.png" width="960" class="r-stretch"></section><section id="probability-rules" class="slide level2 dark-theme"><h2>Probability rules</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="Probability2_files/figure-revealjs/dice3-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="probability-rules" class="level2 dark-theme"><h2 class="dark-theme anchored" data-anchor-id="probability-rules">Probability rules</h2>
 <div class="{r-fit-text}">
 <ul>
 <li><p>The general multiplication principle</p></li>
 <li><p>The general addition principle</p></li>
 </ul>
 </div>
-</section><section id="the-general-addition-principle-this-or-that" class="slide level2"><h2>The general addition principle (“this OR that”)</h2>
+</section><section id="the-general-addition-principle-this-or-that" class="level2"><h2 class="anchored" data-anchor-id="the-general-addition-principle-this-or-that">The general addition principle (“this OR that”)</h2>
 <p><span class="math inline">\(P[A \text{ OR } B]=P[A] + P[B] - P[A \text{ and } B]\)</span></p>
-</section><section id="lets-practice" class="slide level2"><h2>Let’s practice</h2>
+</section><section id="lets-practice" class="level2"><h2 class="anchored" data-anchor-id="lets-practice">Let’s practice</h2>
 <div class="goal">
 <p>What is the probability of a die roll resulting in an even number OR a prime number?</p>
 </div>
@@ -563,528 +643,580 @@ Bárbara D. Bitarello
 <p><span class="math inline">\(+P[A]\)</span></p>
 <p><span class="math inline">\(+P[B]\)</span></p>
 <p><span class="math inline">\(- P[A \text{ and }B]\)</span></p>
-</section><section id="lets-practice-1" class="slide level2"><h2>Let’s practice</h2>
+</section><section id="lets-practice-1" class="level2"><h2 class="anchored" data-anchor-id="lets-practice-1">Let’s practice</h2>
 <p>Even numbers: <span class="math inline">\(\{2,4,6\}\)</span></p>
 <p>Prime numbers: <span class="math inline">\(\{2,3,5\}\)</span></p>
 <p>Even and prime: <span class="math inline">\(\{2\}\)</span></p>
 <p><span class="math inline">\(P[\text{even}]=3/6=1/2\)</span></p>
 <p><span class="math inline">\(+P[\text{ prime}=3/6=1/2]\)</span></p>
 <p><span class="math inline">\(-P[\text{even AND prime} = 1-1/6=5/6\sim0.833\)</span></p>
-</section><section id="a-special-case-of-the-addition-principle" class="slide level2"><h2>A special case of the addition principle</h2>
+</section><section id="a-special-case-of-the-addition-principle" class="level2"><h2 class="anchored" data-anchor-id="a-special-case-of-the-addition-principle">A special case of the addition principle</h2>
 <p><strong><em>IF</em></strong> <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are mutually exclusive, i.e., <span class="math inline">\(P[A \text{ AND } B]=0\)</span>, so:</p>
 <p>Thus,</p>
 <p><span class="math inline">\(P[A \text{ OR } B]=P[A]+P[B]\)</span></p>
-</section><section id="example-1-probability-of-a-range" class="slide level2"><h2>Example 1: probability of a range</h2>
+</section><section id="example-1-probability-of-a-range" class="level2"><h2 class="anchored" data-anchor-id="example-1-probability-of-a-range">Example 1: probability of a range</h2>
 <div class="goal">
 <p>What is the probability the sum of two dice is between six and eight?</p>
 </div>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>plot.two.dice.prob <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Outcome =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="cf">function</span>(X) {</span>
-<span id="cb7-2"><a></a>    X <span class="sc">+</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span></span>
-<span id="cb7-3"><a></a>})))) <span class="sc">|&gt;</span></span>
-<span id="cb7-4"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Outcome)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(count)), <span class="at">group =</span> <span class="dv">1</span>,</span>
-<span id="cb7-5"><a></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Probability Distribution"</span>, <span class="at">subtitle =</span> <span class="st">"Outcome of the sum of two fair dice"</span>) <span class="sc">+</span></span>
-<span id="cb7-6"><a></a>    <span class="fu">scale_x_discrete</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,</span>
-<span id="cb7-7"><a></a>    <span class="fl">0.2</span>)) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Expected probability"</span>) <span class="sc">+</span> <span class="fu">bb_theme</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.ticks =</span> <span class="fu">element_blank</span>())</span>
-<span id="cb7-8"><a></a>plot.two.dice.prob</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-<img data-src="Probability2_files/figure-revealjs/dice4-1.png" width="960" class="r-stretch"></section><section id="example-1-cont." class="slide level2"><h2>Example 1 (cont.)</h2>
-<p><span class="math inline">\(P[6]+P[7]+P[8] - P[6 \text{ AND } 7 \text{ AND } 8]\)</span></p>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">data.frame</span>(<span class="at">outcome =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="st">"6:8"</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>,</span>
-<span id="cb8-2"><a></a>    <span class="dv">4</span>, <span class="dv">5</span>, <span class="st">"6:8"</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>)), <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span> <span class="sc">+</span> <span class="dv">6</span> <span class="sc">+</span> <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>)<span class="sc">/</span><span class="dv">36</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-3"><a></a>    <span class="fu">mutate</span>(<span class="at">my.col =</span> (outcome <span class="sc">==</span> <span class="st">"6:8"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb8-4"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> outcome, <span class="at">y =</span> prob, <span class="at">fill =</span> my.col)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>,</span>
-<span id="cb8-5"><a></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Outcome of the sum of two fair dice"</span>) <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,</span>
-<span id="cb8-6"><a></a>    <span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>)) <span class="sc">+</span> <span class="fu">bb_theme</span>() <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Expected probability"</span>) <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"lightgray"</span>,</span>
-<span id="cb8-7"><a></a>    <span class="st">"#006475"</span>)) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="fu">bquote</span>(<span class="dv">1</span><span class="sc">^</span>{</span>
-<span id="cb8-8"><a></a>    st</span>
-<span id="cb8-9"><a></a>} <span class="sc">~</span> <span class="sc">+</span><span class="er">~</span><span class="dv">2</span><span class="sc">^</span>{</span>
-<span id="cb8-10"><a></a>    nd</span>
-<span id="cb8-11"><a></a>} <span class="sc">~</span> roll)) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.ticks =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-<img data-src="Probability2_files/figure-revealjs/dice6-1.png" width="960" class="r-stretch"></section><section id="example-2-probability-of-not" class="slide level2"><h2>Example 2: probability of NOT</h2>
-<div class="goal">
-<p>The probability the sum of two dice is <strong><em>not</em></strong> between six and eight.</p>
-</div>
-<div class="fragment">
-<p>We know that <span class="math inline">\(\sum{P[X]}=1\)</span>, so <span class="math inline">\(P[\text{ not }X]=1-P[X]\)</span></p>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>dice7<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">outcome =</span>  <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Not between 6 &amp; 8"</span>, <span class="st">"Between  6 &amp; 8"</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Not between 6 &amp; 8"</span>, <span class="st">"Between  6 &amp; 8"</span>)),<span class="at">prob    =</span>  <span class="fu">c</span>((<span class="dv">1</span><span class="sc">+</span><span class="dv">2</span><span class="sc">+</span><span class="dv">3</span><span class="sc">+</span><span class="dv">4</span><span class="sc">+</span><span class="dv">4</span><span class="sc">+</span><span class="dv">3</span><span class="sc">+</span><span class="dv">2</span><span class="sc">+</span><span class="dv">1</span>) , (<span class="dv">5</span> <span class="sc">+</span><span class="dv">6</span><span class="sc">+</span><span class="dv">5</span>) ) <span class="sc">/</span> <span class="dv">36</span>)</span>
-<span id="cb9-2"><a></a></span>
-<span id="cb9-3"><a></a>dice7 <span class="sc">|&gt;</span></span>
-<span id="cb9-4"><a></a>  <span class="fu">mutate</span>(<span class="at">my.col =</span> (outcome <span class="sc">==</span> <span class="st">"6:8"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb9-5"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> outcome, <span class="at">y =</span> prob, <span class="at">fill =</span> outcome)) <span class="sc">+</span></span>
-<span id="cb9-6"><a></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>,<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb9-7"><a></a>  <span class="fu">ggtitle</span>(<span class="st">"Outcome of the sum of two fair dice"</span>) <span class="sc">+</span></span>
-<span id="cb9-8"><a></a>  <span class="fu">ylab</span>(<span class="st">"Expected probability"</span>) <span class="sc">+</span></span>
-<span id="cb9-9"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"lightgray"</span>,<span class="st">"#006475"</span>)) <span class="sc">+</span></span>
-<span id="cb9-10"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">limits  =</span> <span class="fu">c</span>(<span class="dv">0</span>,.<span class="dv">7</span>))<span class="sc">+</span> </span>
-<span id="cb9-11"><a></a>  <span class="fu">bb_theme</span>()<span class="sc">+</span></span>
-<span id="cb9-12"><a></a>  <span class="fu">xlab</span>(<span class="fu">bquote</span>(<span class="dv">1</span><span class="sc">^</span>{st}<span class="sc">~+</span><span class="er">~</span><span class="dv">2</span><span class="sc">^</span>{nd}<span class="sc">~</span>roll))<span class="sc">+</span></span>
-<span id="cb9-13"><a></a>  <span class="fu">theme</span>(<span class="at">axis.ticks =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plot.two.dice.prob</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Outcome <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, <span class="kw">function</span><span class="op">(</span><span class="va">X</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">X</span> <span class="op">+</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span></span>
+<span><span class="op">}</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Outcome</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes_eval.html">after_stat</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">count</span><span class="op">)</span><span class="op">)</span>, group <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>    show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Probability Distribution"</span>, subtitle <span class="op">=</span> <span class="st">"Outcome of the sum of two fair dice"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_discrete.html">scale_x_discrete</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">12</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,</span>
+<span>    <span class="fl">0.2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Expected probability"</span><span class="op">)</span> <span class="op">+</span> <span class="fu">bb_theme</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.ticks <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">plot.two.dice.prob</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
 <div>
-<figure><p><img data-src="Probability2_files/figure-revealjs/dice7-1.png" width="960"></p>
+<figure class="figure"><p><img src="Probability2_files/figure-revealjs/dice4-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
+</section><section id="example-1-cont." class="level2"><h2 class="anchored" data-anchor-id="example-1-cont.">Example 1 (cont.)</h2>
+<p><span class="math inline">\(P[6]+P[7]+P[8] - P[6 \text{ AND } 7 \text{ AND } 8]\)</span></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>outcome <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="st">"6:8"</span>, <span class="fl">9</span>, <span class="fl">10</span>, <span class="fl">11</span>, <span class="fl">12</span><span class="op">)</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>,</span>
+<span>    <span class="fl">4</span>, <span class="fl">5</span>, <span class="st">"6:8"</span>, <span class="fl">9</span>, <span class="fl">10</span>, <span class="fl">11</span>, <span class="fl">12</span><span class="op">)</span><span class="op">)</span>, prob <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span> <span class="op">+</span> <span class="fl">6</span> <span class="op">+</span> <span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span><span class="op">/</span><span class="fl">36</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>my.col <span class="op">=</span> <span class="op">(</span><span class="va">outcome</span> <span class="op">==</span> <span class="st">"6:8"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">outcome</span>, y <span class="op">=</span> <span class="va">prob</span>, fill <span class="op">=</span> <span class="va">my.col</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>,</span>
+<span>    show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Outcome of the sum of two fair dice"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,</span>
+<span>    <span class="fl">0</span><span class="op">)</span>, limits <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu">bb_theme</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Expected probability"</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lightgray"</span>,</span>
+<span>    <span class="st">"#006475"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/bquote.html">bquote</a></span><span class="op">(</span><span class="fl">1</span><span class="op">^</span><span class="op">{</span></span>
+<span>    <span class="va">st</span></span>
+<span><span class="op">}</span> <span class="op">~</span> <span class="op">+</span><span class="op">~</span><span class="fl">2</span><span class="op">^</span><span class="op">{</span></span>
+<span>    <span class="va">nd</span></span>
+<span><span class="op">}</span> <span class="op">~</span> <span class="va">roll</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.ticks <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="Probability2_files/figure-revealjs/dice6-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
 </div>
-</section><section id="another-example" class="slide level2"><h2>Another example</h2>
+</div>
+</div>
+</section><section id="example-2-probability-of-not" class="level2"><h2 class="anchored" data-anchor-id="example-2-probability-of-not">Example 2: probability of NOT</h2>
+<div class="goal">
+<p>The probability the sum of two dice is <strong><em>not</em></strong> between six and eight.</p>
+</div>
+<p>. . .</p>
+<p>We know that <span class="math inline">\(\sum{P[X]}=1\)</span>, so <span class="math inline">\(P[\text{ not }X]=1-P[X]\)</span></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dice7</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>outcome <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Not between 6 &amp; 8"</span>, <span class="st">"Between  6 &amp; 8"</span><span class="op">)</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Not between 6 &amp; 8"</span>, <span class="st">"Between  6 &amp; 8"</span><span class="op">)</span><span class="op">)</span>,prob    <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1</span><span class="op">+</span><span class="fl">2</span><span class="op">+</span><span class="fl">3</span><span class="op">+</span><span class="fl">4</span><span class="op">+</span><span class="fl">4</span><span class="op">+</span><span class="fl">3</span><span class="op">+</span><span class="fl">2</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span> , <span class="op">(</span><span class="fl">5</span> <span class="op">+</span><span class="fl">6</span><span class="op">+</span><span class="fl">5</span><span class="op">)</span> <span class="op">)</span> <span class="op">/</span> <span class="fl">36</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">dice7</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>my.col <span class="op">=</span> <span class="op">(</span><span class="va">outcome</span> <span class="op">==</span> <span class="st">"6:8"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">outcome</span>, y <span class="op">=</span> <span class="va">prob</span>, fill <span class="op">=</span> <span class="va">outcome</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span>stat <span class="op">=</span> <span class="st">"identity"</span>,show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Outcome of the sum of two fair dice"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Expected probability"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lightgray"</span>,<span class="st">"#006475"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span>, limits  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">.7</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> </span>
+<span>  <span class="fu">bb_theme</span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/bquote.html">bquote</a></span><span class="op">(</span><span class="fl">1</span><span class="op">^</span><span class="op">{</span><span class="va">st</span><span class="op">}</span><span class="op">~</span><span class="op">+</span><span class="op">~</span><span class="fl">2</span><span class="op">^</span><span class="op">{</span><span class="va">nd</span><span class="op">}</span><span class="op">~</span><span class="va">roll</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>axis.ticks <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="Probability2_files/figure-revealjs/dice7-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="another-example" class="level2"><h2 class="anchored" data-anchor-id="another-example">Another example</h2>
 <div class="goal">
 <p>Probability that the sum of two dice is odd or between 6 and 8.</p>
 </div>
 <p>Subtract P[A &amp; B] to avoid double counting nonexclusive events</p>
 <p><span class="math inline">\(P[A \text{ or } B] = P[A] + P[B] - P[A \text{ and } B]\)</span></p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>two.die.revisited <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb10-2"><a></a>  <span class="at">Outcome =</span>  <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">12</span>),</span>
-<span id="cb10-3"><a></a>  <span class="at">prob    =</span>  <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>) <span class="sc">/</span> <span class="dv">36</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-4"><a></a>  <span class="fu">mutate</span>(<span class="at">sixeight =</span> Outcome <span class="sc">&gt;</span><span class="dv">5</span> <span class="sc">&amp;</span> Outcome <span class="sc">&lt;</span><span class="dv">9</span>,</span>
-<span id="cb10-5"><a></a>         <span class="at">odd      =</span> Outcome <span class="sc">%%</span><span class="dv">2</span> <span class="sc">==</span><span class="dv">1</span>,</span>
-<span id="cb10-6"><a></a>         <span class="at">oddandsixeight =</span> sixeight <span class="sc">&amp;</span>  odd, </span>
-<span id="cb10-7"><a></a>         <span class="at">oddorsixeight =</span>  sixeight<span class="sc">|</span>odd)</span>
-<span id="cb10-8"><a></a></span>
-<span id="cb10-9"><a></a>dice.theme <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(two.die.revisited, <span class="fu">aes</span>(<span class="at">x =</span> Outcome, <span class="at">y =</span> prob)) <span class="sc">+</span></span>
-<span id="cb10-10"><a></a>  <span class="fu">ylab</span>(<span class="st">""</span>)<span class="sc">+</span></span>
-<span id="cb10-11"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="at">limits  =</span> <span class="fu">c</span>(<span class="dv">0</span>,.<span class="dv">2</span>))<span class="sc">+</span> </span>
-<span id="cb10-12"><a></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) <span class="sc">+</span></span>
-<span id="cb10-13"><a></a>  <span class="fu">bb_theme</span>() <span class="sc">+</span></span>
-<span id="cb10-14"><a></a> <span class="fu">xlab</span>(<span class="fu">bquote</span>(<span class="dv">1</span><span class="sc">^</span>{st}<span class="sc">~+</span><span class="er">~</span><span class="dv">2</span><span class="sc">^</span>{nd}<span class="sc">~</span>roll))</span>
-<span id="cb10-15"><a></a></span>
-<span id="cb10-16"><a></a></span>
-<span id="cb10-17"><a></a></span>
-<span id="cb10-18"><a></a>sixthrougheight <span class="ot">&lt;-</span> dice.theme <span class="sc">+</span>  </span>
-<span id="cb10-19"><a></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> sixeight),<span class="at">stat =</span> <span class="st">"identity"</span>,<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
-<span id="cb10-20"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"lightgray"</span>,<span class="st">"#006475"</span>)) </span>
-<span id="cb10-21"><a></a></span>
-<span id="cb10-22"><a></a>odd <span class="ot">&lt;-</span> dice.theme <span class="sc">+</span>  </span>
-<span id="cb10-23"><a></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> odd),<span class="at">stat =</span> <span class="st">"identity"</span>,<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb10-24"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"lightgray"</span>,<span class="st">"#006475"</span>))<span class="sc">+</span> </span>
-<span id="cb10-25"><a></a>  <span class="fu">ylab</span>(<span class="st">"PLUS"</span>)</span>
-<span id="cb10-26"><a></a></span>
-<span id="cb10-27"><a></a>seven <span class="ot">&lt;-</span> dice.theme <span class="sc">+</span>  </span>
-<span id="cb10-28"><a></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> oddandsixeight),<span class="at">stat =</span> <span class="st">"identity"</span>,<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb10-29"><a></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"lightgray"</span>,<span class="st">"#C0532B"</span>))<span class="sc">+</span> </span>
-<span id="cb10-30"><a></a>  <span class="fu">ylab</span>(<span class="st">"MINUS"</span>)</span>
-<span id="cb10-31"><a></a>tots <span class="ot">&lt;-</span> dice.theme <span class="sc">+</span>  </span>
-<span id="cb10-32"><a></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> oddorsixeight),</span>
-<span id="cb10-33"><a></a>           <span class="at">stat =</span> <span class="st">"identity"</span>,<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"lightgray"</span>,<span class="st">"#006475"</span>))<span class="sc">+</span> </span>
-<span id="cb10-34"><a></a>  <span class="fu">ylab</span>(<span class="st">"EQUALS"</span>)  </span>
-<span id="cb10-35"><a></a></span>
-<span id="cb10-36"><a></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb10-37"><a></a>sixthrougheight<span class="sc">+</span> odd<span class="sc">+</span> seven<span class="sc">+</span> tots</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">two.die.revisited</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<span>  Outcome <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span>, <span class="fl">7</span>, <span class="fl">8</span>, <span class="fl">9</span>, <span class="fl">10</span>, <span class="fl">11</span>, <span class="fl">12</span><span class="op">)</span>,</span>
+<span>  prob    <span class="op">=</span>  <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">6</span>, <span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span> <span class="op">/</span> <span class="fl">36</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">mutate</span><span class="op">(</span>sixeight <span class="op">=</span> <span class="va">Outcome</span> <span class="op">&gt;</span><span class="fl">5</span> <span class="op">&amp;</span> <span class="va">Outcome</span> <span class="op">&lt;</span><span class="fl">9</span>,</span>
+<span>         odd      <span class="op">=</span> <span class="va">Outcome</span> <span class="op"><a href="https://rdrr.io/r/base/Arithmetic.html">%%</a></span><span class="fl">2</span> <span class="op">==</span><span class="fl">1</span>,</span>
+<span>         oddandsixeight <span class="op">=</span> <span class="va">sixeight</span> <span class="op">&amp;</span>  <span class="va">odd</span>, </span>
+<span>         oddorsixeight <span class="op">=</span>  <span class="va">sixeight</span><span class="op">|</span><span class="va">odd</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">dice.theme</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">two.die.revisited</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">Outcome</span>, y <span class="op">=</span> <span class="va">prob</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_y_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span>, limits  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">.2</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>breaks <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">12</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">bb_theme</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/bquote.html">bquote</a></span><span class="op">(</span><span class="fl">1</span><span class="op">^</span><span class="op">{</span><span class="va">st</span><span class="op">}</span><span class="op">~</span><span class="op">+</span><span class="op">~</span><span class="fl">2</span><span class="op">^</span><span class="op">{</span><span class="va">nd</span><span class="op">}</span><span class="op">~</span><span class="va">roll</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span></span>
+<span></span>
+<span><span class="va">sixthrougheight</span> <span class="op">&lt;-</span> <span class="va">dice.theme</span> <span class="op">+</span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">sixeight</span><span class="op">)</span>,stat <span class="op">=</span> <span class="st">"identity"</span>,show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lightgray"</span>,<span class="st">"#006475"</span><span class="op">)</span><span class="op">)</span> </span>
+<span></span>
+<span><span class="va">odd</span> <span class="op">&lt;-</span> <span class="va">dice.theme</span> <span class="op">+</span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">odd</span><span class="op">)</span>,stat <span class="op">=</span> <span class="st">"identity"</span>,show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lightgray"</span>,<span class="st">"#006475"</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"PLUS"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">seven</span> <span class="op">&lt;-</span> <span class="va">dice.theme</span> <span class="op">+</span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">oddandsixeight</span><span class="op">)</span>,stat <span class="op">=</span> <span class="st">"identity"</span>,show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lightgray"</span>,<span class="st">"#C0532B"</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"MINUS"</span><span class="op">)</span></span>
+<span><span class="va">tots</span> <span class="op">&lt;-</span> <span class="va">dice.theme</span> <span class="op">+</span>  </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_bar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">oddorsixeight</span><span class="op">)</span>,</span>
+<span>           stat <span class="op">=</span> <span class="st">"identity"</span>,show.legend <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"lightgray"</span>,<span class="st">"#006475"</span><span class="op">)</span><span class="op">)</span><span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"EQUALS"</span><span class="op">)</span>  </span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></span>
+<span><span class="va">sixthrougheight</span><span class="op">+</span> <span class="va">odd</span><span class="op">+</span> <span class="va">seven</span><span class="op">+</span> <span class="va">tots</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="Probability2_files/figure-revealjs/dice-again-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
 </div>
-<img data-src="Probability2_files/figure-revealjs/dice-again-1.png" width="960" class="r-stretch"></section><section id="thats-all-for-today" class="slide level2"><h2>That’s all for today</h2>
-
-
-
-<img data-src="images/forrestgump.png" alt="&quot;Forrest says &quot;And that's all I wanted to say about that&quot;" width="347" class="r-stretch quarto-figure-center"><p class="caption">From: makeameme.org</p></section>
 </div>
-  <div class="quarto-auto-generated-content" style="display: none;">
-<div class="footer footer-default">
-<p>B215: Biostatistics with R</p>
 </div>
-</div></div>
+</section><section id="thats-all-for-today" class="level2"><h2 class="anchored" data-anchor-id="thats-all-for-today">That’s all for today</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="images/forrestgump.png" class="img-fluid figure-img" alt="&quot;Forrest says &quot;And that's all I wanted to say about that&quot;" width="347"></p>
+<figcaption>From: makeameme.org</figcaption></figure>
+</div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
-      // Full list of configuration options available at:
-      // https://revealjs.com/config/
-      Reveal.initialize({
-'controlsAuto': true,
-'previewLinksAuto': false,
-'pdfSeparateFragments': false,
-'autoAnimateEasing': "ease",
-'autoAnimateDuration': 1,
-'autoAnimateUnmatched': true,
-'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': true,
- 
-        // Display controls in the bottom right corner
-        controls: false,
+</section></main><!-- /main --><script>
+  // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+  // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+  // slide changes (different for each slide format).
+  (function () {
+    // dispatch for htmlwidgets
+    function fireSlideEnter() {
+      const event = window.document.createEvent("Event");
+      event.initEvent("slideenter", true, true);
+      window.document.dispatchEvent(event);
+    }
 
-        // Help the user learn the controls by providing hints, for example by
-        // bouncing the down arrow when they first encounter a vertical slide
-        controlsTutorial: false,
+    function fireSlideChanged(previousSlide, currentSlide) {
+      fireSlideEnter();
 
-        // Determines where controls appear, "edges" or "bottom-right"
-        controlsLayout: 'edges',
+      // dispatch for shiny
+      if (window.jQuery) {
+        if (previousSlide) {
+          window.jQuery(previousSlide).trigger("hidden");
+        }
+        if (currentSlide) {
+          window.jQuery(currentSlide).trigger("shown");
+        }
+      }
+    }
 
-        // Visibility rule for backwards navigation arrows; "faded", "hidden"
-        // or "visible"
-        controlsBackArrows: 'faded',
-
-        // Display a presentation progress bar
-        progress: true,
-
-        // Display the page number of the current slide
-        slideNumber: 'c/t',
-
-        // 'all', 'print', or 'speaker'
-        showSlideNumber: 'all',
-
-        // Add the current slide number to the URL hash so that reloading the
-        // page/copying the URL will return you to the same slide
-        hash: true,
-
-        // Start with 1 for the hash rather than 0
-        hashOneBasedIndex: false,
-
-        // Flags if we should monitor the hash and change slides accordingly
-        respondToHashChanges: true,
-
-        // Push each slide change to the browser history
-        history: true,
-
-        // Enable keyboard shortcuts for navigation
-        keyboard: true,
-
-        // Enable the slide overview mode
-        overview: true,
-
-        // Disables the default reveal.js slide layout (scaling and centering)
-        // so that you can use custom CSS layout
-        disableLayout: false,
-
-        // Vertical centering of slides
-        center: false,
-
-        // Enables touch navigation on devices with touch input
-        touch: true,
-
-        // Loop the presentation
-        loop: false,
-
-        // Change the presentation direction to be RTL
-        rtl: false,
-
-        // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'linear',
-
-        // Randomizes the order of slides each time the presentation loads
-        shuffle: false,
-
-        // Turns fragments on and off globally
-        fragments: true,
-
-        // Flags whether to include the current fragment in the URL,
-        // so that reloading brings you to the same fragment position
-        fragmentInURL: false,
-
-        // Flags if the presentation is running in an embedded mode,
-        // i.e. contained within a limited portion of the screen
-        embedded: false,
-
-        // Flags if we should show a help overlay when the questionmark
-        // key is pressed
-        help: true,
-
-        // Flags if it should be possible to pause the presentation (blackout)
-        pause: true,
-
-        // Flags if speaker notes should be visible to all viewers
-        showNotes: false,
-
-        // Global override for autoplaying embedded media (null/true/false)
-        autoPlayMedia: null,
-
-        // Global override for preloading lazy-loaded iframes (null/true/false)
-        preloadIframes: null,
-
-        // Number of milliseconds between automatically proceeding to the
-        // next slide, disabled when set to 0, this value can be overwritten
-        // by using a data-autoslide attribute on your slides
-        autoSlide: 133000,
-
-        // Stop auto-sliding after user input
-        autoSlideStoppable: true,
-
-        // Use this method for navigation when auto-sliding
-        autoSlideMethod: null,
-
-        // Specify the average time in seconds that you think you will spend
-        // presenting each slide. This is used to show a pacing timer in the
-        // speaker view
-        defaultTiming: null,
-
-        // Enable slide navigation via mouse wheel
-        mouseWheel: false,
-
-        // The display mode that will be used to show slides
-        display: 'block',
-
-        // Hide cursor if inactive
-        hideInactiveCursor: true,
-
-        // Time before the cursor is hidden (in ms)
-        hideCursorTime: 5000,
-
-        // Opens links in an iframe preview overlay
-        previewLinks: false,
-
-        // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'fade',
-
-        // Transition speed (default/fast/slow)
-        transitionSpeed: 'default',
-
-        // Transition style for full page slide backgrounds
-        // (none/fade/slide/convex/concave/zoom)
-        backgroundTransition: 'fade',
-
-        // Number of slides away from the current that are visible
-        viewDistance: 3,
-
-        // Number of slides away from the current that are visible on mobile
-        // devices. It is advisable to set this to a lower number than
-        // viewDistance in order to save resources.
-        mobileViewDistance: 2,
-
-        // The "normal" size of the presentation, aspect ratio will be preserved
-        // when the presentation is scaled to fit different resolutions. Can be
-        // specified using percentage units.
-        width: 1050,
-
-        height: 700,
-
-        // Factor of the display size that should remain empty around the content
-        margin: 0.1,
-
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
-        // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
-
-          RevealMath,
-          RevealNotes,
-          RevealSearch,
-          RevealZoom
-        ]
+    // hookup for slidy
+    if (window.w3c_slidy) {
+      window.w3c_slidy.add_observer(function (slide_num) {
+        // slide_num starts at position 1
+        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
       });
-    </script><script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
+    }
 
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
+  })();
+</script><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bbitarello\.github\.io\/b215f2026\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-
-      })();
-    </script><script id="quarto-html-after-body" type="application/javascript">
-      window.document.addEventListener("DOMContentLoaded", function (event) {
-        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-        tabsets.forEach(function(tabset) {
-          const tabby = new Tabby('#' + tabset.id);
-        });
-        const isCodeAnnotation = (el) => {
-          for (const clz of el.classList) {
-            if (clz.startsWith('code-annotation-')) {                     
-              return true;
-            }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
-          return false;
         }
-        const onCopySuccess = function(e) {
-          // button target
-          const button = e.trigger;
-          // don't keep focus
-          button.blur();
-          // flash "checked"
-          button.classList.add('code-copy-button-checked');
-          var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
-          let tooltip;
-          if (window.bootstrap) {
-            button.setAttribute("data-bs-toggle", "tooltip");
-            button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
-            tooltip = new bootstrap.Tooltip(button, 
-              { trigger: "manual", 
-                customClass: "code-copy-button-tooltip",
-                offset: [0, -8]});
-            tooltip.show();    
-          }
-          setTimeout(function() {
-            if (tooltip) {
-              tooltip.hide();
-              button.removeAttribute("data-bs-title");
-              button.removeAttribute("data-bs-toggle");
-              button.removeAttribute("data-bs-placement");
-            }
-            button.setAttribute("title", currentTitle);
-            button.classList.remove('code-copy-button-checked');
-          }, 1000);
-          // clear code selection
-          e.clearSelection();
-        }
-        const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-          text: getTextToCopy
-        });
-        clipboard.on('success', onCopySuccess);
-        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-            text: getTextToCopy,
-            container: window.document.getElementById('quarto-embedded-source-code-modal')
-          });
-          clipboardModal.on('success', onCopySuccess);
-        }
-          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-          var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/bbitarello\.github\.io\/b215f2025\/");
-          var isInternal = (href) => {
-              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-          }
-          // Inspect non-navigation links and adorn them if external
-         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-          for (var i=0; i<links.length; i++) {
-            const link = links[i];
-            if (!isInternal(link.href)) {
-              // undo the damage that might have been done by quarto-nav.js in the case of
-              // links that we want to consider external
-              if (link.dataset.originalHref !== undefined) {
-                link.href = link.dataset.originalHref;
-              }
-            }
-          }
-        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-          const config = {
-            allowHTML: true,
-            maxWidth: 500,
-            delay: 100,
-            arrow: false,
-            appendTo: function(el) {
-                return el.closest('section.slide') || el.parentElement;
-            },
-            interactive: true,
-            interactiveBorder: 10,
-            theme: 'light-border',
-            placement: 'bottom-start',
-          };
-          if (contentFn) {
-            config.content = contentFn;
-          }
-          if (onTriggerFn) {
-            config.onTrigger = onTriggerFn;
-          }
-          if (onUntriggerFn) {
-            config.onUntrigger = onUntriggerFn;
-          }
-            config['offset'] = [0,0];
-            config['maxWidth'] = 700;
-          window.tippy(el, config); 
-        }
-        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-        for (var i=0; i<noterefs.length; i++) {
-          const ref = noterefs[i];
-          tippyHover(ref, function() {
-            // use id or data attribute instead here
-            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-            try { href = new URL(href).hash; } catch {}
-            const id = href.replace(/^#\/?/, "");
-            const note = window.document.getElementById(id);
-            if (note) {
-              return note.innerHTML;
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
             } else {
-              return "";
+              container.appendChild(child.cloneNode(true));
+              break;
             }
-          });
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        const findCites = (el) => {
-          const parentEl = el.parentElement;
-          if (parentEl) {
-            const cites = parentEl.dataset.cites;
-            if (cites) {
-              return {
-                el,
-                cites: cites.split(' ')
-              };
-            } else {
-              return findCites(el.parentElement)
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
             }
           } else {
-            return undefined;
-          }
-        };
-        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-        for (var i=0; i<bibliorefs.length; i++) {
-          const ref = bibliorefs[i];
-          const citeInfo = findCites(ref);
-          if (citeInfo) {
-            tippyHover(citeInfo.el, function() {
-              var popup = window.document.createElement('div');
-              citeInfo.cites.forEach(function(cite) {
-                var citeDiv = window.document.createElement('div');
-                citeDiv.classList.add('hanging-indent');
-                citeDiv.classList.add('csl-entry');
-                var biblioDiv = window.document.getElementById('ref-' + cite);
-                if (biblioDiv) {
-                  citeDiv.innerHTML = biblioDiv.innerHTML;
-                }
-                popup.appendChild(citeDiv);
-              });
-              return popup.innerHTML;
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
             });
           }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
         }
+      }, function(instance) {
       });
-      </script>
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/bbitarello/b215f2026/blob/main/slides/Probability2.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

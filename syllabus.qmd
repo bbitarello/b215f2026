@@ -1,6 +1,7 @@
 ---
 title: "Syllabus"
 number-sections: true
+draft: true
 ---
 
 Welcome!

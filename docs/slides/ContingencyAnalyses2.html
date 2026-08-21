@@ -1,215 +1,284 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-html/tabby.min.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1df33b310b25e824b5acc70bcebddb02.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.25">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Bárbara D. Bitarello">
 <meta name="dcterms.date" content="2025-11-26">
 <meta name="keywords" content="2x2 chi-2, Fisher">
-<title>BIOL B215: Biostatistics with R – 8.2.Contingency Analyses</title>
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-<link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
-<link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+<title>8.2.Contingency Analyses – BIOL B215: Biostatistics with R</title>
 <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
-      vertical-align: middle;
-    }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-32fcef5be86bd6c2561bc906153f7552.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><script src="../site_libs/kePrint-0.0.1/kePrint.js"></script><link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
       }
-    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-    div.sourceCode
-      { color: #b3b1ad; background-color: #0a0e14; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
-    code span { color: #b3b1ad; } /* Normal */
-    code span.al { color: #ff3333; background-color: #2a0f15; font-weight: bold; } /* Alert */
-    code span.an { color: #e6b673; } /* Annotation */
-    code span.at { color: #59c2ff; } /* Attribute */
-    code span.bn { color: #e6b450; } /* BaseN */
-    code span.bu { color: #95e6cb; } /* BuiltIn */
-    code span.cf { color: #ff8f40; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #95e6cb; } /* Char */
-    code span.cn { color: #ffee99; } /* Constant */
-    code span.co { color: #626a73; font-style: italic; } /* Comment */
-    code span.cv { color: #ffee99; } /* CommentVar */
-    code span.do { color: #626a73; } /* Documentation */
-    code span.dt { color: #ff8f40; } /* DataType */
-    code span.dv { color: #e6b450; } /* DecVal */
-    code span.er { color: #ff3333; text-decoration: underline; } /* Error */
-    code span.ex { color: #59c2ff; font-weight: bold; } /* Extension */
-    code span.fl { color: #e6b450; } /* Float */
-    code span.fu { color: #ffb454; } /* Function */
-    code span.im { color: #c2d94c; } /* Import */
-    code span.in { color: #e6b450; } /* Information */
-    code span.kw { color: #ff8f40; font-weight: bold; } /* Keyword */
-    code span.op { color: #f29668; } /* Operator */
-    code span.ot { color: #39bae6; } /* Other */
-    code span.pp { color: #f07178; } /* Preprocessor */
-    code span.re { color: #59c2ff; background-color: #173649; } /* RegionMarker */
-    code span.sc { color: #95e6cb; } /* SpecialChar */
-    code span.ss { color: #95e6cb; } /* SpecialString */
-    code span.st { color: #c2d94c; } /* String */
-    code span.va { color: #39bae6; } /* Variable */
-    code span.vs { color: #c2d94c; } /* VerbatimString */
-    code span.wa { color: #f07178; } /* Warning */
-  </style>
-<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f584ff78a3af22586ffe44530b07a055.css">
-<link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-<link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-<link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-<link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-<link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-<link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
-<style type="text/css">
-    .reveal div.sourceCode {
-      margin: 0;
-      overflow: auto;
-    }
-    .reveal div.hanging-indent {
-      margin-left: 1em;
-      text-indent: -1em;
-    }
-    .reveal .slide:not(.center) {
-      height: 100%;
-    }
-    .reveal .slide.scrollable {
-      overflow-y: auto;
-    }
-    .reveal .footnotes {
-      height: 100%;
-      overflow-y: auto;
-    }
-    .reveal .slide .absolute {
-      position: absolute;
-      display: block;
-    }
-    .reveal .footnotes ol {
-      counter-reset: ol;
-      list-style-type: none; 
-      margin-left: 0;
-    }
-    .reveal .footnotes ol li:before {
-      counter-increment: ol;
-      content: counter(ol) ". "; 
-    }
-    .reveal .footnotes ol li > p:first-child {
-      display: inline-block;
-    }
-    .reveal .slide ul,
-    .reveal .slide ol {
-      margin-bottom: 0.5em;
-    }
-    .reveal .slide ul li,
-    .reveal .slide ol li {
-      margin-top: 0.4em;
-      margin-bottom: 0.2em;
-    }
-    .reveal .slide ul[role="tablist"] li {
-      margin-bottom: 0;
-    }
-    .reveal .slide ul li > *:first-child,
-    .reveal .slide ol li > *:first-child {
-      margin-block-start: 0;
-    }
-    .reveal .slide ul li > *:last-child,
-    .reveal .slide ol li > *:last-child {
-      margin-block-end: 0;
-    }
-    .reveal .slide .columns:nth-child(3) {
-      margin-block-start: 0.8em;
-    }
-    .reveal blockquote {
-      box-shadow: none;
-    }
-    .reveal .tippy-content>* {
-      margin-top: 0.2em;
-      margin-bottom: 0.7em;
-    }
-    .reveal .tippy-content>*:last-child {
-      margin-bottom: 0.2em;
-    }
-    .reveal .slide > img.stretch.quarto-figure-center,
-    .reveal .slide > img.r-stretch.quarto-figure-center {
-      display: block;
-      margin-left: auto;
-      margin-right: auto; 
-    }
-    .reveal .slide > img.stretch.quarto-figure-left,
-    .reveal .slide > img.r-stretch.quarto-figure-left  {
-      display: block;
-      margin-left: 0;
-      margin-right: auto; 
-    }
-    .reveal .slide > img.stretch.quarto-figure-right,
-    .reveal .slide > img.r-stretch.quarto-figure-right  {
-      display: block;
-      margin-left: auto;
-      margin-right: 0; 
-    }
-  </style>
-<script src="../site_libs/kePrint-0.0.1/kePrint.js"></script><link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 </head>
-<body class="quarto-light">
-  <div class="reveal">
-    <div class="slides">
+<body class="nav-sidebar docked slimcontent quarto-light">
 
-<section class="quarto-title-block"><h1 class="title">8.2.Contingency Analyses</h1>
-  <p class="subtitle">2x2 chi-2, Fisher| Acknowledgments to Y. Brandvain for code used in some slides</p>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">8.2.Contingency Analyses</li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto"><div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://github.com/bbitarello/b215f2025" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://posit.cloud/spaces/678147/join?access_code=hl0WMhTu8LNwvW1hn-uIdm_lx1Xm8sCjIUMwCW24" title="RStudio Cloud" class="quarto-navigation-tool px-1" aria-label="RStudio Cloud"><i class="bi bi-cloud-fill"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Syllabus</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../CA1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coding Assignment 1</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rlearn.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R resources</span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
+   
+  <ul>
+<li><a href="#outline" id="toc-outline" class="nav-link active" data-scroll-target="#outline">Outline</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#rr-vs-or" id="toc-rr-vs-or" class="nav-link" data-scroll-target="#rr-vs-or">RR vs OR</a></li>
+  <li><a href="#when-to-calculate-or-12" id="toc-when-to-calculate-or-12" class="nav-link" data-scroll-target="#when-to-calculate-or-12">When to Calculate OR (1/2)?</a></li>
+  <li><a href="#odds-ratio-toxoplasma-car-wrecks" id="toc-odds-ratio-toxoplasma-car-wrecks" class="nav-link" data-scroll-target="#odds-ratio-toxoplasma-car-wrecks">Odds Ratio: Toxoplasma &amp; Car Wrecks</a></li>
+  <li><a href="#widehator-toxoplasma-car-wrecks.-try" id="toc-widehator-toxoplasma-car-wrecks.-try" class="nav-link" data-scroll-target="#widehator-toxoplasma-car-wrecks.-try"><span class="math inline">\(\widehat{OR}\)</span>: Toxoplasma &amp; Car Wrecks. Try!</a></li>
+  <li><a href="#widehator-toxoplasma-car-wrecks" id="toc-widehator-toxoplasma-car-wrecks" class="nav-link" data-scroll-target="#widehator-toxoplasma-car-wrecks"><span class="math inline">\(\widehat{OR}\)</span>: Toxoplasma &amp; Car Wrecks</a></li>
+  <li><a href="#toxoplasma-car-wrecks.-summary" id="toc-toxoplasma-car-wrecks.-summary" class="nav-link" data-scroll-target="#toxoplasma-car-wrecks.-summary">Toxoplasma &amp; Car Wrecks. Summary</a></li>
+  <li><a href="#toxoplasma-car-wrecks.-uncertainty" id="toc-toxoplasma-car-wrecks.-uncertainty" class="nav-link" data-scroll-target="#toxoplasma-car-wrecks.-uncertainty">Toxoplasma &amp; Car Wrecks. Uncertainty</a></li>
+  <li><a href="#toxoplasma-car-wrecks-or-95-ci-12" id="toc-toxoplasma-car-wrecks-or-95-ci-12" class="nav-link" data-scroll-target="#toxoplasma-car-wrecks-or-95-ci-12">Toxoplasma &amp; Car Wrecks: OR 95% CI [1/2]</a></li>
+  <li><a href="#toxoplasma-car-wrecks-or-95-ci-22" id="toc-toxoplasma-car-wrecks-or-95-ci-22" class="nav-link" data-scroll-target="#toxoplasma-car-wrecks-or-95-ci-22">Toxoplasma &amp; Car Wrecks: OR 95% CI [2/2]</a></li>
+  <li><a href="#in-r" id="toc-in-r" class="nav-link" data-scroll-target="#in-r">In R</a></li>
+  <li><a href="#rr-95-ci" id="toc-rr-95-ci" class="nav-link" data-scroll-target="#rr-95-ci">RR 95% CI</a></li>
+  <li><a href="#ci-in-r-with-resampling-instead-of-this-dreadful-equation" id="toc-ci-in-r-with-resampling-instead-of-this-dreadful-equation" class="nav-link" data-scroll-target="#ci-in-r-with-resampling-instead-of-this-dreadful-equation">95% CI in R with resampling (instead of this dreadful equation) <img src="images/clipboard-2220595448.png" class="img-fluid" width="43"></a></li>
+  <li><a href="#testing-associations-between-categorical-variables" id="toc-testing-associations-between-categorical-variables" class="nav-link" data-scroll-target="#testing-associations-between-categorical-variables">Testing Associations Between Categorical Variables</a></li>
+  <li><a href="#chi2-contingency-test-of-independence" id="toc-chi2-contingency-test-of-independence" class="nav-link" data-scroll-target="#chi2-contingency-test-of-independence"><span class="math inline">\(\chi^2\)</span> Contingency Test of Independence</a></li>
+  <li><a href="#calculating-chi2-degrees-of-freedom" id="toc-calculating-chi2-degrees-of-freedom" class="nav-link" data-scroll-target="#calculating-chi2-degrees-of-freedom">Calculating <span class="math inline">\(\chi^2\)</span> &amp; Degrees of Freedom</a></li>
+  <li><a href="#bird-abandonment-issues-1" id="toc-bird-abandonment-issues-1" class="nav-link" data-scroll-target="#bird-abandonment-issues-1">Bird Abandonment Issues [1/] <img src="images/clipboard-1972228280.png" class="img-fluid" width="62"></a></li>
+  <li><a href="#bird-abandonment-issues-2" id="toc-bird-abandonment-issues-2" class="nav-link" data-scroll-target="#bird-abandonment-issues-2">Bird Abandonment Issues [2/] <img src="images/clipboard-1972228280.png" class="img-fluid" width="62"></a></li>
+  <li><a href="#bird-abandonment-issues-3" id="toc-bird-abandonment-issues-3" class="nav-link" data-scroll-target="#bird-abandonment-issues-3">Bird Abandonment Issues [3/] <img src="images/clipboard-1972228280.png" class="img-fluid" width="62"></a></li>
+  <li><a href="#bird-abandonment-issues-4" id="toc-bird-abandonment-issues-4" class="nav-link" data-scroll-target="#bird-abandonment-issues-4">Bird Abandonment Issues [4/] <img src="images/clipboard-1972228280.png" class="img-fluid" width="62"></a></li>
+  <li><a href="#bird-abandonment-issues-5" id="toc-bird-abandonment-issues-5" class="nav-link" data-scroll-target="#bird-abandonment-issues-5">Bird Abandonment Issues [5/] <img src="images/clipboard-1972228280.png" class="img-fluid" width="62"></a></li>
+  <li><a href="#bird-abandonment-issues-6" id="toc-bird-abandonment-issues-6" class="nav-link" data-scroll-target="#bird-abandonment-issues-6">Bird Abandonment Issues [6/] <img src="images/clipboard-1972228280.png" class="img-fluid" width="62"></a></li>
+  <li><a href="#bird-abandonment-issues-7" id="toc-bird-abandonment-issues-7" class="nav-link" data-scroll-target="#bird-abandonment-issues-7">Bird Abandonment Issues [7/] <img src="images/clipboard-1972228280.png" class="img-fluid" width="62"></a></li>
+  <li><a href="#abandonment-chi2-assumptions" id="toc-abandonment-chi2-assumptions" class="nav-link" data-scroll-target="#abandonment-chi2-assumptions">Abandonment: <span class="math inline">\(\chi^2\)</span> Assumptions? <img src="images/clipboard-1972228280.png" class="img-fluid" width="62"></a></li>
+  <li><a href="#abandonment-chi2" id="toc-abandonment-chi2" class="nav-link" data-scroll-target="#abandonment-chi2">Abandonment: <span class="math inline">\(\chi^2\)</span> <img src="images/clipboard-1972228280.png" class="img-fluid" width="62"></a></li>
+  <li><a href="#abandonment-critical-p-values" id="toc-abandonment-critical-p-values" class="nav-link" data-scroll-target="#abandonment-critical-p-values">Abandonment: Critical &amp; P-values</a></li>
+  <li><a href="#one-tailed-test" id="toc-one-tailed-test" class="nav-link" data-scroll-target="#one-tailed-test">One tailed test?</a></li>
+  <li><a href="#always-quantify-effect-size-direction-and-uncertainty" id="toc-always-quantify-effect-size-direction-and-uncertainty" class="nav-link" data-scroll-target="#always-quantify-effect-size-direction-and-uncertainty">Always quantify effect size, direction, and uncertainty</a></li>
+  <li><a href="#what-if-we-dont-meet-chi2-requirements" id="toc-what-if-we-dont-meet-chi2-requirements" class="nav-link" data-scroll-target="#what-if-we-dont-meet-chi2-requirements">What if we don’t meet <span class="math inline">\(\chi^2\)</span> requirements?</a></li>
+  <li><a href="#example-nuptial-gifts" id="toc-example-nuptial-gifts" class="nav-link" data-scroll-target="#example-nuptial-gifts">Example: Nuptial Gifts</a></li>
+  <li><a href="#nuptial-gift-observed-expected" id="toc-nuptial-gift-observed-expected" class="nav-link" data-scroll-target="#nuptial-gift-observed-expected">Nuptial Gift: Observed &amp; Expected</a></li>
+  <li><a href="#nuptial-gift-finding-expected" id="toc-nuptial-gift-finding-expected" class="nav-link" data-scroll-target="#nuptial-gift-finding-expected">Nuptial Gift: Finding Expected</a></li>
+  <li><a href="#nuptial-gift-chi2-assumptions" id="toc-nuptial-gift-chi2-assumptions" class="nav-link" data-scroll-target="#nuptial-gift-chi2-assumptions">Nuptial Gift: <span class="math inline">\(\chi^2\)</span> Assumptions?</a></li>
+  <li><a href="#fishers-exact-test" id="toc-fishers-exact-test" class="nav-link" data-scroll-target="#fishers-exact-test">Fisher’s Exact Test</a></li>
+  <li><a href="#fishers-test-in-r" id="toc-fishers-test-in-r" class="nav-link" data-scroll-target="#fishers-test-in-r">Fisher’s test in R</a></li>
+  <li><a href="#doing-our-own-permutations" id="toc-doing-our-own-permutations" class="nav-link" data-scroll-target="#doing-our-own-permutations">Doing our own permutations</a></li>
+  <li><a href="#doing-our-own-permutations-1" id="toc-doing-our-own-permutations-1" class="nav-link" data-scroll-target="#doing-our-own-permutations-1">Doing our own permutations!</a></li>
+  <li><a href="#chi-squared-vs-fishers-exact-test" id="toc-chi-squared-vs-fishers-exact-test" class="nav-link" data-scroll-target="#chi-squared-vs-fishers-exact-test">Chi-squared vs Fisher’s exact test</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/bbitarello/b215f2026/blob/main/slides/ContingencyAnalyses2.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="ContingencyAnalyses2.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">8.2.Contingency Analyses</h1>
+<p class="subtitle lead">2x2 chi-2, Fisher| Acknowledgments to Y. Brandvain for code used in some slides</p>
+</div>
 
-<div class="quarto-title-authors">
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Bárbara D. Bitarello 
-</div>
-</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Bárbara D. Bitarello </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 26, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+<div>
+  <div class="keywords">
+    <div class="block-title">Keywords</div>
+    <p>2x2 chi-2, Fisher</p>
+  </div>
 </div>
 
-  <p class="date">2025-11-26</p>
-</section><section class="slide level2"><h2>Outline</h2>
+</header><section id="outline" class="level2"><h2 class="anchored" data-anchor-id="outline">Outline</h2>
 <ul>
 <li><p><del>Quantifying associations between two categorical variables</del></p></li>
 <li><p><del>Relative risk</del></p></li>
@@ -218,27 +287,27 @@ Bárbara D. Bitarello
 <li><p>Testing associations between categorical variables</p></li>
 <li><p><span class="math inline">\(\chi^2\)</span> contingency test</p></li>
 <li><p>Fisher’s test</p></li>
-</ul></section><section class="slide level2"><h2>Recap</h2>
-<blockquote>
+</ul></section><section id="recap" class="level2"><h2 class="anchored" data-anchor-id="recap">Recap</h2>
+<blockquote class="blockquote">
 <p>Contingency analysis estimates and tests for an association between two or more categorical variables.</p>
 </blockquote>
 <ul>
 <li>At the heart of these approaches we are really investigating the <em>independence of variables</em>
 </li>
-</ul></section><section class="slide level2"><h2>RR vs OR</h2>
+</ul></section><section id="rr-vs-or" class="level2"><h2 class="anchored" data-anchor-id="rr-vs-or">RR vs OR</h2>
 <ul>
 <li><p>Both <span class="math inline">\(RR\)</span> and <span class="math inline">\(OR\)</span> measure the association between two categorical variables when both have only 2 categories.</p></li>
 <li><p>RR is the probability of an undesired outcome in the treatment group divided by the probability of the same outcome in a control group. Especially appropriate when comparing the probability (risk) of a <em>focal outcome</em> in a response variable between two treatments or groups of subjects</p></li>
 <li><p>The OR is the odds of “success” (focal outcome) in one group divided by the odds of success in a second group. The explanatory variable defines the groups being compared.</p></li>
 <li><p>E.g. death in the titanic for women x men. Focal outcome is death. “Treatment” group for RR is women</p></li>
-</ul></section><section class="slide level2"><h2>When to Calculate OR (1/2)?</h2>
+</ul></section><section id="when-to-calculate-or-12" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="when-to-calculate-or-12">When to Calculate OR (1/2)?</h2>
 <p>We often cannot obtain an unbiased estimate of <span class="math inline">\(p_1\)</span> or <span class="math inline">\(p_2\)</span>.</p>
 <p>Odds ratios risk can be calculated even when we don’t have a random sample and we can’t obtain unbiased probabilities!</p>
 <p>Thus it is extremely useful for “case-control” studies, as they have a large sample of individuals with rare conditions.</p>
 <p><span class="math display">\[\widehat{OR} = \frac{\widehat{O_1}}{\widehat{O_2}} = \frac{a/c}{b/d} = \frac{ad}{bc}\]</span></p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table caption-top table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Treatment</th>
@@ -260,18 +329,18 @@ Bárbara D. Bitarello
 </div>
 </div>
 
-<aside><div>
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>Case control studies: an <em>observational</em> study in which a sample of individuals with a focal condition (cases) is compared to a sample of subjects lacking the condition (controls).</p>
-</div></aside></section><section class="slide level2"><h2>Odds Ratio: Toxoplasma &amp; Car Wrecks</h2>
+</div></div></section><section id="odds-ratio-toxoplasma-car-wrecks" class="level2"><h2 class="anchored" data-anchor-id="odds-ratio-toxoplasma-car-wrecks">Odds Ratio: Toxoplasma &amp; Car Wrecks</h2>
 <p><font size="6"> <font color="black">Toxoplasma</font> tricks mice into taking risks so it can find it’s way into cats. Could <em>Toxoplasma</em> be associated with risk taking in humans? <a href="https://www.ncbi.nlm.nih.gov/pubmed/16332418">Yereli et al.</a> asked this by comparing <em>Toxoplasma</em> prevalence in people who caused car crashes to those who hadn’t.</font></p>
 <div style="float:left;position: relative; top: 0px;">
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Toxoplasmosis_life_cycle_en.svg" width="45%"></p>
 </div>
-</section><section class="slide level2"><h2>
+</section><section id="widehator-toxoplasma-car-wrecks.-try" class="level2"><h2 class="anchored" data-anchor-id="widehator-toxoplasma-car-wrecks.-try">
 <span class="math inline">\(\widehat{OR}\)</span>: Toxoplasma &amp; Car Wrecks. Try!</h2>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table caption-top table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Treatment</th>
@@ -295,7 +364,7 @@ Bárbara D. Bitarello
 <p><span class="math display">\[\widehat{OR} = \frac{\widehat{O_\text{infected}}}{\widehat{O_\text{uninfected}}} = \frac{a/c}{b/d} = \frac{ad}{bc}  = ??? \]</span></p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table caption-top table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">infected</th>
@@ -316,11 +385,11 @@ Bárbara D. Bitarello
 </table>
 </div>
 </div>
-</section><section class="slide level2"><h2>
+</section><section id="widehator-toxoplasma-car-wrecks" class="level2"><h2 class="anchored" data-anchor-id="widehator-toxoplasma-car-wrecks">
 <span class="math inline">\(\widehat{OR}\)</span>: Toxoplasma &amp; Car Wrecks</h2>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table caption-top table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Treatment</th>
@@ -344,7 +413,7 @@ Bárbara D. Bitarello
 <p><span class="math display">\[\widehat{OR} = \frac{\widehat{O_\text{infected}}}{\widehat{O_\text{uninfected}}}  = \frac{a/c}{b/d} = \frac{ad}{bc} =\frac{61 \times 169}{124 \times 16} = 5.2\]</span></p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table caption-top table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">infected</th>
@@ -365,15 +434,22 @@ Bárbara D. Bitarello
 </table>
 </div>
 </div>
-</section><section class="slide level2"><h2>Toxoplasma &amp; Car Wrecks. Summary</h2>
+</section><section id="toxoplasma-car-wrecks.-summary" class="level2"><h2 class="anchored" data-anchor-id="toxoplasma-car-wrecks.-summary">Toxoplasma &amp; Car Wrecks. Summary</h2>
 <p>Without knowing the <span class="math inline">\(P(wreck \| toxoplasma)\)</span> and <span class="math inline">\(P(wreck \| w/out toxoplasma)\)</span> we can’t estimate RR</p>
 <p>Still, we learned that the odds of being in a car wreck is <font color="black">five times higher</font> if you have toxoplasma than if you do not!</p>
-
-<img data-src="ContingencyAnalyses2_files/figure-revealjs/unnamed-chunk-6-1.png" width="432" class="r-stretch"></section><section class="slide level2"><h2>Toxoplasma &amp; Car Wrecks. Uncertainty</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure"><p><img src="ContingencyAnalyses2_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="432"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="toxoplasma-car-wrecks.-uncertainty" class="level2"><h2 class="anchored" data-anchor-id="toxoplasma-car-wrecks.-uncertainty">Toxoplasma &amp; Car Wrecks. Uncertainty</h2>
 <p>We estimate that the odds of being in a car wreck is 5.2 for those with, than those without <em>Toxoplasma</em>.</p>
 <p>We know that estimates are associated with uncertainty.</p>
 <p>We can quantify this!</p>
-</section><section class="slide level2"><h2>Toxoplasma &amp; Car Wrecks: OR 95% CI [1/2]</h2>
+</section><section id="toxoplasma-car-wrecks-or-95-ci-12" class="level2"><h2 class="anchored" data-anchor-id="toxoplasma-car-wrecks-or-95-ci-12">Toxoplasma &amp; Car Wrecks: OR 95% CI [1/2]</h2>
 <p>1st know that that standard error for the odds ratio cannot be directly computed, but the standard error of the log odds can!</p>
 <p><span class="math display">\[SE[ln(\widehat{OR})] = \sqrt{\frac{1}{a} + \frac{1}{b} + \frac{1}{c} + \frac{1}{d}}\]</span></p>
 <p>Then to find the 95% CI</p>
@@ -381,7 +457,7 @@ Bárbara D. Bitarello
 <li><p>Calculate <span class="math inline">\(SE[ln(\widehat{OR})]\)</span></p></li>
 <li><p>Find the confidence limits of the log-odds as <span class="math inline">\(SE[ln(\widehat{OR})] \pm 2 \times  SE[ln(\widehat{OR})]\)</span></p></li>
 <li><p>Exponentiate this result to get back to linear scale</p></li>
-</ol></section><section class="slide level2"><h2>Toxoplasma &amp; Car Wrecks: OR 95% CI [2/2]</h2>
+</ol></section><section id="toxoplasma-car-wrecks-or-95-ci-22" class="level2"><h2 class="anchored" data-anchor-id="toxoplasma-car-wrecks-or-95-ci-22">Toxoplasma &amp; Car Wrecks: OR 95% CI [2/2]</h2>
 <ol type="1">
 <li><p><span class="math inline">\(SE[ln(\widehat{OR})] =  \sqrt{\frac{1}{61} + \frac{1}{124} + \frac{1}{16} + \frac{1}{169}} = 0.305\)</span></p></li>
 <li><p>Find the 95% CI as <span class="math inline">\(ln(\widehat{OR}) \pm 2 \times  SE[ln(\widehat{OR})]\)</span><br><span class="math inline">\(= ln(5.2) \pm 2 \times 0.305\)</span><br><span class="math inline">\(= 1.65 \pm 0.61\)</span><br>
@@ -389,92 +465,91 @@ Bárbara D. Bitarello
 <li><p>95% CI of <span class="math inline">\(\widehat{OR}\)</span> = <code>exp(c(1.04, 2.26))</code> = 2.8, 9.6</p></li>
 </ol>
 <p>CONCLUSION: <span class="math inline">\(2.8 &lt; OR &lt; 9.6\)</span> <br>The odds of getting in an accident are plausibly between 2.8 and 9.6 times higher for people with than without <em>Toxoplasma</em>. <br> - Because the 95% CI does not contain 1, we reject the null hypothesis and conclude that there is an association between <em>Toxoplasma</em> infection and car accidents.</p>
-</section><section class="slide level2"><h2>In R</h2>
+</section><section id="in-r" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="in-r">In R</h2>
 <p>The easiest way to calculate OR and CIs in R:</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>toxoplasma <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">61</span>, <span class="dv">16</span>, <span class="dv">124</span>, <span class="dv">169</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
-<span id="cb1-2"><a></a><span class="fu">colnames</span>(toxoplasma) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"inf"</span>, <span class="st">"not-inf"</span>)</span>
-<span id="cb1-3"><a></a><span class="fu">rownames</span>(toxoplasma) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"crash"</span>, <span class="st">"no_crash"</span>)</span>
-<span id="cb1-4"><a></a>toxoplasma</span>
-<span id="cb1-5"><a></a><span class="do">##          inf not-inf</span></span>
-<span id="cb1-6"><a></a><span class="do">## crash     61     124</span></span>
-<span id="cb1-7"><a></a><span class="do">## no_crash  16     169</span></span>
-<span id="cb1-8"><a></a><span class="fu">fisher.test</span>(toxoplasma, <span class="at">conf.int =</span> T)</span>
-<span id="cb1-9"><a></a><span class="do">## </span></span>
-<span id="cb1-10"><a></a><span class="do">##  Fisher's Exact Test for Count Data</span></span>
-<span id="cb1-11"><a></a><span class="do">## </span></span>
-<span id="cb1-12"><a></a><span class="do">## data:  toxoplasma</span></span>
-<span id="cb1-13"><a></a><span class="do">## p-value = 8e-09</span></span>
-<span id="cb1-14"><a></a><span class="do">## alternative hypothesis: true odds ratio is not equal to 1</span></span>
-<span id="cb1-15"><a></a><span class="do">## 95 percent confidence interval:</span></span>
-<span id="cb1-16"><a></a><span class="do">##   2.79 10.09</span></span>
-<span id="cb1-17"><a></a><span class="do">## sample estimates:</span></span>
-<span id="cb1-18"><a></a><span class="do">## odds ratio </span></span>
-<span id="cb1-19"><a></a><span class="do">##       5.17</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">toxoplasma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">61</span>, <span class="fl">16</span>, <span class="fl">124</span>, <span class="fl">169</span><span class="op">)</span>, nrow <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">toxoplasma</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"inf"</span>, <span class="st">"not-inf"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html">rownames</a></span><span class="op">(</span><span class="va">toxoplasma</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"crash"</span>, <span class="st">"no_crash"</span><span class="op">)</span></span>
+<span><span class="va">toxoplasma</span></span>
+<span><span class="co">##          inf not-inf</span></span>
+<span><span class="co">## crash     61     124</span></span>
+<span><span class="co">## no_crash  16     169</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/fisher.test.html">fisher.test</a></span><span class="op">(</span><span class="va">toxoplasma</span>, conf.int <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">##  Fisher's Exact Test for Count Data</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## data:  toxoplasma</span></span>
+<span><span class="co">## p-value = 8e-09</span></span>
+<span><span class="co">## alternative hypothesis: true odds ratio is not equal to 1</span></span>
+<span><span class="co">## 95 percent confidence interval:</span></span>
+<span><span class="co">##   2.79 10.09</span></span>
+<span><span class="co">## sample estimates:</span></span>
+<span><span class="co">## odds ratio </span></span>
+<span><span class="co">##       5.17</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-<aside><div>
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>The CI above is a little different from the one before (Wald method) because this function uses a different method. You can find out more in the help(fisher.test) function. Lab10 also goes over this.</p>
-</div></aside></section><section class="slide level2"><h2>RR 95% CI</h2>
+</div></div></section><section id="rr-95-ci" class="level2"><h2 class="anchored" data-anchor-id="rr-95-ci">RR 95% CI</h2>
 <p>The 95% CI for the RR is also not pretty. Based on the same assumptions as the one we showed for <span class="math inline">\(OR\)</span> (i.e., random samples):</p>
 <p><span class="math display">\[SE[ln(\widehat{RR})] = \sqrt{\frac{1}{a} + \frac{1}{b} - \frac{1}{a+c} - \frac{1}{b+d}}\]</span></p>
 <p><span class="math display">\[ln(\widehat{RR})-2\times SE[ln(\widehat{RR})]&lt;ln(RR) &lt; ln(RR)+2\times SE[ln(\widehat{RR})]\]</span></p>
 <p>Note that for <span class="math inline">\(RR\)</span> and <span class="math inline">\(OR\)</span> there are several available methods and no consensus over which one is best.</p>
 <p>The two we showed here use a type of rule of thumb based on the normal distribution. I.e., these are approximations based on the Z distribution.</p>
-</section><section class="slide level2"><h2>95% CI in R with resampling (instead of this dreadful equation) <img data-src="images/clipboard-2220595448.png" width="43">
+</section><section id="ci-in-r-with-resampling-instead-of-this-dreadful-equation" class="level2"><h2 class="anchored" data-anchor-id="ci-in-r-with-resampling-instead-of-this-dreadful-equation">95% CI in R with resampling (instead of this dreadful equation) <img src="images/clipboard-2220595448.png" class="img-fluid" width="43">
 </h2>
 <ul>
 <li><p>There is another way: we can bootstrap!</p></li>
 <li><p>By bootstrapping, we approximate the sampling distribution by resampling outcomes with replacement and summarizing variability in this resampling to describe uncertainty.</p></li>
-</ul></section><section class="slide level2 dark-theme center"><h2>Testing Associations Between Categorical Variables</h2>
+</ul></section><section id="testing-associations-between-categorical-variables" class="level2 dark-theme center"><h2 class="dark-theme center anchored" data-anchor-id="testing-associations-between-categorical-variables">Testing Associations Between Categorical Variables</h2>
 <p><span class="math inline">\(\chi^2\)</span> Contingency Tests and Fisher’s Exact Test</p>
-</section><section class="slide level2"><h2>
+</section><section id="chi2-contingency-test-of-independence" class="level2"><h2 class="anchored" data-anchor-id="chi2-contingency-test-of-independence">
 <span class="math inline">\(\chi^2\)</span> Contingency Test of Independence</h2>
 <p>Remember: The multiplication rule states that if two outcomes, A &amp; B are independent, <span class="math display">\[P[A \&amp; B] = P[A] \times P[B]\]</span></p>
 <ul>
 <li><p>So, we have our expectation under the null hypothesis that A &amp; B are independent.</p></li>
 <li><p>We can test if our deviation from this expectation is unexpected under the null from the <span class="math inline">\(\chi^2\)</span> test!</p></li>
 <li><p>This is imply a special case of the <span class="math inline">\(\chi^2\)</span> goodness of fit where the model described the independence between two (or more) categorical variables</p></li>
-</ul></section><section class="slide level2"><h2>Calculating <span class="math inline">\(\chi^2\)</span> &amp; Degrees of Freedom</h2>
+</ul></section><section id="calculating-chi2-degrees-of-freedom" class="level2"><h2 class="anchored" data-anchor-id="calculating-chi2-degrees-of-freedom">Calculating <span class="math inline">\(\chi^2\)</span> &amp; Degrees of Freedom</h2>
 <p>Remember: <span class="math inline">\(\chi^2\)</span> is the sum of deviations between expectations and observations,<span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are rows and columns, respectively.</p>
 <p><span class="math display">\[\sum_i \sum_k{\frac{{(\text{Observed}_{i,j}-\text{Expected}_{i,j})^2}}{\text{Expected}_{i,j}}}\]</span></p>
 <ul>
 <li><p>The degrees of freedom specify the additional number of values we need to know all the outcomes in our study.</p></li>
 <li><p><span class="math inline">\(\text{Degrees of freedom for } \chi^2 \text{ contingency test}  =  (n_\text{rows} - 1) \times (n_\text{columns} - 1)\)</span></p></li>
-</ul></section><section class="slide level2"><h2>Bird Abandonment Issues [1/] <img data-src="images/clipboard-1972228280.png" width="62">
+</ul></section><section id="bird-abandonment-issues-1" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="bird-abandonment-issues-1">Bird Abandonment Issues [1/] <img src="images/clipboard-1972228280.png" class="img-fluid" width="62">
 </h2>
 <div style="float:left;position: relative; top: 0px; left: -20px;">
-<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Abandoned_Nest_%28150169677%29.jpeg/320px-Abandoned_Nest_%28150169677%29.jpeg"></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Abandoned_Nest_%28150169677%29.jpeg/320px-Abandoned_Nest_%28150169677%29.jpeg" class="img-fluid"></p>
 </div>
 <p>What’s a bird to do when the rent is do and they can’t feed their chicks?</p>
 <p><a href="https://datadryad.org/resource/doi:10.5061/dryad.6k417tm">Kloskowski</a> tested the idea that birds in poor habitats abandon their final egg.</p>
 
-<aside><div>
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>Data for this example: Data for this example: https://doi.org/10.5061/dryad.6k417tm</p>
-</div></aside></section><section class="slide level2"><h2>Bird Abandonment Issues [2/] <img data-src="images/clipboard-1972228280.png" width="62">
+</div></div></section><section id="bird-abandonment-issues-2" class="level2"><h2 class="anchored" data-anchor-id="bird-abandonment-issues-2">Bird Abandonment Issues [2/] <img src="images/clipboard-1972228280.png" class="img-fluid" width="62">
 </h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="ContingencyAnalyses2_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
+<figure class="figure"><p><img src="ContingencyAnalyses2_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</section><section class="slide level2"><h2>Bird Abandonment Issues [3/] <img data-src="images/clipboard-1972228280.png" width="62">
+</section><section id="bird-abandonment-issues-3" class="level2"><h2 class="anchored" data-anchor-id="bird-abandonment-issues-3">Bird Abandonment Issues [3/] <img src="images/clipboard-1972228280.png" class="img-fluid" width="62">
 </h2>
 <p>Hypotheses:</p>
 <p><span class="math inline">\(H_0\)</span>: There is NO association between habitat quality &amp; the chance of abandoning the last egg</p>
 <p><span class="math inline">\(H_A\)</span>: There is AN association between habitat quality &amp; the chance of abandoning the last egg</p>
-</section><section class="slide level2"><h2>Bird Abandonment Issues [4/] <img data-src="images/clipboard-1972228280.png" width="62">
+</section><section id="bird-abandonment-issues-4" class="level2"><h2 class="anchored" data-anchor-id="bird-abandonment-issues-4">Bird Abandonment Issues [4/] <img src="images/clipboard-1972228280.png" class="img-fluid" width="62">
 </h2>
 <p>Observations (contingency table)</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">table</span>(birds<span class="sc">$</span><span class="st">`</span><span class="at">Last egg</span><span class="st">`</span>, birds<span class="sc">$</span><span class="st">`</span><span class="at">Habitat quality</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
-<span id="cb2-2"><a></a>    <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
-<table class="caption-top">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="va">birds</span><span class="op">$</span><span class="va">`Last egg`</span>, <span class="va">birds</span><span class="op">$</span><span class="va">`Habitat quality`</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu">kable</span><span class="op">(</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;"></th>
 <th style="text-align: right;">High</th>
@@ -495,12 +570,12 @@ Bárbara D. Bitarello
 </table>
 </div>
 </div>
-</section><section class="slide level2"><h2>Bird Abandonment Issues [5/] <img data-src="images/clipboard-1972228280.png" width="62">
+</section><section id="bird-abandonment-issues-5" class="level2"><h2 class="anchored" data-anchor-id="bird-abandonment-issues-5">Bird Abandonment Issues [5/] <img src="images/clipboard-1972228280.png" class="img-fluid" width="62">
 </h2>
 <p>Observations (contingency table)</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top">
+<table class="caption-top table table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;"></th>
 <th style="text-align: right;">High</th>
@@ -533,12 +608,18 @@ Bárbara D. Bitarello
 <p>Find null expectations!!!!!!</p>
 <p><span class="math inline">\(n_{abandoned}=(1+19)=20\)</span></p>
 <p><span class="math inline">\(n_{\text{hatched}}=74\)</span></p>
-</section><section class="slide level2"><h2>Bird Abandonment Issues [6/] <img data-src="images/clipboard-1972228280.png" width="62">
+</section><section id="bird-abandonment-issues-6" class="level2"><h2 class="anchored" data-anchor-id="bird-abandonment-issues-6">Bird Abandonment Issues [6/] <img src="images/clipboard-1972228280.png" class="img-fluid" width="62">
 </h2>
 <p>Multiply proportions by each other and sample size to find null expectations. <span class="math display">\[E[n(A,B) | n]  = n \times P[A] \times P[B]\]</span></p>
 <div class="cell">
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by Habitat quality and Last egg.
+## ℹ Output is grouped by Habitat quality.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(Habitat quality, Last egg))` for per-operation
+##   grouping (`?dplyr::dplyr_by`) instead.</code></pre>
 <div class="cell-output-display">
-<table class="table caption-top" style="font-size: 26px; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table caption-top table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Habitat quality</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Last egg</th>
@@ -582,11 +663,19 @@ Bárbara D. Bitarello
 <p><span class="math inline">\(P_{habitat}=n_{habitat}/n_{total}\)</span></p>
 <p><span class="math inline">\(P_{egg}=n_{egg}/n_{total}\)</span></p>
 <p>E.g. Expected <span class="math inline">\(P(\text{high &amp; abandoned})=0.574\times 0.213\times 94\)</span></p>
-</section><section class="slide level2"><h2>Bird Abandonment Issues [7/] <img data-src="images/clipboard-1972228280.png" width="62">
+</section><section id="bird-abandonment-issues-7" class="level2"><h2 class="anchored" data-anchor-id="bird-abandonment-issues-7">Bird Abandonment Issues [7/] <img src="images/clipboard-1972228280.png" class="img-fluid" width="62">
 </h2>
 <p>Null expectations:</p>
 <p>Multiply proportions by each other and sample size to find null expectations. <span class="math display">\[E[n(A,B) | n]  = n \times P[A] \times P[B]\]</span></p>
-</section><section class="slide level2"><h2>Abandonment: <span class="math inline">\(\chi^2\)</span> Assumptions? <img data-src="images/clipboard-1972228280.png" width="62">
+<div class="cell">
+<pre><code>## `summarise()` has regrouped the output.
+## ℹ Summaries were computed grouped by Habitat quality and Last egg.
+## ℹ Output is grouped by Habitat quality.
+## ℹ Use `summarise(.groups = "drop_last")` to silence this message.
+## ℹ Use `summarise(.by = c(Habitat quality, Last egg))` for per-operation
+##   grouping (`?dplyr::dplyr_by`) instead.</code></pre>
+</div>
+</section><section id="abandonment-chi2-assumptions" class="level2"><h2 class="anchored" data-anchor-id="abandonment-chi2-assumptions">Abandonment: <span class="math inline">\(\chi^2\)</span> Assumptions? <img src="images/clipboard-1972228280.png" class="img-fluid" width="62">
 </h2>
 <p><font size="7"> Remember assumptions</font></p>
 <ul>
@@ -595,7 +684,7 @@ Bárbara D. Bitarello
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top" style="font-size: 22px; width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table caption-top table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Habitat quality</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Last egg</th>
@@ -642,7 +731,7 @@ Bárbara D. Bitarello
 </div>
 </div>
 <p>We meet the assumptions</p>
-</section><section class="slide level2"><h2>Abandonment: <span class="math inline">\(\chi^2\)</span> <img data-src="images/clipboard-1972228280.png" width="62">
+</section><section id="abandonment-chi2" class="level2"><h2 class="anchored" data-anchor-id="abandonment-chi2">Abandonment: <span class="math inline">\(\chi^2\)</span> <img src="images/clipboard-1972228280.png" class="img-fluid" width="62">
 </h2>
 <p>Remember: <span class="math inline">\(\chi^2\)</span> is the sum of the squared deviations from expected counts divided by expected counts.</p>
 <p><span class="math display">\[\sum \frac{(\text{Observed}-\text{Expected})^2}{\text{Expected}}\]</span></p>
@@ -650,10 +739,10 @@ Bárbara D. Bitarello
 <p>So <span class="math inline">\(\chi^2 = 28.59\)</span>(without rounding anywhere)</p>
 <p><span class="math display">\[df =  (n_\text{columns} - 1) \times    (n_\text{rows} - 1)\]</span></p>
 <p><span class="math display">\[df =  (2 - 1) \times    (2 - 1) = 1\]</span></p>
-</section><section class="slide level2"><h2>Abandonment: Critical &amp; P-values</h2>
+</section><section id="abandonment-critical-p-values" class="level2"><h2 class="anchored" data-anchor-id="abandonment-critical-p-values">Abandonment: Critical &amp; P-values</h2>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top" style="margin-left: auto; margin-right: auto;">
+<table class="table caption-top table-sm table-striped small">
 <caption>Critical value at for df in rows and alpha level in columns</caption>
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
@@ -696,15 +785,15 @@ Bárbara D. Bitarello
 <p>We’re significant at the <span class="math inline">\(1e-7\)</span> level</p>
 <p>We reject the <span class="math inline">\(H_0\)</span> and conclude that bird abandon eggs in bad environemnts.</p>
 <p>In R: <code>pchisq(q = birds.chi, df = 1, lower.tail = FALSE)</code><br><code>= 8.96e-08</code></p>
-</section><section class="slide level2"><h2>One tailed test?</h2>
+</section><section id="one-tailed-test" class="level2"><h2 class="anchored" data-anchor-id="one-tailed-test">One tailed test?</h2>
 <p>Note that we only looked at one tail of the <span class="math inline">\(\chi^2\)</span> distribution.</p>
 <p>This <font color="black">does not mean that we only notice an association</font> in one direction.</p>
 <p>Both ways to be exceptional (an association between abandonment and poor environments OR an association between abandonment and good environments) yield a strong discrepancy between observations and expectations, and can generate a significant association.</p>
-</section><section class="slide level2"><h2>Always quantify effect size, direction, and uncertainty</h2>
+</section><section id="always-quantify-effect-size-direction-and-uncertainty" class="level2"><h2 class="anchored" data-anchor-id="always-quantify-effect-size-direction-and-uncertainty">Always quantify effect size, direction, and uncertainty</h2>
 <p>Bird abandonment with OR and CI</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top">
+<table class="caption-top table table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;"></th>
 <th style="text-align: right;">High</th>
@@ -727,39 +816,38 @@ Bárbara D. Bitarello
 </div>
 <p><span class="math inline">\(OR=(1*21)/(53*19)=0.0209\)</span></p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># OR in this function is calculated a bit differently, hence the difference.</span></span>
-<span id="cb3-2"><a></a><span class="fu">fisher.test</span>(tab2)</span>
-<span id="cb3-3"><a></a><span class="do">## </span></span>
-<span id="cb3-4"><a></a><span class="do">##  Fisher's Exact Test for Count Data</span></span>
-<span id="cb3-5"><a></a><span class="do">## </span></span>
-<span id="cb3-6"><a></a><span class="do">## data:  tab2</span></span>
-<span id="cb3-7"><a></a><span class="do">## p-value = 5e-08</span></span>
-<span id="cb3-8"><a></a><span class="do">## alternative hypothesis: true odds ratio is not equal to 1</span></span>
-<span id="cb3-9"><a></a><span class="do">## 95 percent confidence interval:</span></span>
-<span id="cb3-10"><a></a><span class="do">##  0.000499 0.153059</span></span>
-<span id="cb3-11"><a></a><span class="do">## sample estimates:</span></span>
-<span id="cb3-12"><a></a><span class="do">## odds ratio </span></span>
-<span id="cb3-13"><a></a><span class="do">##     0.0217</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># OR in this function is calculated a bit differently, hence the difference.</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/fisher.test.html">fisher.test</a></span><span class="op">(</span><span class="va">tab2</span><span class="op">)</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">##  Fisher's Exact Test for Count Data</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## data:  tab2</span></span>
+<span><span class="co">## p-value = 5e-08</span></span>
+<span><span class="co">## alternative hypothesis: true odds ratio is not equal to 1</span></span>
+<span><span class="co">## 95 percent confidence interval:</span></span>
+<span><span class="co">##  0.000499 0.153059</span></span>
+<span><span class="co">## sample estimates:</span></span>
+<span><span class="co">## odds ratio </span></span>
+<span><span class="co">##     0.0217</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>OR 95% CI: <span class="math inline">\(0.0005 &lt;OR &lt; 0.153\)</span>, reject the null.</p>
-</section><section class="slide level2 dark-theme center"><h2>What if we don’t meet <span class="math inline">\(\chi^2\)</span> requirements?</h2>
-</section><section class="slide level2"><h2>Example: Nuptial Gifts</h2>
+</section><section id="what-if-we-dont-meet-chi2-requirements" class="level2 dark-theme center"><h2 class="dark-theme center anchored" data-anchor-id="what-if-we-dont-meet-chi2-requirements">What if we don’t meet <span class="math inline">\(\chi^2\)</span> requirements?</h2>
+</section><section id="example-nuptial-gifts" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="example-nuptial-gifts">Example: Nuptial Gifts</h2>
 <p>Sometimes, females of the Australian redback spider <font color="black">Latrodectus hasselti</font> eat there mates. Is there anything in it for the males?</p>
 <p>Maydianne Andrade tested the idea that eating a male might distract a female &amp; prevent her for remating with a <span class="math inline">\(2^\text{nd}\)</span> male.</p>
 <div style="float:left; position: relative; bottom: 0px;">
-<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Red_back_underside.jpg/240px-Red_back_underside.jpg"></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Red_back_underside.jpg/240px-Red_back_underside.jpg" class="img-fluid"></p>
 </div>
 <p><br><br><br><br><br><br><br><br></p>
 
-<aside><div>
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
 <p>Example from: Andrade, M. (1996). Science 271: 70-72 <a href="http://science.sciencemag.org/content/271/5245/70">link</a></p>
-</div></aside></section><section class="slide level2"><h2>Nuptial Gift: Observed &amp; Expected</h2>
+</div></div></section><section id="nuptial-gift-observed-expected" class="level2"><h2 class="anchored" data-anchor-id="nuptial-gift-observed-expected">Nuptial Gift: Observed &amp; Expected</h2>
 <div class="columns">
 <div class="column">
 <div class="cell">
 <div class="cell-output-display">
-<table class="caption-top">
+<table class="caption-top table table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;">Male_2</th>
 <th style="text-align: left;">Male_1</th>
@@ -794,13 +882,27 @@ Bárbara D. Bitarello
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="ContingencyAnalyses2_files/figure-revealjs/unnamed-chunk-17-1.png" width="960"></p>
+<figure class="figure"><p><img src="ContingencyAnalyses2_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-</div></div>
-</section><section class="slide level2"><h2>Nuptial Gift: <span class="math inline">\(\chi^2\)</span> Assumptions?</h2>
+</div>
+</div>
+</section><section id="nuptial-gift-finding-expected" class="level2" data-visibility="hidden"><h2 data-visibility="hidden" class="anchored" data-anchor-id="nuptial-gift-finding-expected">Nuptial Gift: Finding Expected</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">spider.summary</span> <span class="op">&lt;-</span> <span class="va">spider</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">Male_1</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>n.Male_1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">observed</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">Male_2</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>n.Male_2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">observed</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">ungroup</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>p.Male1 <span class="op">=</span> <span class="va">n.Male_1</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">observed</span><span class="op">)</span>, p.Male2 <span class="op">=</span> <span class="va">n.Male_2</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">observed</span><span class="op">)</span>, expected <span class="op">=</span> <span class="va">p.Male1</span> <span class="op">*</span></span>
+<span>        <span class="va">p.Male2</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">observed</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">select</span><span class="op">(</span><span class="op">-</span><span class="va">n.Male_1</span>, <span class="op">-</span><span class="va">n.Male_2</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="nuptial-gift-chi2-assumptions" class="level2"><h2 class="anchored" data-anchor-id="nuptial-gift-chi2-assumptions">Nuptial Gift: <span class="math inline">\(\chi^2\)</span> Assumptions?</h2>
 <ul>
 <li><p>No more than 20% of categories have Expected <span class="math inline">\(&lt; 5\)</span></p></li>
 <li><p>No category with Expected <span class="math inline">\(\leq 1\)</span></p></li>
@@ -808,7 +910,7 @@ Bárbara D. Bitarello
 <p>We do not meet assumptions</p>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top" style="font-size: 18px; margin-left: auto; margin-right: auto;">
+<table class="table caption-top table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Male_2</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Male_1</th>
@@ -854,32 +956,31 @@ Bárbara D. Bitarello
 </table>
 </div>
 </div>
-</section><section class="slide level2"><h2>Fisher’s Exact Test</h2>
+</section><section id="fishers-exact-test" class="level2"><h2 class="anchored" data-anchor-id="fishers-exact-test">Fisher’s Exact Test</h2>
 <ul>
 <li><p>Generates all possible permutations of your data.</p></li>
 <li><p>Asks what proportion of configurations result in associations as or more extreme than observed.</p></li>
 </ul>
 <p><span class="math inline">\(p-value =\)</span>(Sum of Probabilities of Tables at least as Extreme as Observed Table) / (Sum of Probabilities of All Possible Tables)</p>
 <p>The test statistic is calculated based on the hypergeometric distribution (which we won’t go into), which gives the <em>probability of observing the given contingency table under the assumption of independence</em>.</p>
-</section><section class="slide level2"><h2>Fisher’s test in R</h2>
+</section><section id="fishers-test-in-r" class="level2"><h2 class="anchored" data-anchor-id="fishers-test-in-r">Fisher’s test in R</h2>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">fisher.test</span>(spider.spread)</span>
-<span id="cb5-2"><a></a><span class="do">## </span></span>
-<span id="cb5-3"><a></a><span class="do">##  Fisher's Exact Test for Count Data</span></span>
-<span id="cb5-4"><a></a><span class="do">## </span></span>
-<span id="cb5-5"><a></a><span class="do">## data:  spider.spread</span></span>
-<span id="cb5-6"><a></a><span class="do">## p-value = 6e-04</span></span>
-<span id="cb5-7"><a></a><span class="do">## alternative hypothesis: true odds ratio is not equal to 1</span></span>
-<span id="cb5-8"><a></a><span class="do">## 95 percent confidence interval:</span></span>
-<span id="cb5-9"><a></a><span class="do">##  0.000482 0.329721</span></span>
-<span id="cb5-10"><a></a><span class="do">## sample estimates:</span></span>
-<span id="cb5-11"><a></a><span class="do">## odds ratio </span></span>
-<span id="cb5-12"><a></a><span class="do">##     0.0279</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/fisher.test.html">fisher.test</a></span><span class="op">(</span><span class="va">spider.spread</span><span class="op">)</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">##  Fisher's Exact Test for Count Data</span></span>
+<span><span class="co">## </span></span>
+<span><span class="co">## data:  spider.spread</span></span>
+<span><span class="co">## p-value = 6e-04</span></span>
+<span><span class="co">## alternative hypothesis: true odds ratio is not equal to 1</span></span>
+<span><span class="co">## 95 percent confidence interval:</span></span>
+<span><span class="co">##  0.000482 0.329721</span></span>
+<span><span class="co">## sample estimates:</span></span>
+<span><span class="co">## odds ratio </span></span>
+<span><span class="co">##     0.0279</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top" style="font-size: 18px; margin-left: auto; margin-right: auto;">
+<table class="table caption-top table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">method</th>
@@ -900,12 +1001,12 @@ Bárbara D. Bitarello
 </div>
 </div>
 <p>We reject the null hypothesis.</p>
-</section><section class="slide level2"><h2>Doing our own permutations</h2>
+</section><section id="doing-our-own-permutations" class="level2"><h2 class="anchored" data-anchor-id="doing-our-own-permutations">Doing our own permutations</h2>
 <p><span class="math inline">\(1^{st}\)</span> tidy data by going from this on left, to this on right</p>
 <div style="float:left; position: relative; bottom: 0px;">
 <div class="cell">
 <div class="cell-output-display">
-<table class="table caption-top" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<table class="table caption-top table-sm table-striped small">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Male_2</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">Male_1</th>
@@ -941,7 +1042,7 @@ Bárbara D. Bitarello
 <div class="cell">
 <div class="cell-output-display">
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:350px; overflow-x: scroll; width:350px; ">
-<table class="table caption-top" style="margin-left: auto; margin-right: auto;">
+<table class="table caption-top table-sm table-striped small">
 <thead><tr class="header">
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Male_2</th>
 <th data-quarto-table-cell-role="th" style="text-align: left; position: sticky; top: 0; background-color: #FFFFFF;">Male_1</th>
@@ -1084,11 +1185,29 @@ Bárbara D. Bitarello
 <p><br><br><br><br><br><br><br><br><br></p>
 <p>By doing this</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>disaggregated.spider <span class="ot">&lt;-</span> spider <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a></a>    <span class="fu">uncount</span>(<span class="at">weights =</span> observed)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">disaggregated.spider</span> <span class="op">&lt;-</span> <span class="va">spider</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">uncount</span><span class="op">(</span>weights <span class="op">=</span> <span class="va">observed</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section><section class="slide level2"><h2>Chi-squared vs Fisher’s exact test</h2>
+</section><section id="doing-our-own-permutations-1" class="level2" data-visibility="hidden"><h2 data-visibility="hidden" class="anchored" data-anchor-id="doing-our-own-permutations-1">Doing our own permutations!</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">obs.diff</span> <span class="op">&lt;-</span> <span class="va">disaggregated.spider</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">summarise</span><span class="op">(</span>obs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Male_2</span> <span class="op">==</span> <span class="st">"Rejected"</span> <span class="op">&amp;</span> <span class="va">Male_1</span> <span class="op">==</span> <span class="st">"Eaten"</span><span class="op">)</span>, expect <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Male_2</span> <span class="op">==</span></span>
+<span>        <span class="st">"Rejected"</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Male_1</span> <span class="op">==</span> <span class="st">"Eaten"</span><span class="op">)</span>, differ <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="va">obs</span> <span class="op">-</span> <span class="va">expect</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">select</span><span class="op">(</span><span class="va">differ</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">pull</span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">disaggregated.spider</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">rep_sample_n</span><span class="op">(</span>size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">disaggregated.spider</span><span class="op">)</span>, reps <span class="op">=</span> <span class="fl">5e+05</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>Male_1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">Male_1</span>, size <span class="op">=</span> <span class="fu">n</span><span class="op">(</span><span class="op">)</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">group_by</span><span class="op">(</span><span class="va">replicate</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">summarise</span><span class="op">(</span>obs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Male_2</span> <span class="op">==</span> <span class="st">"Rejected"</span> <span class="op">&amp;</span> <span class="va">Male_1</span> <span class="op">==</span> <span class="st">"Eaten"</span><span class="op">)</span>, expect <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Male_2</span> <span class="op">==</span></span>
+<span>        <span class="st">"Rejected"</span><span class="op">)</span> <span class="op">*</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">Male_1</span> <span class="op">==</span> <span class="st">"Eaten"</span><span class="op">)</span>, differ <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">abs</a></span><span class="op">(</span><span class="va">obs</span> <span class="op">-</span> <span class="va">expect</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">mutate</span><span class="op">(</span>as.extreme <span class="op">=</span> <span class="va">differ</span> <span class="op">&gt;=</span> <span class="va">obs.diff</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">summarise</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">as.extreme</span><span class="op">)</span><span class="op">)</span> <span class="op">%&gt;%</span></span>
+<span>    <span class="fu">pull</span><span class="op">(</span><span class="op">)</span>  <span class="co"># Our p-value!</span></span>
+<span><span class="co">## [1] 0.000614</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="chi-squared-vs-fishers-exact-test" class="level2"><h2 class="anchored" data-anchor-id="chi-squared-vs-fishers-exact-test">Chi-squared vs Fisher’s exact test</h2>
 <ul>
 <li>Both have the same null hypothesis: the outcome is independent from the groups.</li>
 <li>Chi-square is generally best for larger samples and Fisher’s is better for smaller samples.</li>
@@ -1096,7 +1215,7 @@ Bárbara D. Bitarello
 <li>When to use Fisher’s exact test:</li>
 </ul>
 <ol type="a">
-<li><blockquote>
+<li><blockquote class="blockquote">
 <p>20% of categories with Expected values &lt; 5</p>
 </blockquote></li>
 <li>Any expected value &lt;1</li>
@@ -1107,409 +1226,408 @@ Bárbara D. Bitarello
 </ul>
 
 
-</section>
-</div>
-  <div class="quarto-auto-generated-content" style="display: none;">
-<div class="footer footer-default">
-
-</div>
-</div></div>
-
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
-
-      // Full list of configuration options available at:
-      // https://revealjs.com/config/
-      Reveal.initialize({
-'controlsAuto': true,
-'previewLinksAuto': false,
-'pdfSeparateFragments': false,
-'autoAnimateEasing': "ease",
-'autoAnimateDuration': 1,
-'autoAnimateUnmatched': true,
-'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true},
-'smaller': true,
- 
-        // Display controls in the bottom right corner
-        controls: false,
-
-        // Help the user learn the controls by providing hints, for example by
-        // bouncing the down arrow when they first encounter a vertical slide
-        controlsTutorial: false,
-
-        // Determines where controls appear, "edges" or "bottom-right"
-        controlsLayout: 'edges',
-
-        // Visibility rule for backwards navigation arrows; "faded", "hidden"
-        // or "visible"
-        controlsBackArrows: 'faded',
-
-        // Display a presentation progress bar
-        progress: true,
-
-        // Display the page number of the current slide
-        slideNumber: 'c/t',
-
-        // 'all', 'print', or 'speaker'
-        showSlideNumber: 'all',
-
-        // Add the current slide number to the URL hash so that reloading the
-        // page/copying the URL will return you to the same slide
-        hash: true,
-
-        // Start with 1 for the hash rather than 0
-        hashOneBasedIndex: false,
-
-        // Flags if we should monitor the hash and change slides accordingly
-        respondToHashChanges: true,
-
-        // Push each slide change to the browser history
-        history: true,
-
-        // Enable keyboard shortcuts for navigation
-        keyboard: true,
-
-        // Enable the slide overview mode
-        overview: true,
-
-        // Disables the default reveal.js slide layout (scaling and centering)
-        // so that you can use custom CSS layout
-        disableLayout: false,
-
-        // Vertical centering of slides
-        center: false,
-
-        // Enables touch navigation on devices with touch input
-        touch: true,
-
-        // Loop the presentation
-        loop: false,
-
-        // Change the presentation direction to be RTL
-        rtl: false,
-
-        // see https://revealjs.com/vertical-slides/#navigation-mode
-        navigationMode: 'linear',
-
-        // Randomizes the order of slides each time the presentation loads
-        shuffle: false,
-
-        // Turns fragments on and off globally
-        fragments: true,
-
-        // Flags whether to include the current fragment in the URL,
-        // so that reloading brings you to the same fragment position
-        fragmentInURL: false,
-
-        // Flags if the presentation is running in an embedded mode,
-        // i.e. contained within a limited portion of the screen
-        embedded: false,
-
-        // Flags if we should show a help overlay when the questionmark
-        // key is pressed
-        help: true,
-
-        // Flags if it should be possible to pause the presentation (blackout)
-        pause: true,
-
-        // Flags if speaker notes should be visible to all viewers
-        showNotes: false,
-
-        // Global override for autoplaying embedded media (null/true/false)
-        autoPlayMedia: null,
-
-        // Global override for preloading lazy-loaded iframes (null/true/false)
-        preloadIframes: null,
-
-        // Number of milliseconds between automatically proceeding to the
-        // next slide, disabled when set to 0, this value can be overwritten
-        // by using a data-autoslide attribute on your slides
-        autoSlide: 133000,
-
-        // Stop auto-sliding after user input
-        autoSlideStoppable: true,
-
-        // Use this method for navigation when auto-sliding
-        autoSlideMethod: null,
-
-        // Specify the average time in seconds that you think you will spend
-        // presenting each slide. This is used to show a pacing timer in the
-        // speaker view
-        defaultTiming: null,
-
-        // Enable slide navigation via mouse wheel
-        mouseWheel: false,
-
-        // The display mode that will be used to show slides
-        display: 'block',
-
-        // Hide cursor if inactive
-        hideInactiveCursor: true,
-
-        // Time before the cursor is hidden (in ms)
-        hideCursorTime: 5000,
-
-        // Opens links in an iframe preview overlay
-        previewLinks: false,
-
-        // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'slide',
-
-        // Transition speed (default/fast/slow)
-        transitionSpeed: 'default',
-
-        // Transition style for full page slide backgrounds
-        // (none/fade/slide/convex/concave/zoom)
-        backgroundTransition: 'fade',
-
-        // Number of slides away from the current that are visible
-        viewDistance: 3,
-
-        // Number of slides away from the current that are visible on mobile
-        // devices. It is advisable to set this to a lower number than
-        // viewDistance in order to save resources.
-        mobileViewDistance: 2,
-
-        // The "normal" size of the presentation, aspect ratio will be preserved
-        // when the presentation is scaled to fit different resolutions. Can be
-        // specified using percentage units.
-        width: 1050,
-
-        height: 700,
-
-        // Factor of the display size that should remain empty around the content
-        margin: 0.1,
-
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
-        // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
-
-          RevealMath,
-          RevealNotes,
-          RevealSearch,
-          RevealZoom
-        ]
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
       });
-    </script><script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bbitarello\.github\.io\/b215f2026\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
           }
         }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
         }
-
-      })();
-    </script><script id="quarto-html-after-body" type="application/javascript">
-      window.document.addEventListener("DOMContentLoaded", function (event) {
-        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-        tabsets.forEach(function(tabset) {
-          const tabby = new Tabby('#' + tabset.id);
-        });
-        const isCodeAnnotation = (el) => {
-          for (const clz of el.classList) {
-            if (clz.startsWith('code-annotation-')) {                     
-              return true;
-            }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
           }
-          return false;
         }
-        const onCopySuccess = function(e) {
-          // button target
-          const button = e.trigger;
-          // don't keep focus
-          button.blur();
-          // flash "checked"
-          button.classList.add('code-copy-button-checked');
-          var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copied!");
-          let tooltip;
-          if (window.bootstrap) {
-            button.setAttribute("data-bs-toggle", "tooltip");
-            button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copied!");
-            tooltip = new bootstrap.Tooltip(button, 
-              { trigger: "manual", 
-                customClass: "code-copy-button-tooltip",
-                offset: [0, -8]});
-            tooltip.show();    
-          }
-          setTimeout(function() {
-            if (tooltip) {
-              tooltip.hide();
-              button.removeAttribute("data-bs-title");
-              button.removeAttribute("data-bs-toggle");
-              button.removeAttribute("data-bs-placement");
-            }
-            button.setAttribute("title", currentTitle);
-            button.classList.remove('code-copy-button-checked');
-          }, 1000);
-          // clear code selection
-          e.clearSelection();
-        }
-        const getTextToCopy = function(trigger) {
-          const outerScaffold = trigger.parentElement.cloneNode(true);
-          const codeEl = outerScaffold.querySelector('code');
-          for (const childEl of codeEl.children) {
-            if (isCodeAnnotation(childEl)) {
-              childEl.remove();
-            }
-          }
-          return codeEl.innerText;
-        }
-        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-          text: getTextToCopy
-        });
-        clipboard.on('success', onCopySuccess);
-        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-            text: getTextToCopy,
-            container: window.document.getElementById('quarto-embedded-source-code-modal')
-          });
-          clipboardModal.on('success', onCopySuccess);
-        }
-          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-          var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp("https:\/\/bbitarello\.github\.io\/b215f2025\/");
-          var isInternal = (href) => {
-              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-          }
-          // Inspect non-navigation links and adorn them if external
-         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-          for (var i=0; i<links.length; i++) {
-            const link = links[i];
-            if (!isInternal(link.href)) {
-              // undo the damage that might have been done by quarto-nav.js in the case of
-              // links that we want to consider external
-              if (link.dataset.originalHref !== undefined) {
-                link.href = link.dataset.originalHref;
-              }
-            }
-          }
-        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-          const config = {
-            allowHTML: true,
-            maxWidth: 500,
-            delay: 100,
-            arrow: false,
-            appendTo: function(el) {
-                return el.closest('section.slide') || el.parentElement;
-            },
-            interactive: true,
-            interactiveBorder: 10,
-            theme: 'light-border',
-            placement: 'bottom-start',
-          };
-          if (contentFn) {
-            config.content = contentFn;
-          }
-          if (onTriggerFn) {
-            config.onTrigger = onTriggerFn;
-          }
-          if (onUntriggerFn) {
-            config.onUntrigger = onUntriggerFn;
-          }
-            config['offset'] = [0,0];
-            config['maxWidth'] = 700;
-          window.tippy(el, config); 
-        }
-        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-        for (var i=0; i<noterefs.length; i++) {
-          const ref = noterefs[i];
-          tippyHover(ref, function() {
-            // use id or data attribute instead here
-            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-            try { href = new URL(href).hash; } catch {}
-            const id = href.replace(/^#\/?/, "");
-            const note = window.document.getElementById(id);
-            if (note) {
-              return note.innerHTML;
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
             } else {
-              return "";
+              container.appendChild(child.cloneNode(true));
+              break;
             }
-          });
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
         }
-        const findCites = (el) => {
-          const parentEl = el.parentElement;
-          if (parentEl) {
-            const cites = parentEl.dataset.cites;
-            if (cites) {
-              return {
-                el,
-                cites: cites.split(' ')
-              };
-            } else {
-              return findCites(el.parentElement)
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
             }
           } else {
-            return undefined;
-          }
-        };
-        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-        for (var i=0; i<bibliorefs.length; i++) {
-          const ref = bibliorefs[i];
-          const citeInfo = findCites(ref);
-          if (citeInfo) {
-            tippyHover(citeInfo.el, function() {
-              var popup = window.document.createElement('div');
-              citeInfo.cites.forEach(function(cite) {
-                var citeDiv = window.document.createElement('div');
-                citeDiv.classList.add('hanging-indent');
-                citeDiv.classList.add('csl-entry');
-                var biblioDiv = window.document.getElementById('ref-' + cite);
-                if (biblioDiv) {
-                  citeDiv.innerHTML = biblioDiv.innerHTML;
-                }
-                popup.appendChild(citeDiv);
-              });
-              return popup.innerHTML;
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
             });
           }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
         }
+      }, function(instance) {
       });
-      </script>
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/bbitarello/b215f2026/blob/main/slides/ContingencyAnalyses2.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>

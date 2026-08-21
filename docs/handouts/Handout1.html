@@ -6,11 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Bárbara D. Bitarello">
-<meta name="dcterms.date" content="2025-09-03">
 <meta name="keywords" content="Displaying &amp; Describing Data">
 
-<title>Statistics and Samples – BIOL B215: Biostatistics with R</title>
+<title>Intro to Statistics – BIOL B215: Biostatistics with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,7 +53,6 @@ ul.task-list li input[type="checkbox"] {
     "/",
     "s"
   ],
-  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -83,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Statistics and Samples</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Intro to Statistics</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -100,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
       <a href="../index.html" class="sidebar-logo-link">
       </a>
       <div class="sidebar-tools-main">
-    <a href="https://github.com/bbitarello/b215f2025" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/bbitarello/b215f2026" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
     <a href="https://posit.cloud/spaces/678147/join?access_code=hl0WMhTu8LNwvW1hn-uIdm_lx1Xm8sCjIUMwCW24" title="RStudio Cloud" class="quarto-navigation-tool px-1" aria-label="RStudio Cloud"><i class="bi bi-cloud-fill"></i></a>
 </div>
       </div>
@@ -119,30 +116,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../syllabus.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Syllabus</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Schedule</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../slides.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Slides</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../CA1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Coding Assignment 1</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../rlearn.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R resources</span></a>
   </div>
@@ -157,22 +130,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link active" data-scroll-target="#learning-goals">Learning Goals</a></li>
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#learning-materials" id="toc-learning-materials" class="nav-link" data-scroll-target="#learning-materials">Learning Materials</a></li>
+  <li><a href="#learning-goals" id="toc-learning-goals" class="nav-link" data-scroll-target="#learning-goals">Learning Goals</a></li>
   <li><a href="#key-terms" id="toc-key-terms" class="nav-link" data-scroll-target="#key-terms">Key terms</a></li>
-  <li><a href="#supporting-materials-for-learning" id="toc-supporting-materials-for-learning" class="nav-link" data-scroll-target="#supporting-materials-for-learning">Supporting Materials for Learning</a></li>
   <li><a href="#key-points" id="toc-key-points" class="nav-link" data-scroll-target="#key-points">Key points</a>
   <ul class="collapse">
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/bbitarello/b215f2025/blob/main/handouts/Handout1.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/bbitarello/b215f2026/blob/main/handouts/Handout1.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Statistics and Samples</h1>
+<h1 class="title">Intro to Statistics</h1>
 <p class="subtitle lead">Study Guide</p>
 </div>
 
@@ -180,19 +154,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Bárbara D. Bitarello </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">September 3, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -208,8 +170,33 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Your name: _____________________</p>
+<p>Date: ___________________</p>
+<p>After the in-class discussion, how do you rate your grasp of this materials:</p>
+<p>[ ] 1: confused [ ] 2: some things are clear, but not all [ ] 3: ok, but need to study more [ ] 4: piece of cake</p>
+<hr>
+<section id="instructions" class="level1">
+<h1>Instructions</h1>
+<ul>
+<li><p>Put your name at the top of this sheet.</p></li>
+<li><p>This activity should be handed in at the end of class on Wednesdays. You will get them back in the following class period.</p></li>
+<li><p>Either before, during, or after engaging with the readings and recorded lectures, answer the concept checks below.</p></li>
+<li><p>The key points section will be discussed further in class on Wednesday to clarify points of confusion.</p></li>
+<li><p>If questions remain about these after class, please attend office hours to clarify them.</p></li>
+</ul>
+</section>
+<section id="learning-materials" class="level1">
+<h1>Learning Materials</h1>
+<ul>
+<li>Ch.1 + Interleaf 1 from textbook.</li>
+<li>Lecture videos 1.1-1.3 (Moodle).</li>
+<li>Moodle Quiz 1.</li>
+</ul>
+<hr>
+</section>
 <section id="learning-goals" class="level1">
 <h1>Learning Goals</h1>
+<p>By the end of this unit, you should be able to:</p>
 <ul>
 <li>Understand the major goal of statistics.</li>
 <li>Distinguish between a sample and a population.</li>
@@ -244,41 +231,101 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Ordinal variables:</strong> not measured (categorical) but have ordering nonetheless. For example: ranking of political candidates by voters, ordering and ranking students by height without actually measuring their heights. The rank value has no inherent meaning outside the “order” they provide. A candidate ranked as #2 is not twice as preferable as the candidate ranked as #1.</p>
 <p><strong>Nominal variables:</strong> there is no “natural ordering” that can be assigned to the categories. Examples: species, gender, sex, genotype, phenotype, healthy/diseased, marital status.</p>
 </section>
-<section id="supporting-materials-for-learning" class="level1">
-<h1>Supporting Materials for Learning</h1>
-<ul>
-<li>Ch.1 + Interleaf 1 from textbook.</li>
-</ul>
-</section>
 <section id="key-points" class="level1">
 <h1>Key points</h1>
+<p>Try to answer these yourselves. Bring them to class to discuss and clarify point of confusion.</p>
+<ol type="1">
+<li>What are the the key goals of statistics?</li>
+</ol>
 <ul>
 <li><p>Most of statistics revolves around <strong>estimating values</strong> of <strong>population parameters based on samples</strong>, measuring the <strong>uncertainty of our estimates</strong>, and <strong>testing hypotheses</strong> about the parameters of interest based on our sample(s).</p></li>
+<li><ol type="1">
+<li>One major goal of a statistical analysis is how to go from conclusions about a sample which we can measure and observe, to the population(s) we care about. In doing so we must worry about random differences between a sample and a population (known as Sampling Error), as well as any systematic issues in our sampling or measuring procedure which will cause estimates to reliably differ from the population (known as Sampling Bias).</li>
+</ol></li>
+<li><p>Estimates of any sample will differ somewhat from population parameters by chance sampling and/or imprecise measurement. This is why we always consider and report uncertainty in estimates and note that chance can contribute to any result. Much of this course focuses on acknowledging and accommodating sampling error. We can reliably decrease sampling error by increasing the sample size. Note that despite its name, sampling error does not imply that the researcher made a mistake.</p></li>
+<li><p>The third major goal of statistics (in addition to estimation and hypothesis testing) is inferring causation. Causation cannot be inferred from correlation alone. Experimental evidence from carefully planned experiments is necessary.</p></li>
 <li><p>Biostatistics lies at the intersection of critical thinking, thinking with numbers, and biology.</p></li>
 <li><p>Biostatistics practices involve thinking of a motivation or biological question, the experiments that have been or could be done and/or data that could be collected to answer such a question, designing experiments that could help answer the question, assessing whether results (based on samples) support interesting conclusions about the population of interest.</p></li>
-<li><p>To a statistician, the TRUTH is a population – a collection of all individuals of a circumscribed type (e.g.&nbsp;all grasshoppers in North America), or a process for generating these individuals (see note below). We characterize a population by its parameters (e.g.&nbsp;its TRUE mean, or its TRUE variance).</p></li>
-<li><p>However, it is often impractical or impossible to study every individual in a population. As such, we often deal with a sample – a subset of a population. We characterize a sample by taking an estimate of population parameters.</p></li>
-<li><p>Parameters are constants. Estimates are random variables. Because of this, estimates are always prone to sampling error.</p></li>
-<li><p>So a major goal of a statistical analysis is how to go from conclusions about a sample which we can measure and observe, to the population(s) we care about. In doing so we must worry about random differences between a sample and a population (known as Sampling Error), as well as any systematic issues in our sampling or measuring procedure which will cause estimates to reliably differ from the population (known as Sampling Bias).</p></li>
-<li><p>Estimates of any sample will differ somewhat from population parameters by chance sampling and/or imprecise measurement. This is why we always consider and report uncertainty in estimates and note that chance can contribute to any result. Much of this course focuses on acknowledging and accommodating sampling error. We can reliably decrease sampling error by increasing the sample size. Note that despite its name, sampling error does not imply that the researcher made a mistake.</p></li>
-<li><p>There are many ways for samples to systematically deviate from the population (bias). For example: volunteer bias, samples of convenience, and survivorship bias (in which survivors differ from a population in critical ways).</p></li>
-<li><p>The third major goal of statistics (in addition to estimation and hypothesis testing) is inferring causation. Causation cannot be inferred from correlation alone. Experimental evidence from carefully planned experiments is necessary.</p></li>
-<li><p>A probability distribution represents the proportion of a population with a given value. The frequency distribution represents the number of times a value occurs in a sample. Ideally, the frequency distribution from an unbiased sample should give you a decent estimate for the probabilities that pertain to the population. Understanding how much your sample gives you a good picture of the population is a big part of the challenge.</p></li>
-<li><p>In a random sample, each member of a population has an equal and independent chance of being selected.</p></li>
-<li><p>Samples are independent if the probability that one individual is studied is unrelated to the probability that any other individual is studied.</p></li>
+</ul>
+<ol start="2" type="1">
+<li>Compare and contrast the different meanings of the word “population” (biological vs.&nbsp;statistical)</li>
+</ol>
+<ul>
+<li>To a statistician, the TRUTH is a population – a collection of all individuals of a circumscribed type (e.g.&nbsp;all grasshoppers in North America), or a process for generating these individuals (see note below). We characterize a population by its parameters (e.g.&nbsp;its TRUE mean, or its TRUE variance).</li>
+</ul>
+<ol start="3" type="1">
+<li>Why is sampling such a crucial concept in statistics?</li>
+</ol>
+<ul>
+<li>However, it is often impractical or impossible to study every individual in a population. As such, we often deal with a sample – a subset of a population. We characterize a sample by taking an estimate of population parameters.</li>
+</ul>
+<ol start="4" type="1">
+<li>Define and contrast these two concepts: parameters and estimates (statistics). Which of these is prone to bias and sampling error?</li>
+</ol>
+<ul>
+<li>Parameters are constants. Estimates are random variables. Because of this, estimates are always prone to sampling error. They may also be subject to sampling bias.</li>
+</ul>
+<ol start="5" type="1">
+<li>There are many ways for samples to systematically deviate from the population (bias). Name and contrast them.</li>
+</ol>
+<ul>
+<li>There are many ways for samples to systematically deviate from the population (bias). For example: volunteer bias, samples of convenience, and survivorship bias (in which survivors differ from a population in critical ways).</li>
+</ul>
+<ol start="6" type="1">
+<li>How can we reliable decrease sampling error?</li>
+</ol>
+<p>We can reliably decrease sampling error by increasing the sample size.</p>
+<ol start="7" type="1">
+<li>Is a study involving lab work always experimental? Is a field study always observational?</li>
+</ol>
+<ul>
+<li>The distinction between an experimental and an observational study is not about the equipment used or the lab vs.&nbsp;the field. For example, comparing patterns of methylation between live bearing and egg laying species of fish is an observation, not an experiment, as we did not randomly assign live-bearing or egg-laying to fish in this study.</li>
+</ul>
+<ol start="8" type="1">
+<li>Define and contrast probability distributions from frequency distributions. How does this relate to one of the key goals of statistics?</li>
+</ol>
+<ul>
+<li>A probability distribution represents the proportion of a population with a given value. The frequency distribution represents the number of times a value occurs in a sample. Ideally, the frequency distribution from an unbiased sample should give you a decent estimate for the probabilities that pertain to the population. Understanding how much your sample gives you a good picture of the population is a big part of the challenge.</li>
+</ul>
+<ol start="9" type="1">
+<li>How can experiments introduce bias? How can bias be avoided in experiments?</li>
+</ol>
+<ul>
+<li>Experiments can also introduce bias via artifacts. E.g. the placebo effect. Appropriate controls are, therefore, critical.</li>
+</ul>
+<ol start="10" type="1">
+<li>Define and name the properties of a good sample.</li>
+</ol>
+<ul>
+<li><p>Randomness: In a random sample, each member of a population has an equal and independent chance of being selected.</p></li>
+<li><p>Independence: Samples are independent if the probability that one individual is studied is unrelated to the probability that any other individual is studied.</p></li>
+</ul>
+<ol start="11" type="1">
+<li>Define and compare the types of variables in an experiment.</li>
+</ol>
+<ul>
+<li><p>When conducting an experiment, the treatment variable (the one manipulated by the researcher) is the explanatory variable, and the measured effect of the treatment is the response variable.</p></li>
 <li><p>Sampling does not always mean taking a subsample from a larger population. For example, in an experiment we interfere with a system and see how this intervention changes some outcome, or in flipping a coin we generate a new outcome that had not yet happened. Nonetheless, we can use the metaphor of sampling in all of these cases.</p></li>
 <li><p>Different types of data summaries, plots, and statistical tests are applicable to different types of variables.</p></li>
-<li><p>The distinction between an experimental and an observational experimental study is not about the equipment used or the lab vs.&nbsp;the field. For example, comparing patterns of methylation between live bearing and egg laying species of fish is an observation, not an experiment, as we did not randomly assign live-bearing or egg-laying to fish in this study.</p></li>
-<li><p>When conducting an experiment, the treatment variable (the one manipulated by the researcher) is the explanatory variable, and the measured effect of the treatment is the response variable.</p></li>
+</ul>
+<ol start="12" type="1">
+<li>Discuss the relationship between statistical association, correlation, and causality. Come up with an example different from the textbook and lecture ones.</li>
+</ol>
+<ul>
 <li><p>An association (or correlation) between variables is a powerful clue that there may be a causal relationship between those variables.</p></li>
 <li><p>The observation of correlation between two variables, even if statistically significant, cannot be the sole basis to infer causation.</p></li>
 <li><p>For example, the finding that people who smoke are more likely to get cancer comes from many observational studies. In an observational study, treatments are not randomly assigned to individuals. Therefore, confounding variables – unmodelled variables which distort the relationship between explanatory and response variables – can bias our interpretation. A simple association between smoking and lung cancer might suggest smoking causes lung cancer, or both are caused by stress, or genetics or whatever. We therefore must show extreme caution when attempting to learn about causation from observational studies. (Brandvain 2022).</p></li>
-<li><p>However, some caution is warranted here – a causal relationship in a controlled experiment under specified settings may not imply a causal relationship in nature. For example, exceptionally high doses of a pesticide may cause squirrels to die, but this does not mean that the smaller dose of insecticide found around farm fields is responsible for squirrel death.</p></li>
-<li><p>Experiments can also introduce bias via artifacts. E.g. the placebo effect. Appropriate controls are, therefore, critical.</p></li>
+</ul>
+<ol start="13" type="1">
+<li>Does a causal relationship in a controlled experiment under specified settings always imply a causal relationship in nature?</li>
+</ol>
+<ul>
+<li>However, some caution is warranted here – a causal relationship in a controlled experiment under specified settings may not imply a causal relationship in nature. For example, exceptionally high doses of a pesticide may cause squirrels to die, but this does not mean that the smaller dose of insecticide found around farm fields is responsible for squirrel death.</li>
 </ul>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <p>Brandvain, Y. (2022). Applied Biostats. Bookdown. https://bookdown.org/ybrandvain/Applied_Biostats_2022/</p>
+<p>Whitlock, M., &amp; Schluter, D. (2020). The analysis of biological data. Macmillan. https://whitlockschluter3e.zoology.ubc.ca/</p>
 <p>Whitlock, M., &amp; Schluter, D. (2020). The analysis of biological data. Macmillan. https://whitlockschluter3e.zoology.ubc.ca/</p>
 
 
@@ -359,7 +406,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/bbitarello\.github\.io\/b215f2025\/");
+        var filterRegex = new RegExp("https:\/\/bbitarello\.github\.io\/b215f2026\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -691,4 +738,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/bbitarello/b215f2025/blob/main/handouts/Handout1.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/bbitarello/b215f2026/blob/main/handouts/Handout1.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div></div></footer></body></html>
