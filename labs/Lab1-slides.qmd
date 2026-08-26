@@ -1,0 +1,30 @@
+---
+title: "Lab1: R Crash Course"
+format: beamer
+---
+
+# Today
+
+
+# Typical Lab
+
+* short pre-class video/reading (occasionally)
+* mini-lecture
+* work through guided activity
+* complete relevant DataCamp (DC) activities
+* submit worksheet on Moodle by the end of the day
+
+# Today
+
+* Introduce DataCamp
+* Introduce Rstudio (Posit) Cloud
+* Complete DC activity "Introduction to R: Intro to Basics"
+* 10 min break!
+* Mini-lecture
+* Work through Lab 1 activity in Posit Cloud and hand in your paper worksheet at the end of class
+
+# 
+
+# Web R
+
+https://webr.sh/

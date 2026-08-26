@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="keywords" content="Displaying &amp; Describing Data">
+<meta name="keywords" content="Intro">
 
-<title>Intro to Statistics – BIOL B215: Biostatistics with R</title>
+<title>Unit 1: Intro to Statistics – BIOL B215: Biostatistics with R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -80,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Intro to Statistics</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Unit 1: Intro to Statistics</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -95,10 +95,12 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
       <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/figs/figs.006.jpeg" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/figs/figs.006.jpeg" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/bbitarello/b215f2026" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
-    <a href="https://posit.cloud/spaces/678147/join?access_code=hl0WMhTu8LNwvW1hn-uIdm_lx1Xm8sCjIUMwCW24" title="RStudio Cloud" class="quarto-navigation-tool px-1" aria-label="RStudio Cloud"><i class="bi bi-cloud-fill"></i></a>
+    <a href="https://posit.cloud/spaces/807519/content/all?sort=name_asc" title="Posit Cloud" class="quarto-navigation-tool px-1" aria-label="Posit Cloud"><i class="bi bi-cloud-fill"></i></a>
 </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -112,6 +114,18 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Labs</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -139,14 +153,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/bbitarello/b215f2026/blob/main/handouts/Handout1.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/bbitarello/b215f2026/blob/main/handouts/Handout1.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="Handout1.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Intro to Statistics</h1>
+<h1 class="title">Unit 1: Intro to Statistics</h1>
 <p class="subtitle lead">Study Guide</p>
 </div>
 
@@ -163,7 +177,7 @@ ul.task-list li input[type="checkbox"] {
 <div>
   <div class="keywords">
     <div class="block-title">Keywords</div>
-    <p>Displaying &amp; Describing Data</p>
+    <p>Intro</p>
   </div>
 </div>
 
@@ -172,25 +186,28 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Your name: _____________________</p>
 <p>Date: ___________________</p>
-<p>After the in-class discussion, how do you rate your grasp of this materials:</p>
-<p>[ ] 1: confused [ ] 2: some things are clear, but not all [ ] 3: ok, but need to study more [ ] 4: piece of cake</p>
+<p><em><em>After your done:</em></em> After the in-class discussions, how do you rate your grasp of these materials:</p>
+<p>[ ] 1: confused</p>
+<p>[ ] 2: some things are clear, but not all</p>
+<p>[ ] 3: ok, but need to study more</p>
+<p>[ ] 4: piece of cake</p>
 <hr>
 <section id="instructions" class="level1">
 <h1>Instructions</h1>
 <ul>
-<li><p>Put your name at the top of this sheet.</p></li>
-<li><p>This activity should be handed in at the end of class on Wednesdays. You will get them back in the following class period.</p></li>
+<li><p>This activity should be handed in at the end of class on <em><em>Sep 9</em></em>. You will get them back in the following class period.</p></li>
 <li><p>Either before, during, or after engaging with the readings and recorded lectures, answer the concept checks below.</p></li>
 <li><p>The key points section will be discussed further in class on Wednesday to clarify points of confusion.</p></li>
-<li><p>If questions remain about these after class, please attend office hours to clarify them.</p></li>
 </ul>
+<p>Note: If questions remain about these after class, please attend office hours to clarify them.</p>
+<hr>
 </section>
 <section id="learning-materials" class="level1">
 <h1>Learning Materials</h1>
 <ul>
 <li>Ch.1 + Interleaf 1 from textbook.</li>
 <li>Lecture videos 1.1-1.3 (Moodle).</li>
-<li>Moodle Quiz 1.</li>
+<li>Moodle quiz 1.</li>
 </ul>
 <hr>
 </section>
@@ -214,114 +231,39 @@ ul.task-list li input[type="checkbox"] {
 <section id="key-terms" class="level1">
 <h1>Key terms</h1>
 <p>You should be able to explain and apply these concepts in their relevant concepts. Try to define them below with your own words. Then look them up and check.</p>
-<p><strong>Population (statistical):</strong> a collection of all individuals of a circumscribed type, or a generative process from which we can generate samples.</p>
-<p><strong>Sample:</strong> a subset of a population – individuals we measure.</p>
-<p><strong>Parameter:</strong> a true measure of a population.</p>
-<p><strong>Estimate:</strong> a guess at a parameter that is made from a finite sample.</p>
-<p><strong>Estimation:</strong> Estimation is the process of inferring an unknown quantity of a population using sample data.</p>
-<p><strong>Sampling error:</strong> describes the deviation between parameter and estimate attributable to the finite process of sampling.</p>
-<p><strong>Sampling bias:</strong> describes the deviation between parameter and estimate attributable to non-representative sampling.</p>
-<p><strong>Independence:</strong> samples are independent if the probability that one individual is studied is unrelated to the probability that any other individual is studied.</p>
-<p><strong>Explanatory variables:</strong> variables we think underlie or are associated with the biological process of interest.</p>
-<p><strong>Response variables:</strong> the outcome we aim to understand.</p>
-<p><strong>Quantitative variables:</strong> can be continuous or discrete.</p>
-<p><strong>Continuous variables:</strong> can assume any value in some possible unbounded interval of real numbers. Common examples: height, temperature, volume, weight, length. They arise from measurement and if the measuring instrument can be improved, more precision in the measurement can be achieved.</p>
-<p><strong>Discrete variables:</strong> assume only isolated values. Examples: trees per hectare, arms per sea star. They arise from counting.</p>
-<p><strong>Categorical variables:</strong> are qualitative data. Can be nominal or ordinal.</p>
-<p><strong>Ordinal variables:</strong> not measured (categorical) but have ordering nonetheless. For example: ranking of political candidates by voters, ordering and ranking students by height without actually measuring their heights. The rank value has no inherent meaning outside the “order” they provide. A candidate ranked as #2 is not twice as preferable as the candidate ranked as #1.</p>
-<p><strong>Nominal variables:</strong> there is no “natural ordering” that can be assigned to the categories. Examples: species, gender, sex, genotype, phenotype, healthy/diseased, marital status.</p>
+<p><strong>Population (statistical):</strong></p>
+<p><strong>Sample:</strong></p>
+<p><strong>Parameter:</strong></p>
+<p><strong>Estimate:</strong></p>
+<p><strong>Sampling error:</strong></p>
+<p><strong>Sampling bias:</strong></p>
+<p><strong>Independence:</strong></p>
+<p><strong>Explanatory variables:</strong></p>
+<p><strong>Response variables:</strong></p>
+<p><strong>Quantitative variables:</strong></p>
+<p><strong>Continuous variables:</strong></p>
+<p><strong>Discrete variables:</strong></p>
+<p><strong>Categorical variables:</strong></p>
+<p><strong>Ordinal variables:</strong></p>
+<p><strong>Nominal variables:</strong></p>
 </section>
 <section id="key-points" class="level1">
 <h1>Key points</h1>
 <p>Try to answer these yourselves. Bring them to class to discuss and clarify point of confusion.</p>
 <ol type="1">
-<li>What are the the key goals of statistics?</li>
+<li><p>What are the some of the key goals of statistics?</p></li>
+<li><p>Compare and contrast the different meanings of the word “population” (biological vs.&nbsp;statistical)</p></li>
+<li><p>Why is sampling such a crucial concept in statistics?</p></li>
+<li><p>Define and contrast these two concepts: parameters and estimates (statistics). Which of these is prone to bias and sampling error?</p></li>
+<li><p>How can we reliably decrease sampling error?</p></li>
+<li><p>Is a study involving lab work always experimental? Is a field study always observational?</p></li>
+<li><p>Define and contrast probability distributions from frequency distributions. How does this relate to one of the key goals of statistics?</p></li>
+<li><p>How can experiments introduce bias? How can bias be avoided in experiments?</p></li>
+<li><p>Define and name the properties of a good sample.</p></li>
+<li><p>Define and compare the types of variables in an experiment.</p></li>
+<li><p>Discuss the relationship between statistical association, correlation, and causality. Come up with an example different from the textbook and lecture ones.</p></li>
+<li><p>Does a causal relationship in a controlled experiment under specified settings always imply a causal relationship in nature?</p></li>
 </ol>
-<ul>
-<li><p>Most of statistics revolves around <strong>estimating values</strong> of <strong>population parameters based on samples</strong>, measuring the <strong>uncertainty of our estimates</strong>, and <strong>testing hypotheses</strong> about the parameters of interest based on our sample(s).</p></li>
-<li><ol type="1">
-<li>One major goal of a statistical analysis is how to go from conclusions about a sample which we can measure and observe, to the population(s) we care about. In doing so we must worry about random differences between a sample and a population (known as Sampling Error), as well as any systematic issues in our sampling or measuring procedure which will cause estimates to reliably differ from the population (known as Sampling Bias).</li>
-</ol></li>
-<li><p>Estimates of any sample will differ somewhat from population parameters by chance sampling and/or imprecise measurement. This is why we always consider and report uncertainty in estimates and note that chance can contribute to any result. Much of this course focuses on acknowledging and accommodating sampling error. We can reliably decrease sampling error by increasing the sample size. Note that despite its name, sampling error does not imply that the researcher made a mistake.</p></li>
-<li><p>The third major goal of statistics (in addition to estimation and hypothesis testing) is inferring causation. Causation cannot be inferred from correlation alone. Experimental evidence from carefully planned experiments is necessary.</p></li>
-<li><p>Biostatistics lies at the intersection of critical thinking, thinking with numbers, and biology.</p></li>
-<li><p>Biostatistics practices involve thinking of a motivation or biological question, the experiments that have been or could be done and/or data that could be collected to answer such a question, designing experiments that could help answer the question, assessing whether results (based on samples) support interesting conclusions about the population of interest.</p></li>
-</ul>
-<ol start="2" type="1">
-<li>Compare and contrast the different meanings of the word “population” (biological vs.&nbsp;statistical)</li>
-</ol>
-<ul>
-<li>To a statistician, the TRUTH is a population – a collection of all individuals of a circumscribed type (e.g.&nbsp;all grasshoppers in North America), or a process for generating these individuals (see note below). We characterize a population by its parameters (e.g.&nbsp;its TRUE mean, or its TRUE variance).</li>
-</ul>
-<ol start="3" type="1">
-<li>Why is sampling such a crucial concept in statistics?</li>
-</ol>
-<ul>
-<li>However, it is often impractical or impossible to study every individual in a population. As such, we often deal with a sample – a subset of a population. We characterize a sample by taking an estimate of population parameters.</li>
-</ul>
-<ol start="4" type="1">
-<li>Define and contrast these two concepts: parameters and estimates (statistics). Which of these is prone to bias and sampling error?</li>
-</ol>
-<ul>
-<li>Parameters are constants. Estimates are random variables. Because of this, estimates are always prone to sampling error. They may also be subject to sampling bias.</li>
-</ul>
-<ol start="5" type="1">
-<li>There are many ways for samples to systematically deviate from the population (bias). Name and contrast them.</li>
-</ol>
-<ul>
-<li>There are many ways for samples to systematically deviate from the population (bias). For example: volunteer bias, samples of convenience, and survivorship bias (in which survivors differ from a population in critical ways).</li>
-</ul>
-<ol start="6" type="1">
-<li>How can we reliable decrease sampling error?</li>
-</ol>
-<p>We can reliably decrease sampling error by increasing the sample size.</p>
-<ol start="7" type="1">
-<li>Is a study involving lab work always experimental? Is a field study always observational?</li>
-</ol>
-<ul>
-<li>The distinction between an experimental and an observational study is not about the equipment used or the lab vs.&nbsp;the field. For example, comparing patterns of methylation between live bearing and egg laying species of fish is an observation, not an experiment, as we did not randomly assign live-bearing or egg-laying to fish in this study.</li>
-</ul>
-<ol start="8" type="1">
-<li>Define and contrast probability distributions from frequency distributions. How does this relate to one of the key goals of statistics?</li>
-</ol>
-<ul>
-<li>A probability distribution represents the proportion of a population with a given value. The frequency distribution represents the number of times a value occurs in a sample. Ideally, the frequency distribution from an unbiased sample should give you a decent estimate for the probabilities that pertain to the population. Understanding how much your sample gives you a good picture of the population is a big part of the challenge.</li>
-</ul>
-<ol start="9" type="1">
-<li>How can experiments introduce bias? How can bias be avoided in experiments?</li>
-</ol>
-<ul>
-<li>Experiments can also introduce bias via artifacts. E.g. the placebo effect. Appropriate controls are, therefore, critical.</li>
-</ul>
-<ol start="10" type="1">
-<li>Define and name the properties of a good sample.</li>
-</ol>
-<ul>
-<li><p>Randomness: In a random sample, each member of a population has an equal and independent chance of being selected.</p></li>
-<li><p>Independence: Samples are independent if the probability that one individual is studied is unrelated to the probability that any other individual is studied.</p></li>
-</ul>
-<ol start="11" type="1">
-<li>Define and compare the types of variables in an experiment.</li>
-</ol>
-<ul>
-<li><p>When conducting an experiment, the treatment variable (the one manipulated by the researcher) is the explanatory variable, and the measured effect of the treatment is the response variable.</p></li>
-<li><p>Sampling does not always mean taking a subsample from a larger population. For example, in an experiment we interfere with a system and see how this intervention changes some outcome, or in flipping a coin we generate a new outcome that had not yet happened. Nonetheless, we can use the metaphor of sampling in all of these cases.</p></li>
-<li><p>Different types of data summaries, plots, and statistical tests are applicable to different types of variables.</p></li>
-</ul>
-<ol start="12" type="1">
-<li>Discuss the relationship between statistical association, correlation, and causality. Come up with an example different from the textbook and lecture ones.</li>
-</ol>
-<ul>
-<li><p>An association (or correlation) between variables is a powerful clue that there may be a causal relationship between those variables.</p></li>
-<li><p>The observation of correlation between two variables, even if statistically significant, cannot be the sole basis to infer causation.</p></li>
-<li><p>For example, the finding that people who smoke are more likely to get cancer comes from many observational studies. In an observational study, treatments are not randomly assigned to individuals. Therefore, confounding variables – unmodelled variables which distort the relationship between explanatory and response variables – can bias our interpretation. A simple association between smoking and lung cancer might suggest smoking causes lung cancer, or both are caused by stress, or genetics or whatever. We therefore must show extreme caution when attempting to learn about causation from observational studies. (Brandvain 2022).</p></li>
-</ul>
-<ol start="13" type="1">
-<li>Does a causal relationship in a controlled experiment under specified settings always imply a causal relationship in nature?</li>
-</ol>
-<ul>
-<li>However, some caution is warranted here – a causal relationship in a controlled experiment under specified settings may not imply a causal relationship in nature. For example, exceptionally high doses of a pesticide may cause squirrels to die, but this does not mean that the smaller dose of insecticide found around farm fields is responsible for squirrel death.</li>
-</ul>
 <section id="references" class="level2">
 <h2 class="anchored" data-anchor-id="references">References</h2>
 <p>Brandvain, Y. (2022). Applied Biostats. Bookdown. https://bookdown.org/ybrandvain/Applied_Biostats_2022/</p>

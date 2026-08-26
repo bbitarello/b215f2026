@@ -78,7 +78,7 @@ You should be able to explain and apply these concepts in their relevant concept
 
 **Estimate:** a guess at a parameter that is made from a finite sample.
 
-**Estimation:** Estimation is the process of inferring an unknown quantity of a population using sample data.
+**Estimation:** estimation is the process of inferring an unknown quantity of a population using sample data.
 
 **Sampling error:** describes the deviation between parameter and estimate attributable to the finite process of sampling.
 

@@ -2,7 +2,7 @@
   {
     "listing": "/handouts.html",
     "items": [
-      "/handouts/Handout1.html"
+      "/handouts/Handout1.pdf"
     ]
   },
   {
@@ -12,39 +12,14 @@
   {
     "listing": "/slides.html",
     "items": [
-      "/slides/Logistics.html",
       "/slides/Statistics_and_Samples.html",
       "/slides/Statistics_and_Samples2.html",
       "/slides/Statistics_and_Samples3.html",
-      "/slides/Statistics_and_Samples4.html",
-      "/slides/DisplayingAndDescribingData.html",
-      "/slides/DisplayingAndDescribingData2.html",
-      "/slides/DisplayingAndDescribingData3.html",
-      "/slides/DisplayingAndDescribingData4.html",
-      "/slides/DisplayingAndDescribingData5.html",
-      "/slides/DisplayingAndDescribingData6.html",
-      "/slides/Probability.html",
-      "/slides/Probability2.html",
-      "/slides/Probability3.html",
-      "/slides/Probability4.html",
-      "/slides/Estimation.html",
-      "/slides/Estimation2.html",
-      "/slides/Estimation3.html",
-      "/slides/Estimation4.html",
-      "/slides/Estimation5.html",
-      "/slides/HypothesisTesting.html",
-      "/slides/HypothesisTesting2.html",
-      "/slides/HypothesisTesting3.html",
-      "/slides/AnalyzingProportions.html",
-      "/slides/AnalyzingProportions2.html",
-      "/slides/AnalyzingProportions3.html",
-      "/slides/GoodnessOfFit.html",
-      "/slides/GoodnessOfFit2.html",
-      "/slides/ContingencyAnalyses.html",
-      "/slides/ContingencyAnalyses2.html",
-      "/slides/Normal.html",
-      "/slides/Normal2.html",
-      "/slides/Normal3.html"
+      "/slides/Statistics_and_Samples4.html"
     ]
+  },
+  {
+    "listing": "/labs.html",
+    "items": []
   }
 ]

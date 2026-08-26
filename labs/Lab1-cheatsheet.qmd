@@ -1,0 +1,26 @@
+---
+title: "Lab1-cheatsheet"
+format: typst
+---
+
+## R commands summary
+
+Here is a non-exhaustive list of common mathematical operators you may want to use in R:
+
+| **Description**          | **Operator**   |
+|--------------------------|----------------|
+| Equal to                 | `==`             |
+| Not equal to             | `!=`    
+| Assignment  of a value to a variable            | `<-` or `=`       |
+| Addition                 | `+`             |
+| Subtraction              | `-`             |
+| Multiplication           | `*`             |
+| Division                 | `/`              |
+| Exponentiation           | `x^y` or `x\*\*y` |
+| Modulo (x mod y), returns remainder of a division         | `x %% y`         |
+| Less than                | `<`             |
+|Greater than | `>` |
+| Less than or equal to    | `<=`            |
+| Greater than or equal to | `>=`            |         |
+| x OR y (Boolean)         | x \|\| y         |
+| x AND y (Boolean)        | x && y         |

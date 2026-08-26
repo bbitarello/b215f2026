@@ -1,53 +1,72 @@
 ---
 title: "1.1.Statistics and Samples"
-subtitle: "Acknowledgments to Y. Brandvain, Freeman & Company, and M. Whitlock for some materials used in these slides"
+subtitle: "Acknowledgments in the last slide"
 author: "Bárbara D. Bitarello"
-date: "09-03-2026"
+date: "09-02-2026"
 keywords: "Statistics & Samples"
 format:
   revealjs:
+    footer: "B215: Biostatistics with R"
+    center-title-slide: true
+    controls: true 
+    controls-tutorial: true 
+    slide-number: true 
+    hash: true 
+    history: true  
+    keyboard: true 
+    pdf-separate-fragments: true 
     smaller: true
     scrollable: true
-    incremental: true
-    slide-number: true
+    incremental: false
     transition: fade
     background-transition: fade
-    highlight-style: ayu-mirage
-    footer: "B215: Biostatistics with R"
-    center-title-slide: false
+    code-fold: show          # ADA Best Practice: default to visible, collapsible if needed
+    code-summary: "Hide the code"
+    code-overflow: wrap
+    highlight-style: a11y-dark # Removed duplicate, kept high-contrast accessible theme
     theme: [serif, custom.scss]
-    chalkboard: true
-code-link: true
+  html:                      # Keeps your excellent accessible HTML webpage fallback
+    toc: true
+code-link: true              # Excellent for R! Turns functions into accessible links
 execute:
   echo: true
   freeze: false
 knitr: 
   opts_chunk:
     tidy: true
-    tidy-opts: { "value": "list(width.cutoff = I(110))", "tag": "!expr" }
+    tidy.opts: { width.cutoff: 60 } # Lowered to 60 to prevent severe truncation on slides
 ---
 
-## Overview
+## Overview {visibility="hidden"}
 
--   **Goals of statistics**
--   **Populations and Samples**
--   **Statistics and parameters**
--   Estimate errors due to sampling
--   Types of experiments
--   Types of variables
+- **Goals of statistics**
+- **Populations and Samples**
+- **Statistics and parameters**
 
 ::: aside
 we will continue on this topic next time
 :::
 
+## Hidden {visibility="hidden"}
+
+- Understand the major goal of statistics
+- Distinguish between a sample and a population
+- Distinguish between an estimate and a parameter
+- Identify why estimates from samples may deviate from parameters of populations
+- Identify the properties of a good sample
+- Be able to detect the differences between observational and experimental studies
+
+::: notes
+These learning goals are for the entire topic/unit. They will also be available in the study guide.
+:::
+
 ## Learning Goals
 
--   Understand the major goal of statistics
--   Distinguish between a sample and a population
--   Distinguish between an estimate and a parameter
--   Identify why estimates from samples may deviate from parameters of populations
--   Identify the properties of a good sample
--   Be able to detect the differences between observational and experimental studies
+- Understand the major goals of statistics
+- Understand the distinction between the term “population” in a statistical and a biological context.
+- Distinguish between a sample and a population
+- Distinguish between an estimate and a parameter
+- Identify why estimates from samples may deviate from parameters of populations
 
 ::: notes
 These learning goals are for the entire topic/unit. They will also be available in the study guide.
@@ -61,43 +80,17 @@ These learning goals are for the entire topic/unit. They will also be available 
 
 ![](images/statsvenn.png){fig-alt="venn diagram shows statistics as the intersection of critical thinking and thinking with numbers" fig-align="center" width="414"}
 
+## Statistics deals with UNCERTAINTY
+
+- Statistics are a [quantitative technology for empirical science]{.underline}.
+- A logic and methodology for the measurement of **uncertainty** and for an examination of that uncertainty.
+- The key word here is **uncertainty**. Statistics becomes necessary when observations are **variable**.
+
 ## What is BIOstatistics?
 
 ![](images/statsvenn2.png){fig-alt="venn diagram shows biostatistics as the intersection of critical thinking, biological data, and thinking with numbers" fig-align="center" width="496"}
 
-## Why should *you* care about statistics?
-
--   Biology (ecology, genetics, immunology, microbiology, …)
--   Biomedical sciences
--   Public health
--   Data science
--   Economy, Psychology, Social Science
-
-## Why should *anyone* care about statistics?
-
-::::: columns
-::: {.column width="\"50%\""}
--   Good science!
--   Critical evaluation of “scientific evidence”
--   Statistics and probability are not intuitive
--   We tend to jump to conclusions and we are very often wrong
--   Transferable skills
-:::
-
-::: column
-![This is my adorable dog, Cashew](images/cashew.jpeg){fig-align="center" width="339"}
-:::
-:::::
-
-## Challenge: data deluge
-
-![Cover from "The Economist" (Feb 27-March 10, 2010)](images/datadeluge.png){fig-alt="Cover of the magazine “The economist”. The heading reads: “The data deluge - And how to handle it: A 14-page special report”. Under the heading is a drawing of a person holding an umbrella in a rainstorm, but the rain is all 1s and 0s. The umbrella top is open but upside-down, collecting water which the person is using to water a plant from the handle of the umbrella." fig-align="center" width="460"}
-
-## Challenge: understanding
-
-![From: https://xkcd.com/1478/](images/pvaluexkcd.png){fig-alt="Comic from xfcd.com: lists p-values ranging from 0.001 to >=0.1 on the left, and on the right offers and interpretation." fig-align="center" width="467"}
-
-## Goals
+## Goals of statistics
 
 ::: goal
 Goal: learn about the world
@@ -105,60 +98,57 @@ Goal: learn about the world
 
 ![From: imgflip.com/memegenerator](images/whatdowewant.png){fig-alt="Meme from meme generator reads: Question: ”What do we want?”, Response: “Learn about the world!!!”, question: “Can we look at the entire world?”, Response: “No!!!”." fig-align="center" width="272"}
 
-## In practice, then...
+::: notes
+In practice, then...
 
--   Challenge: We can’t look at the whole world.
+- Challenge: We can’t look at the whole world.
 
--   Solution: Take a sample and generalize outward.
-
-## Great but...
-
--   New Challenge: Samples deviate from the populations by\\ luck/chance (**sampling error**) or unrepresentative sampling (**sampling bias**)
-
--   Solution:
-
-    -   Estimate the values of important parameters
-
-    -   Have measures of uncertainty for estimates
-
-    -   Test hypotheses about those parameters
-
-## Let's try again
-
--   Statistics are a [quantitative technology for empirical science]{.underline}.
--   A logic and methodology for the measurement of **uncertainty** and for an examination of that uncertainty.
--   The key word here is **uncertainty**. Statistics becomes necessary when observations are **variable**.
-
-## What about biostats?
-
--   What is the motivating biological question?
--   What experiments can be done and/or data can be collected to address this question?
--   Do results support an interesting conclusion?
--   What are the shortcomings/limitations of statistical models and causal frameworks in the analysis?
--   How do I best communicate my results (including estimates, visualizations, conclusions, and caveats)?
+- Solution: Take a meaningful sample and generalize outward.
+:::
 
 ## The Central Obsession
 
 ::::: columns
 ::: column
--   Question: How do we make inferences about the WORLD from our finite observations?
+- Question: How do we make inferences about the WORLD from our finite observations?
 :::
 
 ::: column
--   Answer: Make models to account for the process of sampling and the associated hazards.
+- Answer: Make models to account for the process of sampling and the associated hazards.
 :::
 :::::
 
+## Great but...
+
+- New Challenge: Samples deviate from the populations by luck/chance (**sampling error**) or unrepresentative sampling (**sampling bias**)
+
+- Solution:
+
+  - **Estimate** the values of important parameters
+
+  - Have **measures of uncertainty** for estimates
+
+  - **Test hypotheses** about those parameters
+
+## Questions biostatistics addresses
+
+- What is the motivating biological question?
+- What experiments can be done and/or data can be collected to address this question?
+- Do results support an interesting conclusion?
+- What are the shortcomings/limitations of statistical models and causal frameworks in the analysis?
+- How do I best communicate my results (including estimates, visualizations, conclusions, and caveats)?
+
 ## Important distinctions
 
--   Populations vs. samples
--   Parameters vs. estimates
+- Population (biological) x population (statistical)
+- Populations vs. samples
+- Parameters vs. estimates (statistic)
 
 ## Populations
 
 ::::: columns
 ::: {.column width="\"50%\""}
-> In Biology\| collection of interbreeding individuals of the same species that live in sufficient proximity that most mates are draw from this collection of individuals. This mostly applies to animals and, to some extent, plants.
+> In Biology\| collection of interbreeding individuals of the same species that live in sufficient proximity that most mates are drawn from this collection of individuals. This mostly applies to animals and, to some extent, plants.
 :::
 
 ::: {.column width="\"50%\""}
@@ -172,16 +162,16 @@ A parameter is some property of the world, i.e., the “truth”
 
 ![Decorative image. Poster from the show "The X-files"](images/xfiles.png){fig-align="center" width="605"}
 
-::: aside
-Seriously, though, \\\<3 X-files!
+::: notes
+Remember my meme from before?
 :::
 
 ## A population of starfish
 
 ::::: columns
 ::: column
--   Parameters describe populations
--   E.g. proportion of pink starfish among all starfish of a given species in a certain location
+- Parameters describe populations
+- E.g. proportion of pink starfish among all starfish of a given species in a certain location
 :::
 
 ::: column
@@ -193,8 +183,8 @@ Seriously, though, \\\<3 X-files!
 
 ::::: columns
 ::: column
--   Estimates (statistics) approximate parameters as inferred from samples
--   We estimate the proportion of pink as inferred from this sample and extrapolate to the population as an approximation.
+- Estimates (statistics) approximate parameters as inferred from samples
+- We estimate the proportion of pink as inferred from this sample and extrapolate to the population as an approximation.
 :::
 
 ::: column
@@ -208,20 +198,28 @@ Seriously, though, \\\<3 X-files!
 ::: {.column width="\"45%\""}
 **Parameters and populations**
 
--   Parameters describe Populations
--   Because we can’t sample an entire population, we usually don’t know parameters.
+- Parameters describe Populations
+- Because we can’t sample an entire population, we usually don’t know parameters.
 :::
 
 ::: {.column width="\"45%\""}
 **Estimates and samples**
 
--   But we can get a good sense of the parameters from estimates we make from samples.
--   Estimates approximate parameters as inferred from Samples
+- But we can get a good sense of the parameters from estimates we make from samples.
+- Estimates approximate parameters as inferred from Samples
 :::
 :::::
 
+## Sampling: What could go wrong?
 
+Meet **sampling error** and **sampling bias**
+
+Next time!
+
+## Acknowledgments
+
+- Yaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides.
 
 ## That's all for today
 
-![From: makeameme.org](images/forrestgump.png){fig-alt="Forrest says \"And that's all I wanted to say about that\"" width="347"}
+![From: makeameme.org](images/forrestgump.png){fig-alt="Forrest says \"And that's all I wanted to say about that\"" fig-align="center" width="347"}

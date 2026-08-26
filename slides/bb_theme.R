@@ -121,3 +121,22 @@ if(FALSE){
     )
   }
 }
+
+
+plot_palette <- function(palette) {
+  g <- ggplot2::ggplot(
+    data = data.frame(
+      x = seq_len(length(palette)),
+      y = "1",
+      fill = palette
+    ),
+    mapping = ggplot2::aes(
+      x = x, y = y, fill = fill
+    )
+  ) +
+    ggplot2::geom_tile() +
+    ggplot2::scale_fill_identity() +
+    ggplot2::theme_void()
+  return(g)
+}
+old <- update_theme(palette.colour.discrete = scales::pal_viridis())

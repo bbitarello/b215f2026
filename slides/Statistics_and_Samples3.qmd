@@ -1,18 +1,21 @@
 ---
-title: "1.3.Statistics and Samples"
+title: "1.3.Types of Data, Variables, and Studies"
 author: "Bárbara D. Bitarello"
-date: "09-10-2025"
+date: "09-03-2026"
 keywords: "Statistics & Samples"
 format:
   revealjs:
     smaller: true
     scrollable: true
-    incremental: true
+    incremental: false
     slide-number: true
     transition: fade
     background-transition: fade
-    highlight-style: ayu-mirage
-    footer: "B21: Biostatistics with R"
+    highlight-style: ayu-dark
+    code-fold: true
+    code-summary: "Show the code"
+    code-overflow: wrap
+    footer: "B215: Biostatistics with R"
     center-title-slide: false
     theme: [serif, custom.scss]
     chalkboard: true
@@ -38,8 +41,12 @@ Last lecture we discussed:
 Ask for volunteers to remind these concepts
 :::
 
-## Today
+## Learning goals
 
+- Be able to detect the differences between observational and experimental studies
+- Describe the differences between observational and experimental studies.
+- Identify whether a variable is numeric or categorical (and subtypes).
+- Distinguish between correlation and causation.
 ::: nonincremental
 -   Types of variables
 -   Types of studies
@@ -60,43 +67,6 @@ These learning goals are for the entire topic/unit. They will also be available 
 One notable example of when this may not be good enough is cryptography, but that's outside of our scope. If you're curious, you can learn more [here](https://dev.to/artis3n/random-vs-pseudorandom).
 :::
 
-## Random sampling in R
-
-::: nonincremental
--   Actually pseudo-random
--   If you run the code below, it is very unlikely you will get the same numbers I did
-:::
-
-```{r}
-# Sample 3 random numbers between 1 and 10
-# 1. Define the numbers from which you will sample
-x <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-# 2. Take 3 random numbers from this set
-sample(x, size = 3)
-# now, to convince yourself, do it again
-sample(x, size = 3)
-```
-
-## Random sampling in R
-
-::: nonincremental
--   But you can actually make this reproducible!
--   How? Setting a **seed**!
--   If you run the code below with the same seed you should get the same numbers I did
-:::
-
-```{r}
-# Sample 3 random numbers between 1 and 10
-# 1. Define the numbers from which you will sample
-x <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
-# 2. Set seed
-set.seed(1985) #the seed can be any number.
-# 3. Take 3 random numbers from this set
-sample(x, size = 3)
-# now, to convince yourself, do it again
-set.seed(1985) 
-sample(x, size = 3)
-```
 
 ## Types of Variables {.center background="#898928"}
 
@@ -124,7 +94,7 @@ Categorical (also known as class or nominal variables)
 -   **Ordinal:** can be *ranked*
 -   **Nominal:** cannot be ranked
 
-::: aside
+::: notes
 Why do we care about these types? We will focus a lot on this in our next topic about how to display and describe data. Knowing what kind of variable we have drives our models of data analysis, and is therefore critical to the enterprise of statistics.
 :::
 

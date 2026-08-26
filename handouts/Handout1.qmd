@@ -1,8 +1,9 @@
 ---
-title: "Intro to Statistics"
+title: "Unit 1: Intro to Statistics"
 subtitle: "Study Guide" # only for html output
 #author: "Bárbara D. Bitarello"
-keywords: "Displaying & Describing Data"
+keywords: "Intro"
+format: pdf
 #date: "09-03-2025"
 ---
 
@@ -17,35 +18,35 @@ Your name: _____________________
 
 Date: ___________________
 
-After the in-class discussion, how do you rate your grasp of this materials:
+*_After your done:_* After the in-class discussions, how do you rate your grasp of these materials:
 
 [ ] 1: confused
+
 [ ] 2: some things are clear, but not all
+
 [ ] 3: ok, but need to study more
+
 [ ] 4: piece of cake
 
 ---
 
 # Instructions
 
-* Put your name at the top of this sheet. 
-
-* This activity should be handed in at the end of class on Wednesdays. You will get them back in the following class period. 
+* This activity should be handed in at the end of class on *_Sep 9_*. You will get them back in the following class period. 
 
 * Either before, during, or after engaging with the readings and recorded lectures, answer the concept checks below.
 
 * The key points section will be discussed further in class on Wednesday to clarify points of confusion.
 
+Note: If questions remain about these after class, please attend office hours to clarify them.
 
-* If questions remain about these after class, please attend office hours to clarify them.
-
-
+---
 
 # Learning Materials
 
 -   Ch.1 + Interleaf 1 from textbook.
 -   Lecture videos 1.1-1.3 (Moodle).
--   Moodle Quiz 1.
+-   Moodle quiz 1.
 
 ---
 
@@ -70,120 +71,74 @@ By the end of this unit, you should be able to:
 You should be able to explain and apply these concepts in their relevant concepts. Try to define them below with your own words. Then look them up and check.
 
 
-**Population (statistical):** a collection of all individuals of a circumscribed type, or a generative process from which we can generate samples.
+**Population (statistical):** 
 
-**Sample:** a subset of a population – individuals we measure.
+**Sample:** 
 
-**Parameter:** a true measure of a population.
+**Parameter:**
 
-**Estimate:** a guess at a parameter that is made from a finite sample.
+**Estimate:** 
 
-**Estimation:** Estimation is the process of inferring an unknown quantity of a population using sample data.
+**Sampling error:** 
 
-**Sampling error:** describes the deviation between parameter and estimate attributable to the finite process of sampling.
+**Sampling bias:** 
 
-**Sampling bias:** describes the deviation between parameter and estimate attributable to non-representative sampling.
+**Independence:** 
 
-**Independence:** samples are independent if the probability that one individual is studied is unrelated to the probability that any other individual is studied.
+**Explanatory variables:** 
 
-**Explanatory variables:** variables we think underlie or are associated with the biological process of interest.
+**Response variables:** 
 
-**Response variables:** the outcome we aim to understand.
+**Quantitative variables:** 
 
-**Quantitative variables:** can be continuous or discrete.
+**Continuous variables:**
 
-**Continuous variables:** can assume any value in some possible unbounded interval of real numbers. Common examples: height, temperature, volume, weight, length. They arise from measurement and if the measuring instrument can be improved, more precision in the measurement can be achieved.
+**Discrete variables:** 
 
-**Discrete variables:** assume only isolated values. Examples: trees per hectare, arms per sea star. They arise from counting.
+**Categorical variables:** 
 
-**Categorical variables:** are qualitative data. Can be nominal or ordinal.
+**Ordinal variables:** 
 
-**Ordinal variables:** not measured (categorical) but have ordering nonetheless. For example: ranking of political candidates by voters, ordering and ranking students by height without actually measuring their heights. The rank value has no inherent meaning outside the “order” they provide. A candidate ranked as #2 is not twice as preferable as the candidate ranked as #1.
-
-**Nominal variables:** there is no “natural ordering” that can be assigned to the categories. Examples: species, gender, sex, genotype, phenotype, healthy/diseased, marital status.
+**Nominal variables:** 
 
 # Key points
 
 Try to answer these yourselves. Bring them to class to discuss and clarify point of confusion.
 
-1) What are the the key goals of statistics?
+1) What are the some of the key goals of statistics?
 
-
--   Most of statistics revolves around **estimating values** of **population parameters based on samples**, measuring the **uncertainty of our estimates**, and **testing hypotheses** about the parameters of interest based on our sample(s).
-
--   1) One major goal of a statistical analysis is how to go from conclusions about a sample which we can measure and observe, to the population(s) we care about. In doing so we must worry about random differences between a sample and a population (known as Sampling Error), as well as any systematic issues in our sampling or measuring procedure which will cause estimates to reliably differ from the population (known as Sampling Bias).
-
-
--   Estimates of any sample will differ somewhat from population parameters by chance sampling and/or imprecise measurement. This is why we always consider and report uncertainty in estimates and note that chance can contribute to any result. Much of this course focuses on acknowledging and accommodating sampling error. We can reliably decrease sampling error by increasing the sample size. Note that despite its name, sampling error does not imply that the researcher made a mistake.
-
-
--   The third major goal of statistics (in addition to estimation and hypothesis testing) is inferring causation. Causation cannot be inferred from correlation alone. Experimental evidence from carefully planned experiments is necessary.
-
--   Biostatistics lies at the intersection of critical thinking, thinking with numbers, and biology.
-
--   Biostatistics practices involve thinking of a motivation or biological question, the experiments that have been or could be done and/or data that could be collected to answer such a question, designing experiments that could help answer the question, assessing whether results (based on samples) support interesting conclusions about the population of interest.
 
 2) Compare and contrast the different meanings of the word "population" (biological vs. statistical)
 
--   To a statistician, the TRUTH is a population – a collection of all individuals of a circumscribed type (e.g. all grasshoppers in North America), or a process for generating these individuals (see note below). We characterize a population by its parameters (e.g. its TRUE mean, or its TRUE variance).
 
 3) Why is sampling such a crucial concept in statistics?
-
--   However, it is often impractical or impossible to study every individual in a population. As such, we often deal with a sample – a subset of a population. We characterize a sample by taking an estimate of population parameters.
 
 4) Define and contrast these two concepts: parameters and estimates (statistics). Which of these is prone to bias and sampling error?
 
 
--   Parameters are constants. Estimates are random variables. Because of this, estimates are always prone to sampling error. They may also be subject to sampling bias.
-
-5) There are many ways for samples to systematically deviate from the population (bias). Name and contrast them.
+6) How can we reliably decrease sampling error?
 
 
--   There are many ways for samples to systematically deviate from the population (bias). For example: volunteer bias, samples of convenience, and survivorship bias (in which survivors differ from a population in critical ways).
-
-6) How can we reliable decrease sampling error?
-
-We can reliably decrease sampling error by increasing the sample size.
 
 7) Is a study involving lab work always experimental? Is a field study always observational?
-
--   The distinction between an experimental and an observational study is not about the equipment used or the lab vs. the field. For example, comparing patterns of methylation between live bearing and egg laying species of fish is an observation, not an experiment, as we did not randomly assign live-bearing or egg-laying to fish in this study.
 
 
 8) Define and contrast probability distributions from frequency distributions. How does this relate to one of the key goals of statistics?
 
--   A probability distribution represents the proportion of a population with a given value. The frequency distribution represents the number of times a value occurs in a sample. Ideally, the frequency distribution from an unbiased sample should give you a decent estimate for the probabilities that pertain to the population. Understanding how much your sample gives you a good picture of the population is a big part of the challenge.
 
 9) How can experiments introduce bias? How can bias be avoided in experiments?
--   Experiments can also introduce bias via artifacts. E.g. the placebo effect. Appropriate controls are, therefore, critical.
 
 10) Define and name the properties of a good sample. 
-
--   Randomness: In a random sample, each member of a population has an equal and independent chance of being selected.
-
--   Independence: Samples are independent if the probability that one individual is studied is unrelated to the probability that any other individual is studied.
 
 11) Define and compare the types of variables in an experiment. 
 
 
--   When conducting an experiment, the treatment variable (the one manipulated by the researcher) is the explanatory variable, and the measured effect of the treatment is the response variable.
-
-
--   Sampling does not always mean taking a subsample from a larger population. For example, in an experiment we interfere with a system and see how this intervention changes some outcome, or in flipping a coin we generate a new outcome that had not yet happened. Nonetheless, we can use the metaphor of sampling in all of these cases.
-
--   Different types of data summaries, plots, and statistical tests are applicable to different types of variables.
 
 12) Discuss the relationship between statistical association, correlation, and causality. Come up with an example different from the textbook and lecture ones. 
 
--   An association (or correlation) between variables is a powerful clue that there may be a causal relationship between those variables.
-
--   The observation of correlation between two variables, even if statistically significant, cannot be the sole basis to infer causation.
-
--   For example, the finding that people who smoke are more likely to get cancer comes from many observational studies. In an observational study, treatments are not randomly assigned to individuals. Therefore, confounding variables – unmodelled variables which distort the relationship between explanatory and response variables – can bias our interpretation. A simple association between smoking and lung cancer might suggest smoking causes lung cancer, or both are caused by stress, or genetics or whatever. We therefore must show extreme caution when attempting to learn about causation from observational studies. (Brandvain 2022).
-
 
 13) Does a causal relationship in a controlled experiment under specified settings always imply a causal relationship in nature?
--   However, some caution is warranted here – a causal relationship in a controlled experiment under specified settings may not imply a causal relationship in nature. For example, exceptionally high doses of a pesticide may cause squirrels to die, but this does not mean that the smaller dose of insecticide found around farm fields is responsible for squirrel death.
+
 
 
 ## References

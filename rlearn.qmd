@@ -1,6 +1,7 @@
 ---
 title: "Learning R (and statistics)"
-number-sections: true
+number-sections: false
+toc: true
 ---
 
 Updated often. If you're an enrolled students and would like to contribute content here, please open a thread on Piazza under "Misc" and say you'd like to share a useful link.
@@ -15,7 +16,12 @@ Updated often. If you're an enrolled students and would like to contribute conte
 -   Reddit: r/rstats, r/Rlanguage, r/rprogramming, r/RStudio
 -   Github: github is a must for anyone in datascience and has many functions. For your purposes, searching for a particular package and looking into their "issues" page can be very helpful. E.g., [here](https://github.com/rstudio/rmarkdown/issues) is the issues page for the `rmarkdown` package.
 
+- [Cheatsheets (several)](https://opensource.posit.co/resources/cheatsheets/)
+
 ## Free Online Books
+
+- ["Applied Data Skills"](https://psyteachr.github.io/ads-v2/)
+- ["Exploring Data Science with R and the Tidyverse: A Concise Introduction"](https://ds4world.cs.miami.edu/)
 
 - ["R Graphic Cookbook"](https://r-graphics.org/)
 
@@ -51,6 +57,7 @@ Updated often. If you're an enrolled students and would like to contribute conte
 -   [This youtube playlist](https://www.youtube.com/playlist?embed=no&list=PLA3ArwPxU4MxphgeREPfnxznb8llUtTzX) - I curated this and it contains both R info and biostatistics in general.
 
 ## Tutorials & Simulations
+
 
 - [r-statistics.co, by Selva Prabhakaran](https://r-statistics.co/) - includes [very good section on ggplot](https://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)!
 

@@ -9,10 +9,10 @@ title: "BIOL B215: Biostatistics with R"
 -   Lecture: Monday & Wednesday 11:40 AM - 1 PM (Park 159)
 -   Lab: Tuesday 1:10 - 4 PM (Park 159)
 -   Read the [Syllabus](syllabus.qmd).
--   [Piazza (for Qs)](https://piazza.com/brynmawr/fall2025/bmcbiolb215001f25)
+-   [Piazza (for Qs)](https://piazza.com/brynmawr/fall2026/bmcbiolb215001f26)
 -   Rstudio (Posit) Cloud
 -   Moodle
--   [Schedule, Lecture Notes, Slides, etc](schedule.qmd)
+-   [Schedule](schedule.qmd)
 
 ## Prerequisites
 

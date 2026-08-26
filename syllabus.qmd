@@ -6,11 +6,11 @@ draft: true
 
 Welcome!
 
-I love teaching this course, and I am an R enthusiast! At times this course will be challenging, but I promise you the hard work will pay off. Please read this document fully. You may post questions on Piazza or bring them to our first class on 9/2.
+I am an R enthusiast! At times this course will be challenging, but I promise you the hard work will pay off. Please read this document fully. You may post questions on Piazza or bring them to our first class on 9/1.
 
 # Course Description
 
-R is the standard tool for performing statistics in biology, health studies, data science, and many other fields. Because of this, **B215 is neither just a biostatistics course nor simply an R programming course**: it is a biostatistics course where R is directly integrated into the learning process. Throughout the course, we use motivating case studies and data analysis problem sets and R labs based on similar challenges to those one finds in scientific research.
+R is the standard tool for performing statistics in biology, health studies, data science, and many other fields. Because of this, **B215 is neither just a biostatistics course nor simply an R programming course: it is a biostatistics course where R is directly integrated into the learning process**. Throughout the course, we use motivating case studies and data analysis problem sets and R labs based on similar challenges to those one finds in scientific research.
 
 **Lectures**: Focus on statistical concepts and problem solving. We will focus mainly on classic statistics (so-called "frequentist") and probability theory, but we will also have an introduction to the increasingly relevant Bayesian statistics approach. Topics we will (aim to) cover:
 
@@ -34,31 +34,40 @@ R is the standard tool for performing statistics in biology, health studies, dat
 
 Usually we will have a quick lecture, a guided tutorial, and occasionally a challenge.
 
+# Learning Outcomes 
+
+* Familiarity with statistical and probabilistic thinking, concepts, and common misconceptions.
+* Ability to turn biological questions into testable hypothesis.
+* Ability to judge the validity of a stated conclusion by examining the data, statistical tests, and result that provide its basis.
+* Ability to navigate complex data structures and to understand the nature of the data at hand.
+* Ability to judge data types and explore and visualize it in R accordingly.
+* Ability to carry out several statistical analyses in R.
+* Ability to make reports in Rmarkdown including data exploration, visualization, and analysis.
+* An appreciation, rather than fear, of the mathematical expression of statistical concepts.
+
 # Textbook {#sec-textbook}
 
 *The Analysis of Biological Data* (3rd edition), by Whitlock & Schluter. This is a great book with a ton of exercises and online resources (see [R resources](rlearn.html)). The e-book version is cheaper if you rent it. Collier Library will have one copy on reserve for enrolled students. You may use the 2nd edition but keep in mind that it is your responsibility to determine which chapters/pages/sections correspond to the assigned readings. I may occasionally assign other readings from free sources listed under [R resources](rlearn.html).
 
 # Weekly Course Structure
 
-**Lectures**: Introduce statistical concepts and address questions based on the assigned readings. In-class activities will occur often and count towards participation. Lectures are designed with the assumption that you have completed the pre-assigned readings, enabling us to dive deeper into nuances, applications, and questions.
+**Lectures**: Introduce statistical concepts and address questions based on the assigned readings. In-class activities will occur often and count towards participation. Lectures are designed with the assumption that you have completed the pre-assigned readings and pre-recorded lecture videos, enabling us to dive deeper into nuances, applications, and questions.
 
 **Labs**: R computer lab (bring your laptop) with guided tutorial. R Labs are due by the end of the day.
 
-Problem sets and coding assignments are typically due on Fridays, but always check case by case. Moodle quizzes are typically due weekly on Sundays (soft deadline) though you may retake them later until the hard deadlines (see [Schedule](schedule.qmd)).
-
-**Classes will not be recorded.** You may not record classes without explicit permission from me.
+Problem sets and coding assignments are typically due on Fridays (but always check case by case). Moodle check-ins are typically due weekly on Sundays (soft deadline) though you may retake them later until the hard deadlines (see [Schedule](schedule.qmd)).
 
 # Grade Distribution {#sec-grades}
 
 **Note:** The overall course grade visible on Moodle is not a reflection of your current grade for the course. This is confusing for students because the Moodle gradebook requires the instructor to enter percentages for each assignment at the beginning of the course and is somewhat inflexible if changes are required during the semester. Always refer to the list below to understand your current grade.
 
-| Component           | Weight          |
+| Component           | Total Weight          |
 |:--------------------|:----------------|
 | Participation       | $5$%            |
-| Low-stakes          | $7$%            |
-| Problem sets        | $5\times 3=15$% |
-| Coding assignment 1 | $5$%            |
-| Coding assignment 2 | $8$%            |
+| DataCamp and Weekly labs  | $12$%     |
+| Problem sets (4)    | $16$ |
+| Coding project (part I) | $5$         |
+| Coding assignment 2 <br> Coding Interview <br> Final report| $13$% <br> $6$ <br> $7%$      |
 | Midterm 1           | $30$%           |
 | Midterm 2           | $30$%           |
 
@@ -80,11 +89,11 @@ Final grades will likely be assigned as follows (if curving is performed, it cou
 
 | Min % | BMC scale |
 |:------|:----------|
-| 93    | 4         |
-| 90    | 3.7       |
-| 87    | 3.3       |
-| 83    | 3.0       |
-| 80    | 2.7       |
+| 95-100    | 4         |
+| 90-94    | 3.7       |
+| 86-89    | 3.3       |
+| 80    | 3.0       |
+| 75    | 2.7       |
 | 77    | 2.3       |
 | 70    | 2.0       |
 
