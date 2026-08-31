@@ -20,7 +20,11 @@ Updated often. If you're an enrolled students and would like to contribute conte
 
 ## Free Online Books
 
+
+-   ["R for Data Science"](https://r4ds.had.co.nz/), by Hadley Wickham & Garrett Grolemund
+
 - ["Applied Data Skills"](https://psyteachr.github.io/ads-v2/)
+
 - ["Exploring Data Science with R and the Tidyverse: A Concise Introduction"](https://ds4world.cs.miami.edu/)
 
 - ["R Graphic Cookbook"](https://r-graphics.org/)
@@ -31,7 +35,6 @@ Updated often. If you're an enrolled students and would like to contribute conte
 
 -   ["Introduction to Data Science: Statistics and Prediction Algorithms Through Case Studies"](https://rafalab.dfci.harvard.edu/dsbook-part-2/), by Refael Irizarry
 
--   ["R for Data Science"](https://r4ds.had.co.nz/), by Hadley Wickham & Garrett Grolemund
 
 -   ["YaRrr! The Pirate’s Guide to R"](https://bookdown.org/ndphillips/YaRrr/), by Nathaniel Phillips
 
@@ -41,6 +44,7 @@ Updated often. If you're an enrolled students and would like to contribute conte
 
 -   ["Applied Biostats"](https://ybrandvain.github.io/biostats/), by Yaniv Brandvain.
 
+- Holmes S, Huber W. Modern Statistics for Modern Biology. Cambridge University Press; 2018. Available from: https://web.stanford.edu/class/bios221/book/index.html. 
 -   ["ggplot2: Elegant Graphics for Data Analysis (3e)"](https://ggplot2-book.org/)
 
 
@@ -58,10 +62,10 @@ Updated often. If you're an enrolled students and would like to contribute conte
 
 ## Tutorials & Simulations
 
-
+[R for Beginners –– An on-line introduction to R by Emmanuel Paradis](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf)
 - [r-statistics.co, by Selva Prabhakaran](https://r-statistics.co/) - includes [very good section on ggplot](https://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)!
 
--   [From your textbook](https://whitlockschluter3e.zoology.ubc.ca/)
+-   [From your textbook](https://whitlockschluter3e.zoology.ubc.ca)
 -   [Quick-R](https://www.statmethods.net/r-tutorial/index.html)
 -   [Rstudio Education](https://education.rstudio.com/learn/beginner/)
 -   [Posit Cloud Recipes](https://posit.cloud/learn/recipes)
@@ -91,8 +95,9 @@ Confidence intervals for the mean:
 
 This link has web apps for several topics covered in the course: [https://shinyapps.science.psu.edu/](https://shinyapps.science.psu.edu/)
 
+[Biostatistics: A practical introduction](https://www.ebi.ac.uk/training/online/courses/biostatistics-introduction/)
 
-## Freely Available (Biological) Datasets
+## Biological Datasets (Freely Available) 
 
 I will keep adding stuff here, but here are some good places to search.
 
@@ -103,9 +108,20 @@ I will keep adding stuff here, but here are some good places to search.
 * [FigShare]() - lots of scientific papers make their datasets available here.
 * [Wold Population Review](https://worldpopulationreview.com/) - not focused on biology but very cool nevertheless. There are subsections that have biological datasets though like the one focusing on health, for example. 
 
+[R Datasets (r-packages.io): ](https://r-packages.io/datasets) - Many types of datasets, including biological ones.
+
+
+[Rdatasets package](https://vincentarelbundock.github.io/Rdatasets/index.html0) - Many types of datasets, including biological ones.
 
 # Articles \& Other Resources
 
+*[Ten simple rules for teaching yourself R](https://doi.org/10.1371/journal.pcbi.1010372)
+
+*[Ten simple rules for finding and selecting R packages](https://doi.org/10.1371/journal.pcbi.1009884)
+
+*[Cracking the (bio)code: Resources for research careers in computational biology & bioinformatics](https://crackingthebiocode.github.io/index.html)
+
+* [Frank E. Harrel's List of R resources](https://hbiostat.org/rflow/rbasics#sec-rbasics-resources)
 
 * Statistics for Biologists - *Nature* collection of articles highlighting important statistical issues that biologists should be aware of and provides practical advice to help them improve the rigor of their work.[nature.com/collections/qghhqm](https://www.nature.com/collections/qghhqm)
 

@@ -1,18 +1,16 @@
 project:
   type: website
   output-dir: docs
-  
+  # Comment first lines to make faster previews
 website:
   title: "BIOL B215: Biostatistics with R"
   site-url: https://bbitarello.github.io/b215f2026/
-  repo-url: https://github.com/bbitarello/b215f2026
+  repo-url: https://github/bbitarello/b215f2026/
   repo-branch: main
   repo-actions: [source]
-  search: 
-    location: sidebar
   sidebar:
     background: primary
-    logo: "images/figs/figs.006.jpeg"
+   # logo: "images/logo.png"
     pinned: true
     align: center
     tools:
@@ -24,28 +22,30 @@ website:
         text: Posit Cloud
     style: "docked"
     contents:
+   # search: true
     - href: index.qmd
-      text: Home
-   # - href: syllabus.qmd
-  #    text: Syllabus
-  #  - href: schedule.qmd
-  #    text: Schedule
+      text: Schedule
+    - href: syllabus.qmd
+      text: Syllabus
+    - href: rlearn.qmd
+      text: Rrresources
     - href: slides.qmd
+      text: Slides
   #  - href: CA1.qmd
   #    text: Coding Assignment 1
-    - href: labs.qmd
-      text: Labs
-    - href: rlearn.qmd
-      text: R resources
-  
-    
+   # - href: labs.qmd
+   #   text: Labs
+   # - href: rlearn.qmd
+  #    text: Learning resources
 format:
   html:
     theme: 
-     - journal
+     - cosmo
      - styles.scss
-    toc: true
+    #axe:
+    #  output: 
+    fig-cap-location: margin
+    #toc: true
+    self-contained: true
    
-
-
 editor: source

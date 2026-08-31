@@ -1,0 +1,14 @@
+name: b215f2026
+title: b215f2026
+username: bbitarello-teaching
+account: bbitarello-teaching
+server: connect.posit.cloud
+hostUrl: https://api.connect.posit.cloud/v1
+appId: 01a04fce-1c79-9e41-d1a9-ba760c27d5d1
+bundleId:
+url: https://connect.posit.cloud/bbitarello-teaching/content/01a04fce-1c79-9e41-d1a9-ba760c27d5d1
+version: 1
+quarto_version: 1.10.18
+quarto_engines: markdown, knitr
+asMultiple: FALSE
+asStatic: FALSE

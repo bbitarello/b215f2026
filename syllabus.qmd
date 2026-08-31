@@ -1,231 +1,308 @@
 ---
 title: "Syllabus"
-number-sections: true
-draft: true
+subtitle: "Not fully finalized yet!"
+number-sections: false
+#draft: true
+date: 2026-08-30
+date-format: long
+date-modified: last-modified
+toc: true
+toc-depth: 3
 ---
 
-Welcome!
+```{r setup, warnings=F, messages=F, echo = F}
+suppressPackageStartupMessages(library(googlesheets4))
+suppressPackageStartupMessages(library(gt))
+suppressPackageStartupMessages(library(tidyverse))
+```
+
+# Welcome!
 
 I am an R enthusiast! At times this course will be challenging, but I promise you the hard work will pay off. Please read this document fully. You may post questions on Piazza or bring them to our first class on 9/1.
 
-# Course Description
 
 R is the standard tool for performing statistics in biology, health studies, data science, and many other fields. Because of this, **B215 is neither just a biostatistics course nor simply an R programming course: it is a biostatistics course where R is directly integrated into the learning process**. Throughout the course, we use motivating case studies and data analysis problem sets and R labs based on similar challenges to those one finds in scientific research.
 
-**Lectures**: Focus on statistical concepts and problem solving. We will focus mainly on classic statistics (so-called "frequentist") and probability theory, but we will also have an introduction to the increasingly relevant Bayesian statistics approach. Topics we will (aim to) cover:
+# Getting help
 
--   Sampling & Experimental Design
--   Descriptive statistics
--   Data visualization
--   Probability Theory
--   Estimation & Hypothesis Testing
--   The Normal Distribution
--   Comparing samples & Correlations
--   Bootstrapping & Permutation Tests
--   Maybe: Frequentist *vs.* Bayesian *vs.* Likelihood approaches
+* Prof: Mondays (2-3pm, Park 209); Wednesdays (2-3pm). Also via appointment. Email me with "B215" in the subject with 2-3 date/times that work for you.
 
-**Labs**: focus on developing R programming skills through mini lectures and lots of pratice. For labs **you will need a laptop with a browser**. Tablets, in my experience, will not work. You can borrow a laptop from the bio department by emailing our admin Andrew (agalleghe\[at\]brynmawr.edu). Lab topics will include:
+* TA office hours: TBD via survey 
 
--   the fundamentals of any programming language, which will be relevant for any future programming languages you decide to learn
--   how to run built-in functions in R to run summary statistics, make plots, and perform data analyses in general
--   how to use Rmarkdown to make beautiful reports with text and code
--   how to write your own functions for custom analyses
--   how to troubleshoot/debug your code, arguably the most important skill a programmer must develop
+* [BMC Data Science Office Hours:](https://www.brynmawr.edu/inside/people/alyssa-pivirotto) Wednesdays 10am-12pm (Park 309, Collier); Fridays 1-3pm (DMCL, Carpenter). This is open to students enrolled in any Data Science courses at BMC.
 
-Usually we will have a quick lecture, a guided tutorial, and occasionally a challenge.
+* [Piazza](https://piazza.com/brynmawr/fall2026/bmcbiolb215001f26/home)
 
-# Learning Outcomes 
+* Our [Rrresources](rlearn.qmd) page.
 
-* Familiarity with statistical and probabilistic thinking, concepts, and common misconceptions.
-* Ability to turn biological questions into testable hypothesis.
-* Ability to judge the validity of a stated conclusion by examining the data, statistical tests, and result that provide its basis.
-* Ability to navigate complex data structures and to understand the nature of the data at hand.
-* Ability to judge data types and explore and visualize it in R accordingly.
-* Ability to carry out several statistical analyses in R.
-* Ability to make reports in Rmarkdown including data exploration, visualization, and analysis.
-* An appreciation, rather than fear, of the mathematical expression of statistical concepts.
+* **Need help with math?** The [Bryn Mawr College Q Center](https://www.brynmawr.edu/inside/offices-services/q-center) supports students who are doing quantitative work in courses across the STEM and Social Science disciplines. The Q Center is a collaborative study space that provides a welcoming location for individual work, study groups, and collaboration with Q Mentors.
 
-# Textbook {#sec-textbook}
+# What is this course all about?
 
-*The Analysis of Biological Data* (3rd edition), by Whitlock & Schluter. This is a great book with a ton of exercises and online resources (see [R resources](rlearn.html)). The e-book version is cheaper if you rent it. Collier Library will have one copy on reserve for enrolled students. You may use the 2nd edition but keep in mind that it is your responsibility to determine which chapters/pages/sections correspond to the assigned readings. I may occasionally assign other readings from free sources listed under [R resources](rlearn.html).
+[![Our journey through biostatistics begins with (1) gaining comfort in R, then moves on to (2) describing data and (3) considering sampling and uncertainty. Next, we (4) introduce null hypothesis significance testing, (5) build models. Ideally, this will lead to you well-prepared to exploring 6) the big lake of statistics (i.e., more advanced topics). Credit: Y. Brandvain's Applied Biostatistics online book.](https://ybrandvain.github.io/biostats/figs/index_figs/path.png)](https://ybrandvain.github.io/biostats/)
+
+# Course phylosophy/goals
+
+"By the end of this course ..."
+
+- Students should be able to conduct the entire process of data analysis in R and markdown.
+- Students should be statistical thinkers, by having familiarity with statistical and probabilistic thinking, concepts, and common misconceptions.
+- Students should think about probability quantitatively.
+- Students should have the ability to turn biological questions into testable hypothesis.
+- Students should recognize how bias can influence our results.
+- Students should become familiar with standard statistical tools / approaches and when to use them.
+
+I would also love it if students end up with an appreciation, rather than fear, of the mathematical expression of statistical concepts.
+
+# How will we accomplish this?
+
+**Lectures**: Focus on statistical concepts and problem solving. We will focus mainly on classic statistics (so-called "frequentist") and probability theory, but we will also have an introduction to the increasingly relevant Bayesian statistics approach.
+
+Check the [schedule](index.html) to see what topics we aim to cover. 
+
+**Labs**: focus on developing R programming skills through mini lectures and lots of practice. Usually we will have a quick lecture, a guided tutorial, and occasionally a challenge.
+
+# Materials
+
+
+**Textbook:** I strongly recommend procuring a copy of *The Analysis of Biological Data* (3rd edition), by Whitlock & Schluter. This is a great book with a ton of exercises and online resources. The e-book version is cheaper if you rent it. Collier Library will have one copy on reserve for enrolled students. You may use the 2nd edition but keep in mind that it is your responsibility to determine which chapters/pages/sections correspond to the assigned readings. I may occasionally assign other readings from free sources listed under [Rrresources](rlearn.html).
+
+For labs **you will need a laptop with a browser**. Tablets will not work. You can borrow a laptop from the bio department.
+
+**Calculator for exams** You may use a calculator to save you time. A scientific calculator with roots, exponents,etc, is fine, but graphic/function calculators will NOT be accepted. Please plan accordingly. A scientific calculator is \~ \$12 and you might also be able to borrow one from a buddy on Midterm days.
+
+
+# Fostering a welcoming learning environment
+
+In an ideal world, it would be possible for scientific practice to be done in a perfectly objective way, free of biases and preconceptions. However, it is not so. Scientists are flawed and human. The history of science is also a history of who got the credit and is dominated by white, male, colonialist, and racist ideas. I will try to highlight less-known historical figures and provide a critical perspective on such matters whenever possible. I see the diversity of backgrounds and identities our students bring as a strength: age, culture, disability, ethnicity, gender, nationality, religion, sexuality, and socioeconomic status. I intend for this course to serve students from diverse backgrounds and perspectives. Your suggestions are encouraged and appreciated. 
+
+I intend for this course to serve students from diverse backgrounds and perspectives, i.e, all enrolled students. 
+
+Please reach out ASAP if:
+
+* You foresee conflicts in the schedule due to religious observance.
+
+* You have concerns about being able to afford course materials. 
+
+* Your thoughtful suggestions are encouraged and appreciated. Please let me know ways to improve the effectiveness of the course for you personally or for other students or groups.
+
+Ways to give positive or constructive feedback:
+
+* During drop-in hours
+* In person or email with our student consultant
+* Mid-semester survey
+* Piazza
+
 
 # Weekly Course Structure
 
-**Lectures**: Introduce statistical concepts and address questions based on the assigned readings. In-class activities will occur often and count towards participation. Lectures are designed with the assumption that you have completed the pre-assigned readings and pre-recorded lecture videos, enabling us to dive deeper into nuances, applications, and questions.
+How will this term work / look like?
 
-**Labs**: R computer lab (bring your laptop) with guided tutorial. R Labs are due by the end of the day.
+**Theory**
 
-Problem sets and coding assignments are typically due on Fridays (but always check case by case). Moodle check-ins are typically due weekly on Sundays (soft deadline) though you may retake them later until the hard deadlines (see [Schedule](schedule.qmd)).
+[Videos and Mondays.]{.underline} Introduce statistical concepts. This will be delivered by a mix of pre-recorded videos and in-class lectures on Mondays. Pre-recorded lectures have built-in concept check questions that you should also complete before class on Mondays.
+
+**In class lectures and activities**
+
+[Lecture classes.]{.underline} These are designed with the assumption that you have completed the pre-assigned readings and lecture videos, enabling us to dive deeper into nuances, applications, and questions. For modules 2-3, the lectures will be introduced via video to be watched before class, and we will go deeper in person. Remaining time will be spent going over case studies, practice problems, and completing problem sets.
+
+[Wednesday hands-on R labs]{.underline}. Our labs are computational (bring your laptop). Typically we will have a short lecture to recap previous topics and introduce new ones, followed by a self-guided tutorial. R labs are due at the end of the lab period (or by the end of the day at the latest). You will get feedback on it before the next lab. Attendance to labs is mandatory, and absences must be communicated/justified via email.
+
+DataCamp: because many of you have no experience coding, in Module 1 we will have a decent amount of intro practice in R using DataCamp (DC). This is essentially Duolingo for coding. As we advance in the course, there will be less required DC activities (though optional ones will still be assinged). When DC activities are required, they will be listed on Moodle or in the lab activity.
+
+# How to succeed
+
+
+**Workload:** This course includes 5.5 hours of in-person instructional time. The additional time (~ 4.5 hours/week) you should invest on prep work and independent learning. In total, you are expected to invest 10 hours per week in this course, including the in-person time.
+
+1.  **Prepare.** 
+
+- We are piloting some changes this term, including flipping the course for Module 1. 
+
+- For Modules 2-3, we will have an intro video for each unit, followed by more in-depth lecture/discussion in class.
+
+- Be sure to look over the assigned readings and/or videos, and complete the lecture quizzes BEFORE the in person meeting.
+
+2.  **Practice, practice, practice. **
+
+- You cannot learn neither statistics nor coding without A LOT of practice. 
+
+- Work diligently, every week, to build-up your skills (videos, quizes,labs, readings). 
+
+- For more in-depth assignments (problem sets and coding checkpoint), some amount of time in class will also be allocated, but you are expected to devote time outside of class as well.
+
+3.  **Perform.**
+
+- Three in class exams (two midterms, one final exam). Midterm 1 covers Module 1 and Midterm 2 covers Module 1-2, with greater focus on newer content. The final exam is cumulative, with greater focus on Modules 2-3. 
+
+- Final coding project. Here, you will showcase your data analysis skills learned throughout the course by exploring a datasets (or datasets) of your choice. 
+
 
 # Grade Distribution {#sec-grades}
 
-**Note:** The overall course grade visible on Moodle is not a reflection of your current grade for the course. This is confusing for students because the Moodle gradebook requires the instructor to enter percentages for each assignment at the beginning of the course and is somewhat inflexible if changes are required during the semester. Always refer to the list below to understand your current grade.
 
-| Component           | Total Weight          |
-|:--------------------|:----------------|
-| Participation       | $5$%            |
-| DataCamp and Weekly labs  | $12$%     |
-| Problem sets (4)    | $16$ |
-| Coding project (part I) | $5$         |
-| Coding assignment 2 <br> Coding Interview <br> Final report| $13$% <br> $6$ <br> $7%$      |
-| Midterm 1           | $30$%           |
-| Midterm 2           | $30$%           |
+**Note:** The overall course grade visible on Moodle is not a reflection of your current grade for the course. This is confusing for students because the Moodle gradebook requires the instructor to enter percentages for each assignment at the beginning of the course and is somewhat inflexible if changes are required during the semester. Always refer to this to understand your current grade.
 
-**Low stakes assignments.** Several assignments in this course will be graded for completion/effort, as they are intended to motivate and aid your learning. These include: DataCamp coding exercises, the weekly R Labs, and multiple choice moodle quizzes based on readings (roughly one quiz per topic). The three lowest grades in the low-stakes assignments category will be dropped. Quizzes will be graded as the ~~average~~ mean of your (unlimited) attempts until the hard deadline and will be open until the end of the course, though you are required to complete the quiz at least once before the soft deadline.
+```{r, echo = F, message=F}
+gs4_deauth()
+#this code chunk was borrowed from: https://github.com/sta199-summer-1/sta199-summer-1.github.io/tree/main
+d <- read_sheet("https://docs.google.com/spreadsheets/d/1ScIXAwu759O7g2WS4HWBmvgP50oKnPCLGW0qb33H67Y/edit?usp=sharing", sheet = "grades-new")
 
-Since problem sets and the first coding assignment are formative[^1], i.e, their purpose is learning, I will grade them benevolently following this rubric:
-
-[^1]: Formative *vs.* Summative Assessments: Formative assessments are focused on supporting the learning process throughout the course. Summative assessments typically occur at the end of a learning period and assess student mastery of the material and whether they have met learning objectives. Learn more: <https://teachers.institute/assessment-for-learning/formative-vs-summative-evaluation-differences/>
-
-| Grade (%) | Description |
-|:-----------------|:-----------------------------------------------------|
-| 100 | Grades $> 90%$ will be rounded up. |
-| 70-90 | Complete and various degrees of incorrect answers: 3 + major errors (\~$70$%) to a few minor errors (\~ $90$%) |
-| 60 | Complete but sloppy or excessive amount of major errors. |
-| 50 | Incomplete (not everything was answered) |
-| 0 | Plagiarism (including inappropriate LLM use, see @sec-plag) |
+d |> select(Component, `Weight (%)`) |>
+  filter(Component != "Total") |>
+  na.omit() |>
+  gt()
+```
 
 Final grades will likely be assigned as follows (if curving is performed, it could increase but not decrease your grade):
 
-| Min % | BMC scale |
-|:------|:----------|
-| 95-100    | 4         |
-| 90-94    | 3.7       |
-| 86-89    | 3.3       |
-| 80    | 3.0       |
-| 75    | 2.7       |
-| 77    | 2.3       |
-| 70    | 2.0       |
+```{r, echo = F, message=F}
+gs4_deauth()
+#this code chunk was borrowed from: https://github.com/sta199-summer-1/sta199-summer-1.github.io/tree/main
 
-# Problem Sets & Coding Assignments
-
-For Problem Sets and Coding Assignments, you may cooperate with classmates but all work submitted must be your own (see @sec-plag). They will be due at 11:59 PM on the day denoted on the [Schedule](schedule.qmd) page.
-
-Coding assignment (2 in total) submissions need to be completely reproducible R markdown documents. **If your R markdown file does not compile** it will be considered a late day, and you will be notified and will need to resubmit a R markdown file that does compile/knit. You will be deducted further late days for every day it takes for you to turn in a R markdown file that does knit. Note that the 2 coding assignments are weighed differently.
-
-First coding assignment: You will be allowed to resubmit the first coding assignment (formative) within a week of my handing it back to you if you get less than 90% in your grade. The final grade will be a weighted average of both attempts, with the 2nd attempt having twice the weight of the first attempt. The first coding assignment has lower weight because it is focused on your learning.
-
-Second coding assignment: The 2nd coding assignment will be an assessment of what you have learned in labs and the previous coding assignment. There will be no re-submissions for the 2nd coding assignment.
+d1 <- read_sheet("https://docs.google.com/spreadsheets/d/1ScIXAwu759O7g2WS4HWBmvgP50oKnPCLGW0qb33H67Y/edit?usp=sharing", sheet = "bmc")
+colnames(d1)<-c("Grade (%)", "BMC")
+d1 |> gt()
+```
 
 # Participation
 
-The course is not the same without you. The best way to participate is to come to class and office hours and ask questions. Shy students can also earn participation points by posting question or answers on Piazza, which can be done anonymously. See @seq-FAQs (Q.2).
+The course is not the same without you. The best way to participate is to \[come to class\]{.underline} and office hours and ask questions. Shy students can also earn participation points by posting question or answers on Piazza, which can be done anonymously. See @seq-FAQs (Q.2).  Your prep work before class and in-class activities besides labs will also be graded for participation. If you miss up to but no more than three of these participation activities, your grade will not be impacted. 
 
-# Late work {#sec-late}
+If you must miss class, I expect you to email me. If you cannot make it to a lecture meeting, you could do some of the in-class activities on your own time without help, but we do not recommend this as a class strategy. The help of your classmates and the environment they create is one of the best parts of this class. Help each other.
 
-**Grace days**. Each student may use up to 4 “grace days” during the semester to hand in work late, no questions asked and without penalty. To use your grace day(s) for an assignment, email me at least a day before the assignment is due and communicate how many grace days you are requesting. There is no need to provide any explanation as to why you are using your grace days; as long as you have enough days left in the semester to use, and have written to me at least a day in advance, I will approve.
 
-Outside of the grace days, I will accept late work with a reduction in grade as follows: Your maximum score for a late problem set or coding assignment will drop by 10%, every 24h, starting from the deadline. In other words, if you turn in the work 1 minute to 24h late, your maximum score will drop to 90%; if you turn it in 24h and 1 minute to 48h late, it will drop to 80%; and so on. Late quizzes and DataCamp completion will receive a zero but you should still take them for practice/learning/participation purposes.
+# Formative assignments
 
-If you are dealing with an emergency or other issue and believe you may require more leniency, please email me and your dean as soon as possible so that we can make arrangements.
+For Problem Sets, you may cooperate with classmates but all work submitted must be your own (see @sec-plag). We will typically begin these in class but you may need to finish them outside of class time. These should be handed in in class (hard copy). When coding portions are present, you should do them in markdown, compile into a PDF, print, and attach it to your hard-copy PS.
 
-\*\* Make up policy \*\*
+Your coding projects (checkpoint and final project) must be a completely reproducible R markdown documents (as well as any problem sets involving R code). If your R markdown file does not compile properly it will be considered a late day, and you will be notified and will need to resubmit a R markdown file that does compile/knit. You will be deducted further late days for every day it takes for you to turn in a R markdown file that does knit.
+
+**Coding checkpoint.** You will be allowed to address feedback resubmit the coding checkpoint within a week of my handing it back to you if you get less than 90% in your grade. The final grade will be a weighted average of both attempts, with the 2nd attempt having twice the weight of the first attempt. The coding checkpoint is a necessary stepping stone towards your final coding project. 
+
+**Peer-review.** Later in the semester, you will engage in an activity to provide thoughtful and constructive feedback to your peers's final coding project. To gain full points you must come to class on the date of this activity, bring a full draft of your project (details will be provided), and conduct the peer-reviewing following instructions. 
+
+# Summative Asessments
+
+**Final coding project.** This will be an assessment of what you have learned in labs and the previous coding checkpoint. There will be no re-submissions for this. Detailed instructions will be posted on the course page.
+
+
+**Exams are closed book, no internet.** However, you may bring handwritten notes on one standard sheet of paper (front and back), on which you can include whatever you feel might be useful to you. You will be allowed to use a simple calculator, but not a graphing one.
+
+Some questions will be similar to those on problem sets, and there will also be coding questions that you will have to answer by hand. The midterms will be in class during lab time, and the final exam will be during finals week (date TBD).
+
+See the [Schedule](schedule.qmd) for midterm dates. If you must miss a midterm with a legitimate excuse (either by pre-arrangement or an acceptable medical emergency with doctor's note), no make-up midterm will be offered. Instead, the grades on the other two exams will be used in place of the missed midterm in the final grade assessment using the weighted average of the other two. There are no make-up possibilities for final exams, barring last minute severe emergencies. If a final exam is approved, it will be entirely different from the original one.
+
+# Course Policies
+
+**TL;DR: Be nice, be honest, don't cheat.** [^1] 
+
+
+[^1]: Thank you, A. Heiss!
+
+## Late work {#sec-late}
+
+If you anticipate being unable to attend a meeting, please contact me as soon as possible as your circumstances allow. Note that problem sets  are due in class (hard copy) so if you miss class you must make arrangements to have this handed in on time. It is your responsibility to gather class notes from classmates and complete any missed activities that may not be in the schedule. These make-up materials should be submitted within 3 days of your absence (unless otherwise negotiated; for longer absences or extenuating circumstances, please contact me to work something out). Sick days do not count as unexcused absences! Just let me know ASAP. 
 
 The course is structured in such a way that you can have some late work without penalty. So there will be no make-up assignments.
 
-See the [Schedule](schedule.qmd) for midterm dates. If you absolutely **must** miss a midterm exam, you will need approval from your dean and myself *ahead of time* (barring last minute severe emergencies) before the exam in order to have a makeup. All make-up exams will be completely different from the in-class ones.
+**Grace days**. Each student may use up to 4 “grace days” during the semester to hand in work late, no questions asked and without penalty. To use your grace day(s) for an assignment, email me at least a day before the assignment is due and communicate how many grace days you are requesting. There is no need to provide any explanation as to why you are using your grace days; as long as you have enough days left in the semester to use, and have written to me at least a day in advance, I will approve. You can use grace days for any assignments **except** for your final coding project, exams, and the peer-review activity.
 
-# Midterms
+Outside of the grace days, I will accept late work with a reduction in grade as follows: if you turn in the work 1 minute to 24h late, your maximum score will drop to 90%; if you turn it in 24h and 1 minute to 48h late, it will drop to 80%; and so on. Late lecture quizzes and DataCamp will be accepted anytime without penalty but I strongly urge you to keep up with the work. Note that you can retake the lecture quizzes as many times as you want. I am only grading whether or not you did it. 
 
-**Both midterms are closed book, no internet.** However, you may bring handwritten notes on one standard sheet of paper (front and back), on which you can include whatever you feel might be useful to you..
+If you are dealing with an emergency or other issue and believe you may require more leniency, please email me and your dean as soon as possible so that we can make arrangements.
 
-Some questions in the midterms will be similar to those on problem sets, and there will also be coding questions that you will have to answer by hand. The first midterm will be in class during lab time, and the second midterm will be scheduled during finals week.
+## Plagiarism {#sec-plag}
 
-**Calculator for midterms.** You may use a calculator to save you time. A scientific calculator with roots, exponents,etc, is fine, but graphic/function calculators will NOT be accepted. Please plan accordingly. A scientific calculator is \~ \$12 and you might also be able to borrow one from a buddy on Midterm days.
 
-# Plagiarism {#sec-plag}
+**All** students enrolled in Bryn Mawr Classes are bound by the The [Bryn Mawr honor code](https://sga.blogs.brynmawr.edu/honor-board/honor-code/). I call your attention to the sections on plagiarism and AI use in the code, which will be followed here. Contributions from [“outside sources”](https://guides.tricolib.brynmawr.edu/c.php?g=1337615&p=9857210), including AI sources, must be properly quoted and cited *every time* they are used. [Outside sources include content that was produced by a genAI assistant like ChatGPT, Gemini, and others.]{.underline} [Failure to do so constitutes an academic integrity violation]{.underline}, in accordance with the College’s Honor Code:
 
-**All** students enrolled in Bryn Mawr Classes are bound by the The [Bryn Mawr honor code](https://sga.blogs.brynmawr.edu/honor-board/honor-code/). In particular, I call your attention to the sections on plagiarism and AI use in the code, which will be followed here.
+> *"In reports and other written work, sources of information and of ideas and opinions not the student’s own must be clearly indicated; the source of direct quotations must be acknowledged. Failure to do so constitutes plagiarism (...) Generative AI tools should not be used in the completion of any course assignments, exams, or written work, including laboratory work, unless an instructor for a given course has specifically and explicitly authorized their use for the assignment in question. (…) Presenting AI-generated content as original student work, submitting AI-generated content without citing its source in artificial intelligence tools, and relying on generative AI tools for closed-book quizzes, tests, and exams all constitute violations of the Honor Code."* -- BMC Honor Code[^2]
 
-**BMC honor code on Plagiarism:**
+[^2]: The AI clause to the Honor Code was [approved in plenary by BMC members in April 2024](https://bicollegenews.com/2024/04/14/2024-spring-plenary-results/).
 
-> *In reports and other written work, sources of information and of ideas and opinions not the student’s own must be clearly indicated; the source of direct quotations must be acknowledged. Failure to do so constitutes plagiarism.*
+[I will call out code that looks vibe-coded in your assignments. Please don’t do it.]{.underline}
 
-# Use of LLMs/GenAI {#sec-llm}
+[All work submitted in this course must be your own]{.underline}. In plain words: do not use genAI to write any of your answers to prompts, problems, and do not submit any prose generated by genAI. You may of course use genAI to study, but do so at your own peril, as I expect your work do reflect the content from the course and [I do not authorize the materials from this course to be fed to LLMs]{.underline}. You may use genAI to help you brainstorm/define concepts but if you do so, you must attribute properly. Similarly, if your discussions with classmates informed how you answered any of the questions, you must give them proper attribution. 
 
-**What the BMC honor code says on LLMs/AI:**
-
-> *Generative AI tools should not be used in the completion of any course assignments, exams, or written work, including laboratory work, unless an instructor for a given course has specifically and explicitly authorized their use for the assignment in question." (...) "Presenting AI-generated content as original student work, submitting AI-generated content without citing its source in artificial intelligence tools, and relying on generative AI tools for closed-book quizzes, tests, and exams all constitute violations of the Honor Code.*
-
-What I say: I personally believe that AI in its current/popular form brings with it serious ethical considerations (see section below). However, I know that most students are likely to reach for AI at least some of the time. For the purposes of this class, the following guidelines apply:
-
-You may use LLMs/GenAI for **coding assignments** ONLY, and only in certain ways:
+You may use LLMs/GenAI for **coding assignments** ONLY, and only in certain ways [^3]:
 
 a)  to brainstorm ideas
 b)  to decode cryptic error messages or explain why they might have occurred
 c)  to ask specific questions about R-language related things like function parameters, etc.
 
-If you do use LLMs for a coding assignment, you must include citations for each instance where you used it, including the prompt you used (I will provide more specific guidelines with the assignments themselves).
+[^3]: Nevertheless, I am providing you with a several recommended alternatives that will make you learn for real. 
+
+If you do use LLMs for the coding assignment, you must include citations for each instance where you used it, including the prompt you used (I will provide more specific guidelines with the assignments themselves). 
 
 For problem sets and other assignments: You may not use AI, as there is no (ethical) reason to do so. The whole point of these formative assessments is to learn and/or practice for the exams.
 
-## Rationale for the LLM/GenAI policy adopted here
+If I suspect these guidelines have been violated, I will call the student over to discuss their process in generating the content.
 
-While there are many worthy uses of AI (e.g., predicting protein structures based on aminoacid sequences, which has been underway for over a decade), the widespread use of LLMs/GenAI for the most mundane tasks and internet searches has an enormous ecological impact.
+# Rationale for the LLM/GenAI policy adopted here
 
-**Climate Change**
+You can skip this section if not interested. 
 
-Data centers already consume about 2% of the global electricity output (as of December 2024[^2], likely much more now). These data centers emit enormous amounts of CO~2~, are mostly powered by non-renewable energy sources -- for example, projected growth demands on energy grids to keep up with data center development plans are already delaying the retirement of coal power plants in the U.S.[^3] -- and consume an enormous amount of clean freshwater[^4]. The convenience of a quick AI-generated summary costs energy and clean water that seems unjustifiable[^5].
+If you are interested, I have written a longer rationale for this stance on genAI in this course and included references to support them. You can find it [here](https://docs.google.com/document/d/1-hLC9tiBQKgufHpLG2OV9GcHosnQmCLuguf2XFZvnFM/edit?usp=sharing). Below is a summary of what is written there.
 
-[^2]: Luccioni, S. (2024, December 18). Generative AI and climate change are on a collision course. Wired. https://www.wired.com/story/true-cost-generative-ai-data-centers-energy/
+**LLMs are (philosophical) bullshit machines**
 
-[^3]: Garcia, M. (2024). AI Uses How Much Water? Navigating Regulation Of AI Data Centers' Water Footprint Post-Watershed Loper Bright Decision. <https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5064473>
+They have no concern for truth, proper crediting or their sources, ethics, or efficiency of your code or writing. They instead eat up an enormous amount of resources to regurgitate an amalgamation of what HUMANS have produced. They don’t care if the code runs or not. All they care about is if the answer looks plausible.[^4]
 
-[^4]: Kirkpatrick, K. (2023). The carbon footprint of artificial intelligence. Communications of the ACM, 66(8), 17-19. DOI: [10.1145/3603746](http://dx.doi.org/10.1145/3603746)
+Academic writing and learning in general is not just about submitting a final piece of work; rather, it is a process that allows you to take what at first appears confusing and transform it into something that makes sense to you. 
 
-[^5]: Luccioni, S., Jernite, Y., & Strubell, E. (2024, June). Power hungry processing: Watts driving the cost of AI deployment?. In Proceedings of the 2024 ACM conference on fairness, accountability, and transparency (pp. 85-99). [10.1145/3630106.36585](https://doi.org/10.1145/3630106.36585)
+While constructing effective prompts for AI is indeed a skill to be learned, what is far more difficult is to judge what AI tells you, and that requires knowledge and critical thinking.
 
-**Impacts on critical thinking**
 
-Most college students in the U.S. right now use chatGPT/AI regularly. An argument can be made that students need to be trained on proper use of AI. It is almost certain that in your professional life you will use this to some extent (or be pressured to do so for the sake of "efficiency").
+[^4]: [https://datavizf25.classes.andrewheiss.com/resource/ai-bs.html](https://datavizf25.classes.andrewheiss.com/resource/ai-bs.html)
 
-Counterpoints: While constructing effective prompts for AI is indeed a skill to be learned, what is far more difficult is to judge what AI tells you, and that requires knowledge and critical thinking. One of the key purposes of a college education is to develop such critical thinking skills. Research clearly shows that higher confidence in LLMs/GenAI is associated with *less* critical thinking, while higher self-confidence is associated with more critical thinking.[^6] [^7] [^8] Additionally: Another purpose of college education is to prepare you for a well-rounded and successful career, and **no one** is looking to hire a person who pastes LLM/GenAI output and presents it as their own work.
+One of the key purposes of a college education is to develop such critical thinking skills. [Research clearly shows that higher confidence in GenAI is associated with less critical thinking]{.underline}, while higher self-confidence is associated with more critical thinking.
 
-[^6]: Lee, HP *et al.* (2025). The impact of generative AI on critical thinking: Self-reported reductions in cognitive effort and confidence effects from a survey of knowledge workers. In Proceedings of the 2025 CHI conference on human factors in computing systems. [https://doi.org/10.1145/3706598.371377](https://doi.org/10.1145/3706598.371377https://doi.org/10.1145/3706598.371377)
+**What about coding?**
 
-[^7]: Kosmyna, N, *et al.* (2025) Your brain on chatgpt: Accumulation of cognitive debt when using an ai assistant for essay writing task." arXiv preprint arXiv:2506.08872. <https://arxiv.org/abs/2506.08872>
+Experienced coders can benefit from using some LLMs (Github copilot is way better than chatGPT and free for students). But the key idea here is that they already know how to code.
 
-[^8]: Georgiou, GP. (2025). ChatGPT produces more" lazy" thinkers: Evidence of cognitive engagement decline. arXiv preprint arXiv:2507.00181. <https://arxiv.org/abs/2507.00181>
+> *"Using ChatGPT and other LLMs when learning R is actually really detrimental to learning, especially if you just copy/paste directly from what it spits out. "* -- Andrew Heiss
+
+Another purpose of college education is to prepare you for a well-rounded and successful career, and [no one is looking to hire a person who pastes GenAI output and presents it as their own work]{.underline}. 
 
 # Institutional Support
 
-## Physical and Mental well-being
 
 College is a marathon, not a sprint. You will reap more benefits if you are consistent than cramming an unreasonable amount of work into a short period of time. **If you are struggling**, do not wait: **keep me and your academic dean on the same page** so that we can help you achieve your best. Also, do not hesitate to seek out the services available to you such as the [Bryn Mawr College counseling services](https://www.brynmawr.edu/healthcenter/counseling-services/counseling-resources).
 
+## Students with physical or learning differences
+
+> *"Bryn Mawr College is committed to providing equal access to students with a documented disability. Students needing academic accommodations for a disability must first speak with Access Services. Students can email accessservices@brynmawr.edu to request an appointment to begin this confidential process. If eligible for accommodations as per Access Services, students should schedule an appointment with the professor as early in the semester as possible to share their verification form and make appropriate arrangements. Please note that accommodations are not retroactive and require advance notice to implement. More information can be obtained at the [Access Services website](http://www.brynmawr.edu/access-services/)."* -—  From [BMC’s website](http://rynmawr.edu/inside/offices-services/access-services/faculty/sample-syllabus-statement-accessibility)
+
+Pennsylvania law states that individuals are given advance notice that they may be recorded, so:
+
+> *"Because some students with a disability may be eligible to record lectures - and it is state law in Pennsylvania that individuals are given advance notice that they may be recorded - professors also need to include the following statement in their syllabus:
+
+Any student who has a disability-related need to record this class must first be found eligible to do so by Access Services and must share this eligibility with me, the instructor. Class members need to be aware that this class may be recorded."* —  From [BMC’s website](https://www.brynmawr.edu/inside/offices-services/access-services/faculty/sample-syllabus-statement-accessibility)
+
 ## Title IX
 
-Info from the College [website](https://www.brynmawr.edu/inside/policies-guidelines-handbooks/sexual-misconduct):
 
-> *BMC strongly encourages all students to report any incidents of sexual misconduct. Bryn Mawr College is committed to providing an inclusive environment, free from sexual and gender-based discrimination. Title IX prohibits discrimination based on sex in any federally funded educational program or activity, and forms the basis for Bryn Mawr's policies and resources regarding sex discrimination. The Bryn Mawr College Sexual Misconduct Policy prohibits Title IX sexual harassment, which includes sexual assault, dating violence, domestic violence, and stalking. Bryn Mawr's Policy is more extensive than Title IX, and also covers other gender-based misconduct. BMC's Policy is more extensive than Title IX, and also covers other gender-based misconduct*.
 
-Please be aware that all Bryn Mawr/Haverford employees (other than those designated as confidential resources such as counselors, clergy, and healthcare providers) must report information about such discrimination and harassment to the Bi-Co Tittle IX Coordinator.
+> *Bryn Mawr College is committed to providing an educational and employment environment free from discrimination and harassment based on protected characteristics. The College does not discriminate against any employee, applicant for employment, student, or applicant for admission on the basis of actual or perceived age, citizenship status, color, disability, gender identity/expression, genetic information, national origin, pregnancy or related conditions, race, religion, sex, sexual orientation, veteran status, or any other characteristic protected by applicable federal, state, or local law."* -- Info from the College [website](https://www.brynmawr.edu/inside/offices-services/civil-rights-title-ix/policies-inquiries).
 
-## Students with physical or learning differences {#sec-accom}
+Please be aware that all Bryn Mawr/Haverford employees (other than those designated as confidential resources such as counselors, clergy, and healthcare providers) must report information about such discrimination and harassment to the Bi-Co Tittle IX Coordinator. See the [BMC policy on this.](https://www.brynmawr.edu/inside/policies-guidelines-handbooks/sexual-misconduct)
 
-Info from the College website:
+See also: [https://www.brynmawr.edu/sites/default/files/media/documents/2025-07/2024-2025%20Bryn%20Mawr%20College%20Sexual%20Misconduct%20Policy_Jan.%202025.pdf](https://www.brynmawr.edu/sites/default/files/media/documents/2025-07/2024-2025%20Bryn%20Mawr%20College%20Sexual%20Misconduct%20Policy_Jan.%202025.pdf)
 
-> *BMC is committed to providing equal access to students with a documented disability. Students needing academic accommodations for a disability must first register with Access Services. Students can call 610-526-7516 to make an appointment with the Access Services Director, Deb Alder, or email her at dalder\[at\]brynmawr.edu to begin this confidential process. Once registered, students should schedule an appointment with the professor as early in the semester as possible to share the verification form and make appropriate arrangements*.
-
-Please reach out as early as possible (ideally, even before classes start) so that we can make the necessary accommodations. Note that **accommodations are not retroactive and require advance notice to implement**.
-
-**Need help with math?** The [Bryn Mawr College Q Center](https://www.brynmawr.edu/inside/offices-services/q-center) supports students who are doing quantitative work in courses across the STEM and Social Science disciplines. The Q Center is a collaborative study space that provides a welcoming location for individual work, study groups, and collaboration with Q Mentors.
-
-## Fostering an Inclusive Learning Space
-
-In an ideal world, it would be possible for scientific practice to be done in a perfectly objective way, free of biases and preconceptions. However, it is not so. Scientists are flawed and human. The history of science is also a history of who got the credit and is dominated by white, male, colonialist, and racist ideas. I will try to highlight less-known historical figures and provide a critical perspective on such matters whenever possible. I see the diversity of backgrounds and identities our students bring as a strength: age, culture, disability, ethnicity, gender, nationality, religion, sexuality, and socioeconomic status. I intend for this course to serve students from diverse backgrounds and perspectives. Your suggestions are encouraged and appreciated. Please let me know ways to improve the effectiveness of the course for you personally or for other students or student groups. You can do this in person during office hours, by email, or via the mid-semester anonymous survey.
 
 # FAQs {#seq-FAQs}
 
 1.  **How should I contact the professor?**
 
-    If you have a general question about course content or assignments, please share it on [Piazza](https://piazza.com/brynmawr/fall2025/bmcbiolb215001f25). One of your colleagues may know the answer and respond, but our TA and I will also check this regularly. By sharing questions publicly, everyone benefits. Please check Piazza regularly.
+    If you have a general question about course content or assignments, please share it on [Piazza](https://piazza.com/brynmawr/fall2025/bmcbiolb215f26). One of your colleagues may know the answer and respond, but our TA and I will also check this regularly. By sharing questions publicly, everyone benefits. Please check Piazza regularly.
 
-    For private matters, please email me directly or use the [calendly link](https://moodle.brynmawr.edu/mod/page/view.php?id=403047). I check my email at spaced intervals and will respond to emails within 24 hours Monday through Friday. If you do not hear back within 24 hours (or after the weekend), email again as your email may have been lost. Please plan ahead and do not save any time-sensitive questions for the last minute!
+    For private matters, please email me directly. I check my email at spaced intervals and will respond to emails within 24 hours Monday through Friday. If you do not hear back within 24 hours (or after the weekend), email again as your email may have been lost. Please plan ahead and do not save any time-sensitive questions for the last minute!
 
 2.  **What if I have to miss class?**
 
-    Please let me know you won’t be making it to class (lecture or lab) before class starts. Life happens! Everyone is allowed 3 excused absences, no questions asked, no explanations needed, as long as the student informs me in writing before class. All assignments for class must still be completed on time and with the coordination of relevant parties.
+    Please let me know you won’t be making it to class (lecture or lab) before class starts. Life happens! Everyone is allowed 3 excused absences, no questions asked, no explanations needed, as long as the student informs me in writing before class. This excludes dates when we have midterms and peer-review. All assignments for class must still be completed on time and with the coordination of relevant parties.
 
 3.  **What if I cannot turn in an assignment in time?**
 
@@ -235,25 +312,21 @@ In an ideal world, it would be possible for scientific practice to be done in a 
 
     See FAQs 2-3. Most people get sick at least once in a semester. If you have serious health issues that require more leniency, reach out to me and your dean so we can discuss.
 
-5.  **What if I don’t hand in all the low-stakes assignments?**
-
-    We will have plenty and the three lowest grades will be dropped in this category.
-
-6.  **Can I use phones/tablets/laptops/etc, in class**
+5.  **Can I use phones/tablets/laptops/etc, in class**
 
     Please do not use your phones in class as this hinders instruction and learning both for you and for other students. Tablets with a stylus for notetaking are fine. I would prefer if you only used computers for labs, as the keyboard sounds can be very distracting, but if you feel you must use it for lectures please be mindful of other students.
 
-7.  **Can I use code from the internet in my assignments?**
+6.  **Can I use code from the internet in my assignments?**
 
-    All work submitted must be your own. Nevertheless, searching the web for help with cryptic error messages is totally normal for any programmer. See ["Getting help with R"](Getting%20help%20with%20R). Simply searching "r + how to X" will usually get you somewhere useful. Just cite anything you use to help you solve a problem as described in \@ @sec-plag.
+    All work submitted must be your own. Nevertheless, searching the web for help with cryptic error messages is totally normal for any programmer. See [Rrresources](rlearn.qmd). Simply searching "r + how to X" will usually get you somewhere useful if you use a browser that allows you to turn off AI. Just cite anything you use to help you solve a problem as described in \@ @sec-plag.
 
-8.  **Can I use generative AI (e.g., ChatGPT)?**
+7.  **Can I use generative AI (e.g., ChatGPT)?**
 
     See previous question and @sec-plag.
 
 9.  **What if I have accommodations?**
 
-    Please see @sec-accom and/or reach out by email if you wish to discuss further.
+     Please email be asap with your accomodation letter so that I can plan/adjust accordingly, and let me know if you have any concerns and would like to talk in person.
 
 10. **What if I have a conflict with the schedule due to religious holidays?**
 
@@ -262,7 +335,7 @@ In an ideal world, it would be possible for scientific practice to be done in a 
 11. **What if I cannot afford the course materials?**
 
     If you have concerns about being able to afford course materials, please reach out by email.
-    
+
 12. **I am confused about soft and hard deadlines. For which assignments do they apply?**
 
-For certain activities we have suggested deadlines (soft) and hard deadlines. These apply to DataCamp activities and Moodle Quizzes. However, note that for the Moodle quizzes you are still required to take it at least once before the soft deadline as detailed in @sec-grades.
+    For certain activities we have suggested deadlines (soft) and hard deadlines. These apply to the required DataCamp activities and lecture quizzes. 

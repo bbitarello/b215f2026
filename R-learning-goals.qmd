@@ -1,0 +1,16 @@
+---
+title: "R-learning-goals"
+---
+From: https://datacarpentry.github.io/semester-biology/syllabus/
+
+Create well structured data
+
+Extract information from data
+
+Write computer programs in R
+
+Automate data analysis
+
+Apply these tools to address biological questions
+
+Apply general data management and analysis concepts to other programming languages and database management systems

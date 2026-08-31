@@ -10,8 +10,8 @@ $gray1: #9da7bf;
 $darkgray1: #545760;
 $lightblue1: #55cfd8;
 $blue1: #00a1b7;
-$darkblue1: #006475;
-$purple1: #9158a2;
+$darkblue: #365C8DFF;
+$purple: #440154FF;
 $orange1: #ad7237;
 $unnamed1: #616571;
 $orange2: #C0532B;
@@ -22,7 +22,7 @@ $orange2: #C0532B;
 //@import 'https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap';
 
 //$font-family-sans-serif: "Atkinson Hyperlegible", sans-serif;
-$presentation-heading-color: #006475;
+$presentation-heading-color: #3b528b;
 $presentation-title-slide-text-align: 'left';
 $presentation-subtitle-slide-text-align: 'left';
 $font-family-sans-serif: 'Palatino Linotype', 'Book Antiqua', Palatino, FreeSerif, serif !default;
@@ -46,7 +46,7 @@ $presentation-heading-color: $darkblue1 !default;
 
 .reveal .custom-title {
     position: left;
-    color: #006475;
+    color: #365C8DFF;
     font-size: 3em;
     text-align: right;
     right: 20px;
@@ -102,17 +102,55 @@ $presentation-heading-color: $darkblue1 !default;
     padding-top: 0.1em;
     padding-bottom: 0.1em;
     padding-left: 1em;
-    background: #00a1b7;
+    background: #277F8EFF;
     color: #fdfbf7;
 }
 
 .dark-theme {
     color: #fdfbf7;
-    background-color: #00a1b7;
+    background-color: #365C8DFF;
 }
 
 
 .figure-caption {
   margin: auto;
   text-align: center;
+}
+
+.html .custom-title {
+    position: left;
+    color: #365C8DFF;
+    font-size: 3em;
+    text-align: right;
+    right: 20px;
+    top: -200px;
+}
+
+/* Header styling */
+h1 {
+    color: $darkblue;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+h2, h3, h4, h5, h6 {
+    color: $blue1;
+    font-weight: 400;
+    margin-top: 1rem;
+    //margin-bottom: 1rem;
+}
+h1 {
+    //color: #1a252f;
+    color: #3b528b;
+    border-bottom: 3px solid #2980b9;
+    padding-bottom: 0.5rem;
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.6em;
+}
+
+h3 {
+    font-size: 1.4em;
 }

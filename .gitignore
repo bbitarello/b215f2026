@@ -4,12 +4,17 @@
 .Ruserdata
 /.quarto/
 .DS_Store
+/_site/
 docs/site_libs/
 census-key.R
 *_cache
 lab-notes
 /*/.DS_Store
 *.DS_Store*
+ignore-for-now/*
+syllabus.qmd
+*prof.qmd
+*ignore.txt
 
 
 **/*.quarto_ipynb

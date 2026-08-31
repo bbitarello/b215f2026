@@ -1,0 +1,265 @@
+---
+title: "R Quiz 1"
+format: html
+engine: knitr
+filters:
+  - webr
+webr:
+  packages: ['learnr', 'gradethis', 'knitr', 'tidyverse']
+  
+---
+
+```{webr-r}
+#| context: setup
+library(devtools)
+#webr::install("learnr") 
+library(learnr)
+#webr::install("gradethis")
+library(gradethis)
+library(tidyverse)
+# library(knitr)
+# library(ggmosaic)
+# library(praise)
+# library(utils)
+# learnr::tutorial_options(exercise.eval = TRUE, 
+#                          exercise.reveal_solution = FALSE, 
+#                          exercise.timelimit = 60,
+#                          exercise.checker = gradethis::grade_learnr)
+# 
+# gradethis::gradethis_setup(
+#   pass.praise = TRUE,
+#   fail.encourage = TRUE,
+#   fail.hint = TRUE
+# ) 
+
+```
+
+
+```{css echo=FALSE}
+ @media print {
+  .topicsContainer,
+  .topicActions,
+  .exerciseActions .skip {
+    display: none;
+  }
+  .topics .tutorialTitle,
+  .topics .section.level2,
+  .topics .section.level3:not(.hide) {
+    display: block;
+  }
+  .topics {
+    width: 100%;
+  }
+  .tutorial-exercise, .tutorial-question {
+    page-break-inside: avoid;
+  }
+  .section.level3.done h3 {
+    padding-left: 0;
+    background-image: none;
+  }
+  .topics .showSkip .exerciseActions::before {
+    content: "Topic not yet completed...";
+    font-style: italic;
+  }
+}
+/* paste CSS above here */
+```
+
+
+## Vectors
+
+### Exercise 1
+1. Below, assign the number 9 to the variable `a`
+
+```{r sim1, exercise=TRUE, allow_skip = FALSE}
+# assign 9 to a
+```
+
+```{r sim1-solution, allow_skip = FALSE}
+a <- 9                
+#Note: I am not sure how to allow multiple correct answers, say
+# a<-9 and 
+# a = 9
+```
+
+
+```{r sim1-check, allow_skip = FALSE}
+##grade_this_code()
+
+```
+
+### exercise 2
+Now create another vector, b, containing the numbers 2,9, and 8 in that order
+
+```{r sim2, exercise = TRUE, allow_skip = FALSE}
+        # assign a vector with 2, 9 and 8, in that order, to b
+```
+
+
+```{r sim2-solution, allow_skip = FALSE}
+b <- c(2,9,8)      # assign a vector with 2, 9 and 8, in that order, to b 
+```
+
+```{r sim2-check, allow_skip = FALSE}
+#grade_this_code()
+```
+
+
+## Vector functions
+
+Now, test if vector a is equal to vector b
+
+### ex3 
+```{r ex2setup}
+a <- 9
+b <- c(2,9,8)
+```
+
+```{r sim3, exercise = TRUE, exercise.setup = "ex2setup"}
+                    # ask if a equals b 
+```
+
+```{r sim3-solution}
+a == b               # ask if a equals b 
+```
+
+```{r sim3-check}
+#grade_this_code()
+```
+
+
+### exercise 4
+
+Finally, multiply vectors a and b
+
+```{r sim4, exercise = TRUE, exercise.setup = "ex2setup"}
+                    # multiply a and b
+```
+
+
+```{r sim4-solution}
+a * b             # multiply a and b 
+```
+
+```{r sim4-check}
+#grade_this_code()
+```
+
+## Quiz
+
+```{webr-r}
+#| context: setup
+learnr::quiz(
+    learnr::question("In the example above, what would R tell you when you ask it if a equals b?",
+    answer("It doesn't return anything"),
+    answer("`FALSE`"),
+    answer("An error"),
+    answer("The vector, `FALSE TRUE FALSE`", correct = TRUE),
+    allow_retry = TRUE,
+    correct = random_praise(),
+    incorrect = random_encouragement(), random_answer_order = TRUE
+  ),
+  learnr::question("In the example above, what does multiplying a and b return?",
+    answer("The vector, `2 9 8`"),
+    answer("The vector, `18 81 72`", correct = TRUE),
+    answer("The vector, `18 9 8`"),
+    answer("The vector, `4 81 64`"),
+    answer("An error"),
+    allow_retry = TRUE,
+    correct = random_praise(),
+    incorrect = random_encouragement(), random_answer_order = TRUE
+  ))
+```
+
+## R/Rstudio
+
+```{webr-r}
+learnr::quiz(caption = "Quiz - Install R",
+  learnr::question("Is R free to download and use?",
+    answer("Yes!", correct = TRUE, message = "R is free _and_ open source, which means that anyone can read, use, and copy the source code of the R language."),
+    answer("No.")
+  )
+  ,
+    learnr::question("What is the RStudio IDE?",
+    answer("An application that makes it easier to use R.", correct = TRUE, message = "RStudio organizes your workspace and makes it easier to write, use, debug, and save R code. I highly recommend it and will rely on the RStudio IDE in several tutorials."),
+    answer("An application that let's you use R without writing any code", message = "And thank goodness! Code provides a reproducible record of your work, which is essential for data science."),
+    answer("A spreadsheet program like Microsoft Excel."),
+    answer("Another name for R", message = "R and RStudio are two separate things. R is a language, like English. Think of RStudio as a program that helps you use the language, kind of like how a word processing program helps you write in English."),
+    allow_retry = TRUE
+  ),
+  learnr::question("Is the RStudio IDE free to download and use?",
+    answer("Yes!", correct = TRUE, message = "Like R, RStudio is free and open-source. There do exist professional versions of RStudio with enhanced features, but we will not rely on those features in these tutorials."),
+    answer("No.", message = "Like R, RStudio is free and open-source. There do exist professional versions of RStudio with enhanced features, but we will not rely on those features in these tutorials.")
+  ))
+```
+
+
+## Use R to calculate:
+
+a) The product of 15 by 17
+
+```{r ex1, exercise=TRUE}
+
+```
+
+```{r ex1-check}
+gradethis::grade_result(
+  gradethis::pass_if(~identical(.result, 255))
+)
+
+```
+
+b) Thirteen to the power of 3:
+
+```{r ex2, exercise=TRUE}
+
+```
+```{r ex2-check}
+gradethis::grade_result(
+  gradethis::pass_if(~identical(.result, 2197))
+)  
+```  
+c) Log of 14 (use the natural log):
+
+```{r ex3, exercise=TRUE}
+
+```
+
+```{r ex3-check}
+gradethis::grade_result(
+  gradethis::pass_if(~identical(.result,  log(14)))
+)  
+```  
+
+d) Log of 100 (use base 10):
+
+```{r ex4, exercise=TRUE}
+
+```
+
+```{r ex4-check}
+gradethis::grade_result(
+  gradethis::pass_if(~identical(.result, 2))
+)  
+```  
+
+e) The square root of 81:
+```{r ex5, exercise=TRUE}
+
+```
+
+```{r ex5-check}
+gradethis::grade_result(
+  #pass_if(~any(((9-0.5)<.result)==TRUE)&any(((9+0.5)>.result)==TRUE)
+      
+    gradethis::pass_if(~identical(.result, 9))
+)  
+```  
+
+
+Create a variable called `my_name` with your last name spelled backwards followed by your first name. E.g., mine would be "olleratib_arabrab".
+ 
+
+```{r sandbox1, exercise=TRUE, eval = FALSE}
+```
+

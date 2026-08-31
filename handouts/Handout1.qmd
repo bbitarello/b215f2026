@@ -1,10 +1,10 @@
 ---
-title: "Unit 1: Intro to Statistics"
+title: "Unit 1: Intro to Statistics and R"
 subtitle: "Study Guide" # only for html output
 #author: "Bárbara D. Bitarello"
-keywords: "Intro"
-format: pdf
-#date: "09-03-2025"
+keywords: "Unit 1"
+format: 
+  pdf
 ---
 
 ```{r setup, include=FALSE}
@@ -54,7 +54,7 @@ Note: If questions remain about these after class, please attend office hours to
 
 By the end of this unit, you should be able to: 
 
--   Understand the major goal of statistics.
+-   Understand the major goals of statistics.
 -   Distinguish between a sample and a population.
 -   Distinguish between an estimate and a parameter.
 -   Identify why estimates from samples may deviate from the parameters of populations.

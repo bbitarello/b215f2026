@@ -5,7 +5,8 @@ date: ""
 listing:
   - id: labs
     contents:
-      - labs/Lab1.qmd
+      - labs/Lab1-test.qmd
+      #- labs/Lab1.Rmd
     type: table
     fields: [keywords, title, date]
     date-format: "ddd, MMM DD"

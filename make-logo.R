@@ -110,6 +110,7 @@ df$bmc<-factor(df$bmc, levels =  c("4", "3.7", "3.3","3", "2.7", "2.3","2", "Bel
 #mycols<-rev(c4a("isfahan1"))
 old <- update_theme(palette.colour.discrete = scales::pal_viridis())
 
+#here
 df2<-expand.grid(proc_weight=seq(0,100, length.out=500), proc_score=seq(0,100, length.out=500))
 df2<-df2 |> mutate(final= (100 - proc_weight) + proc_weight * proc_score / 100)
 #df2<-df2 |> mutate(bmc = ifelse(final>=94, 4, ifelse(final>=90, 3.7, ifelse(final>=87, 3.3, ifelse(final>=83, 3.0, ifelse(final>=80, 2.7, ifelse(final>=76, 2.3, ifelse(final>=70, 2.0, ifelse(final>=60, "Below merit", "Fail")))))))))

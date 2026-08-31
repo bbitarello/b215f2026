@@ -6,23 +6,29 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-1df33b310b25e824b5acc70bcebddb02.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-eaeb381c6b7494c50009502241a4985c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.10.18">
 <meta name="author" content="Bárbara D. Bitarello">
-<meta name="dcterms.date" content="2026-09-03">
+<meta name="dcterms.date" content="2026-09-02">
 <meta name="keywords" content="Statistics &amp; Samples">
-<title>BIOL B215: Biostatistics with R – 1.2.Sampling error, sampling bias, and the ideal random sample</title>
+<title>BIOL B215: Biostatistics with R – 1.2.Random samples, sampling error and bias, accuracy and precision</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
 <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
 <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -58,51 +64,49 @@
         -khtml-user-select: none; -moz-user-select: none;
         -ms-user-select: none; user-select: none;
         padding: 0 4px; width: 4em;
+        color: #97947a;
       }
-    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #97947a;  padding-left: 4px; }
     div.sourceCode
-      { color: #b3b1ad; background-color: #0a0e14; }
+      { color: #f8f8f2; background-color: #2b2b2b; }
     @media screen {
     pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
-    code span { color: #b3b1ad; } /* Normal */
-    code span.al { color: #ff3333; background-color: #2a0f15; font-weight: bold; } /* Alert */
-    code span.an { color: #e6b673; } /* Annotation */
-    code span.at { color: #59c2ff; } /* Attribute */
-    code span.bn { color: #e6b450; } /* BaseN */
-    code span.bu { color: #95e6cb; } /* BuiltIn */
-    code span.cf { color: #ff8f40; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #95e6cb; } /* Char */
-    code span.cn { color: #ffee99; } /* Constant */
-    code span.co { color: #626a73; font-style: italic; } /* Comment */
-    code span.cv { color: #ffee99; } /* CommentVar */
-    code span.do { color: #626a73; } /* Documentation */
-    code span.dt { color: #ff8f40; } /* DataType */
-    code span.dv { color: #e6b450; } /* DecVal */
-    code span.er { color: #ff3333; text-decoration: underline; } /* Error */
-    code span.ex { color: #59c2ff; font-weight: bold; } /* Extension */
-    code span.fl { color: #e6b450; } /* Float */
-    code span.fu { color: #ffb454; } /* Function */
-    code span.im { color: #c2d94c; } /* Import */
-    code span.in { color: #e6b450; } /* Information */
-    code span.kw { color: #ff8f40; font-weight: bold; } /* Keyword */
-    code span.op { color: #f29668; } /* Operator */
-    code span.ot { color: #39bae6; } /* Other */
-    code span.pp { color: #f07178; } /* Preprocessor */
-    code span.re { color: #59c2ff; background-color: #173649; } /* RegionMarker */
-    code span.sc { color: #95e6cb; } /* SpecialChar */
-    code span.ss { color: #95e6cb; } /* SpecialString */
-    code span.st { color: #c2d94c; } /* String */
-    code span.va { color: #39bae6; } /* Variable */
-    code span.vs { color: #c2d94c; } /* VerbatimString */
-    code span.wa { color: #f07178; } /* Warning */
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #dcc6e0; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #ffd700; } /* Attribute */
+    code span.bn { color: #dcc6e0; } /* BaseN */
+    code span.bu { color: #f5ab35; } /* BuiltIn */
+    code span.cf { color: #ffa07a; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffa07a; } /* Constant */
+    code span.co { color: #d4d0ab; } /* Comment */
+    code span.cv { color: #d4d0ab; font-style: italic; } /* CommentVar */
+    code span.do { color: #d4d0ab; font-style: italic; } /* Documentation */
+    code span.dt { color: #dcc6e0; } /* DataType */
+    code span.dv { color: #dcc6e0; } /* DecVal */
+    code span.er { color: #dcc6e0; } /* Error */
+    code span.ex { color: #ffd700; } /* Extension */
+    code span.fl { color: #f5ab35; } /* Float */
+    code span.fu { color: #ffd700; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; } /* Keyword */
+    code span.op { color: #00e0e0; } /* Operator */
+    code span.ot { color: #ffa07a; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.sc { color: #00e0e0; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #f5ab35; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
-<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-b0aeff38c7bcf8cd95796f7bbbf2ece6.css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-ac6c02ca5a07ac614c2f066fce0ae2e0.css">
 <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-<link href="../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-<link href="../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
 <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
 <style type="text/css">
     .reveal div.sourceCode {
@@ -197,17 +201,18 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block"><h1 class="title">1.2.Sampling error, sampling bias, and the ideal random sample</h1>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">1.2.Random samples, sampling error and bias, accuracy and precision</h1>
+  <p class="subtitle">Acknowledgments: see last slide</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Bárbara D. Bitarello 
+Bárbara D. Bitarello
 </div>
 </div>
 </div>
 
-  <p class="date">2026-09-03</p>
+  <p class="date">September 2, 2026</p>
 </section><section id="quick-recap" class="slide level2"><h2>Quick recap</h2>
 <p>Last lecture we introduced:</p>
 <ul>
@@ -226,39 +231,46 @@ Bárbara D. Bitarello
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
+      }</style></aside></section><section id="statistics-three-broad-goals" class="slide level2 scrollable"><h2>Statistics three broad goals:</h2>
+<ol type="1">
+<li><p><strong>Estimation:</strong> estimate the values of important <em>parameters</em> and have measures of <em>uncertainty</em> for estimates</p></li>
+<li><p><strong>Hypothesis testing:</strong> Test hypotheses about those parameters</p></li>
+<li><p><strong>Causal inference</strong> Teasing apart causation from correlation</p></li>
+</ol>
+<aside class="notes"><p>Statistics claims to be obsessed with the TRUTH. It’s meant to be a way of understanding the world. It’s meant to describe and differentiate, and ideally, to tease apart causation from correlation. These three goals of statistics (below) are the beams of light we, as statisticians, try to shine on questions. That is – these three things are what you call a statistician to do.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
       }</style></aside></section><section id="learning-goals" class="slide level2"><h2>Learning Goals</h2>
 <ul>
-<li><del>Understand the major goals of statistics.</del></li>
-<li><del>Understand the distinction between the term “population” in a statistical and a biological context.</del></li>
-<li><del>Distinguish between a sample and a population.</del></li>
-<li><del>Distinguish between an estimate and a parameter.</del></li>
-<li>Identify why estimates from samples may deviate from parameters of populations</li>
 <li>Identify the properties of a good sample</li>
 <li>Distinguish between sampling bias and sampling error.</li>
+<li>Identify why estimates from samples may deviate from parameters of populations</li>
 <li>Distinguish between accuracy and precision and how these terms relate to sampling bias and sampling error.</li>
-</ul></section><section id="properties-of-a-good-sample" class="slide level2"><h2>Properties of a good sample</h2>
-<div class="goal">
-<p>Independent selection of individuals</p>
-</div>
+</ul></section><section id="properties-of-a-good-sample" class="slide level2 scrollable"><h2>Properties of a good sample</h2>
+<ol type="1">
+<li>
+<p>Random</p>
 <ul>
-<li>no influence of sampling one individual on other individuals that get sampled.</li>
+<li>equality: every unit in the population must have an equal chance of being included in the sample</li>
+<li>independence: the selection of any one member of the population does not in any way influence the selection of any other member.</li>
 </ul>
-<div class="goal">
-<p>Random selection of individuals</p>
-</div>
+</li>
+</ol>
 <ul>
-<li>each member of a population has an equal and independent chance of being selected</li>
-<li>equality: probability of being selected reflects its representation in the population</li>
+<li><p><em>Equality:</em> probability of being selected reflects its representation in the population</p></li>
+<li><p><em>Independence:</em> no influence of sampling one individual on other individuals that get sampled.</p></li>
 </ul>
-<div class="goal">
-<p>Sufficiently large</p>
-</div>
-<div class="{notes}">
-<ul>
-<li>What is the point of each of these principles in terms of sampling error and bias and accuracy and precision?</li>
-</ul>
-</div>
-</section><section id="random-samples" class="slide level2"><h2>Random samples</h2>
+<ol start="2" type="1">
+<li>A <strong>sufficiently large</strong> number of individuals.</li>
+</ol></section><section id="random-samples" class="slide level2"><h2>Random samples</h2>
 <div class="goal">
 <p>Taking random samples is hard and requires effort</p>
 </div>
@@ -268,7 +280,628 @@ Bárbara D. Bitarello
 <li>Carefully characterize a population and use computer code to select participants randomly.</li>
 </ul>
 
-<img data-src="images/clipboard-4130122363.png" class="quarto-figure quarto-figure-center r-stretch" width="608"></section><section id="sampling-bias" class="slide level2"><h2>Sampling bias</h2>
+<img data-src="images/clipboard-4130122363.png" class="quarto-figure quarto-figure-center r-stretch" width="608"></section><section id="random-sampling-in-r" class="slide level2"><h2>Random sampling in R</h2>
+<ul>
+<li>If you run the code below, it is very unlikely you will get the same numbers I did</li>
+</ul>
+<ul>
+<li><p>Try it in webr: <a href="https://webr.sh/" class="uri">https://webr.sh/</a>.</p></li>
+<li><p>Type this code at the bottom left, in the <code>&gt;</code> prompt and then enter/return</p></li>
+</ul>
+<div class="cell">
+<details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co"># Sample 3 random numbers between 1 and 10 1. Define the</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="co"># numbers from which you will sample</span></span>
+<span id="cb1-3"><a aria-label="3"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">10</span>)</span>
+<span id="cb1-4"><a aria-label="4"></a><span class="co"># 2. Take 3 random numbers from this set</span></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>[1] 6 4 7</code></pre>
+</div>
+<details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="co"># now, to convince yourself, do it again</span></span>
+<span id="cb3-2"><a aria-label="2"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output cell-output-stdout">
+<pre><code>[1]  5 10  2</code></pre>
+</div>
+</div>
+</section><section id="section" class="slide level2 center"><h2></h2>
+<div class="r-fit-text">
+<p><span class="smallcaps">The major goal of sampling is to minimize</span></p>
+<p><span class="smallcaps">sampling error and bias in estimates.</span></p>
+</div>
+<aside class="notes"><p>Sampling: What could go wrong? {visibility=“hidden”}</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="section-1" class="slide level2 center"><h2></h2>
+<div class="r-fit-text">
+<p>Probability Distribution vs.&nbsp;Frequency Distribution</p>
+</div>
+</section><section id="example" class="slide level2"><h2>Example</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>
+<strong>Probability distribution:</strong> The proportion of the population with a given value (often approximated with a function)</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>
+<strong>Frequency distribution:</strong> The number of times a value occurs in a sample.</li>
+</ul>
+</div></div>
+<div class="cell" data-layout-align="center">
+<details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>plot.one.dice.prob <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">outcome =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>), <span class="at">probability =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a aria-label="2"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> outcome, <span class="at">y =</span> probability, <span class="at">fill =</span> <span class="fu">factor</span>(outcome))) <span class="sc">+</span></span>
+<span id="cb5-3"><a aria-label="3"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Probability Distribution"</span>,</span>
+<span id="cb5-4"><a aria-label="4"></a>    <span class="at">subtitle =</span> <span class="st">"Outcome of a fair die"</span>) <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a aria-label="5"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.32</span>)) <span class="sc">+</span></span>
+<span id="cb5-6"><a aria-label="6"></a>    <span class="fu">ylab</span>(<span class="st">"Expected probability"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.ticks =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb5-7"><a aria-label="7"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Outcome =</span> <span class="fu">DieRoll</span>(<span class="at">times =</span> <span class="dv">6</span>), <span class="at">NrRolls =</span> <span class="dv">6</span>)</span>
+<span id="cb5-8"><a aria-label="8"></a></span>
+<span id="cb5-9"><a aria-label="9"></a>one.roll <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Outcome, <span class="at">fill =</span> <span class="fu">factor</span>(Outcome))) <span class="sc">+</span></span>
+<span id="cb5-10"><a aria-label="10"></a>    <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(count)), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb5-11"><a aria-label="11"></a>    <span class="fu">ggtitle</span>(<span class="st">"Proportions Observed"</span>, <span class="at">subtitle =</span> <span class="st">"Outcome of a fair die</span><span class="sc">\n</span><span class="st">(n = 6 trials)"</span>) <span class="sc">+</span></span>
+<span id="cb5-12"><a aria-label="12"></a>    <span class="co"># scale_fill_manual(values = banff())+</span></span>
+<span id="cb5-13"><a aria-label="13"></a><span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="at">label =</span> <span class="st">"Observed proportion"</span>) <span class="sc">+</span></span>
+<span id="cb5-14"><a aria-label="14"></a>    <span class="fu">theme</span>(<span class="at">axis.ticks =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb5-15"><a aria-label="15"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb5-16"><a aria-label="16"></a>plot.one.dice.prob <span class="sc">+</span> one.roll</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<img data-src="Statistics_and_Samples2_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><aside class="notes"><p>before we go into that</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="estimates-are-random-variables" class="slide level2"><h2>Estimates are random variables</h2>
+<ul>
+<li>Because an estimate is a <strong>random variable</strong>, the value of an estimate is influenced by chance.</li>
+</ul>
+<blockquote>
+<p>A random variable can take on many different values with different probabilities. Random variables are ways to map outcomes of random processes to numbers. – <a href="https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/random-variables-discrete/v/random-variables">Khan Academy</a></p>
+</blockquote>
+<ul>
+<li>Therefore estimates will differ among random samples from the same population.</li>
+</ul>
+
+<img data-src="images/clipboard-1924864965.png" class="r-stretch"><aside class="notes"><p>we’re assuming here that we don’t have the bias issue discussed for this example previously.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="sampling-error" class="slide level2"><h2>Sampling error</h2>
+<div class="goal">
+<p>Sampling error: Chance deviations between estimates and the truth due to chance/luck– even when you did NOTHING wrong!</p>
+</div>
+<ul>
+<li>Sampling error is the difference between the estimate and its true parameter value — and it can be quantified!</li>
+</ul></section><section id="sampling-error-and-precision-of-an-estimate" class="slide level2"><h2>Sampling error and precision of an estimate</h2>
+<ul>
+<li><p>The spread of estimates resulting from sampling error indicates the <u>precision</u> of an estimate.</p></li>
+<li><p>The lower the sampling error, the higher the precision.</p></li>
+<li><p>All else being equal, <em>larger samples will have lower sampling error and higher precision</em> than smaller samples.</p></li>
+</ul></section><section id="example-of-sampling-error" class="slide level2"><h2>Example of sampling error</h2>
+<ul>
+<li>The parameter “probability of getting a 6” is 1/6 (~0.17). The observed proportion in six random die rolls here was 0.</li>
+</ul>
+<div class="cell">
+<details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>plot.one.dice.prob <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>), <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="Statistics_and_Samples2_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+<figcaption>In this context we can think of each trial (die roll) as a sample. So our sample size here is 6.</figcaption></figure>
+</div>
+</div>
+</div>
+
+<aside><div>
+
+</div></aside></section><section id="sampling-error-declines-with-sample-size" class="slide level2"><h2>Sampling error declines with sample size</h2>
+
+<img data-src="Statistics_and_Samples2_files/figure-revealjs/dice3-1.png" width="960" class="r-stretch"></section><section id="mean-distance-from-16-in-the-previous-example" class="slide level2"><h2>Mean distance from 1/6 in the previous example</h2>
+<div class="cell">
+<details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>df2 <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a aria-label="2"></a>    <span class="fu">mutate</span>(<span class="at">dist =</span> <span class="fu">abs</span>(prop <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a aria-label="3"></a>    <span class="fu">group_by</span>(NrRolls) <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a aria-label="4"></a>    <span class="fu">summarise</span>(<span class="at">meanDist =</span> <span class="fu">mean</span>(dist)) <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a aria-label="5"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><div class="cell-output-display">
+<div id="vhtsmvvhpn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#vhtsmvvhpn table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#vhtsmvvhpn thead, #vhtsmvvhpn tbody, #vhtsmvvhpn tfoot, #vhtsmvvhpn tr, #vhtsmvvhpn td, #vhtsmvvhpn th {
+  border-style: none;
+}
+
+#vhtsmvvhpn p {
+  margin: 0;
+  padding: 0;
+}
+
+#vhtsmvvhpn .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#vhtsmvvhpn .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#vhtsmvvhpn .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#vhtsmvvhpn .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#vhtsmvvhpn .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vhtsmvvhpn .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vhtsmvvhpn .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#vhtsmvvhpn .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#vhtsmvvhpn .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#vhtsmvvhpn .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#vhtsmvvhpn .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#vhtsmvvhpn .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#vhtsmvvhpn .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#vhtsmvvhpn .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#vhtsmvvhpn .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#vhtsmvvhpn .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#vhtsmvvhpn .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#vhtsmvvhpn .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#vhtsmvvhpn .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vhtsmvvhpn .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#vhtsmvvhpn .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#vhtsmvvhpn .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#vhtsmvvhpn .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vhtsmvvhpn .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#vhtsmvvhpn .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#vhtsmvvhpn .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vhtsmvvhpn .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vhtsmvvhpn .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#vhtsmvvhpn .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vhtsmvvhpn .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#vhtsmvvhpn .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#vhtsmvvhpn .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vhtsmvvhpn .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vhtsmvvhpn .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#vhtsmvvhpn .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#vhtsmvvhpn .gt_left {
+  text-align: left;
+}
+
+#vhtsmvvhpn .gt_center {
+  text-align: center;
+}
+
+#vhtsmvvhpn .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#vhtsmvvhpn .gt_font_normal {
+  font-weight: normal;
+}
+
+#vhtsmvvhpn .gt_font_bold {
+  font-weight: bold;
+}
+
+#vhtsmvvhpn .gt_font_italic {
+  font-style: italic;
+}
+
+#vhtsmvvhpn .gt_super {
+  font-size: 65%;
+}
+
+#vhtsmvvhpn .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#vhtsmvvhpn .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#vhtsmvvhpn .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#vhtsmvvhpn .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#vhtsmvvhpn .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#vhtsmvvhpn .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#vhtsmvvhpn .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#vhtsmvvhpn .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#vhtsmvvhpn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings header">
+<th id="NrRolls" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">NrRolls</th>
+<th id="meanDist" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">meanDist</th>
+</tr></thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="NrRolls">12</td>
+<td class="gt_row gt_right" headers="meanDist">0.11111111</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="NrRolls">48</td>
+<td class="gt_row gt_right" headers="meanDist">0.02777778</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="NrRolls">384</td>
+<td class="gt_row gt_right" headers="meanDist">0.01215278</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="NrRolls">768</td>
+<td class="gt_row gt_right" headers="meanDist">0.01041667</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section><section id="sampling-bias" class="slide level2"><h2>Sampling Bias</h2>
 <div class="columns">
 <div class="column" style="width:&quot;45%&quot;;">
 <ul>
@@ -281,12 +914,23 @@ Bárbara D. Bitarello
 </li>
 </ul>
 </div></div>
-</section><section id="sampling-bias-case-study" class="slide level2"><h2>Sampling bias case study</h2>
+</section><section id="sampling-bias-and-accuracy" class="slide level2"><h2>Sampling bias and accuracy</h2>
+<ul>
+<li>
+<strong>Accurate (or unbiased) estimate</strong> estimate: the average of all estimates that we might obtain is centered on the true population value</li>
+</ul>
+<div class="cell">
+<details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>df2 <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a aria-label="2"></a>    <span class="fu">mutate</span>(<span class="at">dist =</span> prop <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a aria-label="3"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> NrRolls, <span class="at">y =</span> prop)) <span class="sc">+</span> <span class="fu">geom_jitter</span>() <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>),</span>
+<span id="cb8-4"><a aria-label="4"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">color =</span> vir[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<img data-src="Statistics_and_Samples2_files/figure-revealjs/accurate, fig.caption- the deviations from 1/6 are not going in any particular direction.-1.png" width="960" class="r-stretch"></section><section id="sampling-bias-case-study" class="slide level2"><h2>Sampling bias case study</h2>
 <p>Sampling bias: Systematic difference between parameters &amp; estimates.</p>
-
-<aside><div>
+<div class="goal">
 <p>Case study: Polls in the 1936 US Election.</p>
-</div></aside></section><section id="the-1936-election" class="slide level2"><h2>The 1936 Election</h2>
+</div>
 <div class="r-fit-text">
 <div class="columns">
 <div class="column" style="width:&quot;40%&quot;;">
@@ -296,61 +940,44 @@ Bárbara D. Bitarello
 </div>
 </div><div class="column" style="width:&quot;60%&quot;;">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="https://upload.wikimedia.org/wikipedia/commons/3/37/FDR_and_Fala_at_table.jpg" alt="Picture of F. Roosevelt" width="215"></p>
+<figure><p><img data-src="https://upload.wikimedia.org/wikipedia/commons/3/37/FDR_and_Fala_at_table.jpg" alt="Picture of F. Roosevelt" width="200"></p>
 <figcaption>Democrat Franklin Roosevelt</figcaption></figure>
 </div>
 </div></div>
 </div>
 </section><section id="literary-digest-poll" class="slide level2"><h2>1936 Literary Digest poll</h2>
 <p>2.4 million responses to 10 million questionnaires , sent to people from telephone books and club lists.</p>
-</section><section id="literary-digest-poll-1" class="slide level2"><h2>1936 Literary Digest poll</h2>
-<div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="do">## | label: 1936-election</span></span>
-<span id="cb9-2"><a></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb9-3"><a></a><span class="fu">source</span>(<span class="st">"bb_theme.R"</span>)</span>
-<span id="cb9-4"><a></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">Candidate =</span> <span class="fu">c</span>(<span class="st">"Landon"</span>, <span class="st">"Roosevelt"</span>), <span class="at">support =</span> <span class="fl">2.4</span> <span class="sc">*</span> <span class="fu">c</span>(<span class="fl">0.57</span>, <span class="fl">0.43</span>)),</span>
-<span id="cb9-5"><a></a>    <span class="fu">aes</span>(<span class="at">x =</span> Candidate, <span class="at">y =</span> support, <span class="at">fill =</span> Candidate)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>,</span>
-<span id="cb9-6"><a></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">bb_theme</span>() <span class="sc">+</span> <span class="fu">ylab</span>(<span class="at">label =</span> <span class="st">"support (millions of respondents)"</span>) <span class="sc">+</span></span>
-<span id="cb9-7"><a></a>    <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fl">1.4</span>, <span class="fl">0.5</span>), <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span> <span class="fu">coord_flip</span>() <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,</span>
-<span id="cb9-8"><a></a>    <span class="dv">0</span>)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="at">label =</span> <span class="st">"1936 literary digest poll results"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-<img data-src="Statistics_and_Samples2_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Figure made in R with code borrowed from Y. Brandvain</p></section><section id="election-roosevelt-won-in-a-landslide" class="slide level2"><h2>Election: Roosevelt won in a landslide</h2>
-<p><img data-src="images/clipboard-2748303540.png" alt="This plot was made in R (Credit: Y. Brandvain)"> ##</p>
+</section><section id="election-results" class="slide level2"><h2>Election results</h2>
+
+<img data-src="images/elections-1936.png" alt="A map of the U.S. showing 1936 election results: most states in yellow for Roosevelt except Maine and Vermont in dark purple for Landon. Below, a bar graph displays vote percentages: 62% for Roosevelt in the election and 43% for him in Reader's Digest compared to 38% for Landon in the election compared to 57% for him in the reader's digest survey." width="318" class="r-stretch quarto-figure-center"><p class="caption">Plot made in R with code from Y. Brandvain.</p></section><section id="section-2" class="slide level2 center"><h2></h2>
+<div class="r-fit-text">
 <p>What do you think happened?</p>
+</div>
 </section><section id="sampling-bias-in-the-1936-polls" class="slide level2"><h2>Sampling Bias in the 1936 Polls!</h2>
 <ul>
 <li>Questionnaire was more likely to reach rich people (who could afford phones &amp; attend book clubs) than those with fewer means.</li>
 <li>Voting and party preference are correlated with wealth.</li>
 <li>Poorer people (underrepresented in the poll) supported Roosevelt, carrying him to victory.</li>
-</ul></section><section id="sample-of-convenience" class="slide level2 scrollable"><h2>Sample of convenience</h2>
+</ul></section><section id="sample-of-convenience" class="slide level2"><h2>Sample of convenience</h2>
 <div class="goal">
-<p>A sample of convenience is a collection of individuals that happen to be available at the time.</p>
+<p>A sample of convenience is a collection of individuals that happen to be available at the time</p>
 </div>
-<p>Other definitions<sup>1</sup>:</p>
-<blockquote>
-<p>A convenience sample is the one that is drawn from a source that is conveniently accessible to the researcher.</p>
-</blockquote>
-<blockquote>
-<p>A purposive sample is the one whose characteristics are defined for a purpose that is relevant to the study.</p>
-</blockquote>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Andrade C (2021). The Inconvenient Truth About Convenience and Purposive Samples. Indian J Psychol Med, 43(1):86-88. DOI: 10.1177/0253717620977000</p></li></ol></aside></section><section id="sample-of-convenience-1" class="slide level2 scrollable"><h2>Sample of convenience</h2>
-<p>Problems:</p>
+<p>… usually one that is drawn from a source that is conveniently accessible to the researcher.</p>
+
+<aside><div>
+<p>Andrade C (2021). The Inconvenient Truth About Convenience and Purposive Samples. Indian J Psychol Med, 43(1):86-88. DOI: 10.1177/0253717620977000</p>
+</div></aside></section><section id="sample-of-convenience-problems" class="slide level2"><h2>Sample of convenience: Problems</h2>
 <ul>
-<li>“In research, we therefore implicitly seek to generalize the findings from our sample to the entire population, present and future.”<sup>1</sup>
-</li>
-</ul>
+<li><p>low generalizability. What is true for your sample might not reflect what is true for the population.</p></li>
+<li><p>a sample is likely to be representative of the population only if it is randomly drawn from the population – the sample of convenience violates this assumption (and sometimes also the independence assumption)</p></li>
+<li><p>in practice, you can only generalize findings to the subpopulation from which the sample was taken from.</p></li>
+</ul></section><section id="sometimes-a-sample-of-convenience-is-our-only-option" class="slide level2"><h2>Sometimes a sample of convenience is our only option</h2>
 <ul>
-<li class="fragment">low generalizability. What is true for your sample might not reflect what is true for the population.</li>
-<li class="fragment">in practice, you can only generalize findings to the subpopulation from which the sample was taken from.</li>
-<li class="fragment">sometimes, a sample of convenience is the best option researchers have (e.g.&nbsp;studies that extract data from national healthcare or insurance databases)</li>
-<li class="fragment">It is rarely possible to draw a truly random sample from the population</li>
+<li><p>A sample of convenience may be the best option researchers have (e.g.&nbsp;studies that extract data from national healthcare or insurance databases)</p></li>
+<li><p>Note: It is rarely possible to draw a <em>truly</em> random sample from the population – but we must do our best.</p></li>
 </ul>
-<div class="fragment">
-<p>This does not invalidate the studies in question. They can have high “internal validity”. The issue is with generalizing, i.e, its external validity.</p>
-</div>
-<div class="fragment">
-<aside class="notes"><p>However, this is possible only if our sample is representative of the population; a sample is likely to be representative of the population only if it is randomly drawn from the population.</p>
+<aside class="notes"><p>This does not invalidate the studies in question. They can have high “internal validity”. The issue is with generalizing, i.e, its external validity.</p>
+<p>However, this is possible only if our sample is representative of the population; a sample is likely to be representative of the population only if it is randomly drawn from the population.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -361,9 +988,15 @@ Bárbara D. Bitarello
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside>
+      }</style></aside></section><section id="selection-bias" class="slide level2"><h2>Selection bias</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure><div class="quarto-figure quarto-figure-center">
+<figure><p><a href="https://xkcd.com/2618/"><img data-src="https://imgs.xkcd.com/comics/selection_bias.png" class="quarto-figure quarto-figure-center" alt="[Blondie is standing on a podium behind a lectern with a microphone. She is standing under a hanging sign with large text. In front of the podium is an audience of five seated persons all with their hands raised above their heads. The audience includes two guys that look like Cueball, Hairbun, and two other persons with dark and blonde hair.]     Sign: Statistics Conference 2022     Blondie: Raise your hand if you’re familiar with selection bias.      Blondie: As you can see, it’s a term most people know..." width="425"></a></p>
+</figure>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>Andrade C (2021). Indian J Psychol Med, 43(1):86-88. DOI: 10.1177/0253717620977000</p></li></ol></aside></section><section id="volunteer-bias" class="slide level2"><h2>Volunteer bias</h2>
+<figcaption>From: https://xkcd.com/2618/. We carefully sampled the general population and found that most people are familiar with acquiescence bias.</figcaption></figure>
+</div>
+</section><section id="volunteer-bias" class="slide level2"><h2>Volunteer bias</h2>
 <div class="goal">
 <p>Volunteers for a study are likely to be different, on average, from the population. Also known as “self-selection” bias.</p>
 </div>
@@ -386,64 +1019,8 @@ Bárbara D. Bitarello
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="selection-bias" class="slide level2"><h2>Selection bias</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure><div class="quarto-figure quarto-figure-center">
-<figure><p><a href="https://xkcd.com/2618/"><img data-src="https://imgs.xkcd.com/comics/selection_bias.png" class="quarto-figure quarto-figure-center" alt="[Blondie is standing on a podium behind a lectern with a microphone. She is standing under a hanging sign with large text. In front of the podium is an audience of five seated persons all with their hands raised above their heads. The audience includes two guys that look like Cueball, Hairbun, and two other persons with dark and blonde hair.]     Sign: Statistics Conference 2022     Blondie: Raise your hand if you’re familiar with selection bias.      Blondie: As you can see, it’s a term most people know..." width="425"></a></p>
-</figure>
-</div>
-<figcaption>From: https://xkcd.com/2618/. We carefully sampled the general population and found that most people are familiar with acquiescence bias.</figcaption></figure>
-</div>
-</section><section id="what-about-sampling-error" class="slide level2"><h2>What about sampling error?</h2>
-<div class="goal">
-<p>Sampling error: Chance deviations between estimates and the truth.</p>
-</div>
-<div class="fragment">
-<p>Even when you did NOTHING wrong.</p>
-</div>
-<div class="fragment">
-<div class="goal">
-<p>Sampling error is the difference between the estimate and its true parameter value — and it can be quantified!</p>
-</div>
-</div>
-</section><section id="example-of-sampling-error" class="slide level2"><h2>Example of sampling error</h2>
-<div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb10-2"><a></a><span class="fu">source</span>(<span class="st">"bb_theme.R"</span>)</span>
-<span id="cb10-3"><a></a>p1 <span class="ot">&lt;-</span> iris <span class="sc">|&gt;</span></span>
-<span id="cb10-4"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">bb_theme</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb10-5"><a></a>    <span class="fu">ggtitle</span>(<span class="st">"Full 'IRIS' dataset</span><span class="sc">\n</span><span class="st">(n = 150)"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">""</span>)</span>
-<span id="cb10-6"><a></a>p2 <span class="ot">&lt;-</span> iris <span class="sc">|&gt;</span></span>
-<span id="cb10-7"><a></a>    <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">20</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-8"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> wesanderson<span class="sc">::</span><span class="fu">wes_palette</span>(<span class="st">"AsteroidCity1"</span>)) <span class="sc">+</span></span>
-<span id="cb10-9"><a></a>    <span class="fu">bb_theme</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Random sample</span><span class="sc">\n</span><span class="st"> (n = 20)"</span>) <span class="sc">+</span></span>
-<span id="cb10-10"><a></a>    <span class="fu">xlab</span>(<span class="st">""</span>)</span>
-<span id="cb10-11"><a></a>p3 <span class="ot">&lt;-</span> iris <span class="sc">|&gt;</span></span>
-<span id="cb10-12"><a></a>    <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">20</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-13"><a></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> wesanderson<span class="sc">::</span><span class="fu">wes_palette</span>(<span class="st">"AsteroidCity1"</span>)) <span class="sc">+</span></span>
-<span id="cb10-14"><a></a>    <span class="fu">bb_theme</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Another random sample</span><span class="sc">\n</span><span class="st"> (n = 20)"</span>) <span class="sc">+</span></span>
-<span id="cb10-15"><a></a>    <span class="fu">xlab</span>(<span class="st">""</span>)</span>
-<span id="cb10-16"><a></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb10-17"><a></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
-<div>
-<figure><p><img data-src="Statistics_and_Samples2_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-
-<aside><div>
-<p>The iris data set gives the measurements (in cm) of the variables sepal length and width and petal length and width for 50 flowers from each of 3 species of iris. The species are <em>Iris setosa</em>, <em>Iris versicolor</em>, and <em>Iris virginica</em>.</p>
-</div></aside></section><section id="sampling-error-declines-with-sample-size" class="slide level2"><h2>Sampling error declines with sample size</h2>
-
-<img data-src="Statistics_and_Samples2_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section><section id="estimates-are-random-variables" class="slide level2"><h2>Estimates are random variables</h2>
-<ul>
-<li><p>Because an estimate is a random variable, the value of an estimate is influenced by chance.</p></li>
-<li><p>Therefore estimates will differ among random samples from the same population.</p></li>
-</ul>
-
-<img data-src="images/clipboard-1924864965.png" class="r-stretch"><aside class="notes"><p>we’re assuming here that we don’t have the bias issue discussed for this example previously.</p>
+      }</style></aside></section><section id="how-bias-and-sampling-error-affect-estimates" class="slide level2"><h2>How bias and sampling error affect estimates</h2>
+<aside class="notes"><p>In summary</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -454,15 +1031,15 @@ Bárbara D. Bitarello
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="how-bias-and-sampling-error-affect-estimates" class="slide level2"><h2>How bias and sampling error affect estimates</h2>
-<div class="columns">
+      }</style></aside><div class="columns">
 <div class="column" style="width:50%;">
 <div class="r-stack">
 <p><strong>Sampling Bias</strong></p>
 </div>
 <ul>
-<li>Systematic difference between estimates &amp; parameters.</li>
-<li>Driven by bias in the sampling process (i.e., sample not random in relation to the population of interest), regarless of sample size.</li>
+<li>
+<u>Systematic</u> difference between estimates &amp; parameters.</li>
+<li>Driven by bias in the sampling process (i.e., sample not random in relation to the population of interest), <em>regarless of sample size</em>.</li>
 </ul>
 </div><div class="column" style="width:50%&quot;;">
 <div class="r-stack">
@@ -470,55 +1047,53 @@ Bárbara D. Bitarello
 </div>
 <ul>
 <li>Undirected deviation of estimates away from parameters.</li>
-<li>Driven by chance.</li>
+<li>
+<u>Driven by chance</u>.</li>
 <li>Decreases with sample size.</li>
 </ul>
 </div></div>
-</section><section id="goals-of-estimation" class="slide level2"><h2>Goals of estimation</h2>
+</section><section id="goals-of-estimation-visual-summary" class="slide level2"><h2>Goals of estimation: visual summary</h2>
 <div class="goal">
-<p>Accuracy (on average gets the correct answer)</p>
+<p>Accuracy (on average gets the correct answer).</p>
 </div>
 <div class="goal">
-<p>Precision (gives a similar answer repeatedly)</p>
+<p>Precision (gives a similar answer repeatedly). If unbiased, those estimated are centered around the true value (parameter).</p>
 </div>
 
-<img data-src="images/clipboard-1978701112.png" alt="Left: low accuracy due to low precision. Shot grouping shows four hits around the central circle, somewhat equi-distant from each other. right: low accuracy even with high precision. Shot grouping with four shots near each other to the left-bottom of the center of the central target." class="r-stretch quarto-figure-center"><p class="caption">Image: Wikipedia Commons (public domain).</p></section><section id="sampling-error-vs.-bias" class="slide level2"><h2>Sampling error vs.&nbsp;bias</h2>
-<p>In this figure, the “X” is the population parameter. The circles are different estimates calculated from different samples taken from that population.</p>
-
-<img data-src="Statistics_and_Samples2_files/figure-revealjs/biaserror-1.png" alt="top left: all estimates are near each other and enar the bulls eye, so they are unbiased and precise; top right: all samples near each other but far from the bulls eye, so they are precise but also biased; bottom left, estimates are scattered 'randomly' around bulls eye, so they are unbiased but also imprecise; bottom right, samples are scattered around acenter that is not the bulls eye, so they are imprecise and biased." width="768" class="r-stretch quarto-figure-center"><p class="caption">Figure made in R with code borrowed from Y. Brandvain</p></section><section id="thats-all-for-today" class="slide level2"><h2>That’s all for today</h2>
+<img data-src="images/clipboard-1978701112.png" alt="Left: low accuracy due to low precision. Shot grouping shows four hits around the central circle, somewhat equi-distant from each other. right: low accuracy even with high precision. Shot grouping with four shots near each other to the left-bottom of the center of the central target." class="r-stretch quarto-figure-center"><p class="caption">Image: Wikipedia Commons (public domain).</p></section><section id="sampling-error-vs.-bias-visual-summary" class="slide level2"><h2>Sampling error vs.&nbsp;bias: visual summary</h2>
+<p>In this figure, the “X” in the middle is the population parameter. The circles are different estimates calculated from different samples taken from that population.</p>
 
 
 
-<img data-src="images/forrestgump.png" alt="Forrest says &quot;And that's all I wanted to say about that&quot;" width="347" class="r-stretch quarto-figure-center"><p class="caption">From: makeameme.org</p></section>
+<img data-src="Statistics_and_Samples2_files/figure-revealjs/biaserror-1.png" alt="top left: all estimates are near each other and enar the bulls eye, so they are unbiased and precise; top right: all samples near each other but far from the bulls eye, so they are precise but also biased; bottom left, estimates are scattered 'randomly' around bulls eye, so they are unbiased but also imprecise; bottom right, samples are scattered around acenter that is not the bulls eye, so they are imprecise and biased." width="768" class="r-stretch quarto-figure-center"><p class="caption">Figure made in R with code borrowed from Y. Brandvain</p></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>B215: Biostatistics with R</p>
+<p>B215</p>
 </div>
 </div></div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
       Reveal.initialize({
-'controlsAuto': true,
+'controlsAuto': false,
 'previewLinksAuto': false,
-'pdfSeparateFragments': false,
+'pdfSeparateFragments': true,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': true,
  
         // Display controls in the bottom right corner
-        controls: false,
+        controls: true,
 
         // Help the user learn the controls by providing hints, for example by
         // bouncing the down arrow when they first encounter a vertical slide
-        controlsTutorial: false,
+        controlsTutorial: true,
 
         // Determines where controls appear, "edges" or "bottom-right"
         controlsLayout: 'edges',
@@ -681,7 +1256,7 @@ Bárbara D. Bitarello
         },
 
         // reveal.js plugins
-        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
           RevealMath,
           RevealNotes,

@@ -1,0 +1,207 @@
+---
+title: "1.1.Statistics and Samples"
+subtitle: "Acknowledgments: see last slide"
+author: "Bárbara D. Bitarello"
+date: 2026-08-31
+date-format: long
+keywords: "Statistics & Samples"
+format:
+  revealjs:                
+    revealjs-a11y:
+      alt-text-warnings: true
+    footer: "B215"
+    center-title-slide: true
+    controls: true 
+    controls-tutorial: true 
+    slide-number: true 
+    hash: true 
+    history: true  
+    keyboard: true 
+    pdf-separate-fragments: true 
+    smaller: true
+    scrollable: true
+    incremental: false
+    transition: fade
+    background-transition: fade
+    code-fold: show          
+    code-summary: "Hide the code"
+    code-overflow: wrap
+    highlight-style: a11y-dark 
+    theme: [serif, custom.scss]
+code-link: true              
+execute:
+  echo: true
+  freeze: false
+knitr: 
+  opts_chunk:
+    tidy: true
+    tidy.opts: { width.cutoff: 60 }
+---
+
+## Learning Goals
+
+- Understand the major goals of statistics
+- Understand the distinction between the term “population” in a statistical and a biological context.
+- Distinguish between a sample and a population
+- Distinguish between an estimate and a parameter
+- Identify why estimates from samples may deviate from parameters of populations
+
+::: notes
+These learning goals are for the entire topic/unit. They will also be available in the study guide.
+:::
+
+## What is statistics?
+
+![Tweet from someone I don't know, but very on point, so thank you!](images/tweetStats.png){fig-alt="Tweet by user @kareem_carr: “In my opinion, the core of statistics is critical thinking with numbers. Some disciplines teach you how to think with numbers and others teach you critical thinking but statistics if where you learn to put the two together and this skill is essential for life in the 21st century.” (January 12, 2021)"}
+
+## What is statistics?
+
+![](images/statsvenn.png){fig-alt="venn diagram shows statistics as the intersection of critical thinking and thinking with numbers" fig-align="center" width="414"}
+
+## Statistics deals with UNCERTAINTY
+
+- Statistics are a [quantitative technology for empirical science]{.underline}.
+- A logic and methodology for the measurement of **uncertainty** and for an examination of that uncertainty.
+- The key word here is **uncertainty**. Statistics becomes necessary when observations are **variable**.
+
+## What is BIOstatistics?
+
+![](images/statsvenn2.png){fig-alt="venn diagram shows biostatistics as the intersection of critical thinking, biological data, and thinking with numbers" fig-align="center" width="496"}
+
+## Biostatistics
+
+- What is the motivating biological question?
+- What experiments can be done and/or data can be collected to address this question?
+- Do results support an interesting conclusion?
+- What are the shortcomings/limitations of statistical models and causal frameworks in the analysis?
+- How do I best communicate my results (including estimates, visualizations, conclusions, and caveats)?
+
+## Challenge 1
+
+- Challenge: We can’t look at the whole world.
+
+- Solution: Take a sample and generalize outward.
+
+![From: imgflip.com/memegenerator](images/whatdowewant.png){fig-alt="Meme from meme generator reads: Question: ”What do we want?”, Response: “Learn about the world!!!”, question: “Can we look at the entire world?”, Response: “No!!!”." fig-align="center" width="272"}
+
+::: notes
+In practice, then...
+
+- Challenge: We can’t look at the whole world.
+
+- Solution: Take a meaningful sample and generalize outward.
+:::
+
+## Challenge 2
+
+- Samples deviate from the populations they were sampled from by
+
+1.  luck/chance (**sampling error**) or
+
+2.  unrepresentative sampling (**sampling bias**)
+
+- Solution:
+
+  - **Estimate** the values of important parameters
+
+  - Have **measures of uncertainty** for estimates
+
+  - **Test hypotheses** about those parameters
+
+## In conclusion: goals of statistics
+
+1.  *Estimate* the values of important *parameters*
+
+2.  Have measures of *uncertainty* for estimates
+
+3.  *Test hypotheses* about those parameters
+
+## The Central Obsession {visibility="hidden"}
+
+- Question: How do we make inferences about the WORLD from our finite observations?
+
+- Answer: Make models to account for the process of sampling and the associated hazards.
+
+# {.center}
+
+::: r-fit-text
+
+POPULATIONS & SAMPLES
+
+STATISTICS & PARAMETERS
+
+:::
+
+## Populations & Samples
+
+> In Statistics, a population is the entire collection of individual units that a researcher is interested in. E.g. all women born in the US between 1990 and 200; all polar bears currently living in zoos; users of a certain social network in a certain age group; etc
+
+> A sample is a subset of these units that we collect and measure.
+
+## Statistics & Parameters (1/3)
+
+A parameter is some property of the world, i.e., the “truth”.
+
+![Decorative image. Poster from the show "The X-files"](images/xfiles.png){fig-align="center" width="605"}
+
+## Statistics & Parameters (2/3)
+
+- Because we can’t sample an entire population, we usually don’t know parameters. *P*arameters describe *P*opulations.
+
+- But we can get a good sense of the parameters from e*s*timates we make from *S*amples.
+
+- E*s*timates (statistics) approximate parameters as inferred from *S*amples.
+
+## Statistics & Parameters (3/3)
+
+- [Parameters are constants.]{.underline} This means that they are fixed. Parameters represent the world. Parameters are the truth.
+
+- [Estimates are "random variables".]{.underline} This means **estimates change** from one random sample to the next from the same population.
+
+## A population of starfish
+
+::::: columns
+::: column
+- Parameters describe populations
+- E.g. proportion of pink starfish among all starfish of a given species in a certain location
+:::
+
+::: column
+![](images/starfish.png){fig-alt="Several starfish, some orange, some pink." width="526"}
+:::
+:::::
+
+## A sample of starfish
+
+::::: columns
+::: column
+- Estimates (statistics) approximate parameters as inferred from samples.
+- We estimate the proportion of pink as inferred from this sample and extrapolate to the population as an approximation.
+:::
+
+::: column
+![](images/starfish2.png){fig-alt="Several starfish, some orange, some pink. A rectangle surrounds three of them, one pink and two orange." width="449"}
+:::
+:::::
+
+## In summary {visibility="hidden"}
+
+::::: columns
+::: {.column width="\"45%\""}
+**Parameters and populations**
+
+- Parameters describe Populations.
+- Because we can’t sample an entire population, we usually don’t know parameters.
+:::
+
+::: {.column width="\"45%\""}
+**Estimates and samples**
+
+- But we can get a good sense of the parameters from estimates we make from samples.
+- Estimates approximate parameters as inferred from Samples.
+:::
+:::::
+
+## Acknowledgments
+
+- Yaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides.

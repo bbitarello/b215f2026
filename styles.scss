@@ -4,19 +4,22 @@
 $dark-green: #586028;
 $weird-green: #898928;
 $light-green: #D1D9CE;
+$viridis-green: #22A884FF;
+$lime-green: #7AD151FF;
 $cream: #FDFBF7;
 $gray: #9DA7BF;
 // $darkgray: #616571;
 $darkgray: #545760;
 $lightblue: #55CFD8;
-$blue:  #00A1B7;
-$darkblue: #006475;
-$purple: #9158A2;
+$blue:  #277F8EFF;
+$darkblue: #365C8DFF;
+$purple: #440154FF;
 $orange: #ad7237;
 
 
 // Base document colors
 $sidebar-bg: $darkblue; // navbar
+$navbar-bg: $darkblue; // navbar
 $sidebar-fg: #fff;
 $sidebar-hl: #fff;
 $navbar-fg: $cream; // navbar foreground elements
@@ -50,30 +53,37 @@ table {
 }
 
 /* Header styling */
-h1, h2, h3, h4, h5, h6 {
+h1 {
     color: $darkblue;
     font-weight: 600;
     margin-top: 2rem;
     margin-bottom: 1rem;
 }
 
+h2, h3, h4, h5, h6 {
+    color: $blue;
+    font-weight: 400;
+    margin-top: 1rem;
+    //margin-bottom: 1rem;
+}
 h1 {
-    color: #1a252f;
+    //color: #1a252f;
+    color: #3b528b;
     border-bottom: 3px solid #2980b9;
     padding-bottom: 0.5rem;
-    font-size: 2.2em;
+    font-size: 2em;
 }
 h2 {
-    font-size: 1.8em;
+    font-size: 1.6em;
 }
 
 h3 {
-    font-size: 1.5em;
+    font-size: 1.4em;
 }
 
 /* Body text */
 p, li, td {
-    font-size: 1.05em;
+    font-size: 1.1em;
     color: #2c3e50;
 }
 
@@ -92,7 +102,7 @@ th, td {
 
 
 .table th, table th {
-    background-color: $dark-green; /* Green background for header row */
+    background-color: #365C8DFF; /* Green background for header row */
     color: #fff; /* White text color for header row */
     
 }
@@ -125,6 +135,6 @@ nav.quarto-secondary-nav {
     padding-top: 0.1em;
     padding-bottom: 0.1em;
     padding-left: 1em;
-    background: #00a1b7;
+    background: #3b528b;
     color: #fdfbf7;
 }

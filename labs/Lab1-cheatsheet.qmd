@@ -1,6 +1,6 @@
 ---
 title: "Lab1-cheatsheet"
-format: typst
+format: html
 ---
 
 ## R commands summary

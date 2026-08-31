@@ -1,39 +1,106 @@
 ---
-title: "BIOL B215: Biostatistics with R"
+title: "B215: Biostatistics with R"
+subtitle: "Schedule (subject to change)"
+date: 2026-08-30
+date-format: long
+date-modified: last-modified
 ---
 
-## General Information
+This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.
 
--   Instructor: Bárbara D. Bitarello (bbitarello \[at\] brynmawr.edu)
--   TA: Caitlyn Caya (ccaya \[at\] brynmawr.edu)
--   Lecture: Monday & Wednesday 11:40 AM - 1 PM (Park 159)
--   Lab: Tuesday 1:10 - 4 PM (Park 159)
--   Read the [Syllabus](syllabus.qmd).
--   [Piazza (for Qs)](https://piazza.com/brynmawr/fall2026/bmcbiolb215001f26)
--   Rstudio (Posit) Cloud
--   Moodle
--   [Schedule](schedule.qmd)
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+suppressPackageStartupMessages(library(googlesheets4))
+suppressPackageStartupMessages(library(gt))
+suppressPackageStartupMessages(library(tidyverse))
+gs4_deauth()
+```
 
-## Prerequisites
+::: column-screen-right
+```{r, echo = FALSE, eval=F, message=FALSE}
+#this code chunk was borrowed from: https://github.com/sta199-summer-1/sta199-summer-1.github.io/tree/main
+d <- read_sheet("https://docs.google.com/spreadsheets/d/1ScIXAwu759O7g2WS4HWBmvgP50oKnPCLGW0qb33H67Y/edit?usp=sharing", sheet = "Schedule-new")
+g<-d |>
+  mutate(
+    #Date = as.Date(date),
+    week = ifelse(is.na(week), "", week),
+    module = ifelse(is.na(module), "", module),
+    dow = ifelse(is.na(dow), "", dow),
+    prep = ifelse(is.na(prep), "", prep),
+    `in-class` = ifelse(is.na(`in-class`), "", `in-class`)
+    
+  ) |>
+  gt()
+#g |>
+#  text_transform(cells_body(columns = c(module, week, dow, date)),
+#                 fn = function(x) {
+#      ifelse(is.na(x), paste0(""), x)}) |>
+#  text_transform(cells_body(columns = c(prep)),
+#    fn = function(x) {
+#      ifelse(is.na(x), fontawesome::fa("book", fill_opacity = 0.1),
+#        glue::glue("<a href = {x}>{fontawesome::fa('book')}</a>")
+#      )
+#    }
+#  ) |>
+g1<-g |>  text_transform(cells_body(columns = c(class_slides)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("laptop", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('laptop')}</a>")
+      )
+    }
+  ) |>
+    text_transform(cells_body(columns = c(lab_slides)),
+    fn = function(x) {
+      ifelse(is.na(x), fontawesome::fa("laptop", fill_opacity = 0.1),
+        glue::glue("<a href = {x}>{fontawesome::fa('laptop')}</a>")
+      )
+    }
+  ) |>
+ text_transform(cells_body(columns = c(exam)),
+    fn = function(x) {
+      ifelse(is.na(x), "",glue::glue("<a fontawesome::fa('file-circle-check')</a> {x}"))
+      })|>
+  fmt_date(date, date_style = 9) |>
+  sub_missing(columns = c(date, what, topic, due), missing_text = "") |>
+  cols_align(
+    align = "center", 
+    columns = c(module,week, dow,  class_slides, lab_slides)
+    ) |>
+  cols_align(
+    align = "left", 
+    columns = c(date, what, topic, prep, exam, due)
+    ) 
+g1
+```
 
-No prior experience with programming is required.
 
-Suggested Preparation: BIOL B110 or B111 is highly recommended.
+```{r, echo = FALSE, warning=F, message=F, fig.width=100}
+#this code chunk was borrowed from: https://github.com/sta199-summer-1/sta199-summer-1.github.io/tree/main
+d <- read_sheet("https://docs.google.com/spreadsheets/d/1ScIXAwu759O7g2WS4HWBmvgP50oKnPCLGW0qb33H67Y/edit?usp=sharing", sheet = "Schedule-new")
+g<-d |>
+  mutate(
+    #Date = as.Date(date),
+    week = ifelse(is.na(week), "", week),
+    module = ifelse(is.na(module), "", module),
+    dow = ifelse(is.na(dow), "", dow),
+    due = ifelse(is.na(due), "", due)
+  ) |> select(
+    module, week, dow, date, what, topic, due,exam) |>
+  gt()
 
-Students who have taken PSYC B205/H200 or SOCL B265 are [not]{.underline} eligible to take this course.
-
-Counts Toward: Biochemistry & Molecular Bio; Biochemistry Molecular Biology; Biochemistry Molecular Biology; Data Science; Health Studies; Health Studies.
-
-Counts towards college [A.B requirements](https://www.brynmawr.edu/inside/academic-information/registrar/registration/degree-requirements): Quantitative Methods (QM), Quantitative Readiness Required (QR), Scientific Investigation (SI).
-
-## Getting help
-
-The preferred methods to get help in this course are office hours for content questions (see the [Schedule](schedule.qmd)) and Piazza for any content or logistical questions that other classmates may also have. For personal matters, please email the professor.
-
-## Acknowledgments
-
-First of all, I want to thank BMC'26 student Nicole Cavalieri[^1] for spending the summer of 2024 helping me improve the labs for this course, and Bryn Mawr College's digital scholarship grant for funding Nicole's work.
-
-[^1]: Digital Bryn Mawr grant project creates teaching resources on computing: Bárbara Bitarello & Nicole Cavalieri '26 develop resources on coding for biology. <https://www.brynmawr.edu/stories/digital-bryn-mawr-grant-project-creates-teaching-resources-computing>
-
-Thank you to the following people and orgs for sharing their website templates: [Maria Tackett](https://github.com/matackett),  [datasciencelabs](https://github.com/datasciencelabs),  [Mine Çetinkaya-Rundel](https://github.com/mine-cetinkaya-rundel), [Rstudio](https://github.com/rstudio-conf-2022/teach-ds-course-website/tree/main), and [Rafael Irizarry](https://github.com/rafalab). I also want to thank [Yaniv Brandvain](https://brandvainlab.wordpress.com/) and Michael Whitlock for sharing awesome teaching materials,  from which I have heavily borrowed. Thank you also to [fbriatte.org](https://f.briatte.org/r/asking-r-questions) for curating so many useful tips shared with students in [R resources](rlearn.html).
+g1<-g|> text_transform(cells_body(columns = c(exam)),
+    fn = function(x) {
+      ifelse(is.na(x), "",glue::glue("<a fontawesome::fa('file-circle-check')</a> {x}"))
+      })|>
+  fmt_date(date, date_style = 9) |>
+  sub_missing(columns = c(date, what, topic), missing_text = "") |>
+  cols_align(
+    align = "center", 
+    columns = c(module,week, dow)
+    ) |>
+  cols_align(
+    align = "left", 
+    columns = c(date, what, topic, exam, due)
+    ) 
+g1 |> cols_width(week ~ px(50), module ~ px(50), dow ~ px(40), date ~ px(80), what ~ px(50), topic ~ px(150), due~ px(100),exam ~ px(100))
+```
+:::

@@ -5,11 +5,8 @@ date: ""
 listing:
   - id: slides
     contents:
-      - slides/Logistics.qmd
-      - slides/Statistics_and_Samples.qmd
-      - slides/Statistics_and_Samples2.qmd
-      - slides/Statistics_and_Samples3.qmd
-      - slides/Statistics_and_Samples4.qmd
+      - slides/0*.qmd
+      - slides/*1.qmd
     type: table
     fields: [keywords, title, date]
     date-format: "ddd, MMM DD"

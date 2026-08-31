@@ -1,7 +1,0 @@
----
-title: "Test"
----
-
-```{=html}
-<embed src="pdf/test.pdf" width="800px" height="2100px" />
-```
