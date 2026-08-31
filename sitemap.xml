@@ -1,115 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bbitarello.github.io/b215f2026/slides.html</loc>
-    <lastmod>2026-08-31T02:33:01.698Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/index.html</loc>
-    <lastmod>2026-08-31T01:42:09.364Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/labs.html</loc>
-    <lastmod>2026-08-28T23:39:00.499Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/TEST1.html</loc>
-    <lastmod>2026-08-27T00:13:10.516Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/slides/TEST2.html</loc>
-    <lastmod>2026-08-27T02:12:23.996Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/slides/Statistics_and_Samples.html</loc>
-    <lastmod>2026-08-28T23:39:00.503Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/Handout1-prof.html</loc>
-    <lastmod>2026-08-28T23:38:58.811Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/modules/module2.html</loc>
-    <lastmod>2026-08-29T17:36:11.593Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/slides/W1.0-Course-Intro.html</loc>
-    <lastmod>2026-08-31T02:05:07.095Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/slides/test1.html</loc>
-    <lastmod>2026-08-26T23:31:13.325Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/slides/Statistics_and_Samples4.html</loc>
-    <lastmod>2026-08-28T23:38:59.575Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/handouts/Handout1.html</loc>
-    <lastmod>2026-08-30T23:39:10.932Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/rlearn.html</loc>
-    <lastmod>2026-08-28T23:39:00.503Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/labs/Lab1-cheatsheet.html</loc>
-    <lastmod>2026-08-31T01:07:44.942Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/labs/Lab1-slides.html</loc>
-    <lastmod>2026-08-30T23:39:10.054Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/R-learning-goals.html</loc>
-    <lastmod>2026-08-27T18:52:45.152Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/acknowledgments.html</loc>
-    <lastmod>2026-08-26T22:06:33.693Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/list_of_datacamp_assignments.html</loc>
-    <lastmod>2026-08-28T23:38:59.541Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/slides/Statistics_and_Samples3.html</loc>
-    <lastmod>2026-08-28T23:38:59.575Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/slides/Statistics_and_Samples2.html</loc>
-    <lastmod>2026-08-31T02:36:40.227Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/modules/module1.html</loc>
-    <lastmod>2026-08-29T17:36:07.448Z</lastmod>
+    <loc>https://bbitarello.github.io/b215f2026/handouts.html</loc>
+    <lastmod>2026-08-28T23:38:59.490Z</lastmod>
   </url>
   <url>
     <loc>https://bbitarello.github.io/b215f2026/modules/module3.html</loc>
     <lastmod>2026-08-29T17:36:15.094Z</lastmod>
   </url>
   <url>
-    <loc>https://bbitarello.github.io/b215f2026/handouts.html</loc>
-    <lastmod>2026-08-28T23:38:59.490Z</lastmod>
+    <loc>https://bbitarello.github.io/b215f2026/modules/module1.html</loc>
+    <lastmod>2026-08-29T17:36:07.448Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/slides/0-Course-Intro.html</loc>
+    <lastmod>2026-08-31T02:52:47.473Z</lastmod>
   </url>
   <url>
     <loc>https://bbitarello.github.io/b215f2026/slides/Statistics_and_Samples1.html</loc>
-    <lastmod>2026-08-31T02:02:20.965Z</lastmod>
+    <lastmod>2026-08-31T03:18:15.467Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/list_of_datacamp_assignments.html</loc>
+    <lastmod>2026-08-28T23:38:59.541Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/slides.html</loc>
+    <lastmod>2026-08-31T02:44:48.890Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/acknowledgments.html</loc>
+    <lastmod>2026-08-26T22:06:33.693Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/R-learning-goals.html</loc>
+    <lastmod>2026-08-27T18:52:45.152Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/labs/lab1-quiz.html</loc>
+    <lastmod>2026-08-28T23:53:24.593Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/labs/lab1.html</loc>
+    <lastmod>2026-08-28T19:04:15.849Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/labs/webr-test.html</loc>
+    <lastmod>2026-08-28T18:39:50.641Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/labs/Lab1-cheatsheet.html</loc>
+    <lastmod>2026-08-31T01:07:44.942Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/rlearn.html</loc>
+    <lastmod>2026-08-28T23:39:00.503Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/labs.html</loc>
+    <lastmod>2026-08-28T23:39:00.499Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/index.html</loc>
+    <lastmod>2026-08-31T03:11:26.929Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/syllabus.html</loc>
+    <lastmod>2026-08-31T02:42:19.402Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/modules/module2.html</loc>
+    <lastmod>2026-08-29T17:36:11.593Z</lastmod>
   </url>
   <url>
     <loc>https://bbitarello.github.io/b215f2026/schedule.html</loc>
     <lastmod>2026-08-30T18:16:45.088Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/slides/W1.0-Course-Intro.knit.html</loc>
-    <lastmod>2026-08-31T02:05:12.089Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/slides/Statistics_and_Samples2.knit.html</loc>
-    <lastmod>2026-08-31T02:08:10.926Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bbitarello.github.io/b215f2026/syllabus.html</loc>
-    <lastmod>2026-08-31T02:06:23.257Z</lastmod>
   </url>
 </urlset>

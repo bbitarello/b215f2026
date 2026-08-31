@@ -10,7 +10,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 <meta name="author" content="Bárbara D. Bitarello">
-<meta name="dcterms.date" content="2026-09-01">
+<meta name="dcterms.date" content="2026-09-02">
 <meta name="keywords" content="Statistics &amp; Samples">
 <title>BIOL B215: Biostatistics with R – 1.2.Random samples, sampling error and bias, accuracy and precision</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -202,6 +202,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center"><h1 class="title">1.2.Random samples, sampling error and bias, accuracy and precision</h1>
+  <p class="subtitle">Acknowledgments: see last slide</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -211,7 +212,7 @@ Bárbara D. Bitarello
 </div>
 </div>
 
-  <p class="date">2026-09-01</p>
+  <p class="date">September 2, 2026</p>
 </section><section id="quick-recap" class="slide level2"><h2>Quick recap</h2>
 <p>Last lecture we introduced:</p>
 <ul>
@@ -288,12 +289,12 @@ Bárbara D. Bitarello
 <span id="cb1-4"><a aria-label="4"></a><span class="co"># 2. Take 3 random numbers from this set</span></span>
 <span id="cb1-5"><a aria-label="5"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 10  9  4</code></pre>
+<pre><code>[1] 8 4 5</code></pre>
 </div>
 <details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="co"># now, to convince yourself, do it again</span></span>
 <span id="cb3-2"><a aria-label="2"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>[1]  6 10  3</code></pre>
+<pre><code>[1] 2 1 6</code></pre>
 </div>
 </div>
 </section><section id="sampling-bias" class="slide level2"><h2>Sampling bias</h2>
@@ -495,11 +496,9 @@ Bárbara D. Bitarello
 <img data-src="images/clipboard-1978701112.png" alt="Left: low accuracy due to low precision. Shot grouping shows four hits around the central circle, somewhat equi-distant from each other. right: low accuracy even with high precision. Shot grouping with four shots near each other to the left-bottom of the center of the central target." class="r-stretch quarto-figure-center"><p class="caption">Image: Wikipedia Commons (public domain).</p></section><section id="sampling-error-vs.-bias" class="slide level2"><h2>Sampling error vs.&nbsp;bias</h2>
 <p>In this figure, the “X” is the population parameter. The circles are different estimates calculated from different samples taken from that population.</p>
 
-<img data-src="Statistics_and_Samples2_files/figure-revealjs/biaserror-1.png" alt="top left: all estimates are near each other and enar the bulls eye, so they are unbiased and precise; top right: all samples near each other but far from the bulls eye, so they are precise but also biased; bottom left, estimates are scattered 'randomly' around bulls eye, so they are unbiased but also imprecise; bottom right, samples are scattered around acenter that is not the bulls eye, so they are imprecise and biased." width="768" class="r-stretch quarto-figure-center"><p class="caption">Figure made in R with code borrowed from Y. Brandvain</p></section><section id="thats-all-for-today" class="slide level2"><h2>That’s all for today</h2>
 
 
-
-<img data-src="images/forrestgump.png" alt="Forrest says &quot;And that's all I wanted to say about that&quot;" width="347" class="r-stretch quarto-figure-center"><p class="caption">From: makeameme.org</p></section>
+<img data-src="Statistics_and_Samples2_files/figure-revealjs/biaserror-1.png" alt="top left: all estimates are near each other and enar the bulls eye, so they are unbiased and precise; top right: all samples near each other but far from the bulls eye, so they are precise but also biased; bottom left, estimates are scattered 'randomly' around bulls eye, so they are unbiased but also imprecise; bottom right, samples are scattered around acenter that is not the bulls eye, so they are imprecise and biased." width="768" class="r-stretch quarto-figure-center"><p class="caption">Figure made in R with code borrowed from Y. Brandvain</p></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
