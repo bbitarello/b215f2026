@@ -153,46 +153,7 @@ Bárbara D. Bitarello
 <li>Introductions</li>
 <li>Course Logistics</li>
 <li>To-Dos for this week</li>
-</ul>
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.2.1     ✔ readr     2.2.0
-✔ forcats   1.0.1     ✔ stringr   1.6.0
-✔ ggplot2   4.0.3     ✔ tibble    3.3.1
-✔ lubridate 1.9.5     ✔ tidyr     1.3.2
-✔ purrr     1.2.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
-
-Attaching package: 'scales'
-
-
-The following object is masked from 'package:purrr':
-
-    discard
-
-
-The following object is masked from 'package:readr':
-
-    col_factor
-
-
-
-Attaching package: 'kableExtra'
-
-
-The following object is masked from 'package:dplyr':
-
-    group_rows
-
-
-Loading required package: colorspace</code></pre>
-</div>
-</div>
-</section><section id="hello" class="slide level2"><h2>Hello!</h2>
+</ul></section><section id="hello" class="slide level2"><h2>Hello!</h2>
 <div class="columns">
 <div class="column" style="width:&quot;30%&quot;;">
 <p><img data-src="images/map.png"></p>
@@ -257,31 +218,7 @@ Loading required package: colorspace</code></pre>
 <ul>
 <li>Piazza is the preferred method for any questions that may benefit classmates, both logistical and content-related</li>
 <li>Piazza allows you to post anonymously (note: I will still know your identity)</li>
-</ul></section><section id="formative-assessments" class="slide level2"><h2>Formative Assessments</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Formative assignments happen often and are <em><em>focused on learning</em></em>
-</li>
-<li>DC and R labs are graded for completion/effort</li>
-<li>Check-ins may be taken multiple times (final grade is the one that counts)</li>
-<li>Allows instructor to adjust pace and support</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><img data-src="images/figs.005.png" alt="Low-stakes: easy points for practicing. Includes: DataCamp (weekly), R labs, small group problem solving in class, Moodle quiz, 5 problem sets"></p>
-</div></div>
-</section><section id="summative-assessments" class="slide level2"><h2>Summative Assessments</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Evaluate students’ individual progress: have they met the learning goals? Have they mastered the material?</li>
-<li>Typically occur at the end of a learning period</li>
-<li>The first coding assignment will actually be formative and you will be allowed to resubmit; the 2nd will be summative</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><img data-src="images/figs.006.png" alt="Coding assignments (independent data exploration, opportunity to showcase and intrgrate the lab and lectures) and 2 closed book in class midterms (one page of notes and calculator are allowed)" width="470"></p>
-</div></div>
-</section><section id="course-structure" class="slide level2"><h2>Course Structure</h2>
+</ul></section><section id="course-structure" class="slide level2"><h2>Course Structure</h2>
 
 <img data-src="../images/figs/figs.002.jpeg" class="r-stretch"><aside class="notes"><p>Lectures: Statistical concepts, address questions based on readings. In-class activities will occur often and count towards participation. Lectures are designed with the assumption that you have completed the pre-assigned readings, enabling us to dive deeper into nuances, applications, and questions. Labs: R computer lab (bring your laptop) with guided tutorial. R Labs are due by the end of the day.</p>
 <style type="text/css">
@@ -563,6 +500,41 @@ Loading required package: colorspace</code></pre>
           RevealZoom
         ]
       });
+    </script><script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
