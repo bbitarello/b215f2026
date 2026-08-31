@@ -1,0 +1,22 @@
+[
+  {
+    "listing": "/slides.html",
+    "items": [
+      "/slides/W1.0-Course-Intro.html",
+      "/slides/Statistics_and_Samples1.html",
+      "/slides/Statistics_and_Samples2.html",
+      "/slides/TEST2.html",
+      "/slides/test1.html"
+    ]
+  },
+  {
+    "listing": "/labs.html",
+    "items": []
+  },
+  {
+    "listing": "/handouts.html",
+    "items": [
+      "/handouts/Handout1.pdf"
+    ]
+  }
+]

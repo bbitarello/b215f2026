@@ -1,0 +1,550 @@
+---
+title: "Unit 1: Intro to Statistics and R"
+format:
+  html:                      # Moved to the top so it is the default action
+    theme: cosmo
+    css: slides/custom.scss
+    toc: true
+    toc-expand: 3
+    toc-title: Contents
+   # axe:
+    #  standard: wcag21aa
+   #   best-practice: true
+   #   output: console
+    fig-cap-location: margin       
+    number-sections: false    
+    embed-resources: true
+  revealjs:                  # Moved down (accessible via CLI or format selector)
+    footer: "B215"
+    center-title-slide: true
+    controls: true 
+    controls-tutorial: true 
+    slide-number: true 
+    hash: true 
+    history: true  
+    keyboard: true 
+    pdf-separate-fragments: true 
+    smaller: true
+    scrollable: true
+    incremental: false
+    transition: fade
+    background-transition: fade
+    code-fold: show          
+    code-summary: "Hide the code"
+    code-overflow: wrap
+    highlight-style: a11y-dark 
+    theme: [serif, slides/custom.scss]
+    keywords: "test"
+code-link: true              
+execute:
+  echo: true
+  freeze: false
+knitr: 
+  opts_chunk:
+    tidy: true
+    tidy.opts: { width.cutoff: 60 }
+---
+
+```{r setup, include=FALSE}
+library(tufte)
+# invalidate cache when the tufte version changes
+knitr::opts_chunk$set(cache.extra = packageVersion('tufte'))
+options(htmltools.dir.version = FALSE)
+library(tidyverse)
+source("slides/bb_theme.R")
+```
+
+# Learning Goals
+
+- Understand the major goals of statistics.
+- Distinguish between a sample and a population.
+- Distinguish between an estimate and a parameter.
+- Identify why estimates from samples may deviate from the parameters of populations.
+- Identify the properties of a good sample.
+- Describe the differences between observational and experimental studies.
+- Identify whether a variable is numeric or categorical (and subtypes).
+- Distinguish between sampling bias and sampling error.
+- Distinguish between accuracy and precision and how these terms relate to sampling bias and sampling error.
+- Understand the distinction between the term “population” in a statistical and a biological context.
+- Distinguish between correlation and causation.
+
+# 1.1. Populations, samples, parameters and estimates
+
+## What is statistics?
+
+![Tweet from someone I don't know, but very on point, so thank you!](slides/images/tweetStats.png){fig-alt="Tweet by user @kareem_carr: “In my opinion, the core of statistics is critical thinking with numbers. Some disciplines teach you how to think with numbers and others teach you critical thinking but statistics if where you learn to put the two together and this skill is essential for life in the 21st century.” (January 12, 2021)"}
+
+![](slides/images/statsvenn.png){fig-alt="venn diagram shows statistics as the intersection of critical thinking and thinking with numbers" fig-align="center" width="414"}
+
+## Statistics deals with UNCERTAINTY
+
+- Statistics are a [quantitative technology for empirical science]{.underline}.
+- A logic and methodology for the measurement of **uncertainty** and for an examination of that uncertainty.
+- The key word here is **uncertainty**. Statistics becomes necessary when observations are **variable**.
+
+## What is BIOstatistics?
+
+![](slides/images/statsvenn2.png){fig-alt="venn diagram shows biostatistics as the intersection of critical thinking, biological data, and thinking with numbers" fig-align="center" width="496"}
+
+## Goals of statistics
+
+::: goal
+Goal: learn about the world
+:::
+
+![From: imgflip.com/memegenerator](slides/images/whatdowewant.png){fig-alt="Meme from meme generator reads: Question: ”What do we want?”, Response: “Learn about the world!!!”, question: “Can we look at the entire world?”, Response: “No!!!”." fig-align="center" width="272"}
+
+::: notes
+In practice, then...
+
+- Challenge: We can’t look at the whole world.
+
+- Solution: Take a meaningful sample and generalize outward.
+:::
+
+## The Central Obsession
+
+- Question: How do we make inferences about the WORLD from our finite observations?
+
+- Answer: Make models to account for the process of sampling and the associated hazards.
+
+## Great but...
+
+- New Challenge: Samples deviate from the populations by luck/chance (**sampling error**) or unrepresentative sampling (**sampling bias**)
+
+- Solution:
+
+  - **Estimate** the values of important parameters
+
+  - Have **measures of uncertainty** for estimates
+
+  - **Test hypotheses** about those parameters
+
+## Biostatistics: Relevance
+
+- What is the motivating biological question?
+- What experiments can be done and/or data can be collected to address this question?
+- Do results support an interesting conclusion?
+- What are the shortcomings/limitations of statistical models and causal frameworks in the analysis?
+- How do I best communicate my results (including estimates, visualizations, conclusions, and caveats)?
+
+## Important distinctions
+
+- Population (biological) x population (statistical)
+- Populations vs. samples
+- Parameters vs. estimates (statistic)
+
+## Populations (Biology)
+
+> In Biology \| collection of interbreeding individuals of the same species that live in sufficient proximity that most mates are drawn from this collection of individuals. This mostly applies to animals and, to some extent, plants.
+
+## Populations (statistics)
+
+> In Statistics\| the entire collection of individual units that a researcher is interested in. E.g. all women born in the US between 1990 and 200; all polar bears currently living in zoos; users of a certain social network in a certain age group; etc
+
+## Parameters & Estimates (statistics)
+
+A parameter is some property of the world, i.e., the “truth”
+
+![Decorative image. Poster from the show "The X-files"](slides/images/xfiles.png){fig-align="center" width="605"}
+
+## A population of starfish
+
+::::: columns
+::: column
+- Parameters describe populations
+- E.g. proportion of pink starfish among all starfish of a given species in a certain location
+:::
+
+::: column
+![](slides/images/starfish.png){fig-alt="Several starfish, some orange, some pink." width="526"}
+:::
+:::::
+
+## A sample of starfish
+
+::::: columns
+::: column
+- Estimates (statistics) approximate parameters as inferred from samples
+- We estimate the proportion of pink as inferred from this sample and extrapolate to the population as an approximation.
+:::
+
+::: column
+![](slides/images/starfish2.png){fig-alt="Several starfish, some orange, some pink. A rectangle surrounds three of them, one pink and two orange." width="449"}
+:::
+:::::
+
+## In summary
+
+::::: columns
+::: {.column width="\"45%\""}
+**Parameters and populations**
+
+- Parameters describe Populations
+- Because we can’t sample an entire population, we usually don’t know parameters.
+:::
+
+::: {.column width="\"45%\""}
+**Estimates and samples**
+
+- But we can get a good sense of the parameters from estimates we make from samples.
+- Estimates approximate parameters as inferred from Samples
+:::
+:::::
+
+# 1.2. Sampling: What could go wrong
+
+## Properties of a good sample
+
+::: goal
+Independent selection of individuals
+:::
+
+- no influence of sampling one individual on other individuals that get sampled.
+
+::: goal
+Random selection of individuals
+:::
+
+- each member of a population has an equal and independent chance of being selected
+- equality: probability of being selected reflects its representation in the population
+
+::: goal
+Sufficiently large
+:::
+
+::: {notes}
+- What is the point of each of these principles in terms of sampling error and bias and accuracy and precision?
+:::
+
+## Random samples
+
+::: goal
+Taking random samples is hard and requires effort
+:::
+
+::: nonincremental
+- Why are they important? Reduce sampling bias
+- How to get a random sample (ideal):
+- Carefully characterize a population and use computer code to select participants randomly.
+:::
+
+![](slides/images/clipboard-4130122363.png){fig-align="center" width="608"}
+
+## Random sampling in R {visibility="hidden"}
+
+::: nonincremental
+- Actually pseudo-random
+- If you run the code below, it is very unlikely you will get the same numbers I did
+:::
+
+```{r}
+# Sample 3 random numbers between 1 and 10
+# 1. Define the numbers from which you will sample
+x <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+# 2. Take 3 random numbers from this set
+sample(x, size = 3)
+# now, to convince yourself, do it again
+sample(x, size = 3)
+```
+
+## Random sampling in R {visibility="hidden"}
+
+::: nonincremental
+- But you can actually make this reproducible!
+- How? Setting a **seed**!
+- If you run the code below with the same seed you should get the same numbers I did
+:::
+
+```{r}
+# Sample 3 random numbers between 1 and 10
+# 1. Define the numbers from which you will sample
+x <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+# 2. Set seed
+set.seed(1985) #the seed can be any number.
+# 3. Take 3 random numbers from this set
+sample(x, size = 3)
+# now, to convince yourself, do it again
+set.seed(1985) 
+sample(x, size = 3)
+```
+
+## Sampling bias
+
+::::: columns
+::: {.column width="\"45%\""}
+- If you collected these against a dark background without careful procedures… ![](slides/images/starfish3.png){width="501"}
+:::
+
+::: {.column width="\"45%\""}
+- This sample is biased. There is a higher proportion of orange stars than the population from which it was taken. Therefore, it is not a representative sample of the underlying population. ![](slides/images/starfish4.png){width="445"}
+:::
+:::::
+
+## Sampling bias case study
+
+Sampling bias: Systematic difference between parameters & estimates.
+
+::: aside
+Case study: Polls in the 1936 US Election.
+:::
+
+![Picture of Alf Landon](https://upload.wikimedia.org/wikipedia/commons/c/c6/Alf_Landon_closeupcrop.jpg)](https://upload.wikimedia.org/wikipedia/commons/c/c6/Alf_Landon_closeupcrop.jpg)fig-alt="Picture of Alf Landon" width="244"}
+
+
+![Democrat Franklin Roosevelt](https://upload.wikimedia.org/wikipedia/commons/3/37/FDR_and_Fala_at_table.jpg){fig-alt="Picture of F. Roosevelt" width="215"}
+
+
+## 1936 Literary Digest poll
+
+2.4 million responses to 10 million questionnaires , sent to people from telephone books and club lists.
+
+## 1936 Literary Digest poll
+
+```{r echo=T, fig.height=4, fig.cap="Figure made in R with code borrowed from Y. Brandvain"}
+##| label: 1936-election
+library(ggplot2)
+ggplot(data.frame(Candidate = c("Landon","Roosevelt"), 
+                          support = 2.4 * c(.57,.43)),
+               aes(x = Candidate , y = support, fill = Candidate)) +
+  geom_bar(stat = "identity", show.legend = FALSE) +
+  bb_theme() +
+  ylab(label = "support (millions of respondents)")+
+  geom_hline(yintercept = seq(0,1.40,.50), color = "white") +
+  coord_flip() +
+  scale_y_continuous(expand = c(0,0)) +
+  ggtitle(label = "1936 literary digest poll results")
+```
+
+## Election: Roosevelt won in a landslide
+
+![This plot was made in R (Credit: Y. Brandvain)](slides/images/clipboard-2748303540.png) 
+
+What do you think happened?
+
+## Sampling Bias in the 1936 Polls!
+
+- Questionnaire was more likely to reach rich people (who could afford phones & attend book clubs) than those with fewer means.
+- Voting and party preference are correlated with wealth.
+- Poorer people (underrepresented in the poll) supported Roosevelt, carrying him to victory.
+
+## Sample of convenience
+
+::: goal
+A sample of convenience is a collection of individuals that happen to be available at the time.
+:::
+
+Other definitions[^1]:
+
+[^1]: Andrade C (2021). The Inconvenient Truth About Convenience and Purposive Samples. Indian J Psychol Med, 43(1):86-88. DOI: 10.1177/0253717620977000
+
+> A convenience sample is the one that is drawn from a source that is conveniently accessible to the researcher.
+
+> A purposive sample is the one whose characteristics are defined for a purpose that is relevant to the study.
+
+
+Problems:
+
+::: nonincremental
+- "In research, we therefore implicitly seek to generalize the findings from our sample to the entire population, present and future."[^2]
+:::
+
+[^2]: Andrade C (2021). Indian J Psychol Med, 43(1):86-88. DOI: 10.1177/0253717620977000
+
+::: incremental
+- low generalizability. What is true for your sample might not reflect what is true for the population.
+- in practice, you can only generalize findings to the subpopulation from which the sample was taken from.
+- sometimes, a sample of convenience is the best option researchers have (e.g. studies that extract data from national healthcare or insurance databases)
+- It is rarely possible to draw a truly random sample from the population
+:::
+
+. . .
+
+This does not invalidate the studies in question. They can have high "internal validity". The issue is with generalizing, i.e, its external validity.
+
+. . .
+
+::: notes
+However, this is possible only if our sample is representative of the population; a sample is likely to be representative of the population only if it is randomly drawn from the population.
+:::
+
+## Volunteer bias
+
+::: goal
+Volunteers for a study are likely to be different, on average, from the population. Also known as "self-selection" bias.
+:::
+
+For example:
+
+- Volunteers for sex studies are more likely to be open about sex.
+- In surveys about sexual activity, gender biases answers in opposite directions.
+- Volunteers for medical studies may be sicker than the general population.
+- Animals that are caught may be slower or more docile than those that are not.
+- The case we saw about the 1936 U.S. elections.
+
+::: notes
+Ask for volunteers to name some. The US elections example also involves sample of convenience.
+:::
+
+## Selection bias
+
+[![From: https://xkcd.com/2618/. We carefully sampled the general population and found that most people are familiar with acquiescence bias.](https://imgs.xkcd.com/comics/selection_bias.png){fig-alt="[Blondie is standing on a podium behind a lectern with a microphone. She is standing under a hanging sign with large text. In front of the podium is an audience of five seated persons all with their hands raised above their heads. The audience includes two guys that look like Cueball, Hairbun, and two other persons with dark and blonde hair.]     Sign: Statistics Conference 2022     Blondie: Raise your hand if you’re familiar with selection bias.      Blondie: As you can see, it’s a term most people know..." fig-align="center" width="425"}](https://xkcd.com/2618/)
+
+## What about sampling error?
+
+::: goal
+Sampling error: Chance deviations between estimates and the truth.
+:::
+
+
+
+Even when you did NOTHING wrong.
+
+
+
+::: goal
+Sampling error is the difference between the estimate and its true parameter value — and it can be quantified!
+:::
+
+### Example of sampling error
+
+```{r, echo  = T, eval = T}
+library(tidyverse)
+p1<-iris |> 
+  ggplot(aes(x= Species, fill = Species)) + 
+  geom_bar() + 
+  bb_theme()+
+  theme(legend.position="none") +
+  ggtitle("Full 'IRIS' dataset\n(n = 150)") +
+  xlab("")
+p2<-iris |> sample_n(size = 20) |>
+  ggplot(aes(x = Species, fill = Species)) + 
+  geom_bar() + 
+  scale_fill_manual(values = wesanderson::wes_palette("AsteroidCity1")) +  bb_theme() + 
+  theme(legend.position="none")+
+  ggtitle("Random sample\n (n = 20)") +
+  xlab("")
+p3<-iris |> sample_n(size = 20) |>
+  ggplot(aes(x = Species, fill = Species)) + 
+  geom_bar() + 
+  scale_fill_manual(values = wesanderson::wes_palette("AsteroidCity1")) + bb_theme() + 
+  theme(legend.position="none") +
+  ggtitle("Another random sample\n (n = 20)") +
+  xlab("")
+library(patchwork)
+p1 + p2 + p3
+
+```
+
+::: aside
+The iris data set gives the measurements (in cm) of the variables sepal length and width and petal length and width for 50 flowers from each of 3 species of iris. The species are *Iris setosa*, *Iris versicolor*, and *Iris virginica*.
+:::
+
+## Sampling error declines with sample size
+
+```{r, echo  = F, eval = T}
+p1<-iris |> sample_n(size = 10) |>
+  ggplot(aes(x = Species, fill = Species)) + 
+  geom_bar() +
+  theme(legend.position="none")+
+  ggtitle("Random sample\n (n = 10)") +
+  xlab("")
+p2<-iris |> sample_n(size = 50) |>
+  ggplot(aes(x = Species, fill = Species)) + 
+  geom_bar() + 
+  theme(legend.position="none") +
+  ggtitle("Random sample\n (n = 50)") +
+  xlab("")
+p3<-iris |> sample_n(size = 100) |>
+  ggplot(aes(x = Species, fill = Species)) + 
+  geom_bar() + 
+  theme(legend.position="none") +
+  ggtitle("Random sample\n (n = 100)") +
+  xlab("")
+p4<-iris |> sample_n(size = 130) |>
+  ggplot(aes(x = Species, fill = Species)) + 
+  geom_bar()  + 
+  theme(legend.position="none") +
+  ggtitle("Random sample\n (n = 130)") +
+  xlab("")
+library(patchwork)
+(p1 + p2) / (p3 + p4)
+
+```
+
+## Estimates are random variables
+
+- Because an estimate is a random variable, the value of an estimate is influenced by chance.
+
+- Therefore estimates will differ among random samples from the same population.
+
+![](slides/images/clipboard-1924864965.png)
+
+::: notes
+we're assuming here that we don't have the bias issue discussed for this example previously.
+:::
+
+## How bias and sampling error affect estimates
+
+::::::: columns
+:::: {.column width="50%"}
+::: r-stack
+**Sampling Bias**
+:::
+
+- Systematic difference between estimates & parameters.
+- Driven by bias in the sampling process (i.e., sample not random in relation to the population of interest), regarless of sample size.
+::::
+
+:::: {.column width="50%\""}
+::: r-stack
+**Sampling Error**
+:::
+
+- Undirected deviation of estimates away from parameters.
+- Driven by chance.
+- Decreases with sample size.
+::::
+:::::::
+
+## Goals of estimation
+
+::: goal
+Accuracy (on average gets the correct answer)
+:::
+
+::: goal
+Precision (gives a similar answer repeatedly)
+:::
+
+![Image: Wikipedia Commons (public domain).](slides/images/clipboard-1978701112.png){fig-alt="Left: low accuracy due to low precision. Shot grouping shows four hits around the central circle, somewhat equi-distant from each other. right: low accuracy even with high precision. Shot grouping with four shots near each other to the left-bottom of the center of the central target."}
+
+## Sampling error vs. bias
+
+In this figure, the "X" is the population parameter. The circles are different estimates calculated from different samples taken from that population.
+
+```{r biaserror, fig.height=5, fig.width=8,fig.align='center', warning=FALSE, echo = F, fig.cap = "Figure made in R with code borrowed from Y. Brandvain", fig.alt= "top left: all estimates are near each other and enar the bulls eye, so they are unbiased and precise; top right: all samples near each other but far from the bulls eye, so they are precise but also biased; bottom left, estimates are scattered 'randomly' around bulls eye, so they are unbiased but also imprecise; bottom right, samples are scattered around acenter that is not the bulls eye, so they are imprecise and biased."}
+library(tidyverse)
+df <-  tibble(x = rnorm(n = 64, mean = rep(c(0, 1.5), each = 32), 
+                                         sd = rep(c(1.5,  .4), each = 16)), 
+                               y = rnorm(n = 64, mean = rep(c(0, 1.5), each = 32), 
+                                         sd = rep(c(1.5,  .4), each = 16)),
+                               sample = factor(1:64),
+                               bias  = factor(rep(c("unbiased","biased"), each = 32), levels = c("unbiased","biased")),
+                               samplingerror = factor(rep(c("imprecise","precise", "imprecise", "precise"), each = 16), levels = c("precise", "imprecise")))
+
+ggplot(data = df, aes(x=x,y=y))+
+  geom_point(aes(x=0,y=0), size = 4, shape = 4, show.legend = FALSE,stroke = 3, color = "red") +
+  geom_point(size = 5, aes( color = sample),show.legend = FALSE, alpha = .4)+
+  bb_theme() +
+  xlim(c(-5,5)) +
+  ylim(c(-5,5))+
+  facet_grid(vars(samplingerror), vars(bias),switch = "y") +
+  ggtitle(label = stringr::str_wrap("How sampling bias & sampling error affect estimates", width = 80)) +
+  ylab("") +
+  xlab("")
+```
+
+## Acknowledgments
+
+- Yaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used here.
