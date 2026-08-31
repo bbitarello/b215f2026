@@ -10,6 +10,8 @@ format:
   revealjs:
     revealjs-a11y:
       alt-text-warnings: true
+      menu:
+        enabled: true
     footer: "B215"
     center-title-slide: true
     controls: true 
@@ -18,7 +20,7 @@ format:
     hash: true 
     history: true  
     keyboard: true 
-    pdf-separate-fragments: true 
+   # pdf-separate-fragments: true 
     smaller: true
     scrollable: true
     incremental: false
@@ -51,6 +53,7 @@ library(ggplot2)
 library(knitr)
 source("bb_theme.R")
 library(maps)
+library(ggthemes)
 library(gt)
 StatCount2 <- ggproto(
   "StatCount2", StatCount,
@@ -132,7 +135,7 @@ Ask for volunteers to remind these concepts
 
 2.  **Hypothesis testing:** Test hypotheses about those parameters
 
-3.  **Causal inference** Teasing apart causation from correlation
+3.  **Causal inference:** Teasing apart causation from correlation
 
 ::: notes
 Statistics claims to be obsessed with the TRUTH. It’s meant to be a way of understanding the world. It’s meant to describe and differentiate, and ideally, to tease apart causation from correlation. These three goals of statistics (below) are the beams of light we, as statisticians, try to shine on questions. That is – these three things are what you call a statistician to do.
@@ -152,9 +155,6 @@ Statistics claims to be obsessed with the TRUTH. It’s meant to be a way of und
 
 1.  Random
 
-    - equality: every unit in the population must have an equal chance of being included in the sample
-    - independence: the selection of any one member of the population does not in any way influence the selection of any other member.
-
 - *Equality:* probability of being selected reflects its representation in the population
 
 - *Independence:* no influence of sampling one individual on other individuals that get sampled.
@@ -170,7 +170,7 @@ Taking random samples is hard and requires effort
 ::: nonincremental
 - Why are they important? Reduce sampling bias
 - How to get a random sample (ideal):
-- Carefully characterize a population and use computer code to select participants randomly.
+    - Carefully characterize a population and use computer code to select participants randomly.
 :::
 
 ![](images/clipboard-4130122363.png){fig-align="center" width="608"}
@@ -195,17 +195,6 @@ sample(x, size = 3)
 sample(x, size = 3)
 ```
 
-##  {.center}
-
-::: r-fit-text
-[The major goal of sampling is to minimize]{.smallcaps}
-
-[sampling error and bias in estimates.]{.smallcaps}
-:::
-
-::: notes
-Sampling: What could go wrong? {visibility="hidden"}
-:::
 
 ##  {.center}
 
@@ -268,6 +257,20 @@ we're assuming here that we don't have the bias issue discussed for this example
 :::
 
 
+##  The major goals of sampling
+
+::: r-fit-text
+
+- minimize sampling error (increase precision of estimates)
+
+- minimize sampling bias (increase accuracy of estimates)
+
+:::
+
+::: notes
+Sampling: What could go wrong? {visibility="hidden"}
+:::
+
 ## Sampling error
 
 ::: goal
@@ -288,8 +291,8 @@ Sampling error: Chance deviations between estimates and the truth due to chance/
 
 * The parameter "probability of getting a 6" is 1/6 (~0.17). The observed proportion in six random die rolls here was 0.
 
-```{r, echo = T, fig.height=6, fig.cap="In this context we can think of each trial (die roll) as a sample. So our sample size here is 6."}
-plot.one.dice.prob + geom_hline(aes(yintercept = 1/6), lty=2)
+```{r, echo = F, fig.height=6, fig.cap="In this context we can think of each trial (die roll) as a sample. So our sample size here is 6."}
+one.roll+ geom_hline(aes(yintercept = 1/6), lty=2)
 ```
 
 ```{r, echo  = F, eval = F, include=F}
@@ -377,18 +380,8 @@ library(patchwork)
 
 ```
 
-## Mean distance from 1/6 in the previous example
 
-```{r gt, fig.height= 6}
-df2 |> 
-  mutate(dist=abs(prop-1/6)) |> 
-  group_by(NrRolls)|> 
-  summarise(meanDist=mean(dist)) |> 
-  gt()
-```
-
-
-## Sampling Bias
+## Sampling bias
 
 ::::: columns
 ::: {.column width="\"45%\""}
@@ -433,7 +426,7 @@ Case study: Polls in the 1936 US Election.
 
 2.4 million responses to 10 million questionnaires , sent to people from telephone books and club lists.
 
-```{r echo=F, fig.height=3, fig.cap="Figure made in R with code borrowed from Y. Brandvain", eval=F}
+```{r echo=F, fig.height=5, fig.cap="Figure made in R with code borrowed from Y. Brandvain", eval=T}
 ##| label: 1936-election
 ggplot(data.frame(Candidate = c("Landon","Roosevelt"), 
                           support = 2.4 * c(.57,.43)),
@@ -448,7 +441,7 @@ ggplot(data.frame(Candidate = c("Landon","Roosevelt"),
 
 ## Election results
 
-```{r, message=FALSE, eval = F, echo = F}
+```{r, message=FALSE, echo=F,eval = T,  fig.cap="Figure made in R with code borrowed from Y. Brandvain.", fig.alt="A map of the U.S. showing 1936 election results: most states in yellow for Roosevelt except Maine and Vermont in dark purple for Landon. Below, a bar graph displays vote percentages: 62% for Roosevelt in the election and 43% for him in Reader's Digest compared to 38% for Landon in the election compared to 57% for him in the reader's digest survey."}
 #| cap-location: margin
 ##| label: 1936-results
 #png("images/elections-1936.png", )
@@ -494,10 +487,9 @@ geom_hline(yintercept = seq(0, 51, 25), color = "white") +
 #        axis.text.y=element_text(size=16))
 
 elect / vote + plot_layout(widths = c(2, 2), heights = c(3, 1))
-dev.off()
+#dev.off()
 ```
 
-![Plot made in R with code from Y. Brandvain.](images/elections-1936.png){fig-alt="A map of the U.S. showing 1936 election results: most states in yellow for Roosevelt except Maine and Vermont in dark purple for Landon. Below, a bar graph displays vote percentages: 62% for Roosevelt in the election and 43% for him in Reader's Digest compared to 38% for Landon in the election compared to 57% for him in the reader's digest survey." fig-align="center" width="318"}
 
 ##  {.center}
 
@@ -545,9 +537,11 @@ However, this is possible only if our sample is representative of the population
 
 ## Selection bias
 
+> *"Occurs when individuals or groups in a study differ systematically from the population of interest leading to a systematic error in an association or outcome."* -- Catalog of Bias [https://catalogofbias.org/biases/selection-bias/]
+
 [![From: https://xkcd.com/2618/. We carefully sampled the general population and found that most people are familiar with acquiescence bias.](https://imgs.xkcd.com/comics/selection_bias.png){fig-alt="[Blondie is standing on a podium behind a lectern with a microphone. She is standing under a hanging sign with large text. In front of the podium is an audience of five seated persons all with their hands raised above their heads. The audience includes two guys that look like Cueball, Hairbun, and two other persons with dark and blonde hair.]     Sign: Statistics Conference 2022     Blondie: Raise your hand if you’re familiar with selection bias.      Blondie: As you can see, it’s a term most people know..." fig-align="center" width="425"}](https://xkcd.com/2618/)
 
-## Volunteer bias
+## Volunteer bias 
 
 ::: goal
 Volunteers for a study are likely to be different, on average, from the population. Also known as "self-selection" bias.
@@ -627,3 +621,10 @@ ggplot(data = df, aes(x=x,y=y))+
   ylab("") +
   xlab("")
 ```
+
+## Coming up next:
+
+
+* Different types of variables
+* Different types of study
+* Correlation $\neq$ causation

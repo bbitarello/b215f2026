@@ -235,7 +235,7 @@ Bárbara D. Bitarello
 <ol type="1">
 <li><p><strong>Estimation:</strong> estimate the values of important <em>parameters</em> and have measures of <em>uncertainty</em> for estimates</p></li>
 <li><p><strong>Hypothesis testing:</strong> Test hypotheses about those parameters</p></li>
-<li><p><strong>Causal inference</strong> Teasing apart causation from correlation</p></li>
+<li><p><strong>Causal inference:</strong> Teasing apart causation from correlation</p></li>
 </ol>
 <aside class="notes"><p>Statistics claims to be obsessed with the TRUTH. It’s meant to be a way of understanding the world. It’s meant to describe and differentiate, and ideally, to tease apart causation from correlation. These three goals of statistics (below) are the beams of light we, as statisticians, try to shine on questions. That is – these three things are what you call a statistician to do.</p>
 <style type="text/css">
@@ -256,13 +256,7 @@ Bárbara D. Bitarello
 <li>Distinguish between accuracy and precision and how these terms relate to sampling bias and sampling error.</li>
 </ul></section><section id="properties-of-a-good-sample" class="slide level2 scrollable"><h2>Properties of a good sample</h2>
 <ol type="1">
-<li>
-<p>Random</p>
-<ul>
-<li>equality: every unit in the population must have an equal chance of being included in the sample</li>
-<li>independence: the selection of any one member of the population does not in any way influence the selection of any other member.</li>
-</ul>
-</li>
+<li>Random</li>
 </ol>
 <ul>
 <li><p><em>Equality:</em> probability of being selected reflects its representation in the population</p></li>
@@ -276,8 +270,11 @@ Bárbara D. Bitarello
 </div>
 <ul>
 <li>Why are they important? Reduce sampling bias</li>
-<li>How to get a random sample (ideal):</li>
+<li>How to get a random sample (ideal):
+<ul>
 <li>Carefully characterize a population and use computer code to select participants randomly.</li>
+</ul>
+</li>
 </ul>
 
 <img data-src="images/clipboard-4130122363.png" class="quarto-figure quarto-figure-center r-stretch" width="608"></section><section id="random-sampling-in-r" class="slide level2"><h2>Random sampling in R</h2>
@@ -295,31 +292,15 @@ Bárbara D. Bitarello
 <span id="cb1-4"><a aria-label="4"></a><span class="co"># 2. Take 3 random numbers from this set</span></span>
 <span id="cb1-5"><a aria-label="5"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 6 4 7</code></pre>
+<pre><code>[1] 2 7 1</code></pre>
 </div>
 <details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="co"># now, to convince yourself, do it again</span></span>
 <span id="cb3-2"><a aria-label="2"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>[1]  5 10  2</code></pre>
+<pre><code>[1] 6 9 8</code></pre>
 </div>
 </div>
 </section><section id="section" class="slide level2 center"><h2></h2>
-<div class="r-fit-text">
-<p><span class="smallcaps">The major goal of sampling is to minimize</span></p>
-<p><span class="smallcaps">sampling error and bias in estimates.</span></p>
-</div>
-<aside class="notes"><p>Sampling: What could go wrong? {visibility=“hidden”}</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section id="section-1" class="slide level2 center"><h2></h2>
 <div class="r-fit-text">
 <p>Probability Distribution vs.&nbsp;Frequency Distribution</p>
 </div>
@@ -388,6 +369,24 @@ Bárbara D. Bitarello
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
+      }</style></aside></section><section id="the-major-goals-of-sampling" class="slide level2"><h2>The major goals of sampling</h2>
+<div class="r-fit-text">
+<ul>
+<li><p>minimize sampling error (increase precision of estimates)</p></li>
+<li><p>minimize sampling bias (increase accuracy of estimates)</p></li>
+</ul>
+</div>
+<aside class="notes"><p>Sampling: What could go wrong? {visibility=“hidden”}</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
       }</style></aside></section><section id="sampling-error" class="slide level2"><h2>Sampling error</h2>
 <div class="goal">
 <p>Sampling error: Chance deviations between estimates and the truth due to chance/luck– even when you did NOTHING wrong!</p>
@@ -404,8 +403,7 @@ Bárbara D. Bitarello
 <li>The parameter “probability of getting a 6” is 1/6 (~0.17). The observed proportion in six random die rolls here was 0.</li>
 </ul>
 <div class="cell">
-<details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>plot.one.dice.prob <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>), <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
+<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="Statistics_and_Samples2_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
 <figcaption>In this context we can think of each trial (die roll) as a sample. So our sample size here is 6.</figcaption></figure>
@@ -417,491 +415,7 @@ Bárbara D. Bitarello
 
 </div></aside></section><section id="sampling-error-declines-with-sample-size" class="slide level2"><h2>Sampling error declines with sample size</h2>
 
-<img data-src="Statistics_and_Samples2_files/figure-revealjs/dice3-1.png" width="960" class="r-stretch"></section><section id="mean-distance-from-16-in-the-previous-example" class="slide level2"><h2>Mean distance from 1/6 in the previous example</h2>
-<div class="cell">
-<details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>df2 <span class="sc">|&gt;</span></span>
-<span id="cb7-2"><a aria-label="2"></a>    <span class="fu">mutate</span>(<span class="at">dist =</span> <span class="fu">abs</span>(prop <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a aria-label="3"></a>    <span class="fu">group_by</span>(NrRolls) <span class="sc">|&gt;</span></span>
-<span id="cb7-4"><a aria-label="4"></a>    <span class="fu">summarise</span>(<span class="at">meanDist =</span> <span class="fu">mean</span>(dist)) <span class="sc">|&gt;</span></span>
-<span id="cb7-5"><a aria-label="5"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
-<div id="vhtsmvvhpn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vhtsmvvhpn table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#vhtsmvvhpn thead, #vhtsmvvhpn tbody, #vhtsmvvhpn tfoot, #vhtsmvvhpn tr, #vhtsmvvhpn td, #vhtsmvvhpn th {
-  border-style: none;
-}
-
-#vhtsmvvhpn p {
-  margin: 0;
-  padding: 0;
-}
-
-#vhtsmvvhpn .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#vhtsmvvhpn .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#vhtsmvvhpn .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#vhtsmvvhpn .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#vhtsmvvhpn .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#vhtsmvvhpn .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#vhtsmvvhpn .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#vhtsmvvhpn .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#vhtsmvvhpn .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#vhtsmvvhpn .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#vhtsmvvhpn .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#vhtsmvvhpn .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#vhtsmvvhpn .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#vhtsmvvhpn .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#vhtsmvvhpn .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#vhtsmvvhpn .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#vhtsmvvhpn .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#vhtsmvvhpn .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#vhtsmvvhpn .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vhtsmvvhpn .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#vhtsmvvhpn .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#vhtsmvvhpn .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#vhtsmvvhpn .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vhtsmvvhpn .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#vhtsmvvhpn .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#vhtsmvvhpn .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#vhtsmvvhpn .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vhtsmvvhpn .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#vhtsmvvhpn .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#vhtsmvvhpn .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#vhtsmvvhpn .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#vhtsmvvhpn .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#vhtsmvvhpn .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vhtsmvvhpn .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#vhtsmvvhpn .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#vhtsmvvhpn .gt_left {
-  text-align: left;
-}
-
-#vhtsmvvhpn .gt_center {
-  text-align: center;
-}
-
-#vhtsmvvhpn .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#vhtsmvvhpn .gt_font_normal {
-  font-weight: normal;
-}
-
-#vhtsmvvhpn .gt_font_bold {
-  font-weight: bold;
-}
-
-#vhtsmvvhpn .gt_font_italic {
-  font-style: italic;
-}
-
-#vhtsmvvhpn .gt_super {
-  font-size: 65%;
-}
-
-#vhtsmvvhpn .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#vhtsmvvhpn .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#vhtsmvvhpn .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#vhtsmvvhpn .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#vhtsmvvhpn .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#vhtsmvvhpn .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#vhtsmvvhpn .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#vhtsmvvhpn .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#vhtsmvvhpn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-<table class="gt_table caption-top" data-quarto-bootstrap="false">
-<thead><tr class="gt_col_headings header">
-<th id="NrRolls" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">NrRolls</th>
-<th id="meanDist" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">meanDist</th>
-</tr></thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_right" headers="NrRolls">12</td>
-<td class="gt_row gt_right" headers="meanDist">0.11111111</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="NrRolls">48</td>
-<td class="gt_row gt_right" headers="meanDist">0.02777778</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="NrRolls">384</td>
-<td class="gt_row gt_right" headers="meanDist">0.01215278</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="NrRolls">768</td>
-<td class="gt_row gt_right" headers="meanDist">0.01041667</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section><section id="sampling-bias" class="slide level2"><h2>Sampling Bias</h2>
+<img data-src="Statistics_and_Samples2_files/figure-revealjs/dice3-1.png" width="960" class="r-stretch"></section><section id="sampling-bias" class="slide level2"><h2>Sampling bias</h2>
 <div class="columns">
 <div class="column" style="width:&quot;45%&quot;;">
 <ul>
@@ -920,10 +434,10 @@ Bárbara D. Bitarello
 <strong>Accurate (or unbiased) estimate</strong> estimate: the average of all estimates that we might obtain is centered on the true population value</li>
 </ul>
 <div class="cell">
-<details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>df2 <span class="sc">|&gt;</span></span>
-<span id="cb8-2"><a aria-label="2"></a>    <span class="fu">mutate</span>(<span class="at">dist =</span> prop <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-3"><a aria-label="3"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> NrRolls, <span class="at">y =</span> prop)) <span class="sc">+</span> <span class="fu">geom_jitter</span>() <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>),</span>
-<span id="cb8-4"><a aria-label="4"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">color =</span> vir[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>df2 <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a aria-label="2"></a>    <span class="fu">mutate</span>(<span class="at">dist =</span> prop <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a aria-label="3"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> NrRolls, <span class="at">y =</span> prop)) <span class="sc">+</span> <span class="fu">geom_jitter</span>() <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>),</span>
+<span id="cb6-4"><a aria-label="4"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">color =</span> vir[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <img data-src="Statistics_and_Samples2_files/figure-revealjs/accurate, fig.caption- the deviations from 1/6 are not going in any particular direction.-1.png" width="960" class="r-stretch"></section><section id="sampling-bias-case-study" class="slide level2"><h2>Sampling bias case study</h2>
@@ -947,9 +461,10 @@ Bárbara D. Bitarello
 </div>
 </section><section id="literary-digest-poll" class="slide level2"><h2>1936 Literary Digest poll</h2>
 <p>2.4 million responses to 10 million questionnaires , sent to people from telephone books and club lists.</p>
-</section><section id="election-results" class="slide level2"><h2>Election results</h2>
 
-<img data-src="images/elections-1936.png" alt="A map of the U.S. showing 1936 election results: most states in yellow for Roosevelt except Maine and Vermont in dark purple for Landon. Below, a bar graph displays vote percentages: 62% for Roosevelt in the election and 43% for him in Reader's Digest compared to 38% for Landon in the election compared to 57% for him in the reader's digest survey." width="318" class="r-stretch quarto-figure-center"><p class="caption">Plot made in R with code from Y. Brandvain.</p></section><section id="section-2" class="slide level2 center"><h2></h2>
+<img data-src="Statistics_and_Samples2_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Figure made in R with code borrowed from Y. Brandvain</p></section><section id="election-results" class="slide level2"><h2>Election results</h2>
+
+<img data-src="Statistics_and_Samples2_files/figure-revealjs/unnamed-chunk-6-1.png" class="margin-caption r-stretch quarto-figure-center" alt="A map of the U.S. showing 1936 election results: most states in yellow for Roosevelt except Maine and Vermont in dark purple for Landon. Below, a bar graph displays vote percentages: 62% for Roosevelt in the election and 43% for him in Reader's Digest compared to 38% for Landon in the election compared to 57% for him in the reader's digest survey." width="960"><p class="caption">Figure made in R with code borrowed from Y. Brandvain.</p></section><section id="section-1" class="slide level2 center"><h2></h2>
 <div class="r-fit-text">
 <p>What do you think happened?</p>
 </div>
@@ -989,6 +504,9 @@ Bárbara D. Bitarello
           overflow: hidden!important;
           display:block!important;
       }</style></aside></section><section id="selection-bias" class="slide level2"><h2>Selection bias</h2>
+<blockquote>
+<p><em>“Occurs when individuals or groups in a study differ systematically from the population of interest leading to a systematic error in an association or outcome.”</em> – Catalog of Bias [https://catalogofbias.org/biases/selection-bias/]</p>
+</blockquote>
 <div class="quarto-figure quarto-figure-center">
 <figure><div class="quarto-figure quarto-figure-center">
 <figure><p><a href="https://xkcd.com/2618/"><img data-src="https://imgs.xkcd.com/comics/selection_bias.png" class="quarto-figure quarto-figure-center" alt="[Blondie is standing on a podium behind a lectern with a microphone. She is standing under a hanging sign with large text. In front of the podium is an audience of five seated persons all with their hands raised above their heads. The audience includes two guys that look like Cueball, Hairbun, and two other persons with dark and blonde hair.]     Sign: Statistics Conference 2022     Blondie: Raise your hand if you’re familiar with selection bias.      Blondie: As you can see, it’s a term most people know..." width="425"></a></p>
@@ -1063,9 +581,15 @@ Bárbara D. Bitarello
 <img data-src="images/clipboard-1978701112.png" alt="Left: low accuracy due to low precision. Shot grouping shows four hits around the central circle, somewhat equi-distant from each other. right: low accuracy even with high precision. Shot grouping with four shots near each other to the left-bottom of the center of the central target." class="r-stretch quarto-figure-center"><p class="caption">Image: Wikipedia Commons (public domain).</p></section><section id="sampling-error-vs.-bias-visual-summary" class="slide level2"><h2>Sampling error vs.&nbsp;bias: visual summary</h2>
 <p>In this figure, the “X” in the middle is the population parameter. The circles are different estimates calculated from different samples taken from that population.</p>
 
+<img data-src="Statistics_and_Samples2_files/figure-revealjs/biaserror-1.png" alt="top left: all estimates are near each other and enar the bulls eye, so they are unbiased and precise; top right: all samples near each other but far from the bulls eye, so they are precise but also biased; bottom left, estimates are scattered 'randomly' around bulls eye, so they are unbiased but also imprecise; bottom right, samples are scattered around acenter that is not the bulls eye, so they are imprecise and biased." width="768" class="r-stretch quarto-figure-center"><p class="caption">Figure made in R with code borrowed from Y. Brandvain</p></section><section id="coming-up-next" class="slide level2"><h2>Coming up next:</h2>
+<ul>
+<li>Different types of variables</li>
+<li>Different types of study</li>
+<li>Correlation <span class="math inline">\(\neq\)</span> causation</li>
+</ul>
 
 
-<img data-src="Statistics_and_Samples2_files/figure-revealjs/biaserror-1.png" alt="top left: all estimates are near each other and enar the bulls eye, so they are unbiased and precise; top right: all samples near each other but far from the bulls eye, so they are precise but also biased; bottom left, estimates are scattered 'randomly' around bulls eye, so they are unbiased but also imprecise; bottom right, samples are scattered around acenter that is not the bulls eye, so they are imprecise and biased." width="768" class="r-stretch quarto-figure-center"><p class="caption">Figure made in R with code borrowed from Y. Brandvain</p></section>
+</section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -1080,7 +604,7 @@ Bárbara D. Bitarello
       Reveal.initialize({
 'controlsAuto': false,
 'previewLinksAuto': false,
-'pdfSeparateFragments': true,
+'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
