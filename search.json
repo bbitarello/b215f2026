@@ -67,6 +67,216 @@
     ]
   },
   {
+    "objectID": "slides/Statistics_and_Samples2.html#quick-recap",
+    "href": "slides/Statistics_and_Samples2.html#quick-recap",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Quick recap",
+    "text": "Quick recap\nLast lecture we introduced:\n\nPopulation vs. sample\nParameter vs. estimate\nThe two types of errors associated with sampling: sampling error and sampling bias\n\nAsk for volunteers to remind these concepts"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#statistics-three-broad-goals",
+    "href": "slides/Statistics_and_Samples2.html#statistics-three-broad-goals",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Statistics three broad goals:",
+    "text": "Statistics three broad goals:\n\nEstimation: estimate the values of important parameters and have measures of uncertainty for estimates\nHypothesis testing: Test hypotheses about those parameters\nCausal inference: Teasing apart causation from correlation\n\nStatistics claims to be obsessed with the TRUTH. It’s meant to be a way of understanding the world. It’s meant to describe and differentiate, and ideally, to tease apart causation from correlation. These three goals of statistics (below) are the beams of light we, as statisticians, try to shine on questions. That is – these three things are what you call a statistician to do."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#learning-goals",
+    "href": "slides/Statistics_and_Samples2.html#learning-goals",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Learning Goals",
+    "text": "Learning Goals\n\nIdentify the properties of a good sample\nDistinguish between sampling bias and sampling error.\nIdentify why estimates from samples may deviate from parameters of populations\nDistinguish between accuracy and precision and how these terms relate to sampling bias and sampling error."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#properties-of-a-good-sample",
+    "href": "slides/Statistics_and_Samples2.html#properties-of-a-good-sample",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Properties of a good sample",
+    "text": "Properties of a good sample\n\nRandom\n\n\nEquality: probability of being selected reflects its representation in the population\nIndependence: no influence of sampling one individual on other individuals that get sampled.\n\n\nA sufficiently large number of individuals."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#random-samples",
+    "href": "slides/Statistics_and_Samples2.html#random-samples",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Random samples",
+    "text": "Random samples\n\nTaking random samples is hard and requires effort\n\n\nWhy are they important? Reduce sampling bias\nHow to get a random sample (ideal):\n\nCarefully characterize a population and use computer code to select participants randomly."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
+    "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Random sampling in R",
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\nHide the code# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 8 9 3\n\nHide the code# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1]  2 10  6"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#section",
+    "href": "slides/Statistics_and_Samples2.html#section",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "",
+    "text": "Probability Distribution vs. Frequency Distribution"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#example",
+    "href": "slides/Statistics_and_Samples2.html#example",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Example",
+    "text": "Example\n\n\n\n\nProbability distribution: The proportion of the population with a given value (often approximated with a function)\n\n\n\n\nFrequency distribution: The number of times a value occurs in a sample.\n\n\n\nHide the codeplot.one.dice.prob &lt;- data.frame(outcome = c(1:6), probability = 1/6) |&gt;\n    ggplot(aes(x = outcome, y = probability, fill = factor(outcome))) +\n    geom_bar(stat = \"identity\", show.legend = FALSE) + ggtitle(\"Probability Distribution\",\n    subtitle = \"Outcome of a fair die\") + scale_x_continuous(breaks = 1:6) +\n    scale_y_continuous(expand = c(0, 0), limits = c(0, 0.32)) +\n    ylab(\"Expected probability\") + theme(axis.ticks = element_blank())\ndf &lt;- data.frame(Outcome = DieRoll(times = 6), NrRolls = 6)\n\none.roll &lt;- ggplot(df, aes(x = Outcome, fill = factor(Outcome))) +\n    geom_bar(aes(y = after_stat(count)/sum(count)), show.legend = FALSE) +\n    ggtitle(\"Proportions Observed\", subtitle = \"Outcome of a fair die\\n(n = 6 trials)\") +\n    # scale_fill_manual(values = banff())+\nscale_x_continuous(breaks = 1:12) + ylab(label = \"Observed proportion\") +\n    theme(axis.ticks = element_blank())\nlibrary(patchwork)\nplot.one.dice.prob + one.roll\n\n\nbefore we go into that"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#estimates-are-random-variables",
+    "href": "slides/Statistics_and_Samples2.html#estimates-are-random-variables",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Estimates are random variables",
+    "text": "Estimates are random variables\n\nBecause an estimate is a random variable, the value of an estimate is influenced by chance.\n\n\nA random variable can take on many different values with different probabilities. Random variables are ways to map outcomes of random processes to numbers. – Khan Academy\n\n\nTherefore estimates will differ among random samples from the same population.\n\n\nwe’re assuming here that we don’t have the bias issue discussed for this example previously."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#the-major-goals-of-sampling",
+    "href": "slides/Statistics_and_Samples2.html#the-major-goals-of-sampling",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "The major goals of sampling",
+    "text": "The major goals of sampling\n\n\nminimize sampling error (increase precision of estimates)\nminimize sampling bias (increase accuracy of estimates)\n\n\nSampling: What could go wrong? {visibility=“hidden”}"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#sampling-error",
+    "href": "slides/Statistics_and_Samples2.html#sampling-error",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Sampling error",
+    "text": "Sampling error\n\nSampling error: Chance deviations between estimates and the truth due to chance/luck– even when you did NOTHING wrong!\n\n\nSampling error is the difference between the estimate and its true parameter value — and it can be quantified!"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#sampling-error-and-precision-of-an-estimate",
+    "href": "slides/Statistics_and_Samples2.html#sampling-error-and-precision-of-an-estimate",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Sampling error and precision of an estimate",
+    "text": "Sampling error and precision of an estimate\n\nThe spread of estimates resulting from sampling error indicates the precision of an estimate.\nThe lower the sampling error, the higher the precision.\nAll else being equal, larger samples will have lower sampling error and higher precision than smaller samples."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#example-of-sampling-error",
+    "href": "slides/Statistics_and_Samples2.html#example-of-sampling-error",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Example of sampling error",
+    "text": "Example of sampling error\n\nThe parameter “probability of getting a 6” is 1/6 (~0.17). The observed proportion in six random die rolls here was 0.\n\n\n\n\n\nIn this context we can think of each trial (die roll) as a sample. So our sample size here is 6."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#sampling-error-declines-with-sample-size",
+    "href": "slides/Statistics_and_Samples2.html#sampling-error-declines-with-sample-size",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Sampling error declines with sample size",
+    "text": "Sampling error declines with sample size"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#sampling-bias",
+    "href": "slides/Statistics_and_Samples2.html#sampling-bias",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Sampling bias",
+    "text": "Sampling bias\n\n\n\nIf you collected these against a dark background without careful procedures… \n\n\n\n\nThis sample is biased. There is a higher proportion of orange stars than the population from which it was taken. Therefore, it is not a representative sample of the underlying population."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#sampling-bias-and-accuracy",
+    "href": "slides/Statistics_and_Samples2.html#sampling-bias-and-accuracy",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Sampling bias and accuracy",
+    "text": "Sampling bias and accuracy\n\n\nAccurate (or unbiased) estimate estimate: the average of all estimates that we might obtain is centered on the true population value\n\n\nHide the codedf2 |&gt;\n    mutate(dist = prop - 1/6) |&gt;\n    ggplot(aes(x = NrRolls, y = prop)) + geom_jitter() + geom_hline(aes(yintercept = 1/6),\n    lty = 2, color = vir[2])"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#sampling-bias-case-study",
+    "href": "slides/Statistics_and_Samples2.html#sampling-bias-case-study",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Sampling bias case study",
+    "text": "Sampling bias case study\nSampling bias: Systematic difference between parameters & estimates.\n\nCase study: Polls in the 1936 US Election.\n\n\n\n\n\n\nRepublican Alf Landon\n\n\n\n\nDemocrat Franklin Roosevelt"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#literary-digest-poll",
+    "href": "slides/Statistics_and_Samples2.html#literary-digest-poll",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "1936 Literary Digest poll",
+    "text": "1936 Literary Digest poll\n2.4 million responses to 10 million questionnaires , sent to people from telephone books and club lists.\n\nFigure made in R with code borrowed from Y. Brandvain"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#election-results",
+    "href": "slides/Statistics_and_Samples2.html#election-results",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Election results",
+    "text": "Election results\n\nFigure made in R with code borrowed from Y. Brandvain."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#section-1",
+    "href": "slides/Statistics_and_Samples2.html#section-1",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "",
+    "text": "What do you think happened?"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#sampling-bias-in-the-1936-polls",
+    "href": "slides/Statistics_and_Samples2.html#sampling-bias-in-the-1936-polls",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Sampling Bias in the 1936 Polls!",
+    "text": "Sampling Bias in the 1936 Polls!\n\nQuestionnaire was more likely to reach rich people (who could afford phones & attend book clubs) than those with fewer means.\nVoting and party preference are correlated with wealth.\nPoorer people (underrepresented in the poll) supported Roosevelt, carrying him to victory."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#sample-of-convenience",
+    "href": "slides/Statistics_and_Samples2.html#sample-of-convenience",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Sample of convenience",
+    "text": "Sample of convenience\n\nA sample of convenience is a collection of individuals that happen to be available at the time\n\n… usually one that is drawn from a source that is conveniently accessible to the researcher.\n\n\nAndrade C (2021). The Inconvenient Truth About Convenience and Purposive Samples. Indian J Psychol Med, 43(1):86-88. DOI: 10.1177/0253717620977000"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#sample-of-convenience-problems",
+    "href": "slides/Statistics_and_Samples2.html#sample-of-convenience-problems",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Sample of convenience: Problems",
+    "text": "Sample of convenience: Problems\n\nlow generalizability. What is true for your sample might not reflect what is true for the population.\na sample is likely to be representative of the population only if it is randomly drawn from the population – the sample of convenience violates this assumption (and sometimes also the independence assumption)\nin practice, you can only generalize findings to the subpopulation from which the sample was taken from."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#sometimes-a-sample-of-convenience-is-our-only-option",
+    "href": "slides/Statistics_and_Samples2.html#sometimes-a-sample-of-convenience-is-our-only-option",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Sometimes a sample of convenience is our only option",
+    "text": "Sometimes a sample of convenience is our only option\n\nA sample of convenience may be the best option researchers have (e.g. studies that extract data from national healthcare or insurance databases)\nNote: It is rarely possible to draw a truly random sample from the population – but we must do our best.\n\nThis does not invalidate the studies in question. They can have high “internal validity”. The issue is with generalizing, i.e, its external validity.\nHowever, this is possible only if our sample is representative of the population; a sample is likely to be representative of the population only if it is randomly drawn from the population."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#selection-bias",
+    "href": "slides/Statistics_and_Samples2.html#selection-bias",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Selection bias",
+    "text": "Selection bias\n\n“Occurs when individuals or groups in a study differ systematically from the population of interest leading to a systematic error in an association or outcome.” – Catalog of Bias [https://catalogofbias.org/biases/selection-bias/]\n\n\n\n\n\n\nFrom: https://xkcd.com/2618/. We carefully sampled the general population and found that most people are familiar with acquiescence bias."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#volunteer-bias",
+    "href": "slides/Statistics_and_Samples2.html#volunteer-bias",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Volunteer bias",
+    "text": "Volunteer bias\n\nVolunteers for a study are likely to be different, on average, from the population. Also known as “self-selection” bias.\n\nFor example:\n\nVolunteers for sex studies are more likely to be open about sex.\nIn surveys about sexual activity, gender biases answers in opposite directions.\nVolunteers for medical studies may be sicker than the general population.\nAnimals that are caught may be slower or more docile than those that are not.\nThe case we saw about the 1936 U.S. elections.\n\nAsk for volunteers to name some. The US elections example also involves sample of convenience."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#how-bias-and-sampling-error-affect-estimates",
+    "href": "slides/Statistics_and_Samples2.html#how-bias-and-sampling-error-affect-estimates",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "How bias and sampling error affect estimates",
+    "text": "How bias and sampling error affect estimates\nIn summary\n\n\n\nSampling Bias\n\n\n\nSystematic difference between estimates & parameters.\nDriven by bias in the sampling process (i.e., sample not random in relation to the population of interest), regarless of sample size.\n\n\n\nSampling Error\n\n\nUndirected deviation of estimates away from parameters.\n\nDriven by chance.\nDecreases with sample size."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#goals-of-estimation-visual-summary",
+    "href": "slides/Statistics_and_Samples2.html#goals-of-estimation-visual-summary",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Goals of estimation: visual summary",
+    "text": "Goals of estimation: visual summary\n\nAccuracy (on average gets the correct answer).\n\n\nPrecision (gives a similar answer repeatedly). If unbiased, those estimated are centered around the true value (parameter).\n\n\nImage: Wikipedia Commons (public domain)."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#sampling-error-vs.-bias-visual-summary",
+    "href": "slides/Statistics_and_Samples2.html#sampling-error-vs.-bias-visual-summary",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Sampling error vs. bias: visual summary",
+    "text": "Sampling error vs. bias: visual summary\nIn this figure, the “X” in the middle is the population parameter. The circles are different estimates calculated from different samples taken from that population.\n\nFigure made in R with code borrowed from Y. Brandvain"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples2.html#coming-up-next",
+    "href": "slides/Statistics_and_Samples2.html#coming-up-next",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Coming up next:",
+    "text": "Coming up next:\n\nDifferent types of variables\nDifferent types of study\nCorrelation \\(\\neq\\) causation"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "B215: Biostatistics with R",
@@ -128,7 +338,7 @@
     "href": "rlearn.html#tutorials-simulations",
     "title": "Learning R (and statistics)",
     "section": "Tutorials & Simulations",
-    "text": "Tutorials & Simulations\nR for Beginners –– An on-line introduction to R by Emmanuel Paradis - r-statistics.co, by Selva Prabhakaran - includes very good section on ggplot!\n\nFrom your textbook\nQuick-R\nRstudio Education\nPosit Cloud Recipes\nPower analyses in R",
+    "text": "Tutorials & Simulations\nfasteR: Fast Lane to Learning R! – If you wanna speed things up!\nR Workflow for Reproducible Data Analysis and Reporting by Frank E. Harrell Jr – Great resource. Provides tutorials and also link to other freely available materials.\nR for Beginners –– An on-line introduction to R by Emmanuel Paradis\n\nr-statistics.co, by Selva Prabhakaran - includes very good section on ggplot!\nFrom your textbook\nQuick-R\nRstudio Education\nPosit Cloud Recipes\nPower analyses in R",
     "crumbs": [
       "Rrresources"
     ]
@@ -175,144 +385,46 @@
     "text": "This is a webr-enabled code cell in a Quarto HTML document.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
   },
   {
+    "objectID": "labs/Lab1-slides.html#vectors",
+    "href": "labs/Lab1-slides.html#vectors",
+    "title": "Lab1: R Crash Course",
+    "section": "Vectors",
+    "text": "Vectors\nAll elements must be of the same type.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "labs/Lab1-slides.html#vectors-1",
+    "href": "labs/Lab1-slides.html#vectors-1",
+    "title": "Lab1: R Crash Course",
+    "section": "Vectors",
+    "text": "Vectors\nAll elements must be of the same type.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
     "objectID": "labs/lab1.html",
     "href": "labs/lab1.html",
-    "title": "R basics",
+    "title": "01. R, Rstudio: Crash Course",
     "section": "",
-    "text": "Complete DataCamp activities (All chapters of “Getting Started with R”)\nWork through this document\nCreate a basic R script\nCreate an R markdown document with your personal notes and code\nComplete the Quiz at the end of this doc\nDownlod the file with your answers and upload to moodle"
+    "text": "Complete DC activity Introduction to R’s first two chapters:\n\nIntro to Basics\nIntroduction to vectors\n\nWork through this document\nComplete the Quiz at the end of this doc\nDownload the file with your answers and upload to moodle"
   },
   {
-    "objectID": "labs/lab1.html#tasks",
-    "href": "labs/lab1.html#tasks",
-    "title": "R basics",
-    "section": "",
-    "text": "Complete DataCamp activities (All chapters of “Getting Started with R”)\nWork through this document\nCreate a basic R script\nCreate an R markdown document with your personal notes and code\nComplete the Quiz at the end of this doc\nDownlod the file with your answers and upload to moodle"
+    "objectID": "labs/lab1.html#numbers",
+    "href": "labs/lab1.html#numbers",
+    "title": "01. R, Rstudio: Crash Course",
+    "section": "Numbers",
+    "text": "Numbers\nThere are three number types in R:\n\nnumeric: the most common type in R; contains any number with or without a decimal\ninteger: numeric data without decimals. This is used when you are certain that you will never create a variable that should contain decimals. Just add the letter L after the number to create an integer.\ncomplex: number is written with an “i” as the imaginary part. Less used."
   },
   {
-    "objectID": "labs/lab1.html#learning-outcomes",
-    "href": "labs/lab1.html#learning-outcomes",
-    "title": "R basics",
-    "section": "Learning outcomes",
-    "text": "Learning outcomes\n\nGetting started with R and RStudio\nUnderstand the difference between R and Rstudio\nUse the R console (command-line)\nUse R as a calculator\nUnderstand the concepts of input and output in R\nAssign variables\nUnderstand the main variable types in R (string, Boolean, numeric)\nUse pre-built functions in R\nLearn how to learn about a specific function\nLearn how to create, name, and index vectors\nSave your code in an R script"
+    "objectID": "labs/lab1.html#example",
+    "href": "labs/lab1.html#example",
+    "title": "01. R, Rstudio: Crash Course",
+    "section": "Example",
+    "text": "Example\nTry these in the sandbox at the end of this section.\nx &lt;- 200.8  # numeric\ny &lt;- 1000L  # integer\nz &lt;- 1i     # complex\nTry these, one at a time:\nx &lt;- 200.8  # numeric\ny &lt;- 1000L  # integer\nz &lt;- 1i     # complex\nYou can convert from one type to another with the following functions:\nas.numeric()\nas.integer()\nas.complex()\nTry these in the sandbox below:\nx &lt;- 200.8  # numeric\ny &lt;- 1000L  # integer\n\nx2 &lt;- as.integer(x) #what happens here?\n\ny2 &lt;- as.numeric(y) #what happens here?\n\nclass(x2)\n\nclass(y2)\nSandbox: Use the area below for any R practice"
   },
   {
-    "objectID": "labs/lab1.html#what-is-r",
-    "href": "labs/lab1.html#what-is-r",
-    "title": "R basics",
-    "section": "What is R?",
-    "text": "What is R?\nR is awesome. This is our first lesson. Let’s dive in.\nR is a computer program that allows an extraordinary range of statistical calculations. It is a free (open source) programming language and program for statistical computing and graphic, mainly written by voluntary contributions from statisticians around the world. R is available on most operating systems, including Windows, Mac OS, and Linux.\nIt is one of the primary languages used by data scientists and statisticians alike. It is supported by the R Foundation for Statistical Computing and a large community of open source developers.\nR can make graphics and do statistical calculations. It is also a full-fledged computing language. In this course, we will only scratch the surface of what R can do but hopefully it will be enough to give you a solid foundation and essential toolkit for any current-day biologist.\nSince R is an open source program and freely available, it is very attractive for academics whose access to statistical programs is regulated through their association to various colleges or universities."
-  },
-  {
-    "objectID": "labs/lab1.html#what-is-rstudio",
-    "href": "labs/lab1.html#what-is-rstudio",
-    "title": "R basics",
-    "section": "What is RStudio?",
-    "text": "What is RStudio?\nRstudio is a separate program, also free, that provides a more elegant front end for R. RStudio allows you to easily organize separate windows for R commands, graphic, help, etc. in one place.\nSince R utilizes a command line interface, there can be a steep learning curve for some individuals who are used to using GUI focused programs.\nFor this course, we will use Rstudio Cloud.You are welcome (but not required) to install the desktop version of R and Rstudio as well on your machine.\nR and RStudio are not the same thing!\nRStudio is a different program from R—it is installed separately and occupies its own place in the Programs menu (Windows PC) or Applications folder (Mac). You can run R without RStudio but you cannot run RStudio without R."
-  },
-  {
-    "objectID": "labs/lab1.html#how-does-the-rstudio-cloud-workspace-work",
-    "href": "labs/lab1.html#how-does-the-rstudio-cloud-workspace-work",
-    "title": "R basics",
-    "section": "How does the Rstudio Cloud workspace work?",
-    "text": "How does the Rstudio Cloud workspace work?\nJoin the B215: Biostatistics with R (Fall 2025) Posit Cloud workspace. This space will be updated often, and you will see a mirrored version in your own space.\nImportant:If the workspace is changed by the instructowebr-r, you would need to delete your mirrored version and create a new one to see those changes – but hopefully we won’t need to do this!\nWhen you start RStudio, it will automatically start R as well. You run R inside RStudio.\nAfter you have started RStudio, you should see a new window with a menu bar at the top and three main sections. The righthand of the section is called the “Console” – this is where you type commands to give instructions to R and typically where you see R’s answers to you. You can also expand a fourth section above the console, which is labeled “Source”, in this section you can create and save files.\n\nAnother important corner of this window (located in the bottom left) can show a variety of information. Most importantly to us, this is where graphics will appeawebr-r, under the tab marked “Plots”."
-  },
-  {
-    "objectID": "labs/lab1.html#saving-your-code",
-    "href": "labs/lab1.html#saving-your-code",
-    "title": "R basics",
-    "section": "Saving your code",
-    "text": "Saving your code\nGood science relies on reproducibility of findings. In the world of computer programming, this means:\n\nRaw data is never modified; you read it as is, process it, and produce outputs\nOutputs should be disposable; if your computer explodes, as long as you backed up your code you should be able to reproduce your output/results\nManual steps (i.e., these that cannot be automated) should be avoided or otherwise minimized\nIdeally, one software package (in our case, R) should be enough to run your code; if other software is needed, ideally you would make the integration between them work seamlessly and in an automated way [this is beyond the scope of our course]\n\nSo how do you save your code?"
-  },
-  {
-    "objectID": "labs/lab1.html#a-basic-r-script",
-    "href": "labs/lab1.html#a-basic-r-script",
-    "title": "R basics",
-    "section": "A basic R script",
-    "text": "A basic R script\nAn R script is a text file containing your R code. Commented lines (‘#’ sign) are read as comments.\n\nGo to the Weekly Lab Activities &gt; Lab1 activity.\nClick on File &gt; New File &gt; R Script. This will open a blank file.\nType “#” followed by your full name. That is a comment and is ignored by R.\nIn the next line, type:\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\n\nNow press command + s to save (or click File &gt; Save OR click on the little save icon at the top of the script)\nVoilà! You have created your first R script. Save your file as lab1_lastname_firstname (fill in with your name)\nKeep this file open and as your progress through this document, whenever any code appears, write it down preceded by a description in the form of a comment\nLater we will see how to turn this into an R markdown file"
-  },
-  {
-    "objectID": "labs/lab1.html#the-console",
-    "href": "labs/lab1.html#the-console",
-    "title": "R basics",
-    "section": "The Console",
-    "text": "The Console\nWhen you start RStudio, you’ll see a corner of the window called the “Console.” By default the console window is in the bottom left of the Rstudio screen.\nYou can type commands in this window where there is a prompt (which will look like a &gt; sign at the bottom of the window). The Console has to be the selected window. (Clicking anywhere in the Console selects it.)"
-  },
-  {
-    "objectID": "labs/lab1.html#the-prompt-is-rs-way-of-inviting-you-to-give-it-instructions.",
-    "href": "labs/lab1.html#the-prompt-is-rs-way-of-inviting-you-to-give-it-instructions.",
-    "title": "R basics",
-    "section": "The > prompt is R’s way of inviting you to give it instructions.",
-    "text": "The &gt; prompt is R’s way of inviting you to give it instructions.\n\nYou communicate with R by typing commands after the &gt; prompt.\nWhat you type into the prompt will be treated as an input for R to do something with.\n\nLet’s see some examples."
-  },
-  {
-    "objectID": "labs/lab1.html#examples",
-    "href": "labs/lab1.html#examples",
-    "title": "R basics",
-    "section": "Examples",
-    "text": "Examples\nType 2+2 at the &gt; prompt, and hit return. You’ll see that R can work like a calculator (among its many other powers). It will give you the answewebr-r, 4, and it will label that answer with [1] to indicate that it is the first element in the answer. (This is sort of annoying when the answers are simple like this, but can be very valuable when the answers become more complex.) In other words, your input being 2+2 will result in an output being [1] 4. Try it:\n{webr-r, echo = T, eval = F} 2+2 #input\nIn these labs, the input will show up in a gray box and the output, if any, will follow in a white box.\n2+2\nNow try running below the operation"
-  },
-  {
-    "objectID": "labs/lab1.html#logs-and-roots",
-    "href": "labs/lab1.html#logs-and-roots",
-    "title": "R basics",
-    "section": "Logs and Roots",
-    "text": "Logs and Roots\nYou can use a wide variety of math functions to make calculations here, e.g., log() calculates the log of a number:\n{webr-r,  r-log1, echo =T } log(10)\nNote: By default, this gives the natural log with base e.\nParentheses are used both as a way to group elements of the calculation and also as a way to denote the arguments of functions. The “arguments” of a function are the set of values given to it as input.\nFor example, log(3) is applying the function log() to the argument 3.\nBy the way, e (mathematical constant that is the base of the natural logarithm) in R is obtained by:\n{webr-r,  r-constant, echo =T } exp(1)"
-  },
-  {
-    "objectID": "labs/lab1.html#sqrt",
-    "href": "labs/lab1.html#sqrt",
-    "title": "R basics",
-    "section": "sqrt()",
-    "text": "sqrt()\nAnother mathematical function that often comes in handy is the square root function, sqrt(). For example, the square root of 4 is:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTo calculate a value with an exponent, used the ^ symbol. For example \\[4^3\\] is written as:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nOf course, many math functions can be combined to give an almost infinite possibility of mathematical expressions. For example,\n\\[\\frac{1}{\\sqrt2\\pi\\times 3.1^2}e^{-\\frac{(12-10.7)^2}{2\\times 3.1}}\\]\ncan be calculated with:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry to run these yourself in the sandbox. For practice you should type things in instead of copying and pasting (trust us):\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "labs/lab1.html#r-commands-summary",
-    "href": "labs/lab1.html#r-commands-summary",
-    "title": "R basics",
-    "section": "R commands summary",
-    "text": "R commands summary\nHere is a non-exhaustive list of common mathematical operators you may want to use in R:\n\n\n\n\n\n\n\nDescription\nOperator\n\n\n\n\nEqual to\n==\n\n\nNot equal to\n!=\n\n\nAssignment of a value to a variable\n&lt;- or =\n\n\nAddition\n+\n\n\nSubtraction\n-\n\n\nMultiplication\n*\n\n\nDivision\n/\n\n\nExponentiation\nx^y or x\\*\\*y\n\n\nModulo (x mod y), returns remainder of a division\nx %% y\n\n\nLess than\n&lt;\n\n\nGreater than\n&gt;\n\n\nLess than or equal to\n&lt;=\n\n\nGreater than or equal to\n&gt;=\n\n\nx OR y (Boolean)\nx || y\n\n\nx AND y (Boolean)\nx && y"
-  },
-  {
-    "objectID": "labs/lab1.html#getting-info-about-a-function",
-    "href": "labs/lab1.html#getting-info-about-a-function",
-    "title": "R basics",
-    "section": "Getting info about a function",
-    "text": "Getting info about a function\nIn your prompt, run:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThis will make an R documentation appear on the right side of your Rstudio pane. This is an R help page.\nNote: typing help() and the name of the function of interest inside the parentheses gives you the same result. Try it!\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nRemember:\n\nAll pre-built functions in R have R pages that you can access in this way\nIf you are trying to access the help function for a package that is not installed by default in webr-r, you will need to add an extra “?”\nMost other packages you install will also have such help pages but you can only access the info if you have installed the package AND loaded it.\n\nFor example, try to find the help page for the function “tstrsplit”:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou got an error, which would make some people give up. But if you are certain the function exists, you can try:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nThis will show any match to “tstrsplit” within installed packages in your workspace."
-  },
-  {
-    "objectID": "labs/lab1.html#packages",
-    "href": "labs/lab1.html#packages",
-    "title": "R basics",
-    "section": "Packages",
-    "text": "Packages\n\nIf you click on “Packages” in the lower right, you will see currently installed packages. The checkmark highlights those that are currently “loaded” into your workspace\nYou can install packages by going to Tools &gt; Install Packages and searching for a package of interest.\n\nSandbox: Use the area below for any R practice\n\nhelp(log)\n\nHelp on topic 'log' was found in the following packages:\n\n  Package               Library\n  otel                  /Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/library\n  base                  /Library/Frameworks/R.framework/Resources/library\n\n\nUsing the first match ..."
-  },
-  {
-    "objectID": "labs/lab1.html#assigning-variables",
-    "href": "labs/lab1.html#assigning-variables",
-    "title": "R basics",
-    "section": "Assigning variables",
-    "text": "Assigning variables\nA variable is a thing that can change.\nVariable names should:\n\nbe meaningful\nthey can include letters and numbers\nNOT begin with a number\nspaces are not tolerated – In fact, in the world of programming you should forget spaces altogether when naming things (variables, files, functions, etc.) because they are a no-no use underscores, periods, capitalization, etc. if you want to separate words Example: instead of “my var”, use “myvar”, “myVar”, “my_var”, etc.\nchoosing meaningful names makes your code easier to read - by you and others\n\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nNow try to recreate the variables above but call them x var and y var instead:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou should get an error for an “unexpected symbol”, that’s the space."
-  },
-  {
-    "objectID": "labs/lab1.html#data-types-in-r",
-    "href": "labs/lab1.html#data-types-in-r",
-    "title": "R basics",
-    "section": "Data types in R",
-    "text": "Data types in R\nVariables in R can be numeric, text, or Boolean (true/false).Text variables are referred to as strings in R (and many other programming languages).\nBasic data types in R can be divided into the following types:[^6]\n\nnumeric &lt;- (10.5, 55, 787)\ninteger &lt;- (1L, 55L, 100L, where the letter “L” declares this as an integer)\ncomplex - (9 + 3i, where “i” is the imaginary part)\ncharacter (a.k.a. string) - (“k”, “R is exciting”, “FALSE”, “11.5”)\nlogical (a.k.a. boolean) - (TRUE or FALSE)\n\nExamples: (try these in the sandbox at the end of this section)\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nWe’ll cover these data types and their uses in depth in Lab 2, but for now if you want a head start you can learn more at Data types in R. W3schools.com. https://www.w3schools.com/r/r_data_types.asp .\n\nNumbers\nThere are three number types in R:\n\nnumeric: the most common type in R; contains any number with or without a decimal\ninteger: numeric data without decimals. This is used when you are certain that you will never create a variable that should contain decimals. Just add the letter L after the number to create an integer.\ncomplex: number is written with an “i” as the imaginary part. Less used.\n\n\n\nExample\nTry these in the sandbox at the end of this section.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry these, one at a time:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can convert from one type to another with the following functions:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nTry these in the sandbox below:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nSandbox: Use the area below for any R practice"
-  },
-  {
-    "objectID": "labs/lab1.html#r-data-structure",
-    "href": "labs/lab1.html#r-data-structure",
-    "title": "R basics",
-    "section": "R Data Structure",
-    "text": "R Data Structure\nR has several data structures: vectors, lists, matrices, arrays, data.frames, factors.\nToday we will see vectors and factors:\n\nVectors\nA vector is simply a list of items that are of the same type.\nTo combine the list of items to a vectowebr-r, use the c() function and separate the items by a comma.\nIn the example below, we create a vector variable called planets, that combines strings:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nIn this example, we create a vector that combines numerical values:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page.\nYou can create a sequence of numbers using : :\nVector with numerical values in a sequence:\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "labs/lab1.html#links-references",
-    "href": "labs/lab1.html#links-references",
-    "title": "R basics",
-    "section": "Links & References",
-    "text": "Links & References\nR Foundation for Statistical Computing\nR programming language explained\nWhat is a GUI?\nRstudio\nStephen J. Royle. The Digital Cell: Cell Biology as Data Science. Cold Spring Harbor Laboratory Press.\nData types in R. W3schools.com.https://www.w3schools.com/r/r_data_types.asp"
+    "objectID": "labs/lab1.html#vectors",
+    "href": "labs/lab1.html#vectors",
+    "title": "01. R, Rstudio: Crash Course",
+    "section": "Vectors",
+    "text": "Vectors\nA vector is simply a list of items that are of the same type.\nTo combine the list of items to a vectowebr-r, use the c() function and separate the items by a comma.\nIn the example below, we create a vector variable called planets, that combines strings:\n#vector of strings\n\nplanets &lt;- c(\"Earth\", \"Mars\", \"Saturn\")\n\n#print planets\nplanets\nIn this example, we create a vector that combines numerical values:\n#vector of numeric values\n\nprime_numbers&lt;- c(2, 3, 5, 7, 11)\n\n#print prime numbers\n\nprime_numbers\nYou can create a sequence of numbers using : :\nVector with numerical values in a sequence:\nnumbers &lt;- 1:10\n\nnumbers\n\n# type any code here"
   },
   {
     "objectID": "labs/lab1-quiz.html#vectors",
@@ -347,7 +459,7 @@
     "href": "labs/lab1-quiz.html#use-r-to-calculate",
     "title": "R Quiz 1",
     "section": "Use R to calculate:",
-    "text": "Use R to calculate:\n\nThe product of 15 by 17\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 255))\n)\n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x1081b19d0&gt;\n&lt;environment: 0x1081b0028&gt;\n\n\n\nThirteen to the power of 3:\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 2197))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x1081b19d0&gt;\n&lt;environment: 0x12c62c9a8&gt;\n\n\n\nLog of 14 (use the natural log):\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result,  log(14)))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x1081b19d0&gt;\n&lt;environment: 0x108b98118&gt;\n\n\n\nLog of 100 (use base 10):\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 2))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x1081b19d0&gt;\n&lt;environment: 0x108f2d650&gt;\n\n\n\nThe square root of 81:\n\n\ngradethis::grade_result(\n  #pass_if(~any(((9-0.5)&lt;.result)==TRUE)&any(((9+0.5)&gt;.result)==TRUE)\n      \n    gradethis::pass_if(~identical(.result, 9))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x1081b19d0&gt;\n&lt;environment: 0x12e86d700&gt;\n\n\nCreate a variable called my_name with your last name spelled backwards followed by your first name. E.g., mine would be “olleratib_arabrab”."
+    "text": "Use R to calculate:\n\nThe product of 15 by 17\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 255))\n)\n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x142d3edd0&gt;\n&lt;environment: 0x142d3d428&gt;\n\n\n\nThirteen to the power of 3:\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 2197))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x142d3edd0&gt;\n&lt;environment: 0x14234aba8&gt;\n\n\n\nLog of 14 (use the natural log):\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result,  log(14)))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x142d3edd0&gt;\n&lt;environment: 0x144008518&gt;\n\n\n\nLog of 100 (use base 10):\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 2))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x142d3edd0&gt;\n&lt;environment: 0x141e84450&gt;\n\n\n\nThe square root of 81:\n\n\ngradethis::grade_result(\n  #pass_if(~any(((9-0.5)&lt;.result)==TRUE)&any(((9+0.5)&gt;.result)==TRUE)\n      \n    gradethis::pass_if(~identical(.result, 9))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x142d3edd0&gt;\n&lt;environment: 0x13137f900&gt;\n\n\nCreate a variable called my_name with your last name spelled backwards followed by your first name. E.g., mine would be “olleratib_arabrab”."
   },
   {
     "objectID": "R-learning-goals.html",
@@ -368,7 +480,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nIntro\n\n\n0.Course Intro\n\n\nMon, Aug 31\n\n\n\n\n\n\nStatistics & Samples\n\n\n1.1.Statistics and Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nIntro\n\n\n0.Course Intro\n\n\nMon, Aug 31\n\n\n\n\n\n\nStatistics & Samples\n\n\n1.1.Statistics and Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nStatistics & Samples\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nWed, Sep 02\n\n\n\n\n\n\nR basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Slides"
     ]
@@ -518,14 +630,14 @@
     "href": "slides/Statistics_and_Samples1.html#statistics-parameters-13",
     "title": "1.1.Statistics and Samples",
     "section": "Statistics & Parameters (1/3)",
-    "text": "Statistics & Parameters (1/3)\nA parameter is some property of the world, i.e., the “truth”\n\nDecorative image. Poster from the show “The X-files”"
+    "text": "Statistics & Parameters (1/3)\nA parameter is some property of the world, i.e., the “truth”.\n\nDecorative image. Poster from the show “The X-files”"
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#statistics-parameters-23",
     "href": "slides/Statistics_and_Samples1.html#statistics-parameters-23",
     "title": "1.1.Statistics and Samples",
     "section": "Statistics & Parameters (2/3)",
-    "text": "Statistics & Parameters (2/3)\n\nBecause we can’t sample an entire population, we usually don’t know parameters. Parameters describe Populations\nBut we can get a good sense of the parameters from estimates we make from Samples.\nEstimates (statistics) approximate parameters as inferred from Samples"
+    "text": "Statistics & Parameters (2/3)\n\nBecause we can’t sample an entire population, we usually don’t know parameters. Parameters describe Populations.\nBut we can get a good sense of the parameters from estimates we make from Samples.\nEstimates (statistics) approximate parameters as inferred from Samples."
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#statistics-parameters-33",
@@ -546,7 +658,7 @@
     "href": "slides/Statistics_and_Samples1.html#a-sample-of-starfish",
     "title": "1.1.Statistics and Samples",
     "section": "A sample of starfish",
-    "text": "A sample of starfish\n\n\n\nEstimates (statistics) approximate parameters as inferred from samples\nWe estimate the proportion of pink as inferred from this sample and extrapolate to the population as an approximation."
+    "text": "A sample of starfish\n\n\n\nEstimates (statistics) approximate parameters as inferred from samples.\nWe estimate the proportion of pink as inferred from this sample and extrapolate to the population as an approximation."
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#acknowledgments",
@@ -560,7 +672,7 @@
     "href": "slides/0-Course-Intro.html#overview",
     "title": "0.Course Intro",
     "section": "Overview",
-    "text": "Overview\n\nIntroductions\nCourse Logistics\nTo-Dos for this week"
+    "text": "Overview\n\nIntroductions\nCourse Logistics\nTo-Dos for this week\n\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.2.0\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.3     ✔ tibble    3.3.1\n✔ lubridate 1.9.5     ✔ tidyr     1.3.2\n✔ purrr     1.2.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'scales'\n\n\nThe following object is masked from 'package:purrr':\n\n    discard\n\n\nThe following object is masked from 'package:readr':\n\n    col_factor\n\n\n\nAttaching package: 'kableExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    group_rows\n\n\nLoading required package: colorspace"
   },
   {
     "objectID": "slides/0-Course-Intro.html#hello",
@@ -651,7 +763,7 @@
     "href": "slides/0-Course-Intro.html#skill-building",
     "title": "0.Course Intro",
     "section": "Skill building",
-    "text": "Skill building\n\n“Research on expertise (5)indicates that even historic geniuses needed years of practice to develop their expertise. Ericsson (6) estimates that high-level expertise takes about 10,000 h of practice to develop and claims that no substantial exceptions have been found. In other words, no matter who you are, you need many repeated practice opportunities to develop expertise.”\n\nKoedinger, Carvalho, Liu, McLaughlin. PNAS. 120(13) e2221311120, https://doi.org/10.1073/pnas.2221311120 (2023)."
+    "text": "Skill building\n\n“Research on expertise (5) indicates that even historic geniuses needed years of practice to develop their expertise. Ericsson (6) estimates that high-level expertise takes about 10,000 h of practice to develop and claims that no substantial exceptions have been found. In other words, no matter who you are, you need many repeated practice opportunities to develop expertise.”\n\nKoedinger, Carvalho, Liu, McLaughlin. PNAS. 120(13) e2221311120, https://doi.org/10.1073/pnas.2221311120 (2023)."
   },
   {
     "objectID": "slides/0-Course-Intro.html#questions",

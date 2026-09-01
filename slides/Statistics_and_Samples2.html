@@ -235,7 +235,7 @@ Bárbara D. Bitarello
 <ol type="1">
 <li><p><strong>Estimation:</strong> estimate the values of important <em>parameters</em> and have measures of <em>uncertainty</em> for estimates</p></li>
 <li><p><strong>Hypothesis testing:</strong> Test hypotheses about those parameters</p></li>
-<li><p><strong>Causal inference</strong></p></li>
+<li><p><strong>Causal inference:</strong> Teasing apart causation from correlation</p></li>
 </ol>
 <aside class="notes"><p>Statistics claims to be obsessed with the TRUTH. It’s meant to be a way of understanding the world. It’s meant to describe and differentiate, and ideally, to tease apart causation from correlation. These three goals of statistics (below) are the beams of light we, as statisticians, try to shine on questions. That is – these three things are what you call a statistician to do.</p>
 <style type="text/css">
@@ -254,28 +254,31 @@ Bárbara D. Bitarello
 <li>Distinguish between sampling bias and sampling error.</li>
 <li>Identify why estimates from samples may deviate from parameters of populations</li>
 <li>Distinguish between accuracy and precision and how these terms relate to sampling bias and sampling error.</li>
-</ul></section><section id="probability-versus-frequency" class="slide level2"><h2>Probability versus Frequency</h2>
+</ul></section><section id="properties-of-a-good-sample" class="slide level2 scrollable"><h2>Properties of a good sample</h2>
+<ol type="1">
+<li>Random</li>
+</ol>
 <ul>
-<li><p>Probability distribution The proportion of the population with a given value (often approximated with a function)</p></li>
-<li><p>Frequency distribution The number of times a value occurs in a sample.</p></li>
-</ul></section><section id="properties-of-a-good-sample" class="slide level2"><h2>Properties of a good sample</h2>
-<ul>
-<li><p>A good sample is made up of a <strong>random</strong> and <strong>independent</strong> selection of a <strong>sufficiently large</strong> number of individuals.</p></li>
 <li><p><em>Equality:</em> probability of being selected reflects its representation in the population</p></li>
 <li><p><em>Independence:</em> no influence of sampling one individual on other individuals that get sampled.</p></li>
-</ul></section><section id="random-samples" class="slide level2"><h2>Random samples</h2>
+</ul>
+<ol start="2" type="1">
+<li>A <strong>sufficiently large</strong> number of individuals.</li>
+</ol></section><section id="random-samples" class="slide level2"><h2>Random samples</h2>
 <div class="goal">
 <p>Taking random samples is hard and requires effort</p>
 </div>
 <ul>
 <li>Why are they important? Reduce sampling bias</li>
-<li>How to get a random sample (ideal):</li>
+<li>How to get a random sample (ideal):
+<ul>
 <li>Carefully characterize a population and use computer code to select participants randomly.</li>
+</ul>
+</li>
 </ul>
 
 <img data-src="images/clipboard-4130122363.png" class="quarto-figure quarto-figure-center r-stretch" width="608"></section><section id="random-sampling-in-r" class="slide level2"><h2>Random sampling in R</h2>
 <ul>
-<li>Actually pseudo-random</li>
 <li>If you run the code below, it is very unlikely you will get the same numbers I did</li>
 </ul>
 <ul>
@@ -289,15 +292,130 @@ Bárbara D. Bitarello
 <span id="cb1-4"><a aria-label="4"></a><span class="co"># 2. Take 3 random numbers from this set</span></span>
 <span id="cb1-5"><a aria-label="5"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 8 7 3</code></pre>
+<pre><code>[1] 8 9 3</code></pre>
 </div>
 <details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="co"># now, to convince yourself, do it again</span></span>
 <span id="cb3-2"><a aria-label="2"></a><span class="fu">sample</span>(x, <span class="at">size =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 2 5 9</code></pre>
+<pre><code>[1]  2 10  6</code></pre>
 </div>
 </div>
-</section><section id="sampling-bias" class="slide level2"><h2>Sampling bias</h2>
+</section><section id="section" class="slide level2 center"><h2></h2>
+<div class="r-fit-text">
+<p>Probability Distribution vs.&nbsp;Frequency Distribution</p>
+</div>
+</section><section id="example" class="slide level2"><h2>Example</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li>
+<strong>Probability distribution:</strong> The proportion of the population with a given value (often approximated with a function)</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<ul>
+<li>
+<strong>Frequency distribution:</strong> The number of times a value occurs in a sample.</li>
+</ul>
+</div></div>
+<div class="cell" data-layout-align="center">
+<details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>plot.one.dice.prob <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">outcome =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>), <span class="at">probability =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a aria-label="2"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> outcome, <span class="at">y =</span> probability, <span class="at">fill =</span> <span class="fu">factor</span>(outcome))) <span class="sc">+</span></span>
+<span id="cb5-3"><a aria-label="3"></a>    <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Probability Distribution"</span>,</span>
+<span id="cb5-4"><a aria-label="4"></a>    <span class="at">subtitle =</span> <span class="st">"Outcome of a fair die"</span>) <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb5-5"><a aria-label="5"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.32</span>)) <span class="sc">+</span></span>
+<span id="cb5-6"><a aria-label="6"></a>    <span class="fu">ylab</span>(<span class="st">"Expected probability"</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.ticks =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb5-7"><a aria-label="7"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Outcome =</span> <span class="fu">DieRoll</span>(<span class="at">times =</span> <span class="dv">6</span>), <span class="at">NrRolls =</span> <span class="dv">6</span>)</span>
+<span id="cb5-8"><a aria-label="8"></a></span>
+<span id="cb5-9"><a aria-label="9"></a>one.roll <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> Outcome, <span class="at">fill =</span> <span class="fu">factor</span>(Outcome))) <span class="sc">+</span></span>
+<span id="cb5-10"><a aria-label="10"></a>    <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(count)), <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb5-11"><a aria-label="11"></a>    <span class="fu">ggtitle</span>(<span class="st">"Proportions Observed"</span>, <span class="at">subtitle =</span> <span class="st">"Outcome of a fair die</span><span class="sc">\n</span><span class="st">(n = 6 trials)"</span>) <span class="sc">+</span></span>
+<span id="cb5-12"><a aria-label="12"></a>    <span class="co"># scale_fill_manual(values = banff())+</span></span>
+<span id="cb5-13"><a aria-label="13"></a><span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="at">label =</span> <span class="st">"Observed proportion"</span>) <span class="sc">+</span></span>
+<span id="cb5-14"><a aria-label="14"></a>    <span class="fu">theme</span>(<span class="at">axis.ticks =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb5-15"><a aria-label="15"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb5-16"><a aria-label="16"></a>plot.one.dice.prob <span class="sc">+</span> one.roll</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<img data-src="Statistics_and_Samples2_files/figure-revealjs/unnamed-chunk-1-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><aside class="notes"><p>before we go into that</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="estimates-are-random-variables" class="slide level2"><h2>Estimates are random variables</h2>
+<ul>
+<li>Because an estimate is a <strong>random variable</strong>, the value of an estimate is influenced by chance.</li>
+</ul>
+<blockquote>
+<p>A random variable can take on many different values with different probabilities. Random variables are ways to map outcomes of random processes to numbers. – <a href="https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/random-variables-discrete/v/random-variables">Khan Academy</a></p>
+</blockquote>
+<ul>
+<li>Therefore estimates will differ among random samples from the same population.</li>
+</ul>
+
+<img data-src="images/clipboard-1924864965.png" class="r-stretch"><aside class="notes"><p>we’re assuming here that we don’t have the bias issue discussed for this example previously.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="the-major-goals-of-sampling" class="slide level2"><h2>The major goals of sampling</h2>
+<div class="r-fit-text">
+<ul>
+<li><p>minimize sampling error (increase precision of estimates)</p></li>
+<li><p>minimize sampling bias (increase accuracy of estimates)</p></li>
+</ul>
+</div>
+<aside class="notes"><p>Sampling: What could go wrong? {visibility=“hidden”}</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="sampling-error" class="slide level2"><h2>Sampling error</h2>
+<div class="goal">
+<p>Sampling error: Chance deviations between estimates and the truth due to chance/luck– even when you did NOTHING wrong!</p>
+</div>
+<ul>
+<li>Sampling error is the difference between the estimate and its true parameter value — and it can be quantified!</li>
+</ul></section><section id="sampling-error-and-precision-of-an-estimate" class="slide level2"><h2>Sampling error and precision of an estimate</h2>
+<ul>
+<li><p>The spread of estimates resulting from sampling error indicates the <u>precision</u> of an estimate.</p></li>
+<li><p>The lower the sampling error, the higher the precision.</p></li>
+<li><p>All else being equal, <em>larger samples will have lower sampling error and higher precision</em> than smaller samples.</p></li>
+</ul></section><section id="example-of-sampling-error" class="slide level2"><h2>Example of sampling error</h2>
+<ul>
+<li>The parameter “probability of getting a 6” is 1/6 (~0.17). The observed proportion in six random die rolls here was 0.</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="Statistics_and_Samples2_files/figure-revealjs/unnamed-chunk-2-1.png" width="960"></p>
+<figcaption>In this context we can think of each trial (die roll) as a sample. So our sample size here is 6.</figcaption></figure>
+</div>
+</div>
+</div>
+
+<aside><div>
+
+</div></aside></section><section id="sampling-error-declines-with-sample-size" class="slide level2"><h2>Sampling error declines with sample size</h2>
+
+<img data-src="Statistics_and_Samples2_files/figure-revealjs/dice3-1.png" width="960" class="r-stretch"></section><section id="sampling-bias" class="slide level2"><h2>Sampling bias</h2>
 <div class="columns">
 <div class="column" style="width:&quot;45%&quot;;">
 <ul>
@@ -310,7 +428,19 @@ Bárbara D. Bitarello
 </li>
 </ul>
 </div></div>
-</section><section id="sampling-bias-case-study" class="slide level2"><h2>Sampling bias case study</h2>
+</section><section id="sampling-bias-and-accuracy" class="slide level2"><h2>Sampling bias and accuracy</h2>
+<ul>
+<li>
+<strong>Accurate (or unbiased) estimate</strong> estimate: the average of all estimates that we might obtain is centered on the true population value</li>
+</ul>
+<div class="cell">
+<details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>df2 <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a aria-label="2"></a>    <span class="fu">mutate</span>(<span class="at">dist =</span> prop <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-3"><a aria-label="3"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> NrRolls, <span class="at">y =</span> prop)) <span class="sc">+</span> <span class="fu">geom_jitter</span>() <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>),</span>
+<span id="cb6-4"><a aria-label="4"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">color =</span> vir[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<img data-src="Statistics_and_Samples2_files/figure-revealjs/accurate, fig.caption- the deviations from 1/6 are not going in any particular direction.-1.png" width="960" class="r-stretch"></section><section id="sampling-bias-case-study" class="slide level2"><h2>Sampling bias case study</h2>
 <p>Sampling bias: Systematic difference between parameters &amp; estimates.</p>
 <div class="goal">
 <p>Case study: Polls in the 1936 US Election.</p>
@@ -331,9 +461,10 @@ Bárbara D. Bitarello
 </div>
 </section><section id="literary-digest-poll" class="slide level2"><h2>1936 Literary Digest poll</h2>
 <p>2.4 million responses to 10 million questionnaires , sent to people from telephone books and club lists.</p>
-</section><section id="election-results" class="slide level2"><h2>Election results</h2>
 
-<img data-src="images/elections-1936.png" alt="A map of the U.S. showing 1936 election results: most states in yellow for Roosevelt except Maine and Vermont in dark purple for Landon. Below, a bar graph displays vote percentages: 62% for Roosevelt in the election and 43% for him in Reader's Digest compared to 38% for Landon in the election compared to 57% for him in the reader's digest survey." width="318" class="r-stretch quarto-figure-center"><p class="caption">Plot made in R with code from Y. Brandvain.</p></section><section id="section" class="slide level2 center"><h2></h2>
+<img data-src="Statistics_and_Samples2_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch quarto-figure-center"><p class="caption">Figure made in R with code borrowed from Y. Brandvain</p></section><section id="election-results" class="slide level2"><h2>Election results</h2>
+
+<img data-src="Statistics_and_Samples2_files/figure-revealjs/unnamed-chunk-6-1.png" class="margin-caption r-stretch quarto-figure-center" alt="A map of the U.S. showing 1936 election results: most states in yellow for Roosevelt except Maine and Vermont in dark purple for Landon. Below, a bar graph displays vote percentages: 62% for Roosevelt in the election and 43% for him in Reader's Digest compared to 38% for Landon in the election compared to 57% for him in the reader's digest survey." width="960"><p class="caption">Figure made in R with code borrowed from Y. Brandvain.</p></section><section id="section-1" class="slide level2 center"><h2></h2>
 <div class="r-fit-text">
 <p>What do you think happened?</p>
 </div>
@@ -373,6 +504,9 @@ Bárbara D. Bitarello
           overflow: hidden!important;
           display:block!important;
       }</style></aside></section><section id="selection-bias" class="slide level2"><h2>Selection bias</h2>
+<blockquote>
+<p><em>“Occurs when individuals or groups in a study differ systematically from the population of interest leading to a systematic error in an association or outcome.”</em> – Catalog of Bias [https://catalogofbias.org/biases/selection-bias/]</p>
+</blockquote>
 <div class="quarto-figure quarto-figure-center">
 <figure><div class="quarto-figure quarto-figure-center">
 <figure><p><a href="https://xkcd.com/2618/"><img data-src="https://imgs.xkcd.com/comics/selection_bias.png" class="quarto-figure quarto-figure-center" alt="[Blondie is standing on a podium behind a lectern with a microphone. She is standing under a hanging sign with large text. In front of the podium is an audience of five seated persons all with their hands raised above their heads. The audience includes two guys that look like Cueball, Hairbun, and two other persons with dark and blonde hair.]     Sign: Statistics Conference 2022     Blondie: Raise your hand if you’re familiar with selection bias.      Blondie: As you can see, it’s a term most people know..." width="425"></a></p>
@@ -403,58 +537,8 @@ Bárbara D. Bitarello
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="sampling-error" class="slide level2"><h2>Sampling error</h2>
-<div class="goal">
-<p>Sampling error: Chance deviations between estimates and the truth – even when you did NOTHING wrong!</p>
-</div>
-<ul>
-<li>Sampling error is the difference between the estimate and its true parameter value — and it can be quantified!</li>
-</ul></section><section id="sampling-error-and-precision-of-an-estimate" class="slide level2"><h2>Sampling error and precision of an estimate</h2>
-<ul>
-<li><p>The spread of estimates resulting from sampling error indicates the [precision].{underline} of an estimate.</p></li>
-<li><p>The lower the sampling error, the higher the precision.</p></li>
-<li><p>All else being equal, <em>larger samples will have lower sampling error and higher precision</em> than smaller samples.</p></li>
-</ul></section><section id="example-of-sampling-error" class="slide level2"><h2>Example of sampling error</h2>
-<div class="cell">
-<details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>p1 <span class="ot">&lt;-</span> iris <span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a aria-label="2"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb9-3"><a aria-label="3"></a>    <span class="fu">ggtitle</span>(<span class="st">"Full 'IRIS' dataset</span><span class="sc">\n</span><span class="st">(n = 150)"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">""</span>)</span>
-<span id="cb9-4"><a aria-label="4"></a>p2 <span class="ot">&lt;-</span> iris <span class="sc">|&gt;</span></span>
-<span id="cb9-5"><a aria-label="5"></a>    <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">20</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-6"><a aria-label="6"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> wesanderson<span class="sc">::</span><span class="fu">wes_palette</span>(<span class="st">"AsteroidCity1"</span>)) <span class="sc">+</span></span>
-<span id="cb9-7"><a aria-label="7"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Random sample</span><span class="sc">\n</span><span class="st"> (n = 20)"</span>) <span class="sc">+</span></span>
-<span id="cb9-8"><a aria-label="8"></a>    <span class="fu">xlab</span>(<span class="st">""</span>)</span>
-<span id="cb9-9"><a aria-label="9"></a>p3 <span class="ot">&lt;-</span> iris <span class="sc">|&gt;</span></span>
-<span id="cb9-10"><a aria-label="10"></a>    <span class="fu">sample_n</span>(<span class="at">size =</span> <span class="dv">20</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-11"><a aria-label="11"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">fill =</span> Species)) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> wesanderson<span class="sc">::</span><span class="fu">wes_palette</span>(<span class="st">"AsteroidCity1"</span>)) <span class="sc">+</span></span>
-<span id="cb9-12"><a aria-label="12"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Another random sample</span><span class="sc">\n</span><span class="st"> (n = 20)"</span>) <span class="sc">+</span></span>
-<span id="cb9-13"><a aria-label="13"></a>    <span class="fu">xlab</span>(<span class="st">""</span>)</span>
-<span id="cb9-14"><a aria-label="14"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb9-15"><a aria-label="15"></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
-<div>
-<figure><p><img data-src="Statistics_and_Samples2_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-
-<aside><div>
-<p>The iris data set gives the measurements (in cm) of the variables sepal length and width and petal length and width for 50 flowers from each of 3 species of iris. The species are <em>Iris setosa</em>, <em>Iris versicolor</em>, and <em>Iris virginica</em>.</p>
-</div></aside></section><section id="sampling-error-declines-with-sample-size" class="slide level2"><h2>Sampling error declines with sample size</h2>
-
-<img data-src="Statistics_and_Samples2_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" class="r-stretch"></section><section id="estimates-are-random-variables" class="slide level2"><h2>Estimates are random variables</h2>
-<ul>
-<li>Because an estimate is a <strong>random variable</strong>, the value of an estimate is influenced by chance.</li>
-</ul>
-<blockquote>
-<p>A random variable can take on many different values with different probabilities. Random variables are ways to map outcomes of random processes to numbers. – <a href="https://www.khanacademy.org/math/statistics-probability/random-variables-stats-library/random-variables-discrete/v/random-variables">Khan Academy</a></p>
-</blockquote>
-<ul>
-<li>Therefore estimates will differ among random samples from the same population.</li>
-</ul>
-
-<img data-src="images/clipboard-1924864965.png" class="r-stretch"><aside class="notes"><p>we’re assuming here that we don’t have the bias issue discussed for this example previously.</p>
+      }</style></aside></section><section id="how-bias-and-sampling-error-affect-estimates" class="slide level2"><h2>How bias and sampling error affect estimates</h2>
+<aside class="notes"><p>In summary</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -465,15 +549,15 @@ Bárbara D. Bitarello
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="how-bias-and-sampling-error-affect-estimates" class="slide level2"><h2>How bias and sampling error affect estimates</h2>
-<div class="columns">
+      }</style></aside><div class="columns">
 <div class="column" style="width:50%;">
 <div class="r-stack">
 <p><strong>Sampling Bias</strong></p>
 </div>
 <ul>
-<li>Systematic difference between estimates &amp; parameters.</li>
-<li>Driven by bias in the sampling process (i.e., sample not random in relation to the population of interest), regarless of sample size.</li>
+<li>
+<u>Systematic</u> difference between estimates &amp; parameters.</li>
+<li>Driven by bias in the sampling process (i.e., sample not random in relation to the population of interest), <em>regarless of sample size</em>.</li>
 </ul>
 </div><div class="column" style="width:50%&quot;;">
 <div class="r-stack">
@@ -481,24 +565,31 @@ Bárbara D. Bitarello
 </div>
 <ul>
 <li>Undirected deviation of estimates away from parameters.</li>
-<li>Driven by chance.</li>
+<li>
+<u>Driven by chance</u>.</li>
 <li>Decreases with sample size.</li>
 </ul>
 </div></div>
-</section><section id="goals-of-estimation" class="slide level2"><h2>Goals of estimation</h2>
+</section><section id="goals-of-estimation-visual-summary" class="slide level2"><h2>Goals of estimation: visual summary</h2>
 <div class="goal">
-<p>Accuracy (on average gets the correct answer)</p>
+<p>Accuracy (on average gets the correct answer).</p>
 </div>
 <div class="goal">
-<p>Precision (gives a similar answer repeatedly)</p>
+<p>Precision (gives a similar answer repeatedly). If unbiased, those estimated are centered around the true value (parameter).</p>
 </div>
 
-<img data-src="images/clipboard-1978701112.png" alt="Left: low accuracy due to low precision. Shot grouping shows four hits around the central circle, somewhat equi-distant from each other. right: low accuracy even with high precision. Shot grouping with four shots near each other to the left-bottom of the center of the central target." class="r-stretch quarto-figure-center"><p class="caption">Image: Wikipedia Commons (public domain).</p></section><section id="sampling-error-vs.-bias" class="slide level2"><h2>Sampling error vs.&nbsp;bias</h2>
-<p>In this figure, the “X” is the population parameter. The circles are different estimates calculated from different samples taken from that population.</p>
+<img data-src="images/clipboard-1978701112.png" alt="Left: low accuracy due to low precision. Shot grouping shows four hits around the central circle, somewhat equi-distant from each other. right: low accuracy even with high precision. Shot grouping with four shots near each other to the left-bottom of the center of the central target." class="r-stretch quarto-figure-center"><p class="caption">Image: Wikipedia Commons (public domain).</p></section><section id="sampling-error-vs.-bias-visual-summary" class="slide level2"><h2>Sampling error vs.&nbsp;bias: visual summary</h2>
+<p>In this figure, the “X” in the middle is the population parameter. The circles are different estimates calculated from different samples taken from that population.</p>
+
+<img data-src="Statistics_and_Samples2_files/figure-revealjs/biaserror-1.png" alt="top left: all estimates are near each other and enar the bulls eye, so they are unbiased and precise; top right: all samples near each other but far from the bulls eye, so they are precise but also biased; bottom left, estimates are scattered 'randomly' around bulls eye, so they are unbiased but also imprecise; bottom right, samples are scattered around acenter that is not the bulls eye, so they are imprecise and biased." width="768" class="r-stretch quarto-figure-center"><p class="caption">Figure made in R with code borrowed from Y. Brandvain</p></section><section id="coming-up-next" class="slide level2"><h2>Coming up next:</h2>
+<ul>
+<li>Different types of variables</li>
+<li>Different types of study</li>
+<li>Correlation <span class="math inline">\(\neq\)</span> causation</li>
+</ul>
 
 
-
-<img data-src="Statistics_and_Samples2_files/figure-revealjs/biaserror-1.png" alt="top left: all estimates are near each other and enar the bulls eye, so they are unbiased and precise; top right: all samples near each other but far from the bulls eye, so they are precise but also biased; bottom left, estimates are scattered 'randomly' around bulls eye, so they are unbiased but also imprecise; bottom right, samples are scattered around acenter that is not the bulls eye, so they are imprecise and biased." width="768" class="r-stretch quarto-figure-center"><p class="caption">Figure made in R with code borrowed from Y. Brandvain</p></section>
+</section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -513,7 +604,7 @@ Bárbara D. Bitarello
       Reveal.initialize({
 'controlsAuto': false,
 'previewLinksAuto': false,
-'pdfSeparateFragments': true,
+'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
