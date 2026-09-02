@@ -106,7 +106,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\nHide the code# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 8 9 3\n\nHide the code# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1]  2 10  6"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\nHide the code# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 9 1 2\n\nHide the code# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 8 2 7"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
@@ -277,283 +277,11 @@
     "text": "Coming up next:\n\nDifferent types of variables\nDifferent types of study\nCorrelation \\(\\neq\\) causation"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "B215: Biostatistics with R",
-    "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nmodule\nweek\ndow\ndate\nwhat\ntopic\ndue\nexam\n\n\n\n\n1\n1\nM\nAug-31\n0\nIntro to class\n\n\n\n\n1\n1\nT\nSep-1\n1\nLab1: Intro to R\nDC: Introduction to R (ch.1-2) + Lab worksheet 1\n\n\n\n1\n1\nW\nSep-2\n2\nStatistics and Samples\n\n\n\n\n1\n2\nM\nSep-7\n\n\nNo classes (labor day)\n\n\n\n\n1\n2\nT\nSep-8\n3\nLab 2: Data summaries and basic plots\nDC: Introduction to R (ch.1-6) + Lab worksheet 2\n\n\n\n1\n2\nW\nSep-9\n4\nTypes of study and experimental design\n\n\n\n\n1\n3\nM\nSep-14\n5\nDisplaying & Describing Data I\n\n\n\n\n1\n3\nT\nSep-15\n6\nLab 3: ggplot and dplyr\nLab woksheet 3\n\n\n\n1\n3\nW\nSep-16\n7\nDisplaying & Describing Data I\n\n\n\n\n1\n4\nM\nSep-21\n8\nDisplaying & Describing Data II\nProblem set 1\n\n\n\n1\n4\nT\nSep-22\n9\nLab 4: Exploratory data analysis\nLab woksheet 4\n\n\n\n1\n4\nW\nSep-23\n10\nDisplaying & Describing Data II\n\n\n\n\n2\n5\nM\nSep-28\n11\nProbability I: Proportions\nAll DCs (hard deadline)\n\n\n\n2\n5\nT\nSep-29\n12\n\n\n\n\nMidterm 1\n\n\n2\n5\nW\nSep-30\n13\nProbability I: Rules\n\n\n\n\n2\n6\nM\nOct-5\n14\nProbability II: Binomial & Bayes\n\n\n\n\n2\n6\nT\nOct-6\n15\nLab 5:\nLab woksheet 5\n\n\n\n2\n6\nW\nOct-7\n16\nProbability II: Binomial & Bayes\n\n\n\n\n\n\n\nOct-10-Oct18\n\n\nFall break (no classes)\n\n\n\n\n2\n7\nM\nOct-19\n17\nEstimation\n\n\n\n\n2\n7\nT\nOct-20\n18\nLab 6:\nLab worksheet 6\n\n\n\n2\n7\nW\nOct-21\n19\nEstimation\nCoding project checkpoint 1\n\n\n\n2\n8\nM\nOct-26\n20\nEstimation|Hypothesis testing\n\n\n\n\n2\n8\nT\nOct-27\n21\nLab 7:\nLab worksheet\n\n\n\n2\n8\nW\nOct-28\n22\nHypothesis testing\nCoding checkpoint\n\n\n\n2\n9\nM\nNov-2\n23\nGoodness-of-fit test\n\n\n\n\n2\n9\nT\nNov-3\n24\nLab 8:\nLab worksheet\n\n\n\n2\n9\nW\nNov-4\n25\nGoodness-of-fit test\nCoding project checkpoint 2\n\n\n\n3\n10\nM\n2026-11-09\n26\nContingency analyses\nAll DCs (hard deadline); PS2\n\n\n\n3\n10\nT\nNov-10\n27\n\n\n\n\nMidterm 2\n\n\n3\n10\nW\nNov-11\n28\nContingency analyses\n\n\n\n\n3\n11\nM\nNov-16\n29\nContingency analyses\n\n\n\n\n3\n11\nT\nNov-17\n30\nLab 9:\nLab worksheet\n\n\n\n3\n11\nW\nNov-18\n31\nContingency analyses\n\n\n\n\n3\n12\nM\nNov-23\n32\nNormal Distribution\n\n\n\n\n3\n12\nT\nNov-24\n33\nLab 10:\nLab worksheet\n\n\n\n3\n12\nW\nNov-25\n\n\nNo class (day before thanksgiving)\n\n\n\n\n3\n13\nM\nNov-30\n34\nt-values\n\n\n\n\n3\n13\nT\nDec-1\n35\nLab 11: TBD + Peer-review activity\n\n\n\n\n3\n13\nW\nDec-2\n36\nt-tests\nProblem set 3\n\n\n\n3\n14\nM\nDec-7\n37\n\n\n\n\n\n\n3\n14\nT\nDec-8\n38\nLab 11: |Work on coding project\n\n\n\n\n3\n14\nW\nDec-9\n39\nReview|Course Evals\nCoding project\n\n\n\n\n15\n\n\n\n\n\n\n\n\nFinal exam: during finals week, date TBD",
-    "crumbs": [
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "labs.html",
-    "href": "labs.html",
-    "title": "Labs",
-    "section": "",
-    "text": "Topic\nTitle\nDate\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "rlearn.html",
-    "href": "rlearn.html",
-    "title": "Learning R (and statistics)",
-    "section": "",
-    "text": "Updated often. If you’re an enrolled students and would like to contribute content here, please open a thread on Piazza under “Misc” and say you’d like to share a useful link.",
-    "crumbs": [
-      "Rrresources"
-    ]
-  },
-  {
-    "objectID": "rlearn.html#r-help",
-    "href": "rlearn.html#r-help",
-    "title": "Learning R (and statistics)",
-    "section": "Getting help with R",
-    "text": "Getting help with R\nSTART HERE, with fbriatte.org, where you can learn how to find answers to your burning R questions online.\n\nGetting help with R\nStack overflow: topics are tagged, and “r” is a very popular tag on the site. To go directly to R-related topics, visit http://stackoverflow.com/questions/tagged/r.\nRstudio Community\nReddit: r/rstats, r/Rlanguage, r/rprogramming, r/RStudio\nGithub: github is a must for anyone in datascience and has many functions. For your purposes, searching for a particular package and looking into their “issues” page can be very helpful. E.g., here is the issues page for the rmarkdown package.\nCheatsheets (several)",
-    "crumbs": [
-      "Rrresources"
-    ]
-  },
-  {
-    "objectID": "rlearn.html#free-online-books",
-    "href": "rlearn.html#free-online-books",
-    "title": "Learning R (and statistics)",
-    "section": "Free Online Books",
-    "text": "Free Online Books\n\n“R for Data Science”, by Hadley Wickham & Garrett Grolemund\n“Applied Data Skills”\n“Exploring Data Science with R and the Tidyverse: A Concise Introduction”\n“R Graphic Cookbook”\n“R Markdown Cookbook”\n“Introduction to Data Science: Data Wrangling and Visualization with R”, by Rafael Irizarry\n“Introduction to Data Science: Statistics and Prediction Algorithms Through Case Studies”, by Refael Irizarry\n“YaRrr! The Pirate’s Guide to R”, by Nathaniel Phillips\n“An introduction to Biostatistics using R”, by Glover & Mitchell\n“Introductory Biostatistics with R”, by Dylan Childs, Bethan Hindle & Philip Warren\n“Applied Biostats”, by Yaniv Brandvain.\nHolmes S, Huber W. Modern Statistics for Modern Biology. Cambridge University Press; 2018. Available from: https://web.stanford.edu/class/bios221/book/index.html.\n“ggplot2: Elegant Graphics for Data Analysis (3e)”",
-    "crumbs": [
-      "Rrresources"
-    ]
-  },
-  {
-    "objectID": "rlearn.html#r-vids",
-    "href": "rlearn.html#r-vids",
-    "title": "Learning R (and statistics)",
-    "section": "Videos",
-    "text": "Videos\n\nOverview of R Markdown: a crash course\nCode Like a Pro\nIntro to Rstudio and Rstudio Cloud\nOverview of R markdown\nRmarkdown with Rstudio\nThis youtube playlist - I curated this and it contains both R info and biostatistics in general.",
-    "crumbs": [
-      "Rrresources"
-    ]
-  },
-  {
-    "objectID": "rlearn.html#tutorials-simulations",
-    "href": "rlearn.html#tutorials-simulations",
-    "title": "Learning R (and statistics)",
-    "section": "Tutorials & Simulations",
-    "text": "Tutorials & Simulations\nfasteR: Fast Lane to Learning R! – If you wanna speed things up!\nR Workflow for Reproducible Data Analysis and Reporting by Frank E. Harrell Jr – Great resource. Provides tutorials and also link to other freely available materials.\nR for Beginners –– An on-line introduction to R by Emmanuel Paradis\n\nr-statistics.co, by Selva Prabhakaran - includes very good section on ggplot!\nFrom your textbook\nQuick-R\nRstudio Education\nPosit Cloud Recipes\nPower analyses in R",
-    "crumbs": [
-      "Rrresources"
-    ]
-  },
-  {
-    "objectID": "rlearn.html#web-visualizations",
-    "href": "rlearn.html#web-visualizations",
-    "title": "Learning R (and statistics)",
-    "section": "Web visualizations",
-    "text": "Web visualizations\nCLT: https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm\nCLT: https://shiny.maths.nottingham.ac.uk/pmzdjc/YujingCLTApp/?showcase=0\nAnother one from CLT: https://shiny.maths.nottingham.ac.uk/pmzdjc/YujingCLTApp/?showcase=0\nSampling from the Normal: https://brandvain.shinyapps.io/standardnormal/\nSample means with a normal distribution: https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm\nConfidence intervals for the mean: https://www.zoology.ubc.ca/~whitlock/Kingfisher/CIMean.htm\nThis link has web apps for several topics covered in the course: https://shinyapps.science.psu.edu/\nBiostatistics: A practical introduction",
-    "crumbs": [
-      "Rrresources"
-    ]
-  },
-  {
-    "objectID": "rlearn.html#biological-datasets-freely-available",
-    "href": "rlearn.html#biological-datasets-freely-available",
-    "title": "Learning R (and statistics)",
-    "section": "Biological Datasets (Freely Available)",
-    "text": "Biological Datasets (Freely Available)\nI will keep adding stuff here, but here are some good places to search.\n\nDryad - lots of scientific papers make their datasets available here.\nZenodo - lots of scientific papers make their datasets available here.\nNational Library of Medicine Dataset Catalog - great resource from the NIH, points to datasets elsewher elike zenodo, dryad, figshare, etc.\nre3data\nFigShare - lots of scientific papers make their datasets available here.\nWold Population Review - not focused on biology but very cool nevertheless. There are subsections that have biological datasets though like the one focusing on health, for example.\n\nR Datasets (r-packages.io): - Many types of datasets, including biological ones.\nRdatasets package - Many types of datasets, including biological ones.",
-    "crumbs": [
-      "Rrresources"
-    ]
-  },
-  {
-    "objectID": "labs/Lab1-cheatsheet.html",
-    "href": "labs/Lab1-cheatsheet.html",
-    "title": "Lab1-cheatsheet",
-    "section": "",
-    "text": "Here is a non-exhaustive list of common mathematical operators you may want to use in R:\n\n\n\n\n\n\n\nDescription\nOperator\n\n\n\n\nEqual to\n==\n\n\nNot equal to\n!=\n\n\nAssignment of a value to a variable\n&lt;- or =\n\n\nAddition\n+\n\n\nSubtraction\n-\n\n\nMultiplication\n*\n\n\nDivision\n/\n\n\nExponentiation\nx^y or x\\*\\*y\n\n\nModulo (x mod y), returns remainder of a division\nx %% y\n\n\nLess than\n&lt;\n\n\nGreater than\n&gt;\n\n\nLess than or equal to\n&lt;=\n\n\nGreater than or equal to\n&gt;=\n\n\nx OR y (Boolean)\nx || y\n\n\nx AND y (Boolean)\nx && y"
-  },
-  {
-    "objectID": "labs/Lab1-cheatsheet.html#r-commands-summary",
-    "href": "labs/Lab1-cheatsheet.html#r-commands-summary",
-    "title": "Lab1-cheatsheet",
-    "section": "",
-    "text": "Here is a non-exhaustive list of common mathematical operators you may want to use in R:\n\n\n\n\n\n\n\nDescription\nOperator\n\n\n\n\nEqual to\n==\n\n\nNot equal to\n!=\n\n\nAssignment of a value to a variable\n&lt;- or =\n\n\nAddition\n+\n\n\nSubtraction\n-\n\n\nMultiplication\n*\n\n\nDivision\n/\n\n\nExponentiation\nx^y or x\\*\\*y\n\n\nModulo (x mod y), returns remainder of a division\nx %% y\n\n\nLess than\n&lt;\n\n\nGreater than\n&gt;\n\n\nLess than or equal to\n&lt;=\n\n\nGreater than or equal to\n&gt;=\n\n\nx OR y (Boolean)\nx || y\n\n\nx AND y (Boolean)\nx && y"
-  },
-  {
-    "objectID": "labs/webr-test.html",
-    "href": "labs/webr-test.html",
-    "title": "webR in Quarto HTML Documents",
-    "section": "",
-    "text": "This is a webr-enabled code cell in a Quarto HTML document.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "labs/Lab1-slides.html#vectors",
-    "href": "labs/Lab1-slides.html#vectors",
-    "title": "Lab1: R Crash Course",
-    "section": "Vectors",
-    "text": "Vectors\nAll elements must be of the same type.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "labs/Lab1-slides.html#vectors-1",
-    "href": "labs/Lab1-slides.html#vectors-1",
-    "title": "Lab1: R Crash Course",
-    "section": "Vectors",
-    "text": "Vectors\nAll elements must be of the same type.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "labs/lab1.html",
-    "href": "labs/lab1.html",
-    "title": "01. R, Rstudio: Crash Course",
-    "section": "",
-    "text": "Complete DC activity Introduction to R’s first two chapters:\n\nIntro to Basics\nIntroduction to vectors\n\nWork through this document\nComplete the Quiz at the end of this doc\nDownload the file with your answers and upload to moodle"
-  },
-  {
-    "objectID": "labs/lab1.html#numbers",
-    "href": "labs/lab1.html#numbers",
-    "title": "01. R, Rstudio: Crash Course",
-    "section": "Numbers",
-    "text": "Numbers\nThere are three number types in R:\n\nnumeric: the most common type in R; contains any number with or without a decimal\ninteger: numeric data without decimals. This is used when you are certain that you will never create a variable that should contain decimals. Just add the letter L after the number to create an integer.\ncomplex: number is written with an “i” as the imaginary part. Less used."
-  },
-  {
-    "objectID": "labs/lab1.html#example",
-    "href": "labs/lab1.html#example",
-    "title": "01. R, Rstudio: Crash Course",
-    "section": "Example",
-    "text": "Example\nTry these in the sandbox at the end of this section.\nx &lt;- 200.8  # numeric\ny &lt;- 1000L  # integer\nz &lt;- 1i     # complex\nTry these, one at a time:\nx &lt;- 200.8  # numeric\ny &lt;- 1000L  # integer\nz &lt;- 1i     # complex\nYou can convert from one type to another with the following functions:\nas.numeric()\nas.integer()\nas.complex()\nTry these in the sandbox below:\nx &lt;- 200.8  # numeric\ny &lt;- 1000L  # integer\n\nx2 &lt;- as.integer(x) #what happens here?\n\ny2 &lt;- as.numeric(y) #what happens here?\n\nclass(x2)\n\nclass(y2)\nSandbox: Use the area below for any R practice"
-  },
-  {
-    "objectID": "labs/lab1.html#vectors",
-    "href": "labs/lab1.html#vectors",
-    "title": "01. R, Rstudio: Crash Course",
-    "section": "Vectors",
-    "text": "Vectors\nA vector is simply a list of items that are of the same type.\nTo combine the list of items to a vectowebr-r, use the c() function and separate the items by a comma.\nIn the example below, we create a vector variable called planets, that combines strings:\n#vector of strings\n\nplanets &lt;- c(\"Earth\", \"Mars\", \"Saturn\")\n\n#print planets\nplanets\nIn this example, we create a vector that combines numerical values:\n#vector of numeric values\n\nprime_numbers&lt;- c(2, 3, 5, 7, 11)\n\n#print prime numbers\n\nprime_numbers\nYou can create a sequence of numbers using : :\nVector with numerical values in a sequence:\nnumbers &lt;- 1:10\n\nnumbers\n\n# type any code here"
-  },
-  {
-    "objectID": "labs/lab1-quiz.html#vectors",
-    "href": "labs/lab1-quiz.html#vectors",
-    "title": "R Quiz 1",
-    "section": "Vectors",
-    "text": "Vectors\n\nExercise 1\n\nBelow, assign the number 9 to the variable a\n\n\n# assign 9 to a\n\n\na &lt;- 9                \n#Note: I am not sure how to allow multiple correct answers, say\n# a&lt;-9 and \n# a = 9\n\n\n##grade_this_code()\n\n\n\nexercise 2\nNow create another vector, b, containing the numbers 2,9, and 8 in that order\n\n        # assign a vector with 2, 9 and 8, in that order, to b\n\n\nb &lt;- c(2,9,8)      # assign a vector with 2, 9 and 8, in that order, to b \n\n\n#grade_this_code()"
-  },
-  {
-    "objectID": "labs/lab1-quiz.html#vector-functions",
-    "href": "labs/lab1-quiz.html#vector-functions",
-    "title": "R Quiz 1",
-    "section": "Vector functions",
-    "text": "Vector functions\nNow, test if vector a is equal to vector b\n\nex3\n\na &lt;- 9\nb &lt;- c(2,9,8)\n\n\n                    # ask if a equals b \n\n\na == b               # ask if a equals b \n\n[1] FALSE  TRUE FALSE\n\n\n\n#grade_this_code()\n\n\n\nexercise 4\nFinally, multiply vectors a and b\n\n                    # multiply a and b\n\n\na * b             # multiply a and b \n\n[1] 18 81 72\n\n\n\n#grade_this_code()"
-  },
-  {
-    "objectID": "labs/lab1-quiz.html#quiz",
-    "href": "labs/lab1-quiz.html#quiz",
-    "title": "R Quiz 1",
-    "section": "Quiz",
-    "text": "Quiz\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "labs/lab1-quiz.html#rrstudio",
-    "href": "labs/lab1-quiz.html#rrstudio",
-    "title": "R Quiz 1",
-    "section": "R/Rstudio",
-    "text": "R/Rstudio\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "labs/lab1-quiz.html#use-r-to-calculate",
-    "href": "labs/lab1-quiz.html#use-r-to-calculate",
-    "title": "R Quiz 1",
-    "section": "Use R to calculate:",
-    "text": "Use R to calculate:\n\nThe product of 15 by 17\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 255))\n)\n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x142d3edd0&gt;\n&lt;environment: 0x142d3d428&gt;\n\n\n\nThirteen to the power of 3:\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 2197))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x142d3edd0&gt;\n&lt;environment: 0x14234aba8&gt;\n\n\n\nLog of 14 (use the natural log):\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result,  log(14)))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x142d3edd0&gt;\n&lt;environment: 0x144008518&gt;\n\n\n\nLog of 100 (use base 10):\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 2))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x142d3edd0&gt;\n&lt;environment: 0x141e84450&gt;\n\n\n\nThe square root of 81:\n\n\ngradethis::grade_result(\n  #pass_if(~any(((9-0.5)&lt;.result)==TRUE)&any(((9+0.5)&gt;.result)==TRUE)\n      \n    gradethis::pass_if(~identical(.result, 9))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x142d3edd0&gt;\n&lt;environment: 0x13137f900&gt;\n\n\nCreate a variable called my_name with your last name spelled backwards followed by your first name. E.g., mine would be “olleratib_arabrab”."
-  },
-  {
-    "objectID": "R-learning-goals.html",
-    "href": "R-learning-goals.html",
-    "title": "R-learning-goals",
-    "section": "",
-    "text": "From: https://datacarpentry.github.io/semester-biology/syllabus/\nCreate well structured data\nExtract information from data\nWrite computer programs in R\nAutomate data analysis\nApply these tools to address biological questions\nApply general data management and analysis concepts to other programming languages and database management systems"
-  },
-  {
-    "objectID": "acknowledgments.html",
-    "href": "acknowledgments.html",
-    "title": "Acknowledgments",
-    "section": "",
-    "text": "Thank you to the following people and orgs for sharing their website templates: Maria Tackett, datasciencelabs, Mine Çetinkaya-Rundel, Rstudio, and Rafael Irizarry. I also want to thank Yaniv Brandvain and Michael Whitlock for sharing awesome teaching materials, from which I have heavily borrowed. Thank you also to fbriatte.org for curating so many useful tips shared with students in R resources. Lastly, thank you to Nicole Cavalieri for help in developing some of the R lab materials."
-  },
-  {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
-    "section": "",
-    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nIntro\n\n\n0.Course Intro\n\n\nMon, Aug 31\n\n\n\n\n\n\nStatistics & Samples\n\n\n1.1.Statistics and Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nStatistics & Samples\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nWed, Sep 02\n\n\n\n\n\n\nR basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Slides"
-    ]
-  },
-  {
-    "objectID": "list_of_datacamp_assignments.html",
-    "href": "list_of_datacamp_assignments.html",
-    "title": "B215: List of DataCamp Assigments",
-    "section": "",
-    "text": "Last update: 10-04-2022"
-  },
-  {
-    "objectID": "list_of_datacamp_assignments.html#introduction-to-r",
-    "href": "list_of_datacamp_assignments.html#introduction-to-r",
-    "title": "B215: List of DataCamp Assigments",
-    "section": "Introduction to R",
-    "text": "Introduction to R\nEntire Course, which consists of these chapters (in order):\n\nIntro to Basics\nVectors\nMatrices\nFactors\nData frames\nLists"
-  },
-  {
-    "objectID": "list_of_datacamp_assignments.html#introduction-to-importing-data-with-r",
-    "href": "list_of_datacamp_assignments.html#introduction-to-importing-data-with-r",
-    "title": "B215: List of DataCamp Assigments",
-    "section": "Introduction to Importing Data with R",
-    "text": "Introduction to Importing Data with R\n\nImporting Data with Flatfiles from utils\nImporting excel data"
-  },
-  {
-    "objectID": "list_of_datacamp_assignments.html#reporting-with-r-markdown",
-    "href": "list_of_datacamp_assignments.html#reporting-with-r-markdown",
-    "title": "B215: List of DataCamp Assigments",
-    "section": "Reporting with R markdown",
-    "text": "Reporting with R markdown\n\nGetting Started with R markdown\nAdding analyses and visualizations"
-  },
-  {
-    "objectID": "list_of_datacamp_assignments.html#introduction-to-the-tidyverse",
-    "href": "list_of_datacamp_assignments.html#introduction-to-the-tidyverse",
-    "title": "B215: List of DataCamp Assigments",
-    "section": "Introduction to the Tidyverse",
-    "text": "Introduction to the Tidyverse\nEntire Course, which consists of these chapters (in order):\n\nData wrangling\nData visualization\nGrouping and summarising\nTypes of visualizations"
-  },
-  {
-    "objectID": "list_of_datacamp_assignments.html#data-manipulation-with-dplyr",
-    "href": "list_of_datacamp_assignments.html#data-manipulation-with-dplyr",
-    "title": "B215: List of DataCamp Assigments",
-    "section": "Data manipulation with dplyr",
-    "text": "Data manipulation with dplyr\n\nTransforming Data with dplyr\nAggregating Data"
-  },
-  {
-    "objectID": "list_of_datacamp_assignments.html#introduction-to-data-visualization-with-ggplot2",
-    "href": "list_of_datacamp_assignments.html#introduction-to-data-visualization-with-ggplot2",
-    "title": "B215: List of DataCamp Assigments",
-    "section": "Introduction to Data Visualization with ggplot2",
-    "text": "Introduction to Data Visualization with ggplot2\n\nIntroduction\nAesthetics\nGeometries\nThemes"
-  },
-  {
-    "objectID": "list_of_datacamp_assignments.html#exploratory-data-analysis-in-r",
-    "href": "list_of_datacamp_assignments.html#exploratory-data-analysis-in-r",
-    "title": "B215: List of DataCamp Assigments",
-    "section": "Exploratory Data Analysis in R",
-    "text": "Exploratory Data Analysis in R\n\nExploring Categorical Data [good review for exam]\nExploring Numerical Data [good review for exam]"
-  },
-  {
-    "objectID": "list_of_datacamp_assignments.html#introduction-to-statistics-in-r",
-    "href": "list_of_datacamp_assignments.html#introduction-to-statistics-in-r",
-    "title": "B215: List of DataCamp Assigments",
-    "section": "Introduction to Statistics in R",
-    "text": "Introduction to Statistics in R\n\nSummary Statistics [Lab6] [good review for exam]"
-  },
-  {
-    "objectID": "list_of_datacamp_assignments.html#sampling-in-r",
-    "href": "list_of_datacamp_assignments.html#sampling-in-r",
-    "title": "B215: List of DataCamp Assigments",
-    "section": "Sampling in R",
-    "text": "Sampling in R\n\nIntroduction to Sampling"
+    "objectID": "slides/Statistics_and_Samples2.html#acknowledgments",
+    "href": "slides/Statistics_and_Samples2.html#acknowledgments",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#learning-goals",
@@ -666,6 +394,481 @@
     "title": "1.1.Statistics and Samples",
     "section": "Acknowledgments",
     "text": "Acknowledgments\n\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
+  },
+  {
+    "objectID": "list_of_datacamp_assignments.html",
+    "href": "list_of_datacamp_assignments.html",
+    "title": "B215: List of DataCamp Assigments",
+    "section": "",
+    "text": "Last update: 10-04-2022"
+  },
+  {
+    "objectID": "list_of_datacamp_assignments.html#introduction-to-r",
+    "href": "list_of_datacamp_assignments.html#introduction-to-r",
+    "title": "B215: List of DataCamp Assigments",
+    "section": "Introduction to R",
+    "text": "Introduction to R\nEntire Course, which consists of these chapters (in order):\n\nIntro to Basics\nVectors\nMatrices\nFactors\nData frames\nLists"
+  },
+  {
+    "objectID": "list_of_datacamp_assignments.html#introduction-to-importing-data-with-r",
+    "href": "list_of_datacamp_assignments.html#introduction-to-importing-data-with-r",
+    "title": "B215: List of DataCamp Assigments",
+    "section": "Introduction to Importing Data with R",
+    "text": "Introduction to Importing Data with R\n\nImporting Data with Flatfiles from utils\nImporting excel data"
+  },
+  {
+    "objectID": "list_of_datacamp_assignments.html#reporting-with-r-markdown",
+    "href": "list_of_datacamp_assignments.html#reporting-with-r-markdown",
+    "title": "B215: List of DataCamp Assigments",
+    "section": "Reporting with R markdown",
+    "text": "Reporting with R markdown\n\nGetting Started with R markdown\nAdding analyses and visualizations"
+  },
+  {
+    "objectID": "list_of_datacamp_assignments.html#introduction-to-the-tidyverse",
+    "href": "list_of_datacamp_assignments.html#introduction-to-the-tidyverse",
+    "title": "B215: List of DataCamp Assigments",
+    "section": "Introduction to the Tidyverse",
+    "text": "Introduction to the Tidyverse\nEntire Course, which consists of these chapters (in order):\n\nData wrangling\nData visualization\nGrouping and summarising\nTypes of visualizations"
+  },
+  {
+    "objectID": "list_of_datacamp_assignments.html#data-manipulation-with-dplyr",
+    "href": "list_of_datacamp_assignments.html#data-manipulation-with-dplyr",
+    "title": "B215: List of DataCamp Assigments",
+    "section": "Data manipulation with dplyr",
+    "text": "Data manipulation with dplyr\n\nTransforming Data with dplyr\nAggregating Data"
+  },
+  {
+    "objectID": "list_of_datacamp_assignments.html#introduction-to-data-visualization-with-ggplot2",
+    "href": "list_of_datacamp_assignments.html#introduction-to-data-visualization-with-ggplot2",
+    "title": "B215: List of DataCamp Assigments",
+    "section": "Introduction to Data Visualization with ggplot2",
+    "text": "Introduction to Data Visualization with ggplot2\n\nIntroduction\nAesthetics\nGeometries\nThemes"
+  },
+  {
+    "objectID": "list_of_datacamp_assignments.html#exploratory-data-analysis-in-r",
+    "href": "list_of_datacamp_assignments.html#exploratory-data-analysis-in-r",
+    "title": "B215: List of DataCamp Assigments",
+    "section": "Exploratory Data Analysis in R",
+    "text": "Exploratory Data Analysis in R\n\nExploring Categorical Data [good review for exam]\nExploring Numerical Data [good review for exam]"
+  },
+  {
+    "objectID": "list_of_datacamp_assignments.html#introduction-to-statistics-in-r",
+    "href": "list_of_datacamp_assignments.html#introduction-to-statistics-in-r",
+    "title": "B215: List of DataCamp Assigments",
+    "section": "Introduction to Statistics in R",
+    "text": "Introduction to Statistics in R\n\nSummary Statistics [Lab6] [good review for exam]"
+  },
+  {
+    "objectID": "list_of_datacamp_assignments.html#sampling-in-r",
+    "href": "list_of_datacamp_assignments.html#sampling-in-r",
+    "title": "B215: List of DataCamp Assigments",
+    "section": "Sampling in R",
+    "text": "Sampling in R\n\nIntroduction to Sampling"
+  },
+  {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nIntro\n\n\n0.Course Intro\n\n\nMon, Aug 31\n\n\n\n\n\n\nStatistics & Samples\n\n\n1.1.Statistics and Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nStatistics & Samples\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nR basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nStatistics & Samples\n\n\n1.3.Types of variables and soft intro to study design\n\n\nWed, Sep 02\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "acknowledgments.html",
+    "href": "acknowledgments.html",
+    "title": "Acknowledgments",
+    "section": "",
+    "text": "Thank you to the following people and orgs for sharing their website templates: Maria Tackett, datasciencelabs, Mine Çetinkaya-Rundel, Rstudio, and Rafael Irizarry. I also want to thank Yaniv Brandvain and Michael Whitlock for sharing awesome teaching materials, from which I have heavily borrowed. Thank you also to fbriatte.org for curating so many useful tips shared with students in R resources. Lastly, thank you to Nicole Cavalieri for help in developing some of the R lab materials."
+  },
+  {
+    "objectID": "R-learning-goals.html",
+    "href": "R-learning-goals.html",
+    "title": "R-learning-goals",
+    "section": "",
+    "text": "From: https://datacarpentry.github.io/semester-biology/syllabus/\nCreate well structured data\nExtract information from data\nWrite computer programs in R\nAutomate data analysis\nApply these tools to address biological questions\nApply general data management and analysis concepts to other programming languages and database management systems"
+  },
+  {
+    "objectID": "labs/lab1-quiz.html#vectors",
+    "href": "labs/lab1-quiz.html#vectors",
+    "title": "R Quiz 1",
+    "section": "Vectors",
+    "text": "Vectors\n\nExercise 1\n\nBelow, assign the number 9 to the variable a\n\n\n# assign 9 to a\n\n\na &lt;- 9                \n#Note: I am not sure how to allow multiple correct answers, say\n# a&lt;-9 and \n# a = 9\n\n\n##grade_this_code()\n\n\n\nexercise 2\nNow create another vector, b, containing the numbers 2,9, and 8 in that order\n\n        # assign a vector with 2, 9 and 8, in that order, to b\n\n\nb &lt;- c(2,9,8)      # assign a vector with 2, 9 and 8, in that order, to b \n\n\n#grade_this_code()"
+  },
+  {
+    "objectID": "labs/lab1-quiz.html#vector-functions",
+    "href": "labs/lab1-quiz.html#vector-functions",
+    "title": "R Quiz 1",
+    "section": "Vector functions",
+    "text": "Vector functions\nNow, test if vector a is equal to vector b\n\nex3\n\na &lt;- 9\nb &lt;- c(2,9,8)\n\n\n                    # ask if a equals b \n\n\na == b               # ask if a equals b \n\n[1] FALSE  TRUE FALSE\n\n\n\n#grade_this_code()\n\n\n\nexercise 4\nFinally, multiply vectors a and b\n\n                    # multiply a and b\n\n\na * b             # multiply a and b \n\n[1] 18 81 72\n\n\n\n#grade_this_code()"
+  },
+  {
+    "objectID": "labs/lab1-quiz.html#quiz",
+    "href": "labs/lab1-quiz.html#quiz",
+    "title": "R Quiz 1",
+    "section": "Quiz",
+    "text": "Quiz\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "labs/lab1-quiz.html#rrstudio",
+    "href": "labs/lab1-quiz.html#rrstudio",
+    "title": "R Quiz 1",
+    "section": "R/Rstudio",
+    "text": "R/Rstudio\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "labs/lab1-quiz.html#use-r-to-calculate",
+    "href": "labs/lab1-quiz.html#use-r-to-calculate",
+    "title": "R Quiz 1",
+    "section": "Use R to calculate:",
+    "text": "Use R to calculate:\n\nThe product of 15 by 17\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 255))\n)\n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x1079f1dd0&gt;\n&lt;environment: 0x1079f0428&gt;\n\n\n\nThirteen to the power of 3:\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 2197))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x1079f1dd0&gt;\n&lt;environment: 0x11ffaafa8&gt;\n\n\n\nLog of 14 (use the natural log):\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result,  log(14)))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x1079f1dd0&gt;\n&lt;environment: 0x107e44318&gt;\n\n\n\nLog of 100 (use base 10):\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 2))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x1079f1dd0&gt;\n&lt;environment: 0x11c1e1a50&gt;\n\n\n\nThe square root of 81:\n\n\ngradethis::grade_result(\n  #pass_if(~any(((9-0.5)&lt;.result)==TRUE)&any(((9+0.5)&gt;.result)==TRUE)\n      \n    gradethis::pass_if(~identical(.result, 9))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x1079f1dd0&gt;\n&lt;environment: 0x11c5cb900&gt;\n\n\nCreate a variable called my_name with your last name spelled backwards followed by your first name. E.g., mine would be “olleratib_arabrab”."
+  },
+  {
+    "objectID": "labs/Lab1-slides.html#vectors",
+    "href": "labs/Lab1-slides.html#vectors",
+    "title": "Lab1: R Crash Course",
+    "section": "Vectors",
+    "text": "Vectors\nAll elements must be of the same type.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "labs/Lab1-slides.html#vectors-1",
+    "href": "labs/Lab1-slides.html#vectors-1",
+    "title": "Lab1: R Crash Course",
+    "section": "Vectors",
+    "text": "Vectors\nAll elements must be of the same type.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "labs/lab1.html",
+    "href": "labs/lab1.html",
+    "title": "01. R, Rstudio: Crash Course",
+    "section": "",
+    "text": "Complete DC activity Introduction to R’s first two chapters:\n\nIntro to Basics\nIntroduction to vectors\n\nWork through this document\nComplete the Quiz at the end of this doc\nDownload the file with your answers and upload to moodle"
+  },
+  {
+    "objectID": "labs/lab1.html#numbers",
+    "href": "labs/lab1.html#numbers",
+    "title": "01. R, Rstudio: Crash Course",
+    "section": "Numbers",
+    "text": "Numbers\nThere are three number types in R:\n\nnumeric: the most common type in R; contains any number with or without a decimal\ninteger: numeric data without decimals. This is used when you are certain that you will never create a variable that should contain decimals. Just add the letter L after the number to create an integer.\ncomplex: number is written with an “i” as the imaginary part. Less used."
+  },
+  {
+    "objectID": "labs/lab1.html#example",
+    "href": "labs/lab1.html#example",
+    "title": "01. R, Rstudio: Crash Course",
+    "section": "Example",
+    "text": "Example\nTry these in the sandbox at the end of this section.\nx &lt;- 200.8  # numeric\ny &lt;- 1000L  # integer\nz &lt;- 1i     # complex\nTry these, one at a time:\nx &lt;- 200.8  # numeric\ny &lt;- 1000L  # integer\nz &lt;- 1i     # complex\nYou can convert from one type to another with the following functions:\nas.numeric()\nas.integer()\nas.complex()\nTry these in the sandbox below:\nx &lt;- 200.8  # numeric\ny &lt;- 1000L  # integer\n\nx2 &lt;- as.integer(x) #what happens here?\n\ny2 &lt;- as.numeric(y) #what happens here?\n\nclass(x2)\n\nclass(y2)\nSandbox: Use the area below for any R practice"
+  },
+  {
+    "objectID": "labs/lab1.html#vectors",
+    "href": "labs/lab1.html#vectors",
+    "title": "01. R, Rstudio: Crash Course",
+    "section": "Vectors",
+    "text": "Vectors\nA vector is simply a list of items that are of the same type.\nTo combine the list of items to a vectowebr-r, use the c() function and separate the items by a comma.\nIn the example below, we create a vector variable called planets, that combines strings:\n#vector of strings\n\nplanets &lt;- c(\"Earth\", \"Mars\", \"Saturn\")\n\n#print planets\nplanets\nIn this example, we create a vector that combines numerical values:\n#vector of numeric values\n\nprime_numbers&lt;- c(2, 3, 5, 7, 11)\n\n#print prime numbers\n\nprime_numbers\nYou can create a sequence of numbers using : :\nVector with numerical values in a sequence:\nnumbers &lt;- 1:10\n\nnumbers\n\n# type any code here"
+  },
+  {
+    "objectID": "labs/Lab1-cheatsheet.html",
+    "href": "labs/Lab1-cheatsheet.html",
+    "title": "Lab1-cheatsheet",
+    "section": "",
+    "text": "Here is a non-exhaustive list of common mathematical operators you may want to use in R:\n\n\n\n\n\n\n\nDescription\nOperator\n\n\n\n\nEqual to\n==\n\n\nNot equal to\n!=\n\n\nAssignment of a value to a variable\n&lt;- or =\n\n\nAddition\n+\n\n\nSubtraction\n-\n\n\nMultiplication\n*\n\n\nDivision\n/\n\n\nExponentiation\nx^y or x\\*\\*y\n\n\nModulo (x mod y), returns remainder of a division\nx %% y\n\n\nLess than\n&lt;\n\n\nGreater than\n&gt;\n\n\nLess than or equal to\n&lt;=\n\n\nGreater than or equal to\n&gt;=\n\n\nx OR y (Boolean)\nx || y\n\n\nx AND y (Boolean)\nx && y"
+  },
+  {
+    "objectID": "labs/Lab1-cheatsheet.html#r-commands-summary",
+    "href": "labs/Lab1-cheatsheet.html#r-commands-summary",
+    "title": "Lab1-cheatsheet",
+    "section": "",
+    "text": "Here is a non-exhaustive list of common mathematical operators you may want to use in R:\n\n\n\n\n\n\n\nDescription\nOperator\n\n\n\n\nEqual to\n==\n\n\nNot equal to\n!=\n\n\nAssignment of a value to a variable\n&lt;- or =\n\n\nAddition\n+\n\n\nSubtraction\n-\n\n\nMultiplication\n*\n\n\nDivision\n/\n\n\nExponentiation\nx^y or x\\*\\*y\n\n\nModulo (x mod y), returns remainder of a division\nx %% y\n\n\nLess than\n&lt;\n\n\nGreater than\n&gt;\n\n\nLess than or equal to\n&lt;=\n\n\nGreater than or equal to\n&gt;=\n\n\nx OR y (Boolean)\nx || y\n\n\nx AND y (Boolean)\nx && y"
+  },
+  {
+    "objectID": "rlearn.html",
+    "href": "rlearn.html",
+    "title": "Learning R (and statistics)",
+    "section": "",
+    "text": "Updated often. If you’re an enrolled students and would like to contribute content here, please open a thread on Piazza under “Misc” and say you’d like to share a useful link.",
+    "crumbs": [
+      "Rrresources"
+    ]
+  },
+  {
+    "objectID": "rlearn.html#r-help",
+    "href": "rlearn.html#r-help",
+    "title": "Learning R (and statistics)",
+    "section": "Getting help with R",
+    "text": "Getting help with R\nSTART HERE, with fbriatte.org, where you can learn how to find answers to your burning R questions online.\n\nGetting help with R\nStack overflow: topics are tagged, and “r” is a very popular tag on the site. To go directly to R-related topics, visit http://stackoverflow.com/questions/tagged/r.\nRstudio Community\nReddit: r/rstats, r/Rlanguage, r/rprogramming, r/RStudio\nGithub: github is a must for anyone in datascience and has many functions. For your purposes, searching for a particular package and looking into their “issues” page can be very helpful. E.g., here is the issues page for the rmarkdown package.\nCheatsheets (several)",
+    "crumbs": [
+      "Rrresources"
+    ]
+  },
+  {
+    "objectID": "rlearn.html#free-online-books",
+    "href": "rlearn.html#free-online-books",
+    "title": "Learning R (and statistics)",
+    "section": "Free Online Books",
+    "text": "Free Online Books\n\n“R for Data Science”, by Hadley Wickham & Garrett Grolemund\n“Applied Data Skills”\n“Exploring Data Science with R and the Tidyverse: A Concise Introduction”\n“R Graphic Cookbook”\n“R Markdown Cookbook”\n“Introduction to Data Science: Data Wrangling and Visualization with R”, by Rafael Irizarry\n“Introduction to Data Science: Statistics and Prediction Algorithms Through Case Studies”, by Refael Irizarry\n“YaRrr! The Pirate’s Guide to R”, by Nathaniel Phillips\n“An introduction to Biostatistics using R”, by Glover & Mitchell\n“Introductory Biostatistics with R”, by Dylan Childs, Bethan Hindle & Philip Warren\n“Applied Biostats”, by Yaniv Brandvain.\nHolmes S, Huber W. Modern Statistics for Modern Biology. Cambridge University Press; 2018. Available from: https://web.stanford.edu/class/bios221/book/index.html.\n“ggplot2: Elegant Graphics for Data Analysis (3e)”",
+    "crumbs": [
+      "Rrresources"
+    ]
+  },
+  {
+    "objectID": "rlearn.html#r-vids",
+    "href": "rlearn.html#r-vids",
+    "title": "Learning R (and statistics)",
+    "section": "Videos",
+    "text": "Videos\n\nOverview of R Markdown: a crash course\nCode Like a Pro\nIntro to Rstudio and Rstudio Cloud\nOverview of R markdown\nRmarkdown with Rstudio\nThis youtube playlist - I curated this and it contains both R info and biostatistics in general.",
+    "crumbs": [
+      "Rrresources"
+    ]
+  },
+  {
+    "objectID": "rlearn.html#tutorials-simulations",
+    "href": "rlearn.html#tutorials-simulations",
+    "title": "Learning R (and statistics)",
+    "section": "Tutorials & Simulations",
+    "text": "Tutorials & Simulations\nfasteR: Fast Lane to Learning R! – If you wanna speed things up!\nR Workflow for Reproducible Data Analysis and Reporting by Frank E. Harrell Jr – Great resource. Provides tutorials and also link to other freely available materials.\nR for Beginners –– An on-line introduction to R by Emmanuel Paradis\n\nr-statistics.co, by Selva Prabhakaran - includes very good section on ggplot!\nFrom your textbook\nQuick-R\nRstudio Education\nPosit Cloud Recipes\nPower analyses in R",
+    "crumbs": [
+      "Rrresources"
+    ]
+  },
+  {
+    "objectID": "rlearn.html#web-visualizations",
+    "href": "rlearn.html#web-visualizations",
+    "title": "Learning R (and statistics)",
+    "section": "Web visualizations",
+    "text": "Web visualizations\nCLT: https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm\nCLT: https://shiny.maths.nottingham.ac.uk/pmzdjc/YujingCLTApp/?showcase=0\nAnother one from CLT: https://shiny.maths.nottingham.ac.uk/pmzdjc/YujingCLTApp/?showcase=0\nSampling from the Normal: https://brandvain.shinyapps.io/standardnormal/\nSample means with a normal distribution: https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm\nConfidence intervals for the mean: https://www.zoology.ubc.ca/~whitlock/Kingfisher/CIMean.htm\nThis link has web apps for several topics covered in the course: https://shinyapps.science.psu.edu/\nBiostatistics: A practical introduction",
+    "crumbs": [
+      "Rrresources"
+    ]
+  },
+  {
+    "objectID": "rlearn.html#biological-datasets-freely-available",
+    "href": "rlearn.html#biological-datasets-freely-available",
+    "title": "Learning R (and statistics)",
+    "section": "Biological Datasets (Freely Available)",
+    "text": "Biological Datasets (Freely Available)\nI will keep adding stuff here, but here are some good places to search.\n\nDryad - lots of scientific papers make their datasets available here.\nZenodo - lots of scientific papers make their datasets available here.\nNational Library of Medicine Dataset Catalog - great resource from the NIH, points to datasets elsewher elike zenodo, dryad, figshare, etc.\nre3data\nFigShare - lots of scientific papers make their datasets available here.\nWold Population Review - not focused on biology but very cool nevertheless. There are subsections that have biological datasets though like the one focusing on health, for example.\n\nR Datasets (r-packages.io): - Many types of datasets, including biological ones.\nRdatasets package - Many types of datasets, including biological ones.",
+    "crumbs": [
+      "Rrresources"
+    ]
+  },
+  {
+    "objectID": "labs.html",
+    "href": "labs.html",
+    "title": "Labs",
+    "section": "",
+    "text": "Topic\nTitle\nDate\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "B215: Biostatistics with R",
+    "section": "",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nmodule\nweek\ndow\ndate\nwhat\ntopic\ndue\nexam\n\n\n\n\n1\n1\nM\nAug-31\n0\nIntro to class\n\n\n\n\n1\n1\nT\nSep-1\n1\nLab1: Intro to R\nDC: Introduction to R (ch.1-2) + Lab worksheet 1\n\n\n\n1\n1\nW\nSep-2\n2\nStatistics and Samples\n\n\n\n\n1\n2\nM\nSep-7\n\n\nNo classes (labor day)\n\n\n\n\n1\n2\nT\nSep-8\n3\nLab 2: Data summaries and basic plots\nDC: Introduction to R (ch.1-6) + Lab worksheet 2\n\n\n\n1\n2\nW\nSep-9\n4\nTypes of study and experimental design\n\n\n\n\n1\n3\nM\nSep-14\n5\nDisplaying & Describing Data I\n\n\n\n\n1\n3\nT\nSep-15\n6\nLab 3: ggplot and dplyr\nLab woksheet 3\n\n\n\n1\n3\nW\nSep-16\n7\nDisplaying & Describing Data I\n\n\n\n\n1\n4\nM\nSep-21\n8\nDisplaying & Describing Data II\nProblem set 1\n\n\n\n1\n4\nT\nSep-22\n9\nLab 4: Exploratory data analysis\nLab woksheet 4\n\n\n\n1\n4\nW\nSep-23\n10\nDisplaying & Describing Data II\n\n\n\n\n2\n5\nM\nSep-28\n11\nProbability I: Proportions\nAll DCs (hard deadline)\n\n\n\n2\n5\nT\nSep-29\n12\n\n\n\n\nMidterm 1\n\n\n2\n5\nW\nSep-30\n13\nProbability I: Rules\n\n\n\n\n2\n6\nM\nOct-5\n14\nProbability II: Binomial & Bayes\n\n\n\n\n2\n6\nT\nOct-6\n15\nLab 5:\nLab woksheet 5\n\n\n\n2\n6\nW\nOct-7\n16\nProbability II: Binomial & Bayes\n\n\n\n\n\n\n\nOct-10-Oct18\n\n\nFall break (no classes)\n\n\n\n\n2\n7\nM\nOct-19\n17\nEstimation\n\n\n\n\n2\n7\nT\nOct-20\n18\nLab 6:\nLab worksheet 6\n\n\n\n2\n7\nW\nOct-21\n19\nEstimation\nCoding project checkpoint 1\n\n\n\n2\n8\nM\nOct-26\n20\nEstimation|Hypothesis testing\n\n\n\n\n2\n8\nT\nOct-27\n21\nLab 7:\nLab worksheet\n\n\n\n2\n8\nW\nOct-28\n22\nHypothesis testing\nCoding checkpoint\n\n\n\n2\n9\nM\nNov-2\n23\nGoodness-of-fit test\n\n\n\n\n2\n9\nT\nNov-3\n24\nLab 8:\nLab worksheet\n\n\n\n2\n9\nW\nNov-4\n25\nGoodness-of-fit test\nCoding project checkpoint 2\n\n\n\n3\n10\nM\n2026-11-09\n26\nContingency analyses\nAll DCs (hard deadline); PS2\n\n\n\n3\n10\nT\nNov-10\n27\n\n\n\n\nMidterm 2\n\n\n3\n10\nW\nNov-11\n28\nContingency analyses\n\n\n\n\n3\n11\nM\nNov-16\n29\nContingency analyses\n\n\n\n\n3\n11\nT\nNov-17\n30\nLab 9:\nLab worksheet\n\n\n\n3\n11\nW\nNov-18\n31\nContingency analyses\n\n\n\n\n3\n12\nM\nNov-23\n32\nNormal Distribution\n\n\n\n\n3\n12\nT\nNov-24\n33\nLab 10:\nLab worksheet\n\n\n\n3\n12\nW\nNov-25\n\n\nNo class (day before thanksgiving)\n\n\n\n\n3\n13\nM\nNov-30\n34\nt-values\n\n\n\n\n3\n13\nT\nDec-1\n35\nLab 11: TBD + Peer-review activity\n\n\n\n\n3\n13\nW\nDec-2\n36\nt-tests\nProblem set 3\n\n\n\n3\n14\nM\nDec-7\n37\n\n\n\n\n\n\n3\n14\nT\nDec-8\n38\nLab 11: |Work on coding project\n\n\n\n\n3\n14\nW\nDec-9\n39\nReview|Course Evals\nCoding project\n\n\n\n\n15\n\n\n\n\n\n\n\n\nFinal exam: during finals week, date TBD",
+    "crumbs": [
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#quick-recap",
+    "href": "slides/Statistics_and_Samples3.html#quick-recap",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Quick recap",
+    "text": "Quick recap\nLast lecture we discussed:\n\nThe two types of errors associated with sampling: sampling error and sampling bias\nProperties of a good sample\n\nAsk for volunteers to remind these concepts"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#learning-goals",
+    "href": "slides/Statistics_and_Samples3.html#learning-goals",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Learning goals",
+    "text": "Learning goals\n\nDetect the differences between [observational].{underline} and experimental studies.\nIdentify whether a variable is numeric or categorical (and subtypes).\nUnderstand why experimental studies reveal causation, while observational studies cannot.\nRecognize that confounding factors limit our ability to interpret observed patterns."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#types-of-variables",
+    "href": "slides/Statistics_and_Samples3.html#types-of-variables",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Types of Variables",
+    "text": "Types of Variables"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#variables-and-data",
+    "href": "slides/Statistics_and_Samples3.html#variables-and-data",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Variables and “Data”",
+    "text": "Variables and “Data”\n\n\nA variable is a characteristic measured on individuals drawn from a population under study.\nData are measurements of one or more variables made on a collection of individuals. (i.e., your sample).\nDataset is a collection of data taken from a single source or intended for a single purpose.\n\n![From: https://xkcd.com/1429. If you want to have more fun at the expense of language pedants, try developing an hypercorrection habit.](images/xkcd-data.png){fig-alt=\"[Cueball reading off a smart phone to someone off-screen.]     Cueball: According to this polling data, after Kirk and Picard, the most popular Star Trek character are Data.     Off-screen voice: Augh!     [Caption below the frame:]     Annoy grammar pedants on all sides by making \\\"data\\\" singular except when referring to the android.\" width=\"638\"}"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#the-tidy-way-to-organize-data-in-datasets",
+    "href": "slides/Statistics_and_Samples3.html#the-tidy-way-to-organize-data-in-datasets",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "The tidy way to organize data in datasets",
+    "text": "The tidy way to organize data in datasets\n\nEach column records one variable. Each row corresponds to one observation.\n\nIndividual\nvar1\nvar2\nvar3\n\n\n\nind01\n\n\n\n\n\nind02\n\n\n\n\n\nind03\n\n\n\n\n\nind04\n\n\n\n\n\n\n\nImportant: never, ever, modify the original (raw) dataset. Instead, focus on reproducibility."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#example-the-iris-dataset-in-r",
+    "href": "slides/Statistics_and_Samples3.html#example-the-iris-dataset-in-r",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Example: the iris dataset in R",
+    "text": "Example: the iris dataset in R\n\n\n\n\n\n\nSepal.Length\nSepal.Width\nPetal.Length\nPetal.Width\nSpecies\n\n\n\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n5.0\n3.6\n1.4\n0.2\nsetosa\n\n\n5.4\n3.9\n1.7\n0.4\nsetosa\n\n\n\n\n\n\n\nyou can learn more about this dataset by looking it up in R:\n\n\nHide the code`?`(iris)"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#types-of-variablesdata",
+    "href": "slides/Statistics_and_Samples3.html#types-of-variablesdata",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Types of variables/data",
+    "text": "Types of variables/data\n\nNumeric (also known as quantitative)\n\n\n\nDiscrete: can be counted\n\n\nContinuous: can be measured\n\n\n\nCategorical (also known as class or nominal variables)\n\n\n\nOrdinal: can be ranked\n\n\nNominal: cannot be ranked\n\n\nWhy do we care about these types? We will focus a lot on this in our next topic about how to display and describe data. Knowing what kind of variable we have drives our models of data analysis, and is therefore critical to the enterprise of statistics.\n\nThis is essential for our next topic: Displaying & Describing Data."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#numeric-datavariables",
+    "href": "slides/Statistics_and_Samples3.html#numeric-datavariables",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Numeric Data/Variables",
+    "text": "Numeric Data/Variables\n\nDiscrete: can only take some values within acceptable interval\n\nExamples:\n\nNumber of limbs\nNumber of offspring\nNumber of petals\nNumber of teeth\nNatural numbers: \\(\\{0,1,2,3,4,5,6,7,...,\\infty\\}\\)"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#numeric-datavariables-1",
+    "href": "slides/Statistics_and_Samples3.html#numeric-datavariables-1",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Numeric Data/Variables",
+    "text": "Numeric Data/Variables\n\nContinuous: Can take any value within acceptable interval\n\nExamples:\n\nArm length (cm, inches)\nHeight (cm, inches)\nWeight (kg, lbs)\nAge and longevity (in years, months, etc.)\nTail length (cm, inches)\nDose (e.g., in micrograms/gram)\nSkin color (measured using a reflectometer, measure in wavelengths)"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#categorical-variables",
+    "href": "slides/Statistics_and_Samples3.html#categorical-variables",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Categorical variables",
+    "text": "Categorical variables\nExamples:\n\nGenotype (e.g., AA, AG, GG)\nDrug treatment (e.g. aspirin vs.ibuprofen)\nProvince of origin\nSurvival status (i.e., live or die)\nSkin/fur/coat/feather color (e.g., black, yellow, red, etc.)"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#relationships-between-variables",
+    "href": "slides/Statistics_and_Samples3.html#relationships-between-variables",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Relationships between variables",
+    "text": "Relationships between variables\n\nExplanatory variables: predict or affect other variables.\nResponse variables: is affected by another variable.\n\nValid nomenclature for both observational and experimental results, but interpretation is different\n\n\n\nOne major use of statistics is to relate one variable to another by examining associations between variables and differences between groups. Measuring an association is equivalent to measuring a difference, statistically speaking. Showing that “the proportion of survivors differs between treatment categories” is the same as showing that the variables “survival” and “treatment” are associated.\nIn an observational study, their association might nevertheless be described by the “effect” of one of the variables (the explanatory) on the other (the response), even though the association itself is not direct evidence for causation.\n\nOutdated nomenclature: dependent and independent variables"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-12",
+    "href": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-12",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Case Study: surviving the Titanic (1/2)",
+    "text": "Case Study: surviving the Titanic (1/2)\n\n\nConfession: I watched this EIGHT times in the movie theater!\n\n\n\nImage from: Wikipedia Commons."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-22",
+    "href": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-22",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Case Study: surviving the Titanic (2/2)",
+    "text": "Case Study: surviving the Titanic (2/2)\n\nConsider the fate of the approximatley 2,200 passengers of the titanic, including children and adults of both sexes.\n\n\nThis is a mosaic plot. We will learn about it in our next topic. Code based on snippets from Y. Brandvain."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#discuss",
+    "href": "slides/Statistics_and_Samples3.html#discuss",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Discuss",
+    "text": "Discuss\n\n\nVariables? Types? Explanatory & response variables?\nDescribe the population this result came from…\nHow far would you generalize from this to “Women & Children 1st?”\nExperimental or observational study?"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#section",
+    "href": "slides/Statistics_and_Samples3.html#section",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "",
+    "text": "Correlation \\(\\neq\\) causation"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#confounding-variables",
+    "href": "slides/Statistics_and_Samples3.html#confounding-variables",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Confounding variables",
+    "text": "Confounding variables\n\nConfounding Variables: unmeasured variable that changes in tandem with one or more of the measured variables, giving a false appearance of a causal association between the measured variables.\n\nI.e., they lead to a spurious association (correlation):\n\na mathematical relationship in which two or more events or variables are associated but not causally related, due to either coincidence or the presence of a certain third, unseen factor (confound variable, confounding variable, or lurking variable). Wikipedia Commons"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#example-1",
+    "href": "slides/Statistics_and_Samples3.html#example-1",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Example 1",
+    "text": "Example 1\n\nScenario: data gathered shows that the average life expectancy in across several countries increases in a remarkably correlated manner with the average number of TV sets per capita in the country."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#causal-inference",
+    "href": "slides/Statistics_and_Samples3.html#causal-inference",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Causal Inference",
+    "text": "Causal Inference"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#causal-inference-1",
+    "href": "slides/Statistics_and_Samples3.html#causal-inference-1",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Causal Inference",
+    "text": "Causal Inference\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFrom Wikipedia Commons. Graphical model: Whereas a mediator is a factor in the causal chain (top), a confounder is a spurious factor incorrectly implying causation (bottom)"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#example-2",
+    "href": "slides/Statistics_and_Samples3.html#example-2",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Example 2",
+    "text": "Example 2\n\nConsider a study showing (positive association) that people who ate more steaks can do more push-ups.\n\n\nEating steaks could give people more muscle tone/strength OR\nA certain type of person may enjoy both eating steaks and building muscle OR\nSomething else\n\nQuestions:\n\nObservational or experimental?\nIs this enough to show causation?"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#observational-studies-cannot-separate-cause-and-effect",
+    "href": "slides/Statistics_and_Samples3.html#observational-studies-cannot-separate-cause-and-effect",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Observational studies cannot separate cause and effect",
+    "text": "Observational studies cannot separate cause and effect\n\nSimply observing the association (correlation) is not enough to infer causation, but could point to hypotheses which, hopefully, can be tested.\nThe main purpose of experimental studies is to disentangle these effects."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#in-summary",
+    "href": "slides/Statistics_and_Samples3.html#in-summary",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "In summary:",
+    "text": "In summary:\n\nObservations reveal associations between variables.\nAn association doesn’t imply a causative link.\nSpurious associations can occur when both are associated with a confounding variable.\nBecause researchers do not assign treatments in observational studies, observations cannot prove causation or disentangle cause and effect.\n\n\n\nRead Interleaf 1 for more on correlation x causation."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#comic-moment",
+    "href": "slides/Statistics_and_Samples3.html#comic-moment",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Comic moment",
+    "text": "Comic moment\n\nFrom: https://www.xkcd.com/552/. Correlation doesn’t imply causation, but it does waggle its eyebrows suggestively and gesture furtively while mouthing ‘look over there’."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#the-magic-of-experiments",
+    "href": "slides/Statistics_and_Samples3.html#the-magic-of-experiments",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "The magic of experiments",
+    "text": "The magic of experiments\n\nWell-conceived experiments can reveal causation!\nThis is achieved because researchers can randomly assign individuals to treatments.\nThis procedure removes confounds (except those that arise by chance!) and allows us to separate cause and effect !!!\nA confounding variable is a hidden bias. I.e., one of the major goals of experiments is to reduce bias."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#but-caution",
+    "href": "slides/Statistics_and_Samples3.html#but-caution",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "But caution",
+    "text": "But caution\n\nBut there are often more [or less] obvious biases.\nExperimental artifacts can introduce bias.\nExample: the mental boost of receiving a treatment may help people feel better, an example of the placebo effect – an improvement in medical condition that results form the psychological effects of treatment.\nAppropriate controls are critical to a good experiment. Controls are identical to the treatment in all respects aside from the treatment itself. Controls allow us to attribute an outcome to a treatment.\n\n\nPlacebo (Latin): “I shall please”, from placeō, “I please”. Read Interleaf 6 for more on the placebo effect."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#example-of-experimental-design-practices-that-reduce-bias",
+    "href": "slides/Statistics_and_Samples3.html#example-of-experimental-design-practices-that-reduce-bias",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Example of experimental design practices that reduce bias",
+    "text": "Example of experimental design practices that reduce bias\n\nControls\nRandom assignment\n(double) blinding"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#case-study",
+    "href": "slides/Statistics_and_Samples3.html#case-study",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Case Study",
+    "text": "Case Study\n\nThe distance between jupiter and the sun correlates with the number of secretaries in-alaska\n\n\nFrom: https://tylervigen.com/spurious/correlation/2733_the-distance-between-jupiter-and-the-sun_correlates-with_the-number-of-secretaries-in-alaska"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#section-1",
+    "href": "slides/Statistics_and_Samples3.html#section-1",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "",
+    "text": "As the distance between Jupiter and the Sun increases, the gravitational pull on Earth fluctuates, leading to a rise in cosmic productivity waves. These waves, when they reach Alaska, have been found to have a magnetic effect on the influx of secretarial energy, prompting more individuals to pursue careers in Alaska as professional secretaries. It’s like a celestial calling for secretarial excellence in the land of the midnight sun.\n\n\n\nWhat is this? “Random correlations dredged up from silly data, turned into linear line charts. Now with AI-generated explanations of the causal connection and silly images to accompany the charts!” https://tylervigen.com/"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#acknowledgments",
+    "href": "slides/Statistics_and_Samples3.html#acknowledgments",
+    "title": "1.3.Types of variables and soft intro to study design",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
   },
   {
     "objectID": "slides/0-Course-Intro.html#overview",
