@@ -12,7 +12,7 @@
 <meta name="author" content="Bárbara D. Bitarello">
 <meta name="dcterms.date" content="2026-09-02">
 <meta name="keywords" content="Statistics &amp; Samples">
-<title>BIOL B215: Biostatistics with R – 1.3.Types of variables and soft intro to study design</title>
+<title>BIOL B215: Biostatistics with R – 1.3.Types of variables</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -201,7 +201,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center"><h1 class="title">1.3.Types of variables and soft intro to study design</h1>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">1.3.Types of variables</h1>
   <p class="subtitle">Acknowledgments: see last slide</p>
 
 <div class="quarto-title-authors">
@@ -216,8 +216,8 @@ Bárbara D. Bitarello
 </section><section id="quick-recap" class="slide level2"><h2>Quick recap</h2>
 <p>Last lecture we discussed:</p>
 <ul>
-<li>The two types of errors associated with sampling: sampling error and sampling bias</li>
-<li>Properties of a good sample</li>
+<li>The two types of errors associated with sampling: sampling error and sampling bias.</li>
+<li>Properties of a good sample.</li>
 </ul>
 <aside class="notes"><p>Ask for volunteers to remind these concepts</p>
 <style type="text/css">
@@ -234,8 +234,6 @@ Bárbara D. Bitarello
 <ul>
 <li>Detect the differences between [observational]{.underline} and <u>experimental</u> studies.</li>
 <li>Identify whether a variable is <u>numeric</u> or <u>categorical</u> (and subtypes).</li>
-<li>Understand why experimental studies reveal causation, while observational studies cannot.</li>
-<li>Recognize that confounding factors limit our ability to interpret observed patterns.</li>
 </ul></section><section id="types-of-variables" class="slide level2 center"><h2>Types of Variables</h2>
 </section><section id="variables-and-data" class="slide level2"><h2>Variables and “Data”</h2>
 <div class="column" style="width:60%;">
@@ -294,23 +292,23 @@ Bárbara D. Bitarello
 </ul></section><section id="example-the-iris-dataset-in-r" class="slide level2"><h2>Example: the <code>iris</code> dataset in R</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="yyyfegtgcs" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yyyfegtgcs table {
+<div id="bhpqjhebaq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bhpqjhebaq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yyyfegtgcs thead, #yyyfegtgcs tbody, #yyyfegtgcs tfoot, #yyyfegtgcs tr, #yyyfegtgcs td, #yyyfegtgcs th {
+#bhpqjhebaq thead, #bhpqjhebaq tbody, #bhpqjhebaq tfoot, #bhpqjhebaq tr, #bhpqjhebaq td, #bhpqjhebaq th {
   border-style: none;
 }
 
-#yyyfegtgcs p {
+#bhpqjhebaq p {
   margin: 0;
   padding: 0;
 }
 
-#yyyfegtgcs .gt_table {
+#bhpqjhebaq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -336,12 +334,12 @@ Bárbara D. Bitarello
   border-left-color: #D3D3D3;
 }
 
-#yyyfegtgcs .gt_caption {
+#bhpqjhebaq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yyyfegtgcs .gt_title {
+#bhpqjhebaq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -353,7 +351,7 @@ Bárbara D. Bitarello
   border-bottom-width: 0;
 }
 
-#yyyfegtgcs .gt_subtitle {
+#bhpqjhebaq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -365,7 +363,7 @@ Bárbara D. Bitarello
   border-top-width: 0;
 }
 
-#yyyfegtgcs .gt_heading {
+#bhpqjhebaq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -377,13 +375,13 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#yyyfegtgcs .gt_bottom_border {
+#bhpqjhebaq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yyyfegtgcs .gt_col_headings {
+#bhpqjhebaq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -398,7 +396,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#yyyfegtgcs .gt_col_heading {
+#bhpqjhebaq .gt_col_heading {
   color: #FFFFFF;
   background-color: #365C8D;
   font-size: 100%;
@@ -418,7 +416,7 @@ Bárbara D. Bitarello
   overflow-x: hidden;
 }
 
-#yyyfegtgcs .gt_column_spanner_outer {
+#bhpqjhebaq .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #365C8D;
   font-size: 100%;
@@ -430,15 +428,15 @@ Bárbara D. Bitarello
   padding-right: 4px;
 }
 
-#yyyfegtgcs .gt_column_spanner_outer:first-child {
+#bhpqjhebaq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yyyfegtgcs .gt_column_spanner_outer:last-child {
+#bhpqjhebaq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yyyfegtgcs .gt_column_spanner {
+#bhpqjhebaq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -450,11 +448,11 @@ Bárbara D. Bitarello
   width: 100%;
 }
 
-#yyyfegtgcs .gt_spanner_row {
+#bhpqjhebaq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yyyfegtgcs .gt_group_heading {
+#bhpqjhebaq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -480,7 +478,7 @@ Bárbara D. Bitarello
   text-align: left;
 }
 
-#yyyfegtgcs .gt_empty_group_heading {
+#bhpqjhebaq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -495,15 +493,15 @@ Bárbara D. Bitarello
   vertical-align: middle;
 }
 
-#yyyfegtgcs .gt_from_md > :first-child {
+#bhpqjhebaq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yyyfegtgcs .gt_from_md > :last-child {
+#bhpqjhebaq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yyyfegtgcs .gt_row {
+#bhpqjhebaq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -522,7 +520,7 @@ Bárbara D. Bitarello
   overflow-x: hidden;
 }
 
-#yyyfegtgcs .gt_stub {
+#bhpqjhebaq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -535,7 +533,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#yyyfegtgcs .gt_stub_row_group {
+#bhpqjhebaq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -549,15 +547,15 @@ Bárbara D. Bitarello
   vertical-align: top;
 }
 
-#yyyfegtgcs .gt_row_group_first td {
+#bhpqjhebaq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yyyfegtgcs .gt_row_group_first th {
+#bhpqjhebaq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yyyfegtgcs .gt_summary_row {
+#bhpqjhebaq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -567,16 +565,16 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#yyyfegtgcs .gt_first_summary_row {
+#bhpqjhebaq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yyyfegtgcs .gt_first_summary_row.thick {
+#bhpqjhebaq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yyyfegtgcs .gt_last_summary_row {
+#bhpqjhebaq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -586,7 +584,7 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#yyyfegtgcs .gt_grand_summary_row {
+#bhpqjhebaq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -596,7 +594,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#yyyfegtgcs .gt_first_grand_summary_row {
+#bhpqjhebaq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -606,7 +604,7 @@ Bárbara D. Bitarello
   border-top-color: #D3D3D3;
 }
 
-#yyyfegtgcs .gt_last_grand_summary_row_top {
+#bhpqjhebaq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -616,11 +614,11 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#yyyfegtgcs .gt_striped {
+#bhpqjhebaq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yyyfegtgcs .gt_table_body {
+#bhpqjhebaq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -629,7 +627,7 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#yyyfegtgcs .gt_footnotes {
+#bhpqjhebaq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -643,7 +641,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#yyyfegtgcs .gt_footnote {
+#bhpqjhebaq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -652,7 +650,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#yyyfegtgcs .gt_sourcenotes {
+#bhpqjhebaq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -666,7 +664,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#yyyfegtgcs .gt_sourcenote {
+#bhpqjhebaq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -674,72 +672,72 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#yyyfegtgcs .gt_left {
+#bhpqjhebaq .gt_left {
   text-align: left;
 }
 
-#yyyfegtgcs .gt_center {
+#bhpqjhebaq .gt_center {
   text-align: center;
 }
 
-#yyyfegtgcs .gt_right {
+#bhpqjhebaq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yyyfegtgcs .gt_font_normal {
+#bhpqjhebaq .gt_font_normal {
   font-weight: normal;
 }
 
-#yyyfegtgcs .gt_font_bold {
+#bhpqjhebaq .gt_font_bold {
   font-weight: bold;
 }
 
-#yyyfegtgcs .gt_font_italic {
+#bhpqjhebaq .gt_font_italic {
   font-style: italic;
 }
 
-#yyyfegtgcs .gt_super {
+#bhpqjhebaq .gt_super {
   font-size: 65%;
 }
 
-#yyyfegtgcs .gt_footnote_marks {
+#bhpqjhebaq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yyyfegtgcs .gt_asterisk {
+#bhpqjhebaq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yyyfegtgcs .gt_indent_1 {
+#bhpqjhebaq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yyyfegtgcs .gt_indent_2 {
+#bhpqjhebaq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yyyfegtgcs .gt_indent_3 {
+#bhpqjhebaq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yyyfegtgcs .gt_indent_4 {
+#bhpqjhebaq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yyyfegtgcs .gt_indent_5 {
+#bhpqjhebaq .gt_indent_5 {
   text-indent: 25px;
 }
 
-#yyyfegtgcs .katex-display {
+#bhpqjhebaq .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#yyyfegtgcs div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#bhpqjhebaq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -877,11 +875,9 @@ Bárbara D. Bitarello
 <li>Skin/fur/coat/feather color (e.g., black, yellow, red, etc.)</li>
 </ul></section><section id="relationships-between-variables" class="slide level2"><h2>Relationships between variables</h2>
 <ul>
-<li><p>Explanatory variables: predict or affect other variables.</p></li>
-<li><p>Response variables: is affected by another variable.</p></li>
-<li><ul>
-<li>Valid nomenclature for both observational and experimental results, but interpretation is different</li>
-</ul></li>
+<li><p><strong>Explanatory variables:</strong> predict or affect other variables.</p></li>
+<li><p><strong>Response variables:</strong> is affected by another variable.</p></li>
+<li><p>Valid nomenclature for both observational and experimental results, but interpretation is different</p></li>
 </ul>
 
 <aside class="notes"><p>One major use of statistics is to relate one variable to another by examining associations between variables and differences between groups. Measuring an association is equivalent to measuring a difference, statistically speaking. Showing that “the proportion of survivors differs between treatment categories” is the same as showing that the variables “survival” and “treatment” are associated.</p>

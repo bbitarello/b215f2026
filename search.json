@@ -4,67 +4,98 @@
     "href": "handouts.html",
     "title": "Lecture Notes",
     "section": "",
-    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\nUnit 1: Intro to Statistics and R\n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\nNo matching items"
+    "text": "Title\n\n\n\nDate\n\n\n\n\n\n\n\n\nDisplaying and Describing Data\n\n\n \n\n\n\n\n\n\nUnit 1: Intro to Statistics\n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n\n\n\n\n \n\n\n \n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Syllabus",
+    "objectID": "Lab2-slides.html#lists",
+    "href": "Lab2-slides.html#lists",
+    "title": "Untitled",
+    "section": "Lists",
+    "text": "Lists\nElements can be of different types\n\nx1 &lt;- c(\"Pumpkin\",13,1,5765,12) # concatenate numbers and assign to x\n\nis.vector(x1) #logical\n\nclass(x1) #check class or data type\n\nprint(x1)"
+  },
+  {
+    "objectID": "slides/DisplayingAndDescribingData2.html#last-time",
+    "href": "slides/DisplayingAndDescribingData2.html#last-time",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Last time",
+    "text": "Last time\n\nMean\nMedian\n\ntoday: location and width; next class plots"
+  },
+  {
+    "objectID": "slides/DisplayingAndDescribingData2.html#section",
+    "href": "slides/DisplayingAndDescribingData2.html#section",
+    "title": "2.2.Displaying & Describing Data",
     "section": "",
-    "text": "I am an R enthusiast! At times this course will be challenging, but I promise you the hard work will pay off. Please read this document fully. You may post questions on Piazza or bring them to our first class on 9/1.\nR is the standard tool for performing statistics in biology, health studies, data science, and many other fields. Because of this, B215 is neither just a biostatistics course nor simply an R programming course: it is a biostatistics course where R is directly integrated into the learning process. Throughout the course, we use motivating case studies and data analysis problem sets and R labs based on similar challenges to those one finds in scientific research.",
-    "crumbs": [
-      "Syllabus"
-    ]
+    "text": "Measures of spread\n\nRange\nq-quantiles, interquartile range\nVariance\nStandard deviation\nCoefficient of variation"
   },
   {
-    "objectID": "syllabus.html#sec-late",
-    "href": "syllabus.html#sec-late",
-    "title": "Syllabus",
-    "section": "Late work",
-    "text": "Late work\nIf you anticipate being unable to attend a meeting, please contact me as soon as possible as your circumstances allow. Note that problem sets are due in class (hard copy) so if you miss class you must make arrangements to have this handed in on time. It is your responsibility to gather class notes from classmates and complete any missed activities that may not be in the schedule. These make-up materials should be submitted within 3 days of your absence (unless otherwise negotiated; for longer absences or extenuating circumstances, please contact me to work something out). Sick days do not count as unexcused absences! Just let me know ASAP.\nThe course is structured in such a way that you can have some late work without penalty. So there will be no make-up assignments.\nGrace days. Each student may use up to 4 “grace days” during the semester to hand in work late, no questions asked and without penalty. To use your grace day(s) for an assignment, email me at least a day before the assignment is due and communicate how many grace days you are requesting. There is no need to provide any explanation as to why you are using your grace days; as long as you have enough days left in the semester to use, and have written to me at least a day in advance, I will approve. You can use grace days for any assignments except for your final coding project, exams, and the peer-review activity.\nOutside of the grace days, I will accept late work with a reduction in grade as follows: if you turn in the work 1 minute to 24h late, your maximum score will drop to 90%; if you turn it in 24h and 1 minute to 48h late, it will drop to 80%; and so on. Late lecture quizzes and DataCamp will be accepted anytime without penalty but I strongly urge you to keep up with the work. Note that you can retake the lecture quizzes as many times as you want. I am only grading whether or not you did it.\nIf you are dealing with an emergency or other issue and believe you may require more leniency, please email me and your dean as soon as possible so that we can make arrangements.",
-    "crumbs": [
-      "Syllabus"
-    ]
+    "objectID": "slides/DisplayingAndDescribingData2.html#width-aka-variability",
+    "href": "slides/DisplayingAndDescribingData2.html#width-aka-variability",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Width (aka variability)",
+    "text": "Width (aka variability)\n\nVariability of a population should not be ignored as simply noise about the mean, but is biologically important in its own right.\nVariation has a true value from a population that we estimate from a sample."
   },
   {
-    "objectID": "syllabus.html#sec-plag",
-    "href": "syllabus.html#sec-plag",
-    "title": "Syllabus",
-    "section": "Plagiarism",
-    "text": "Plagiarism\nAll students enrolled in Bryn Mawr Classes are bound by the The Bryn Mawr honor code. I call your attention to the sections on plagiarism and AI use in the code, which will be followed here. Contributions from “outside sources”, including AI sources, must be properly quoted and cited every time they are used. Outside sources include content that was produced by a genAI assistant like ChatGPT, Gemini, and others. Failure to do so constitutes an academic integrity violation, in accordance with the College’s Honor Code:\n\n“In reports and other written work, sources of information and of ideas and opinions not the student’s own must be clearly indicated; the source of direct quotations must be acknowledged. Failure to do so constitutes plagiarism (…) Generative AI tools should not be used in the completion of any course assignments, exams, or written work, including laboratory work, unless an instructor for a given course has specifically and explicitly authorized their use for the assignment in question. (…) Presenting AI-generated content as original student work, submitting AI-generated content without citing its source in artificial intelligence tools, and relying on generative AI tools for closed-book quizzes, tests, and exams all constitute violations of the Honor Code.” – BMC Honor Code2\n\nI will call out code that looks vibe-coded in your assignments. Please don’t do it.\nAll work submitted in this course must be your own. In plain words: do not use genAI to write any of your answers to prompts, problems, and do not submit any prose generated by genAI. You may of course use genAI to study, but do so at your own peril, as I expect your work do reflect the content from the course and I do not authorize the materials from this course to be fed to LLMs. You may use genAI to help you brainstorm/define concepts but if you do so, you must attribute properly. Similarly, if your discussions with classmates informed how you answered any of the questions, you must give them proper attribution.\nYou may use LLMs/GenAI for coding assignments ONLY, and only in certain ways 3:\n\nto brainstorm ideas\nto decode cryptic error messages or explain why they might have occurred\nto ask specific questions about R-language related things like function parameters, etc.\n\nIf you do use LLMs for the coding assignment, you must include citations for each instance where you used it, including the prompt you used (I will provide more specific guidelines with the assignments themselves).\nFor problem sets and other assignments: You may not use AI, as there is no (ethical) reason to do so. The whole point of these formative assessments is to learn and/or practice for the exams.\nIf I suspect these guidelines have been violated, I will call the student over to discuss their process in generating the content.",
-    "crumbs": [
-      "Syllabus"
-    ]
+    "objectID": "slides/DisplayingAndDescribingData2.html#range-12",
+    "href": "slides/DisplayingAndDescribingData2.html#range-12",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Range (1/2)",
+    "text": "Range (1/2)\n\nThe range of a sample corresponds to the size of the narrowest interval containing all the data. Operationally, it’s calculated as the difference between the maximum and minimum\n\n\nExample: Range of weight of 46 chicks at 20 days since birth:\n\n\nCodechick20 &lt;- c(199, 209, 198, 160, 220, 160, 288, 125, 100, 120, 181, 195, 91, 259,\n    133, 144, 115, 318, 164, 170, 76, 259, 236, 185, 212, 279, 157, 235, 291, 156,\n    327, 361, 225, 169, 280, 250, 295, 199, 269, 199, 197, 231, 210, 303, 233, 264)\n\n\nMax and Min in this dataset at time 20:\n\nCodesummary(chick20)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   76.0   161.0   204.0   209.7   259.0   361.0 \n\nCode# or\nc(min(chick20), max(chick20))\n\n[1]  76 361\n\nCode# commonly the diff between them is shown\nmax(chick20) - min(chick20)\n\n[1] 285"
   },
   {
-    "objectID": "syllabus.html#students-with-physical-or-learning-differences",
-    "href": "syllabus.html#students-with-physical-or-learning-differences",
-    "title": "Syllabus",
-    "section": "Students with physical or learning differences",
-    "text": "Students with physical or learning differences\n\n“Bryn Mawr College is committed to providing equal access to students with a documented disability. Students needing academic accommodations for a disability must first speak with Access Services. Students can email accessservices@brynmawr.edu to request an appointment to begin this confidential process. If eligible for accommodations as per Access Services, students should schedule an appointment with the professor as early in the semester as possible to share their verification form and make appropriate arrangements. Please note that accommodations are not retroactive and require advance notice to implement. More information can be obtained at the Access Services website.” -— From BMC’s website\n\nPennsylvania law states that individuals are given advance notice that they may be recorded, so:\n\n*“Because some students with a disability may be eligible to record lectures - and it is state law in Pennsylvania that individuals are given advance notice that they may be recorded - professors also need to include the following statement in their syllabus:\n\nAny student who has a disability-related need to record this class must first be found eligible to do so by Access Services and must share this eligibility with me, the instructor. Class members need to be aware that this class may be recorded.”* — From BMC’s website",
-    "crumbs": [
-      "Syllabus"
-    ]
+    "objectID": "slides/DisplayingAndDescribingData2.html#range-22",
+    "href": "slides/DisplayingAndDescribingData2.html#range-22",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Range (2/2)",
+    "text": "Range (2/2)\n\nWhat happens to the range as sample size increases?\nWhat happens to the range if there are rare outliers?\nNot a good measure of spread. Let’s look for a better one.\n\nSmall samples tend to give lower estimates of the range than large samples. So the sample range is a biased estimator of the true range of the population. So sample range is a biased estimator of the true range of the population."
   },
   {
-    "objectID": "syllabus.html#title-ix",
-    "href": "syllabus.html#title-ix",
-    "title": "Syllabus",
-    "section": "Title IX",
-    "text": "Title IX\n\nBryn Mawr College is committed to providing an educational and employment environment free from discrimination and harassment based on protected characteristics. The College does not discriminate against any employee, applicant for employment, student, or applicant for admission on the basis of actual or perceived age, citizenship status, color, disability, gender identity/expression, genetic information, national origin, pregnancy or related conditions, race, religion, sex, sexual orientation, veteran status, or any other characteristic protected by applicable federal, state, or local law.” – Info from the College website.\n\nPlease be aware that all Bryn Mawr/Haverford employees (other than those designated as confidential resources such as counselors, clergy, and healthcare providers) must report information about such discrimination and harassment to the Bi-Co Tittle IX Coordinator. See the BMC policy on this.\nSee also: https://www.brynmawr.edu/sites/default/files/media/documents/2025-07/2024-2025%20Bryn%20Mawr%20College%20Sexual%20Misconduct%20Policy_Jan.%202025.pdf",
-    "crumbs": [
-      "Syllabus"
-    ]
+    "objectID": "slides/DisplayingAndDescribingData2.html#attention",
+    "href": "slides/DisplayingAndDescribingData2.html#attention",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Attention",
+    "text": "Attention\n\n\nEstimate = \\(\\bar{Y}, \\bar{x}, \\text{etc.}\\)  (sample mean)\n\nVariable\n\n\nParameter = \\(\\mu\\)  (population mean) - Constant"
   },
   {
-    "objectID": "syllabus.html#footnotes",
-    "href": "syllabus.html#footnotes",
-    "title": "Syllabus",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThank you, A. Heiss!↩︎\nThe AI clause to the Honor Code was approved in plenary by BMC members in April 2024.↩︎\nNevertheless, I am providing you with a several recommended alternatives that will make you learn for real.↩︎\nhttps://datavizf25.classes.andrewheiss.com/resource/ai-bs.html↩︎",
-    "crumbs": [
-      "Syllabus"
-    ]
+    "objectID": "slides/DisplayingAndDescribingData2.html#histograms-reveal-measures-of-center",
+    "href": "slides/DisplayingAndDescribingData2.html#histograms-reveal-measures-of-center",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Histograms reveal measures of center",
+    "text": "Histograms reveal measures of center\n\nRecall the iris  dataset"
+  },
+  {
+    "objectID": "slides/DisplayingAndDescribingData2.html#histograms-reveal-measures-of-center-1",
+    "href": "slides/DisplayingAndDescribingData2.html#histograms-reveal-measures-of-center-1",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Histograms reveal measures of center",
+    "text": "Histograms reveal measures of center\n\n\nFigure\nCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCodelibrary(ggplot2)\nggplot(iris, aes(x = Petal.Width, fill = Species)) +\n    geom_histogram(binwidth = 0.1, show.legend = FALSE,\n        alpha = 0.9) + xlab(\"Petal Width (cm)\") + facet_wrap(~Species,\n    ncol = 1) + scale_x_continuous(breaks = seq(0.5,\n    2.5, 0.5))"
+  },
+  {
+    "objectID": "slides/DisplayingAndDescribingData2.html#measures-of-dispersion",
+    "href": "slides/DisplayingAndDescribingData2.html#measures-of-dispersion",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Measures of dispersion",
+    "text": "Measures of dispersion\n\nRange [max value - min value]\nQuartiles, interquartile range [75th percentile - 25th percentile]\nVariance [ estimate = \\(s^2\\) =\\(\\frac{\\Sigma(x_i - \\bar{x})^2}{n-1}\\), param = \\(\\sigma ^2\\) = \\(\\frac{\\Sigma(x_i - \\mu)^2}{n}\\) ]\nStandard deviation [ estimate = \\(s\\) =\\(\\sqrt{s^2}\\), param = \\(\\sigma\\) = \\(\\sqrt{\\sigma^2}\\) ]\nCoefficient of variation [ estimate = CV = \\(\\frac{s}{\\bar{Y}}\\), param = \\(\\frac{\\sigma}{\\mu}\\) ]"
+  },
+  {
+    "objectID": "slides/DisplayingAndDescribingData2.html#range",
+    "href": "slides/DisplayingAndDescribingData2.html#range",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Range",
+    "text": "Range\n\nThe difference between the maximum and minimum observed values in a sample"
+  },
+  {
+    "objectID": "slides/DisplayingAndDescribingData2.html#range-1",
+    "href": "slides/DisplayingAndDescribingData2.html#range-1",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Range",
+    "text": "Range\n\nRange of weight of 46 chicks at 20 days since birth\n\n\nCodedata(\"ChickWeight\")\nchick20 &lt;- ChickWeight[ChickWeight$Time == 20, ]$weight\nchick20\n\n\nMax and Min in this dataset at time 20:\n\nCodesummary(chick20)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   76.0   161.0   204.0   209.7   259.0   361.0 \n\nCode# or\nc(min(chick20), max(chick20))\n\n[1]  76 361\n\nCode# commonly the diff between them is shown\nmax(chick20) - min(chick20)\n\n[1] 285"
+  },
+  {
+    "objectID": "slides/DisplayingAndDescribingData2.html#mean-or-median",
+    "href": "slides/DisplayingAndDescribingData2.html#mean-or-median",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Mean or Median?",
+    "text": "Mean or Median?\n\nNumber of seeds per fruit. Which one is better in this case?"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#quick-recap",
@@ -106,7 +137,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\nHide the code# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 8 3 4\n\nHide the code# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 1 3 9"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\nHide the code# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 10  8  6\n\nHide the code# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 9 8 2"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
@@ -396,208 +427,6 @@
     "text": "Acknowledgments\n\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "B215: Biostatistics with R",
-    "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nmodule\nweek\ndow\ndate\nwhat\ntopic\ndue\nexam\n\n\n\n\n1\n1\nM\nAug-31\n0\nIntro to class\n\n\n\n\n1\n1\nT\nSep-1\n1\nLab1: Intro to R\nDC: Introduction to R (ch.1-2) + Lab worksheet 1\n\n\n\n1\n1\nW\nSep-2\n2\nStatistics and Samples\n\n\n\n\n1\n2\nM\nSep-7\n\n\nNo classes (labor day)\n\n\n\n\n1\n2\nT\nSep-8\n3\nLab 2: Data summaries and basic plots\nDC: Introduction to R (ch.1-6) + Lab worksheet 2\n\n\n\n1\n2\nW\nSep-9\n4\nTypes of study and experimental design\n\n\n\n\n1\n3\nM\nSep-14\n5\nDisplaying & Describing Data I\n\n\n\n\n1\n3\nT\nSep-15\n6\nLab 3: ggplot and dplyr\nLab woksheet 3\n\n\n\n1\n3\nW\nSep-16\n7\nDisplaying & Describing Data I\n\n\n\n\n1\n4\nM\nSep-21\n8\nDisplaying & Describing Data II\nProblem set 1\n\n\n\n1\n4\nT\nSep-22\n9\nLab 4: Exploratory data analysis\nLab woksheet 4\n\n\n\n1\n4\nW\nSep-23\n10\nDisplaying & Describing Data II\n\n\n\n\n2\n5\nM\nSep-28\n11\nProbability I: Proportions\nAll DCs (hard deadline)\n\n\n\n2\n5\nT\nSep-29\n12\n\n\n\n\nMidterm 1\n\n\n2\n5\nW\nSep-30\n13\nProbability I: Rules\n\n\n\n\n2\n6\nM\nOct-5\n14\nProbability II: Binomial & Bayes\n\n\n\n\n2\n6\nT\nOct-6\n15\nLab 5:\nLab woksheet 5\n\n\n\n2\n6\nW\nOct-7\n16\nProbability II: Binomial & Bayes\n\n\n\n\n\n\n\nOct-10-Oct18\n\n\nFall break (no classes)\n\n\n\n\n2\n7\nM\nOct-19\n17\nEstimation\n\n\n\n\n2\n7\nT\nOct-20\n18\nLab 6:\nLab worksheet 6\n\n\n\n2\n7\nW\nOct-21\n19\nEstimation\nCoding project checkpoint 1\n\n\n\n2\n8\nM\nOct-26\n20\nEstimation|Hypothesis testing\n\n\n\n\n2\n8\nT\nOct-27\n21\nLab 7:\nLab worksheet\n\n\n\n2\n8\nW\nOct-28\n22\nHypothesis testing\nCoding checkpoint\n\n\n\n2\n9\nM\nNov-2\n23\nGoodness-of-fit test\n\n\n\n\n2\n9\nT\nNov-3\n24\nLab 8:\nLab worksheet\n\n\n\n2\n9\nW\nNov-4\n25\nGoodness-of-fit test\nCoding project checkpoint 2\n\n\n\n3\n10\nM\n2026-11-09\n26\nContingency analyses\nAll DCs (hard deadline); PS2\n\n\n\n3\n10\nT\nNov-10\n27\n\n\n\n\nMidterm 2\n\n\n3\n10\nW\nNov-11\n28\nContingency analyses\n\n\n\n\n3\n11\nM\nNov-16\n29\nContingency analyses\n\n\n\n\n3\n11\nT\nNov-17\n30\nLab 9:\nLab worksheet\n\n\n\n3\n11\nW\nNov-18\n31\nContingency analyses\n\n\n\n\n3\n12\nM\nNov-23\n32\nNormal Distribution\n\n\n\n\n3\n12\nT\nNov-24\n33\nLab 10:\nLab worksheet\n\n\n\n3\n12\nW\nNov-25\n\n\nNo class (day before thanksgiving)\n\n\n\n\n3\n13\nM\nNov-30\n34\nt-values\n\n\n\n\n3\n13\nT\nDec-1\n35\nLab 11: TBD + Peer-review activity\n\n\n\n\n3\n13\nW\nDec-2\n36\nt-tests\nProblem set 3\n\n\n\n3\n14\nM\nDec-7\n37\n\n\n\n\n\n\n3\n14\nT\nDec-8\n38\nLab 11: |Work on coding project\n\n\n\n\n3\n14\nW\nDec-9\n39\nReview|Course Evals\nCoding project\n\n\n\n\n15\n\n\n\n\n\n\n\n\nFinal exam: during finals week, date TBD",
-    "crumbs": [
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "labs.html",
-    "href": "labs.html",
-    "title": "Labs",
-    "section": "",
-    "text": "Topic\nTitle\nDate\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "rlearn.html",
-    "href": "rlearn.html",
-    "title": "Learning R (and statistics)",
-    "section": "",
-    "text": "Updated often. If you’re an enrolled students and would like to contribute content here, please open a thread on Piazza under “Misc” and say you’d like to share a useful link.",
-    "crumbs": [
-      "Rrresources"
-    ]
-  },
-  {
-    "objectID": "rlearn.html#r-help",
-    "href": "rlearn.html#r-help",
-    "title": "Learning R (and statistics)",
-    "section": "Getting help with R",
-    "text": "Getting help with R\nSTART HERE, with fbriatte.org, where you can learn how to find answers to your burning R questions online.\n\nGetting help with R\nStack overflow: topics are tagged, and “r” is a very popular tag on the site. To go directly to R-related topics, visit http://stackoverflow.com/questions/tagged/r.\nRstudio Community\nReddit: r/rstats, r/Rlanguage, r/rprogramming, r/RStudio\nGithub: github is a must for anyone in datascience and has many functions. For your purposes, searching for a particular package and looking into their “issues” page can be very helpful. E.g., here is the issues page for the rmarkdown package.\nCheatsheets (several)",
-    "crumbs": [
-      "Rrresources"
-    ]
-  },
-  {
-    "objectID": "rlearn.html#free-online-books",
-    "href": "rlearn.html#free-online-books",
-    "title": "Learning R (and statistics)",
-    "section": "Free Online Books",
-    "text": "Free Online Books\n\n“R for Data Science”, by Hadley Wickham & Garrett Grolemund\n“Applied Data Skills”\n“Exploring Data Science with R and the Tidyverse: A Concise Introduction”\n“R Graphic Cookbook”\n“R Markdown Cookbook”\n“Introduction to Data Science: Data Wrangling and Visualization with R”, by Rafael Irizarry\n“Introduction to Data Science: Statistics and Prediction Algorithms Through Case Studies”, by Refael Irizarry\n“YaRrr! The Pirate’s Guide to R”, by Nathaniel Phillips\n“An introduction to Biostatistics using R”, by Glover & Mitchell\n“Introductory Biostatistics with R”, by Dylan Childs, Bethan Hindle & Philip Warren\n“Applied Biostats”, by Yaniv Brandvain.\nHolmes S, Huber W. Modern Statistics for Modern Biology. Cambridge University Press; 2018. Available from: https://web.stanford.edu/class/bios221/book/index.html.\n“ggplot2: Elegant Graphics for Data Analysis (3e)”",
-    "crumbs": [
-      "Rrresources"
-    ]
-  },
-  {
-    "objectID": "rlearn.html#r-vids",
-    "href": "rlearn.html#r-vids",
-    "title": "Learning R (and statistics)",
-    "section": "Videos",
-    "text": "Videos\n\nOverview of R Markdown: a crash course\nCode Like a Pro\nIntro to Rstudio and Rstudio Cloud\nOverview of R markdown\nRmarkdown with Rstudio\nThis youtube playlist - I curated this and it contains both R info and biostatistics in general.",
-    "crumbs": [
-      "Rrresources"
-    ]
-  },
-  {
-    "objectID": "rlearn.html#tutorials-simulations",
-    "href": "rlearn.html#tutorials-simulations",
-    "title": "Learning R (and statistics)",
-    "section": "Tutorials & Simulations",
-    "text": "Tutorials & Simulations\nfasteR: Fast Lane to Learning R! – If you wanna speed things up!\nR Workflow for Reproducible Data Analysis and Reporting by Frank E. Harrell Jr – Great resource. Provides tutorials and also link to other freely available materials.\nR for Beginners –– An on-line introduction to R by Emmanuel Paradis\n\nr-statistics.co, by Selva Prabhakaran - includes very good section on ggplot!\nFrom your textbook\nQuick-R\nRstudio Education\nPosit Cloud Recipes\nPower analyses in R",
-    "crumbs": [
-      "Rrresources"
-    ]
-  },
-  {
-    "objectID": "rlearn.html#web-visualizations",
-    "href": "rlearn.html#web-visualizations",
-    "title": "Learning R (and statistics)",
-    "section": "Web visualizations",
-    "text": "Web visualizations\nCLT: https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm\nCLT: https://shiny.maths.nottingham.ac.uk/pmzdjc/YujingCLTApp/?showcase=0\nAnother one from CLT: https://shiny.maths.nottingham.ac.uk/pmzdjc/YujingCLTApp/?showcase=0\nSampling from the Normal: https://brandvain.shinyapps.io/standardnormal/\nSample means with a normal distribution: https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm\nConfidence intervals for the mean: https://www.zoology.ubc.ca/~whitlock/Kingfisher/CIMean.htm\nThis link has web apps for several topics covered in the course: https://shinyapps.science.psu.edu/\nBiostatistics: A practical introduction",
-    "crumbs": [
-      "Rrresources"
-    ]
-  },
-  {
-    "objectID": "rlearn.html#biological-datasets-freely-available",
-    "href": "rlearn.html#biological-datasets-freely-available",
-    "title": "Learning R (and statistics)",
-    "section": "Biological Datasets (Freely Available)",
-    "text": "Biological Datasets (Freely Available)\nI will keep adding stuff here, but here are some good places to search.\n\nDryad - lots of scientific papers make their datasets available here.\nZenodo - lots of scientific papers make their datasets available here.\nNational Library of Medicine Dataset Catalog - great resource from the NIH, points to datasets elsewher elike zenodo, dryad, figshare, etc.\nre3data\nFigShare - lots of scientific papers make their datasets available here.\nWold Population Review - not focused on biology but very cool nevertheless. There are subsections that have biological datasets though like the one focusing on health, for example.\n\nR Datasets (r-packages.io): - Many types of datasets, including biological ones.\nRdatasets package - Many types of datasets, including biological ones.",
-    "crumbs": [
-      "Rrresources"
-    ]
-  },
-  {
-    "objectID": "labs/Lab1-cheatsheet.html",
-    "href": "labs/Lab1-cheatsheet.html",
-    "title": "Lab1-cheatsheet",
-    "section": "",
-    "text": "Here is a non-exhaustive list of common mathematical operators you may want to use in R:\n\n\n\n\n\n\n\nDescription\nOperator\n\n\n\n\nEqual to\n==\n\n\nNot equal to\n!=\n\n\nAssignment of a value to a variable\n&lt;- or =\n\n\nAddition\n+\n\n\nSubtraction\n-\n\n\nMultiplication\n*\n\n\nDivision\n/\n\n\nExponentiation\nx^y or x\\*\\*y\n\n\nModulo (x mod y), returns remainder of a division\nx %% y\n\n\nLess than\n&lt;\n\n\nGreater than\n&gt;\n\n\nLess than or equal to\n&lt;=\n\n\nGreater than or equal to\n&gt;=\n\n\nx OR y (Boolean)\nx || y\n\n\nx AND y (Boolean)\nx && y"
-  },
-  {
-    "objectID": "labs/Lab1-cheatsheet.html#r-commands-summary",
-    "href": "labs/Lab1-cheatsheet.html#r-commands-summary",
-    "title": "Lab1-cheatsheet",
-    "section": "",
-    "text": "Here is a non-exhaustive list of common mathematical operators you may want to use in R:\n\n\n\n\n\n\n\nDescription\nOperator\n\n\n\n\nEqual to\n==\n\n\nNot equal to\n!=\n\n\nAssignment of a value to a variable\n&lt;- or =\n\n\nAddition\n+\n\n\nSubtraction\n-\n\n\nMultiplication\n*\n\n\nDivision\n/\n\n\nExponentiation\nx^y or x\\*\\*y\n\n\nModulo (x mod y), returns remainder of a division\nx %% y\n\n\nLess than\n&lt;\n\n\nGreater than\n&gt;\n\n\nLess than or equal to\n&lt;=\n\n\nGreater than or equal to\n&gt;=\n\n\nx OR y (Boolean)\nx || y\n\n\nx AND y (Boolean)\nx && y"
-  },
-  {
-    "objectID": "labs/lab1.html",
-    "href": "labs/lab1.html",
-    "title": "01. R, Rstudio: Crash Course",
-    "section": "",
-    "text": "Complete DC activity Introduction to R’s first two chapters:\n\nIntro to Basics\nIntroduction to vectors\n\nWork through this document\nComplete the Quiz at the end of this doc\nDownload the file with your answers and upload to moodle"
-  },
-  {
-    "objectID": "labs/lab1.html#numbers",
-    "href": "labs/lab1.html#numbers",
-    "title": "01. R, Rstudio: Crash Course",
-    "section": "Numbers",
-    "text": "Numbers\nThere are three number types in R:\n\nnumeric: the most common type in R; contains any number with or without a decimal\ninteger: numeric data without decimals. This is used when you are certain that you will never create a variable that should contain decimals. Just add the letter L after the number to create an integer.\ncomplex: number is written with an “i” as the imaginary part. Less used."
-  },
-  {
-    "objectID": "labs/lab1.html#example",
-    "href": "labs/lab1.html#example",
-    "title": "01. R, Rstudio: Crash Course",
-    "section": "Example",
-    "text": "Example\nTry these in the sandbox at the end of this section.\nx &lt;- 200.8  # numeric\ny &lt;- 1000L  # integer\nz &lt;- 1i     # complex\nTry these, one at a time:\nx &lt;- 200.8  # numeric\ny &lt;- 1000L  # integer\nz &lt;- 1i     # complex\nYou can convert from one type to another with the following functions:\nas.numeric()\nas.integer()\nas.complex()\nTry these in the sandbox below:\nx &lt;- 200.8  # numeric\ny &lt;- 1000L  # integer\n\nx2 &lt;- as.integer(x) #what happens here?\n\ny2 &lt;- as.numeric(y) #what happens here?\n\nclass(x2)\n\nclass(y2)\nSandbox: Use the area below for any R practice"
-  },
-  {
-    "objectID": "labs/lab1.html#vectors",
-    "href": "labs/lab1.html#vectors",
-    "title": "01. R, Rstudio: Crash Course",
-    "section": "Vectors",
-    "text": "Vectors\nA vector is simply a list of items that are of the same type.\nTo combine the list of items to a vectowebr-r, use the c() function and separate the items by a comma.\nIn the example below, we create a vector variable called planets, that combines strings:\n#vector of strings\n\nplanets &lt;- c(\"Earth\", \"Mars\", \"Saturn\")\n\n#print planets\nplanets\nIn this example, we create a vector that combines numerical values:\n#vector of numeric values\n\nprime_numbers&lt;- c(2, 3, 5, 7, 11)\n\n#print prime numbers\n\nprime_numbers\nYou can create a sequence of numbers using : :\nVector with numerical values in a sequence:\nnumbers &lt;- 1:10\n\nnumbers\n\n# type any code here"
-  },
-  {
-    "objectID": "labs/Lab1-slides.html#vectors",
-    "href": "labs/Lab1-slides.html#vectors",
-    "title": "Lab1: R Crash Course",
-    "section": "Vectors",
-    "text": "Vectors\nAll elements must be of the same type.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "labs/Lab1-slides.html#vectors-1",
-    "href": "labs/Lab1-slides.html#vectors-1",
-    "title": "Lab1: R Crash Course",
-    "section": "Vectors",
-    "text": "Vectors\nAll elements must be of the same type.\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "labs/lab1-quiz.html#vectors",
-    "href": "labs/lab1-quiz.html#vectors",
-    "title": "R Quiz 1",
-    "section": "Vectors",
-    "text": "Vectors\n\nExercise 1\n\nBelow, assign the number 9 to the variable a\n\n\n# assign 9 to a\n\n\na &lt;- 9                \n#Note: I am not sure how to allow multiple correct answers, say\n# a&lt;-9 and \n# a = 9\n\n\n##grade_this_code()\n\n\n\nexercise 2\nNow create another vector, b, containing the numbers 2,9, and 8 in that order\n\n        # assign a vector with 2, 9 and 8, in that order, to b\n\n\nb &lt;- c(2,9,8)      # assign a vector with 2, 9 and 8, in that order, to b \n\n\n#grade_this_code()"
-  },
-  {
-    "objectID": "labs/lab1-quiz.html#vector-functions",
-    "href": "labs/lab1-quiz.html#vector-functions",
-    "title": "R Quiz 1",
-    "section": "Vector functions",
-    "text": "Vector functions\nNow, test if vector a is equal to vector b\n\nex3\n\na &lt;- 9\nb &lt;- c(2,9,8)\n\n\n                    # ask if a equals b \n\n\na == b               # ask if a equals b \n\n[1] FALSE  TRUE FALSE\n\n\n\n#grade_this_code()\n\n\n\nexercise 4\nFinally, multiply vectors a and b\n\n                    # multiply a and b\n\n\na * b             # multiply a and b \n\n[1] 18 81 72\n\n\n\n#grade_this_code()"
-  },
-  {
-    "objectID": "labs/lab1-quiz.html#quiz",
-    "href": "labs/lab1-quiz.html#quiz",
-    "title": "R Quiz 1",
-    "section": "Quiz",
-    "text": "Quiz\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "labs/lab1-quiz.html#rrstudio",
-    "href": "labs/lab1-quiz.html#rrstudio",
-    "title": "R Quiz 1",
-    "section": "R/Rstudio",
-    "text": "R/Rstudio\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
-  },
-  {
-    "objectID": "labs/lab1-quiz.html#use-r-to-calculate",
-    "href": "labs/lab1-quiz.html#use-r-to-calculate",
-    "title": "R Quiz 1",
-    "section": "Use R to calculate:",
-    "text": "Use R to calculate:\n\nThe product of 15 by 17\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 255))\n)\n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x1082dcfd0&gt;\n&lt;environment: 0x1082db628&gt;\n\n\n\nThirteen to the power of 3:\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 2197))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x1082dcfd0&gt;\n&lt;environment: 0x129074b70&gt;\n\n\n\nLog of 14 (use the natural log):\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result,  log(14)))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x1082dcfd0&gt;\n&lt;environment: 0x11ff70b50&gt;\n\n\n\nLog of 100 (use base 10):\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 2))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x1082dcfd0&gt;\n&lt;environment: 0x10cb0fa88&gt;\n\n\n\nThe square root of 81:\n\n\ngradethis::grade_result(\n  #pass_if(~any(((9-0.5)&lt;.result)==TRUE)&any(((9+0.5)&gt;.result)==TRUE)\n      \n    gradethis::pass_if(~identical(.result, 9))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x1082dcfd0&gt;\n&lt;environment: 0x108728938&gt;\n\n\nCreate a variable called my_name with your last name spelled backwards followed by your first name. E.g., mine would be “olleratib_arabrab”."
-  },
-  {
-    "objectID": "R-learning-goals.html",
-    "href": "R-learning-goals.html",
-    "title": "R-learning-goals",
-    "section": "",
-    "text": "From: https://datacarpentry.github.io/semester-biology/syllabus/\nCreate well structured data\nExtract information from data\nWrite computer programs in R\nAutomate data analysis\nApply these tools to address biological questions\nApply general data management and analysis concepts to other programming languages and database management systems"
-  },
-  {
-    "objectID": "acknowledgments.html",
-    "href": "acknowledgments.html",
-    "title": "Acknowledgments",
-    "section": "",
-    "text": "Thank you to the following people and orgs for sharing their website templates: Maria Tackett, datasciencelabs, Mine Çetinkaya-Rundel, Rstudio, and Rafael Irizarry. I also want to thank Yaniv Brandvain and Michael Whitlock for sharing awesome teaching materials, from which I have heavily borrowed. Thank you also to fbriatte.org for curating so many useful tips shared with students in R resources. Lastly, thank you to Nicole Cavalieri for help in developing some of the R lab materials."
-  },
-  {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
-    "section": "",
-    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nStatistics & Samples\n\n\n1.1.Statistics and Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nStatistics & Samples\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nR basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nStatistics & Samples\n\n\n1.3.Types of variables and soft intro to study design\n\n\nWed, Sep 02\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Slides"
-    ]
-  },
-  {
     "objectID": "list_of_datacamp_assignments.html",
     "href": "list_of_datacamp_assignments.html",
     "title": "B215: List of DataCamp Assigments",
@@ -668,107 +497,442 @@
     "text": "Sampling in R\n\nIntroduction to Sampling"
   },
   {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nStatistics & Samples\n\n\n1.1.Statistics and Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nStatistics & Samples\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nStatistics & Samples\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nDescriptive statistics\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "rlearn.html",
+    "href": "rlearn.html",
+    "title": "Learning R (and statistics)",
+    "section": "",
+    "text": "Updated often. If you’re an enrolled students and would like to contribute content here, please open a thread on Piazza under “Misc” and say you’d like to share a useful link.",
+    "crumbs": [
+      "Rrresources"
+    ]
+  },
+  {
+    "objectID": "rlearn.html#r-help",
+    "href": "rlearn.html#r-help",
+    "title": "Learning R (and statistics)",
+    "section": "Getting help with R",
+    "text": "Getting help with R\nSTART HERE, with fbriatte.org, where you can learn how to find answers to your burning R questions online.\n\nGetting help with R\nStack overflow: topics are tagged, and “r” is a very popular tag on the site. To go directly to R-related topics, visit http://stackoverflow.com/questions/tagged/r.\nRstudio Community\nReddit: r/rstats, r/Rlanguage, r/rprogramming, r/RStudio\nGithub: github is a must for anyone in datascience and has many functions. For your purposes, searching for a particular package and looking into their “issues” page can be very helpful. E.g., here is the issues page for the rmarkdown package.\nCheatsheets (several)",
+    "crumbs": [
+      "Rrresources"
+    ]
+  },
+  {
+    "objectID": "rlearn.html#free-online-books",
+    "href": "rlearn.html#free-online-books",
+    "title": "Learning R (and statistics)",
+    "section": "Free Online Books",
+    "text": "Free Online Books\n\n“R for Data Science”, by Hadley Wickham & Garrett Grolemund\n“Applied Data Skills”\n“Exploring Data Science with R and the Tidyverse: A Concise Introduction”\n“R Graphic Cookbook”\n“R Markdown Cookbook”\n“Introduction to Data Science: Data Wrangling and Visualization with R”, by Rafael Irizarry\n“Introduction to Data Science: Statistics and Prediction Algorithms Through Case Studies”, by Refael Irizarry\n“YaRrr! The Pirate’s Guide to R”, by Nathaniel Phillips\n“An introduction to Biostatistics using R”, by Glover & Mitchell\n“Introductory Biostatistics with R”, by Dylan Childs, Bethan Hindle & Philip Warren\n“Applied Biostats”, by Yaniv Brandvain.\nHolmes S, Huber W. Modern Statistics for Modern Biology. Cambridge University Press; 2018. Available from: https://web.stanford.edu/class/bios221/book/index.html.\n“ggplot2: Elegant Graphics for Data Analysis (3e)”",
+    "crumbs": [
+      "Rrresources"
+    ]
+  },
+  {
+    "objectID": "rlearn.html#r-vids",
+    "href": "rlearn.html#r-vids",
+    "title": "Learning R (and statistics)",
+    "section": "Videos",
+    "text": "Videos\n\nOverview of R Markdown: a crash course\nCode Like a Pro\nIntro to Rstudio and Rstudio Cloud\nOverview of R markdown\nRmarkdown with Rstudio\nThis youtube playlist - I curated this and it contains both R info and biostatistics in general.",
+    "crumbs": [
+      "Rrresources"
+    ]
+  },
+  {
+    "objectID": "rlearn.html#tutorials-simulations",
+    "href": "rlearn.html#tutorials-simulations",
+    "title": "Learning R (and statistics)",
+    "section": "Tutorials & Simulations",
+    "text": "Tutorials & Simulations\nfasteR: Fast Lane to Learning R! – If you wanna speed things up!\nR Workflow for Reproducible Data Analysis and Reporting by Frank E. Harrell Jr – Great resource. Provides tutorials and also link to other freely available materials.\nR for Beginners –– An on-line introduction to R by Emmanuel Paradis\n\nr-statistics.co, by Selva Prabhakaran - includes very good section on ggplot!\nFrom your textbook\nQuick-R\nRstudio Education\nPosit Cloud Recipes\nPower analyses in R",
+    "crumbs": [
+      "Rrresources"
+    ]
+  },
+  {
+    "objectID": "rlearn.html#web-visualizations",
+    "href": "rlearn.html#web-visualizations",
+    "title": "Learning R (and statistics)",
+    "section": "Web visualizations",
+    "text": "Web visualizations\nIntroduction to the Book Of Apps for Statistics Teaching\nCLT: https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm\nCLT: https://shiny.maths.nottingham.ac.uk/pmzdjc/YujingCLTApp/?showcase=0\nAnother one from CLT: https://shiny.maths.nottingham.ac.uk/pmzdjc/YujingCLTApp/?showcase=0\nSampling from the Normal: https://brandvain.shinyapps.io/standardnormal/\nSample means with a normal distribution: https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm\nConfidence intervals for the mean: https://www.zoology.ubc.ca/~whitlock/Kingfisher/CIMean.htm\nThis link has web apps for several topics covered in the course: https://shinyapps.science.psu.edu/\nBiostatistics: A practical introduction",
+    "crumbs": [
+      "Rrresources"
+    ]
+  },
+  {
+    "objectID": "rlearn.html#biological-datasets-freely-available",
+    "href": "rlearn.html#biological-datasets-freely-available",
+    "title": "Learning R (and statistics)",
+    "section": "Biological Datasets (Freely Available)",
+    "text": "Biological Datasets (Freely Available)\nI will keep adding stuff here, but here are some good places to search.\n\nDryad - lots of scientific papers make their datasets available here.\nZenodo - lots of scientific papers make their datasets available here.\nNational Library of Medicine Dataset Catalog - great resource from the NIH, points to datasets elsewher elike zenodo, dryad, figshare, etc.\nre3data\nFigShare - lots of scientific papers make their datasets available here.\nWold Population Review - not focused on biology but very cool nevertheless. There are subsections that have biological datasets though like the one focusing on health, for example.\n\nR Datasets (r-packages.io): - Many types of datasets, including biological ones.\nRdatasets package - Many types of datasets, including biological ones.",
+    "crumbs": [
+      "Rrresources"
+    ]
+  },
+  {
+    "objectID": "labs/Lab1-cheatsheet.html",
+    "href": "labs/Lab1-cheatsheet.html",
+    "title": "Lab1-cheatsheet",
+    "section": "",
+    "text": "Here is a non-exhaustive list of common mathematical operators you may want to use in R:\n\n\n\n\n\n\n\nDescription\nOperator\n\n\n\n\nEqual to\n==\n\n\nNot equal to\n!=\n\n\nAssignment of a value to a variable\n&lt;- or =\n\n\nAddition\n+\n\n\nSubtraction\n-\n\n\nMultiplication\n*\n\n\nDivision\n/\n\n\nExponentiation\nx^y or x\\*\\*y\n\n\nModulo (x mod y), returns remainder of a division\nx %% y\n\n\nLess than\n&lt;\n\n\nGreater than\n&gt;\n\n\nLess than or equal to\n&lt;=\n\n\nGreater than or equal to\n&gt;=\n\n\nx OR y (Boolean)\nx || y\n\n\nx AND y (Boolean)\nx && y"
+  },
+  {
+    "objectID": "labs/Lab1-cheatsheet.html#r-commands-summary",
+    "href": "labs/Lab1-cheatsheet.html#r-commands-summary",
+    "title": "Lab1-cheatsheet",
+    "section": "",
+    "text": "Here is a non-exhaustive list of common mathematical operators you may want to use in R:\n\n\n\n\n\n\n\nDescription\nOperator\n\n\n\n\nEqual to\n==\n\n\nNot equal to\n!=\n\n\nAssignment of a value to a variable\n&lt;- or =\n\n\nAddition\n+\n\n\nSubtraction\n-\n\n\nMultiplication\n*\n\n\nDivision\n/\n\n\nExponentiation\nx^y or x\\*\\*y\n\n\nModulo (x mod y), returns remainder of a division\nx %% y\n\n\nLess than\n&lt;\n\n\nGreater than\n&gt;\n\n\nLess than or equal to\n&lt;=\n\n\nGreater than or equal to\n&gt;=\n\n\nx OR y (Boolean)\nx || y\n\n\nx AND y (Boolean)\nx && y"
+  },
+  {
+    "objectID": "labs/lab1.html",
+    "href": "labs/lab1.html",
+    "title": "01. R, Rstudio: Crash Course",
+    "section": "",
+    "text": "Complete DC activity Introduction to R’s first two chapters:\n\nIntro to Basics\nIntroduction to vectors\n\nWork through this document\nComplete the Quiz at the end of this doc\nDownload the file with your answers and upload to moodle"
+  },
+  {
+    "objectID": "labs/lab1.html#numbers",
+    "href": "labs/lab1.html#numbers",
+    "title": "01. R, Rstudio: Crash Course",
+    "section": "Numbers",
+    "text": "Numbers\nThere are three number types in R:\n\nnumeric: the most common type in R; contains any number with or without a decimal\ninteger: numeric data without decimals. This is used when you are certain that you will never create a variable that should contain decimals. Just add the letter L after the number to create an integer.\ncomplex: number is written with an “i” as the imaginary part. Less used."
+  },
+  {
+    "objectID": "labs/lab1.html#example",
+    "href": "labs/lab1.html#example",
+    "title": "01. R, Rstudio: Crash Course",
+    "section": "Example",
+    "text": "Example\nTry these in the sandbox at the end of this section.\nx &lt;- 200.8  # numeric\ny &lt;- 1000L  # integer\nz &lt;- 1i     # complex\nTry these, one at a time:\nx &lt;- 200.8  # numeric\ny &lt;- 1000L  # integer\nz &lt;- 1i     # complex\nYou can convert from one type to another with the following functions:\nas.numeric()\nas.integer()\nas.complex()\nTry these in the sandbox below:\nx &lt;- 200.8  # numeric\ny &lt;- 1000L  # integer\n\nx2 &lt;- as.integer(x) #what happens here?\n\ny2 &lt;- as.numeric(y) #what happens here?\n\nclass(x2)\n\nclass(y2)\nSandbox: Use the area below for any R practice"
+  },
+  {
+    "objectID": "labs/lab1.html#vectors",
+    "href": "labs/lab1.html#vectors",
+    "title": "01. R, Rstudio: Crash Course",
+    "section": "Vectors",
+    "text": "Vectors\nA vector is simply a list of items that are of the same type.\nTo combine the list of items to a vectowebr-r, use the c() function and separate the items by a comma.\nIn the example below, we create a vector variable called planets, that combines strings:\n#vector of strings\n\nplanets &lt;- c(\"Earth\", \"Mars\", \"Saturn\")\n\n#print planets\nplanets\nIn this example, we create a vector that combines numerical values:\n#vector of numeric values\n\nprime_numbers&lt;- c(2, 3, 5, 7, 11)\n\n#print prime numbers\n\nprime_numbers\nYou can create a sequence of numbers using : :\nVector with numerical values in a sequence:\nnumbers &lt;- 1:10\n\nnumbers\n\n# type any code here"
+  },
+  {
+    "objectID": "labs/lab1-quiz.html#vectors",
+    "href": "labs/lab1-quiz.html#vectors",
+    "title": "R Quiz 1",
+    "section": "Vectors",
+    "text": "Vectors\n\nExercise 1\n\nBelow, assign the number 9 to the variable a\n\n\n# assign 9 to a\n\n\na &lt;- 9                \n#Note: I am not sure how to allow multiple correct answers, say\n# a&lt;-9 and \n# a = 9\n\n\n##grade_this_code()\n\n\n\nexercise 2\nNow create another vector, b, containing the numbers 2,9, and 8 in that order\n\n        # assign a vector with 2, 9 and 8, in that order, to b\n\n\nb &lt;- c(2,9,8)      # assign a vector with 2, 9 and 8, in that order, to b \n\n\n#grade_this_code()"
+  },
+  {
+    "objectID": "labs/lab1-quiz.html#vector-functions",
+    "href": "labs/lab1-quiz.html#vector-functions",
+    "title": "R Quiz 1",
+    "section": "Vector functions",
+    "text": "Vector functions\nNow, test if vector a is equal to vector b\n\nex3\n\na &lt;- 9\nb &lt;- c(2,9,8)\n\n\n                    # ask if a equals b \n\n\na == b               # ask if a equals b \n\n[1] FALSE  TRUE FALSE\n\n\n\n#grade_this_code()\n\n\n\nexercise 4\nFinally, multiply vectors a and b\n\n                    # multiply a and b\n\n\na * b             # multiply a and b \n\n[1] 18 81 72\n\n\n\n#grade_this_code()"
+  },
+  {
+    "objectID": "labs/lab1-quiz.html#quiz",
+    "href": "labs/lab1-quiz.html#quiz",
+    "title": "R Quiz 1",
+    "section": "Quiz",
+    "text": "Quiz\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "labs/lab1-quiz.html#rrstudio",
+    "href": "labs/lab1-quiz.html#rrstudio",
+    "title": "R Quiz 1",
+    "section": "R/Rstudio",
+    "text": "R/Rstudio\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
+    "objectID": "labs/lab1-quiz.html#use-r-to-calculate",
+    "href": "labs/lab1-quiz.html#use-r-to-calculate",
+    "title": "R Quiz 1",
+    "section": "Use R to calculate:",
+    "text": "Use R to calculate:\n\nThe product of 15 by 17\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 255))\n)\n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x112bf8670&gt;\n&lt;environment: 0x112bf6c90&gt;\n\n\n\nThirteen to the power of 3:\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 2197))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x112bf8670&gt;\n&lt;environment: 0x110a85f28&gt;\n\n\n\nLog of 14 (use the natural log):\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result,  log(14)))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x112bf8670&gt;\n&lt;environment: 0x110cb7b28&gt;\n\n\n\nLog of 100 (use base 10):\n\n\ngradethis::grade_result(\n  gradethis::pass_if(~identical(.result, 2))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x112bf8670&gt;\n&lt;environment: 0x1138b9350&gt;\n\n\n\nThe square root of 81:\n\n\ngradethis::grade_result(\n  #pass_if(~any(((9-0.5)&lt;.result)==TRUE)&any(((9+0.5)&gt;.result)==TRUE)\n      \n    gradethis::pass_if(~identical(.result, 9))\n)  \n\nfunction (check_env) \n{\n    last_value &lt;- check_env$.last_value\n    env &lt;- learnr_env(envir_prep = check_env$.envir_prep, envir_result = check_env$.envir_result)\n    final_grade &lt;- legacy_graded(correct = default_correct, message = default_message)\n    found_grade &lt;- FALSE\n    for (cond in conditions) {\n        grade &lt;- evaluate_condition(cond, last_value = last_value, \n            env = env)\n        if (length(grade)) {\n            final_grade &lt;- grade\n            found_grade &lt;- TRUE\n            break\n        }\n    }\n    glue_correct &lt;- glue_correct %||% gradethis_legacy_options$gradethis.glue_correct\n    glue_incorrect &lt;- glue_incorrect %||% gradethis_legacy_options$gradethis.glue_incorrect\n    legacy_graded(correct = final_grade$correct, message = glue_message(if (final_grade$correct) \n        glue_correct\n    else glue_incorrect, .is_match = found_grade, .is_correct = final_grade$correct, \n        .message = final_grade$message, .message_pipe_warning = NULL, \n        .correct = correct, .incorrect = incorrect))\n}\n&lt;bytecode: 0x112bf8670&gt;\n&lt;environment: 0x112dad600&gt;\n\n\nCreate a variable called my_name with your last name spelled backwards followed by your first name. E.g., mine would be “olleratib_arabrab”."
+  },
+  {
+    "objectID": "R-learning-goals.html",
+    "href": "R-learning-goals.html",
+    "title": "R-learning-goals",
+    "section": "",
+    "text": "From: https://datacarpentry.github.io/semester-biology/syllabus/\nCreate well structured data\nExtract information from data\nWrite computer programs in R\nAutomate data analysis\nApply these tools to address biological questions\nApply general data management and analysis concepts to other programming languages and database management systems"
+  },
+  {
+    "objectID": "acknowledgments.html",
+    "href": "acknowledgments.html",
+    "title": "Acknowledgments",
+    "section": "",
+    "text": "Thank you to the following people and orgs for sharing their website templates: Maria Tackett, datasciencelabs, Mine Çetinkaya-Rundel, Rstudio, and Rafael Irizarry. I also want to thank Yaniv Brandvain and Michael Whitlock for sharing awesome teaching materials, from which I have heavily borrowed. Thank you also to fbriatte.org for curating so many useful tips shared with students in R resources. Lastly, thank you to Nicole Cavalieri for help in developing some of the R lab materials."
+  },
+  {
+    "objectID": "labs.html",
+    "href": "labs.html",
+    "title": "Labs",
+    "section": "",
+    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\ntest\n\n\n01. R, Rstudio: Crash Course\n\n\n \n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "B215: Biostatistics with R",
+    "section": "",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nmodule\nweek\ndow\ndate\nwhat\ntopic\ndue\nexam\n\n\n\n\n1\n1\nM\nAug-31\n0\nIntro to class\n\n\n\n\n1\n1\nT\nSep-1\n1\nLab1: Intro to R\nDC: Introduction to R (ch.1-2) + Lab worksheet 1\n\n\n\n1\n1\nW\nSep-2\n2\nStatistics and Samples\n\n\n\n\n1\n2\nM\nSep-7\n\n\nNo classes (labor day)\n\n\n\n\n1\n2\nT\nSep-8\n3\nLab 2: Data summaries and basic plots\nDC: Introduction to R (ch.1-6) + Lab worksheet 2\n\n\n\n1\n2\nW\nSep-9\n4\nTypes of study and experimental design\n\n\n\n\n1\n3\nM\nSep-14\n5\nDisplaying & Describing Data I\n\n\n\n\n1\n3\nT\nSep-15\n6\nLab 3: ggplot and dplyr\nLab woksheet 3\n\n\n\n1\n3\nW\nSep-16\n7\nDisplaying & Describing Data I\n\n\n\n\n1\n4\nM\nSep-21\n8\nDisplaying & Describing Data II\nProblem set 1\n\n\n\n1\n4\nT\nSep-22\n9\nLab 4: Exploratory data analysis\nLab woksheet 4\n\n\n\n1\n4\nW\nSep-23\n10\nDisplaying & Describing Data II\n\n\n\n\n2\n5\nM\nSep-28\n11\nProbability I: Proportions\nAll DCs (hard deadline)\n\n\n\n2\n5\nT\nSep-29\n12\n\n\n\n\nMidterm 1\n\n\n2\n5\nW\nSep-30\n13\nProbability I: Rules\n\n\n\n\n2\n6\nM\nOct-5\n14\nProbability II: Binomial & Bayes\n\n\n\n\n2\n6\nT\nOct-6\n15\nLab 5:\nLab woksheet 5\n\n\n\n2\n6\nW\nOct-7\n16\nProbability II: Binomial & Bayes\n\n\n\n\n\n\n\nOct-10-Oct18\n\n\nFall break (no classes)\n\n\n\n\n2\n7\nM\nOct-19\n17\nEstimation\n\n\n\n\n2\n7\nT\nOct-20\n18\nLab 6:\nLab worksheet 6\n\n\n\n2\n7\nW\nOct-21\n19\nEstimation\nCoding project checkpoint 1\n\n\n\n2\n8\nM\nOct-26\n20\nEstimation|Hypothesis testing\n\n\n\n\n2\n8\nT\nOct-27\n21\nLab 7:\nLab worksheet\n\n\n\n2\n8\nW\nOct-28\n22\nHypothesis testing\nCoding checkpoint\n\n\n\n2\n9\nM\nNov-2\n23\nGoodness-of-fit test\n\n\n\n\n2\n9\nT\nNov-3\n24\nLab 8:\nLab worksheet\n\n\n\n2\n9\nW\nNov-4\n25\nGoodness-of-fit test\nCoding project checkpoint 2\n\n\n\n3\n10\nM\n2026-11-09\n26\nContingency analyses\nAll DCs (hard deadline); PS2\n\n\n\n3\n10\nT\nNov-10\n27\n\n\n\n\nMidterm 2\n\n\n3\n10\nW\nNov-11\n28\nContingency analyses\n\n\n\n\n3\n11\nM\nNov-16\n29\nContingency analyses\n\n\n\n\n3\n11\nT\nNov-17\n30\nLab 9:\nLab worksheet\n\n\n\n3\n11\nW\nNov-18\n31\nContingency analyses\n\n\n\n\n3\n12\nM\nNov-23\n32\nNormal Distribution\n\n\n\n\n3\n12\nT\nNov-24\n33\nLab 10:\nLab worksheet\n\n\n\n3\n12\nW\nNov-25\n\n\nNo class (day before thanksgiving)\n\n\n\n\n3\n13\nM\nNov-30\n34\nt-values\n\n\n\n\n3\n13\nT\nDec-1\n35\nLab 11: TBD + Peer-review activity\n\n\n\n\n3\n13\nW\nDec-2\n36\nt-tests\nProblem set 3\n\n\n\n3\n14\nM\nDec-7\n37\n\n\n\n\n\n\n3\n14\nT\nDec-8\n38\nLab 11: |Work on coding project\n\n\n\n\n3\n14\nW\nDec-9\n39\nReview|Course Evals\nCoding project\n\n\n\n\n15\n\n\n\n\n\n\n\n\nFinal exam: during finals week, date TBD",
+    "crumbs": [
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#outline",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#outline",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Outline",
+    "text": "Outline"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#outline-1",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#outline-1",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Outline",
+    "text": "Outline\n\nEstimates of location\nEstimates of width\nExplanatory and exploratory figures\nBest practices in figure design\nHow data types drive figure design\nHow to make effective tables\n\ntoday: location and width; next class plots"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#learning-goals",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#learning-goals",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Learning Goals",
+    "text": "Learning Goals\n\nDifferentiate between estimates of location and estimates of width.\nRecognize that variability is not simply noise, but is a key parameter that can be estimated.\nBecome familiar with the most common descriptive statistics.\nKnow when the mean or median is a more appropriate summary of location.\n\nThese learning goals are for the entire topic/unit. They will also be available in the study guide."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#descriptive-statistics",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#descriptive-statistics",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics\n\nOr summary statistics: quantities that capture important features of frequency distributions\n\n\nLocation (central tendency)\nWidth (spread)\nAssociation (correlation)"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-13",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-13",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The data (1/3)",
+    "text": "The data (1/3)"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-23",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-23",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The data (2/3)",
+    "text": "The data (2/3)\n\nA measure of center (or location) of our data: ⭐"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-33",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-33",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The data (3/3)",
+    "text": "The data (3/3)\n\nA measure of center (or location) of our data: ⭐\nA measure of spread (or width) of our data (red)."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#measures-of-location-central-tendency",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#measures-of-location-central-tendency",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Measures of location (central tendency)",
+    "text": "Measures of location (central tendency)\n\nMean\nMedian\nMode"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-average-problem",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-average-problem",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The average problem",
+    "text": "The average problem\n\n“Average” is sometimes used synonymously with mean. But: medians and even modes are sometimes called an “average”\n\nLet’s be precise (pun intended):\n\nWhen you see the word, “average”, pay attention to which measure of location it describes.\nHere, let’s be stats pro, and refer to mean, median, mode, etc."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-mean",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-mean",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The Mean",
+    "text": "The Mean\n\nThe sum of values divided by the sample size.\n\n\\[\\bar{Y}=\\frac{\\sum_{i=1}^{n}Y_{i}}{n}\\]\n\n\n\n\n\\(\\bar{Y}\\): the mean of variable of \\(Y\\)\n\n\n\\(\\sum\\): sum\n\n\n\n\n\\(n\\): the number of individuals in the samples (sample size)\n\n\\(Y_{i}\\): the observed value for the \\(i\\)-th individual\n\n\n\n\n\\(\\bar{Y}\\) (“Y bar”) is the estimate for the mean (the real parameter mean is often expressed as \\(\\mu\\))"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-mean-example",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-mean-example",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The Mean (example)",
+    "text": "The Mean (example)\n\nThe mean of the set of 11 numbers: \\(1, 15,9, 16,6, 17, 10,  5, 12, 14, 13\\)\n\n\\[\\bar{Y}=\\frac{\\sum_{i=1}^{n}Y_{i}}{n}\\]\n\\(\\bar{Y} = (1+15+9+16+6+17+10+5+12+14+13)/11 =\\) 10.7272727\n\n\nNerd alert: this is the “arithmetic mean”, the one you see most often. The three pytagorean means also include the geometric mean and the harmonic mean."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#median",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#median",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Median",
+    "text": "Median\n\nThe middle measurement.\n\nCalculate the median by taking the value halfway through an ordered list of observations.\n\nSample size is odd: The \\((n + 1) / 2\\)-th value.\nSample size is even: Mean of \\(n/2\\)-th and the \\((n + 2) / 2\\)-th values."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#median-example",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#median-example",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Median example",
+    "text": "Median example\n\nSample size is odd: The \\((n + 1) / 2\\)-th value.\n\n\nFirst, order the numbers: 1, 5, 6, 9, 10, 12, 13, 14, 15, 16, 17\n\nThe \\((n + 1) / 2\\)-th value for odd sized samples:\n1 5 6 9 10 12 13 14 15 16 17\n\n\n\n\nSample size is even: Mean of \\(n/2\\)-th and the \\((n + 2) / 2\\)-th values.\n1 5 6 9 10 [12 13] 14 15 16 17 17\nmean of 12 and 13 is (12+13)/2=12.5"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mean-and-median-in-r",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#mean-and-median-in-r",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Mean and Median in R",
+    "text": "Mean and Median in R\n\nShow the code# a vector with the numbers\nmynumbers &lt;- c(1, 15, 9, 16, 6, 17, 10, 5, 12, 14, 13)\n# mean 'manually'\nmysum &lt;- sum(mynumbers)  #sum all numbers\nl &lt;- length(mynumbers)  #number of elements in vector\nmymean &lt;- mysum/l\nmymean\n\n[1] 10.72727\n\nShow the code# note that you can use a built-in function for this:\nmymean2 &lt;- mean(mynumbers)\nmymean2\n\n[1] 10.72727\n\nShow the code# median with built-in function\nmymedian &lt;- median(mynumbers)\nmymedian\n\n[1] 12\n\nShow the code# median 'manually'\nmynumbers2 &lt;- sort(mynumbers)\nmynumbers2\n\n [1]  1  5  6  9 10 12 13 14 15 16 17\n\nShow the code# since l = 11 (odd) we select the l+1-th element, i.e,\n# (11+1)/2=6\nmynumbers2[6]\n\n[1] 12"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mean-x-median",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#mean-x-median",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Mean x Median",
+    "text": "Mean x Median\n\n\n\nMathematically convenient.\nSimply the sum of all observations divided by the sample size.\n\n\n\nBetter descriptor for skewed population distributions (less affected by outliers).\nThe median is the middle measurement.\n\n\n\nThe mean and median become the same when data are symmetric."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mode",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#mode",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Mode",
+    "text": "Mode\n\nThe most common value observed in a sample.\n\n\neasy to pick\nalways a real value in the data\napplicable to non-numerical variables!\n\n\nHistograms reveal measures of center"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#but-how-will-you-know-how-your-data-is-distributed",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#but-how-will-you-know-how-your-data-is-distributed",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "But how will you know how your data is distributed?",
+    "text": "But how will you know how your data is distributed?\n\nFirst step: plot your data"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#skewness-12",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#skewness-12",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Skewness (1/2)",
+    "text": "Skewness (1/2)"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#skewness-22",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#skewness-22",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Skewness (2/2)",
+    "text": "Skewness (2/2)\nLeft: Asymmetric Few small values. \\(&gt;1/2\\) of values exceed the mean.\nMiddle: Symmetric As many large as small values. \\(\\sim1/2\\) of values exceed the mean.\nRight: Asymmetric Few large values. \\(&gt;1/2\\) of values are less than the mean."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#next",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#next",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Next",
+    "text": "Next\nMeasures of spread (width):\n\nrange\nq-quantiles, interquartile range\nVariance\nStandard deviation\nCoefficient of variation"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nYaniv Brandvain; Freeman & Company; and Michael Whitlock for some materials used in these slides."
+  },
+  {
     "objectID": "slides/Statistics_and_Samples3.html#quick-recap",
     "href": "slides/Statistics_and_Samples3.html#quick-recap",
-    "title": "1.3.Types of variables and soft intro to study design",
+    "title": "1.3.Types of variables",
     "section": "Quick recap",
-    "text": "Quick recap\nLast lecture we discussed:\n\nThe two types of errors associated with sampling: sampling error and sampling bias\nProperties of a good sample\n\nAsk for volunteers to remind these concepts"
+    "text": "Quick recap\nLast lecture we discussed:\n\nThe two types of errors associated with sampling: sampling error and sampling bias.\nProperties of a good sample.\n\nAsk for volunteers to remind these concepts"
   },
   {
     "objectID": "slides/Statistics_and_Samples3.html#learning-goals",
     "href": "slides/Statistics_and_Samples3.html#learning-goals",
-    "title": "1.3.Types of variables and soft intro to study design",
+    "title": "1.3.Types of variables",
     "section": "Learning goals",
-    "text": "Learning goals\n\nDetect the differences between [observational]{.underline} and experimental studies.\nIdentify whether a variable is numeric or categorical (and subtypes).\nUnderstand why experimental studies reveal causation, while observational studies cannot.\nRecognize that confounding factors limit our ability to interpret observed patterns."
+    "text": "Learning goals\n\nDetect the differences between [observational]{.underline} and experimental studies.\nIdentify whether a variable is numeric or categorical (and subtypes)."
   },
   {
     "objectID": "slides/Statistics_and_Samples3.html#types-of-variables",
     "href": "slides/Statistics_and_Samples3.html#types-of-variables",
-    "title": "1.3.Types of variables and soft intro to study design",
+    "title": "1.3.Types of variables",
     "section": "Types of Variables",
     "text": "Types of Variables"
   },
   {
     "objectID": "slides/Statistics_and_Samples3.html#variables-and-data",
     "href": "slides/Statistics_and_Samples3.html#variables-and-data",
-    "title": "1.3.Types of variables and soft intro to study design",
+    "title": "1.3.Types of variables",
     "section": "Variables and “Data”",
     "text": "Variables and “Data”\n\n\nA variable is a characteristic measured on individuals drawn from a population under study.\nData are measurements of one or more variables made on a collection of individuals. (i.e., your sample).\nDataset is a collection of data taken from a single source or intended for a single purpose.\n\n\n\n\n\n\n\nFrom: https://xkcd.com/1429. If you want to have more fun at the expense of language pedants, try developing an hypercorrection habit.\n\n:::"
   },
   {
     "objectID": "slides/Statistics_and_Samples3.html#the-tidy-way-to-organize-data-in-datasets",
     "href": "slides/Statistics_and_Samples3.html#the-tidy-way-to-organize-data-in-datasets",
-    "title": "1.3.Types of variables and soft intro to study design",
+    "title": "1.3.Types of variables",
     "section": "The tidy way to organize data in datasets",
     "text": "The tidy way to organize data in datasets\n\nEach column records one variable. Each row corresponds to one observation.\n\nIndividual\nvar1\nvar2\nvar3\n\n\n\nind01\n\n\n\n\n\nind02\n\n\n\n\n\nind03\n\n\n\n\n\nind04\n\n\n\n\n\n\n\nImportant: never, ever, modify the original (raw) dataset. Instead, focus on reproducibility."
   },
   {
     "objectID": "slides/Statistics_and_Samples3.html#example-the-iris-dataset-in-r",
     "href": "slides/Statistics_and_Samples3.html#example-the-iris-dataset-in-r",
-    "title": "1.3.Types of variables and soft intro to study design",
+    "title": "1.3.Types of variables",
     "section": "Example: the iris dataset in R",
     "text": "Example: the iris dataset in R\n\n\n\n\n\n\nSepal.Length\nSepal.Width\nPetal.Length\nPetal.Width\nSpecies\n\n\n\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n5.0\n3.6\n1.4\n0.2\nsetosa\n\n\n5.4\n3.9\n1.7\n0.4\nsetosa\n\n\n\n\n\n\n\nyou can learn more about this dataset by looking it up in R:\n\n\nHide the code`?`(iris)"
   },
   {
     "objectID": "slides/Statistics_and_Samples3.html#types-of-variablesdata",
     "href": "slides/Statistics_and_Samples3.html#types-of-variablesdata",
-    "title": "1.3.Types of variables and soft intro to study design",
+    "title": "1.3.Types of variables",
     "section": "Types of variables/data",
     "text": "Types of variables/data\n\nNumeric (also known as quantitative)\n\n\n\nDiscrete: can be counted\n\n\nContinuous: can be measured\n\n\n\nCategorical (also known as class or nominal variables)\n\n\n\nOrdinal: can be ranked\n\n\nNominal: cannot be ranked\n\n\nWhy do we care about these types? We will focus a lot on this in our next topic about how to display and describe data. Knowing what kind of variable we have drives our models of data analysis, and is therefore critical to the enterprise of statistics.\n\nThis is essential for our next topic: Displaying & Describing Data."
   },
   {
     "objectID": "slides/Statistics_and_Samples3.html#numeric-datavariables",
     "href": "slides/Statistics_and_Samples3.html#numeric-datavariables",
-    "title": "1.3.Types of variables and soft intro to study design",
+    "title": "1.3.Types of variables",
     "section": "Numeric Data/Variables",
     "text": "Numeric Data/Variables\n\nDiscrete: can only take some values within acceptable interval\n\nExamples:\n\nNumber of limbs\nNumber of offspring\nNumber of petals\nNumber of teeth\nNatural numbers: \\(\\{0,1,2,3,4,5,6,7,...,\\infty\\}\\)"
   },
   {
     "objectID": "slides/Statistics_and_Samples3.html#numeric-datavariables-1",
     "href": "slides/Statistics_and_Samples3.html#numeric-datavariables-1",
-    "title": "1.3.Types of variables and soft intro to study design",
+    "title": "1.3.Types of variables",
     "section": "Numeric Data/Variables",
     "text": "Numeric Data/Variables\n\nContinuous: Can take any value within acceptable interval\n\nExamples:\n\nArm length (cm, inches)\nHeight (cm, inches)\nWeight (kg, lbs)\nAge and longevity (in years, months, etc.)\nTail length (cm, inches)\nDose (e.g., in micrograms/gram)\nSkin color (measured using a reflectometer, measure in wavelengths)"
   },
   {
     "objectID": "slides/Statistics_and_Samples3.html#categorical-variables",
     "href": "slides/Statistics_and_Samples3.html#categorical-variables",
-    "title": "1.3.Types of variables and soft intro to study design",
+    "title": "1.3.Types of variables",
     "section": "Categorical variables",
     "text": "Categorical variables\nExamples:\n\nGenotype (e.g., AA, AG, GG)\nDrug treatment (e.g. aspirin vs.ibuprofen)\nProvince of origin\nSurvival status (i.e., live or die)\nSkin/fur/coat/feather color (e.g., black, yellow, red, etc.)"
   },
   {
     "objectID": "slides/Statistics_and_Samples3.html#relationships-between-variables",
     "href": "slides/Statistics_and_Samples3.html#relationships-between-variables",
-    "title": "1.3.Types of variables and soft intro to study design",
+    "title": "1.3.Types of variables",
     "section": "Relationships between variables",
-    "text": "Relationships between variables\n\nExplanatory variables: predict or affect other variables.\nResponse variables: is affected by another variable.\n\nValid nomenclature for both observational and experimental results, but interpretation is different\n\n\n\nOne major use of statistics is to relate one variable to another by examining associations between variables and differences between groups. Measuring an association is equivalent to measuring a difference, statistically speaking. Showing that “the proportion of survivors differs between treatment categories” is the same as showing that the variables “survival” and “treatment” are associated.\nIn an observational study, their association might nevertheless be described by the “effect” of one of the variables (the explanatory) on the other (the response), even though the association itself is not direct evidence for causation.\n\nOutdated nomenclature: dependent and independent variables"
+    "text": "Relationships between variables\n\nExplanatory variables: predict or affect other variables.\nResponse variables: is affected by another variable.\nValid nomenclature for both observational and experimental results, but interpretation is different\n\n\nOne major use of statistics is to relate one variable to another by examining associations between variables and differences between groups. Measuring an association is equivalent to measuring a difference, statistically speaking. Showing that “the proportion of survivors differs between treatment categories” is the same as showing that the variables “survival” and “treatment” are associated.\nIn an observational study, their association might nevertheless be described by the “effect” of one of the variables (the explanatory) on the other (the response), even though the association itself is not direct evidence for causation.\n\nOutdated nomenclature: dependent and independent variables"
   },
   {
     "objectID": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-12",
     "href": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-12",
-    "title": "1.3.Types of variables and soft intro to study design",
+    "title": "1.3.Types of variables",
     "section": "Case Study: surviving the Titanic (1/2)",
     "text": "Case Study: surviving the Titanic (1/2)\n\n\nConfession: I watched this EIGHT times in the movie theater!\n\n\n\nImage from: Wikipedia Commons."
   },
   {
     "objectID": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-22",
     "href": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-22",
-    "title": "1.3.Types of variables and soft intro to study design",
+    "title": "1.3.Types of variables",
     "section": "Case Study: surviving the Titanic (2/2)",
     "text": "Case Study: surviving the Titanic (2/2)\n\nConsider the fate of the approximatley 2,200 passengers of the titanic, including children and adults of both sexes.\n\n\nThis is a mosaic plot. We will learn about it in our next topic. Code based on snippets from Y. Brandvain."
   },
   {
     "objectID": "slides/Statistics_and_Samples3.html#discuss",
     "href": "slides/Statistics_and_Samples3.html#discuss",
-    "title": "1.3.Types of variables and soft intro to study design",
+    "title": "1.3.Types of variables",
     "section": "Discuss",
     "text": "Discuss\n\n\n\n\n\n\n\n\n\nVariables? Types? Explanatory & response variables?\nDescribe the population this result came from…\nHow far would you generalize from this to “Women & Children 1st?”\nExperimental or observational study?\n\n\n\nWe will continue with this case study at our next in-person meeting!"
   },
   {
     "objectID": "slides/Statistics_and_Samples3.html#acknowledgments",
     "href": "slides/Statistics_and_Samples3.html#acknowledgments",
-    "title": "1.3.Types of variables and soft intro to study design",
+    "title": "1.3.Types of variables",
     "section": "Acknowledgments",
     "text": "Acknowledgments\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
   },
@@ -904,5 +1068,65 @@
     "title": "0.Course Intro",
     "section": "Scientific literacy",
     "text": "Scientific literacy\n\n\n\nFrom: https://xkcd.com/1478/"
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "I am an R enthusiast! At times this course will be challenging, but I promise you the hard work will pay off. Please read this document fully. You may post questions on Piazza or bring them to our first class on 9/1.\nR is the standard tool for performing statistics in biology, health studies, data science, and many other fields. Because of this, B215 is neither just a biostatistics course nor simply an R programming course: it is a biostatistics course where R is directly integrated into the learning process. Throughout the course, we use motivating case studies and data analysis problem sets and R labs based on similar challenges to those one finds in scientific research.",
+    "crumbs": [
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#sec-late",
+    "href": "syllabus.html#sec-late",
+    "title": "Syllabus",
+    "section": "Late work",
+    "text": "Late work\nIf you anticipate being unable to attend a meeting, please contact me as soon as possible as your circumstances allow. Note that problem sets are due in class (hard copy) so if you miss class you must make arrangements to have this handed in on time. It is your responsibility to gather class notes from classmates and complete any missed activities that may not be in the schedule. These make-up materials should be submitted within 3 days of your absence (unless otherwise negotiated; for longer absences or extenuating circumstances, please contact me to work something out). Sick days do not count as unexcused absences! Just let me know ASAP.\nThe course is structured in such a way that you can have some late work without penalty. So there will be no make-up assignments.\nGrace days. Each student may use up to 4 “grace days” during the semester to hand in work late, no questions asked and without penalty. To use your grace day(s) for an assignment, email me at least a day before the assignment is due and communicate how many grace days you are requesting. There is no need to provide any explanation as to why you are using your grace days; as long as you have enough days left in the semester to use, and have written to me at least a day in advance, I will approve. You can use grace days for any assignments except for your final coding project, exams, and the peer-review activity.\nOutside of the grace days, I will accept late work with a reduction in grade as follows: if you turn in the work 1 minute to 24h late, your maximum score will drop to 90%; if you turn it in 24h and 1 minute to 48h late, it will drop to 80%; and so on. Late lecture quizzes and DataCamp will be accepted anytime without penalty but I strongly urge you to keep up with the work. Note that you can retake the lecture quizzes as many times as you want. I am only grading whether or not you did it.\nIf you are dealing with an emergency or other issue and believe you may require more leniency, please email me and your dean as soon as possible so that we can make arrangements.",
+    "crumbs": [
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#sec-plag",
+    "href": "syllabus.html#sec-plag",
+    "title": "Syllabus",
+    "section": "Plagiarism",
+    "text": "Plagiarism\nAll students enrolled in Bryn Mawr Classes are bound by the The Bryn Mawr honor code. I call your attention to the sections on plagiarism and AI use in the code, which will be followed here. Contributions from “outside sources”, including AI sources, must be properly quoted and cited every time they are used. Outside sources include content that was produced by a genAI assistant like ChatGPT, Gemini, and others. Failure to do so constitutes an academic integrity violation, in accordance with the College’s Honor Code:\n\n“In reports and other written work, sources of information and of ideas and opinions not the student’s own must be clearly indicated; the source of direct quotations must be acknowledged. Failure to do so constitutes plagiarism (…) Generative AI tools should not be used in the completion of any course assignments, exams, or written work, including laboratory work, unless an instructor for a given course has specifically and explicitly authorized their use for the assignment in question. (…) Presenting AI-generated content as original student work, submitting AI-generated content without citing its source in artificial intelligence tools, and relying on generative AI tools for closed-book quizzes, tests, and exams all constitute violations of the Honor Code.” – BMC Honor Code2\n\nI will call out code that looks vibe-coded in your assignments. Please don’t do it.\nAll work submitted in this course must be your own. In plain words: do not use genAI to write any of your answers to prompts, problems, and do not submit any prose generated by genAI. You may of course use genAI to study, but do so at your own peril, as I expect your work do reflect the content from the course and I do not authorize the materials from this course to be fed to LLMs. You may use genAI to help you brainstorm/define concepts but if you do so, you must attribute properly. Similarly, if your discussions with classmates informed how you answered any of the questions, you must give them proper attribution.\nYou may use LLMs/GenAI for coding assignments ONLY, and only in certain ways 3:\n\nto brainstorm ideas\nto decode cryptic error messages or explain why they might have occurred\nto ask specific questions about R-language related things like function parameters, etc.\n\nIf you do use LLMs for the coding assignment, you must include citations for each instance where you used it, including the prompt you used (I will provide more specific guidelines with the assignments themselves).\nFor problem sets and other assignments: You may not use AI, as there is no (ethical) reason to do so. The whole point of these formative assessments is to learn and/or practice for the exams.\nIf I suspect these guidelines have been violated, I will call the student over to discuss their process in generating the content.",
+    "crumbs": [
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#students-with-physical-or-learning-differences",
+    "href": "syllabus.html#students-with-physical-or-learning-differences",
+    "title": "Syllabus",
+    "section": "Students with physical or learning differences",
+    "text": "Students with physical or learning differences\n\n“Bryn Mawr College is committed to providing equal access to students with a documented disability. Students needing academic accommodations for a disability must first speak with Access Services. Students can email accessservices@brynmawr.edu to request an appointment to begin this confidential process. If eligible for accommodations as per Access Services, students should schedule an appointment with the professor as early in the semester as possible to share their verification form and make appropriate arrangements. Please note that accommodations are not retroactive and require advance notice to implement. More information can be obtained at the Access Services website.” -— From BMC’s website\n\nPennsylvania law states that individuals are given advance notice that they may be recorded, so:\n\n*“Because some students with a disability may be eligible to record lectures - and it is state law in Pennsylvania that individuals are given advance notice that they may be recorded - professors also need to include the following statement in their syllabus:\n\nAny student who has a disability-related need to record this class must first be found eligible to do so by Access Services and must share this eligibility with me, the instructor. Class members need to be aware that this class may be recorded.”* — From BMC’s website",
+    "crumbs": [
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#title-ix",
+    "href": "syllabus.html#title-ix",
+    "title": "Syllabus",
+    "section": "Title IX",
+    "text": "Title IX\n\nBryn Mawr College is committed to providing an educational and employment environment free from discrimination and harassment based on protected characteristics. The College does not discriminate against any employee, applicant for employment, student, or applicant for admission on the basis of actual or perceived age, citizenship status, color, disability, gender identity/expression, genetic information, national origin, pregnancy or related conditions, race, religion, sex, sexual orientation, veteran status, or any other characteristic protected by applicable federal, state, or local law.” – Info from the College website.\n\nPlease be aware that all Bryn Mawr/Haverford employees (other than those designated as confidential resources such as counselors, clergy, and healthcare providers) must report information about such discrimination and harassment to the Bi-Co Tittle IX Coordinator. See the BMC policy on this.\nSee also: https://www.brynmawr.edu/sites/default/files/media/documents/2025-07/2024-2025%20Bryn%20Mawr%20College%20Sexual%20Misconduct%20Policy_Jan.%202025.pdf",
+    "crumbs": [
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#footnotes",
+    "href": "syllabus.html#footnotes",
+    "title": "Syllabus",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThank you, A. Heiss!↩︎\nThe AI clause to the Honor Code was approved in plenary by BMC members in April 2024.↩︎\nNevertheless, I am providing you with a several recommended alternatives that will make you learn for real.↩︎\nhttps://datavizf25.classes.andrewheiss.com/resource/ai-bs.html↩︎",
+    "crumbs": [
+      "Syllabus"
+    ]
   }
 ]
