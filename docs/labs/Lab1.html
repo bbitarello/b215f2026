@@ -4261,7 +4261,6 @@ window.Quarto = {
 </header>
 
 
-<script language="JavaScript" src="js/exercise-font-size.js"></script>
 <section id="tasks" class="level2">
 <h2 class="anchored" data-anchor-id="tasks">Tasks</h2>
 <ul>
@@ -4670,6 +4669,9 @@ yvar &lt;- 4 #you can use &lt;- as well for assignments of values to variables</
 <section id="download-answers" class="level2">
 <h2 class="anchored" data-anchor-id="download-answers">Download answers</h2>
 <div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">question_numeric</span>(<span class="st">&quot;How many minutes, approximately, did it take you to complete this tutorial? For example, an hour and a half would be 90 minutes.&quot;</span>,</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">answer</span>(<span class="cn">NULL</span>, <span class="at">correct =</span> <span class="cn">TRUE</span>), <span class="at">allow_retry =</span> <span class="cn">TRUE</span>, <span class="at">try_again =</span> <span class="st">&quot;Edit Answer&quot;</span>,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">incorrect =</span> <span class="cn">NULL</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">360</span>, <span class="at">step =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display no-overflow-x">
 <div class="panel panel-default tutorial-question-container">
 <div data-label="minutes" class="tutorial-question panel-body">
@@ -4684,6 +4686,7 @@ yvar &lt;- 4 #you can use &lt;- as well for assignments of values to variables</
 <section id="section" class="level3">
 <h3 class="anchored" data-anchor-id="section"></h3>
 <div class="cell" data-context="setup">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>tutorial.helpers<span class="sc">::</span>submission_ui</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 When you have completed this tutorial, follow these steps:
@@ -4730,7 +4733,7 @@ library(knitr)
 #library(ggmosaic)
 #library(praise)
 library(utils)
-knitr::opts_chunk$set(echo = FALSE, tidy = T)
+knitr::opts_chunk$set(echo = TRUE, tidy = T, root.dir = '/Users/bbitarello/Documents/GitHub/b215f2026/labs/')
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
@@ -4762,92 +4765,10 @@ output$`tutorial-exercise-sandbox1-output` <- renderUI({
 learnr:::store_exercise_cache(structure(list(label = "sandbox1", global_setup = structure(c("library(learnr)", 
 "library(tutorial.helpers)", "library(gradethis)", "library(tidyverse)", 
 "library(knitr)", "#library(ggmosaic)", "#library(praise)", "library(utils)", 
-"knitr::opts_chunk$set(echo = FALSE, tidy = T)"), chunk_opts = list(
-    label = "setup", include = FALSE)), setup = NULL, chunks = list(
-    list(label = "sandbox1", code = "", opts = list(label = "\"sandbox1\"", 
-        exercise = "TRUE", eval = "FALSE"), engine = "r")), code_check = NULL, 
-    error_check = NULL, check = NULL, solution = NULL, tests = NULL, 
-    options = list(eval = FALSE, echo = TRUE, results = "markup", 
-        tidy = TRUE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
-        comment = NA, highlight = FALSE, size = "normalsize", 
-        background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Lab1_cache/html/", cache.vars = NULL, cache.lazy = TRUE, 
-        dependson = NULL, autodep = FALSE, cache.rebuild = FALSE, 
-        fig.keep = "high", fig.show = "asis", fig.align = "default", 
-        fig.path = "Lab1_files/figure-html/", dev = "png", dev.args = NULL, 
-        dpi = 192, fig.ext = "png", fig.width = 7L, fig.height = 5L, 
-        fig.env = "figure", fig.cap = NULL, fig.scap = NULL, 
-        fig.lp = "fig:", fig.subcap = NULL, fig.pos = "", out.width = 672L, 
-        out.height = NULL, out.extra = NULL, fig.retina = 2, 
-        external = TRUE, sanitize = FALSE, interval = 1, aniopts = "controls,loop", 
-        warning = TRUE, error = FALSE, message = TRUE, render = NULL, 
-        ref.label = NULL, child = NULL, engine = "r", split = FALSE, 
-        include = TRUE, purl = TRUE, fig.asp = NULL, fenced.echo = FALSE, 
-        ft.shadow = FALSE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
-        exercise.error.check.code = "gradethis_error_checker()", 
-        label = "sandbox1", exercise = TRUE, original.params.src = "r sandbox1, exercise = TRUE, eval = FALSE", 
-        chunk.echo = FALSE, code = "", out.width.px = 672L, out.height.px = 480L, 
-        params.src = "r sandbox1, exercise = TRUE, eval = FALSE", 
-        fig.num = 0L, exercise.df_print = "default"), engine = "r", 
-    version = "4"), class = c("r", "tutorial_exercise")))
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-sandbox-help-log-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-sandbox-help-log-code-editor`)), session)
-output$`tutorial-exercise-sandbox-help-log-output` <- renderUI({
-  `tutorial-exercise-sandbox-help-log-result`()
-})
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::store_exercise_cache(structure(list(label = "sandbox-help-log", global_setup = structure(c("library(learnr)", 
-"library(tutorial.helpers)", "library(gradethis)", "library(tidyverse)", 
-"library(knitr)", "#library(ggmosaic)", "#library(praise)", "library(utils)", 
-"knitr::opts_chunk$set(echo = FALSE, tidy = T)"), chunk_opts = list(
-    label = "setup", include = FALSE)), setup = NULL, chunks = list(
-    list(label = "sandbox-help-log", code = "", opts = list(label = "\"sandbox-help-log\"", 
-        echo = "T", exercise = "TRUE", eval = "FALSE"), engine = "r")), 
-    code_check = NULL, error_check = NULL, check = NULL, solution = NULL, 
-    tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
-        tidy = TRUE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
-        comment = NA, highlight = FALSE, size = "normalsize", 
-        background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Lab1_cache/html/", cache.vars = NULL, cache.lazy = TRUE, 
-        dependson = NULL, autodep = FALSE, cache.rebuild = FALSE, 
-        fig.keep = "high", fig.show = "asis", fig.align = "default", 
-        fig.path = "Lab1_files/figure-html/", dev = "png", dev.args = NULL, 
-        dpi = 192, fig.ext = "png", fig.width = 7L, fig.height = 5L, 
-        fig.env = "figure", fig.cap = NULL, fig.scap = NULL, 
-        fig.lp = "fig:", fig.subcap = NULL, fig.pos = "", out.width = 672L, 
-        out.height = NULL, out.extra = NULL, fig.retina = 2, 
-        external = TRUE, sanitize = FALSE, interval = 1, aniopts = "controls,loop", 
-        warning = TRUE, error = FALSE, message = TRUE, render = NULL, 
-        ref.label = NULL, child = NULL, engine = "r", split = FALSE, 
-        include = TRUE, purl = TRUE, fig.asp = NULL, fenced.echo = FALSE, 
-        ft.shadow = FALSE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
-        exercise.error.check.code = "gradethis_error_checker()", 
-        label = "sandbox-help-log", exercise = TRUE, original.params.src = "r,  sandbox-help-log, echo = T, exercise=TRUE, eval = FALSE", 
-        chunk.echo = FALSE, code = "", out.width.px = 672L, out.height.px = 480L, 
-        params.src = "r,  sandbox-help-log, echo = T, exercise=TRUE, eval = FALSE", 
-        fig.num = 0L, exercise.df_print = "default"), engine = "r", 
-    version = "4"), class = c("r", "tutorial_exercise")))
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-`tutorial-exercise-sandbox2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-sandbox2-code-editor`)), session)
-output$`tutorial-exercise-sandbox2-output` <- renderUI({
-  `tutorial-exercise-sandbox2-result`()
-})
-</script>
- 
-<script type="application/shiny-prerendered" data-context="server">
-learnr:::store_exercise_cache(structure(list(label = "sandbox2", global_setup = structure(c("library(learnr)", 
-"library(tutorial.helpers)", "library(gradethis)", "library(tidyverse)", 
-"library(knitr)", "#library(ggmosaic)", "#library(praise)", "library(utils)", 
-"knitr::opts_chunk$set(echo = FALSE, tidy = T)"), chunk_opts = list(
-    label = "setup", include = FALSE)), setup = NULL, chunks = list(
-    list(label = "sandbox2", code = "help(log)", opts = list(
-        label = "\"sandbox2\"", exercise = "TRUE", eval = "FALSE"), 
+"knitr::opts_chunk$set(echo = TRUE, tidy = T, root.dir = '/Users/bbitarello/Documents/GitHub/b215f2026/labs/')"
+), chunk_opts = list(label = "setup", include = FALSE)), setup = NULL, 
+    chunks = list(list(label = "sandbox1", code = "", opts = list(
+        label = "\"sandbox1\"", exercise = "TRUE", eval = "FALSE"), 
         engine = "r")), code_check = NULL, error_check = NULL, 
     check = NULL, solution = NULL, tests = NULL, options = list(
         eval = FALSE, echo = TRUE, results = "markup", tidy = TRUE, 
@@ -4868,6 +4789,93 @@ learnr:::store_exercise_cache(structure(list(label = "sandbox2", global_setup = 
         fig.asp = NULL, fenced.echo = FALSE, ft.shadow = FALSE, 
         exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
+        root.dir = "/Users/bbitarello/Documents/GitHub/b215f2026/labs/", 
+        label = "sandbox1", exercise = TRUE, original.params.src = "r sandbox1, exercise = TRUE, eval = FALSE", 
+        chunk.echo = FALSE, code = "", out.width.px = 672L, out.height.px = 480L, 
+        params.src = "r sandbox1, exercise = TRUE, eval = FALSE", 
+        fig.num = 0L, exercise.df_print = "default"), engine = "r", 
+    version = "4"), class = c("r", "tutorial_exercise")))
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-sandbox-help-log-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-sandbox-help-log-code-editor`)), session)
+output$`tutorial-exercise-sandbox-help-log-output` <- renderUI({
+  `tutorial-exercise-sandbox-help-log-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::store_exercise_cache(structure(list(label = "sandbox-help-log", global_setup = structure(c("library(learnr)", 
+"library(tutorial.helpers)", "library(gradethis)", "library(tidyverse)", 
+"library(knitr)", "#library(ggmosaic)", "#library(praise)", "library(utils)", 
+"knitr::opts_chunk$set(echo = TRUE, tidy = T, root.dir = '/Users/bbitarello/Documents/GitHub/b215f2026/labs/')"
+), chunk_opts = list(label = "setup", include = FALSE)), setup = NULL, 
+    chunks = list(list(label = "sandbox-help-log", code = "", 
+        opts = list(label = "\"sandbox-help-log\"", echo = "T", 
+            exercise = "TRUE", eval = "FALSE"), engine = "r")), 
+    code_check = NULL, error_check = NULL, check = NULL, solution = NULL, 
+    tests = NULL, options = list(eval = FALSE, echo = TRUE, results = "markup", 
+        tidy = TRUE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
+        comment = NA, highlight = FALSE, size = "normalsize", 
+        background = "#F7F7F7", strip.white = TRUE, cache = 0, 
+        cache.path = "Lab1_cache/html/", cache.vars = NULL, cache.lazy = TRUE, 
+        dependson = NULL, autodep = FALSE, cache.rebuild = FALSE, 
+        fig.keep = "high", fig.show = "asis", fig.align = "default", 
+        fig.path = "Lab1_files/figure-html/", dev = "png", dev.args = NULL, 
+        dpi = 192, fig.ext = "png", fig.width = 7L, fig.height = 5L, 
+        fig.env = "figure", fig.cap = NULL, fig.scap = NULL, 
+        fig.lp = "fig:", fig.subcap = NULL, fig.pos = "", out.width = 672L, 
+        out.height = NULL, out.extra = NULL, fig.retina = 2, 
+        external = TRUE, sanitize = FALSE, interval = 1, aniopts = "controls,loop", 
+        warning = TRUE, error = FALSE, message = TRUE, render = NULL, 
+        ref.label = NULL, child = NULL, engine = "r", split = FALSE, 
+        include = TRUE, purl = TRUE, fig.asp = NULL, fenced.echo = FALSE, 
+        ft.shadow = FALSE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
+        exercise.error.check.code = "gradethis_error_checker()", 
+        root.dir = "/Users/bbitarello/Documents/GitHub/b215f2026/labs/", 
+        label = "sandbox-help-log", exercise = TRUE, original.params.src = "r,  sandbox-help-log, echo = T, exercise=TRUE, eval = FALSE", 
+        chunk.echo = FALSE, code = "", out.width.px = 672L, out.height.px = 480L, 
+        params.src = "r,  sandbox-help-log, echo = T, exercise=TRUE, eval = FALSE", 
+        fig.num = 0L, exercise.df_print = "default"), engine = "r", 
+    version = "4"), class = c("r", "tutorial_exercise")))
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+`tutorial-exercise-sandbox2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-sandbox2-code-editor`)), session)
+output$`tutorial-exercise-sandbox2-output` <- renderUI({
+  `tutorial-exercise-sandbox2-result`()
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+learnr:::store_exercise_cache(structure(list(label = "sandbox2", global_setup = structure(c("library(learnr)", 
+"library(tutorial.helpers)", "library(gradethis)", "library(tidyverse)", 
+"library(knitr)", "#library(ggmosaic)", "#library(praise)", "library(utils)", 
+"knitr::opts_chunk$set(echo = TRUE, tidy = T, root.dir = '/Users/bbitarello/Documents/GitHub/b215f2026/labs/')"
+), chunk_opts = list(label = "setup", include = FALSE)), setup = NULL, 
+    chunks = list(list(label = "sandbox2", code = "help(log)", 
+        opts = list(label = "\"sandbox2\"", exercise = "TRUE", 
+            eval = "FALSE"), engine = "r")), code_check = NULL, 
+    error_check = NULL, check = NULL, solution = NULL, tests = NULL, 
+    options = list(eval = FALSE, echo = TRUE, results = "markup", 
+        tidy = TRUE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
+        comment = NA, highlight = FALSE, size = "normalsize", 
+        background = "#F7F7F7", strip.white = TRUE, cache = 0, 
+        cache.path = "Lab1_cache/html/", cache.vars = NULL, cache.lazy = TRUE, 
+        dependson = NULL, autodep = FALSE, cache.rebuild = FALSE, 
+        fig.keep = "high", fig.show = "asis", fig.align = "default", 
+        fig.path = "Lab1_files/figure-html/", dev = "png", dev.args = NULL, 
+        dpi = 192, fig.ext = "png", fig.width = 7L, fig.height = 5L, 
+        fig.env = "figure", fig.cap = NULL, fig.scap = NULL, 
+        fig.lp = "fig:", fig.subcap = NULL, fig.pos = "", out.width = 672L, 
+        out.height = NULL, out.extra = NULL, fig.retina = 2, 
+        external = TRUE, sanitize = FALSE, interval = 1, aniopts = "controls,loop", 
+        warning = TRUE, error = FALSE, message = TRUE, render = NULL, 
+        ref.label = NULL, child = NULL, engine = "r", split = FALSE, 
+        include = TRUE, purl = TRUE, fig.asp = NULL, fenced.echo = FALSE, 
+        ft.shadow = FALSE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
+        exercise.error.check.code = "gradethis_error_checker()", 
+        root.dir = "/Users/bbitarello/Documents/GitHub/b215f2026/labs/", 
         label = "sandbox2", exercise = TRUE, original.params.src = "r sandbox2, exercise=TRUE, eval = FALSE", 
         chunk.echo = FALSE, code = "help(log)", out.width.px = 672L, 
         out.height.px = 480L, params.src = "r sandbox2, exercise=TRUE, eval = FALSE", 
@@ -4886,29 +4894,31 @@ output$`tutorial-exercise-sandbox3-output` <- renderUI({
 learnr:::store_exercise_cache(structure(list(label = "sandbox3", global_setup = structure(c("library(learnr)", 
 "library(tutorial.helpers)", "library(gradethis)", "library(tidyverse)", 
 "library(knitr)", "#library(ggmosaic)", "#library(praise)", "library(utils)", 
-"knitr::opts_chunk$set(echo = FALSE, tidy = T)"), chunk_opts = list(
-    label = "setup", include = FALSE)), setup = NULL, chunks = list(
-    list(label = "sandbox3", code = "", opts = list(label = "\"sandbox3\"", 
-        exercise = "TRUE", eval = "FALSE"), engine = "r")), code_check = NULL, 
-    error_check = NULL, check = NULL, solution = NULL, tests = NULL, 
-    options = list(eval = FALSE, echo = TRUE, results = "markup", 
-        tidy = TRUE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
-        comment = NA, highlight = FALSE, size = "normalsize", 
-        background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Lab1_cache/html/", cache.vars = NULL, cache.lazy = TRUE, 
-        dependson = NULL, autodep = FALSE, cache.rebuild = FALSE, 
-        fig.keep = "high", fig.show = "asis", fig.align = "default", 
-        fig.path = "Lab1_files/figure-html/", dev = "png", dev.args = NULL, 
-        dpi = 192, fig.ext = "png", fig.width = 7L, fig.height = 5L, 
-        fig.env = "figure", fig.cap = NULL, fig.scap = NULL, 
-        fig.lp = "fig:", fig.subcap = NULL, fig.pos = "", out.width = 672L, 
-        out.height = NULL, out.extra = NULL, fig.retina = 2, 
-        external = TRUE, sanitize = FALSE, interval = 1, aniopts = "controls,loop", 
-        warning = TRUE, error = FALSE, message = TRUE, render = NULL, 
-        ref.label = NULL, child = NULL, engine = "r", split = FALSE, 
-        include = TRUE, purl = TRUE, fig.asp = NULL, fenced.echo = FALSE, 
-        ft.shadow = FALSE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
+"knitr::opts_chunk$set(echo = TRUE, tidy = T, root.dir = '/Users/bbitarello/Documents/GitHub/b215f2026/labs/')"
+), chunk_opts = list(label = "setup", include = FALSE)), setup = NULL, 
+    chunks = list(list(label = "sandbox3", code = "", opts = list(
+        label = "\"sandbox3\"", exercise = "TRUE", eval = "FALSE"), 
+        engine = "r")), code_check = NULL, error_check = NULL, 
+    check = NULL, solution = NULL, tests = NULL, options = list(
+        eval = FALSE, echo = TRUE, results = "markup", tidy = TRUE, 
+        tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
+        highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
+        strip.white = TRUE, cache = 0, cache.path = "Lab1_cache/html/", 
+        cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
+        autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
+        fig.show = "asis", fig.align = "default", fig.path = "Lab1_files/figure-html/", 
+        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
+        fig.width = 7L, fig.height = 5L, fig.env = "figure", 
+        fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
+        fig.pos = "", out.width = 672L, out.height = NULL, out.extra = NULL, 
+        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
+        aniopts = "controls,loop", warning = TRUE, error = FALSE, 
+        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
+        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
+        fig.asp = NULL, fenced.echo = FALSE, ft.shadow = FALSE, 
+        exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
+        root.dir = "/Users/bbitarello/Documents/GitHub/b215f2026/labs/", 
         label = "sandbox3", exercise = TRUE, original.params.src = "r sandbox3, exercise=TRUE, eval = FALSE", 
         chunk.echo = FALSE, code = "", out.width.px = 672L, out.height.px = 480L, 
         params.src = "r sandbox3, exercise=TRUE, eval = FALSE", 
@@ -4927,29 +4937,31 @@ output$`tutorial-exercise-sandbox4-output` <- renderUI({
 learnr:::store_exercise_cache(structure(list(label = "sandbox4", global_setup = structure(c("library(learnr)", 
 "library(tutorial.helpers)", "library(gradethis)", "library(tidyverse)", 
 "library(knitr)", "#library(ggmosaic)", "#library(praise)", "library(utils)", 
-"knitr::opts_chunk$set(echo = FALSE, tidy = T)"), chunk_opts = list(
-    label = "setup", include = FALSE)), setup = NULL, chunks = list(
-    list(label = "sandbox4", code = "", opts = list(label = "\"sandbox4\"", 
-        exercise = "TRUE", eval = "FALSE"), engine = "r")), code_check = NULL, 
-    error_check = NULL, check = NULL, solution = NULL, tests = NULL, 
-    options = list(eval = FALSE, echo = TRUE, results = "markup", 
-        tidy = TRUE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
-        comment = NA, highlight = FALSE, size = "normalsize", 
-        background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Lab1_cache/html/", cache.vars = NULL, cache.lazy = TRUE, 
-        dependson = NULL, autodep = FALSE, cache.rebuild = FALSE, 
-        fig.keep = "high", fig.show = "asis", fig.align = "default", 
-        fig.path = "Lab1_files/figure-html/", dev = "png", dev.args = NULL, 
-        dpi = 192, fig.ext = "png", fig.width = 7L, fig.height = 5L, 
-        fig.env = "figure", fig.cap = NULL, fig.scap = NULL, 
-        fig.lp = "fig:", fig.subcap = NULL, fig.pos = "", out.width = 672L, 
-        out.height = NULL, out.extra = NULL, fig.retina = 2, 
-        external = TRUE, sanitize = FALSE, interval = 1, aniopts = "controls,loop", 
-        warning = TRUE, error = FALSE, message = TRUE, render = NULL, 
-        ref.label = NULL, child = NULL, engine = "r", split = FALSE, 
-        include = TRUE, purl = TRUE, fig.asp = NULL, fenced.echo = FALSE, 
-        ft.shadow = FALSE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
+"knitr::opts_chunk$set(echo = TRUE, tidy = T, root.dir = '/Users/bbitarello/Documents/GitHub/b215f2026/labs/')"
+), chunk_opts = list(label = "setup", include = FALSE)), setup = NULL, 
+    chunks = list(list(label = "sandbox4", code = "", opts = list(
+        label = "\"sandbox4\"", exercise = "TRUE", eval = "FALSE"), 
+        engine = "r")), code_check = NULL, error_check = NULL, 
+    check = NULL, solution = NULL, tests = NULL, options = list(
+        eval = FALSE, echo = TRUE, results = "markup", tidy = TRUE, 
+        tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
+        highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
+        strip.white = TRUE, cache = 0, cache.path = "Lab1_cache/html/", 
+        cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
+        autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
+        fig.show = "asis", fig.align = "default", fig.path = "Lab1_files/figure-html/", 
+        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
+        fig.width = 7L, fig.height = 5L, fig.env = "figure", 
+        fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
+        fig.pos = "", out.width = 672L, out.height = NULL, out.extra = NULL, 
+        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
+        aniopts = "controls,loop", warning = TRUE, error = FALSE, 
+        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
+        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
+        fig.asp = NULL, fenced.echo = FALSE, ft.shadow = FALSE, 
+        exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
+        root.dir = "/Users/bbitarello/Documents/GitHub/b215f2026/labs/", 
         label = "sandbox4", exercise = TRUE, original.params.src = "r sandbox4, exercise=TRUE, eval = FALSE", 
         chunk.echo = FALSE, code = "", out.width.px = 672L, out.height.px = 480L, 
         params.src = "r sandbox4, exercise=TRUE, eval = FALSE", 
@@ -4968,29 +4980,31 @@ output$`tutorial-exercise-sandbox5-output` <- renderUI({
 learnr:::store_exercise_cache(structure(list(label = "sandbox5", global_setup = structure(c("library(learnr)", 
 "library(tutorial.helpers)", "library(gradethis)", "library(tidyverse)", 
 "library(knitr)", "#library(ggmosaic)", "#library(praise)", "library(utils)", 
-"knitr::opts_chunk$set(echo = FALSE, tidy = T)"), chunk_opts = list(
-    label = "setup", include = FALSE)), setup = NULL, chunks = list(
-    list(label = "sandbox5", code = "", opts = list(label = "\"sandbox5\"", 
-        exercise = "TRUE", eval = "FALSE"), engine = "r")), code_check = NULL, 
-    error_check = NULL, check = NULL, solution = NULL, tests = NULL, 
-    options = list(eval = FALSE, echo = TRUE, results = "markup", 
-        tidy = TRUE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
-        comment = NA, highlight = FALSE, size = "normalsize", 
-        background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Lab1_cache/html/", cache.vars = NULL, cache.lazy = TRUE, 
-        dependson = NULL, autodep = FALSE, cache.rebuild = FALSE, 
-        fig.keep = "high", fig.show = "asis", fig.align = "default", 
-        fig.path = "Lab1_files/figure-html/", dev = "png", dev.args = NULL, 
-        dpi = 192, fig.ext = "png", fig.width = 7L, fig.height = 5L, 
-        fig.env = "figure", fig.cap = NULL, fig.scap = NULL, 
-        fig.lp = "fig:", fig.subcap = NULL, fig.pos = "", out.width = 672L, 
-        out.height = NULL, out.extra = NULL, fig.retina = 2, 
-        external = TRUE, sanitize = FALSE, interval = 1, aniopts = "controls,loop", 
-        warning = TRUE, error = FALSE, message = TRUE, render = NULL, 
-        ref.label = NULL, child = NULL, engine = "r", split = FALSE, 
-        include = TRUE, purl = TRUE, fig.asp = NULL, fenced.echo = FALSE, 
-        ft.shadow = FALSE, exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
+"knitr::opts_chunk$set(echo = TRUE, tidy = T, root.dir = '/Users/bbitarello/Documents/GitHub/b215f2026/labs/')"
+), chunk_opts = list(label = "setup", include = FALSE)), setup = NULL, 
+    chunks = list(list(label = "sandbox5", code = "", opts = list(
+        label = "\"sandbox5\"", exercise = "TRUE", eval = "FALSE"), 
+        engine = "r")), code_check = NULL, error_check = NULL, 
+    check = NULL, solution = NULL, tests = NULL, options = list(
+        eval = FALSE, echo = TRUE, results = "markup", tidy = TRUE, 
+        tidy.opts = NULL, collapse = FALSE, prompt = FALSE, comment = NA, 
+        highlight = FALSE, size = "normalsize", background = "#F7F7F7", 
+        strip.white = TRUE, cache = 0, cache.path = "Lab1_cache/html/", 
+        cache.vars = NULL, cache.lazy = TRUE, dependson = NULL, 
+        autodep = FALSE, cache.rebuild = FALSE, fig.keep = "high", 
+        fig.show = "asis", fig.align = "default", fig.path = "Lab1_files/figure-html/", 
+        dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
+        fig.width = 7L, fig.height = 5L, fig.env = "figure", 
+        fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
+        fig.pos = "", out.width = 672L, out.height = NULL, out.extra = NULL, 
+        fig.retina = 2, external = TRUE, sanitize = FALSE, interval = 1, 
+        aniopts = "controls,loop", warning = TRUE, error = FALSE, 
+        message = TRUE, render = NULL, ref.label = NULL, child = NULL, 
+        engine = "r", split = FALSE, include = TRUE, purl = TRUE, 
+        fig.asp = NULL, fenced.echo = FALSE, ft.shadow = FALSE, 
+        exercise.timelimit = 60, exercise.checker = "function (label = NULL, solution_code = NULL, user_code = NULL, \n    check_code = NULL, envir_result = NULL, evaluate_result = NULL, \n    envir_prep = NULL, last_value = NULL, stage = NULL, ..., \n    solution_eval_fn = NULL) \n{\n    (utils::getFromNamespace(\"check_exercise\", \"gradethis\"))(label = label, \n        solution_code = solution_code, user_code = user_code, \n        check_code = check_code, envir_result = envir_result, \n        evaluate_result = evaluate_result, envir_prep = envir_prep, \n        last_value = last_value, stage = stage, ...)\n}", 
         exercise.error.check.code = "gradethis_error_checker()", 
+        root.dir = "/Users/bbitarello/Documents/GitHub/b215f2026/labs/", 
         label = "sandbox5", exercise = TRUE, original.params.src = "r sandbox5, exercise=TRUE, eval = FALSE", 
         chunk.echo = FALSE, code = "", out.width.px = 672L, out.height.px = 480L, 
         params.src = "r sandbox5, exercise=TRUE, eval = FALSE", 
@@ -5000,7 +5014,7 @@ learnr:::store_exercise_cache(structure(list(label = "sandbox5", global_setup = 
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", label = "minutes", question = structure("How many minutes, approximately, did it take you to complete this tutorial? For example, an hour and a half would be 90 minutes.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_826a0d2", 
+"character")), answers = list(structure(list(id = "lnr_ans_c5a30c9", 
     option = character(0), value = NULL, label = NULL, correct = TRUE, 
     message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -5009,7 +5023,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_numeric", labe
 "character")), try_again = NULL, incorrect = NULL, message = NULL, 
     post_message = NULL), ids = list(answer = "minutes-answer", 
     question = "minutes"), loading = NULL, random_answer_order = FALSE, 
-    allow_retry = TRUE, seed = 1653540650.73001, options = list(
+    allow_retry = TRUE, seed = 301619674.859547, options = list(
         min = 0, max = 360, step = 1, tolerance = 1.5e-08)), class = c("learnr_numeric", 
 "tutorial_question")), session = session)
 </script>

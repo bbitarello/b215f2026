@@ -1512,7 +1512,7 @@
     "href": "labs/Lab1.html#download-answers",
     "title": "Crash Course",
     "section": "Download answers",
-    "text": "Download answers\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhen you have completed this tutorial, follow these steps:\n\n\nClick the button to download a file containing your answers.\nSave the file onto your computer in a convenient location.\n\n\n\n\n\n\nDownload HTML\n\n\n\n\n\n\n(If no file seems to download, try right-clicking the download button and choose \"Save link as...\")"
+    "text": "Download answers\n\nquestion_numeric(\"How many minutes, approximately, did it take you to complete this tutorial? For example, an hour and a half would be 90 minutes.\",\n    answer(NULL, correct = TRUE), allow_retry = TRUE, try_again = \"Edit Answer\",\n    incorrect = NULL, min = 0, max = 360, step = 1)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntutorial.helpers::submission_ui\n\n\nWhen you have completed this tutorial, follow these steps:\n\n\nClick the button to download a file containing your answers.\nSave the file onto your computer in a convenient location.\n\n\n\n\n\n\nDownload HTML\n\n\n\n\n\n\n(If no file seems to download, try right-clicking the download button and choose \"Save link as...\")"
   },
   {
     "objectID": "labs/Lab1.html#links-references",

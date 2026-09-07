@@ -1,0 +1,10 @@
+name: lab1
+title:
+username: bbitarello-teaching
+account: bbitarello-teaching
+server: connect.posit.cloud
+hostUrl: https://api.connect.posit.cloud/v1
+appId: 01a07dc5-356f-a5ab-ec8f-19584df77eee
+bundleId:
+url:
+version: 1

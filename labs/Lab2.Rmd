@@ -4,7 +4,7 @@ output:
   learnr::tutorial:
     progressive: true
     allow_skip: false
-    id: "com.example.tutorials.lab2d"
+    id: "20481b25-015e-4704-ad2d-7813c2c6e0f1"
     version: 2
     mathjax: default
     toc: true

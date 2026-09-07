@@ -5,8 +5,8 @@ output:
   learnr::tutorial:
     progressive: true
     allow_skip: false
-    id: "fe0ef91f-7b5b-4f22-87ed-8eb9583254f2"
-    version: 1
+    id: "fggef91f-7b5b-4f22-87ed-8eb9583254f2"
+    version: 3
     mathjax: default
     toc: true
 editor_options:
@@ -23,10 +23,8 @@ library(knitr)
 #library(ggmosaic)
 #library(praise)
 library(utils)
-knitr::opts_chunk$set(echo = FALSE, tidy = T)
+knitr::opts_chunk$set(echo = TRUE, tidy = T, root.dir = '/Users/bbitarello/Documents/GitHub/b215f2026/labs/')
 ```
-
-<script language="JavaScript" src="js/exercise-font-size.js"></script>
 
 ## Tasks
 
@@ -516,19 +514,9 @@ numbers
 
 
 
-## R Quiz 1
+## Download your answers
 
-When you're ready, take the quiz. In your console, type:
-
-
-```{r sandbox-quiz, exercise=F, echo = T, eval = F}
-
-learnr::run_tutorial("Quiz1.Rmd")
-
-```
-
-
-```{r download-answers, child = system.file("child_documents/download_answers.Rmd", package = "tutorial.helpers")}
+```{r download-answers, echo=F,child = system.file("child_documents/download_answers.Rmd", package = "tutorial.helpers")}
 ```
 ## Links & References
 
