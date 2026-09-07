@@ -1,9 +1,10 @@
 ---
 title: "B215: Biostatistics with R"
-subtitle: "Schedule (subject to change)"
+subtitle: "Schedule (subject to change; please check often)"
 date: 2026-08-30
 date-format: long
 date-modified: last-modified
+tbl-colwidths: [10,50,40]
 ---
 
 This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.
@@ -101,6 +102,9 @@ g1<-g|> text_transform(cells_body(columns = c(exam)),
     align = "left", 
     columns = c(date, what, topic, exam, due)
     ) 
-g1 |> cols_width(week ~ px(50), module ~ px(50), dow ~ px(40), date ~ px(80), what ~ px(50), topic ~ px(150), due~ px(100),exam ~ px(100))
+g1<-g1 |> cols_width(week ~ px(50), module ~ px(50), dow ~ px(40), date ~ px(80), what ~ px(50), topic ~ px(150), due~ px(100),exam ~ px(100))
+g1 |> tab_options(
+    column_labels.background.color = "#365C8DFF"
+  ) 
 ```
 :::

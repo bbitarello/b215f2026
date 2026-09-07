@@ -62,7 +62,12 @@ Updated often. If you're an enrolled students and would like to contribute conte
 
 ## Tutorials & Simulations
 
+[fasteR: Fast Lane to Learning R!](https://github.com/matloff/faster) -- If you wanna speed things up!
+
+[R Workflow for Reproducible Data Analysis and Reporting](https://hbiostat.org/rflow/) by Frank E. Harrell Jr -- Great resource. Provides tutorials and also link to other freely available materials. 
+
 [R for Beginners –– An on-line introduction to R by Emmanuel Paradis](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf)
+
 - [r-statistics.co, by Selva Prabhakaran](https://r-statistics.co/) - includes [very good section on ggplot](https://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)!
 
 -   [From your textbook](https://whitlockschluter3e.zoology.ubc.ca)
@@ -72,6 +77,9 @@ Updated often. If you're an enrolled students and would like to contribute conte
 - [Power analyses in R](https://data-wise.github.io/doe/appendix/r-packages/pwr.html)
 
 ## Web visualizations
+
+[Introduction to the Book Of Apps for Statistics Teaching](https://shinyapps.science.psu.edu/)
+
 
 CLT: [https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm](https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm)
 

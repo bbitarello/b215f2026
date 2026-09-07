@@ -15,6 +15,6 @@ ignore-for-now/*
 syllabus.qmd
 *prof.qmd
 *ignore.txt
-
+cheatsheets/*
 
 **/*.quarto_ipynb

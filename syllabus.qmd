@@ -1,6 +1,6 @@
 ---
 title: "Syllabus"
-subtitle: "Not fully finalized yet!"
+#subtitle: "Not fully finalized yet!"
 number-sections: false
 #draft: true
 date: 2026-08-30
@@ -106,14 +106,14 @@ How will this term work / look like?
 
 [Lecture classes.]{.underline} These are designed with the assumption that you have completed the pre-assigned readings and lecture videos, enabling us to dive deeper into nuances, applications, and questions. For modules 2-3, the lectures will be introduced via video to be watched before class, and we will go deeper in person. Remaining time will be spent going over case studies, practice problems, and completing problem sets.
 
-[Wednesday hands-on R labs]{.underline}. Our labs are computational (bring your laptop). Typically we will have a short lecture to recap previous topics and introduce new ones, followed by a self-guided tutorial. R labs are due at the end of the lab period (or by the end of the day at the latest). You will get feedback on it before the next lab. Attendance to labs is mandatory, and absences must be communicated/justified via email.
+[Tuesday hands-on R labs]{.underline}. Our labs are computational (bring your laptop). Typically we will have a short lecture to recap previous topics and introduce new ones, followed by a self-guided tutorial. R labs are due at the end of the lab period (or by the end of the day at the latest). You will get feedback on it before the next lab. Attendance to labs is mandatory, and absences must be communicated/justified via email.
 
-DataCamp: because many of you have no experience coding, in Module 1 we will have a decent amount of intro practice in R using DataCamp (DC). This is essentially Duolingo for coding. As we advance in the course, there will be less required DC activities (though optional ones will still be assinged). When DC activities are required, they will be listed on Moodle or in the lab activity.
+[DataCamp:]{.underline} because many of you have no experience coding, in Module 1 we will have a decent amount of intro practice in R using DataCamp (DC). This is essentially Duolingo for coding. As we advance in the course, there will be less required DC activities (though optional ones will still be assigned). When DC activities are required, they will be listed on Moodle or in the lab activity.
 
 # How to succeed
 
 
-**Workload:** This course includes 5.5 hours of in-person instructional time. The additional time (~ 4.5 hours/week) you should invest on prep work and independent learning. In total, you are expected to invest 10 hours per week in this course, including the in-person time.
+**Workload:** This course includes 5.5 hours of in-person instructional time. The additional time (~ 4.5 hours/week) you should invest on prep work and independent learning. In total, you are expected to invest **at least** 10 hours per week (10-12h) in this course, including the in-person time.
 
 1.  **Prepare.** 
 
@@ -151,7 +151,9 @@ d <- read_sheet("https://docs.google.com/spreadsheets/d/1ScIXAwu759O7g2WS4HWBmvg
 d |> select(Component, `Weight (%)`) |>
   filter(Component != "Total") |>
   na.omit() |>
-  gt()
+  gt() |> tab_options(
+    column_labels.background.color = "#365C8DFF"
+  ) 
 ```
 
 Final grades will likely be assigned as follows (if curving is performed, it could increase but not decrease your grade):
@@ -162,12 +164,15 @@ gs4_deauth()
 
 d1 <- read_sheet("https://docs.google.com/spreadsheets/d/1ScIXAwu759O7g2WS4HWBmvgP50oKnPCLGW0qb33H67Y/edit?usp=sharing", sheet = "bmc")
 colnames(d1)<-c("Grade (%)", "BMC")
-d1 |> gt()
+d1 |> gt() |>
+  tab_options(
+    column_labels.background.color = "#365C8DFF"
+  ) 
 ```
 
 # Participation
 
-The course is not the same without you. The best way to participate is to \[come to class\]{.underline} and office hours and ask questions. Shy students can also earn participation points by posting question or answers on Piazza, which can be done anonymously. See @seq-FAQs (Q.2).  Your prep work before class and in-class activities besides labs will also be graded for participation. If you miss up to but no more than three of these participation activities, your grade will not be impacted. 
+The course is not the same without you. The best way to participate is to [come to class]{.underline} and office hours and ask questions. Shy students can also earn participation points by posting question or answers on Piazza, which can be done anonymously. See @seq-FAQs (Q.2).  Your prep work before class and in-class activities besides labs will also be graded for participation. If you miss up to but no more than three of these participation activities, your grade will not be impacted. 
 
 If you must miss class, I expect you to email me. If you cannot make it to a lecture meeting, you could do some of the in-class activities on your own time without help, but we do not recommend this as a class strategy. The help of your classmates and the environment they create is one of the best parts of this class. Help each other.
 

@@ -1,0 +1,669 @@
+---
+title: "Lab 2: Data Structures and types in R"
+output: 
+  learnr::tutorial:
+    progressive: true
+    allow_skip: false
+    id: "com.example.tutorials.lab2d"
+    version: 2
+    mathjax: default
+    toc: true
+    toc-depth: 1
+runtime: shiny_prerendered
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+library(tutorial.helpers)
+library(gradethis)
+library(tidyverse)
+library(knitr)
+library(ggmosaic)
+library(praise)
+library(utils)
+knitr::opts_chunk$set(tidy = T, error = T)
+ tutorial_options(exercise.eval = TRUE, exercise.reveal_solution = FALSE)
+ gradethis::gradethis_setup(
+   pass.praise = TRUE,
+   fail.encourage = TRUE,
+   fail.hint = TRUE
+ )
+
+
+
+```
+
+## Welcome!
+
+You have survived your R crash course and today we will start going
+deeper so that you can feel as happy as this in no-time!
+
+[![Artwork by
+\@allison_horst](https://cdn.myportfolio.com/45214904-6a61-4e23-98d6-b140f8654a40/e684f0da-13b1-4d00-ab25-37814e79ee1e_rw_1920.png?h=2b72c110cfcf02f5cf1f74b558461c06){width="337"}](https://allisonhorst.com/everything-else)
+
+### This lab covers
+
+1.  Data types in R ("classes"): `numeric`, `integer`, `logical`,
+    `character`
+
+2.  Data structures in R: `vectors`, `lists`, `matrices`, `data frames`
+
+3.  Indexing the different data structures
+
+
+### Tasks
+
+-   Complete this tutorial and download your `.html` file at the end and upload it to Moodle
+-   Practice code from lectures in your Posit Cloud workspace
+-   Start working on your DataCamps for next lab
+
+### Acknowledgments
+
+A lot of the materials here are based on the following:
+
+[Advanced R](http://adv-r.had.co.nz/Data-structures.html), by Hadley
+Wickham
+
+Three wonderful undergraduate students @BMC who helped developed parts
+of these lessons: Daphne Hansell (BMC' 24), Levi Raskin (HC' 24), and
+Nicole Cavalieri ('26).
+
+
+## Why learn this stuff??
+
+"Data types and Data Structures" -- this sounds boring and intimidating.
+So why do we need this?
+
+Well, these are fundamental concepts in programming, and **they
+transcend R** -- they apply to any programming language.
+
+-   **Data types** define the kind of data that a variable can hold and
+    the operations that can be performed on that data. They inform the
+    default behaviors and rules R uses for dealing with them. These are
+    sometimes called "classes".
+
+-   **Data structures** are ways to organize and store data in a
+    structured and efficient manner within a computer program. They
+    allow you to group and manage related pieces of data together. Think
+    of data structures as containers that hold data in specific formats
+    to make it easier to work with that data.
+
+## Part 1: Data Types
+
+The most often used classes are: `numeric`, `integer`, `logical`,
+`character`. We've seen a few of these last lab, but let's go further:
+
+-   **numeric:** also called `double`. By far the most common type in R;
+    contains any number with or without a decimal.
+-   **integer:** numeric data without decimals. This is used when you
+    are certain that you will never create a variable that should
+    contain decimals. Just add the letter L after the number to create
+    an integer.
+-   **character:** used to hold strings of text
+-   **complex:** number is written with an "i" as the imaginary part.
+    Less used.
+-   **raw:** used to hold raw bytes[^1]. Rarely used by most people.
+
+[^1]: For the real nerds: This can be anything from the contents of a
+    file to an image. It's different from the other data types in that
+    it doesn't represent something human-readable, but instead something
+    that a machine might need to process. It's often used in more
+    advanced topics like interfacing with other languages or dealing
+    with binary data.
+
+Note: the `raw` and `complex` types are much less oftne used and we
+don't go into them here, but you've been informed that they exist!
+
+## Numeric and Integer
+
+### Numeric
+
+This is the **default computational data type in R**.
+
+If you enter a number without a decimal point, R will automatically
+convert it into a numeric data type. Numeric values in R can hold any
+real number, including both integers and fractions, and even negative
+numbers. For example, 5, 23.5, and -3 are all numeric values.
+
+```{r pi, exercise = T}
+mypi <- 3.14
+print(mypi)
+```
+
+Note: because the number $\pi$ is important, R has it built-in for you.
+Try typing `pi` and then `?pi` in the space below. Also, check if
+`pi == mypi`.
+
+```{r pi-sandbox, exercise = T}
+mypi <- 3.14
+print(mypi)
+pi
+pi == mypi #remeber, == means "is the same as"
+```
+
+### 
+
+The reason they are not equal is that you rounded R to two decimals,
+whereas the built-in `pi` has more decimal points.
+
+## Checking data types
+
+There are a few functions in R we can use to test the data type of the
+`mypi` variable we just made. `is.numeric()` and `is.integer()` return a
+simple TRUE or FALSE in answer to the prompt. `class()` and `typeof()`,
+on the other hand, are more general and will provide which data type the
+variable or object is.
+
+Try these out here:
+
+```{r setup-pi-sandbox2, echo = F}
+mypi<-3.14
+```
+
+```{r pi-sandbox2, exercise.setup = "setup-pi-sandbox2", exercise = T}
+
+```
+
+## Integer
+
+This data type in R is used to hold whole numbers. Unlike numeric
+values, integers cannot have a decimal point. You can create an integer
+in R by adding an 'L' suffix to a number, like this: `5L`. Without the
+'L', R would treat the object as `numeric`, not `integer`.
+
+```{r classnumber, echo=T, exercise = T}
+class_number <- 215L
+typeof(class_number)
+
+```
+
+```{r classnumber2, echo=T, exercise = T}
+class_number2 <- 215
+typeof(class_number2)
+```
+
+Try to predict what will happen below. Then, run the code.You can also
+ask R if a given object is of a given type.
+
+```{r isnumeric, exercise = T, exercise.setup="classnumber"}
+
+is.numeric(class_number)
+
+```
+
+```{r isnumeric2, exercise = T, exercise.setup="classnumber2"}
+
+is.numeric(class_number)
+
+```
+
+## Logical
+
+Logical data type in R is used to hold **Boolean** values: TRUE or
+FALSE. You can use logical operators like \<, \>, `==`, etc, to generate
+logical values.
+
+For example, the operation 5 \> 3 will return TRUE because 5 is indeed
+greater than 3.
+
+Try to predict what will happen below. Then, run the code.
+
+```{r boolean1, echo = T, exercise = T}
+pi > 3
+
+```
+
+If applied to a vector, functions like `is.numeric()` will ask the
+question to the entire vector, because a vector can only contain one
+type of element.
+
+Try to predict what will happen below. Then, run the code.
+
+```{r example1, exercise = T, echo = T}
+myvec<-c(0,1,10,20,100)
+is.numeric(myvec)
+#
+myvec2<-as.integer(c(0,1,10,20,100))
+is.numeric(myvec2)
+
+```
+
+Why is myvec2 also returning TRUE for the `is.numeric()` function?
+
+-   `is.numeric()` is a general test for the “numberliness” of a vector
+    and returns TRUE for both integer and double vectors. It is not a
+    specific test for double vectors, which are often called
+    numeric.[^2] It's best to use `typeof()` if you must know whether a
+    vector is `numeric` (double) or `integer`.
+
+[^2]: From: Advanced R, by Hadley Wickham: <http://adv-r.had.co.nz/>]
+
+Note: `FALSE`/`TRUE` can be written as `F`/`T`, like so:
+
+![This is Cashew](images/cashew.jpg)
+
+```{r tf, exercise = T}
+cashewIsCute<-TRUE
+
+#is the same as 
+
+cashewIsCute2<-T
+
+# check
+typeof(cashewIsCute)
+typeof(cashewIsCute2)
+
+cashewIsCute == cashewIsCute2
+
+```
+
+**Attention**: a common mistake when assigning `TRUE` or `FALSE` to an
+object is to use quotes. If you do that, R will interpret it as a string
+(character).
+
+Try it: create a variable `cashewIsCute3` with the value "TRUE" (in
+quotes). Then use `typeof()` to check it.
+
+```{r cashewiscute, exercise = T}
+
+
+```
+
+```{r cashewiscute-solution, echo = F}
+cashewIsCute3 <- "TRUE"
+typeof(cashewIsCute3)
+```
+
+## Character
+
+Character data type in R is used to hold strings of text. You can create
+a character string by enclosing text in quotes. For example, "Hello,
+World!" is a character string.
+
+```{r helloworld, echo = T, eval = F}
+mystring <- "Hello, world"
+```
+
+The above example is a vector of 1 element only ("Hello, world") but
+vectors can carry many elements, like this:
+
+```{r, echo=T, eval=F}
+types_of_data <- c("Numeric", "Integer","Logical", "Complex", "Character", "Raw") 
+```
+
+Use the sandbox below to test these out. Create a different `character`
+vector and then ask `is.character`.
+
+```{r sandbox2, exercise = T}
+
+```
+
+**Note:** you *can* convert a `character` vector into numeric if the
+elements happen to be numbers. The other way around also applies:
+
+```{r convert-char, exercise = T}
+myvec<-c("1","5", "10", "11")
+is.numeric(myvec)
+#
+myvec2<-as.numeric(myvec) #
+myvec2
+is.numeric(myvec2)
+```
+
+We will see more about this later when discussing coercion.
+
+## Factors
+
+Factors are very useful. Technically they are a modified data structure
+rather than a data type but this distinction is not terribly important
+for beginners.
+
+Factors are great for storing **categorical variables**. E.g. Champions
+of the American Major League Soccer (or, for the rest of the world,
+football) in the past 10 years.(Note, the MLS also includes Canadian and
+Mexican teams.)
+
+You could start off with a vector of which teams won each year.
+
+```{r, echo=T, eval=F}
+#first position is 2022, second is 2021 and so on
+mls_champions <- c("Los Angeles FC", "New York City FC", "Columbus Crew", "Seattle Sounders", "Atlanta United FC", "Toronto FC", "Seattle Sounders", "Portland Timbers", "Lost Angeles Galaxy")
+length(mls_champions) #check that there are 10 elements
+class(mls_champions) #check that class so far is character
+
+```
+
+And now you could convert this into a factor, since it is clearly a
+categorical variable. We will use, yes, you guessed it, `as.factor()`:
+
+```{r setupmls}
+mls_champions <- c("Los Angeles FC", "New York City FC", "Columbus Crew", "Seattle Sounders", "Atlanta United FC", "Toronto FC", "Seattle Sounders", "Portland Timbers", "Lost Angeles Galaxy")
+mls_champions_factor<-as.factor(mls_champions)
+
+```
+
+```{r echo=T, eval=F}
+mls_champions_factor<-as.factor(mls_champions)
+is.factor(mls_champions)
+print(mls_champions_factor)
+is.factor(mls_champions_factor)
+```
+
+Try these out here:
+
+```{r sandboxfact, exercise=TRUE, eval = FALSE, , exercise.setup="setupmls"}
+
+
+```
+
+### 
+
+You will notice that printing `mls_champions_factor` will spit out the
+vector, followed by
+`8 Levels: Atlanta United FC Columbus Crew Los Angeles FC Lost Angeles Galaxy New York City FC ... Toronto FC`.
+
+What this means is that the function `as.factor()` converted our simple
+character vector into a data type that is better equipped at handling
+categorical variables. The "levels" are the different categories
+observed in the data.
+
+Some of the advantages of this will become clearer later on (next week)
+when we start plotting things and summarizing them.
+
+## Part 2: Data Structures
+
+R’s base data structures can be organised by their dimensionality (1d,
+2d, or nd) and whether they’re homogeneous (all contents must be of the
+same type) or heterogeneous (the contents can be of different types).
+This gives rise to the five data types most often used in data analysis:
+
+R’s base data structures can be organised by their dimensionality (1d,
+2d, or nd) and whether they’re homogeneous (all contents must be of the
+same type) or heterogeneous (the contents can be of different types).
+This gives rise to the five data types most often used in data
+analysis[^3]:
+
+[^3]: From: Advanced R, by Hadley Wickham: <http://adv-r.had.co.nz/>]
+
+| Dimensions | All elements have same type | More than one type of element |
+|------------|-----------------------------|-------------------------------|
+| 1d         | vector                      | list                          |
+| 2d         | matrix                      | data frame                    |
+| nd         | array                       |                               |
+
+**Note:** another type we use often, `factor`, is an important data
+structure created by setting attributes of an atomic vector.
+
+## Vectors - again!
+
+You already learned about vectors in the last lesson. They are a
+sequence of data elements of the same basic type. They can be `numeric`,
+`integer`, `character`, or `logical`[^4]. They are **one-dimensional.**
+
+[^4]: Or `complex` or `raw`, but these are rarely or never used by most
+    people.
+
+**R loves vectors and tends to treat everything like a vector**: even an
+object with only one element is a vector. E.g., `a<-"A"` is simply a
+vector of length `1`, whereas `b <- 1:10` is a vector of length `10`.
+Try it:
+
+```{r vectors, exercise = T}
+a <- "A"
+length(a)
+b <- 1:10
+length(b)
+```
+
+**Note:** in R, `1:10` is a nice shortcut that generates a sequence of
+integers from 1 to 10. The lengthier way of doing it is with the command
+`seq(from, to, by)`, like this:
+
+```{r sequences, echo = T, eval = F}
+seq(from = 1, to = 10, by = 1)
+```
+
+Now try making a sequence from 0 to 1 with increments of 0.1 (hint, make
+sure you change `by =` accordingly:
+
+```{r seqs-sandbox, exercise = T}
+
+
+```
+
+Vectors can be named, meaning, each position receives some kind of name,
+so for instance, let's say you have 5 chickens and you recorded the nr
+of eggs they laid today:
+
+```{r vec-names, exercise = T}
+nr_eggs_laid <- c(1, 0, 5, 1, 2)
+names(nr_eggs_laid) #returns NULL because you have not named the vector elements
+#
+names(nr_eggs_laid)<-c("chick1", "chick2", "chick3", "chick4", "chick5")
+names(nr_eggs_laid)
+nr_eggs_laid
+```
+
+### 
+
+**ALL ELEMENTS OF A VECTOR MUST BE OF THE SAME TYPE!!**\*
+
+So what happens if you try to bypass that?
+
+Answer: coercion. I.e., if you try to place different types of data into
+a vector, R will convert all of them into the most flexible type among
+those you included, in this order from least to most flexible:
+`logical`, `integer`, `double`, `character`. Try to predict what
+coercions will happen below, then run the code:
+
+```{r logtochar, exercise = T}
+# a character and a logical. What do you think will happen?
+avector<-c("A", TRUE)
+typeof(avector)
+avector
+```
+
+### 
+
+`TRUE` (logical) became "TRUE" (character).
+
+Try to predict what coercions will happen below, then run the code:
+
+```{r numtochar, exercise = T}
+# a character and a logical. What do you think will happen?
+avector2<-c("A", 2)
+typeof(avector2)
+avector2
+```
+
+### 
+
+`2` (numeric) became "2" (character)
+
+## Lists
+
+Vectors come in two flavours: **atomic vectors** and **lists**. They
+have three common properties:
+
+-   Type, `typeof()`, what it is.
+-   Length, `length()`, how many elements it contains.
+-   Attributes, `attributes()`, additional arbitrary metadata
+
+All we've seen so far about vectors has been about atomic vectors. So
+what are lists?
+
+Lists are different from atomic vectors because **their elements can be
+of any type, including lists (yes, you heard that right, LISTS OF LISTS
+OF LISTS, etc).** You construct lists by using `list()` instead of
+`c()`:
+
+So whereas this attempt at having different data types in one atomic
+vector results in coercion of `2` (double) into `"2"` (character):
+
+```{r listvec, eval = F}
+# a character and a logical. What do you think will happen?
+c("A", 2)
+
+```
+
+... the smae attempt but placing them into a list instead preserve their
+respective types:
+
+```{r listvec2, eval = F}
+# a character and a logical. What do you think will happen?
+list("A", 2)
+
+```
+
+Notice that "A" is still "A" and `2` is still `2`.
+
+
+Here is a more elaborate example:
+```{r species, exercise = T}
+species_info_list <- list(SpeciesName = "Panthera leo", 
+                          Population = 20000,
+                          Endangered = TRUE)  
+print(species_info_list)
+```
+
+You can select any element on a list by using `[[]]`, like so:
+
+```{r species2, exercise = T, exercise.setup = "species"}
+species_info_list[[1]] #selects only species name
+```
+
+Or you can select an element on a list by its name. In this case you only need single brackets:
+
+```{r species3, exercise = T, exercise.setup = "species"}
+species_info_list["SpeciesName"] #selects only species name
+```
+
+Lastly, you can use the `$` to select any element on a list by its name:
+
+
+```{r species4, exercise = T, exercise.setup = "species"}
+species_info_list$SpeciesName #selects only species name
+```
+
+
+Now you, use the three forms of indexing a list to get the endangered status element from the list above:
+
+`
+
+```{r species5, exercise = T, exercise.setup = "species"}
+# first using [[]], no need to store in an object
+
+# then using ["Name"], no need to store in an object
+
+
+# then using $, no need to store in an object
+
+```
+
+```{r species5-solution, echo = F}
+# first using [[]], no need to store in an object
+species_info_list[[3]]
+# then using ["Name"], no need to store in an object
+species_info_list['Endangered']
+
+# then using $, no need to store in an object
+species_info_list$Endangered
+```
+
+## Matrix
+
+A matrix in R is a **two-dimensional** data structure, where each
+element is of the same atomic type. You can think of a matrix as a
+collection of vectors arranged side by side (for columns) or one on top
+of another (for rows). Here's an example of a numeric matrix.
+
+```{r matrix1, exercise = F }
+numeric_matrix <- matrix(1:6, nrow = 2, ncol = 3) 
+print(numeric_matrix)
+```
+
+Both dimensions of matrix can be named:
+
+```{r matrix2, exercise = T}
+numeric_matrix <- matrix(1:6, nrow = 2, ncol = 3) 
+colnames(numeric_matrix)<-c("col1", "col2", "col3")
+rownames(numeric_matrix)<-c("row1", "a random name")
+numeric_matrix
+```
+
+## Data Frames
+
+A data frame in R is a table or a two-dimensional array-like structure
+in which each column contains values of one variable and each row
+contains one set of values from each column. The data stored in a data
+frame can be of numeric, factor, or character type. You will use these a
+lot, this is just a brief introduction!
+
+Importantly, all elements in one column are of the same type (say,
+`character`) but different columns can be of different types.
+
+```{r setupdfex1}
+# Create a data frame that holds information about various species
+species_info <- data.frame(
+  "SpeciesName" = c("Panthera leo", "Gorilla gorilla", "Homo sapiens"),
+  "CommonName" = c("Lion", "Gorilla", "Human"),
+  "Family" = c("Felidae", "Hominidae", "Hominidae"),
+  "GenomeSizeGB" = c(2.8, 3.3, 3.2),  # in Giga Base Pairs
+  "Diet" = c("Meat", "Herbivore", "Omnivore")
+)
+
+
+
+
+```
+
+For instance, here is a `data.frame`:
+
+```{r df1, exercise.setup = "setupdfex1", exercise = T}
+# Create a data frame that holds information about various species
+species_info <- data.frame(
+  SpeciesName = c("Panthera leo", "Gorilla gorilla", "Homo sapiens"),
+  CommonName = c("Lion", "Gorilla", "Human"),
+  Family = c("Felidae", "Hominidae", "Hominidae"),
+  GenomeSizeGB = c(2.8, 3.3, 3.2),  # in Giga Base Pairs
+  Diet = c("Meat", "Herbivore", "Omnivore")
+)
+species_info
+
+```
+
+Running `str` on this you can see the different types of columns you
+have:
+
+```{r df2b, exercise.setup = "setupdfex1", exercise = T }
+str(species_info)
+```
+
+### 
+
+Let's use the structure `dataframe$columnname` to select the column
+named "Family" and save that as a vector called `family`.
+
+You can also use square brackets but `$` allows you to see the name of
+the column you are extracting without counting which column you're
+interested in in the original dataframe.
+
+```{r dfex1, exercise = TRUE, exercise.setup = "setupdfex1"}
+# create obj family
+
+
+# print it using `print()`
+```
+
+```{r dfex1-solution, echo = F}
+family <- species_info$Family
+print(family)
+```
+
+
+```{r download-answers, child = system.file("child_documents/download_answers.Rmd", package = "tutorial.helpers"), echo = F}
+```
+

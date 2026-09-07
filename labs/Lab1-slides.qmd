@@ -1,30 +1,312 @@
 ---
 title: "Lab1: R Crash Course"
-format: beamer
+#subtitle: "Acknowledgments: see last slide"
+author: "Bárbara D. Bitarello"
+date: 2026-09-01
+date-format: long
+keywords: "Module 1: R basics"
+format:
+  revealjs:                
+    revealjs-a11y:
+      alt-text-warnings: true
+    footer: "B215"
+    center-title-slide: true
+    controls: true 
+    controls-tutorial: true 
+    slide-number: true 
+    hash: true 
+    history: true  
+    keyboard: true 
+    pdf-separate-fragments: true 
+    smaller: true
+    scrollable: true
+    incremental: false
+    transition: fade
+    background-transition: fade
+    code-fold: show          
+    code-summary: "Hide the code"
+    code-overflow: wrap
+    highlight-style: a11y-dark 
+    theme: [serif, ../slides/custom.scss]
+    css:
+      - "labs.css"
+engine: knitr
+filters:
+  - webr
+code-link: true              
+execute:
+  echo: true
+  freeze: false
+knitr: 
+  opts_chunk:
+    tidy: true
+    tidy.opts: { width.cutoff: 60 }
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
+# Typical Module 1 Lab
+
+::: r-fit-text
+1.  Sometimes: prep stuff (short pre-class video/reading)
+
+2.  Mini-lecture
+
+3.  Work through guided activity
+
+4.  Complete relevant DataCamp (DC) activities
+
+5.  Submit worksheet (+ proof of DC completion) on Moodle by the end of
+    the day
+
+:::
+
+::: aside
+In later modules, less DC and more integration with stats content
+:::
+
 # Today
 
 
-# Typical Lab
+- Mini-lecture
 
-* short pre-class video/reading (occasionally)
-* mini-lecture
-* work through guided activity
-* complete relevant DataCamp (DC) activities
-* submit worksheet on Moodle by the end of the day
+- Complete DC activity [Introduction to
+  R](https://app.datacamp.com/learn/courses/free-introduction-to-r)'s
+  first two chapters:
 
-# Today
+- Intro to Basics
 
-* Introduce DataCamp
-* Introduce Rstudio (Posit) Cloud
-* Complete DC activity "Introduction to R: Intro to Basics"
-* 10 min break!
-* Mini-lecture
-* Work through Lab 1 activity in Posit Cloud and hand in your paper worksheet at the end of class
+- Introduction to vectors
 
-# 
+- Work through Lab 1 activity in Posit Cloud and hand in your
+  worksheet (don't forget to complete DC as well!) at the end of class
+
+
+# What is R?
+
+- R is a free, open-source statistical programming language
+
+- Many programming languages exist: E.g. java script, C, C++, Python,
+  etc.
+
+- R is widely used by scientists worldwide
+
+- You can use R to do everything: calculating simple summary statistics,
+  performing complex simulations, creating gorgeous plots
+
+
+# What is Rstudio?
+
+- Not the same as R.
+
+- Rstudio is an IDE - integrated development environment that allows you
+  to write and run R code, visualize figures produced in R, and many
+  other neat things
+
+- Allows one to combine R code, analyses, plots, and written text into
+  **elegant documents** all in one place using
+
+- Rstudio Cloud (now Posit Cloud) allows us to use Rstudio on the web,
+  without having to install anything locally.
+
+![Image created with
+Biorender.](images/rstudio.png){fig-alt="decorative"}
+
+# Rstudio (Posit Cloud)
+
+- Make sure you've joined our classroom.
+
+- Go to "weekly activities" and click on Lab 1.
+
+- This will create copy of the activity that will be visible to you and
+  me.
+
+- This is where we will complete our lab tutorials.
+
+
+# {.center}
+
+::: r-fit-text
+
+Pause to show you Posit Cloud
+
+:::
+
+# PS: if you want to install R/Rstudio locally:
+
+Watch [this video](https://youtu.be/YKvkXKeGoa8) from [Negoita’s R for Ecology Course](https://www.rforecology.com/post/how-to-install-r-and-rstudio)
+
+[Installing R and RStudio](https://rstudio-education.github.io/hopr/starting.html)
+
+[Installing R on Your Machine](https://www.dataquest.io/blog/installing-r-on-your-computer)
+
+# DataCamp
+
+- Go to Assignments: R basics
+
+- That will be the first thing you will do today, but not yet!
+
+# {.center}
+
+::: r-fit-text
+Pause to show you [DataCamp](https://app.datacamp.com/groups/b215-f26/dashboard)
+:::
 
 # Web R
 
-https://webr.sh/
+- Runs R on the web: no frills, no Rstudio, nothing. Very useful for
+  quick demos.
+
+[https://webr.sh/](https://webr.sh/)
+
+- Let's use this now! Go to this link and follow along.
+
+# {.center}
+
+::: r-fit-text
+R crash course!
+:::
+
+# R as a calculator
+
+```{webr-r}
+
+# type:
+2+2 #addition
+
+```
+
+```{webr-r}
+
+534-430 #subtraction
+
+
+```
+
+```{webr-r}
+
+128421847*3 #multiplication
+
+
+```
+
+```{webr-r}
+
+12819482/17 #division
+
+
+```
+
+# R as a calculator
+
+```{webr-r}
+
+4 ^ 3 #exponent
+
+
+```
+
+```{webr-r}
+
+4 ** 3 #exponent (also works)
+
+
+```
+
+```{webr-r}
+
+4 %% 3 #modulo
+
+
+```
+
+# R for logical operations
+
+```{webr-r}
+
+4 == 3 #equality
+
+
+```
+
+```{webr-r}
+
+4 != 3 #non-equality
+
+
+```
+
+```{webr-r}
+
+4 < 3 #logical, lower than
+
+
+```
+
+```{webr-r}
+
+4 >= 3 #logical, greater than or equal to
+
+
+```
+
+# Assigning values to R objects
+
+```{webr-r}
+
+x <- 4 # assign 4 to R object x
+
+x #print object x
+```
+
+```{webr-r}
+
+y = 4 # assign 4 to R object y
+
+y #print object y
+```
+
+```{webr-r}
+
+x == y #logical, equality
+```
+
+# Data types in R
+
+```{webr-r}
+# Numeric
+x <- 12 # assign number 12 to x
+
+class(x) #check class or data type
+
+
+```
+
+```{webr-r}
+
+x1 <- "12" # assign string 12 to x
+
+class(x1) #check class or data type
+
+
+```
+
+```{webr-r}
+
+y <- FALSE # assign boolean FALSE to y
+
+class(y) #check class or data type
+
+
+
+```
+
+```{webr-r}
+
+y1 <- "FALSE" # assign string "FALSE" to y
+
+class(y1) #check class or data type
+```
+
+

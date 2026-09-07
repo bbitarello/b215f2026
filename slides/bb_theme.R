@@ -139,5 +139,6 @@ plot_palette <- function(palette) {
     ggplot2::theme_void()
   return(g)
 }
+
 set_theme(bb_theme())
 old <- update_theme(palette.colour.discrete = scales::pal_viridis())

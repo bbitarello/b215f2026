@@ -1,0 +1,19 @@
+---
+title: "Untitled"
+format: revealjs
+---
+
+## Lists
+
+Elements can be of different types
+
+```{webr-r}
+
+x1 <- c("Pumpkin",13,1,5765,12) # concatenate numbers and assign to x
+
+is.vector(x1) #logical
+
+class(x1) #check class or data type
+
+print(x1)
+```

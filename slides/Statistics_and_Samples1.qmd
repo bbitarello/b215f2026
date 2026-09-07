@@ -31,7 +31,7 @@ format:
 code-link: true              
 execute:
   echo: true
-  freeze: false
+  freeze: auto
 knitr: 
   opts_chunk:
     tidy: true
