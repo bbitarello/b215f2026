@@ -1,5 +1,152 @@
 [
   {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#outline",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#outline",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Outline",
+    "text": "Outline"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#outline-1",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#outline-1",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Outline",
+    "text": "Outline\n\nEstimates of location\nEstimates of width\nExplanatory and exploratory figures\nBest practices in figure design\nHow data types drive figure design\nHow to make effective tables\n\ntoday: location and width; next class plots"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#learning-goals",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#learning-goals",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Learning Goals",
+    "text": "Learning Goals\n\nDifferentiate between estimates of location and estimates of width.\nRecognize that variability is not simply noise, but is a key parameter that can be estimated.\nBecome familiar with the most common descriptive statistics.\nKnow when the mean or median is a more appropriate summary of location.\n\nThese learning goals are for the entire topic/unit. They will also be available in the study guide."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#descriptive-statistics",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#descriptive-statistics",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics\n\nOr summary statistics: quantities that capture important features of frequency distributions\n\n\nLocation (central tendency)\nWidth (spread)\nAssociation (correlation)"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-13",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-13",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The data (1/3)",
+    "text": "The data (1/3)"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-23",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-23",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The data (2/3)",
+    "text": "The data (2/3)\n\nA measure of center (or location) of our data: ⭐"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-33",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-33",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The data (3/3)",
+    "text": "The data (3/3)\n\nA measure of center (or location) of our data: ⭐\nA measure of spread (or width) of our data (red)."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#measures-of-location-central-tendency",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#measures-of-location-central-tendency",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Measures of location (central tendency)",
+    "text": "Measures of location (central tendency)\n\nMean\nMedian\nMode"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-average-problem",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-average-problem",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The average problem",
+    "text": "The average problem\n\n“Average” is sometimes used synonymously with mean. But: medians and even modes are sometimes called an “average”\n\nLet’s be precise (pun intended):\n\nWhen you see the word, “average”, pay attention to which measure of location it describes.\nHere, let’s be stats pro, and refer to mean, median, mode, etc."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-mean",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-mean",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The Mean",
+    "text": "The Mean\n\nThe sum of values divided by the sample size.\n\n\\[\\bar{Y}=\\frac{\\sum_{i=1}^{n}Y_{i}}{n}\\]\n\n\n\n\n\\(\\bar{Y}\\): the mean of variable of \\(Y\\)\n\n\n\\(\\sum\\): sum\n\n\n\n\n\\(n\\): the number of individuals in the samples (sample size)\n\n\\(Y_{i}\\): the observed value for the \\(i\\)-th individual\n\n\n\n\n\\(\\bar{Y}\\) (“Y bar”) is the estimate for the mean (the real parameter mean is often expressed as \\(\\mu\\))"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-mean-example",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-mean-example",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The Mean (example)",
+    "text": "The Mean (example)\n\nThe mean of the set of 11 numbers: \\(1, 15,9, 16,6, 17, 10,  5, 12, 14, 13\\)\n\n\\[\\bar{Y}=\\frac{\\sum_{i=1}^{n}Y_{i}}{n}\\]\n\\(\\bar{Y} = (1+15+9+16+6+17+10+5+12+14+13)/11 =\\) 10.7272727\n\n\nNerd alert: this is the “arithmetic mean”, the one you see most often. The three pytagorean means also include the geometric mean and the harmonic mean."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#median",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#median",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Median",
+    "text": "Median\n\nThe middle measurement.\n\nCalculate the median by taking the value halfway through an ordered list of observations.\n\nSample size is odd: The \\((n + 1) / 2\\)-th value.\nSample size is even: Mean of \\(n/2\\)-th and the \\((n + 2) / 2\\)-th values."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#median-example",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#median-example",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Median example",
+    "text": "Median example\n\nSample size is odd: The \\((n + 1) / 2\\)-th value.\n\n\nFirst, order the numbers: 1, 5, 6, 9, 10, 12, 13, 14, 15, 16, 17\n\nThe \\((n + 1) / 2\\)-th value for odd sized samples:\n1 5 6 9 10 12 13 14 15 16 17\n\n\n\n\nSample size is even: Mean of \\(n/2\\)-th and the \\((n + 2) / 2\\)-th values.\n1 5 6 9 10 [12 13] 14 15 16 17 17\nmean of 12 and 13 is (12+13)/2=12.5"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mean-and-median-in-r",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#mean-and-median-in-r",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Mean and Median in R",
+    "text": "Mean and Median in R\n\nShow the code# a vector with the numbers\nmynumbers &lt;- c(1, 15, 9, 16, 6, 17, 10, 5, 12, 14, 13)\n# mean 'manually'\nmysum &lt;- sum(mynumbers)  #sum all numbers\nl &lt;- length(mynumbers)  #number of elements in vector\nmymean &lt;- mysum/l\nmymean\n\n[1] 10.72727\n\nShow the code# note that you can use a built-in function for this:\nmymean2 &lt;- mean(mynumbers)\nmymean2\n\n[1] 10.72727\n\nShow the code# median with built-in function\nmymedian &lt;- median(mynumbers)\nmymedian\n\n[1] 12\n\nShow the code# median 'manually'\nmynumbers2 &lt;- sort(mynumbers)\nmynumbers2\n\n [1]  1  5  6  9 10 12 13 14 15 16 17\n\nShow the code# since l = 11 (odd) we select the l+1-th element, i.e,\n# (11+1)/2=6\nmynumbers2[6]\n\n[1] 12"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mean-x-median",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#mean-x-median",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Mean x Median",
+    "text": "Mean x Median\n\n\n\nMathematically convenient.\nSimply the sum of all observations divided by the sample size.\n\n\n\nBetter descriptor for skewed population distributions (less affected by outliers).\nThe median is the middle measurement.\n\n\n\nThe mean and median become the same when data are symmetric."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mode",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#mode",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Mode",
+    "text": "Mode\n\nThe most common value observed in a sample.\n\n\neasy to pick\nalways a real value in the data\napplicable to non-numerical variables!\n\n\nHistograms reveal measures of center"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#but-how-will-you-know-how-your-data-is-distributed",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#but-how-will-you-know-how-your-data-is-distributed",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "But how will you know how your data is distributed?",
+    "text": "But how will you know how your data is distributed?\n\nFirst step: plot your data"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#skewness-12",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#skewness-12",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Skewness (1/2)",
+    "text": "Skewness (1/2)"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#skewness-22",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#skewness-22",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Skewness (2/2)",
+    "text": "Skewness (2/2)\nLeft: Asymmetric Few small values. \\(&gt;1/2\\) of values exceed the mean.\nMiddle: Symmetric As many large as small values. \\(\\sim1/2\\) of values exceed the mean.\nRight: Asymmetric Few large values. \\(&gt;1/2\\) of values are less than the mean."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#next",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#next",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Next",
+    "text": "Next\nMeasures of spread (width):\n\nrange\nq-quantiles, interquartile range\nVariance\nStandard deviation\nCoefficient of variation"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nYaniv Brandvain; Freeman & Company; and Michael Whitlock for some materials used in these slides."
+  },
+  {
     "objectID": "slides/Statistics_and_Samples4.html#quick-recap",
     "href": "slides/Statistics_and_Samples4.html#quick-recap",
     "title": "1.4. A soft intro to causal inference",
@@ -151,7 +298,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\nHide the code# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 5 9 3\n\nHide the code# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 2 7 8"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\nHide the code# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 5 4 1\n\nHide the code# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 10  3  4"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
@@ -329,153 +476,6 @@
     "text": "Acknowledgments\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
   },
   {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#outline",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#outline",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Outline",
-    "text": "Outline"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#outline-1",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#outline-1",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Outline",
-    "text": "Outline\n\nEstimates of location\nEstimates of width\nExplanatory and exploratory figures\nBest practices in figure design\nHow data types drive figure design\nHow to make effective tables\n\ntoday: location and width; next class plots"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#learning-goals",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#learning-goals",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Learning Goals",
-    "text": "Learning Goals\n\nDifferentiate between estimates of location and estimates of width.\nRecognize that variability is not simply noise, but is a key parameter that can be estimated.\nBecome familiar with the most common descriptive statistics.\nKnow when the mean or median is a more appropriate summary of location.\n\nThese learning goals are for the entire topic/unit. They will also be available in the study guide."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#descriptive-statistics",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#descriptive-statistics",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Descriptive Statistics",
-    "text": "Descriptive Statistics\n\nOr summary statistics: quantities that capture important features of frequency distributions\n\n\nLocation (central tendency)\nWidth (spread)\nAssociation (correlation)"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-13",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-13",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The data (1/3)",
-    "text": "The data (1/3)"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-23",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-23",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The data (2/3)",
-    "text": "The data (2/3)\n\nA measure of center (or location) of our data: ⭐"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-33",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-33",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The data (3/3)",
-    "text": "The data (3/3)\n\nA measure of center (or location) of our data: ⭐\nA measure of spread (or width) of our data (red)."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#measures-of-location-central-tendency",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#measures-of-location-central-tendency",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Measures of location (central tendency)",
-    "text": "Measures of location (central tendency)\n\nMean\nMedian\nMode"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-average-problem",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-average-problem",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The average problem",
-    "text": "The average problem\n\n“Average” is sometimes used synonymously with mean. But: medians and even modes are sometimes called an “average”\n\nLet’s be precise (pun intended):\n\nWhen you see the word, “average”, pay attention to which measure of location it describes.\nHere, let’s be stats pro, and refer to mean, median, mode, etc."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-mean",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-mean",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The Mean",
-    "text": "The Mean\n\nThe sum of values divided by the sample size.\n\n\\[\\bar{Y}=\\frac{\\sum_{i=1}^{n}Y_{i}}{n}\\]\n\n\n\n\n\\(\\bar{Y}\\): the mean of variable of \\(Y\\)\n\n\n\\(\\sum\\): sum\n\n\n\n\n\\(n\\): the number of individuals in the samples (sample size)\n\n\\(Y_{i}\\): the observed value for the \\(i\\)-th individual\n\n\n\n\n\\(\\bar{Y}\\) (“Y bar”) is the estimate for the mean (the real parameter mean is often expressed as \\(\\mu\\))"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-mean-example",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-mean-example",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The Mean (example)",
-    "text": "The Mean (example)\n\nThe mean of the set of 11 numbers: \\(1, 15,9, 16,6, 17, 10,  5, 12, 14, 13\\)\n\n\\[\\bar{Y}=\\frac{\\sum_{i=1}^{n}Y_{i}}{n}\\]\n\\(\\bar{Y} = (1+15+9+16+6+17+10+5+12+14+13)/11 =\\) 10.7272727\n\n\nNerd alert: this is the “arithmetic mean”, the one you see most often. The three pytagorean means also include the geometric mean and the harmonic mean."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#median",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#median",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Median",
-    "text": "Median\n\nThe middle measurement.\n\nCalculate the median by taking the value halfway through an ordered list of observations.\n\nSample size is odd: The \\((n + 1) / 2\\)-th value.\nSample size is even: Mean of \\(n/2\\)-th and the \\((n + 2) / 2\\)-th values."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#median-example",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#median-example",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Median example",
-    "text": "Median example\n\nSample size is odd: The \\((n + 1) / 2\\)-th value.\n\n\nFirst, order the numbers: 1, 5, 6, 9, 10, 12, 13, 14, 15, 16, 17\n\nThe \\((n + 1) / 2\\)-th value for odd sized samples:\n1 5 6 9 10 12 13 14 15 16 17\n\n\n\n\nSample size is even: Mean of \\(n/2\\)-th and the \\((n + 2) / 2\\)-th values.\n1 5 6 9 10 [12 13] 14 15 16 17 17\nmean of 12 and 13 is (12+13)/2=12.5"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mean-and-median-in-r",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#mean-and-median-in-r",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Mean and Median in R",
-    "text": "Mean and Median in R\n\nShow the code# a vector with the numbers\nmynumbers &lt;- c(1, 15, 9, 16, 6, 17, 10, 5, 12, 14, 13)\n# mean 'manually'\nmysum &lt;- sum(mynumbers)  #sum all numbers\nl &lt;- length(mynumbers)  #number of elements in vector\nmymean &lt;- mysum/l\nmymean\n\n[1] 10.72727\n\nShow the code# note that you can use a built-in function for this:\nmymean2 &lt;- mean(mynumbers)\nmymean2\n\n[1] 10.72727\n\nShow the code# median with built-in function\nmymedian &lt;- median(mynumbers)\nmymedian\n\n[1] 12\n\nShow the code# median 'manually'\nmynumbers2 &lt;- sort(mynumbers)\nmynumbers2\n\n [1]  1  5  6  9 10 12 13 14 15 16 17\n\nShow the code# since l = 11 (odd) we select the l+1-th element, i.e,\n# (11+1)/2=6\nmynumbers2[6]\n\n[1] 12"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mean-x-median",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#mean-x-median",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Mean x Median",
-    "text": "Mean x Median\n\n\n\nMathematically convenient.\nSimply the sum of all observations divided by the sample size.\n\n\n\nBetter descriptor for skewed population distributions (less affected by outliers).\nThe median is the middle measurement.\n\n\n\nThe mean and median become the same when data are symmetric."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mode",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#mode",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Mode",
-    "text": "Mode\n\nThe most common value observed in a sample.\n\n\neasy to pick\nalways a real value in the data\napplicable to non-numerical variables!\n\n\nHistograms reveal measures of center"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#but-how-will-you-know-how-your-data-is-distributed",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#but-how-will-you-know-how-your-data-is-distributed",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "But how will you know how your data is distributed?",
-    "text": "But how will you know how your data is distributed?\n\nFirst step: plot your data"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#skewness-12",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#skewness-12",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Skewness (1/2)",
-    "text": "Skewness (1/2)"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#skewness-22",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#skewness-22",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Skewness (2/2)",
-    "text": "Skewness (2/2)\nLeft: Asymmetric Few small values. \\(&gt;1/2\\) of values exceed the mean.\nMiddle: Symmetric As many large as small values. \\(\\sim1/2\\) of values exceed the mean.\nRight: Asymmetric Few large values. \\(&gt;1/2\\) of values are less than the mean."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#next",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#next",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Next",
-    "text": "Next\nMeasures of spread (width):\n\nrange\nq-quantiles, interquartile range\nVariance\nStandard deviation\nCoefficient of variation"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments\nYaniv Brandvain; Freeman & Company; and Michael Whitlock for some materials used in these slides."
-  },
-  {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
     "title": "Syllabus",
@@ -540,7 +540,7 @@
     "href": "index.html",
     "title": "B215: Biostatistics with R",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nmodule\nweek\ndow\ndate\nwhat\ntopic\ndue\nexam\n\n\n\n\n1\n1\nM\nAug-31\n0\nIntro to class\n\n\n\n\n1\n1\nT\nSep-1\n1\nLab1: Intro to R\nDC: Introduction to R (ch.1-2) + Lab worksheet 1\n\n\n\n1\n1\nW\nSep-2\n2\nStatistics and Samples\n\n\n\n\n1\n2\nM\nSep-7\n\n\nNo classes (labor day)\n\n\n\n\n1\n2\nT\nSep-8\n3\nLab 2: Data structures & basic summary stats\nDC: Introduction to R (ch.1-6) + Lab worksheet 2\n\n\n\n1\n2\nW\nSep-9\n4\nTypes of study and experimental design\n\n\n\n\n1\n3\nM\nSep-14\n5\nDisplaying & Describing Data I\n\n\n\n\n1\n3\nT\nSep-15\n6\nLab 3: ggplot and dplyr\nDC: Intro to the Tidyverse (1-4) + Lab woksheet 3\n\n\n\n1\n3\nW\nSep-16\n7\nDisplaying & Describing Data I\n\n\n\n\n1\n4\nM\nSep-21\n8\nDisplaying & Describing Data II\n\n\n\n\n1\n4\nT\nSep-22\n9\nLab 4: Exploratory data analysis\nLab woksheet 4\n\n\n\n1\n4\nW\nSep-23\n10\nDisplaying & Describing Data II\nProblem set 1\n\n\n\n2\n5\nM\nSep-28\n11\nProbability I: Proportions\nAll DCs (hard deadline)\n\n\n\n2\n5\nT\nSep-29\n12\n\n\n\n\nMidterm 1\n\n\n2\n5\nW\nSep-30\n13\nProbability I: Rules\n\n\n\n\n2\n6\nM\nOct-5\n14\nProbability II: Binomial & Bayes\n\n\n\n\n2\n6\nT\nOct-6\n15\nLab 5:\nLab woksheet 5\n\n\n\n2\n6\nW\nOct-7\n16\nProbability II: Binomial & Bayes\n\n\n\n\n\n\n\nOct-10-Oct18\n\n\nFall break (no classes)\n\n\n\n\n2\n7\nM\nOct-19\n17\nEstimation\n\n\n\n\n2\n7\nT\nOct-20\n18\nLab 6:\nLab worksheet 6\n\n\n\n2\n7\nW\nOct-21\n19\nEstimation\nCoding project checkpoint 1\n\n\n\n2\n8\nM\nOct-26\n20\nEstimation|Hypothesis testing\n\n\n\n\n2\n8\nT\nOct-27\n21\nLab 7:\nLab worksheet\n\n\n\n2\n8\nW\nOct-28\n22\nHypothesis testing\nCoding checkpoint\n\n\n\n2\n9\nM\nNov-2\n23\nGoodness-of-fit test\n\n\n\n\n2\n9\nT\nNov-3\n24\nLab 8:\nLab worksheet\n\n\n\n2\n9\nW\nNov-4\n25\nGoodness-of-fit test\nCoding project checkpoint 2\n\n\n\n3\n10\nM\n2026-11-09\n26\nContingency analyses\nAll DCs (hard deadline); PS2\n\n\n\n3\n10\nT\nNov-10\n27\n\n\n\n\nMidterm 2\n\n\n3\n10\nW\nNov-11\n28\nContingency analyses\n\n\n\n\n3\n11\nM\nNov-16\n29\nContingency analyses\n\n\n\n\n3\n11\nT\nNov-17\n30\nLab 9:\nLab worksheet\n\n\n\n3\n11\nW\nNov-18\n31\nContingency analyses\n\n\n\n\n3\n12\nM\nNov-23\n32\nNormal Distribution\n\n\n\n\n3\n12\nT\nNov-24\n33\nLab 10:\nLab worksheet\n\n\n\n3\n12\nW\nNov-25\n\n\nNo class (day before thanksgiving)\n\n\n\n\n3\n13\nM\nNov-30\n34\nt-values\n\n\n\n\n3\n13\nT\nDec-1\n35\nLab 11: TBD + Peer-review activity\n\n\n\n\n3\n13\nW\nDec-2\n36\nt-tests\nProblem set 3\n\n\n\n3\n14\nM\nDec-7\n37\n\n\n\n\n\n\n3\n14\nT\nDec-8\n38\nLab 11: |Work on coding project\n\n\n\n\n3\n14\nW\nDec-9\n39\nReview|Course Evals\nCoding project\n\n\n\n\n15\n\n\n\n\n\n\n\n\nFinal exam: during finals week, date TBD",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nmodule\nweek\ndow\ndate\nwhat\ntopic\ndue\nexam\n\n\n\n\n1\n1\nM\nAug-31\n0\nIntro to class\n\n\n\n\n1\n1\nT\nSep-1\n1\nLab1: Intro to R\nDC: Introduction to R (ch.1-2) + Lab worksheet 1\n\n\n\n1\n1\nW\nSep-2\n2\nStatistics and Samples\n\n\n\n\n1\n2\nM\nSep-7\n\n\nNo classes (labor day)\n\n\n\n\n1\n2\nT\nSep-8\n3\nLab 2: Data structures & basic summary stats\nDC: Introduction to R (ch.1-6) + Lab worksheet 2\n\n\n\n1\n2\nW\nSep-9\n4\nUnit 1 (review) + Basic summary stats (cont.)\n\n\n\n\n1\n3\nM\nSep-14\n5\nDisplaying & Describing Data I\n\n\n\n\n1\n3\nT\nSep-15\n6\nLab 3: ggplot and dplyr\nDC: Intro to the Tidyverse (1-4) + Lab woksheet 3\n\n\n\n1\n3\nW\nSep-16\n7\nDisplaying & Describing Data I\n\n\n\n\n1\n4\nM\nSep-21\n8\nDisplaying & Describing Data II\n\n\n\n\n1\n4\nT\nSep-22\n9\nLab 4: Exploratory data analysis\nLab woksheet 4\n\n\n\n1\n4\nW\nSep-23\n10\nDisplaying & Describing Data II\nProblem set 1\n\n\n\n2\n5\nM\nSep-28\n11\nProbability I: Proportions\nAll DCs (hard deadline)\n\n\n\n2\n5\nT\nSep-29\n12\n\n\n\n\nMidterm 1\n\n\n2\n5\nW\nSep-30\n13\nProbability I: Rules\n\n\n\n\n2\n6\nM\nOct-5\n14\nProbability II: Binomial & Bayes\n\n\n\n\n2\n6\nT\nOct-6\n15\nLab 5:\nLab woksheet 5\n\n\n\n2\n6\nW\nOct-7\n16\nProbability II: Binomial & Bayes\n\n\n\n\n\n\n\nOct-10-Oct18\n\n\nFall break (no classes)\n\n\n\n\n2\n7\nM\nOct-19\n17\nEstimation\n\n\n\n\n2\n7\nT\nOct-20\n18\nLab 6:\nLab worksheet 6\n\n\n\n2\n7\nW\nOct-21\n19\nEstimation\nCoding project checkpoint 1\n\n\n\n2\n8\nM\nOct-26\n20\nEstimation|Hypothesis testing\n\n\n\n\n2\n8\nT\nOct-27\n21\nLab 7:\nLab worksheet\n\n\n\n2\n8\nW\nOct-28\n22\nHypothesis testing\nCoding checkpoint\n\n\n\n2\n9\nM\nNov-2\n23\nGoodness-of-fit test\n\n\n\n\n2\n9\nT\nNov-3\n24\nLab 8:\nLab worksheet\n\n\n\n2\n9\nW\nNov-4\n25\nGoodness-of-fit test\nCoding project checkpoint 2\n\n\n\n3\n10\nM\n2026-11-09\n26\nContingency analyses\nAll DCs (hard deadline); PS2\n\n\n\n3\n10\nT\nNov-10\n27\n\n\n\n\nMidterm 2\n\n\n3\n10\nW\nNov-11\n28\nContingency analyses\n\n\n\n\n3\n11\nM\nNov-16\n29\nContingency analyses\n\n\n\n\n3\n11\nT\nNov-17\n30\nLab 9:\nLab worksheet\n\n\n\n3\n11\nW\nNov-18\n31\nContingency analyses\n\n\n\n\n3\n12\nM\nNov-23\n32\nNormal Distribution\n\n\n\n\n3\n12\nT\nNov-24\n33\nLab 10:\nLab worksheet\n\n\n\n3\n12\nW\nNov-25\n\n\nNo class (day before thanksgiving)\n\n\n\n\n3\n13\nM\nNov-30\n34\nt-values\n\n\n\n\n3\n13\nT\nDec-1\n35\nLab 11: TBD + Peer-review activity\n\n\n\n\n3\n13\nW\nDec-2\n36\nt-tests\nProblem set 3\n\n\n\n3\n14\nM\nDec-7\n37\n\n\n\n\n\n\n3\n14\nT\nDec-8\n38\nLab 11: |Work on coding project\n\n\n\n\n3\n14\nW\nDec-9\n39\nReview|Course Evals\nCoding project\n\n\n\n\n15\n\n\n\n\n\n\n\n\nFinal exam: during finals week, date TBD",
     "crumbs": [
       "Schedule"
     ]
@@ -550,337 +550,120 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nStats & Samples\n\n\n1.1.Statistics and Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nStats & Samples\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nStats & Samples\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nStats & Samples\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nDescriptive statistics\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\n1.1.Statistics & Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nUnit 1\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nUnit 1\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nUnit 1\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nDescriptive statistics\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Slides"
     ]
   },
   {
-    "objectID": "slides/0-Course-Intro.html#overview",
-    "href": "slides/0-Course-Intro.html#overview",
-    "title": "0.Course Intro",
-    "section": "Overview",
-    "text": "Overview\n\nIntroductions\nCourse Logistics\nTo-Dos for this week\n\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.2.0\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.3     ✔ tibble    3.3.1\n✔ lubridate 1.9.5     ✔ tidyr     1.3.2\n✔ purrr     1.2.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nAttaching package: 'scales'\n\n\nThe following object is masked from 'package:purrr':\n\n    discard\n\n\nThe following object is masked from 'package:readr':\n\n    col_factor\n\n\n\nAttaching package: 'kableExtra'\n\n\nThe following object is masked from 'package:dplyr':\n\n    group_rows\n\n\nLoading required package: colorspace"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#hello",
-    "href": "slides/0-Course-Intro.html#hello",
-    "title": "0.Course Intro",
-    "section": "Hello!",
-    "text": "Hello!\n\n\n\n\n\nBárbara D. Bitarello (she/her/hers)\nPhD in human evolutionary genetics\nProfessor @ BMC since July 2021\nComputational biologist/population geneticist/evolutionary biologist/statistical geneticist, etc\nInterested in all things related to evolution\n\n\nWe also have a TA and a student consultant"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#pre-reqs",
-    "href": "slides/0-Course-Intro.html#pre-reqs",
-    "title": "0.Course Intro",
-    "section": "Pre-Reqs",
-    "text": "Pre-Reqs\n\nNo prior experience with programming is required!\nBIOL B110 or B111 highly recommended (though not required). Why? Examples are heavily focused on biology, though the concepts and skills learned will be transferable\nStudents who have taken PSYC B205/H200 or SOCL B265 are not eligible to take this course.\nHigh school algebra - if you’re not sure, I recommend checking Khan Academy - Algebra Basics for a recap"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#logistics",
-    "href": "slides/0-Course-Intro.html#logistics",
-    "title": "0.Course Intro",
-    "section": "Logistics",
-    "text": "Logistics\nEverything I am about to say is in the syllabus!\n\nMaterials\nCourse structure\nPolicies\nHow to succeed"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#materials",
-    "href": "slides/0-Course-Intro.html#materials",
-    "title": "0.Course Intro",
-    "section": "Materials",
-    "text": "Materials\n\n\n\nHave a laptop for labs and calculator for exams\nJoin Piazza\nMake accounts in DataCamp and Posit Cloud using BMC/HC email\nThen accept invite sent by email (check spam)\n\n\n\nScientific calculator (not graphing calculator) \\(\\sim\\$12\\)\nScientific vs Graphing Calculator\nTextbook: Whitlock and Schluter The Analysis of Biological Data, 3rd edition (2nd: ok, but check pages)"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#other-things-to-do",
-    "href": "slides/0-Course-Intro.html#other-things-to-do",
-    "title": "0.Course Intro",
-    "section": "Other things to do",
-    "text": "Other things to do\n\nRead syllabus & schedule\nAnswer pre-course survey\nCheck course schedule and reach out ASAP if there are issues/conflicts\nCheck midterm dates and plan accordingly\nStudents with accommodations: please send info ASAP"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#piazza",
-    "href": "slides/0-Course-Intro.html#piazza",
-    "title": "0.Course Intro",
-    "section": "Piazza",
-    "text": "Piazza\n\nPiazza is the preferred method for any questions that may benefit classmates, both logistical and content-related\nPiazza allows you to post anonymously (note: I will still know your identity)"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#course-structure",
-    "href": "slides/0-Course-Intro.html#course-structure",
-    "title": "0.Course Intro",
-    "section": "Course Structure",
-    "text": "Course Structure\n\nLectures: Statistical concepts, address questions based on readings. In-class activities will occur often and count towards participation. Lectures are designed with the assumption that you have completed the pre-assigned readings, enabling us to dive deeper into nuances, applications, and questions. Labs: R computer lab (bring your laptop) with guided tutorial. R Labs are due by the end of the day."
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#module-1",
-    "href": "slides/0-Course-Intro.html#module-1",
-    "title": "0.Course Intro",
-    "section": "Module 1",
-    "text": "Module 1"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#module-2",
-    "href": "slides/0-Course-Intro.html#module-2",
-    "title": "0.Course Intro",
-    "section": "Module 2",
-    "text": "Module 2"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#module-3",
-    "href": "slides/0-Course-Intro.html#module-3",
-    "title": "0.Course Intro",
-    "section": "Module 3",
-    "text": "Module 3"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#faqs-answered-in-the-syllabus",
-    "href": "slides/0-Course-Intro.html#faqs-answered-in-the-syllabus",
-    "title": "0.Course Intro",
-    "section": "FAQs answered in the syllabus",
-    "text": "FAQs answered in the syllabus\nPlease visit the FAQ section of the syllabus. A few examples…\n\nWhat if I have to miss class?\nWhat if I cannot turn in an assignment in time?\nWhat if I am requesting an extension because of sickness?\nWhat if I have accommodations?"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#how-to-succeed",
-    "href": "slides/0-Course-Intro.html#how-to-succeed",
-    "title": "0.Course Intro",
-    "section": "How to succeed",
-    "text": "How to succeed\n\nYou should plan/expect to devote ~ 10 hours a week to this course (including class time)\nBe consistent and diligent\nAttend classes\nComplete all pre-class prep\nBe consistent and diligent\nCheck Piazza regularly, attend office hours (at least 2x)\nDon’t leave everything for last minute — that will not work well\nCommunicate proactively"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#skill-building",
-    "href": "slides/0-Course-Intro.html#skill-building",
-    "title": "0.Course Intro",
-    "section": "Skill building",
-    "text": "Skill building\n\n“Research on expertise (5) indicates that even historic geniuses needed years of practice to develop their expertise. Ericsson (6) estimates that high-level expertise takes about 10,000 h of practice to develop and claims that no substantial exceptions have been found. In other words, no matter who you are, you need many repeated practice opportunities to develop expertise.”\n\nKoedinger, Carvalho, Liu, McLaughlin. PNAS. 120(13) e2221311120, https://doi.org/10.1073/pnas.2221311120 (2023)."
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#questions",
-    "href": "slides/0-Course-Intro.html#questions",
-    "title": "0.Course Intro",
-    "section": "Questions?",
-    "text": "Questions?"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#why-should-you-care-about-statistics",
-    "href": "slides/0-Course-Intro.html#why-should-you-care-about-statistics",
-    "title": "0.Course Intro",
-    "section": "Why should you care about statistics?",
-    "text": "Why should you care about statistics?\n\nBiology (ecology, genetics, immunology, microbiology, …)\nBiomedical sciences\nPublic health\nData science\nEconomy, Psychology, Social Science"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#why-should-anyone-care-about-statistics",
-    "href": "slides/0-Course-Intro.html#why-should-anyone-care-about-statistics",
-    "title": "0.Course Intro",
-    "section": "Why should anyone care about statistics?",
-    "text": "Why should anyone care about statistics?\n\n\n\nGood science!\nCritical evaluation of “scientific evidence”\nStatistics and probability are not intuitive\nWe tend to jump to conclusions and we are very often wrong\nTransferable skills\n\n\n\n\nThis is my adorable dog, Cashew"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#challenge-data-deluge",
-    "href": "slides/0-Course-Intro.html#challenge-data-deluge",
-    "title": "0.Course Intro",
-    "section": "Challenge: data deluge",
-    "text": "Challenge: data deluge\n\nCover from “The Economist” (Feb 27-March 10, 2010)A human can’t possibly analyze the amount of data out there without computer coding"
-  },
-  {
-    "objectID": "slides/0-Course-Intro.html#scientific-literacy",
-    "href": "slides/0-Course-Intro.html#scientific-literacy",
-    "title": "0.Course Intro",
-    "section": "Scientific literacy",
-    "text": "Scientific literacy\n\n\n\nFrom: https://xkcd.com/1478/"
-  },
-  {
-    "objectID": "slides/DisplayingAndDescribingData2.html#last-time",
-    "href": "slides/DisplayingAndDescribingData2.html#last-time",
-    "title": "2.2.Displaying & Describing Data",
-    "section": "Last time",
-    "text": "Last time\n\nMean\nMedian\n\ntoday: location and width; next class plots"
-  },
-  {
-    "objectID": "slides/DisplayingAndDescribingData2.html#section",
-    "href": "slides/DisplayingAndDescribingData2.html#section",
-    "title": "2.2.Displaying & Describing Data",
-    "section": "",
-    "text": "Measures of spread\n\nRange\nq-quantiles, interquartile range\nVariance\nStandard deviation\nCoefficient of variation"
-  },
-  {
-    "objectID": "slides/DisplayingAndDescribingData2.html#width-aka-variability",
-    "href": "slides/DisplayingAndDescribingData2.html#width-aka-variability",
-    "title": "2.2.Displaying & Describing Data",
-    "section": "Width (aka variability)",
-    "text": "Width (aka variability)\n\nVariability of a population should not be ignored as simply noise about the mean, but is biologically important in its own right.\nVariation has a true value from a population that we estimate from a sample."
-  },
-  {
-    "objectID": "slides/DisplayingAndDescribingData2.html#range-12",
-    "href": "slides/DisplayingAndDescribingData2.html#range-12",
-    "title": "2.2.Displaying & Describing Data",
-    "section": "Range (1/2)",
-    "text": "Range (1/2)\n\nThe range of a sample corresponds to the size of the narrowest interval containing all the data. Operationally, it’s calculated as the difference between the maximum and minimum\n\n\nExample: Range of weight of 46 chicks at 20 days since birth:\n\n\nCodechick20 &lt;- c(199, 209, 198, 160, 220, 160, 288, 125, 100, 120, 181, 195, 91, 259,\n    133, 144, 115, 318, 164, 170, 76, 259, 236, 185, 212, 279, 157, 235, 291, 156,\n    327, 361, 225, 169, 280, 250, 295, 199, 269, 199, 197, 231, 210, 303, 233, 264)\n\n\nMax and Min in this dataset at time 20:\n\nCodesummary(chick20)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   76.0   161.0   204.0   209.7   259.0   361.0 \n\nCode# or\nc(min(chick20), max(chick20))\n\n[1]  76 361\n\nCode# commonly the diff between them is shown\nmax(chick20) - min(chick20)\n\n[1] 285"
-  },
-  {
-    "objectID": "slides/DisplayingAndDescribingData2.html#range-22",
-    "href": "slides/DisplayingAndDescribingData2.html#range-22",
-    "title": "2.2.Displaying & Describing Data",
-    "section": "Range (2/2)",
-    "text": "Range (2/2)\n\nWhat happens to the range as sample size increases?\nWhat happens to the range if there are rare outliers?\nNot a good measure of spread. Let’s look for a better one.\n\nSmall samples tend to give lower estimates of the range than large samples. So the sample range is a biased estimator of the true range of the population. So sample range is a biased estimator of the true range of the population."
-  },
-  {
-    "objectID": "slides/DisplayingAndDescribingData2.html#attention",
-    "href": "slides/DisplayingAndDescribingData2.html#attention",
-    "title": "2.2.Displaying & Describing Data",
-    "section": "Attention",
-    "text": "Attention\n\n\nEstimate = \\(\\bar{Y}, \\bar{x}, \\text{etc.}\\)  (sample mean)\n\nVariable\n\n\nParameter = \\(\\mu\\)  (population mean) - Constant"
-  },
-  {
-    "objectID": "slides/DisplayingAndDescribingData2.html#histograms-reveal-measures-of-center",
-    "href": "slides/DisplayingAndDescribingData2.html#histograms-reveal-measures-of-center",
-    "title": "2.2.Displaying & Describing Data",
-    "section": "Histograms reveal measures of center",
-    "text": "Histograms reveal measures of center\n\nRecall the iris  dataset"
-  },
-  {
-    "objectID": "slides/DisplayingAndDescribingData2.html#histograms-reveal-measures-of-center-1",
-    "href": "slides/DisplayingAndDescribingData2.html#histograms-reveal-measures-of-center-1",
-    "title": "2.2.Displaying & Describing Data",
-    "section": "Histograms reveal measures of center",
-    "text": "Histograms reveal measures of center\n\n\nFigure\nCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCodelibrary(ggplot2)\nggplot(iris, aes(x = Petal.Width, fill = Species)) +\n    geom_histogram(binwidth = 0.1, show.legend = FALSE,\n        alpha = 0.9) + xlab(\"Petal Width (cm)\") + facet_wrap(~Species,\n    ncol = 1) + scale_x_continuous(breaks = seq(0.5,\n    2.5, 0.5))"
-  },
-  {
-    "objectID": "slides/DisplayingAndDescribingData2.html#measures-of-dispersion",
-    "href": "slides/DisplayingAndDescribingData2.html#measures-of-dispersion",
-    "title": "2.2.Displaying & Describing Data",
-    "section": "Measures of dispersion",
-    "text": "Measures of dispersion\n\nRange [max value - min value]\nQuartiles, interquartile range [75th percentile - 25th percentile]\nVariance [ estimate = \\(s^2\\) =\\(\\frac{\\Sigma(x_i - \\bar{x})^2}{n-1}\\), param = \\(\\sigma ^2\\) = \\(\\frac{\\Sigma(x_i - \\mu)^2}{n}\\) ]\nStandard deviation [ estimate = \\(s\\) =\\(\\sqrt{s^2}\\), param = \\(\\sigma\\) = \\(\\sqrt{\\sigma^2}\\) ]\nCoefficient of variation [ estimate = CV = \\(\\frac{s}{\\bar{Y}}\\), param = \\(\\frac{\\sigma}{\\mu}\\) ]"
-  },
-  {
-    "objectID": "slides/DisplayingAndDescribingData2.html#range",
-    "href": "slides/DisplayingAndDescribingData2.html#range",
-    "title": "2.2.Displaying & Describing Data",
-    "section": "Range",
-    "text": "Range\n\nThe difference between the maximum and minimum observed values in a sample"
-  },
-  {
-    "objectID": "slides/DisplayingAndDescribingData2.html#range-1",
-    "href": "slides/DisplayingAndDescribingData2.html#range-1",
-    "title": "2.2.Displaying & Describing Data",
-    "section": "Range",
-    "text": "Range\n\nRange of weight of 46 chicks at 20 days since birth\n\n\nCodedata(\"ChickWeight\")\nchick20 &lt;- ChickWeight[ChickWeight$Time == 20, ]$weight\nchick20\n\n\nMax and Min in this dataset at time 20:\n\nCodesummary(chick20)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   76.0   161.0   204.0   209.7   259.0   361.0 \n\nCode# or\nc(min(chick20), max(chick20))\n\n[1]  76 361\n\nCode# commonly the diff between them is shown\nmax(chick20) - min(chick20)\n\n[1] 285"
-  },
-  {
-    "objectID": "slides/DisplayingAndDescribingData2.html#mean-or-median",
-    "href": "slides/DisplayingAndDescribingData2.html#mean-or-median",
-    "title": "2.2.Displaying & Describing Data",
-    "section": "Mean or Median?",
-    "text": "Mean or Median?\n\nNumber of seeds per fruit. Which one is better in this case?"
-  },
-  {
     "objectID": "slides/Statistics_and_Samples1.html#learning-goals",
     "href": "slides/Statistics_and_Samples1.html#learning-goals",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "Learning Goals",
     "text": "Learning Goals\n\nUnderstand the major goals of statistics\nUnderstand the distinction between the term “population” in a statistical and a biological context.\nDistinguish between a sample and a population\nDistinguish between an estimate and a parameter\nIdentify why estimates from samples may deviate from parameters of populations\n\nThese learning goals are for the entire topic/unit. They will also be available in the study guide."
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#what-is-statistics",
     "href": "slides/Statistics_and_Samples1.html#what-is-statistics",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "What is statistics?",
     "text": "What is statistics?\n\nTweet from someone I don’t know, but very on point, so thank you!"
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#what-is-statistics-1",
     "href": "slides/Statistics_and_Samples1.html#what-is-statistics-1",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "What is statistics?",
     "text": "What is statistics?"
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#statistics-deals-with-uncertainty",
     "href": "slides/Statistics_and_Samples1.html#statistics-deals-with-uncertainty",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "Statistics deals with UNCERTAINTY",
     "text": "Statistics deals with UNCERTAINTY\n\nStatistics are a quantitative technology for empirical science.\nA logic and methodology for the measurement of uncertainty and for an examination of that uncertainty.\nThe key word here is uncertainty. Statistics becomes necessary when observations are variable."
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#what-is-biostatistics",
     "href": "slides/Statistics_and_Samples1.html#what-is-biostatistics",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "What is BIOstatistics?",
     "text": "What is BIOstatistics?"
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#biostatistics",
     "href": "slides/Statistics_and_Samples1.html#biostatistics",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "Biostatistics",
     "text": "Biostatistics\n\nWhat is the motivating biological question?\nWhat experiments can be done and/or data can be collected to address this question?\nDo results support an interesting conclusion?\nWhat are the shortcomings/limitations of statistical models and causal frameworks in the analysis?\nHow do I best communicate my results (including estimates, visualizations, conclusions, and caveats)?"
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#challenge-1",
     "href": "slides/Statistics_and_Samples1.html#challenge-1",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "Challenge 1",
     "text": "Challenge 1\n\nChallenge: We can’t look at the whole world.\nSolution: Take a sample and generalize outward.\n\n\nFrom: imgflip.com/memegeneratorIn practice, then…\n\nChallenge: We can’t look at the whole world.\nSolution: Take a meaningful sample and generalize outward."
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#challenge-2",
     "href": "slides/Statistics_and_Samples1.html#challenge-2",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "Challenge 2",
     "text": "Challenge 2\n\nSamples deviate from the populations they were sampled from by\n\n\nluck/chance (sampling error) or\nunrepresentative sampling (sampling bias)\n\n\n\nSolution:\n\nEstimate the values of important parameters\nHave measures of uncertainty for estimates\nTest hypotheses about those parameters"
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#in-conclusion-goals-of-statistics",
     "href": "slides/Statistics_and_Samples1.html#in-conclusion-goals-of-statistics",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "In conclusion: goals of statistics",
     "text": "In conclusion: goals of statistics\n\nEstimate the values of important parameters\nHave measures of uncertainty for estimates\nTest hypotheses about those parameters"
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#populations-samples",
     "href": "slides/Statistics_and_Samples1.html#populations-samples",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "Populations & Samples",
     "text": "Populations & Samples\n\nIn Statistics, a population is the entire collection of individual units that a researcher is interested in. E.g. all women born in the US between 1990 and 200; all polar bears currently living in zoos; users of a certain social network in a certain age group; etc\n\n\nA sample is a subset of these units that we collect and measure."
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#statistics-parameters-13",
     "href": "slides/Statistics_and_Samples1.html#statistics-parameters-13",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "Statistics & Parameters (1/3)",
     "text": "Statistics & Parameters (1/3)\nA parameter is some property of the world, i.e., the “truth”.\n\nDecorative image. Poster from the show “The X-files”"
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#statistics-parameters-23",
     "href": "slides/Statistics_and_Samples1.html#statistics-parameters-23",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "Statistics & Parameters (2/3)",
     "text": "Statistics & Parameters (2/3)\n\nBecause we can’t sample an entire population, we usually don’t know parameters. Parameters describe Populations.\nBut we can get a good sense of the parameters from estimates we make from Samples.\nEstimates (statistics) approximate parameters as inferred from Samples."
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#statistics-parameters-33",
     "href": "slides/Statistics_and_Samples1.html#statistics-parameters-33",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "Statistics & Parameters (3/3)",
     "text": "Statistics & Parameters (3/3)\n\nParameters are constants. This means that they are fixed. Parameters represent the world. Parameters are the truth.\nEstimates are “random variables”. This means estimates change from one random sample to the next from the same population."
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#a-population-of-starfish",
     "href": "slides/Statistics_and_Samples1.html#a-population-of-starfish",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "A population of starfish",
     "text": "A population of starfish\n\n\n\nParameters describe populations\nE.g. proportion of pink starfish among all starfish of a given species in a certain location"
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#a-sample-of-starfish",
     "href": "slides/Statistics_and_Samples1.html#a-sample-of-starfish",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "A sample of starfish",
     "text": "A sample of starfish\n\n\n\nEstimates (statistics) approximate parameters as inferred from samples.\nWe estimate the proportion of pink as inferred from this sample and extrapolate to the population as an approximation."
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#acknowledgments",
     "href": "slides/Statistics_and_Samples1.html#acknowledgments",
-    "title": "1.1.Statistics and Samples",
+    "title": "1.1.Statistics & Samples",
     "section": "Acknowledgments",
     "text": "Acknowledgments\n\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
   },
