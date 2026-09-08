@@ -4259,9 +4259,9 @@ vertical-align: -.125em;
     }
 
     const options = {
-      valueNames: ['listing-keywords','listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-keywords','listing-title','listing-date',{ data: ['index'] },{ data: ['categories'] }],
       
-      searchColumns: ["listing-title","listing-author"],
+      searchColumns: [],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -4514,39 +4514,15 @@ window.Quarto = {
 
 
 <div id="listing-labs" class="quarto-listing quarto-listing-container-table">
-<table class="quarto-listing-table table">
+<table class="quarto-listing-table table caption-top">
 <thead>
-<tr>
-
-<th>
-Topic
-</th>
-
-<th>
-Title
-</th>
-
-<th>
-Date
-</th>
-
+<tr class="header">
+<th data-quarto-table-cell-role="th">Topic</th>
+<th data-quarto-table-cell-role="th">Title</th>
+<th data-quarto-table-cell-role="th">Date</th>
 </tr>
 </thead>
 <tbody class="list">
-
-<tr data-index="0" data-listing-file-modified-sort="1788646468847" data-listing-reading-time-sort="14" data-listing-word-count-sort="2645" data-listing-title-sort="01. R, Rstudio: Crash Course" data-listing-filename-sort="lab1.qmd">
-<td>
-<span class="listing-keywords">test</span>
-</td>
-<td>
-<a href="./labs/lab1.html" class="title listing-title">01. R, Rstudio: Crash Course</a>
-</td>
-<td>
-<span class="listing-date"> </span>
-</td>
-
-</tr>
-
 </tbody>
 </table>
 <div class="listing-no-matching d-none">No matching items</div>
