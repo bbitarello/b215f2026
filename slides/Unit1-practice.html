@@ -11,8 +11,8 @@
 <meta name="generator" content="quarto-1.10.18">
 <meta name="author" content="Bárbara D. Bitarello">
 <meta name="dcterms.date" content="2026-09-09">
-<meta name="keywords" content="Descriptive statistics">
-<title>BIOL B215: Biostatistics with R – 2.1.Displaying &amp; Describing Data</title>
+<meta name="keywords" content="Unit 1">
+<title>BIOL B215: Biostatistics with R – Review/practice problems</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -36,72 +36,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #97947a;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #97947a;  padding-left: 4px; }
-    div.sourceCode
-      { color: #f8f8f2; background-color: #2b2b2b; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #f8f8f2; } /* Normal */
-    code span.al { color: #dcc6e0; } /* Alert */
-    code span.an { color: #d4d0ab; } /* Annotation */
-    code span.at { color: #ffd700; } /* Attribute */
-    code span.bn { color: #dcc6e0; } /* BaseN */
-    code span.bu { color: #f5ab35; } /* BuiltIn */
-    code span.cf { color: #ffa07a; } /* ControlFlow */
-    code span.ch { color: #abe338; } /* Char */
-    code span.cn { color: #ffa07a; } /* Constant */
-    code span.co { color: #d4d0ab; } /* Comment */
-    code span.cv { color: #d4d0ab; font-style: italic; } /* CommentVar */
-    code span.do { color: #d4d0ab; font-style: italic; } /* Documentation */
-    code span.dt { color: #dcc6e0; } /* DataType */
-    code span.dv { color: #dcc6e0; } /* DecVal */
-    code span.er { color: #dcc6e0; } /* Error */
-    code span.ex { color: #ffd700; } /* Extension */
-    code span.fl { color: #f5ab35; } /* Float */
-    code span.fu { color: #ffd700; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #d4d0ab; } /* Information */
-    code span.kw { color: #ffa07a; } /* Keyword */
-    code span.op { color: #00e0e0; } /* Operator */
-    code span.ot { color: #ffa07a; } /* Other */
-    code span.pp { color: #dcc6e0; } /* Preprocessor */
-    code span.sc { color: #00e0e0; } /* SpecialChar */
-    code span.ss { color: #abe338; } /* SpecialString */
-    code span.st { color: #abe338; } /* String */
-    code span.va { color: #f5ab35; } /* Variable */
-    code span.vs { color: #abe338; } /* VerbatimString */
-    code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
 <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-ac6c02ca5a07ac614c2f066fce0ae2e0.css">
 <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -119,7 +53,6 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
-      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -201,8 +134,8 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center"><h1 class="title">2.1.Displaying &amp; Describing Data</h1>
-  <p class="subtitle">2.1.Descriptive statistics (central tendency)</p>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Review/practice problems</h1>
+  <p class="subtitle">Unit 1</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -213,224 +146,130 @@ Bárbara D. Bitarello
 </div>
 
   <p class="date">September 9, 2026</p>
-</section><section id="outline" class="slide level2"><h2>Outline</h2>
-<ul>
-<li>Estimates of location</li>
-<li>Estimates of width</li>
-<li>Explanatory and exploratory figures</li>
-<li>Best practices in figure design</li>
-<li>How data types drive figure design</li>
-<li>How to make effective tables</li>
-</ul>
-<aside class="notes"><p>today: location and width; next class plots</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section id="learning-goals" class="slide level2"><h2>Learning Goals</h2>
-<ul>
-<li>Differentiate between estimates of location and estimates of width.</li>
-<li>Recognize that variability is not simply noise, but is a key parameter that can be estimated.</li>
-<li>Become familiar with the most common descriptive statistics.</li>
-<li>Know when the mean or median is a more appropriate summary of location.</li>
-</ul>
-<aside class="notes"><p>These learning goals are for the entire topic/unit. They will also be available in the study guide.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section id="descriptive-statistics" class="slide level2"><h2>Descriptive Statistics</h2>
-<div class="r-fit-text">
-<p>Or <strong>summary statistics</strong>: quantities that capture important features of frequency distributions</p>
-</div>
-<ul>
-<li><p>Location (<strong>central tendency</strong>)</p></li>
-<li><p>Width (<strong>spread</strong>)</p></li>
-<li><p>Association (<strong>correlation</strong>)</p></li>
-</ul></section><section id="the-data-13" class="slide level2"><h2>The data (1/3)</h2>
+</section><section id="section" class="slide level2 center"><h2></h2>
+<p>Unit 1: Practice problems</p>
+</section><section id="acknowledgments" class="slide level2"><h2>Acknowledgments</h2>
+<p>Most of these are from the textbook “The analysis of biological data”, by Whitlock &amp; Schuster, Macmillan, 3rd edition.</p>
+</section><section id="case-study-1-the-titanic-its-back" class="slide level2"><h2>Case study 1: the titanic (it’s back!)</h2>
 
-<img data-src="images/points.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" alt="Several pink points somewhat clustered around the center of a black background."></section><section id="the-data-23" class="slide level2"><h2>The data (2/3)</h2>
-<ul>
-<li>A measure of center (or location) of our data: ⭐</li>
-</ul>
-
-<img data-src="images/points2.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" alt="Several pink points somewhat clustered around the center of a black background. A yellow star is at the center of the image, amongst the points."></section><section id="the-data-33" class="slide level2"><h2>The data (3/3)</h2>
-<ul>
-<li><p>A measure of center (or location) of our data: ⭐</p></li>
-<li><p>A measure of spread (or width) of our data (red).</p></li>
-</ul>
-
-<img data-src="images/points3.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" alt="Several pink points somewhat clustered around the center of a black background. A yellow star is at the center of the image, amongst the points."></section><section id="measures-of-location-central-tendency" class="slide level2 center"><h2>Measures of location (central tendency)</h2>
-<ul>
-<li><p>Mean</p></li>
-<li><p>Median</p></li>
-<li><p>Mode</p></li>
-</ul></section><section id="the-average-problem" class="slide level2"><h2>The <del>average</del> problem</h2>
-<div class="goal">
-<p>“Average” is sometimes used synonymously with mean. But: medians and even modes are sometimes called an “average”</p>
-</div>
-<p>Let’s be precise (pun intended):</p>
-<ul>
-<li><p>When you see the word, “average”, pay attention to which measure of location it describes.</p></li>
-<li><p>Here, let’s be stats pro, and refer to mean, median, mode, etc.</p></li>
-</ul></section><section id="the-mean" class="slide level2"><h2>The Mean</h2>
-<div class="goal">
-<p>The sum of values divided by the sample size.</p>
-</div>
-<p><span class="math display">\[\bar{Y}=\frac{\sum_{i=1}^{n}Y_{i}}{n}\]</span></p>
-<div class="columns">
-<div class="column">
-<ul>
-<li>
-<span class="math inline">\(\bar{Y}\)</span>: the mean of variable of <span class="math inline">\(Y\)</span>
-</li>
-<li>
-<span class="math inline">\(\sum\)</span>: sum</li>
-</ul>
-</div><div class="column">
-<ul>
-<li>
-<span class="math inline">\(n\)</span>: the number of individuals in the samples (sample size)</li>
-<li>
-<span class="math inline">\(Y_{i}\)</span>: the observed value for the <span class="math inline">\(i\)</span>-th individual</li>
-</ul>
-</div></div>
-<ul>
-<li>
-<span class="math inline">\(\bar{Y}\)</span> (“Y bar”) is the <em>estimate</em> for the mean (the real parameter mean is often expressed as <span class="math inline">\(\mu\)</span>)</li>
-</ul></section><section id="the-mean-example" class="slide level2"><h2>The Mean (example)</h2>
-<div class="goal">
-<p>The mean of the set of 11 numbers: <span class="math inline">\(1, 15,9, 16,6, 17, 10,  5, 12, 14, 13\)</span></p>
-</div>
-<p><span class="math display">\[\bar{Y}=\frac{\sum_{i=1}^{n}Y_{i}}{n}\]</span></p>
-<p><span class="math inline">\(\bar{Y} = (1+15+9+16+6+17+10+5+12+14+13)/11 =\)</span> 10.7272727</p>
-
-<aside><div>
-<p>Nerd alert: this is the “arithmetic mean”, the one you see most often. The three pytagorean means also include the geometric mean and the harmonic mean.</p>
-</div></aside></section><section id="median" class="slide level2"><h2>Median</h2>
-<div class="goal">
-<p>The middle measurement.</p>
-</div>
-<p>Calculate the median by taking the value halfway through an ordered list of observations.</p>
-<ul>
-<li>Sample size is odd: The <span class="math inline">\((n + 1) / 2\)</span>-th value.</li>
-<li>Sample size is even: Mean of <span class="math inline">\(n/2\)</span>-th and the <span class="math inline">\((n + 2) / 2\)</span>-th values.</li>
-</ul></section><section id="median-example" class="slide level2 scrollable"><h2>Median example</h2>
+<img data-src="Unit1-practice_files/figure-revealjs/titanic-1.png" class="margin-caption r-stretch" alt="Left, proportion of males and females among adults in the titanic who survived.  Right, same thing but for children." width="960"><p>Think for a moment, then discuss with someone.</p>
+<p><strong>Questions:</strong></p>
 <ol type="1">
-<li>Sample size is odd: The <span class="math inline">\((n + 1) / 2\)</span>-th value.</li>
+<li><p>Variables? Types? Explanatory &amp; response variables?</p></li>
+<li><p>Describe the population this result came from…</p></li>
+<li><p>How far would you generalize from this to “Women &amp; Children 1st?”</p></li>
+<li><p>Experimental or observational study?</p></li>
 </ol>
-<ul>
-<li><p>First, order the numbers: 1, 5, 6, 9, 10, 12, 13, 14, 15, 16, 17</p></li>
-<li>
-<p>The <span class="math inline">\((n + 1) / 2\)</span>-th value for odd sized samples:</p>
-<p>1 5 6 9 10 <strong>12</strong> 13 14 15 16 17</p>
-</li>
-</ul>
-<ol start="2" type="1">
-<li>
-<p>Sample size is even: Mean of <span class="math inline">\(n/2\)</span>-th and the <span class="math inline">\((n + 2) / 2\)</span>-th values.</p>
-<p>1 5 6 9 10 <strong>[12 13]</strong> 14 15 16 17 17</p>
-<p>mean of 12 and 13 is (12+13)/2=12.5</p>
-</li>
-</ol></section><section id="mean-and-median-in-r" class="slide level2"><h2>Mean and Median in R</h2>
-<div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co"># a vector with the numbers</span></span>
-<span id="cb1-2"><a aria-label="2"></a>mynumbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">15</span>, <span class="dv">9</span>, <span class="dv">16</span>, <span class="dv">6</span>, <span class="dv">17</span>, <span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">13</span>)</span>
-<span id="cb1-3"><a aria-label="3"></a><span class="co"># mean 'manually'</span></span>
-<span id="cb1-4"><a aria-label="4"></a>mysum <span class="ot">&lt;-</span> <span class="fu">sum</span>(mynumbers)  <span class="co">#sum all numbers</span></span>
-<span id="cb1-5"><a aria-label="5"></a>l <span class="ot">&lt;-</span> <span class="fu">length</span>(mynumbers)  <span class="co">#number of elements in vector</span></span>
-<span id="cb1-6"><a aria-label="6"></a>mymean <span class="ot">&lt;-</span> mysum<span class="sc">/</span>l</span>
-<span id="cb1-7"><a aria-label="7"></a>mymean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.72727</code></pre>
-</div>
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="co"># note that you can use a built-in function for this:</span></span>
-<span id="cb3-2"><a aria-label="2"></a>mymean2 <span class="ot">&lt;-</span> <span class="fu">mean</span>(mynumbers)</span>
-<span id="cb3-3"><a aria-label="3"></a>mymean2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 10.72727</code></pre>
-</div>
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="co"># median with built-in function</span></span>
-<span id="cb5-2"><a aria-label="2"></a>mymedian <span class="ot">&lt;-</span> <span class="fu">median</span>(mynumbers)</span>
-<span id="cb5-3"><a aria-label="3"></a>mymedian</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 12</code></pre>
-</div>
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="co"># median 'manually'</span></span>
-<span id="cb7-2"><a aria-label="2"></a>mynumbers2 <span class="ot">&lt;-</span> <span class="fu">sort</span>(mynumbers)</span>
-<span id="cb7-3"><a aria-label="3"></a>mynumbers2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code> [1]  1  5  6  9 10 12 13 14 15 16 17</code></pre>
-</div>
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="co"># since l = 11 (odd) we select the l+1-th element, i.e,</span></span>
-<span id="cb9-2"><a aria-label="2"></a><span class="co"># (11+1)/2=6</span></span>
-<span id="cb9-3"><a aria-label="3"></a>mynumbers2[<span class="dv">6</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 12</code></pre>
-</div>
-</div>
-</section><section id="mean-x-median" class="slide level2"><h2>Mean x Median</h2>
-<div class="columns">
-<div class="column">
-<ul>
-<li><p>Mathematically convenient.</p></li>
-<li><p>Simply the sum of all observations divided by the sample size.</p></li>
-</ul>
-</div><div class="column">
-<ul>
-<li><p>Better descriptor for skewed population distributions (less affected by outliers).</p></li>
-<li><p>The median is the middle measurement.</p></li>
-</ul>
-</div></div>
+<aside class="notes"><ol type="1">
+<li><p>Sex (categ, nominal), life stage (categ ordinal), survival status (categ). Life stage is response, the others are explanatory.</p></li>
+<li><p>The population is the titanic! And we have all of the info!</p></li>
+<li><p>As great as the dataset is, we can’t generalize beyong the titanic. Who knows whether or not this is true for other ships?</p></li>
+<li><p>Observational, of course. Treatments were not assigned randomly to explanatory variable groups.</p></li>
+</ol>
+<section id="case-study-2-12" class="slide level2"><h2>Case study 2 (1/2)</h2>
 <div class="goal">
-<p>The mean and median become the same when data are symmetric.</p>
+<p>Consider a study showing that people who ate more steaks can do more push-ups, i.e., a positive association between the two.</p>
 </div>
-</section><section id="mode" class="slide level2"><h2>Mode</h2>
+<p>Think for a moment, then discuss with someone.</p>
+<p><strong>Questions:</strong></p>
+<ul>
+<li>How should one interpret this?</li>
+<li>Observational or experimental?</li>
+<li>Is this enough to show causation?</li>
+</ul></section><section id="case-study-2-22-.visibilityhidden" class="slide level2"><h2>Case study 2 (2/2) {.visibility=“hidden”}</h2>
 <div class="goal">
-<p>The most common value observed in a sample.</p>
+<p>Consider a study showing that people who ate more steaks can do more push-ups, i.e., a positive association between the two.</p>
 </div>
 <ul>
-<li><p>easy to pick</p></li>
-<li><p>always a <strong>real value</strong> in the data</p></li>
-<li><p>applicable to non-numerical variables!</p></li>
+<li>Eating steaks could give people more muscle tone/strength OR</li>
+<li>A certain type of person may enjoy both eating steaks and building muscle OR</li>
+<li>Something else</li>
+</ul></section><section id="case-study-3-12" class="slide level2"><h2>Case study 3 (1/2)</h2>
+<div class="goal">
+<p>Consider a study where researchers went to the field, and following the principles of random sampling collected a large sample of plants of a given species, and proceeded to measure vigor and assess pest load. The results showed that plants with fewer pests had greater biomass.</p>
+</div>
+<p><strong>Questions:</strong></p>
+<ul>
+<li>What could be happening here?</li>
+<li>Observational or experimental?</li>
+<li>Is this enough to show causation?</li>
+</ul></section><section id="case-study-3-22-.visibilityhidden" class="slide level2"><h2>Case study 3 (2/2) {.visibility=“hidden”}</h2>
+<div class="goal">
+<p>Consider a study where researchers went to the field, and following the principles of random sampling collected a large sample of plants of a given species, and proceeded to measure vigor and assess pest load. The results showed that plants with fewer pests had greater biomass.</p>
+</div>
+<ul>
+<li>Pests could decrease plant vigor OR</li>
+<li>Vigorous plants could fight off pests OR</li>
+<li>Something else</li>
 </ul>
-
-<img data-src="2.1.DisplayingAndDescribingData_files/figure-revealjs/beaver-1.png" class="margin-caption r-stretch quarto-figure-center" width="960"><p class="caption">Histograms reveal measures of center</p></section><section id="but-how-will-you-know-how-your-data-is-distributed" class="slide level2 center"><h2>But how will you know how your data is distributed?</h2>
-<div class="r-fit-text">
-<p>First step: plot your data</p>
+<aside class="notes"><p>Observations Can’t Separate Cause and Effect</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="case-study-4" class="slide level2"><h2>Case study 4</h2>
+<div class="goal">
+<p>In a study, researchers took electrophysiological measurements from the brains of two rhesus macaques (monkeys). Forty neurons were tested in each monkey, yielding a total of 80 measurements.</p>
 </div>
-</section><section id="skewness-12" class="slide level2"><h2>Skewness (1/2)</h2>
-
-<img data-src="2.1.DisplayingAndDescribingData_files/figure-revealjs/skew-1.png" class="margin-caption r-stretch" width="768"></section><section id="skewness-22" class="slide level2"><h2>Skewness (2/2)</h2>
-<p><strong>Left: Asymmetric</strong> Few small values. <span class="math inline">\(&gt;1/2\)</span> of values exceed the mean.</p>
-<p><strong>Middle: Symmetric</strong> As many large as small values. <span class="math inline">\(\sim1/2\)</span> of values exceed the mean.</p>
-<p><strong>Right: Asymmetric</strong> Few large values. <span class="math inline">\(&gt;1/2\)</span> of values are less than the mean.</p>
-
-<img data-src="2.1.DisplayingAndDescribingData_files/figure-revealjs/skew2-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="768"></section><section id="next" class="slide level2"><h2>Next</h2>
-<p>Measures of spread (width):</p>
+<p>Think for a moment, then discuss with someone.</p>
+<p><strong>Questions:</strong></p>
 <ul>
-<li><p>range</p></li>
-<li><p>q-quantiles, interquartile range</p></li>
-<li><p>Variance</p></li>
-<li><p>Standard deviation</p></li>
-<li><p>Coefficient of variation</p></li>
-</ul></section><section id="acknowledgments" class="slide level2"><h2>Acknowledgments</h2>
-<p>Yaniv Brandvain; Freeman &amp; Company; and Michael Whitlock for some materials used in these slides.</p>
+<li><p>Do the 80 neurons constitute a random sample? Why or why not?</p></li>
+<li><p>If the 80 measurements were analyzed as though they constituted a random sample, what consequences would this have for the estimate of the measurement in the monkey population?</p></li>
+</ul>
+<aside class="notes"><p>For each monkey, the neurons are not independent. They are likely to be more similar to each other (b/c they come from one monkey) than 40 randomly sampled neurons from the population of monkeys.</p>
+<p>The calculation of precision would be wrong. Specifically, it would indicate precision is higher than actually is!</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="case-study-5" class="slide level2"><h2>Case study 5</h2>
+<div class="goal">
+<p>A researcher dissected the retinas of 20 randomly sampled fish belonging to each of two subspecies of guppy in Venezuela. Using a sophisticated laboratory apparatus, he measured the two groups of fish to find the wavelengths of visible light to which the cones of the retina were most sensitive. The goal was to explore whether fish from the two subspecies differed in the wavelength of light that they were most sensitive to.</p>
+</div>
+<p><strong>Questions:</strong></p>
+<ul>
+<li><p>What are the two variables being associated in this study?</p></li>
+<li><p>Which is the explanatory variable and which is the response variable?</p></li>
+<li><p>Is this an experimental study or an observational study? Why?</p></li>
+</ul>
+<aside class="notes"><p>subspecies (explanatory) and wavelength of max. sensitivity (response).</p>
+<p>Observational! Researcher has no control over which individual belongs to each species.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
-
-</section>
+</section><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -471,7 +310,7 @@ Bárbara D. Bitarello
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: 'c/t',
+        slideNumber: false,
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',

@@ -1,152 +1,5 @@
 [
   {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#outline",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#outline",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Outline",
-    "text": "Outline"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#outline-1",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#outline-1",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Outline",
-    "text": "Outline\n\nEstimates of location\nEstimates of width\nExplanatory and exploratory figures\nBest practices in figure design\nHow data types drive figure design\nHow to make effective tables\n\ntoday: location and width; next class plots"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#learning-goals",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#learning-goals",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Learning Goals",
-    "text": "Learning Goals\n\nDifferentiate between estimates of location and estimates of width.\nRecognize that variability is not simply noise, but is a key parameter that can be estimated.\nBecome familiar with the most common descriptive statistics.\nKnow when the mean or median is a more appropriate summary of location.\n\nThese learning goals are for the entire topic/unit. They will also be available in the study guide."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#descriptive-statistics",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#descriptive-statistics",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Descriptive Statistics",
-    "text": "Descriptive Statistics\n\nOr summary statistics: quantities that capture important features of frequency distributions\n\n\nLocation (central tendency)\nWidth (spread)\nAssociation (correlation)"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-13",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-13",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The data (1/3)",
-    "text": "The data (1/3)"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-23",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-23",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The data (2/3)",
-    "text": "The data (2/3)\n\nA measure of center (or location) of our data: ⭐"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-33",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-33",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The data (3/3)",
-    "text": "The data (3/3)\n\nA measure of center (or location) of our data: ⭐\nA measure of spread (or width) of our data (red)."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#measures-of-location-central-tendency",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#measures-of-location-central-tendency",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Measures of location (central tendency)",
-    "text": "Measures of location (central tendency)\n\nMean\nMedian\nMode"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-average-problem",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-average-problem",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The average problem",
-    "text": "The average problem\n\n“Average” is sometimes used synonymously with mean. But: medians and even modes are sometimes called an “average”\n\nLet’s be precise (pun intended):\n\nWhen you see the word, “average”, pay attention to which measure of location it describes.\nHere, let’s be stats pro, and refer to mean, median, mode, etc."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-mean",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-mean",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The Mean",
-    "text": "The Mean\n\nThe sum of values divided by the sample size.\n\n\\[\\bar{Y}=\\frac{\\sum_{i=1}^{n}Y_{i}}{n}\\]\n\n\n\n\n\\(\\bar{Y}\\): the mean of variable of \\(Y\\)\n\n\n\\(\\sum\\): sum\n\n\n\n\n\\(n\\): the number of individuals in the samples (sample size)\n\n\\(Y_{i}\\): the observed value for the \\(i\\)-th individual\n\n\n\n\n\\(\\bar{Y}\\) (“Y bar”) is the estimate for the mean (the real parameter mean is often expressed as \\(\\mu\\))"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-mean-example",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-mean-example",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The Mean (example)",
-    "text": "The Mean (example)\n\nThe mean of the set of 11 numbers: \\(1, 15,9, 16,6, 17, 10,  5, 12, 14, 13\\)\n\n\\[\\bar{Y}=\\frac{\\sum_{i=1}^{n}Y_{i}}{n}\\]\n\\(\\bar{Y} = (1+15+9+16+6+17+10+5+12+14+13)/11 =\\) 10.7272727\n\n\nNerd alert: this is the “arithmetic mean”, the one you see most often. The three pytagorean means also include the geometric mean and the harmonic mean."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#median",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#median",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Median",
-    "text": "Median\n\nThe middle measurement.\n\nCalculate the median by taking the value halfway through an ordered list of observations.\n\nSample size is odd: The \\((n + 1) / 2\\)-th value.\nSample size is even: Mean of \\(n/2\\)-th and the \\((n + 2) / 2\\)-th values."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#median-example",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#median-example",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Median example",
-    "text": "Median example\n\nSample size is odd: The \\((n + 1) / 2\\)-th value.\n\n\nFirst, order the numbers: 1, 5, 6, 9, 10, 12, 13, 14, 15, 16, 17\n\nThe \\((n + 1) / 2\\)-th value for odd sized samples:\n1 5 6 9 10 12 13 14 15 16 17\n\n\n\n\nSample size is even: Mean of \\(n/2\\)-th and the \\((n + 2) / 2\\)-th values.\n1 5 6 9 10 [12 13] 14 15 16 17 17\nmean of 12 and 13 is (12+13)/2=12.5"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mean-and-median-in-r",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#mean-and-median-in-r",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Mean and Median in R",
-    "text": "Mean and Median in R\n\nShow the code# a vector with the numbers\nmynumbers &lt;- c(1, 15, 9, 16, 6, 17, 10, 5, 12, 14, 13)\n# mean 'manually'\nmysum &lt;- sum(mynumbers)  #sum all numbers\nl &lt;- length(mynumbers)  #number of elements in vector\nmymean &lt;- mysum/l\nmymean\n\n[1] 10.72727\n\nShow the code# note that you can use a built-in function for this:\nmymean2 &lt;- mean(mynumbers)\nmymean2\n\n[1] 10.72727\n\nShow the code# median with built-in function\nmymedian &lt;- median(mynumbers)\nmymedian\n\n[1] 12\n\nShow the code# median 'manually'\nmynumbers2 &lt;- sort(mynumbers)\nmynumbers2\n\n [1]  1  5  6  9 10 12 13 14 15 16 17\n\nShow the code# since l = 11 (odd) we select the l+1-th element, i.e,\n# (11+1)/2=6\nmynumbers2[6]\n\n[1] 12"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mean-x-median",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#mean-x-median",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Mean x Median",
-    "text": "Mean x Median\n\n\n\nMathematically convenient.\nSimply the sum of all observations divided by the sample size.\n\n\n\nBetter descriptor for skewed population distributions (less affected by outliers).\nThe median is the middle measurement.\n\n\n\nThe mean and median become the same when data are symmetric."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mode",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#mode",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Mode",
-    "text": "Mode\n\nThe most common value observed in a sample.\n\n\neasy to pick\nalways a real value in the data\napplicable to non-numerical variables!\n\n\nHistograms reveal measures of center"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#but-how-will-you-know-how-your-data-is-distributed",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#but-how-will-you-know-how-your-data-is-distributed",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "But how will you know how your data is distributed?",
-    "text": "But how will you know how your data is distributed?\n\nFirst step: plot your data"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#skewness-12",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#skewness-12",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Skewness (1/2)",
-    "text": "Skewness (1/2)"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#skewness-22",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#skewness-22",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Skewness (2/2)",
-    "text": "Skewness (2/2)\nLeft: Asymmetric Few small values. \\(&gt;1/2\\) of values exceed the mean.\nMiddle: Symmetric As many large as small values. \\(\\sim1/2\\) of values exceed the mean.\nRight: Asymmetric Few large values. \\(&gt;1/2\\) of values are less than the mean."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#next",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#next",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Next",
-    "text": "Next\nMeasures of spread (width):\n\nrange\nq-quantiles, interquartile range\nVariance\nStandard deviation\nCoefficient of variation"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments\nYaniv Brandvain; Freeman & Company; and Michael Whitlock for some materials used in these slides."
-  },
-  {
     "objectID": "slides/Statistics_and_Samples4.html#quick-recap",
     "href": "slides/Statistics_and_Samples4.html#quick-recap",
     "title": "1.4. A soft intro to causal inference",
@@ -771,5 +624,208 @@
     "title": "1.3.Types of variables",
     "section": "Acknowledgments",
     "text": "Acknowledgments\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#section",
+    "href": "slides/Unit1-practice.html#section",
+    "title": "Review/practice problems",
+    "section": "",
+    "text": "Unit 1: Practice problems"
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#acknowledgments",
+    "href": "slides/Unit1-practice.html#acknowledgments",
+    "title": "Review/practice problems",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nMost of these are from the textbook “The analysis of biological data”, by Whitlock & Schuster, Macmillan, 3rd edition."
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#case-study-1-the-titanic-its-back",
+    "href": "slides/Unit1-practice.html#case-study-1-the-titanic-its-back",
+    "title": "Review/practice problems",
+    "section": "Case study 1: the titanic (it’s back!)",
+    "text": "Case study 1: the titanic (it’s back!)\n\nThink for a moment, then discuss with someone.\nQuestions:\n\nVariables? Types? Explanatory & response variables?\nDescribe the population this result came from…\nHow far would you generalize from this to “Women & Children 1st?”\nExperimental or observational study?\n\n\nSex (categ, nominal), life stage (categ ordinal), survival status (categ). Life stage is response, the others are explanatory.\nThe population is the titanic! And we have all of the info!\nAs great as the dataset is, we can’t generalize beyong the titanic. Who knows whether or not this is true for other ships?\nObservational, of course. Treatments were not assigned randomly to explanatory variable groups.\n\nCase study 2 (1/2)\n\nConsider a study showing that people who ate more steaks can do more push-ups, i.e., a positive association between the two.\n\nThink for a moment, then discuss with someone.\nQuestions:\n\nHow should one interpret this?\nObservational or experimental?\nIs this enough to show causation?\nCase study 2 (2/2) {.visibility=“hidden”}\n\nConsider a study showing that people who ate more steaks can do more push-ups, i.e., a positive association between the two.\n\n\nEating steaks could give people more muscle tone/strength OR\nA certain type of person may enjoy both eating steaks and building muscle OR\nSomething else\nCase study 3 (1/2)\n\nConsider a study where researchers went to the field, and following the principles of random sampling collected a large sample of plants of a given species, and proceeded to measure vigor and assess pest load. The results showed that plants with fewer pests had greater biomass.\n\nQuestions:\n\nWhat could be happening here?\nObservational or experimental?\nIs this enough to show causation?\nCase study 3 (2/2) {.visibility=“hidden”}\n\nConsider a study where researchers went to the field, and following the principles of random sampling collected a large sample of plants of a given species, and proceeded to measure vigor and assess pest load. The results showed that plants with fewer pests had greater biomass.\n\n\nPests could decrease plant vigor OR\nVigorous plants could fight off pests OR\nSomething else\n\nObservations Can’t Separate Cause and Effect\nCase study 4\n\nIn a study, researchers took electrophysiological measurements from the brains of two rhesus macaques (monkeys). Forty neurons were tested in each monkey, yielding a total of 80 measurements.\n\nThink for a moment, then discuss with someone.\nQuestions:\n\nDo the 80 neurons constitute a random sample? Why or why not?\nIf the 80 measurements were analyzed as though they constituted a random sample, what consequences would this have for the estimate of the measurement in the monkey population?\n\nFor each monkey, the neurons are not independent. They are likely to be more similar to each other (b/c they come from one monkey) than 40 randomly sampled neurons from the population of monkeys.\nThe calculation of precision would be wrong. Specifically, it would indicate precision is higher than actually is!\nCase study 5\n\nA researcher dissected the retinas of 20 randomly sampled fish belonging to each of two subspecies of guppy in Venezuela. Using a sophisticated laboratory apparatus, he measured the two groups of fish to find the wavelengths of visible light to which the cones of the retina were most sensitive. The goal was to explore whether fish from the two subspecies differed in the wavelength of light that they were most sensitive to.\n\nQuestions:\n\nWhat are the two variables being associated in this study?\nWhich is the explanatory variable and which is the response variable?\nIs this an experimental study or an observational study? Why?\n\nsubspecies (explanatory) and wavelength of max. sensitivity (response).\nObservational! Researcher has no control over which individual belongs to each species."
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#case-study-2-12",
+    "href": "slides/Unit1-practice.html#case-study-2-12",
+    "title": "Review/practice problems",
+    "section": "Case study 2 (1/2)",
+    "text": "Case study 2 (1/2)\n\nConsider a study showing that people who ate more steaks can do more push-ups, i.e., a positive association between the two.\n\nThink for a moment, then discuss with someone.\nQuestions:\n\nHow should one interpret this?\nObservational or experimental?\nIs this enough to show causation?"
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#case-study-2-22-.visibilityhidden",
+    "href": "slides/Unit1-practice.html#case-study-2-22-.visibilityhidden",
+    "title": "Review/practice problems",
+    "section": "Case study 2 (2/2) {.visibility=“hidden”}",
+    "text": "Case study 2 (2/2) {.visibility=“hidden”}\n\nConsider a study showing that people who ate more steaks can do more push-ups, i.e., a positive association between the two.\n\n\nEating steaks could give people more muscle tone/strength OR\nA certain type of person may enjoy both eating steaks and building muscle OR\nSomething else"
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#case-study-3-12",
+    "href": "slides/Unit1-practice.html#case-study-3-12",
+    "title": "Review/practice problems",
+    "section": "Case study 3 (1/2)",
+    "text": "Case study 3 (1/2)\n\nConsider a study where researchers went to the field, and following the principles of random sampling collected a large sample of plants of a given species, and proceeded to measure vigor and assess pest load. The results showed that plants with fewer pests had greater biomass.\n\nQuestions:\n\nWhat could be happening here?\nObservational or experimental?\nIs this enough to show causation?"
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#case-study-3-22-.visibilityhidden",
+    "href": "slides/Unit1-practice.html#case-study-3-22-.visibilityhidden",
+    "title": "Review/practice problems",
+    "section": "Case study 3 (2/2) {.visibility=“hidden”}",
+    "text": "Case study 3 (2/2) {.visibility=“hidden”}\n\nConsider a study where researchers went to the field, and following the principles of random sampling collected a large sample of plants of a given species, and proceeded to measure vigor and assess pest load. The results showed that plants with fewer pests had greater biomass.\n\n\nPests could decrease plant vigor OR\nVigorous plants could fight off pests OR\nSomething else\n\nObservations Can’t Separate Cause and Effect"
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#case-study-4",
+    "href": "slides/Unit1-practice.html#case-study-4",
+    "title": "Review/practice problems",
+    "section": "Case study 4",
+    "text": "Case study 4\n\nIn a study, researchers took electrophysiological measurements from the brains of two rhesus macaques (monkeys). Forty neurons were tested in each monkey, yielding a total of 80 measurements.\n\nThink for a moment, then discuss with someone.\nQuestions:\n\nDo the 80 neurons constitute a random sample? Why or why not?\nIf the 80 measurements were analyzed as though they constituted a random sample, what consequences would this have for the estimate of the measurement in the monkey population?\n\nFor each monkey, the neurons are not independent. They are likely to be more similar to each other (b/c they come from one monkey) than 40 randomly sampled neurons from the population of monkeys.\nThe calculation of precision would be wrong. Specifically, it would indicate precision is higher than actually is!"
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#case-study-5",
+    "href": "slides/Unit1-practice.html#case-study-5",
+    "title": "Review/practice problems",
+    "section": "Case study 5",
+    "text": "Case study 5\n\nA researcher dissected the retinas of 20 randomly sampled fish belonging to each of two subspecies of guppy in Venezuela. Using a sophisticated laboratory apparatus, he measured the two groups of fish to find the wavelengths of visible light to which the cones of the retina were most sensitive. The goal was to explore whether fish from the two subspecies differed in the wavelength of light that they were most sensitive to.\n\nQuestions:\n\nWhat are the two variables being associated in this study?\nWhich is the explanatory variable and which is the response variable?\nIs this an experimental study or an observational study? Why?\n\nsubspecies (explanatory) and wavelength of max. sensitivity (response).\nObservational! Researcher has no control over which individual belongs to each species."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#outline",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#outline",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Outline",
+    "text": "Outline\n\nEstimates of location\nEstimates of width\nExplanatory and exploratory figures\nBest practices in figure design\nHow data types drive figure design\nHow to make effective tables\n\ntoday: location and width; next class plots"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#learning-goals",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#learning-goals",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Learning Goals",
+    "text": "Learning Goals\n\nDifferentiate between estimates of location and estimates of width.\nRecognize that variability is not simply noise, but is a key parameter that can be estimated.\nBecome familiar with the most common descriptive statistics.\nKnow when the mean or median is a more appropriate summary of location.\n\nThese learning goals are for the entire topic/unit. They will also be available in the study guide."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#descriptive-statistics",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#descriptive-statistics",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics\n\nOr summary statistics: quantities that capture important features of frequency distributions\n\n\nLocation (central tendency)\nWidth (spread)\nAssociation (correlation)"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-13",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-13",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The data (1/3)",
+    "text": "The data (1/3)"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-23",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-23",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The data (2/3)",
+    "text": "The data (2/3)\n\nA measure of center (or location) of our data: ⭐"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-33",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-33",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The data (3/3)",
+    "text": "The data (3/3)\n\nA measure of center (or location) of our data: ⭐\nA measure of spread (or width) of our data (red)."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#measures-of-location-central-tendency",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#measures-of-location-central-tendency",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Measures of location (central tendency)",
+    "text": "Measures of location (central tendency)\n\nMean\nMedian\nMode"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-average-problem",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-average-problem",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The average problem",
+    "text": "The average problem\n\n“Average” is sometimes used synonymously with mean. But: medians and even modes are sometimes called an “average”\n\nLet’s be precise (pun intended):\n\nWhen you see the word, “average”, pay attention to which measure of location it describes.\nHere, let’s be stats pro, and refer to mean, median, mode, etc."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-mean",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-mean",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The Mean",
+    "text": "The Mean\n\nThe sum of values divided by the sample size.\n\n\\[\\bar{Y}=\\frac{\\sum_{i=1}^{n}Y_{i}}{n}\\]\n\n\n\n\n\\(\\bar{Y}\\): the mean of variable of \\(Y\\)\n\n\n\\(\\sum\\): sum\n\n\n\n\n\\(n\\): the number of individuals in the samples (sample size)\n\n\\(Y_{i}\\): the observed value for the \\(i\\)-th individual\n\n\n\n\n\\(\\bar{Y}\\) (“Y bar”) is the estimate for the mean (the real parameter mean is often expressed as \\(\\mu\\))"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-mean-example",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-mean-example",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The Mean (example)",
+    "text": "The Mean (example)\n\nThe mean of the set of 11 numbers: \\(1, 15,9, 16,6, 17, 10,  5, 12, 14, 13\\)\n\n\\[\\bar{Y}=\\frac{\\sum_{i=1}^{n}Y_{i}}{n}\\]\n\\(\\bar{Y} = (1+15+9+16+6+17+10+5+12+14+13)/11 =\\) 10.7272727\n\n\nNerd alert: this is the “arithmetic mean”, the one you see most often. The three pytagorean means also include the geometric mean and the harmonic mean."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#median",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#median",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Median",
+    "text": "Median\n\nThe middle measurement.\n\nCalculate the median by taking the value halfway through an ordered list of observations.\n\nSample size is odd: The \\((n + 1) / 2\\)-th value.\nSample size is even: Mean of \\(n/2\\)-th and the \\((n + 2) / 2\\)-th values."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#median-example",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#median-example",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Median example",
+    "text": "Median example\n\nSample size is odd: The \\((n + 1) / 2\\)-th value.\n\n\nFirst, order the numbers: 1, 5, 6, 9, 10, 12, 13, 14, 15, 16, 17\n\nThe \\((n + 1) / 2\\)-th value for odd sized samples:\n1 5 6 9 10 12 13 14 15 16 17\n\n\n\n\nSample size is even: Mean of \\(n/2\\)-th and the \\((n + 2) / 2\\)-th values.\n1 5 6 9 10 [12 13] 14 15 16 17 17\nmean of 12 and 13 is (12+13)/2=12.5"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mean-and-median-in-r",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#mean-and-median-in-r",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Mean and Median in R",
+    "text": "Mean and Median in R\n\nShow the code# a vector with the numbers\nmynumbers &lt;- c(1, 15, 9, 16, 6, 17, 10, 5, 12, 14, 13)\n# mean 'manually'\nmysum &lt;- sum(mynumbers)  #sum all numbers\nl &lt;- length(mynumbers)  #number of elements in vector\nmymean &lt;- mysum/l\nmymean\n\n[1] 10.72727\n\nShow the code# note that you can use a built-in function for this:\nmymean2 &lt;- mean(mynumbers)\nmymean2\n\n[1] 10.72727\n\nShow the code# median with built-in function\nmymedian &lt;- median(mynumbers)\nmymedian\n\n[1] 12\n\nShow the code# median 'manually'\nmynumbers2 &lt;- sort(mynumbers)\nmynumbers2\n\n [1]  1  5  6  9 10 12 13 14 15 16 17\n\nShow the code# since l = 11 (odd) we select the l+1-th element, i.e,\n# (11+1)/2=6\nmynumbers2[6]\n\n[1] 12"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mean-x-median",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#mean-x-median",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Mean x Median",
+    "text": "Mean x Median\n\n\n\nMathematically convenient.\nSimply the sum of all observations divided by the sample size.\n\n\n\nBetter descriptor for skewed population distributions (less affected by outliers).\nThe median is the middle measurement.\n\n\n\nThe mean and median become the same when data are symmetric."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mode",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#mode",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Mode",
+    "text": "Mode\n\nThe most common value observed in a sample.\n\n\neasy to pick\nalways a real value in the data\napplicable to non-numerical variables!\n\n\nHistograms reveal measures of center"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#but-how-will-you-know-how-your-data-is-distributed",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#but-how-will-you-know-how-your-data-is-distributed",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "But how will you know how your data is distributed?",
+    "text": "But how will you know how your data is distributed?\n\nFirst step: plot your data"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#skewness-12",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#skewness-12",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Skewness (1/2)",
+    "text": "Skewness (1/2)"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#skewness-22",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#skewness-22",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Skewness (2/2)",
+    "text": "Skewness (2/2)\nLeft: Asymmetric Few small values. \\(&gt;1/2\\) of values exceed the mean.\nMiddle: Symmetric As many large as small values. \\(\\sim1/2\\) of values exceed the mean.\nRight: Asymmetric Few large values. \\(&gt;1/2\\) of values are less than the mean."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#next",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#next",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Next",
+    "text": "Next\nMeasures of spread (width):\n\nrange\nq-quantiles, interquartile range\nVariance\nStandard deviation\nCoefficient of variation"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nYaniv Brandvain; Freeman & Company; and Michael Whitlock for some materials used in these slides."
   }
 ]
