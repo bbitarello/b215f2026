@@ -150,8 +150,22 @@ Bárbara D. Bitarello
 </section><section id="acknowledgments" class="slide level2"><h2>Acknowledgments</h2>
 <p>Most of these are modified from the textbook “The analysis of biological data”, by Whitlock &amp; Schluter, Macmillan, 3rd edition.</p>
 </section><section id="case-study-1-the-titanic-its-back" class="slide level2 scrollable"><h2>Case study 1: the titanic (it’s back!)</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
 
-<img data-src="Unit1-practice_files/figure-revealjs/titanic-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" alt="Left, proportion of males and females among adults in the titanic who survived.  Right, same thing but for children." width="960"><p>Think for a moment, then discuss with someone.</p>
+</div>
+<img data-src="Unit1-practice_files/figure-html/titanic-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" alt="Left, proportion of males and females among adults in the titanic who survived.  Right, same thing but for children." width="672"><p>Think for a moment, then discuss with someone.</p>
 <p><strong>Questions:</strong></p>
 <ol type="1">
 <li><p>Variables? Types? Explanatory &amp; response variables?</p></li>
@@ -273,6 +287,8 @@ Bárbara D. Bitarello
 <li>Review problems in WS</li>
 <li>
 <a href="https://bdsr.stephenturner.us/stats.html">Stephen D. Turner’s “Biological Data Science with R”</a> has great practice problems and is freely available.</li>
+<li>
+<a href="https://openintro-ims.netlify.app/authors">Mine Çetinkaya-Rundel and Johanna Hardin’s “Introduction to Modern Statistics (2e)”</a> has great practice problems and is freely available.</li>
 </ul>
 
 
@@ -480,41 +496,6 @@ Bárbara D. Bitarello
           RevealZoom
         ]
       });
-    </script><script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
