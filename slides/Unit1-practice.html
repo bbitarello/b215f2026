@@ -53,6 +53,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -146,13 +147,11 @@ Bárbara D. Bitarello
 </div>
 
   <p class="date">September 9, 2026</p>
-</section><section id="section" class="slide level2 center"><h2></h2>
-<p>Unit 1: Practice problems</p>
 </section><section id="acknowledgments" class="slide level2"><h2>Acknowledgments</h2>
-<p>Most of these are from the textbook “The analysis of biological data”, by Whitlock &amp; Schuster, Macmillan, 3rd edition.</p>
-</section><section id="case-study-1-the-titanic-its-back" class="slide level2"><h2>Case study 1: the titanic (it’s back!)</h2>
+<p>Most of these are modified from the textbook “The analysis of biological data”, by Whitlock &amp; Schluter, Macmillan, 3rd edition.</p>
+</section><section id="case-study-1-the-titanic-its-back" class="slide level2 scrollable"><h2>Case study 1: the titanic (it’s back!)</h2>
 
-<img data-src="Unit1-practice_files/figure-revealjs/titanic-1.png" class="margin-caption r-stretch" alt="Left, proportion of males and females among adults in the titanic who survived.  Right, same thing but for children." width="960"><p>Think for a moment, then discuss with someone.</p>
+<img data-src="Unit1-practice_files/figure-revealjs/titanic-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" alt="Left, proportion of males and females among adults in the titanic who survived.  Right, same thing but for children." width="960"><p>Think for a moment, then discuss with someone.</p>
 <p><strong>Questions:</strong></p>
 <ol type="1">
 <li><p>Variables? Types? Explanatory &amp; response variables?</p></li>
@@ -165,8 +164,17 @@ Bárbara D. Bitarello
 <li><p>The population is the titanic! And we have all of the info!</p></li>
 <li><p>As great as the dataset is, we can’t generalize beyong the titanic. Who knows whether or not this is true for other ships?</p></li>
 <li><p>Observational, of course. Treatments were not assigned randomly to explanatory variable groups.</p></li>
-</ol>
-<section id="case-study-2-12" class="slide level2"><h2>Case study 2 (1/2)</h2>
+</ol><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="case-study-2-12" class="slide level2"><h2>Case study 2 (1/2)</h2>
 <div class="goal">
 <p>Consider a study showing that people who ate more steaks can do more push-ups, i.e., a positive association between the two.</p>
 </div>
@@ -176,7 +184,7 @@ Bárbara D. Bitarello
 <li>How should one interpret this?</li>
 <li>Observational or experimental?</li>
 <li>Is this enough to show causation?</li>
-</ul></section><section id="case-study-2-22-.visibilityhidden" class="slide level2"><h2>Case study 2 (2/2) {.visibility=“hidden”}</h2>
+</ul></section><section id="case-study-2-22" class="slide level2"><h2>Case study 2 (2/2)</h2>
 <div class="goal">
 <p>Consider a study showing that people who ate more steaks can do more push-ups, i.e., a positive association between the two.</p>
 </div>
@@ -193,7 +201,7 @@ Bárbara D. Bitarello
 <li>What could be happening here?</li>
 <li>Observational or experimental?</li>
 <li>Is this enough to show causation?</li>
-</ul></section><section id="case-study-3-22-.visibilityhidden" class="slide level2"><h2>Case study 3 (2/2) {.visibility=“hidden”}</h2>
+</ul></section><section id="case-study-3-22" class="slide level2"><h2>Case study 3 (2/2)</h2>
 <div class="goal">
 <p>Consider a study where researchers went to the field, and following the principles of random sampling collected a large sample of plants of a given species, and proceeded to measure vigor and assess pest load. The results showed that plants with fewer pests had greater biomass.</p>
 </div>
@@ -237,7 +245,7 @@ Bárbara D. Bitarello
           display:block!important;
       }</style></aside></section><section id="case-study-5" class="slide level2"><h2>Case study 5</h2>
 <div class="goal">
-<p>A researcher dissected the retinas of 20 randomly sampled fish belonging to each of two subspecies of guppy in Venezuela. Using a sophisticated laboratory apparatus, he measured the two groups of fish to find the wavelengths of visible light to which the cones of the retina were most sensitive. The goal was to explore whether fish from the two subspecies differed in the wavelength of light that they were most sensitive to.</p>
+<p>A researcher dissected the retinas of 20 randomly sampled fish belonging to each of two subspecies of guppy in Venezuela. Using a sophisticated laboratory apparatus, they measured the two groups of fish to find the wavelengths of visible light to which the cones of the retina were most sensitive. The goal was to explore whether fish from the two subspecies differed in the wavelength of light that they were most sensitive to.</p>
 </div>
 <p><strong>Questions:</strong></p>
 <ul>
@@ -257,19 +265,23 @@ Bárbara D. Bitarello
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside>
+      }</style></aside></section><section id="more-practice-problems" class="slide level2"><h2>More practice problems</h2>
+<ul>
+<li>Study guide</li>
+<li>End of chapter 1 questions from WS*</li>
+<li>End of chapter 14 questions from WS – we only covered some of that though, but it’s worth checking out some of those review questions</li>
+<li>Review problems in WS</li>
+<li>
+<a href="https://bdsr.stephenturner.us/stats.html">Stephen D. Turner’s “Biological Data Science with R”</a> has great practice problems and is freely available.</li>
+</ul>
 
-</section><style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section>
+
+
+<aside><div>
+<ul>
+<li>Whitlock &amp; Schluter, The analysis of Biological Data</li>
+</ul>
+</div></aside></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -310,7 +322,7 @@ Bárbara D. Bitarello
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: false,
+        slideNumber: 'c/t',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',

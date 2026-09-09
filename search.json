@@ -1,115 +1,573 @@
 [
   {
-    "objectID": "slides/Statistics_and_Samples4.html#quick-recap",
-    "href": "slides/Statistics_and_Samples4.html#quick-recap",
-    "title": "1.4. A soft intro to causal inference",
-    "section": "Quick recap",
-    "text": "Quick recap\nLast time:\n\nVariables, data, dataset\nTypes of variables and subtypes: numeric (discrete, continuous), categorical (nominal, ordinal)\nHow to organize data in a dataset\nExplanatory and response variables\n\nAsk for volunteers to remind these concepts"
+    "objectID": "rlearn.html",
+    "href": "rlearn.html",
+    "title": "Learning R (and statistics)",
+    "section": "",
+    "text": "Updated often. If you’re an enrolled students and would like to contribute content here, please open a thread on Piazza under “Misc” and say you’d like to share a useful link.",
+    "crumbs": [
+      "Rrresources"
+    ]
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#learning-goals",
-    "href": "slides/Statistics_and_Samples4.html#learning-goals",
-    "title": "1.4. A soft intro to causal inference",
-    "section": "Learning goals",
-    "text": "Learning goals\n\nDescribe the differences between observational and experimental studies.\nDistinguish between correlation and causation.\nUnderstand why experimental studies reveal causation, while observational studies cannot.\nRecognize that confounding factors limit our ability to interpret observed patterns."
+    "objectID": "rlearn.html#r-help",
+    "href": "rlearn.html#r-help",
+    "title": "Learning R (and statistics)",
+    "section": "Getting help with R",
+    "text": "Getting help with R\nSTART HERE, with fbriatte.org, where you can learn how to find answers to your burning R questions online.\n\nGetting help with R\nStack overflow: topics are tagged, and “r” is a very popular tag on the site. To go directly to R-related topics, visit http://stackoverflow.com/questions/tagged/r.\nRstudio Community\nReddit: r/rstats, r/Rlanguage, r/rprogramming, r/RStudio\nGithub: github is a must for anyone in datascience and has many functions. For your purposes, searching for a particular package and looking into their “issues” page can be very helpful. E.g., here is the issues page for the rmarkdown package.\nCheatsheets (several)",
+    "crumbs": [
+      "Rrresources"
+    ]
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#relationships-between-variables",
-    "href": "slides/Statistics_and_Samples4.html#relationships-between-variables",
-    "title": "1.4. A soft intro to causal inference",
-    "section": "Relationships between variables",
-    "text": "Relationships between variables\n\nA relationship exists between two variables if they co-vary (e.g., – increasing (excessive) sun exposure is accompanied by increasing numbers of events of skin cancer).\nBoth observational and experimental studies may detect relationships between variables – not the same as assigning a causative link.\n\nwe talk about these two next"
+    "objectID": "rlearn.html#free-online-books",
+    "href": "rlearn.html#free-online-books",
+    "title": "Learning R (and statistics)",
+    "section": "Free Online Books",
+    "text": "Free Online Books\n\n“R for Data Science”, by Hadley Wickham & Garrett Grolemund\n“Applied Data Skills”\n“Exploring Data Science with R and the Tidyverse: A Concise Introduction”\n“R Graphic Cookbook”\n“R Markdown Cookbook”\n“Introduction to Data Science: Data Wrangling and Visualization with R”, by Rafael Irizarry\n“Introduction to Data Science: Statistics and Prediction Algorithms Through Case Studies”, by Refael Irizarry\n“YaRrr! The Pirate’s Guide to R”, by Nathaniel Phillips\n“An introduction to Biostatistics using R”, by Glover & Mitchell\n“Introductory Biostatistics with R”, by Dylan Childs, Bethan Hindle & Philip Warren\n“Applied Biostats”, by Yaniv Brandvain.\nHolmes S, Huber W. Modern Statistics for Modern Biology. Cambridge University Press; 2018. Available from: https://web.stanford.edu/class/bios221/book/index.html.\n“ggplot2: Elegant Graphics for Data Analysis (3e)”\nStephen D. Turner’s “Biological Data Science with R” has great practice problems and is freely available.",
+    "crumbs": [
+      "Rrresources"
+    ]
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#two-ways-to-collectobtain-data",
-    "href": "slides/Statistics_and_Samples4.html#two-ways-to-collectobtain-data",
-    "title": "1.4. A soft intro to causal inference",
-    "section": "Two ways to collect/obtain data",
-    "text": "Two ways to collect/obtain data\n\nA study is experimental if the researcher assigns treatments randomly to individuals, whereas a study is observational if the assignment of treatments is not made by the researcher."
+    "objectID": "rlearn.html#r-vids",
+    "href": "rlearn.html#r-vids",
+    "title": "Learning R (and statistics)",
+    "section": "Videos",
+    "text": "Videos\n\nOverview of R Markdown: a crash course\nCode Like a Pro\nIntro to Rstudio and Rstudio Cloud\nOverview of R markdown\nRmarkdown with Rstudio\nThis youtube playlist - I curated this and it contains both R info and biostatistics in general.",
+    "crumbs": [
+      "Rrresources"
+    ]
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#observational-study",
-    "href": "slides/Statistics_and_Samples4.html#observational-study",
-    "title": "1.4. A soft intro to causal inference",
-    "section": "Observational study",
-    "text": "Observational study\n\nIn observational studies, researchers do not assign treatments to individuals.\nResearchers have no control over which units fall into which groups.\nRelationships between explanatory and response variables can be detected.\nBut, these studies cannot prove causation or disentangle cause and effect. The main purpose of experiments is to accomplish this, though.\nE.g. Tobacco smoking and development of lung cancer.\n\nBecause researches do not assign treatments in observational studies, observations cannot prove causation or disentangle cause and effect."
+    "objectID": "rlearn.html#tutorials-simulations",
+    "href": "rlearn.html#tutorials-simulations",
+    "title": "Learning R (and statistics)",
+    "section": "Tutorials & Simulations",
+    "text": "Tutorials & Simulations\nfasteR: Fast Lane to Learning R! – If you wanna speed things up!\nR Workflow for Reproducible Data Analysis and Reporting by Frank E. Harrell Jr – Great resource. Provides tutorials and also link to other freely available materials.\nR for Beginners –– An on-line introduction to R by Emmanuel Paradis\n\nr-statistics.co, by Selva Prabhakaran - includes very good section on ggplot!\nFrom your textbook\nQuick-R\nRstudio Education\nPosit Cloud Recipes\nPower analyses in R",
+    "crumbs": [
+      "Rrresources"
+    ]
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#the-magic-of-experiments",
-    "href": "slides/Statistics_and_Samples4.html#the-magic-of-experiments",
-    "title": "1.4. A soft intro to causal inference",
-    "section": "The magic of experiments",
-    "text": "The magic of experiments\n\nIn experimental studies, researchers assign different treatment groups or values of an explanatory variable randomly to the individual units of study.\nWell-conceived experiments can reveal causation!\nE.g. clinical trials.\n\n\nImage from The Lung Cancer Research Foundation."
+    "objectID": "rlearn.html#web-visualizations",
+    "href": "rlearn.html#web-visualizations",
+    "title": "Learning R (and statistics)",
+    "section": "Web visualizations",
+    "text": "Web visualizations\nIntroduction to the Book Of Apps for Statistics Teaching\nCLT: https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm\nCLT: https://shiny.maths.nottingham.ac.uk/pmzdjc/YujingCLTApp/?showcase=0\nAnother one from CLT: https://shiny.maths.nottingham.ac.uk/pmzdjc/YujingCLTApp/?showcase=0\nSampling from the Normal: https://brandvain.shinyapps.io/standardnormal/\nSample means with a normal distribution: https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm\nConfidence intervals for the mean: https://www.zoology.ubc.ca/~whitlock/Kingfisher/CIMean.htm\nThis link has web apps for several topics covered in the course: https://shinyapps.science.psu.edu/\nBiostatistics: A practical introduction",
+    "crumbs": [
+      "Rrresources"
+    ]
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#experimental-studies-may-reveal-confounds",
-    "href": "slides/Statistics_and_Samples4.html#experimental-studies-may-reveal-confounds",
-    "title": "1.4. A soft intro to causal inference",
-    "section": "Experimental studies may reveal confounds",
-    "text": "Experimental studies may reveal confounds\n\nA well-designed experiment can remove confounds (except those that arise by chance!) and allows us to separate cause and effect !!!\n\nBut caution:\n\nThere are often more [or less] obvious biases.\nExperimental artifacts can introduce bias.\nE.g.: placebo effect – an improvement in medical condition that results form the psychological effects of treatment.\nAppropriate controls are critical to a good experiment.\n\n\nPlacebo (Latin): “I shall please”, from placeō, “I please”. Read Interleaf 6 for more on the placebo effect."
+    "objectID": "rlearn.html#biological-datasets-freely-available",
+    "href": "rlearn.html#biological-datasets-freely-available",
+    "title": "Learning R (and statistics)",
+    "section": "Biological Datasets (Freely Available)",
+    "text": "Biological Datasets (Freely Available)\nI will keep adding stuff here, but here are some good places to search.\n\nDryad - lots of scientific papers make their datasets available here.\nZenodo - lots of scientific papers make their datasets available here.\nNational Library of Medicine Dataset Catalog - great resource from the NIH, points to datasets elsewher elike zenodo, dryad, figshare, etc.\nre3data\nFigShare - lots of scientific papers make their datasets available here.\nWold Population Review - not focused on biology but very cool nevertheless. There are subsections that have biological datasets though like the one focusing on health, for example.\n\nR Datasets (r-packages.io): - Many types of datasets, including biological ones.\nRdatasets package - Many types of datasets, including biological ones.",
+    "crumbs": [
+      "Rrresources"
+    ]
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#confounding-variables",
-    "href": "slides/Statistics_and_Samples4.html#confounding-variables",
-    "title": "1.4. A soft intro to causal inference",
-    "section": "Confounding Variables",
-    "text": "Confounding Variables\n\nConfounding Variables: unmeasured variable that changes in tandem with one or more of the measured variables, giving a false appearance of a causal association between the measured variables.\n\n\nA confounding variable is a hidden bias. I.e., one of the major goals of experiments is to reduce bias.\nI.e., they lead to a spurious association (correlation):\n\n\na mathematical relationship in which two or more events or variables are associated but not causally related, due to either coincidence or the presence of a certain third, unseen factor (confound variable, confounding variable, or lurking variable). Wikipedia Commons"
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#outline",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#outline",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Outline",
+    "text": "Outline\n\nEstimates of location\nEstimates of width\nExplanatory and exploratory figures\nBest practices in figure design\nHow data types drive figure design\nHow to make effective tables\n\ntoday: location and width; next class plots"
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#causal-inference",
-    "href": "slides/Statistics_and_Samples4.html#causal-inference",
-    "title": "1.4. A soft intro to causal inference",
-    "section": "Causal Inference",
-    "text": "Causal Inference"
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#learning-goals",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#learning-goals",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Learning Goals",
+    "text": "Learning Goals\n\nDifferentiate between estimates of location and estimates of width.\nRecognize that variability is not simply noise, but is a key parameter that can be estimated.\nBecome familiar with the most common descriptive statistics.\nKnow when the mean or median is a more appropriate summary of location.\n\nThese learning goals are for the entire topic/unit. They will also be available in the study guide."
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#example-smoking-and-lung-cancer-13",
-    "href": "slides/Statistics_and_Samples4.html#example-smoking-and-lung-cancer-13",
-    "title": "1.4. A soft intro to causal inference",
-    "section": "Example: smoking and lung cancer (1/3)",
-    "text": "Example: smoking and lung cancer (1/3)\n\nSay we saw a strong association between smoking and lung cancer from an observational study, and wanted to know if smoking causes cancer.\n\n\nlet’s use a DAG (Directed Acyclic Graph) – the backbone of causal thinking! They allow us to lay our causal models out there for the world to see.\n\n\nWe could represent this causal claim with the simplest causal graph we can imagine. This is our first formal introduction to a Directed Acyclic Graph (hereafter DAG). This is Directed because WE are pointing a causal arrow from smoking to cancer. It is acyclic because causality in these models only flows in one direction, and its a graph because we are looking at it. Here we will largely use DAGs to consider potential causal paths. From Y. Brandvain’s Applied Biostats book."
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#descriptive-statistics",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#descriptive-statistics",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Descriptive Statistics",
+    "text": "Descriptive Statistics\n\nOr summary statistics: quantities that capture important features of frequency distributions\n\n\nLocation (central tendency)\nWidth (spread)\nAssociation (correlation)"
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#example-smoking-and-lung-cancer-23",
-    "href": "slides/Statistics_and_Samples4.html#example-smoking-and-lung-cancer-23",
-    "title": "1.4. A soft intro to causal inference",
-    "section": "Example: smoking and lung cancer (2/3)",
-    "text": "Example: smoking and lung cancer (2/3)\n\nHypothesis: A confound could underlie the strong statistical association between smoking and lung cancer.\n\n\nR.A. Fisher – a pipe enthusiast, notorious asshole, eugenicist, and the father of modern statistics and population genetics was unhappy with this DAG. A confounding variable can bias our interpretation. Fisher proposed that the propensity to smoke and to develop lung cancer could be causally unrelated, if both were driven by similar genetic factors. Fisher’s causal model is presented in this DAG. From Y. Brandvain’s Applied Biostats book."
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-13",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-13",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The data (1/3)",
+    "text": "The data (1/3)"
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#example-smoking-and-lung-cancer-33",
-    "href": "slides/Statistics_and_Samples4.html#example-smoking-and-lung-cancer-33",
-    "title": "1.4. A soft intro to causal inference",
-    "section": "Example: smoking and lung cancer (3/3)",
-    "text": "Example: smoking and lung cancer (3/3)\n\nThree plausible DAGs concerning the relationship between smoking and cancer. a) Genes cause smoking, and smoking causes cancer. b) Genes cause cancer and genes cause smoking, and smoking causes cancer. c) Environmental factors cause smoking and cancer, and genetics cause smoking and cancer, while smoking too causes cancer. From Y. Brandvain’s Applied Biostats book."
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-23",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-23",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The data (2/3)",
+    "text": "The data (2/3)\n\nA measure of center (or location) of our data: ⭐"
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#whats-the-conclusion",
-    "href": "slides/Statistics_and_Samples4.html#whats-the-conclusion",
-    "title": "1.4. A soft intro to causal inference",
-    "section": "What’s the conclusion?",
-    "text": "What’s the conclusion?\n\nWe cannot perform experimental studies on humans to test this.\nBut causal associations were documented in other animal models.\nFisher turned out to be quite wrong – genes do influence the probability of smoking and genes do influence the probability of lung cancer, but smoking has a much stronger influence on the probability of getting lung cancer than does genetics."
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-33",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-33",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The data (3/3)",
+    "text": "The data (3/3)\n\nA measure of center (or location) of our data: ⭐\nA measure of spread (or width) of our data (red)."
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#in-summary",
-    "href": "slides/Statistics_and_Samples4.html#in-summary",
-    "title": "1.4. A soft intro to causal inference",
-    "section": "In summary:",
-    "text": "In summary:\n\nObservations reveal associations between variables.\nAn association doesn’t imply a causative link.\nSpurious associations can occur when both are associated with a confounding variable.\nBecause researchers do not assign treatments in observational studies, observations cannot prove causation or disentangle cause and effect.\n\n\n\nRead Interleaf 1 for more on correlation x causation."
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#measures-of-location-central-tendency",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#measures-of-location-central-tendency",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Measures of location (central tendency)",
+    "text": "Measures of location (central tendency)\n\nMean\nMedian\nMode"
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#comic-moment",
-    "href": "slides/Statistics_and_Samples4.html#comic-moment",
-    "title": "1.4. A soft intro to causal inference",
-    "section": "Comic moment",
-    "text": "Comic moment\n\nFrom: https://www.xkcd.com/552/. Correlation doesn’t imply causation, but it does waggle its eyebrows suggestively and gesture furtively while mouthing ‘look over there’."
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-average-problem",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-average-problem",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The average problem",
+    "text": "The average problem\n\n“Average” is sometimes used synonymously with mean. But: medians and even modes are sometimes called an “average”\n\nLet’s be precise (pun intended):\n\nWhen you see the word, “average”, pay attention to which measure of location it describes.\nHere, let’s be stats pro, and refer to mean, median, mode, etc."
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#acknowledgments",
-    "href": "slides/Statistics_and_Samples4.html#acknowledgments",
-    "title": "1.4. A soft intro to causal inference",
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-mean",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-mean",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The Mean",
+    "text": "The Mean\n\nThe sum of values divided by the sample size.\n\n\\[\\bar{Y}=\\frac{\\sum_{i=1}^{n}Y_{i}}{n}\\]\n\n\n\n\n\\(\\bar{Y}\\): the mean of variable of \\(Y\\)\n\n\n\\(\\sum\\): sum\n\n\n\n\n\\(n\\): the number of individuals in the samples (sample size)\n\n\\(Y_{i}\\): the observed value for the \\(i\\)-th individual\n\n\n\n\n\\(\\bar{Y}\\) (“Y bar”) is the estimate for the mean (the real parameter mean is often expressed as \\(\\mu\\))"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-mean-example",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#the-mean-example",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "The Mean (example)",
+    "text": "The Mean (example)\n\nThe mean of the set of 11 numbers: \\(1, 15,9, 16,6, 17, 10,  5, 12, 14, 13\\)\n\n\\[\\bar{Y}=\\frac{\\sum_{i=1}^{n}Y_{i}}{n}\\]\n\\(\\bar{Y} = (1+15+9+16+6+17+10+5+12+14+13)/11 =\\) 10.7272727\n\n\nNerd alert: this is the “arithmetic mean”, the one you see most often. The three pytagorean means also include the geometric mean and the harmonic mean."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#median",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#median",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Median",
+    "text": "Median\n\nThe middle measurement.\n\nCalculate the median by taking the value halfway through an ordered list of observations.\n\nSample size is odd: The \\((n + 1) / 2\\)-th value.\nSample size is even: Mean of \\(n/2\\)-th and the \\((n + 2) / 2\\)-th values."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#median-example",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#median-example",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Median example",
+    "text": "Median example\n\nSample size is odd: The \\((n + 1) / 2\\)-th value.\n\n\nFirst, order the numbers: 1, 5, 6, 9, 10, 12, 13, 14, 15, 16, 17\n\nThe \\((n + 1) / 2\\)-th value for odd sized samples:\n1 5 6 9 10 12 13 14 15 16 17\n\n\n\n\nSample size is even: Mean of \\(n/2\\)-th and the \\((n + 2) / 2\\)-th values.\n1 5 6 9 10 [12 13] 14 15 16 17 17\nmean of 12 and 13 is (12+13)/2=12.5"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mean-and-median-in-r",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#mean-and-median-in-r",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Mean and Median in R",
+    "text": "Mean and Median in R\n\nShow the code# a vector with the numbers\nmynumbers &lt;- c(1, 15, 9, 16, 6, 17, 10, 5, 12, 14, 13)\n# mean 'manually'\nmysum &lt;- sum(mynumbers)  #sum all numbers\nl &lt;- length(mynumbers)  #number of elements in vector\nmymean &lt;- mysum/l\nmymean\n\n[1] 10.72727\n\nShow the code# note that you can use a built-in function for this:\nmymean2 &lt;- mean(mynumbers)\nmymean2\n\n[1] 10.72727\n\nShow the code# median with built-in function\nmymedian &lt;- median(mynumbers)\nmymedian\n\n[1] 12\n\nShow the code# median 'manually'\nmynumbers2 &lt;- sort(mynumbers)\nmynumbers2\n\n [1]  1  5  6  9 10 12 13 14 15 16 17\n\nShow the code# since l = 11 (odd) we select the l+1-th element, i.e,\n# (11+1)/2=6\nmynumbers2[6]\n\n[1] 12"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mean-x-median",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#mean-x-median",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Mean x Median",
+    "text": "Mean x Median\n\n\n\nMathematically convenient.\nSimply the sum of all observations divided by the sample size.\n\n\n\nBetter descriptor for skewed population distributions (less affected by outliers).\nThe median is the middle measurement.\n\n\n\nThe mean and median become the same when data are symmetric."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mode",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#mode",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Mode",
+    "text": "Mode\n\nThe most common value observed in a sample.\n\n\neasy to pick\nalways a real value in the data\napplicable to non-numerical variables!\n\n\nHistograms reveal measures of center"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#but-how-will-you-know-how-your-data-is-distributed",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#but-how-will-you-know-how-your-data-is-distributed",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "But how will you know how your data is distributed?",
+    "text": "But how will you know how your data is distributed?\n\nFirst step: plot your data"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#skewness-12",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#skewness-12",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Skewness (1/2)",
+    "text": "Skewness (1/2)"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#skewness-22",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#skewness-22",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Skewness (2/2)",
+    "text": "Skewness (2/2)\nLeft: Asymmetric Few small values. \\(&gt;1/2\\) of values exceed the mean.\nMiddle: Symmetric As many large as small values. \\(\\sim1/2\\) of values exceed the mean.\nRight: Asymmetric Few large values. \\(&gt;1/2\\) of values are less than the mean."
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#next",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#next",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Next",
+    "text": "Next\nMeasures of spread (width):\n\nrange\nq-quantiles, interquartile range\nVariance\nStandard deviation\nCoefficient of variation"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
+    "title": "2.1.Displaying & Describing Data",
     "section": "Acknowledgments",
-    "text": "Acknowledgments\nYaniv Brandvain (specifically, here, I used the smoking and cancer example from his book Applied Biostats); Freeman & Company; and Michael Whitlock for some materials used in these slides."
+    "text": "Acknowledgments\nYaniv Brandvain; Freeman & Company; and Michael Whitlock for some materials used in these slides."
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#acknowledgments",
+    "href": "slides/Unit1-practice.html#acknowledgments",
+    "title": "Review/practice problems",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nMost of these are modified from the textbook “The analysis of biological data”, by Whitlock & Schluter, Macmillan, 3rd edition."
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#case-study-1-the-titanic-its-back",
+    "href": "slides/Unit1-practice.html#case-study-1-the-titanic-its-back",
+    "title": "Review/practice problems",
+    "section": "Case study 1: the titanic (it’s back!)",
+    "text": "Case study 1: the titanic (it’s back!)\n\nThink for a moment, then discuss with someone.\nQuestions:\n\nVariables? Types? Explanatory & response variables?\nDescribe the population this result came from…\nHow far would you generalize from this to “Women & Children 1st?”\nExperimental or observational study?\n\n\nSex (categ, nominal), life stage (categ ordinal), survival status (categ). Life stage is response, the others are explanatory.\nThe population is the titanic! And we have all of the info!\nAs great as the dataset is, we can’t generalize beyong the titanic. Who knows whether or not this is true for other ships?\nObservational, of course. Treatments were not assigned randomly to explanatory variable groups."
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#case-study-2-12",
+    "href": "slides/Unit1-practice.html#case-study-2-12",
+    "title": "Review/practice problems",
+    "section": "Case study 2 (1/2)",
+    "text": "Case study 2 (1/2)\n\nConsider a study showing that people who ate more steaks can do more push-ups, i.e., a positive association between the two.\n\nThink for a moment, then discuss with someone.\nQuestions:\n\nHow should one interpret this?\nObservational or experimental?\nIs this enough to show causation?"
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#case-study-2-22",
+    "href": "slides/Unit1-practice.html#case-study-2-22",
+    "title": "Review/practice problems",
+    "section": "Case study 2 (2/2)",
+    "text": "Case study 2 (2/2)\n\nConsider a study showing that people who ate more steaks can do more push-ups, i.e., a positive association between the two.\n\n\nEating steaks could give people more muscle tone/strength OR\nA certain type of person may enjoy both eating steaks and building muscle OR\nSomething else"
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#case-study-3-12",
+    "href": "slides/Unit1-practice.html#case-study-3-12",
+    "title": "Review/practice problems",
+    "section": "Case study 3 (1/2)",
+    "text": "Case study 3 (1/2)\n\nConsider a study where researchers went to the field, and following the principles of random sampling collected a large sample of plants of a given species, and proceeded to measure vigor and assess pest load. The results showed that plants with fewer pests had greater biomass.\n\nQuestions:\n\nWhat could be happening here?\nObservational or experimental?\nIs this enough to show causation?"
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#case-study-3-22",
+    "href": "slides/Unit1-practice.html#case-study-3-22",
+    "title": "Review/practice problems",
+    "section": "Case study 3 (2/2)",
+    "text": "Case study 3 (2/2)\n\nConsider a study where researchers went to the field, and following the principles of random sampling collected a large sample of plants of a given species, and proceeded to measure vigor and assess pest load. The results showed that plants with fewer pests had greater biomass.\n\n\nPests could decrease plant vigor OR\nVigorous plants could fight off pests OR\nSomething else\n\nObservations Can’t Separate Cause and Effect"
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#case-study-4",
+    "href": "slides/Unit1-practice.html#case-study-4",
+    "title": "Review/practice problems",
+    "section": "Case study 4",
+    "text": "Case study 4\n\nIn a study, researchers took electrophysiological measurements from the brains of two rhesus macaques (monkeys). Forty neurons were tested in each monkey, yielding a total of 80 measurements.\n\nThink for a moment, then discuss with someone.\nQuestions:\n\nDo the 80 neurons constitute a random sample? Why or why not?\nIf the 80 measurements were analyzed as though they constituted a random sample, what consequences would this have for the estimate of the measurement in the monkey population?\n\nFor each monkey, the neurons are not independent. They are likely to be more similar to each other (b/c they come from one monkey) than 40 randomly sampled neurons from the population of monkeys.\nThe calculation of precision would be wrong. Specifically, it would indicate precision is higher than actually is!"
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#case-study-5",
+    "href": "slides/Unit1-practice.html#case-study-5",
+    "title": "Review/practice problems",
+    "section": "Case study 5",
+    "text": "Case study 5\n\nA researcher dissected the retinas of 20 randomly sampled fish belonging to each of two subspecies of guppy in Venezuela. Using a sophisticated laboratory apparatus, they measured the two groups of fish to find the wavelengths of visible light to which the cones of the retina were most sensitive. The goal was to explore whether fish from the two subspecies differed in the wavelength of light that they were most sensitive to.\n\nQuestions:\n\nWhat are the two variables being associated in this study?\nWhich is the explanatory variable and which is the response variable?\nIs this an experimental study or an observational study? Why?\n\nsubspecies (explanatory) and wavelength of max. sensitivity (response).\nObservational! Researcher has no control over which individual belongs to each species."
+  },
+  {
+    "objectID": "slides/Unit1-practice.html#more-practice-problems",
+    "href": "slides/Unit1-practice.html#more-practice-problems",
+    "title": "Review/practice problems",
+    "section": "More practice problems",
+    "text": "More practice problems\n\nStudy guide\nEnd of chapter 1 questions from WS*\nEnd of chapter 14 questions from WS – we only covered some of that though, but it’s worth checking out some of those review questions\nReview problems in WS\n\nStephen D. Turner’s “Biological Data Science with R” has great practice problems and is freely available.\n\n\n\n\n\n\nWhitlock & Schluter, The analysis of Biological Data"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#quick-recap",
+    "href": "slides/Statistics_and_Samples3.html#quick-recap",
+    "title": "1.3.Types of variables",
+    "section": "Quick recap",
+    "text": "Quick recap\nLast lecture we discussed:\n\nThe two types of errors associated with sampling: sampling error and sampling bias.\nProperties of a good sample.\n\nAsk for volunteers to remind these concepts"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#learning-goals",
+    "href": "slides/Statistics_and_Samples3.html#learning-goals",
+    "title": "1.3.Types of variables",
+    "section": "Learning goals",
+    "text": "Learning goals\n\nDetect the differences between [observational]{.underline} and experimental studies.\nIdentify whether a variable is numeric or categorical (and subtypes)."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#types-of-variables",
+    "href": "slides/Statistics_and_Samples3.html#types-of-variables",
+    "title": "1.3.Types of variables",
+    "section": "Types of Variables",
+    "text": "Types of Variables"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#variables-and-data",
+    "href": "slides/Statistics_and_Samples3.html#variables-and-data",
+    "title": "1.3.Types of variables",
+    "section": "Variables and “Data”",
+    "text": "Variables and “Data”\n\n\nA variable is a characteristic measured on individuals drawn from a population under study.\nData are measurements of one or more variables made on a collection of individuals. (i.e., your sample).\nDataset is a collection of data taken from a single source or intended for a single purpose.\n\n\n\n\n\n\n\nFrom: https://xkcd.com/1429. If you want to have more fun at the expense of language pedants, try developing an hypercorrection habit.\n\n:::"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#the-tidy-way-to-organize-data-in-datasets",
+    "href": "slides/Statistics_and_Samples3.html#the-tidy-way-to-organize-data-in-datasets",
+    "title": "1.3.Types of variables",
+    "section": "The tidy way to organize data in datasets",
+    "text": "The tidy way to organize data in datasets\n\nEach column records one variable. Each row corresponds to one observation.\n\nIndividual\nvar1\nvar2\nvar3\n\n\n\nind01\n\n\n\n\n\nind02\n\n\n\n\n\nind03\n\n\n\n\n\nind04\n\n\n\n\n\n\n\nImportant: never, ever, modify the original (raw) dataset. Instead, focus on reproducibility."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#example-the-iris-dataset-in-r",
+    "href": "slides/Statistics_and_Samples3.html#example-the-iris-dataset-in-r",
+    "title": "1.3.Types of variables",
+    "section": "Example: the iris dataset in R",
+    "text": "Example: the iris dataset in R\n\n\n\n\n\n\nSepal.Length\nSepal.Width\nPetal.Length\nPetal.Width\nSpecies\n\n\n\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n5.0\n3.6\n1.4\n0.2\nsetosa\n\n\n5.4\n3.9\n1.7\n0.4\nsetosa\n\n\n\n\n\n\n\nyou can learn more about this dataset by looking it up in R:\n\n\nHide the code`?`(iris)"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#types-of-variablesdata",
+    "href": "slides/Statistics_and_Samples3.html#types-of-variablesdata",
+    "title": "1.3.Types of variables",
+    "section": "Types of variables/data",
+    "text": "Types of variables/data\n\nNumeric (also known as quantitative)\n\n\n\nDiscrete: can be counted\n\n\nContinuous: can be measured\n\n\n\nCategorical (also known as class or nominal variables)\n\n\n\nOrdinal: can be ranked\n\n\nNominal: cannot be ranked\n\n\nWhy do we care about these types? We will focus a lot on this in our next topic about how to display and describe data. Knowing what kind of variable we have drives our models of data analysis, and is therefore critical to the enterprise of statistics.\n\nThis is essential for our next topic: Displaying & Describing Data."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#numeric-datavariables",
+    "href": "slides/Statistics_and_Samples3.html#numeric-datavariables",
+    "title": "1.3.Types of variables",
+    "section": "Numeric Data/Variables",
+    "text": "Numeric Data/Variables\n\nDiscrete: can only take some values within acceptable interval\n\nExamples:\n\nNumber of limbs\nNumber of offspring\nNumber of petals\nNumber of teeth\nNatural numbers: \\(\\{0,1,2,3,4,5,6,7,...,\\infty\\}\\)"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#numeric-datavariables-1",
+    "href": "slides/Statistics_and_Samples3.html#numeric-datavariables-1",
+    "title": "1.3.Types of variables",
+    "section": "Numeric Data/Variables",
+    "text": "Numeric Data/Variables\n\nContinuous: Can take any value within acceptable interval\n\nExamples:\n\nArm length (cm, inches)\nHeight (cm, inches)\nWeight (kg, lbs)\nAge and longevity (in years, months, etc.)\nTail length (cm, inches)\nDose (e.g., in micrograms/gram)\nSkin color (measured using a reflectometer, measure in wavelengths)"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#categorical-variables",
+    "href": "slides/Statistics_and_Samples3.html#categorical-variables",
+    "title": "1.3.Types of variables",
+    "section": "Categorical variables",
+    "text": "Categorical variables\nExamples:\n\nGenotype (e.g., AA, AG, GG)\nDrug treatment (e.g. aspirin vs.ibuprofen)\nProvince of origin\nSurvival status (i.e., live or die)\nSkin/fur/coat/feather color (e.g., black, yellow, red, etc.)"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#relationships-between-variables",
+    "href": "slides/Statistics_and_Samples3.html#relationships-between-variables",
+    "title": "1.3.Types of variables",
+    "section": "Relationships between variables",
+    "text": "Relationships between variables\n\nExplanatory variables: predict or affect other variables.\nResponse variables: is affected by another variable.\nValid nomenclature for both observational and experimental results, but interpretation is different\n\n\nOne major use of statistics is to relate one variable to another by examining associations between variables and differences between groups. Measuring an association is equivalent to measuring a difference, statistically speaking. Showing that “the proportion of survivors differs between treatment categories” is the same as showing that the variables “survival” and “treatment” are associated.\nIn an observational study, their association might nevertheless be described by the “effect” of one of the variables (the explanatory) on the other (the response), even though the association itself is not direct evidence for causation.\n\nOutdated nomenclature: dependent and independent variables"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-12",
+    "href": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-12",
+    "title": "1.3.Types of variables",
+    "section": "Case Study: surviving the Titanic (1/2)",
+    "text": "Case Study: surviving the Titanic (1/2)\n\n\nConfession: I watched this EIGHT times in the movie theater!\n\n\n\nImage from: Wikipedia Commons."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-22",
+    "href": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-22",
+    "title": "1.3.Types of variables",
+    "section": "Case Study: surviving the Titanic (2/2)",
+    "text": "Case Study: surviving the Titanic (2/2)\n\nConsider the fate of the approximatley 2,200 passengers of the titanic, including children and adults of both sexes.\n\n\nThis is a mosaic plot. We will learn about it in our next topic. Code based on snippets from Y. Brandvain."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#discuss",
+    "href": "slides/Statistics_and_Samples3.html#discuss",
+    "title": "1.3.Types of variables",
+    "section": "Discuss",
+    "text": "Discuss\n\n\n\n\n\n\n\n\n\nVariables? Types? Explanatory & response variables?\nDescribe the population this result came from…\nHow far would you generalize from this to “Women & Children 1st?”\nExperimental or observational study?\n\n\n\nWe will continue with this case study at our next in-person meeting!"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples3.html#acknowledgments",
+    "href": "slides/Statistics_and_Samples3.html#acknowledgments",
+    "title": "1.3.Types of variables",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#learning-goals",
+    "href": "slides/Statistics_and_Samples1.html#learning-goals",
+    "title": "1.1.Statistics & Samples",
+    "section": "Learning Goals",
+    "text": "Learning Goals\n\nUnderstand the major goals of statistics\nUnderstand the distinction between the term “population” in a statistical and a biological context.\nDistinguish between a sample and a population\nDistinguish between an estimate and a parameter\nIdentify why estimates from samples may deviate from parameters of populations\n\nThese learning goals are for the entire topic/unit. They will also be available in the study guide."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#what-is-statistics",
+    "href": "slides/Statistics_and_Samples1.html#what-is-statistics",
+    "title": "1.1.Statistics & Samples",
+    "section": "What is statistics?",
+    "text": "What is statistics?\n\nTweet from someone I don’t know, but very on point, so thank you!"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#what-is-statistics-1",
+    "href": "slides/Statistics_and_Samples1.html#what-is-statistics-1",
+    "title": "1.1.Statistics & Samples",
+    "section": "What is statistics?",
+    "text": "What is statistics?"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#statistics-deals-with-uncertainty",
+    "href": "slides/Statistics_and_Samples1.html#statistics-deals-with-uncertainty",
+    "title": "1.1.Statistics & Samples",
+    "section": "Statistics deals with UNCERTAINTY",
+    "text": "Statistics deals with UNCERTAINTY\n\nStatistics are a quantitative technology for empirical science.\nA logic and methodology for the measurement of uncertainty and for an examination of that uncertainty.\nThe key word here is uncertainty. Statistics becomes necessary when observations are variable."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#what-is-biostatistics",
+    "href": "slides/Statistics_and_Samples1.html#what-is-biostatistics",
+    "title": "1.1.Statistics & Samples",
+    "section": "What is BIOstatistics?",
+    "text": "What is BIOstatistics?"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#biostatistics",
+    "href": "slides/Statistics_and_Samples1.html#biostatistics",
+    "title": "1.1.Statistics & Samples",
+    "section": "Biostatistics",
+    "text": "Biostatistics\n\nWhat is the motivating biological question?\nWhat experiments can be done and/or data can be collected to address this question?\nDo results support an interesting conclusion?\nWhat are the shortcomings/limitations of statistical models and causal frameworks in the analysis?\nHow do I best communicate my results (including estimates, visualizations, conclusions, and caveats)?"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#challenge-1",
+    "href": "slides/Statistics_and_Samples1.html#challenge-1",
+    "title": "1.1.Statistics & Samples",
+    "section": "Challenge 1",
+    "text": "Challenge 1\n\nChallenge: We can’t look at the whole world.\nSolution: Take a sample and generalize outward.\n\n\nFrom: imgflip.com/memegeneratorIn practice, then…\n\nChallenge: We can’t look at the whole world.\nSolution: Take a meaningful sample and generalize outward."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#challenge-2",
+    "href": "slides/Statistics_and_Samples1.html#challenge-2",
+    "title": "1.1.Statistics & Samples",
+    "section": "Challenge 2",
+    "text": "Challenge 2\n\nSamples deviate from the populations they were sampled from by\n\n\nluck/chance (sampling error) or\nunrepresentative sampling (sampling bias)\n\n\n\nSolution:\n\nEstimate the values of important parameters\nHave measures of uncertainty for estimates\nTest hypotheses about those parameters"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#in-conclusion-goals-of-statistics",
+    "href": "slides/Statistics_and_Samples1.html#in-conclusion-goals-of-statistics",
+    "title": "1.1.Statistics & Samples",
+    "section": "In conclusion: goals of statistics",
+    "text": "In conclusion: goals of statistics\n\nEstimate the values of important parameters\nHave measures of uncertainty for estimates\nTest hypotheses about those parameters"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#populations-samples",
+    "href": "slides/Statistics_and_Samples1.html#populations-samples",
+    "title": "1.1.Statistics & Samples",
+    "section": "Populations & Samples",
+    "text": "Populations & Samples\n\nIn Statistics, a population is the entire collection of individual units that a researcher is interested in. E.g. all women born in the US between 1990 and 200; all polar bears currently living in zoos; users of a certain social network in a certain age group; etc\n\n\nA sample is a subset of these units that we collect and measure."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#statistics-parameters-13",
+    "href": "slides/Statistics_and_Samples1.html#statistics-parameters-13",
+    "title": "1.1.Statistics & Samples",
+    "section": "Statistics & Parameters (1/3)",
+    "text": "Statistics & Parameters (1/3)\nA parameter is some property of the world, i.e., the “truth”.\n\nDecorative image. Poster from the show “The X-files”"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#statistics-parameters-23",
+    "href": "slides/Statistics_and_Samples1.html#statistics-parameters-23",
+    "title": "1.1.Statistics & Samples",
+    "section": "Statistics & Parameters (2/3)",
+    "text": "Statistics & Parameters (2/3)\n\nBecause we can’t sample an entire population, we usually don’t know parameters. Parameters describe Populations.\nBut we can get a good sense of the parameters from estimates we make from Samples.\nEstimates (statistics) approximate parameters as inferred from Samples."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#statistics-parameters-33",
+    "href": "slides/Statistics_and_Samples1.html#statistics-parameters-33",
+    "title": "1.1.Statistics & Samples",
+    "section": "Statistics & Parameters (3/3)",
+    "text": "Statistics & Parameters (3/3)\n\nParameters are constants. This means that they are fixed. Parameters represent the world. Parameters are the truth.\nEstimates are “random variables”. This means estimates change from one random sample to the next from the same population."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#a-population-of-starfish",
+    "href": "slides/Statistics_and_Samples1.html#a-population-of-starfish",
+    "title": "1.1.Statistics & Samples",
+    "section": "A population of starfish",
+    "text": "A population of starfish\n\n\n\nParameters describe populations\nE.g. proportion of pink starfish among all starfish of a given species in a certain location"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#a-sample-of-starfish",
+    "href": "slides/Statistics_and_Samples1.html#a-sample-of-starfish",
+    "title": "1.1.Statistics & Samples",
+    "section": "A sample of starfish",
+    "text": "A sample of starfish\n\n\n\nEstimates (statistics) approximate parameters as inferred from samples.\nWe estimate the proportion of pink as inferred from this sample and extrapolate to the population as an approximation."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#acknowledgments",
+    "href": "slides/Statistics_and_Samples1.html#acknowledgments",
+    "title": "1.1.Statistics & Samples",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\n\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
+  },
+  {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "Note: Attribution is given to external sources. Otherwise, you are free to use these materials and ::: {#slides} :::\n\n\n\n\n\n\n\n\n\n\nTopic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\n1.1.Statistics & Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nUnit 1\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nUnit 1\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nUnit 1\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 1\n\n\nReview/practice problems\n\n\nWed, Sep 09\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "B215: Biostatistics with R",
+    "section": "",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nmodule\nweek\ndow\ndate\nwhat\ntopic\ndue\nexam\n\n\n\n\n1\n1\nM\nAug-31\n0\nIntro to class\n\n\n\n\n1\n1\nT\nSep-1\n1\nLab1: Intro to R\nDC: Introduction to R (ch.1-2) + Lab worksheet 1\n\n\n\n1\n1\nW\nSep-2\n2\nStatistics and Samples\n\n\n\n\n1\n2\nM\nSep-7\n\n\nNo classes (labor day)\n\n\n\n\n1\n2\nT\nSep-8\n3\nLab 2: Data structures & basic summary stats\nDC: Introduction to R (ch.1-6) + Lab worksheet 2\n\n\n\n1\n2\nW\nSep-9\n4\nUnit 1 (review) + Basic summary stats (cont.)\n\n\n\n\n1\n3\nM\nSep-14\n5\nDisplaying & Describing Data I\n\n\n\n\n1\n3\nT\nSep-15\n6\nLab 3: ggplot and dplyr\nDC: Intro to the Tidyverse (1-4) + Lab woksheet 3\n\n\n\n1\n3\nW\nSep-16\n7\nDisplaying & Describing Data I\n\n\n\n\n1\n4\nM\nSep-21\n8\nDisplaying & Describing Data II\n\n\n\n\n1\n4\nT\nSep-22\n9\nLab 4: Exploratory data analysis\nLab woksheet 4\n\n\n\n1\n4\nW\nSep-23\n10\nDisplaying & Describing Data II\nProblem set 1\n\n\n\n2\n5\nM\nSep-28\n11\nProbability I: Proportions\nAll DCs (hard deadline)\n\n\n\n2\n5\nT\nSep-29\n12\n\n\n\n\nMidterm 1\n\n\n2\n5\nW\nSep-30\n13\nProbability I: Rules\n\n\n\n\n2\n6\nM\nOct-5\n14\nProbability II: Binomial & Bayes\n\n\n\n\n2\n6\nT\nOct-6\n15\nLab 5:\nLab woksheet 5\n\n\n\n2\n6\nW\nOct-7\n16\nProbability II: Binomial & Bayes\n\n\n\n\n\n\n\nOct-10-Oct18\n\n\nFall break (no classes)\n\n\n\n\n2\n7\nM\nOct-19\n17\nEstimation\n\n\n\n\n2\n7\nT\nOct-20\n18\nLab 6:\nLab worksheet 6\n\n\n\n2\n7\nW\nOct-21\n19\nEstimation\nCoding project checkpoint 1\n\n\n\n2\n8\nM\nOct-26\n20\nEstimation|Hypothesis testing\n\n\n\n\n2\n8\nT\nOct-27\n21\nLab 7:\nLab worksheet\n\n\n\n2\n8\nW\nOct-28\n22\nHypothesis testing\nCoding checkpoint\n\n\n\n2\n9\nM\nNov-2\n23\nGoodness-of-fit test\n\n\n\n\n2\n9\nT\nNov-3\n24\nLab 8:\nLab worksheet\n\n\n\n2\n9\nW\nNov-4\n25\nGoodness-of-fit test\nCoding project checkpoint 2\n\n\n\n3\n10\nM\n2026-11-09\n26\nContingency analyses\nAll DCs (hard deadline); PS2\n\n\n\n3\n10\nT\nNov-10\n27\n\n\n\n\nMidterm 2\n\n\n3\n10\nW\nNov-11\n28\nContingency analyses\n\n\n\n\n3\n11\nM\nNov-16\n29\nContingency analyses\n\n\n\n\n3\n11\nT\nNov-17\n30\nLab 9:\nLab worksheet\n\n\n\n3\n11\nW\nNov-18\n31\nContingency analyses\n\n\n\n\n3\n12\nM\nNov-23\n32\nNormal Distribution\n\n\n\n\n3\n12\nT\nNov-24\n33\nLab 10:\nLab worksheet\n\n\n\n3\n12\nW\nNov-25\n\n\nNo class (day before thanksgiving)\n\n\n\n\n3\n13\nM\nNov-30\n34\nt-values\n\n\n\n\n3\n13\nT\nDec-1\n35\nLab 11: TBD + Peer-review activity\n\n\n\n\n3\n13\nW\nDec-2\n36\nt-tests\nProblem set 3\n\n\n\n3\n14\nM\nDec-7\n37\n\n\n\n\n\n\n3\n14\nT\nDec-8\n38\nLab 11: |Work on coding project\n\n\n\n\n3\n14\nW\nDec-9\n39\nReview|Course Evals\nCoding project\n\n\n\n\n15\n\n\n\n\n\n\n\n\nFinal exam: during finals week, date TBD",
+    "crumbs": [
+      "Schedule"
+    ]
+  },
+  {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "I am an R enthusiast! At times this course will be challenging, but I promise you the hard work will pay off. Please read this document fully. You may post questions on Piazza or bring them to our first class on 9/1.\nR is the standard tool for performing statistics in biology, health studies, data science, and many other fields. Because of this, B215 is neither just a biostatistics course nor simply an R programming course: it is a biostatistics course where R is directly integrated into the learning process. Throughout the course, we use motivating case studies and data analysis problem sets and R labs based on similar challenges to those one finds in scientific research.",
+    "crumbs": [
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#sec-late",
+    "href": "syllabus.html#sec-late",
+    "title": "Syllabus",
+    "section": "Late work",
+    "text": "Late work\nIf you anticipate being unable to attend a meeting, please contact me as soon as possible as your circumstances allow. Note that problem sets are due in class (hard copy) so if you miss class you must make arrangements to have this handed in on time. It is your responsibility to gather class notes from classmates and complete any missed activities that may not be in the schedule. These make-up materials should be submitted within 3 days of your absence (unless otherwise negotiated; for longer absences or extenuating circumstances, please contact me to work something out). Sick days do not count as unexcused absences! Just let me know ASAP.\nThe course is structured in such a way that you can have some late work without penalty. So there will be no make-up assignments.\nGrace days. Each student may use up to 4 “grace days” during the semester to hand in work late, no questions asked and without penalty. To use your grace day(s) for an assignment, email me at least a day before the assignment is due and communicate how many grace days you are requesting. There is no need to provide any explanation as to why you are using your grace days; as long as you have enough days left in the semester to use, and have written to me at least a day in advance, I will approve. You can use grace days for any assignments except for your final coding project, exams, and the peer-review activity.\nOutside of the grace days, I will accept late work with a reduction in grade as follows: if you turn in the work 1 minute to 24h late, your maximum score will drop to 90%; if you turn it in 24h and 1 minute to 48h late, it will drop to 80%; and so on. Late lecture quizzes and DataCamp will be accepted anytime without penalty but I strongly urge you to keep up with the work. Note that you can retake the lecture quizzes as many times as you want. I am only grading whether or not you did it.\nIf you are dealing with an emergency or other issue and believe you may require more leniency, please email me and your dean as soon as possible so that we can make arrangements.",
+    "crumbs": [
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#sec-plag",
+    "href": "syllabus.html#sec-plag",
+    "title": "Syllabus",
+    "section": "Plagiarism",
+    "text": "Plagiarism\nAll students enrolled in Bryn Mawr Classes are bound by the The Bryn Mawr honor code. I call your attention to the sections on plagiarism and AI use in the code, which will be followed here. Contributions from “outside sources”, including AI sources, must be properly quoted and cited every time they are used. Outside sources include content that was produced by a genAI assistant like ChatGPT, Gemini, and others. Failure to do so constitutes an academic integrity violation, in accordance with the College’s Honor Code:\n\n“In reports and other written work, sources of information and of ideas and opinions not the student’s own must be clearly indicated; the source of direct quotations must be acknowledged. Failure to do so constitutes plagiarism (…) Generative AI tools should not be used in the completion of any course assignments, exams, or written work, including laboratory work, unless an instructor for a given course has specifically and explicitly authorized their use for the assignment in question. (…) Presenting AI-generated content as original student work, submitting AI-generated content without citing its source in artificial intelligence tools, and relying on generative AI tools for closed-book quizzes, tests, and exams all constitute violations of the Honor Code.” – BMC Honor Code2\n\nI will call out code that looks vibe-coded in your assignments. Please don’t do it.\nAll work submitted in this course must be your own. In plain words: do not use genAI to write any of your answers to prompts, problems, and do not submit any prose generated by genAI. You may of course use genAI to study, but do so at your own peril, as I expect your work do reflect the content from the course and I do not authorize the materials from this course to be fed to LLMs. You may use genAI to help you brainstorm/define concepts but if you do so, you must attribute properly. Similarly, if your discussions with classmates informed how you answered any of the questions, you must give them proper attribution.\nYou may use LLMs/GenAI for coding assignments ONLY, and only in certain ways 3:\n\nto brainstorm ideas\nto decode cryptic error messages or explain why they might have occurred\nto ask specific questions about R-language related things like function parameters, etc.\n\nIf you do use LLMs for the coding assignment, you must include citations for each instance where you used it, including the prompt you used (I will provide more specific guidelines with the assignments themselves).\nFor problem sets and other assignments: You may not use AI, as there is no (ethical) reason to do so. The whole point of these formative assessments is to learn and/or practice for the exams.\nIf I suspect these guidelines have been violated, I will call the student over to discuss their process in generating the content.",
+    "crumbs": [
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#students-with-physical-or-learning-differences",
+    "href": "syllabus.html#students-with-physical-or-learning-differences",
+    "title": "Syllabus",
+    "section": "Students with physical or learning differences",
+    "text": "Students with physical or learning differences\n\n“Bryn Mawr College is committed to providing equal access to students with a documented disability. Students needing academic accommodations for a disability must first speak with Access Services. Students can email accessservices@brynmawr.edu to request an appointment to begin this confidential process. If eligible for accommodations as per Access Services, students should schedule an appointment with the professor as early in the semester as possible to share their verification form and make appropriate arrangements. Please note that accommodations are not retroactive and require advance notice to implement. More information can be obtained at the Access Services website.” -— From BMC’s website\n\nPennsylvania law states that individuals are given advance notice that they may be recorded, so:\n\n*“Because some students with a disability may be eligible to record lectures - and it is state law in Pennsylvania that individuals are given advance notice that they may be recorded - professors also need to include the following statement in their syllabus:\n\nAny student who has a disability-related need to record this class must first be found eligible to do so by Access Services and must share this eligibility with me, the instructor. Class members need to be aware that this class may be recorded.”* — From BMC’s website",
+    "crumbs": [
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#title-ix",
+    "href": "syllabus.html#title-ix",
+    "title": "Syllabus",
+    "section": "Title IX",
+    "text": "Title IX\n\nBryn Mawr College is committed to providing an educational and employment environment free from discrimination and harassment based on protected characteristics. The College does not discriminate against any employee, applicant for employment, student, or applicant for admission on the basis of actual or perceived age, citizenship status, color, disability, gender identity/expression, genetic information, national origin, pregnancy or related conditions, race, religion, sex, sexual orientation, veteran status, or any other characteristic protected by applicable federal, state, or local law.” – Info from the College website.\n\nPlease be aware that all Bryn Mawr/Haverford employees (other than those designated as confidential resources such as counselors, clergy, and healthcare providers) must report information about such discrimination and harassment to the Bi-Co Tittle IX Coordinator. See the BMC policy on this.\nSee also: https://www.brynmawr.edu/sites/default/files/media/documents/2025-07/2024-2025%20Bryn%20Mawr%20College%20Sexual%20Misconduct%20Policy_Jan.%202025.pdf",
+    "crumbs": [
+      "Syllabus"
+    ]
+  },
+  {
+    "objectID": "syllabus.html#footnotes",
+    "href": "syllabus.html#footnotes",
+    "title": "Syllabus",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThank you, A. Heiss!↩︎\nThe AI clause to the Honor Code was approved in plenary by BMC members in April 2024.↩︎\nNevertheless, I am providing you with a several recommended alternatives that will make you learn for real.↩︎\nhttps://datavizf25.classes.andrewheiss.com/resource/ai-bs.html↩︎",
+    "crumbs": [
+      "Syllabus"
+    ]
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#quick-recap",
@@ -329,503 +787,115 @@
     "text": "Acknowledgments\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
   },
   {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Syllabus",
-    "section": "",
-    "text": "I am an R enthusiast! At times this course will be challenging, but I promise you the hard work will pay off. Please read this document fully. You may post questions on Piazza or bring them to our first class on 9/1.\nR is the standard tool for performing statistics in biology, health studies, data science, and many other fields. Because of this, B215 is neither just a biostatistics course nor simply an R programming course: it is a biostatistics course where R is directly integrated into the learning process. Throughout the course, we use motivating case studies and data analysis problem sets and R labs based on similar challenges to those one finds in scientific research.",
-    "crumbs": [
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#sec-late",
-    "href": "syllabus.html#sec-late",
-    "title": "Syllabus",
-    "section": "Late work",
-    "text": "Late work\nIf you anticipate being unable to attend a meeting, please contact me as soon as possible as your circumstances allow. Note that problem sets are due in class (hard copy) so if you miss class you must make arrangements to have this handed in on time. It is your responsibility to gather class notes from classmates and complete any missed activities that may not be in the schedule. These make-up materials should be submitted within 3 days of your absence (unless otherwise negotiated; for longer absences or extenuating circumstances, please contact me to work something out). Sick days do not count as unexcused absences! Just let me know ASAP.\nThe course is structured in such a way that you can have some late work without penalty. So there will be no make-up assignments.\nGrace days. Each student may use up to 4 “grace days” during the semester to hand in work late, no questions asked and without penalty. To use your grace day(s) for an assignment, email me at least a day before the assignment is due and communicate how many grace days you are requesting. There is no need to provide any explanation as to why you are using your grace days; as long as you have enough days left in the semester to use, and have written to me at least a day in advance, I will approve. You can use grace days for any assignments except for your final coding project, exams, and the peer-review activity.\nOutside of the grace days, I will accept late work with a reduction in grade as follows: if you turn in the work 1 minute to 24h late, your maximum score will drop to 90%; if you turn it in 24h and 1 minute to 48h late, it will drop to 80%; and so on. Late lecture quizzes and DataCamp will be accepted anytime without penalty but I strongly urge you to keep up with the work. Note that you can retake the lecture quizzes as many times as you want. I am only grading whether or not you did it.\nIf you are dealing with an emergency or other issue and believe you may require more leniency, please email me and your dean as soon as possible so that we can make arrangements.",
-    "crumbs": [
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#sec-plag",
-    "href": "syllabus.html#sec-plag",
-    "title": "Syllabus",
-    "section": "Plagiarism",
-    "text": "Plagiarism\nAll students enrolled in Bryn Mawr Classes are bound by the The Bryn Mawr honor code. I call your attention to the sections on plagiarism and AI use in the code, which will be followed here. Contributions from “outside sources”, including AI sources, must be properly quoted and cited every time they are used. Outside sources include content that was produced by a genAI assistant like ChatGPT, Gemini, and others. Failure to do so constitutes an academic integrity violation, in accordance with the College’s Honor Code:\n\n“In reports and other written work, sources of information and of ideas and opinions not the student’s own must be clearly indicated; the source of direct quotations must be acknowledged. Failure to do so constitutes plagiarism (…) Generative AI tools should not be used in the completion of any course assignments, exams, or written work, including laboratory work, unless an instructor for a given course has specifically and explicitly authorized their use for the assignment in question. (…) Presenting AI-generated content as original student work, submitting AI-generated content without citing its source in artificial intelligence tools, and relying on generative AI tools for closed-book quizzes, tests, and exams all constitute violations of the Honor Code.” – BMC Honor Code2\n\nI will call out code that looks vibe-coded in your assignments. Please don’t do it.\nAll work submitted in this course must be your own. In plain words: do not use genAI to write any of your answers to prompts, problems, and do not submit any prose generated by genAI. You may of course use genAI to study, but do so at your own peril, as I expect your work do reflect the content from the course and I do not authorize the materials from this course to be fed to LLMs. You may use genAI to help you brainstorm/define concepts but if you do so, you must attribute properly. Similarly, if your discussions with classmates informed how you answered any of the questions, you must give them proper attribution.\nYou may use LLMs/GenAI for coding assignments ONLY, and only in certain ways 3:\n\nto brainstorm ideas\nto decode cryptic error messages or explain why they might have occurred\nto ask specific questions about R-language related things like function parameters, etc.\n\nIf you do use LLMs for the coding assignment, you must include citations for each instance where you used it, including the prompt you used (I will provide more specific guidelines with the assignments themselves).\nFor problem sets and other assignments: You may not use AI, as there is no (ethical) reason to do so. The whole point of these formative assessments is to learn and/or practice for the exams.\nIf I suspect these guidelines have been violated, I will call the student over to discuss their process in generating the content.",
-    "crumbs": [
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#students-with-physical-or-learning-differences",
-    "href": "syllabus.html#students-with-physical-or-learning-differences",
-    "title": "Syllabus",
-    "section": "Students with physical or learning differences",
-    "text": "Students with physical or learning differences\n\n“Bryn Mawr College is committed to providing equal access to students with a documented disability. Students needing academic accommodations for a disability must first speak with Access Services. Students can email accessservices@brynmawr.edu to request an appointment to begin this confidential process. If eligible for accommodations as per Access Services, students should schedule an appointment with the professor as early in the semester as possible to share their verification form and make appropriate arrangements. Please note that accommodations are not retroactive and require advance notice to implement. More information can be obtained at the Access Services website.” -— From BMC’s website\n\nPennsylvania law states that individuals are given advance notice that they may be recorded, so:\n\n*“Because some students with a disability may be eligible to record lectures - and it is state law in Pennsylvania that individuals are given advance notice that they may be recorded - professors also need to include the following statement in their syllabus:\n\nAny student who has a disability-related need to record this class must first be found eligible to do so by Access Services and must share this eligibility with me, the instructor. Class members need to be aware that this class may be recorded.”* — From BMC’s website",
-    "crumbs": [
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#title-ix",
-    "href": "syllabus.html#title-ix",
-    "title": "Syllabus",
-    "section": "Title IX",
-    "text": "Title IX\n\nBryn Mawr College is committed to providing an educational and employment environment free from discrimination and harassment based on protected characteristics. The College does not discriminate against any employee, applicant for employment, student, or applicant for admission on the basis of actual or perceived age, citizenship status, color, disability, gender identity/expression, genetic information, national origin, pregnancy or related conditions, race, religion, sex, sexual orientation, veteran status, or any other characteristic protected by applicable federal, state, or local law.” – Info from the College website.\n\nPlease be aware that all Bryn Mawr/Haverford employees (other than those designated as confidential resources such as counselors, clergy, and healthcare providers) must report information about such discrimination and harassment to the Bi-Co Tittle IX Coordinator. See the BMC policy on this.\nSee also: https://www.brynmawr.edu/sites/default/files/media/documents/2025-07/2024-2025%20Bryn%20Mawr%20College%20Sexual%20Misconduct%20Policy_Jan.%202025.pdf",
-    "crumbs": [
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "syllabus.html#footnotes",
-    "href": "syllabus.html#footnotes",
-    "title": "Syllabus",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThank you, A. Heiss!↩︎\nThe AI clause to the Honor Code was approved in plenary by BMC members in April 2024.↩︎\nNevertheless, I am providing you with a several recommended alternatives that will make you learn for real.↩︎\nhttps://datavizf25.classes.andrewheiss.com/resource/ai-bs.html↩︎",
-    "crumbs": [
-      "Syllabus"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "B215: Biostatistics with R",
-    "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nmodule\nweek\ndow\ndate\nwhat\ntopic\ndue\nexam\n\n\n\n\n1\n1\nM\nAug-31\n0\nIntro to class\n\n\n\n\n1\n1\nT\nSep-1\n1\nLab1: Intro to R\nDC: Introduction to R (ch.1-2) + Lab worksheet 1\n\n\n\n1\n1\nW\nSep-2\n2\nStatistics and Samples\n\n\n\n\n1\n2\nM\nSep-7\n\n\nNo classes (labor day)\n\n\n\n\n1\n2\nT\nSep-8\n3\nLab 2: Data structures & basic summary stats\nDC: Introduction to R (ch.1-6) + Lab worksheet 2\n\n\n\n1\n2\nW\nSep-9\n4\nUnit 1 (review) + Basic summary stats (cont.)\n\n\n\n\n1\n3\nM\nSep-14\n5\nDisplaying & Describing Data I\n\n\n\n\n1\n3\nT\nSep-15\n6\nLab 3: ggplot and dplyr\nDC: Intro to the Tidyverse (1-4) + Lab woksheet 3\n\n\n\n1\n3\nW\nSep-16\n7\nDisplaying & Describing Data I\n\n\n\n\n1\n4\nM\nSep-21\n8\nDisplaying & Describing Data II\n\n\n\n\n1\n4\nT\nSep-22\n9\nLab 4: Exploratory data analysis\nLab woksheet 4\n\n\n\n1\n4\nW\nSep-23\n10\nDisplaying & Describing Data II\nProblem set 1\n\n\n\n2\n5\nM\nSep-28\n11\nProbability I: Proportions\nAll DCs (hard deadline)\n\n\n\n2\n5\nT\nSep-29\n12\n\n\n\n\nMidterm 1\n\n\n2\n5\nW\nSep-30\n13\nProbability I: Rules\n\n\n\n\n2\n6\nM\nOct-5\n14\nProbability II: Binomial & Bayes\n\n\n\n\n2\n6\nT\nOct-6\n15\nLab 5:\nLab woksheet 5\n\n\n\n2\n6\nW\nOct-7\n16\nProbability II: Binomial & Bayes\n\n\n\n\n\n\n\nOct-10-Oct18\n\n\nFall break (no classes)\n\n\n\n\n2\n7\nM\nOct-19\n17\nEstimation\n\n\n\n\n2\n7\nT\nOct-20\n18\nLab 6:\nLab worksheet 6\n\n\n\n2\n7\nW\nOct-21\n19\nEstimation\nCoding project checkpoint 1\n\n\n\n2\n8\nM\nOct-26\n20\nEstimation|Hypothesis testing\n\n\n\n\n2\n8\nT\nOct-27\n21\nLab 7:\nLab worksheet\n\n\n\n2\n8\nW\nOct-28\n22\nHypothesis testing\nCoding checkpoint\n\n\n\n2\n9\nM\nNov-2\n23\nGoodness-of-fit test\n\n\n\n\n2\n9\nT\nNov-3\n24\nLab 8:\nLab worksheet\n\n\n\n2\n9\nW\nNov-4\n25\nGoodness-of-fit test\nCoding project checkpoint 2\n\n\n\n3\n10\nM\n2026-11-09\n26\nContingency analyses\nAll DCs (hard deadline); PS2\n\n\n\n3\n10\nT\nNov-10\n27\n\n\n\n\nMidterm 2\n\n\n3\n10\nW\nNov-11\n28\nContingency analyses\n\n\n\n\n3\n11\nM\nNov-16\n29\nContingency analyses\n\n\n\n\n3\n11\nT\nNov-17\n30\nLab 9:\nLab worksheet\n\n\n\n3\n11\nW\nNov-18\n31\nContingency analyses\n\n\n\n\n3\n12\nM\nNov-23\n32\nNormal Distribution\n\n\n\n\n3\n12\nT\nNov-24\n33\nLab 10:\nLab worksheet\n\n\n\n3\n12\nW\nNov-25\n\n\nNo class (day before thanksgiving)\n\n\n\n\n3\n13\nM\nNov-30\n34\nt-values\n\n\n\n\n3\n13\nT\nDec-1\n35\nLab 11: TBD + Peer-review activity\n\n\n\n\n3\n13\nW\nDec-2\n36\nt-tests\nProblem set 3\n\n\n\n3\n14\nM\nDec-7\n37\n\n\n\n\n\n\n3\n14\nT\nDec-8\n38\nLab 11: |Work on coding project\n\n\n\n\n3\n14\nW\nDec-9\n39\nReview|Course Evals\nCoding project\n\n\n\n\n15\n\n\n\n\n\n\n\n\nFinal exam: during finals week, date TBD",
-    "crumbs": [
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
-    "section": "",
-    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\n1.1.Statistics & Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nUnit 1\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nUnit 1\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nUnit 1\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nDescriptive statistics\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Slides"
-    ]
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#learning-goals",
-    "href": "slides/Statistics_and_Samples1.html#learning-goals",
-    "title": "1.1.Statistics & Samples",
-    "section": "Learning Goals",
-    "text": "Learning Goals\n\nUnderstand the major goals of statistics\nUnderstand the distinction between the term “population” in a statistical and a biological context.\nDistinguish between a sample and a population\nDistinguish between an estimate and a parameter\nIdentify why estimates from samples may deviate from parameters of populations\n\nThese learning goals are for the entire topic/unit. They will also be available in the study guide."
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#what-is-statistics",
-    "href": "slides/Statistics_and_Samples1.html#what-is-statistics",
-    "title": "1.1.Statistics & Samples",
-    "section": "What is statistics?",
-    "text": "What is statistics?\n\nTweet from someone I don’t know, but very on point, so thank you!"
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#what-is-statistics-1",
-    "href": "slides/Statistics_and_Samples1.html#what-is-statistics-1",
-    "title": "1.1.Statistics & Samples",
-    "section": "What is statistics?",
-    "text": "What is statistics?"
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#statistics-deals-with-uncertainty",
-    "href": "slides/Statistics_and_Samples1.html#statistics-deals-with-uncertainty",
-    "title": "1.1.Statistics & Samples",
-    "section": "Statistics deals with UNCERTAINTY",
-    "text": "Statistics deals with UNCERTAINTY\n\nStatistics are a quantitative technology for empirical science.\nA logic and methodology for the measurement of uncertainty and for an examination of that uncertainty.\nThe key word here is uncertainty. Statistics becomes necessary when observations are variable."
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#what-is-biostatistics",
-    "href": "slides/Statistics_and_Samples1.html#what-is-biostatistics",
-    "title": "1.1.Statistics & Samples",
-    "section": "What is BIOstatistics?",
-    "text": "What is BIOstatistics?"
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#biostatistics",
-    "href": "slides/Statistics_and_Samples1.html#biostatistics",
-    "title": "1.1.Statistics & Samples",
-    "section": "Biostatistics",
-    "text": "Biostatistics\n\nWhat is the motivating biological question?\nWhat experiments can be done and/or data can be collected to address this question?\nDo results support an interesting conclusion?\nWhat are the shortcomings/limitations of statistical models and causal frameworks in the analysis?\nHow do I best communicate my results (including estimates, visualizations, conclusions, and caveats)?"
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#challenge-1",
-    "href": "slides/Statistics_and_Samples1.html#challenge-1",
-    "title": "1.1.Statistics & Samples",
-    "section": "Challenge 1",
-    "text": "Challenge 1\n\nChallenge: We can’t look at the whole world.\nSolution: Take a sample and generalize outward.\n\n\nFrom: imgflip.com/memegeneratorIn practice, then…\n\nChallenge: We can’t look at the whole world.\nSolution: Take a meaningful sample and generalize outward."
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#challenge-2",
-    "href": "slides/Statistics_and_Samples1.html#challenge-2",
-    "title": "1.1.Statistics & Samples",
-    "section": "Challenge 2",
-    "text": "Challenge 2\n\nSamples deviate from the populations they were sampled from by\n\n\nluck/chance (sampling error) or\nunrepresentative sampling (sampling bias)\n\n\n\nSolution:\n\nEstimate the values of important parameters\nHave measures of uncertainty for estimates\nTest hypotheses about those parameters"
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#in-conclusion-goals-of-statistics",
-    "href": "slides/Statistics_and_Samples1.html#in-conclusion-goals-of-statistics",
-    "title": "1.1.Statistics & Samples",
-    "section": "In conclusion: goals of statistics",
-    "text": "In conclusion: goals of statistics\n\nEstimate the values of important parameters\nHave measures of uncertainty for estimates\nTest hypotheses about those parameters"
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#populations-samples",
-    "href": "slides/Statistics_and_Samples1.html#populations-samples",
-    "title": "1.1.Statistics & Samples",
-    "section": "Populations & Samples",
-    "text": "Populations & Samples\n\nIn Statistics, a population is the entire collection of individual units that a researcher is interested in. E.g. all women born in the US between 1990 and 200; all polar bears currently living in zoos; users of a certain social network in a certain age group; etc\n\n\nA sample is a subset of these units that we collect and measure."
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#statistics-parameters-13",
-    "href": "slides/Statistics_and_Samples1.html#statistics-parameters-13",
-    "title": "1.1.Statistics & Samples",
-    "section": "Statistics & Parameters (1/3)",
-    "text": "Statistics & Parameters (1/3)\nA parameter is some property of the world, i.e., the “truth”.\n\nDecorative image. Poster from the show “The X-files”"
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#statistics-parameters-23",
-    "href": "slides/Statistics_and_Samples1.html#statistics-parameters-23",
-    "title": "1.1.Statistics & Samples",
-    "section": "Statistics & Parameters (2/3)",
-    "text": "Statistics & Parameters (2/3)\n\nBecause we can’t sample an entire population, we usually don’t know parameters. Parameters describe Populations.\nBut we can get a good sense of the parameters from estimates we make from Samples.\nEstimates (statistics) approximate parameters as inferred from Samples."
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#statistics-parameters-33",
-    "href": "slides/Statistics_and_Samples1.html#statistics-parameters-33",
-    "title": "1.1.Statistics & Samples",
-    "section": "Statistics & Parameters (3/3)",
-    "text": "Statistics & Parameters (3/3)\n\nParameters are constants. This means that they are fixed. Parameters represent the world. Parameters are the truth.\nEstimates are “random variables”. This means estimates change from one random sample to the next from the same population."
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#a-population-of-starfish",
-    "href": "slides/Statistics_and_Samples1.html#a-population-of-starfish",
-    "title": "1.1.Statistics & Samples",
-    "section": "A population of starfish",
-    "text": "A population of starfish\n\n\n\nParameters describe populations\nE.g. proportion of pink starfish among all starfish of a given species in a certain location"
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#a-sample-of-starfish",
-    "href": "slides/Statistics_and_Samples1.html#a-sample-of-starfish",
-    "title": "1.1.Statistics & Samples",
-    "section": "A sample of starfish",
-    "text": "A sample of starfish\n\n\n\nEstimates (statistics) approximate parameters as inferred from samples.\nWe estimate the proportion of pink as inferred from this sample and extrapolate to the population as an approximation."
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples1.html#acknowledgments",
-    "href": "slides/Statistics_and_Samples1.html#acknowledgments",
-    "title": "1.1.Statistics & Samples",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments\n\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples3.html#quick-recap",
-    "href": "slides/Statistics_and_Samples3.html#quick-recap",
-    "title": "1.3.Types of variables",
+    "objectID": "slides/Statistics_and_Samples4.html#quick-recap",
+    "href": "slides/Statistics_and_Samples4.html#quick-recap",
+    "title": "1.4. A soft intro to causal inference",
     "section": "Quick recap",
-    "text": "Quick recap\nLast lecture we discussed:\n\nThe two types of errors associated with sampling: sampling error and sampling bias.\nProperties of a good sample.\n\nAsk for volunteers to remind these concepts"
+    "text": "Quick recap\nLast time:\n\nVariables, data, dataset\nTypes of variables and subtypes: numeric (discrete, continuous), categorical (nominal, ordinal)\nHow to organize data in a dataset\nExplanatory and response variables\n\nAsk for volunteers to remind these concepts"
   },
   {
-    "objectID": "slides/Statistics_and_Samples3.html#learning-goals",
-    "href": "slides/Statistics_and_Samples3.html#learning-goals",
-    "title": "1.3.Types of variables",
+    "objectID": "slides/Statistics_and_Samples4.html#learning-goals",
+    "href": "slides/Statistics_and_Samples4.html#learning-goals",
+    "title": "1.4. A soft intro to causal inference",
     "section": "Learning goals",
-    "text": "Learning goals\n\nDetect the differences between [observational]{.underline} and experimental studies.\nIdentify whether a variable is numeric or categorical (and subtypes)."
+    "text": "Learning goals\n\nDescribe the differences between observational and experimental studies.\nDistinguish between correlation and causation.\nUnderstand why experimental studies reveal causation, while observational studies cannot.\nRecognize that confounding factors limit our ability to interpret observed patterns."
   },
   {
-    "objectID": "slides/Statistics_and_Samples3.html#types-of-variables",
-    "href": "slides/Statistics_and_Samples3.html#types-of-variables",
-    "title": "1.3.Types of variables",
-    "section": "Types of Variables",
-    "text": "Types of Variables"
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples3.html#variables-and-data",
-    "href": "slides/Statistics_and_Samples3.html#variables-and-data",
-    "title": "1.3.Types of variables",
-    "section": "Variables and “Data”",
-    "text": "Variables and “Data”\n\n\nA variable is a characteristic measured on individuals drawn from a population under study.\nData are measurements of one or more variables made on a collection of individuals. (i.e., your sample).\nDataset is a collection of data taken from a single source or intended for a single purpose.\n\n\n\n\n\n\n\nFrom: https://xkcd.com/1429. If you want to have more fun at the expense of language pedants, try developing an hypercorrection habit.\n\n:::"
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples3.html#the-tidy-way-to-organize-data-in-datasets",
-    "href": "slides/Statistics_and_Samples3.html#the-tidy-way-to-organize-data-in-datasets",
-    "title": "1.3.Types of variables",
-    "section": "The tidy way to organize data in datasets",
-    "text": "The tidy way to organize data in datasets\n\nEach column records one variable. Each row corresponds to one observation.\n\nIndividual\nvar1\nvar2\nvar3\n\n\n\nind01\n\n\n\n\n\nind02\n\n\n\n\n\nind03\n\n\n\n\n\nind04\n\n\n\n\n\n\n\nImportant: never, ever, modify the original (raw) dataset. Instead, focus on reproducibility."
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples3.html#example-the-iris-dataset-in-r",
-    "href": "slides/Statistics_and_Samples3.html#example-the-iris-dataset-in-r",
-    "title": "1.3.Types of variables",
-    "section": "Example: the iris dataset in R",
-    "text": "Example: the iris dataset in R\n\n\n\n\n\n\nSepal.Length\nSepal.Width\nPetal.Length\nPetal.Width\nSpecies\n\n\n\n5.1\n3.5\n1.4\n0.2\nsetosa\n\n\n4.9\n3.0\n1.4\n0.2\nsetosa\n\n\n4.7\n3.2\n1.3\n0.2\nsetosa\n\n\n4.6\n3.1\n1.5\n0.2\nsetosa\n\n\n5.0\n3.6\n1.4\n0.2\nsetosa\n\n\n5.4\n3.9\n1.7\n0.4\nsetosa\n\n\n\n\n\n\n\nyou can learn more about this dataset by looking it up in R:\n\n\nHide the code`?`(iris)"
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples3.html#types-of-variablesdata",
-    "href": "slides/Statistics_and_Samples3.html#types-of-variablesdata",
-    "title": "1.3.Types of variables",
-    "section": "Types of variables/data",
-    "text": "Types of variables/data\n\nNumeric (also known as quantitative)\n\n\n\nDiscrete: can be counted\n\n\nContinuous: can be measured\n\n\n\nCategorical (also known as class or nominal variables)\n\n\n\nOrdinal: can be ranked\n\n\nNominal: cannot be ranked\n\n\nWhy do we care about these types? We will focus a lot on this in our next topic about how to display and describe data. Knowing what kind of variable we have drives our models of data analysis, and is therefore critical to the enterprise of statistics.\n\nThis is essential for our next topic: Displaying & Describing Data."
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples3.html#numeric-datavariables",
-    "href": "slides/Statistics_and_Samples3.html#numeric-datavariables",
-    "title": "1.3.Types of variables",
-    "section": "Numeric Data/Variables",
-    "text": "Numeric Data/Variables\n\nDiscrete: can only take some values within acceptable interval\n\nExamples:\n\nNumber of limbs\nNumber of offspring\nNumber of petals\nNumber of teeth\nNatural numbers: \\(\\{0,1,2,3,4,5,6,7,...,\\infty\\}\\)"
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples3.html#numeric-datavariables-1",
-    "href": "slides/Statistics_and_Samples3.html#numeric-datavariables-1",
-    "title": "1.3.Types of variables",
-    "section": "Numeric Data/Variables",
-    "text": "Numeric Data/Variables\n\nContinuous: Can take any value within acceptable interval\n\nExamples:\n\nArm length (cm, inches)\nHeight (cm, inches)\nWeight (kg, lbs)\nAge and longevity (in years, months, etc.)\nTail length (cm, inches)\nDose (e.g., in micrograms/gram)\nSkin color (measured using a reflectometer, measure in wavelengths)"
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples3.html#categorical-variables",
-    "href": "slides/Statistics_and_Samples3.html#categorical-variables",
-    "title": "1.3.Types of variables",
-    "section": "Categorical variables",
-    "text": "Categorical variables\nExamples:\n\nGenotype (e.g., AA, AG, GG)\nDrug treatment (e.g. aspirin vs.ibuprofen)\nProvince of origin\nSurvival status (i.e., live or die)\nSkin/fur/coat/feather color (e.g., black, yellow, red, etc.)"
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples3.html#relationships-between-variables",
-    "href": "slides/Statistics_and_Samples3.html#relationships-between-variables",
-    "title": "1.3.Types of variables",
+    "objectID": "slides/Statistics_and_Samples4.html#relationships-between-variables",
+    "href": "slides/Statistics_and_Samples4.html#relationships-between-variables",
+    "title": "1.4. A soft intro to causal inference",
     "section": "Relationships between variables",
-    "text": "Relationships between variables\n\nExplanatory variables: predict or affect other variables.\nResponse variables: is affected by another variable.\nValid nomenclature for both observational and experimental results, but interpretation is different\n\n\nOne major use of statistics is to relate one variable to another by examining associations between variables and differences between groups. Measuring an association is equivalent to measuring a difference, statistically speaking. Showing that “the proportion of survivors differs between treatment categories” is the same as showing that the variables “survival” and “treatment” are associated.\nIn an observational study, their association might nevertheless be described by the “effect” of one of the variables (the explanatory) on the other (the response), even though the association itself is not direct evidence for causation.\n\nOutdated nomenclature: dependent and independent variables"
+    "text": "Relationships between variables\n\nA relationship exists between two variables if they co-vary (e.g., – increasing (excessive) sun exposure is accompanied by increasing numbers of events of skin cancer).\nBoth observational and experimental studies may detect relationships between variables – not the same as assigning a causative link.\n\nwe talk about these two next"
   },
   {
-    "objectID": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-12",
-    "href": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-12",
-    "title": "1.3.Types of variables",
-    "section": "Case Study: surviving the Titanic (1/2)",
-    "text": "Case Study: surviving the Titanic (1/2)\n\n\nConfession: I watched this EIGHT times in the movie theater!\n\n\n\nImage from: Wikipedia Commons."
+    "objectID": "slides/Statistics_and_Samples4.html#two-ways-to-collectobtain-data",
+    "href": "slides/Statistics_and_Samples4.html#two-ways-to-collectobtain-data",
+    "title": "1.4. A soft intro to causal inference",
+    "section": "Two ways to collect/obtain data",
+    "text": "Two ways to collect/obtain data\n\nA study is experimental if the researcher assigns treatments randomly to individuals, whereas a study is observational if the assignment of treatments is not made by the researcher."
   },
   {
-    "objectID": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-22",
-    "href": "slides/Statistics_and_Samples3.html#case-study-surviving-the-titanic-22",
-    "title": "1.3.Types of variables",
-    "section": "Case Study: surviving the Titanic (2/2)",
-    "text": "Case Study: surviving the Titanic (2/2)\n\nConsider the fate of the approximatley 2,200 passengers of the titanic, including children and adults of both sexes.\n\n\nThis is a mosaic plot. We will learn about it in our next topic. Code based on snippets from Y. Brandvain."
+    "objectID": "slides/Statistics_and_Samples4.html#observational-study",
+    "href": "slides/Statistics_and_Samples4.html#observational-study",
+    "title": "1.4. A soft intro to causal inference",
+    "section": "Observational study",
+    "text": "Observational study\n\nIn observational studies, researchers do not assign treatments to individuals.\nResearchers have no control over which units fall into which groups.\nRelationships between explanatory and response variables can be detected.\nBut, these studies cannot prove causation or disentangle cause and effect. The main purpose of experiments is to accomplish this, though.\nE.g. Tobacco smoking and development of lung cancer.\n\nBecause researches do not assign treatments in observational studies, observations cannot prove causation or disentangle cause and effect."
   },
   {
-    "objectID": "slides/Statistics_and_Samples3.html#discuss",
-    "href": "slides/Statistics_and_Samples3.html#discuss",
-    "title": "1.3.Types of variables",
-    "section": "Discuss",
-    "text": "Discuss\n\n\n\n\n\n\n\n\n\nVariables? Types? Explanatory & response variables?\nDescribe the population this result came from…\nHow far would you generalize from this to “Women & Children 1st?”\nExperimental or observational study?\n\n\n\nWe will continue with this case study at our next in-person meeting!"
+    "objectID": "slides/Statistics_and_Samples4.html#the-magic-of-experiments",
+    "href": "slides/Statistics_and_Samples4.html#the-magic-of-experiments",
+    "title": "1.4. A soft intro to causal inference",
+    "section": "The magic of experiments",
+    "text": "The magic of experiments\n\nIn experimental studies, researchers assign different treatment groups or values of an explanatory variable randomly to the individual units of study.\nWell-conceived experiments can reveal causation!\nE.g. clinical trials.\n\n\nImage from The Lung Cancer Research Foundation."
   },
   {
-    "objectID": "slides/Statistics_and_Samples3.html#acknowledgments",
-    "href": "slides/Statistics_and_Samples3.html#acknowledgments",
-    "title": "1.3.Types of variables",
+    "objectID": "slides/Statistics_and_Samples4.html#experimental-studies-may-reveal-confounds",
+    "href": "slides/Statistics_and_Samples4.html#experimental-studies-may-reveal-confounds",
+    "title": "1.4. A soft intro to causal inference",
+    "section": "Experimental studies may reveal confounds",
+    "text": "Experimental studies may reveal confounds\n\nA well-designed experiment can remove confounds (except those that arise by chance!) and allows us to separate cause and effect !!!\n\nBut caution:\n\nThere are often more [or less] obvious biases.\nExperimental artifacts can introduce bias.\nE.g.: placebo effect – an improvement in medical condition that results form the psychological effects of treatment.\nAppropriate controls are critical to a good experiment.\n\n\nPlacebo (Latin): “I shall please”, from placeō, “I please”. Read Interleaf 6 for more on the placebo effect."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples4.html#confounding-variables",
+    "href": "slides/Statistics_and_Samples4.html#confounding-variables",
+    "title": "1.4. A soft intro to causal inference",
+    "section": "Confounding Variables",
+    "text": "Confounding Variables\n\nConfounding Variables: unmeasured variable that changes in tandem with one or more of the measured variables, giving a false appearance of a causal association between the measured variables.\n\n\nA confounding variable is a hidden bias. I.e., one of the major goals of experiments is to reduce bias.\nI.e., they lead to a spurious association (correlation):\n\n\na mathematical relationship in which two or more events or variables are associated but not causally related, due to either coincidence or the presence of a certain third, unseen factor (confound variable, confounding variable, or lurking variable). Wikipedia Commons"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples4.html#causal-inference",
+    "href": "slides/Statistics_and_Samples4.html#causal-inference",
+    "title": "1.4. A soft intro to causal inference",
+    "section": "Causal Inference",
+    "text": "Causal Inference"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples4.html#example-smoking-and-lung-cancer-13",
+    "href": "slides/Statistics_and_Samples4.html#example-smoking-and-lung-cancer-13",
+    "title": "1.4. A soft intro to causal inference",
+    "section": "Example: smoking and lung cancer (1/3)",
+    "text": "Example: smoking and lung cancer (1/3)\n\nSay we saw a strong association between smoking and lung cancer from an observational study, and wanted to know if smoking causes cancer.\n\n\nlet’s use a DAG (Directed Acyclic Graph) – the backbone of causal thinking! They allow us to lay our causal models out there for the world to see.\n\n\nWe could represent this causal claim with the simplest causal graph we can imagine. This is our first formal introduction to a Directed Acyclic Graph (hereafter DAG). This is Directed because WE are pointing a causal arrow from smoking to cancer. It is acyclic because causality in these models only flows in one direction, and its a graph because we are looking at it. Here we will largely use DAGs to consider potential causal paths. From Y. Brandvain’s Applied Biostats book."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples4.html#example-smoking-and-lung-cancer-23",
+    "href": "slides/Statistics_and_Samples4.html#example-smoking-and-lung-cancer-23",
+    "title": "1.4. A soft intro to causal inference",
+    "section": "Example: smoking and lung cancer (2/3)",
+    "text": "Example: smoking and lung cancer (2/3)\n\nHypothesis: A confound could underlie the strong statistical association between smoking and lung cancer.\n\n\nR.A. Fisher – a pipe enthusiast, notorious asshole, eugenicist, and the father of modern statistics and population genetics was unhappy with this DAG. A confounding variable can bias our interpretation. Fisher proposed that the propensity to smoke and to develop lung cancer could be causally unrelated, if both were driven by similar genetic factors. Fisher’s causal model is presented in this DAG. From Y. Brandvain’s Applied Biostats book."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples4.html#example-smoking-and-lung-cancer-33",
+    "href": "slides/Statistics_and_Samples4.html#example-smoking-and-lung-cancer-33",
+    "title": "1.4. A soft intro to causal inference",
+    "section": "Example: smoking and lung cancer (3/3)",
+    "text": "Example: smoking and lung cancer (3/3)\n\nThree plausible DAGs concerning the relationship between smoking and cancer. a) Genes cause smoking, and smoking causes cancer. b) Genes cause cancer and genes cause smoking, and smoking causes cancer. c) Environmental factors cause smoking and cancer, and genetics cause smoking and cancer, while smoking too causes cancer. From Y. Brandvain’s Applied Biostats book."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples4.html#whats-the-conclusion",
+    "href": "slides/Statistics_and_Samples4.html#whats-the-conclusion",
+    "title": "1.4. A soft intro to causal inference",
+    "section": "What’s the conclusion?",
+    "text": "What’s the conclusion?\n\nWe cannot perform experimental studies on humans to test this.\nBut causal associations were documented in other animal models.\nFisher turned out to be quite wrong – genes do influence the probability of smoking and genes do influence the probability of lung cancer, but smoking has a much stronger influence on the probability of getting lung cancer than does genetics."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples4.html#in-summary",
+    "href": "slides/Statistics_and_Samples4.html#in-summary",
+    "title": "1.4. A soft intro to causal inference",
+    "section": "In summary:",
+    "text": "In summary:\n\nObservations reveal associations between variables.\nAn association doesn’t imply a causative link.\nSpurious associations can occur when both are associated with a confounding variable.\nBecause researchers do not assign treatments in observational studies, observations cannot prove causation or disentangle cause and effect.\n\n\n\nRead Interleaf 1 for more on correlation x causation."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples4.html#comic-moment",
+    "href": "slides/Statistics_and_Samples4.html#comic-moment",
+    "title": "1.4. A soft intro to causal inference",
+    "section": "Comic moment",
+    "text": "Comic moment\n\nFrom: https://www.xkcd.com/552/. Correlation doesn’t imply causation, but it does waggle its eyebrows suggestively and gesture furtively while mouthing ‘look over there’."
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples4.html#acknowledgments",
+    "href": "slides/Statistics_and_Samples4.html#acknowledgments",
+    "title": "1.4. A soft intro to causal inference",
     "section": "Acknowledgments",
-    "text": "Acknowledgments\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
-  },
-  {
-    "objectID": "slides/Unit1-practice.html#section",
-    "href": "slides/Unit1-practice.html#section",
-    "title": "Review/practice problems",
-    "section": "",
-    "text": "Unit 1: Practice problems"
-  },
-  {
-    "objectID": "slides/Unit1-practice.html#acknowledgments",
-    "href": "slides/Unit1-practice.html#acknowledgments",
-    "title": "Review/practice problems",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments\nMost of these are from the textbook “The analysis of biological data”, by Whitlock & Schuster, Macmillan, 3rd edition."
-  },
-  {
-    "objectID": "slides/Unit1-practice.html#case-study-1-the-titanic-its-back",
-    "href": "slides/Unit1-practice.html#case-study-1-the-titanic-its-back",
-    "title": "Review/practice problems",
-    "section": "Case study 1: the titanic (it’s back!)",
-    "text": "Case study 1: the titanic (it’s back!)\n\nThink for a moment, then discuss with someone.\nQuestions:\n\nVariables? Types? Explanatory & response variables?\nDescribe the population this result came from…\nHow far would you generalize from this to “Women & Children 1st?”\nExperimental or observational study?\n\n\nSex (categ, nominal), life stage (categ ordinal), survival status (categ). Life stage is response, the others are explanatory.\nThe population is the titanic! And we have all of the info!\nAs great as the dataset is, we can’t generalize beyong the titanic. Who knows whether or not this is true for other ships?\nObservational, of course. Treatments were not assigned randomly to explanatory variable groups.\n\nCase study 2 (1/2)\n\nConsider a study showing that people who ate more steaks can do more push-ups, i.e., a positive association between the two.\n\nThink for a moment, then discuss with someone.\nQuestions:\n\nHow should one interpret this?\nObservational or experimental?\nIs this enough to show causation?\nCase study 2 (2/2) {.visibility=“hidden”}\n\nConsider a study showing that people who ate more steaks can do more push-ups, i.e., a positive association between the two.\n\n\nEating steaks could give people more muscle tone/strength OR\nA certain type of person may enjoy both eating steaks and building muscle OR\nSomething else\nCase study 3 (1/2)\n\nConsider a study where researchers went to the field, and following the principles of random sampling collected a large sample of plants of a given species, and proceeded to measure vigor and assess pest load. The results showed that plants with fewer pests had greater biomass.\n\nQuestions:\n\nWhat could be happening here?\nObservational or experimental?\nIs this enough to show causation?\nCase study 3 (2/2) {.visibility=“hidden”}\n\nConsider a study where researchers went to the field, and following the principles of random sampling collected a large sample of plants of a given species, and proceeded to measure vigor and assess pest load. The results showed that plants with fewer pests had greater biomass.\n\n\nPests could decrease plant vigor OR\nVigorous plants could fight off pests OR\nSomething else\n\nObservations Can’t Separate Cause and Effect\nCase study 4\n\nIn a study, researchers took electrophysiological measurements from the brains of two rhesus macaques (monkeys). Forty neurons were tested in each monkey, yielding a total of 80 measurements.\n\nThink for a moment, then discuss with someone.\nQuestions:\n\nDo the 80 neurons constitute a random sample? Why or why not?\nIf the 80 measurements were analyzed as though they constituted a random sample, what consequences would this have for the estimate of the measurement in the monkey population?\n\nFor each monkey, the neurons are not independent. They are likely to be more similar to each other (b/c they come from one monkey) than 40 randomly sampled neurons from the population of monkeys.\nThe calculation of precision would be wrong. Specifically, it would indicate precision is higher than actually is!\nCase study 5\n\nA researcher dissected the retinas of 20 randomly sampled fish belonging to each of two subspecies of guppy in Venezuela. Using a sophisticated laboratory apparatus, he measured the two groups of fish to find the wavelengths of visible light to which the cones of the retina were most sensitive. The goal was to explore whether fish from the two subspecies differed in the wavelength of light that they were most sensitive to.\n\nQuestions:\n\nWhat are the two variables being associated in this study?\nWhich is the explanatory variable and which is the response variable?\nIs this an experimental study or an observational study? Why?\n\nsubspecies (explanatory) and wavelength of max. sensitivity (response).\nObservational! Researcher has no control over which individual belongs to each species."
-  },
-  {
-    "objectID": "slides/Unit1-practice.html#case-study-2-12",
-    "href": "slides/Unit1-practice.html#case-study-2-12",
-    "title": "Review/practice problems",
-    "section": "Case study 2 (1/2)",
-    "text": "Case study 2 (1/2)\n\nConsider a study showing that people who ate more steaks can do more push-ups, i.e., a positive association between the two.\n\nThink for a moment, then discuss with someone.\nQuestions:\n\nHow should one interpret this?\nObservational or experimental?\nIs this enough to show causation?"
-  },
-  {
-    "objectID": "slides/Unit1-practice.html#case-study-2-22-.visibilityhidden",
-    "href": "slides/Unit1-practice.html#case-study-2-22-.visibilityhidden",
-    "title": "Review/practice problems",
-    "section": "Case study 2 (2/2) {.visibility=“hidden”}",
-    "text": "Case study 2 (2/2) {.visibility=“hidden”}\n\nConsider a study showing that people who ate more steaks can do more push-ups, i.e., a positive association between the two.\n\n\nEating steaks could give people more muscle tone/strength OR\nA certain type of person may enjoy both eating steaks and building muscle OR\nSomething else"
-  },
-  {
-    "objectID": "slides/Unit1-practice.html#case-study-3-12",
-    "href": "slides/Unit1-practice.html#case-study-3-12",
-    "title": "Review/practice problems",
-    "section": "Case study 3 (1/2)",
-    "text": "Case study 3 (1/2)\n\nConsider a study where researchers went to the field, and following the principles of random sampling collected a large sample of plants of a given species, and proceeded to measure vigor and assess pest load. The results showed that plants with fewer pests had greater biomass.\n\nQuestions:\n\nWhat could be happening here?\nObservational or experimental?\nIs this enough to show causation?"
-  },
-  {
-    "objectID": "slides/Unit1-practice.html#case-study-3-22-.visibilityhidden",
-    "href": "slides/Unit1-practice.html#case-study-3-22-.visibilityhidden",
-    "title": "Review/practice problems",
-    "section": "Case study 3 (2/2) {.visibility=“hidden”}",
-    "text": "Case study 3 (2/2) {.visibility=“hidden”}\n\nConsider a study where researchers went to the field, and following the principles of random sampling collected a large sample of plants of a given species, and proceeded to measure vigor and assess pest load. The results showed that plants with fewer pests had greater biomass.\n\n\nPests could decrease plant vigor OR\nVigorous plants could fight off pests OR\nSomething else\n\nObservations Can’t Separate Cause and Effect"
-  },
-  {
-    "objectID": "slides/Unit1-practice.html#case-study-4",
-    "href": "slides/Unit1-practice.html#case-study-4",
-    "title": "Review/practice problems",
-    "section": "Case study 4",
-    "text": "Case study 4\n\nIn a study, researchers took electrophysiological measurements from the brains of two rhesus macaques (monkeys). Forty neurons were tested in each monkey, yielding a total of 80 measurements.\n\nThink for a moment, then discuss with someone.\nQuestions:\n\nDo the 80 neurons constitute a random sample? Why or why not?\nIf the 80 measurements were analyzed as though they constituted a random sample, what consequences would this have for the estimate of the measurement in the monkey population?\n\nFor each monkey, the neurons are not independent. They are likely to be more similar to each other (b/c they come from one monkey) than 40 randomly sampled neurons from the population of monkeys.\nThe calculation of precision would be wrong. Specifically, it would indicate precision is higher than actually is!"
-  },
-  {
-    "objectID": "slides/Unit1-practice.html#case-study-5",
-    "href": "slides/Unit1-practice.html#case-study-5",
-    "title": "Review/practice problems",
-    "section": "Case study 5",
-    "text": "Case study 5\n\nA researcher dissected the retinas of 20 randomly sampled fish belonging to each of two subspecies of guppy in Venezuela. Using a sophisticated laboratory apparatus, he measured the two groups of fish to find the wavelengths of visible light to which the cones of the retina were most sensitive. The goal was to explore whether fish from the two subspecies differed in the wavelength of light that they were most sensitive to.\n\nQuestions:\n\nWhat are the two variables being associated in this study?\nWhich is the explanatory variable and which is the response variable?\nIs this an experimental study or an observational study? Why?\n\nsubspecies (explanatory) and wavelength of max. sensitivity (response).\nObservational! Researcher has no control over which individual belongs to each species."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#outline",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#outline",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Outline",
-    "text": "Outline\n\nEstimates of location\nEstimates of width\nExplanatory and exploratory figures\nBest practices in figure design\nHow data types drive figure design\nHow to make effective tables\n\ntoday: location and width; next class plots"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#learning-goals",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#learning-goals",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Learning Goals",
-    "text": "Learning Goals\n\nDifferentiate between estimates of location and estimates of width.\nRecognize that variability is not simply noise, but is a key parameter that can be estimated.\nBecome familiar with the most common descriptive statistics.\nKnow when the mean or median is a more appropriate summary of location.\n\nThese learning goals are for the entire topic/unit. They will also be available in the study guide."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#descriptive-statistics",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#descriptive-statistics",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Descriptive Statistics",
-    "text": "Descriptive Statistics\n\nOr summary statistics: quantities that capture important features of frequency distributions\n\n\nLocation (central tendency)\nWidth (spread)\nAssociation (correlation)"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-13",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-13",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The data (1/3)",
-    "text": "The data (1/3)"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-23",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-23",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The data (2/3)",
-    "text": "The data (2/3)\n\nA measure of center (or location) of our data: ⭐"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-data-33",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-data-33",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The data (3/3)",
-    "text": "The data (3/3)\n\nA measure of center (or location) of our data: ⭐\nA measure of spread (or width) of our data (red)."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#measures-of-location-central-tendency",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#measures-of-location-central-tendency",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Measures of location (central tendency)",
-    "text": "Measures of location (central tendency)\n\nMean\nMedian\nMode"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-average-problem",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-average-problem",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The average problem",
-    "text": "The average problem\n\n“Average” is sometimes used synonymously with mean. But: medians and even modes are sometimes called an “average”\n\nLet’s be precise (pun intended):\n\nWhen you see the word, “average”, pay attention to which measure of location it describes.\nHere, let’s be stats pro, and refer to mean, median, mode, etc."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-mean",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-mean",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The Mean",
-    "text": "The Mean\n\nThe sum of values divided by the sample size.\n\n\\[\\bar{Y}=\\frac{\\sum_{i=1}^{n}Y_{i}}{n}\\]\n\n\n\n\n\\(\\bar{Y}\\): the mean of variable of \\(Y\\)\n\n\n\\(\\sum\\): sum\n\n\n\n\n\\(n\\): the number of individuals in the samples (sample size)\n\n\\(Y_{i}\\): the observed value for the \\(i\\)-th individual\n\n\n\n\n\\(\\bar{Y}\\) (“Y bar”) is the estimate for the mean (the real parameter mean is often expressed as \\(\\mu\\))"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#the-mean-example",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#the-mean-example",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "The Mean (example)",
-    "text": "The Mean (example)\n\nThe mean of the set of 11 numbers: \\(1, 15,9, 16,6, 17, 10,  5, 12, 14, 13\\)\n\n\\[\\bar{Y}=\\frac{\\sum_{i=1}^{n}Y_{i}}{n}\\]\n\\(\\bar{Y} = (1+15+9+16+6+17+10+5+12+14+13)/11 =\\) 10.7272727\n\n\nNerd alert: this is the “arithmetic mean”, the one you see most often. The three pytagorean means also include the geometric mean and the harmonic mean."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#median",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#median",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Median",
-    "text": "Median\n\nThe middle measurement.\n\nCalculate the median by taking the value halfway through an ordered list of observations.\n\nSample size is odd: The \\((n + 1) / 2\\)-th value.\nSample size is even: Mean of \\(n/2\\)-th and the \\((n + 2) / 2\\)-th values."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#median-example",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#median-example",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Median example",
-    "text": "Median example\n\nSample size is odd: The \\((n + 1) / 2\\)-th value.\n\n\nFirst, order the numbers: 1, 5, 6, 9, 10, 12, 13, 14, 15, 16, 17\n\nThe \\((n + 1) / 2\\)-th value for odd sized samples:\n1 5 6 9 10 12 13 14 15 16 17\n\n\n\n\nSample size is even: Mean of \\(n/2\\)-th and the \\((n + 2) / 2\\)-th values.\n1 5 6 9 10 [12 13] 14 15 16 17 17\nmean of 12 and 13 is (12+13)/2=12.5"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mean-and-median-in-r",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#mean-and-median-in-r",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Mean and Median in R",
-    "text": "Mean and Median in R\n\nShow the code# a vector with the numbers\nmynumbers &lt;- c(1, 15, 9, 16, 6, 17, 10, 5, 12, 14, 13)\n# mean 'manually'\nmysum &lt;- sum(mynumbers)  #sum all numbers\nl &lt;- length(mynumbers)  #number of elements in vector\nmymean &lt;- mysum/l\nmymean\n\n[1] 10.72727\n\nShow the code# note that you can use a built-in function for this:\nmymean2 &lt;- mean(mynumbers)\nmymean2\n\n[1] 10.72727\n\nShow the code# median with built-in function\nmymedian &lt;- median(mynumbers)\nmymedian\n\n[1] 12\n\nShow the code# median 'manually'\nmynumbers2 &lt;- sort(mynumbers)\nmynumbers2\n\n [1]  1  5  6  9 10 12 13 14 15 16 17\n\nShow the code# since l = 11 (odd) we select the l+1-th element, i.e,\n# (11+1)/2=6\nmynumbers2[6]\n\n[1] 12"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mean-x-median",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#mean-x-median",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Mean x Median",
-    "text": "Mean x Median\n\n\n\nMathematically convenient.\nSimply the sum of all observations divided by the sample size.\n\n\n\nBetter descriptor for skewed population distributions (less affected by outliers).\nThe median is the middle measurement.\n\n\n\nThe mean and median become the same when data are symmetric."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#mode",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#mode",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Mode",
-    "text": "Mode\n\nThe most common value observed in a sample.\n\n\neasy to pick\nalways a real value in the data\napplicable to non-numerical variables!\n\n\nHistograms reveal measures of center"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#but-how-will-you-know-how-your-data-is-distributed",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#but-how-will-you-know-how-your-data-is-distributed",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "But how will you know how your data is distributed?",
-    "text": "But how will you know how your data is distributed?\n\nFirst step: plot your data"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#skewness-12",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#skewness-12",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Skewness (1/2)",
-    "text": "Skewness (1/2)"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#skewness-22",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#skewness-22",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Skewness (2/2)",
-    "text": "Skewness (2/2)\nLeft: Asymmetric Few small values. \\(&gt;1/2\\) of values exceed the mean.\nMiddle: Symmetric As many large as small values. \\(\\sim1/2\\) of values exceed the mean.\nRight: Asymmetric Few large values. \\(&gt;1/2\\) of values are less than the mean."
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#next",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#next",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Next",
-    "text": "Next\nMeasures of spread (width):\n\nrange\nq-quantiles, interquartile range\nVariance\nStandard deviation\nCoefficient of variation"
-  },
-  {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments\nYaniv Brandvain; Freeman & Company; and Michael Whitlock for some materials used in these slides."
+    "text": "Acknowledgments\nYaniv Brandvain (specifically, here, I used the smoking and cancer example from his book Applied Biostats); Freeman & Company; and Michael Whitlock for some materials used in these slides."
   }
 ]
