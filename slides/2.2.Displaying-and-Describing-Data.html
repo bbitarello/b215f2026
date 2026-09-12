@@ -36,6 +36,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -242,25 +243,25 @@ B.Bitarello
 </ul>
 <div class="quarto-figure quarto-figure-center margin-caption">
 <figure><p><a href="https://openintrostat.github.io/ims/explore-numerical_files/figure-html/fig-singleBiMultiModalPlots-1.png"><img data-src="images/fig-singleBiMultiModalPlots-1.png" alt="A wide image shows three side-by-side blue bar charts on a white background with light gray gridlines. All three charts use horizontal values from 0 to 30 and vertical values from 0 to just above 20. The left chart has its tallest bars near the beginning, reaching approximately 22, 17, and 12, followed by shorter bars ranging from about 1 to 6. The middle chart contains several low-to-moderate bars, with the tallest cluster near values 19–22 reaching approximately 14. The right chart has separated clusters of bars: an early cluster reaching about 11, a middle cluster reaching about 14, and a later cluster with bars between approximately 3 and 7. No chart titles, axis titles, or legends are visible."></a></p>
-<figcaption>Counting only prominent peaks, the distributions are (left to right) unimodal, bimodal, and multimodal. Note that the left plot is unimodal because we are counting prominent peaks, not just any peak.</figcaption></figure>
+<figcaption>Counting only prominent peaks, the distributions are (left to right) unimodal, bimodal, and multimodal. Note that the left plot is unimodal because we are counting prominent peaks, not just any peak. Image and caption from: https://openintro-ims.netlify.app/explore-numerical</figcaption></figure>
 </div>
 </section></section><section><section id="manipulating-means-and-median" class="title-slide slide level1 center"><h1>Manipulating means and median</h1>
 
 </section><section id="manipulating-means-and-medians-12" class="slide level2"><h2>Manipulating means and medians (1/2)</h2>
 <div class="r-fit-text">
 <ul>
-<li><p>The mean (or the median) of the sum of two variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>: <span class="math inline">\(E[X + Y] = E[X]+ E[Y]\)</span></p></li>
-<li><p>The mean (or the median) of the sum of a variable <span class="math inline">\(X\)</span> and a constant <span class="math inline">\(c\)</span>: <span class="math inline">\(E[X + c] = E[X]+ c\)</span></p></li>
-<li><p>The mean (or the median) of a product of a variable <span class="math inline">\(X\)</span> and a constant <span class="math inline">\(c\)</span>: <span class="math inline">\(E[cX] = cE[X]\)</span></p></li>
+<li><p>The mean (or the median) of the sum of two variables <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline"> and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Y" alt="Y" title="Y" class="math inline">: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20E%5BX%20%2B%20Y%5D%20%3D%20E%5BX%5D%2B%20E%5BY%5D" alt="E[X + Y] = E[X]+ E[Y]" title="E[X + Y] = E[X]+ E[Y]" class="math inline"></p></li>
+<li><p>The mean (or the median) of the sum of a variable <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline"> and a constant <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20c" alt="c" title="c" class="math inline">: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20E%5BX%20%2B%20c%5D%20%3D%20E%5BX%5D%2B%20c" alt="E[X + c] = E[X]+ c" title="E[X + c] = E[X]+ c" class="math inline"></p></li>
+<li><p>The mean (or the median) of a product of a variable <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline"> and a constant <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20c" alt="c" title="c" class="math inline">: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20E%5BcX%5D%20%3D%20cE%5BX%5D" alt="E[cX] = cE[X]" title="E[cX] = cE[X]" class="math inline"></p></li>
 </ul>
 </div>
 
 <aside><div>
-<p><span class="math inline">\(E\)</span>: expected value of a variable</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20E" alt="E" title="E" class="math inline">: expected value of a variable</p>
 </div></aside></section><section id="manipulating-means-and-medians-22" class="slide level2"><h2>Manipulating means and medians (2/2)</h2>
 <div class="r-fit-text">
 <ul>
-<li>The mean (or median) of the sum of two variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>: <span class="math inline">\(E[X + Y] = E[X]+ E[Y]\)</span>
+<li>The mean (or median) of the sum of two variables <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline"> and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Y" alt="Y" title="Y" class="math inline">: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20E%5BX%20%2B%20Y%5D%20%3D%20E%5BX%5D%2B%20E%5BY%5D" alt="E[X + Y] = E[X]+ E[Y]" title="E[X + Y] = E[X]+ E[Y]" class="math inline">
 </li>
 </ul>
 <div class="cell">
@@ -276,7 +277,7 @@ B.Bitarello
 </div>
 </div>
 <ul>
-<li>The mean (or median) of the sum of a variable <span class="math inline">\(X\)</span> and a constant <span class="math inline">\(c\)</span>: <span class="math inline">\(E[X + c] = E[X]+ c\)</span>
+<li>The mean (or median) of the sum of a variable <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline"> and a constant <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20c" alt="c" title="c" class="math inline">: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20E%5BX%20%2B%20c%5D%20%3D%20E%5BX%5D%2B%20c" alt="E[X + c] = E[X]+ c" title="E[X + c] = E[X]+ c" class="math inline">
 </li>
 </ul>
 <div class="cell">
@@ -290,7 +291,7 @@ B.Bitarello
 </div>
 </div>
 <ul>
-<li>The mean (or median) of a product of a variable <span class="math inline">\(X\)</span> and a constant <span class="math inline">\(c\)</span>: <span class="math inline">\(E[cX] = cE[X]\)</span>
+<li>The mean (or median) of a product of a variable <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline"> and a constant <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20c" alt="c" title="c" class="math inline">: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20E%5BcX%5D%20%3D%20cE%5BX%5D" alt="E[cX] = cE[X]" title="E[cX] = cE[X]" class="math inline">
 </li>
 </ul>
 <div class="cell">
@@ -311,9 +312,9 @@ B.Bitarello
 <ul>
 <li class="fragment"><p>Range [<code>max value - min value</code>]</p></li>
 <li class="fragment"><p>Quartiles, interquartile range [<code>75th percentile - 25th percentile</code>]</p></li>
-<li class="fragment"><p>Variance [<font color="#00a1b7"> estimate = <span class="math inline">\(s^2\)</span> =<span class="math inline">\(\frac{\Sigma(x_i - \bar{x})^2}{n-1}\)</span></font>, <font color="#ad7237">param = <span class="math inline">\(\sigma ^2\)</span> = <span class="math inline">\(\frac{\Sigma(x_i - \mu)^2}{n}\)</span> ]</font></p></li>
-<li class="fragment"><p>Standard deviation [<font color="#00a1b7"> estimate = <span class="math inline">\(s\)</span> =<span class="math inline">\(\sqrt{s^2}\)</span></font>, <font color="#ad7237">param = <span class="math inline">\(\sigma\)</span> = <span class="math inline">\(\sqrt{\sigma^2}\)</span> ]</font></p></li>
-<li class="fragment"><p>Coefficient of variation [<font color="#00a1b7"> estimate = CV = <span class="math inline">\(\frac{s}{\bar{Y}}\)</span></font>, <font color="#ad7237">param = <span class="math inline">\(\frac{\sigma}{\mu}\)</span> ]</font></p></li>
+<li class="fragment"><p>Variance [<font color="#00a1b7"> estimate = <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20s%5E2" alt="s^2" title="s^2" class="math inline"> =<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cfrac%7B%5CSigma%28x_i%20-%20%5Cbar%7Bx%7D%29%5E2%7D%7Bn-1%7D" alt="\frac{\Sigma(x_i - \bar{x})^2}{n-1}" title="\frac{\Sigma(x_i - \bar{x})^2}{n-1}" class="math inline"></font>, <font color="#ad7237">param = <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Csigma%20%5E2" alt="\sigma ^2" title="\sigma ^2" class="math inline"> = <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cfrac%7B%5CSigma%28x_i%20-%20%5Cmu%29%5E2%7D%7Bn%7D" alt="\frac{\Sigma(x_i - \mu)^2}{n}" title="\frac{\Sigma(x_i - \mu)^2}{n}" class="math inline"> ]</font></p></li>
+<li class="fragment"><p>Standard deviation [<font color="#00a1b7"> estimate = <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20s" alt="s" title="s" class="math inline"> =<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Csqrt%7Bs%5E2%7D" alt="\sqrt{s^2}" title="\sqrt{s^2}" class="math inline"></font>, <font color="#ad7237">param = <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Csigma" alt="\sigma" title="\sigma" class="math inline"> = <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Csqrt%7B%5Csigma%5E2%7D" alt="\sqrt{\sigma^2}" title="\sqrt{\sigma^2}" class="math inline"> ]</font></p></li>
+<li class="fragment"><p>Coefficient of variation [<font color="#00a1b7"> estimate = CV = <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cfrac%7Bs%7D%7B%5Cbar%7BY%7D%7D" alt="\frac{s}{\bar{Y}}" title="\frac{s}{\bar{Y}}" class="math inline"></font>, <font color="#ad7237">param = <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cfrac%7B%5Csigma%7D%7B%5Cmu%7D" alt="\frac{\sigma}{\mu}" title="\frac{\sigma}{\mu}" class="math inline"> ]</font></p></li>
 </ul></section></section><section><section id="width-aka-variability" class="title-slide slide level1 center"><h1>Width (aka variability)</h1>
 <div class="r-fit-text">
 <p>Variability of a population should not be ignored as simply noise about the mean, but is biologically important in its own right.</p>
@@ -414,10 +415,17 @@ B.Bitarello
 
 <img data-src="2.2.Displaying-and-Describing-Data_files/figure-revealjs/unnamed-chunk-11-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="interquartile-range-iqr" class="slide level2"><h2>Inter<u>q</u>uartile Range (IQR)</h2>
 <div class="goal">
-<p>The difference between the 75th and 25th percentiles of the data. A.k.a., the “middle 50%” of the data. <span class="math inline">\(IQR=Q3-Q1\)</span>. Can sometimes be expressed as an interval, though less common.</p>
+<p>The difference between the 75th and 25th percentiles of the data. A.k.a., the “middle 50%” of the data. <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20IQR%3DQ3-Q1" alt="IQR=Q3-Q1" title="IQR=Q3-Q1" class="math inline">. Can sometimes be expressed as an interval, though less common.</p>
 </div>
-
-<img data-src="2.2.Displaying-and-Describing-Data_files/figure-revealjs/iqr-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"><aside class="notes"><p>Imagine sorting your data.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="2.2.Displaying-and-Describing-Data_files/figure-revealjs/iqr-1.png" class="margin-caption quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<aside class="notes"><p>Imagine sorting your data.</p>
 <ul>
 <li>The individual in the middle is the median.</li>
 <li>The first and last individuals mark the range</li>
@@ -497,7 +505,7 @@ B.Bitarello
 </section><section id="but-there-are-metrics-that-look-at-all-the-values" class="slide level2"><h2>But there are metrics that look at all the values</h2>
 <ul>
 <li><p>Variance, Standard Deviation, &amp; Coefficient of Variation all communicate how far individual observations are expected to deviate from the mean.</p></li>
-<li><p>Because (by definition) the differences between all observations and the mean sum to zero (<span class="math inline">\(\sum{Y_i-\bar{Y}=0}\)</span>), these summaries work from the squared difference between observations and the mean (<span class="math inline">\(\sum{(Y_i-\bar{Y})^2}\)</span>).</p></li>
+<li><p>Because (by definition) the differences between all observations and the mean sum to zero (<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Csum%7BY_i-%5Cbar%7BY%7D%3D0%7D" alt="\sum{Y_i-\bar{Y}=0}" title="\sum{Y_i-\bar{Y}=0}" class="math inline">), these summaries work from the squared difference between observations and the mean (<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Csum%7B%28Y_i-%5Cbar%7BY%7D%29%5E2%7D" alt="\sum{(Y_i-\bar{Y})^2}" title="\sum{(Y_i-\bar{Y})^2}" class="math inline">).</p></li>
 </ul></section><section id="variance" class="slide level2"><h2>Variance</h2>
 <div class="goal">
 <p>Variance: The expected value of the squared deviation from the mean.</p>
@@ -505,16 +513,16 @@ B.Bitarello
 <div class="columns">
 <div class="column">
 <p><font color="#ad7237"><strong>Parameter</strong></font></p>
-<p><font color="#ad7237"><span class="math display">\[\sigma^2=\frac{\sum_{i=1}^{N}(Y_{i}-\mu)^2}{N}\]</span> </font> <span class="math inline">\(N\)</span>: number of individuals in population</p>
-<p><span class="math inline">\(\mu\)</span>: population mean</p>
+<p><font color="#ad7237"><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Cdisplaystyle%20%5Csigma%5E2%3D%5Cfrac%7B%5Csum_%7Bi%3D1%7D%5E%7BN%7D%28Y_%7Bi%7D-%5Cmu%29%5E2%7D%7BN%7D" alt="\sigma^2=\frac{\sum_{i=1}^{N}(Y_{i}-\mu)^2}{N}" title="\sigma^2=\frac{\sum_{i=1}^{N}(Y_{i}-\mu)^2}{N}" class="math display"></font> <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20N" alt="N" title="N" class="math inline">: number of individuals in population</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cmu" alt="\mu" title="\mu" class="math inline">: population mean</p>
 </div><div class="column">
 <p><font color="#00a1b7"><strong>Estimate</strong></font></p>
-<p><font color="#00a1b7"><span class="math display">\[s^2=\frac{\sum_{i=1}^{n}(Y_{i}-\bar{Y})^2}{n-1}\]</span> </font> <span class="math inline">\(n\)</span>: number of individuals in sample</p>
-<p><span class="math inline">\(\bar{Y}\)</span>: sample mean</p>
+<p><font color="#00a1b7"><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Cdisplaystyle%20s%5E2%3D%5Cfrac%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%28Y_%7Bi%7D-%5Cbar%7BY%7D%29%5E2%7D%7Bn-1%7D" alt="s^2=\frac{\sum_{i=1}^{n}(Y_{i}-\bar{Y})^2}{n-1}" title="s^2=\frac{\sum_{i=1}^{n}(Y_{i}-\bar{Y})^2}{n-1}" class="math display"></font> <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20n" alt="n" title="n" class="math inline">: number of individuals in sample</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cbar%7BY%7D" alt="\bar{Y}" title="\bar{Y}" class="math inline">: sample mean</p>
 </div></div>
 
 <aside><div>
-<p>Note: the numerator here is called “sum of squares”. Bessel’s correction: using <span class="math inline">\(n\)</span> causes an underestimation of sample variance, so we use <span class="math inline">\(n-1\)</span>.</p>
+<p>Note: the numerator here is called “sum of squares”. Bessel’s correction: using <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20n" alt="n" title="n" class="math inline"> causes an underestimation of sample variance, so we use <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20n-1" alt="n-1" title="n-1" class="math inline">.</p>
 </div></aside></section><section id="variance-example" class="slide level2"><h2>Variance example</h2>
 <ul>
 <li>mean chick weight:</li>
@@ -530,7 +538,7 @@ B.Bitarello
 <li>subtract mean from each data point and square it</li>
 </ul>
 <ul>
-<li>add up and divide by <span class="math inline">\(n-1\)</span> to obtain the sample variance:</li>
+<li>add up and divide by <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20n-1" alt="n-1" title="n-1" class="math inline"> to obtain the sample variance:</li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a>step3 <span class="ot">&lt;-</span> <span class="fu">sum</span>(step2)</span>
@@ -554,12 +562,12 @@ B.Bitarello
 <div class="columns">
 <div class="column">
 <p><font color="#ad7237"><strong>Parameter</strong></font></p>
-<p><font color="#ad7237"><span class="math display">\[\sigma=\sqrt{\frac{\sum_{i=1}^{N}(Y_{i}-\mu)^2}{N}}=\sqrt{\sigma^2}\]</span> </font> <span class="math inline">\(N\)</span>: number of individuals in population</p>
-<p><span class="math inline">\(\mu\)</span>: population mean</p>
+<p><font color="#ad7237"><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Cdisplaystyle%20%5Csigma%3D%5Csqrt%7B%5Cfrac%7B%5Csum_%7Bi%3D1%7D%5E%7BN%7D%28Y_%7Bi%7D-%5Cmu%29%5E2%7D%7BN%7D%7D%3D%5Csqrt%7B%5Csigma%5E2%7D" alt="\sigma=\sqrt{\frac{\sum_{i=1}^{N}(Y_{i}-\mu)^2}{N}}=\sqrt{\sigma^2}" title="\sigma=\sqrt{\frac{\sum_{i=1}^{N}(Y_{i}-\mu)^2}{N}}=\sqrt{\sigma^2}" class="math display"></font> <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20N" alt="N" title="N" class="math inline">: number of individuals in population</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cmu" alt="\mu" title="\mu" class="math inline">: population mean</p>
 </div><div class="column">
 <p><font color="#00a1b7"><strong>Estimate</strong></font></p>
-<p><font color="#00a1b7"><span class="math display">\[s=\sqrt{\frac{\sum_{i=1}^{n}(Y_{i}-\bar{Y})^2}{n-1}}=\sqrt{s^2}\]</span> </font> <span class="math inline">\(n\)</span>: number of individuals in sample</p>
-<p><span class="math inline">\(\bar{Y}\)</span>: sample mean</p>
+<p><font color="#00a1b7"><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Cdisplaystyle%20s%3D%5Csqrt%7B%5Cfrac%7B%5Csum_%7Bi%3D1%7D%5E%7Bn%7D%28Y_%7Bi%7D-%5Cbar%7BY%7D%29%5E2%7D%7Bn-1%7D%7D%3D%5Csqrt%7Bs%5E2%7D" alt="s=\sqrt{\frac{\sum_{i=1}^{n}(Y_{i}-\bar{Y})^2}{n-1}}=\sqrt{s^2}" title="s=\sqrt{\frac{\sum_{i=1}^{n}(Y_{i}-\bar{Y})^2}{n-1}}=\sqrt{s^2}" class="math display"></font> <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20n" alt="n" title="n" class="math inline">: number of individuals in sample</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cbar%7BY%7D" alt="\bar{Y}" title="\bar{Y}" class="math inline">: sample mean</p>
 </div></div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a><span class="fu">sqrt</span>(step4)  <span class="co">#step 4 from prev. slide was the variance</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -589,11 +597,11 @@ B.Bitarello
 <li><p>The variance and standard deviation increase with the mean.</p></li>
 <li><p>The coefficient of variation allows for fair comparisons of variability between measures on different scales.</p></li>
 </ul>
-<p><span class="math display">\[CV=\frac{s}{\bar{Y}}\]</span>, sometimes expressed as:</p>
-<p><span class="math display">\[CV = 100\% \times \frac{s}{\bar{Y}}\]</span></p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Cdisplaystyle%20CV%3D%5Cfrac%7Bs%7D%7B%5Cbar%7BY%7D%7D" alt="CV=\frac{s}{\bar{Y}}" title="CV=\frac{s}{\bar{Y}}" class="math display">, sometimes expressed as:</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Cdisplaystyle%20CV%20%3D%20100%5C%25%20%5Ctimes%20%5Cfrac%7Bs%7D%7B%5Cbar%7BY%7D%7D" alt="CV = 100\% \times \frac{s}{\bar{Y}}" title="CV = 100\% \times \frac{s}{\bar{Y}}" class="math display"></p>
 </section><section id="manipulating-variance-and-standard-deviation" class="slide level2"><h2>Manipulating variance and standard deviation</h2>
 <ul>
-<li>The variance (or standard deviation) of the sum of a variable <span class="math inline">\(X\)</span> and a constant <span class="math inline">\(c\)</span>: <span class="math inline">\(Var[X + c] = Var[X]\)</span> (same is true for <span class="math inline">\(s\)</span>, the SD)</li>
+<li>The variance (or standard deviation) of the sum of a variable <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline"> and a constant <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20c" alt="c" title="c" class="math inline">: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Var%5BX%20%2B%20c%5D%20%3D%20Var%5BX%5D" alt="Var[X + c] = Var[X]" title="Var[X + c] = Var[X]" class="math inline"> (same is true for <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20s" alt="s" title="s" class="math inline">, the SD)</li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> iris<span class="sc">$</span>Petal.Length</span>
@@ -616,7 +624,7 @@ B.Bitarello
 </div>
 </div>
 <ul>
-<li>The variance of a product of a variable <span class="math inline">\(X\)</span> and a constant <span class="math inline">\(c\)</span>: <span class="math inline">\(Var[cX] = c^2 Var[X]\)</span>: (attention! It’s different for the SD)</li>
+<li>The variance of a product of a variable <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline"> and a constant <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20c" alt="c" title="c" class="math inline">: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Var%5BcX%5D%20%3D%20c%5E2%20Var%5BX%5D" alt="Var[cX] = c^2 Var[X]" title="Var[cX] = c^2 Var[X]" class="math inline">: (attention! It’s different for the SD)</li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a aria-label="1"></a><span class="fu">var</span>(x <span class="sc">*</span> <span class="dv">5</span>)  <span class="co">#is the same as:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -639,13 +647,13 @@ B.Bitarello
 </div>
 </section><section id="example-converting-units" class="slide level2"><h2>Example: converting units</h2>
 <div class="goal">
-<p>If the mean and variance in height (in centimers) in a sample are <span class="math inline">\(\bar{X}=169.8\text{ cm}\)</span> and <span class="math inline">\(s^2=131.98\text{ cm}^2\)</span> and <span class="math inline">\(1\text{ cm} = 0.394\)</span> inches, find the mean and variance in inches.</p>
+<p>If the mean and variance in height (in centimers) in a sample are <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cbar%7BX%7D%3D169.8%5Ctext%7B%20cm%7D" alt="\bar{X}=169.8\text{ cm}" title="\bar{X}=169.8\text{ cm}" class="math inline"> and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20s%5E2%3D131.98%5Ctext%7B%20cm%7D%5E2" alt="s^2=131.98\text{ cm}^2" title="s^2=131.98\text{ cm}^2" class="math inline"> and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%201%5Ctext%7B%20cm%7D%20%3D%200.394" alt="1\text{ cm} = 0.394" title="1\text{ cm} = 0.394" class="math inline"> inches, find the mean and variance in inches.</p>
 </div>
 <div class="fragment">
-<p>Mean: <span class="math inline">\(E[cX] = cE[X]\)</span></p>
-<p><span class="math inline">\(0.394\times169.8\text{ cm}=66.90\text{ inches}\)</span></p>
-<p>Variance: <span class="math inline">\(Var[cX] = c^2 Var[X]\)</span></p>
-<p><span class="math inline">\(0.394^2\times131.98\text{ cm}^2 = 20.488\text{ inches}^2\)</span></p>
+<p>Mean: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20E%5BcX%5D%20%3D%20cE%5BX%5D" alt="E[cX] = cE[X]" title="E[cX] = cE[X]" class="math inline"></p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%200.394%5Ctimes169.8%5Ctext%7B%20cm%7D%3D66.90%5Ctext%7B%20inches%7D" alt="0.394\times169.8\text{ cm}=66.90\text{ inches}" title="0.394\times169.8\text{ cm}=66.90\text{ inches}" class="math inline"></p>
+<p>Variance: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Var%5BcX%5D%20%3D%20c%5E2%20Var%5BX%5D" alt="Var[cX] = c^2 Var[X]" title="Var[cX] = c^2 Var[X]" class="math inline"></p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%200.394%5E2%5Ctimes131.98%5Ctext%7B%20cm%7D%5E2%20%3D%2020.488%5Ctext%7B%20inches%7D%5E2" alt="0.394^2\times131.98\text{ cm}^2 = 20.488\text{ inches}^2" title="0.394^2\times131.98\text{ cm}^2 = 20.488\text{ inches}^2" class="math inline"></p>
 </div>
 </section><section id="rounding" class="slide level2"><h2>Rounding</h2>
 <ul>
@@ -670,14 +678,14 @@ B.Bitarello
 </div>
 </div></div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
       Reveal.initialize({
 'controlsAuto': false,
 'previewLinksAuto': false,
-'pdfSeparateFragments': false,
+'pdfSeparateFragments': true,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
@@ -835,27 +843,9 @@ B.Bitarello
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

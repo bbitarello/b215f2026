@@ -39,28 +39,28 @@
     "href": "slides/2.2.Displaying-and-Describing-Data.html#modes-as-peaks-in-distributions",
     "title": "2.2.Displaying & Describing Data",
     "section": "Modes as peaks in distributions",
-    "text": "Modes as peaks in distributions\n\nAny distribution with more than two prominent peaks is called multimodal.\nNotice: more than one prominent peak in the unimodal distribution with a second less prominent peak that was not counted since it only differs from its neighboring bins by a few observations.\n\n\n\nCounting only prominent peaks, the distributions are (left to right) unimodal, bimodal, and multimodal. Note that the left plot is unimodal because we are counting prominent peaks, not just any peak."
+    "text": "Modes as peaks in distributions\n\nAny distribution with more than two prominent peaks is called multimodal.\nNotice: more than one prominent peak in the unimodal distribution with a second less prominent peak that was not counted since it only differs from its neighboring bins by a few observations.\n\n\n\nCounting only prominent peaks, the distributions are (left to right) unimodal, bimodal, and multimodal. Note that the left plot is unimodal because we are counting prominent peaks, not just any peak. Image and caption from: https://openintro-ims.netlify.app/explore-numerical"
   },
   {
     "objectID": "slides/2.2.Displaying-and-Describing-Data.html#manipulating-means-and-medians-12",
     "href": "slides/2.2.Displaying-and-Describing-Data.html#manipulating-means-and-medians-12",
     "title": "2.2.Displaying & Describing Data",
     "section": "Manipulating means and medians (1/2)",
-    "text": "Manipulating means and medians (1/2)\n\n\nThe mean (or the median) of the sum of two variables \\(X\\) and \\(Y\\): \\(E[X + Y] = E[X]+ E[Y]\\)\nThe mean (or the median) of the sum of a variable \\(X\\) and a constant \\(c\\): \\(E[X + c] = E[X]+ c\\)\nThe mean (or the median) of a product of a variable \\(X\\) and a constant \\(c\\): \\(E[cX] = cE[X]\\)\n\n\n\n\n\\(E\\): expected value of a variable"
+    "text": "Manipulating means and medians (1/2)\n\n\nThe mean (or the median) of the sum of two variables  and : \nThe mean (or the median) of the sum of a variable  and a constant : \nThe mean (or the median) of a product of a variable  and a constant : \n\n\n\n\n: expected value of a variable"
   },
   {
     "objectID": "slides/2.2.Displaying-and-Describing-Data.html#manipulating-means-and-medians-22",
     "href": "slides/2.2.Displaying-and-Describing-Data.html#manipulating-means-and-medians-22",
     "title": "2.2.Displaying & Describing Data",
     "section": "Manipulating means and medians (2/2)",
-    "text": "Manipulating means and medians (2/2)\n\n\nThe mean (or median) of the sum of two variables \\(X\\) and \\(Y\\): \\(E[X + Y] = E[X]+ E[Y]\\)\n\n\n\nx &lt;- iris$Petal.Length\ny &lt;- iris$Petal.Width\nmean(x + y)  #is the same as:\n\n[1] 4.957333\n\nmean(x) + mean(y)\n\n[1] 4.957333\n\n\n\nThe mean (or median) of the sum of a variable \\(X\\) and a constant \\(c\\): \\(E[X + c] = E[X]+ c\\)\n\n\n\nmean(x + 10)  #is the same as:\n\n[1] 13.758\n\nmean(x) + 10\n\n[1] 13.758\n\n\n\nThe mean (or median) of a product of a variable \\(X\\) and a constant \\(c\\): \\(E[cX] = cE[X]\\)\n\n\n\nmean(x * 20)  #is the same as\n\n[1] 75.16\n\n20 * mean(x)\n\n[1] 75.16\n\n\n\nConvince yourself this is true for the median as well!"
+    "text": "Manipulating means and medians (2/2)\n\n\nThe mean (or median) of the sum of two variables  and : \n\n\n\nx &lt;- iris$Petal.Length\ny &lt;- iris$Petal.Width\nmean(x + y)  #is the same as:\n\n[1] 4.957333\n\nmean(x) + mean(y)\n\n[1] 4.957333\n\n\n\nThe mean (or median) of the sum of a variable  and a constant : \n\n\n\nmean(x + 10)  #is the same as:\n\n[1] 13.758\n\nmean(x) + 10\n\n[1] 13.758\n\n\n\nThe mean (or median) of a product of a variable  and a constant : \n\n\n\nmean(x * 20)  #is the same as\n\n[1] 75.16\n\n20 * mean(x)\n\n[1] 75.16\n\n\n\nConvince yourself this is true for the median as well!"
   },
   {
     "objectID": "slides/2.2.Displaying-and-Describing-Data.html#these-apply-to-numerical-data",
     "href": "slides/2.2.Displaying-and-Describing-Data.html#these-apply-to-numerical-data",
     "title": "2.2.Displaying & Describing Data",
     "section": "These apply to numerical data",
-    "text": "These apply to numerical data\n\nRange [max value - min value]\nQuartiles, interquartile range [75th percentile - 25th percentile]\nVariance [ estimate = \\(s^2\\) =\\(\\frac{\\Sigma(x_i - \\bar{x})^2}{n-1}\\), param = \\(\\sigma ^2\\) = \\(\\frac{\\Sigma(x_i - \\mu)^2}{n}\\) ]\nStandard deviation [ estimate = \\(s\\) =\\(\\sqrt{s^2}\\), param = \\(\\sigma\\) = \\(\\sqrt{\\sigma^2}\\) ]\nCoefficient of variation [ estimate = CV = \\(\\frac{s}{\\bar{Y}}\\), param = \\(\\frac{\\sigma}{\\mu}\\) ]"
+    "text": "These apply to numerical data\n\nRange [max value - min value]\nQuartiles, interquartile range [75th percentile - 25th percentile]\nVariance [ estimate =  =, param =  =  ]\nStandard deviation [ estimate =  =, param =  =  ]\nCoefficient of variation [ estimate = CV = , param =  ]"
   },
   {
     "objectID": "slides/2.2.Displaying-and-Describing-Data.html#range",
@@ -109,7 +109,7 @@
     "href": "slides/2.2.Displaying-and-Describing-Data.html#interquartile-range-iqr",
     "title": "2.2.Displaying & Describing Data",
     "section": "Interquartile Range (IQR)",
-    "text": "Interquartile Range (IQR)\n\nThe difference between the 75th and 25th percentiles of the data. A.k.a., the “middle 50%” of the data. \\(IQR=Q3-Q1\\). Can sometimes be expressed as an interval, though less common.\n\n\nImagine sorting your data.\n\nThe individual in the middle is the median.\nThe first and last individuals mark the range\nThe other two quantiles are the individuals ¼ and ¾ the way into your sorted list of data\nThe difference between these is the interquartile range\nless biased than range\nRecommended: https://psu-eberly.shinyapps.io/Effect_of_Outliers/"
+    "text": "Interquartile Range (IQR)\n\nThe difference between the 75th and 25th percentiles of the data. A.k.a., the “middle 50%” of the data. . Can sometimes be expressed as an interval, though less common.\n\n\n\n\n\n\n\n\n\nImagine sorting your data.\n\nThe individual in the middle is the median.\nThe first and last individuals mark the range\nThe other two quantiles are the individuals ¼ and ¾ the way into your sorted list of data\nThe difference between these is the interquartile range\nless biased than range\nRecommended: https://psu-eberly.shinyapps.io/Effect_of_Outliers/"
   },
   {
     "objectID": "slides/2.2.Displaying-and-Describing-Data.html#iqr-example",
@@ -137,28 +137,28 @@
     "href": "slides/2.2.Displaying-and-Describing-Data.html#but-there-are-metrics-that-look-at-all-the-values",
     "title": "2.2.Displaying & Describing Data",
     "section": "But there are metrics that look at all the values",
-    "text": "But there are metrics that look at all the values\n\nVariance, Standard Deviation, & Coefficient of Variation all communicate how far individual observations are expected to deviate from the mean.\nBecause (by definition) the differences between all observations and the mean sum to zero (\\(\\sum{Y_i-\\bar{Y}=0}\\)), these summaries work from the squared difference between observations and the mean (\\(\\sum{(Y_i-\\bar{Y})^2}\\))."
+    "text": "But there are metrics that look at all the values\n\nVariance, Standard Deviation, & Coefficient of Variation all communicate how far individual observations are expected to deviate from the mean.\nBecause (by definition) the differences between all observations and the mean sum to zero (), these summaries work from the squared difference between observations and the mean ()."
   },
   {
     "objectID": "slides/2.2.Displaying-and-Describing-Data.html#variance",
     "href": "slides/2.2.Displaying-and-Describing-Data.html#variance",
     "title": "2.2.Displaying & Describing Data",
     "section": "Variance",
-    "text": "Variance\n\nVariance: The expected value of the squared deviation from the mean.\n\n\n\nParameter\n\\[\\sigma^2=\\frac{\\sum_{i=1}^{N}(Y_{i}-\\mu)^2}{N}\\]  \\(N\\): number of individuals in population\n\\(\\mu\\): population mean\n\nEstimate\n\\[s^2=\\frac{\\sum_{i=1}^{n}(Y_{i}-\\bar{Y})^2}{n-1}\\]  \\(n\\): number of individuals in sample\n\\(\\bar{Y}\\): sample mean\n\n\n\nNote: the numerator here is called “sum of squares”. Bessel’s correction: using \\(n\\) causes an underestimation of sample variance, so we use \\(n-1\\)."
+    "text": "Variance\n\nVariance: The expected value of the squared deviation from the mean.\n\n\n\nParameter\n : number of individuals in population\n: population mean\n\nEstimate\n : number of individuals in sample\n: sample mean\n\n\n\nNote: the numerator here is called “sum of squares”. Bessel’s correction: using  causes an underestimation of sample variance, so we use ."
   },
   {
     "objectID": "slides/2.2.Displaying-and-Describing-Data.html#variance-example",
     "href": "slides/2.2.Displaying-and-Describing-Data.html#variance-example",
     "title": "2.2.Displaying & Describing Data",
     "section": "Variance example",
-    "text": "Variance example\n\nmean chick weight:\n\n\nmean.chick20 &lt;- mean(chick20)\nmean.chick20  #209.7174\n\n[1] 209.7174\n\n\n\nsubtract mean from each data point and square it\n\n\nadd up and divide by \\(n-1\\) to obtain the sample variance:\n\n\nstep3 &lt;- sum(step2)\nsample.size &lt;- length(chick20)  #46\nstep4 &lt;- step3/(sample.size - 1)  #bessel's correction\nstep4  #unit: grams squared (grams^2)\n\n[1] 4423.807\n\n\n\nor, the short way:\n\n\nvar(chick20)\n\n[1] 4423.807"
+    "text": "Variance example\n\nmean chick weight:\n\n\nmean.chick20 &lt;- mean(chick20)\nmean.chick20  #209.7174\n\n[1] 209.7174\n\n\n\nsubtract mean from each data point and square it\n\n\nadd up and divide by  to obtain the sample variance:\n\n\nstep3 &lt;- sum(step2)\nsample.size &lt;- length(chick20)  #46\nstep4 &lt;- step3/(sample.size - 1)  #bessel's correction\nstep4  #unit: grams squared (grams^2)\n\n[1] 4423.807\n\n\n\nor, the short way:\n\n\nvar(chick20)\n\n[1] 4423.807"
   },
   {
     "objectID": "slides/2.2.Displaying-and-Describing-Data.html#standard-deviation",
     "href": "slides/2.2.Displaying-and-Describing-Data.html#standard-deviation",
     "title": "2.2.Displaying & Describing Data",
     "section": "Standard Deviation",
-    "text": "Standard Deviation\n\n\nParameter\n\\[\\sigma=\\sqrt{\\frac{\\sum_{i=1}^{N}(Y_{i}-\\mu)^2}{N}}=\\sqrt{\\sigma^2}\\]  \\(N\\): number of individuals in population\n\\(\\mu\\): population mean\n\nEstimate\n\\[s=\\sqrt{\\frac{\\sum_{i=1}^{n}(Y_{i}-\\bar{Y})^2}{n-1}}=\\sqrt{s^2}\\]  \\(n\\): number of individuals in sample\n\\(\\bar{Y}\\): sample mean\n\n\nsqrt(step4)  #step 4 from prev. slide was the variance\n\n[1] 66.51171\n\n# same as:\nsd(chick20)  #66.51171\n\n[1] 66.51171\n\n# same as:\nsqrt(sum((chick20 - mean.chick20)^2)/(sample.size - 1))\n\n[1] 66.51171"
+    "text": "Standard Deviation\n\n\nParameter\n : number of individuals in population\n: population mean\n\nEstimate\n : number of individuals in sample\n: sample mean\n\n\nsqrt(step4)  #step 4 from prev. slide was the variance\n\n[1] 66.51171\n\n# same as:\nsd(chick20)  #66.51171\n\n[1] 66.51171\n\n# same as:\nsqrt(sum((chick20 - mean.chick20)^2)/(sample.size - 1))\n\n[1] 66.51171"
   },
   {
     "objectID": "slides/2.2.Displaying-and-Describing-Data.html#in-summary",
@@ -172,21 +172,21 @@
     "href": "slides/2.2.Displaying-and-Describing-Data.html#coefficient-of-variation-cv",
     "title": "2.2.Displaying & Describing Data",
     "section": "Coefficient of Variation (CV)",
-    "text": "Coefficient of Variation (CV)\n\nThe variance and standard deviation increase with the mean.\nThe coefficient of variation allows for fair comparisons of variability between measures on different scales.\n\n\\[CV=\\frac{s}{\\bar{Y}}\\], sometimes expressed as:\n\\[CV = 100\\% \\times \\frac{s}{\\bar{Y}}\\]"
+    "text": "Coefficient of Variation (CV)\n\nThe variance and standard deviation increase with the mean.\nThe coefficient of variation allows for fair comparisons of variability between measures on different scales.\n\n, sometimes expressed as:"
   },
   {
     "objectID": "slides/2.2.Displaying-and-Describing-Data.html#manipulating-variance-and-standard-deviation",
     "href": "slides/2.2.Displaying-and-Describing-Data.html#manipulating-variance-and-standard-deviation",
     "title": "2.2.Displaying & Describing Data",
     "section": "Manipulating variance and standard deviation",
-    "text": "Manipulating variance and standard deviation\n\nThe variance (or standard deviation) of the sum of a variable \\(X\\) and a constant \\(c\\): \\(Var[X + c] = Var[X]\\) (same is true for \\(s\\), the SD)\n\n\nx &lt;- iris$Petal.Length\nvar(x + 20)  #is the same as:\n\n[1] 3.116278\n\nvar(x)\n\n[1] 3.116278\n\n# sd:\nsd(x)  #is the same as:\n\n[1] 1.765298\n\nsd(x + 20)\n\n[1] 1.765298\n\n\n\nThe variance of a product of a variable \\(X\\) and a constant \\(c\\): \\(Var[cX] = c^2 Var[X]\\): (attention! It’s different for the SD)\n\n\nvar(x * 5)  #is the same as:\n\n[1] 77.90695\n\n5^2 * var(x)\n\n[1] 77.90695\n\n# but attention for the SD!\nsd(x * 5)  #is the same as:\n\n[1] 8.826491\n\nsd(x) * 5  # \n\n[1] 8.826491"
+    "text": "Manipulating variance and standard deviation\n\nThe variance (or standard deviation) of the sum of a variable  and a constant :  (same is true for , the SD)\n\n\nx &lt;- iris$Petal.Length\nvar(x + 20)  #is the same as:\n\n[1] 3.116278\n\nvar(x)\n\n[1] 3.116278\n\n# sd:\nsd(x)  #is the same as:\n\n[1] 1.765298\n\nsd(x + 20)\n\n[1] 1.765298\n\n\n\nThe variance of a product of a variable  and a constant : : (attention! It’s different for the SD)\n\n\nvar(x * 5)  #is the same as:\n\n[1] 77.90695\n\n5^2 * var(x)\n\n[1] 77.90695\n\n# but attention for the SD!\nsd(x * 5)  #is the same as:\n\n[1] 8.826491\n\nsd(x) * 5  # \n\n[1] 8.826491"
   },
   {
     "objectID": "slides/2.2.Displaying-and-Describing-Data.html#example-converting-units",
     "href": "slides/2.2.Displaying-and-Describing-Data.html#example-converting-units",
     "title": "2.2.Displaying & Describing Data",
     "section": "Example: converting units",
-    "text": "Example: converting units\n\nIf the mean and variance in height (in centimers) in a sample are \\(\\bar{X}=169.8\\text{ cm}\\) and \\(s^2=131.98\\text{ cm}^2\\) and \\(1\\text{ cm} = 0.394\\) inches, find the mean and variance in inches.\n\n\nMean: \\(E[cX] = cE[X]\\)\n\\(0.394\\times169.8\\text{ cm}=66.90\\text{ inches}\\)\nVariance: \\(Var[cX] = c^2 Var[X]\\)\n\\(0.394^2\\times131.98\\text{ cm}^2 = 20.488\\text{ inches}^2\\)"
+    "text": "Example: converting units\n\nIf the mean and variance in height (in centimers) in a sample are  and  and  inches, find the mean and variance in inches.\n\n\nMean: \n\nVariance:"
   },
   {
     "objectID": "slides/2.2.Displaying-and-Describing-Data.html#rounding",
