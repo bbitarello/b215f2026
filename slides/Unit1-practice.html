@@ -11,7 +11,7 @@
 <meta name="generator" content="quarto-1.10.18">
 <meta name="author" content="Bárbara D. Bitarello">
 <meta name="dcterms.date" content="2026-09-09">
-<meta name="keywords" content="Unit 1">
+<meta name="keywords" content="Unit 2">
 <title>BIOL B215: Biostatistics with R – Review/practice problems</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -148,24 +148,12 @@ Bárbara D. Bitarello
 
   <p class="date">September 9, 2026</p>
 </section><section id="acknowledgments" class="slide level2"><h2>Acknowledgments</h2>
-<p>Most of these are modified from the textbook “The analysis of biological data”, by Whitlock &amp; Schluter, Macmillan, 3rd edition.</p>
-</section><section id="case-study-1-the-titanic-its-back" class="slide level2 scrollable"><h2>Case study 1: the titanic (it’s back!)</h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.2.1     ✔ readr     2.2.0
-✔ forcats   1.0.1     ✔ stringr   1.6.0
-✔ ggplot2   4.0.3     ✔ tibble    3.3.1
-✔ lubridate 1.9.5     ✔ tidyr     1.3.2
-✔ purrr     1.2.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
+<ul>
+<li><p>Most of these examples are based on the textbook used in the course: “The analysis of biological data”, by Whitlock &amp; Schluter, Macmillan, 3rd edition.</p></li>
+<li><p>Code for the titanic plot was borrowed from Y. Brandvain.</p></li>
+</ul></section><section id="case-study-1-the-titanic-its-back" class="slide level2 scrollable"><h2>Case study 1: the titanic (it’s back!)</h2>
 
-</div>
-<img data-src="Unit1-practice_files/figure-html/titanic-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" alt="Left, proportion of males and females among adults in the titanic who survived.  Right, same thing but for children." width="672"><p>Think for a moment, then discuss with someone.</p>
+<img data-src="Unit1-practice_files/figure-revealjs/titanic-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" alt="Left, proportion of males and females among adults in the titanic who survived.  Right, same thing but for children." width="960"><p>Think for a moment, then discuss with someone.</p>
 <p><strong>Questions:</strong></p>
 <ol type="1">
 <li><p>Variables? Types? Explanatory &amp; response variables?</p></li>
@@ -282,7 +270,7 @@ Bárbara D. Bitarello
       }</style></aside></section><section id="more-practice-problems" class="slide level2"><h2>More practice problems</h2>
 <ul>
 <li>Study guide</li>
-<li>End of chapter 1 questions from WS*</li>
+<li>End of chapter 1 questions from WS**</li>
 <li>End of chapter 14 questions from WS – we only covered some of that though, but it’s worth checking out some of those review questions</li>
 <li>Review problems in WS</li>
 <li>
@@ -294,9 +282,7 @@ Bárbara D. Bitarello
 
 
 <aside><div>
-<ul>
-<li>Whitlock &amp; Schluter, The analysis of Biological Data</li>
-</ul>
+<p>** Whitlock &amp; Schluter, The analysis of Biological Data</p>
 </div></aside></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -496,6 +482,41 @@ Bárbara D. Bitarello
           RevealZoom
         ]
       });
+    </script><script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

@@ -7,6 +7,209 @@
     "text": "Thank you to the following people and orgs for sharing their website templates: Maria Tackett, datasciencelabs, Mine Çetinkaya-Rundel, Rstudio, and Rafael Irizarry.\nYaniv Brandvain and Michael Whitlock for sharing awesome teaching materials, from which I have heavily borrowed.\nThank you also to fbriatte.org for curating so many useful tips shared with students in Rrresources.\nThank you also to Nicole Cavalieri (BMC ’26) for help in developing some of the R lab materials, and Seba de Bona for some tweaks to lab activities."
   },
   {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#acknowledgments",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#acknowledgments",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\n\nSome code and slide content was borrowed from Yaniv Brandvain and Michael Whitlock.\nSome content is based on the textbook used in the course (by Freeman & Company)."
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#the-data-33",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#the-data-33",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "The data (3/3)",
+    "text": "The data (3/3)\n\nA measure of center (or location) of our data: ⭐\nA measure of spread (or width) of our data (red)."
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#we-have-already-introduced",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#we-have-already-introduced",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "We have already introduced:",
+    "text": "We have already introduced:\n\nmean (numeric)\nmedian (numeric)\nmode (numeric, categorical)\nmean x median"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#reality-check-a-note-about-modes",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#reality-check-a-note-about-modes",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Reality check: A note about modes",
+    "text": "Reality check: A note about modes\n\nwe defined the mode mathematically as the value with the most occurrences in the dataset.\nfor many real-world datasets, it is common to have no observations with the same value in a dataset, making this definition impractical in data analysis."
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#modes-as-peaks-in-distributions",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#modes-as-peaks-in-distributions",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Modes as peaks in distributions",
+    "text": "Modes as peaks in distributions\n\nAny distribution with more than two prominent peaks is called multimodal.\nNotice: more than one prominent peak in the unimodal distribution with a second less prominent peak that was not counted since it only differs from its neighboring bins by a few observations.\n\n\n\nCounting only prominent peaks, the distributions are (left to right) unimodal, bimodal, and multimodal. Note that the left plot is unimodal because we are counting prominent peaks, not just any peak."
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#manipulating-means-and-medians-12",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#manipulating-means-and-medians-12",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Manipulating means and medians (1/2)",
+    "text": "Manipulating means and medians (1/2)\n\n\nThe mean (or the median) of the sum of two variables \\(X\\) and \\(Y\\): \\(E[X + Y] = E[X]+ E[Y]\\)\nThe mean (or the median) of the sum of a variable \\(X\\) and a constant \\(c\\): \\(E[X + c] = E[X]+ c\\)\nThe mean (or the median) of a product of a variable \\(X\\) and a constant \\(c\\): \\(E[cX] = cE[X]\\)\n\n\n\n\n\\(E\\): expected value of a variable"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#manipulating-means-and-medians-22",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#manipulating-means-and-medians-22",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Manipulating means and medians (2/2)",
+    "text": "Manipulating means and medians (2/2)\n\n\nThe mean (or median) of the sum of two variables \\(X\\) and \\(Y\\): \\(E[X + Y] = E[X]+ E[Y]\\)\n\n\n\nx &lt;- iris$Petal.Length\ny &lt;- iris$Petal.Width\nmean(x + y)  #is the same as:\n\n[1] 4.957333\n\nmean(x) + mean(y)\n\n[1] 4.957333\n\n\n\nThe mean (or median) of the sum of a variable \\(X\\) and a constant \\(c\\): \\(E[X + c] = E[X]+ c\\)\n\n\n\nmean(x + 10)  #is the same as:\n\n[1] 13.758\n\nmean(x) + 10\n\n[1] 13.758\n\n\n\nThe mean (or median) of a product of a variable \\(X\\) and a constant \\(c\\): \\(E[cX] = cE[X]\\)\n\n\n\nmean(x * 20)  #is the same as\n\n[1] 75.16\n\n20 * mean(x)\n\n[1] 75.16\n\n\n\nConvince yourself this is true for the median as well!"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#these-apply-to-numerical-data",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#these-apply-to-numerical-data",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "These apply to numerical data",
+    "text": "These apply to numerical data\n\nRange [max value - min value]\nQuartiles, interquartile range [75th percentile - 25th percentile]\nVariance [ estimate = \\(s^2\\) =\\(\\frac{\\Sigma(x_i - \\bar{x})^2}{n-1}\\), param = \\(\\sigma ^2\\) = \\(\\frac{\\Sigma(x_i - \\mu)^2}{n}\\) ]\nStandard deviation [ estimate = \\(s\\) =\\(\\sqrt{s^2}\\), param = \\(\\sigma\\) = \\(\\sqrt{\\sigma^2}\\) ]\nCoefficient of variation [ estimate = CV = \\(\\frac{s}{\\bar{Y}}\\), param = \\(\\frac{\\sigma}{\\mu}\\) ]"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#range",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#range",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Range",
+    "text": "Range\n\nThe difference between the maximum and minimum observed values in a sample\n\n\nThe range of a sample corresponds to the size of the narrowest interval containing all the data.\nOperationally, it’s calculated as the difference between the maximum and minimum."
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#range-example-13",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#range-example-13",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Range: example (1/3)",
+    "text": "Range: example (1/3)\n\nExample: Range of weight of 46 chicks at 20 days since birth:\n\n\nchick20 &lt;- c(199, 209, 198, 160, 220, 160, 288, 125, 100, 120,\n    181, 195, 91, 259, 133, 144, 115, 318, 164, 170, 76, 259,\n    236, 185, 212, 279, 157, 235, 291, 156, 327, 361, 225, 169,\n    280, 250, 295, 199, 269, 199, 197, 231, 210, 303, 233, 264)\n\nSorting the values:\n\nchick20.sorted &lt;- sort(chick20)\nchick20.sorted\n\n [1]  76  91 100 115 120 125 133 144 156 157 160 160 164 169 170 181 185 195 197\n[20] 198 199 199 199 209 210 212 220 225 231 233 235 236 250 259 259 264 269 279\n[39] 280 288 291 295 303 318 327 361\n\n\nand selecting the first and last values:\n\nchick20.sorted[1]  #first value\n\n[1] 76\n\nchick20.sorted[length(chick20)]  #last value\n\n[1] 361"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#range-example-23",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#range-example-23",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Range: example (2/3)",
+    "text": "Range: example (2/3)\nUsing the min() and max() functions:\n\nc(min(chick20), max(chick20))\n\n[1]  76 361\n\n\nusing the summary() function:\n\nsummary(chick20)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   76.0   161.0   204.0   209.7   259.0   361.0 \n\n\nor the range() function:\n\nrange(chick20)\n\n[1]  76 361"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#range-example-33",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#range-example-33",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Range: example (3/3)",
+    "text": "Range: example (3/3)\n\nWhat happens to the range as sample size increases?\nWhat happens to the range if there are rare outliers?\nNot a good measure of spread. Let’s look for a better one.\n\n\n\nThese are histograms. Histograms depict a frequency distribution for discrete or continuous data.\n\nSmall samples tend to give lower estimates of the range than large samples. So the sample range is a biased estimator of the true range of the population. So sample range is a biased estimator of the true range of the population."
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#q-quantiles-12",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#q-quantiles-12",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Q-quantiles (1/2)",
+    "text": "Q-quantiles (1/2)\nq-quantiles are cut points dividing the range of a probability distribution into q intervals with (approx) equal probabilities.\n\nTwo quantiles: median"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#q-quantiles-22",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#q-quantiles-22",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Q-quantiles (2/2)",
+    "text": "Q-quantiles (2/2)\n\n4 quantiles: quartiles"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#interquartile-range-iqr",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#interquartile-range-iqr",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Interquartile Range (IQR)",
+    "text": "Interquartile Range (IQR)\n\nThe difference between the 75th and 25th percentiles of the data. A.k.a., the “middle 50%” of the data. \\(IQR=Q3-Q1\\). Can sometimes be expressed as an interval, though less common.\n\n\nImagine sorting your data.\n\nThe individual in the middle is the median.\nThe first and last individuals mark the range\nThe other two quantiles are the individuals ¼ and ¾ the way into your sorted list of data\nThe difference between these is the interquartile range\nless biased than range\nRecommended: https://psu-eberly.shinyapps.io/Effect_of_Outliers/"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#iqr-example",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#iqr-example",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "IQR example",
+    "text": "IQR example\nsummary() gives quartiles and max/min\n\nchick20.sorted\n\n [1]  76  91 100 115 120 125 133 144 156 157 160 160 164 169 170 181 185 195 197\n[20] 198 199 199 199 209 210 212 220 225 231 233 235 236 250 259 259 264 269 279\n[39] 280 288 291 295 303 318 327 361\n\n# summary gives quartiles and max/min\nsummary(chick20)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   76.0   161.0   204.0   209.7   259.0   361.0 \n\n\nIQR too:\n\nIQR(chick20)\n\n[1] 98\n\n\nIQR can give us more information than the range, but it’s still only looking at the values “in the middle”"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#a-standard-boxplot",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#a-standard-boxplot",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "A standard boxplot",
+    "text": "A standard boxplot\n\n\n\n\n\nIt is actually not the most commonly seen one in bio, though. Image from: https://psu-eberly.shinyapps.io/Effect_of_Outliers/\n\n\n\nIt is actually not the most commonly seen one in bio, though."
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#modified-or-outlier-box-plot",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#modified-or-outlier-box-plot",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Modified or outlier box plot",
+    "text": "Modified or outlier box plot\n\nThis is the most commonly seen one in bio.\nImportant: Figure captions MUST always describe how the whiskers were defined.\n\n\n\n\n\n\nImage from: https://psu-eberly.shinyapps.io/Effect_of_Outliers/"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#but-there-are-metrics-that-look-at-all-the-values",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#but-there-are-metrics-that-look-at-all-the-values",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "But there are metrics that look at all the values",
+    "text": "But there are metrics that look at all the values\n\nVariance, Standard Deviation, & Coefficient of Variation all communicate how far individual observations are expected to deviate from the mean.\nBecause (by definition) the differences between all observations and the mean sum to zero (\\(\\sum{Y_i-\\bar{Y}=0}\\)), these summaries work from the squared difference between observations and the mean (\\(\\sum{(Y_i-\\bar{Y})^2}\\))."
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#variance",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#variance",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Variance",
+    "text": "Variance\n\nVariance: The expected value of the squared deviation from the mean.\n\n\n\nParameter\n\\[\\sigma^2=\\frac{\\sum_{i=1}^{N}(Y_{i}-\\mu)^2}{N}\\]  \\(N\\): number of individuals in population\n\\(\\mu\\): population mean\n\nEstimate\n\\[s^2=\\frac{\\sum_{i=1}^{n}(Y_{i}-\\bar{Y})^2}{n-1}\\]  \\(n\\): number of individuals in sample\n\\(\\bar{Y}\\): sample mean\n\n\n\nNote: the numerator here is called “sum of squares”. Bessel’s correction: using \\(n\\) causes an underestimation of sample variance, so we use \\(n-1\\)."
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#variance-example",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#variance-example",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Variance example",
+    "text": "Variance example\n\nmean chick weight:\n\n\nmean.chick20 &lt;- mean(chick20)\nmean.chick20  #209.7174\n\n[1] 209.7174\n\n\n\nsubtract mean from each data point and square it\n\n\nadd up and divide by \\(n-1\\) to obtain the sample variance:\n\n\nstep3 &lt;- sum(step2)\nsample.size &lt;- length(chick20)  #46\nstep4 &lt;- step3/(sample.size - 1)  #bessel's correction\nstep4  #unit: grams squared (grams^2)\n\n[1] 4423.807\n\n\n\nor, the short way:\n\n\nvar(chick20)\n\n[1] 4423.807"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#standard-deviation",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#standard-deviation",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Standard Deviation",
+    "text": "Standard Deviation\n\n\nParameter\n\\[\\sigma=\\sqrt{\\frac{\\sum_{i=1}^{N}(Y_{i}-\\mu)^2}{N}}=\\sqrt{\\sigma^2}\\]  \\(N\\): number of individuals in population\n\\(\\mu\\): population mean\n\nEstimate\n\\[s=\\sqrt{\\frac{\\sum_{i=1}^{n}(Y_{i}-\\bar{Y})^2}{n-1}}=\\sqrt{s^2}\\]  \\(n\\): number of individuals in sample\n\\(\\bar{Y}\\): sample mean\n\n\nsqrt(step4)  #step 4 from prev. slide was the variance\n\n[1] 66.51171\n\n# same as:\nsd(chick20)  #66.51171\n\n[1] 66.51171\n\n# same as:\nsqrt(sum((chick20 - mean.chick20)^2)/(sample.size - 1))\n\n[1] 66.51171"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#in-summary",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#in-summary",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "In summary",
+    "text": "In summary\n\nRange: The difference between the largest and smallest values. Underestimates population range (biased estimator).\nInterquartile Range: The difference between the 25th and 75th percentile.\nVariance & Standard Deviation: The difference between observations & the mean.\nCoefficient of Variation: A measure of the standard deviation that’s independent of the mean."
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#coefficient-of-variation-cv",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#coefficient-of-variation-cv",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Coefficient of Variation (CV)",
+    "text": "Coefficient of Variation (CV)\n\nThe variance and standard deviation increase with the mean.\nThe coefficient of variation allows for fair comparisons of variability between measures on different scales.\n\n\\[CV=\\frac{s}{\\bar{Y}}\\], sometimes expressed as:\n\\[CV = 100\\% \\times \\frac{s}{\\bar{Y}}\\]"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#manipulating-variance-and-standard-deviation",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#manipulating-variance-and-standard-deviation",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Manipulating variance and standard deviation",
+    "text": "Manipulating variance and standard deviation\n\nThe variance (or standard deviation) of the sum of a variable \\(X\\) and a constant \\(c\\): \\(Var[X + c] = Var[X]\\) (same is true for \\(s\\), the SD)\n\n\nx &lt;- iris$Petal.Length\nvar(x + 20)  #is the same as:\n\n[1] 3.116278\n\nvar(x)\n\n[1] 3.116278\n\n# sd:\nsd(x)  #is the same as:\n\n[1] 1.765298\n\nsd(x + 20)\n\n[1] 1.765298\n\n\n\nThe variance of a product of a variable \\(X\\) and a constant \\(c\\): \\(Var[cX] = c^2 Var[X]\\): (attention! It’s different for the SD)\n\n\nvar(x * 5)  #is the same as:\n\n[1] 77.90695\n\n5^2 * var(x)\n\n[1] 77.90695\n\n# but attention for the SD!\nsd(x * 5)  #is the same as:\n\n[1] 8.826491\n\nsd(x) * 5  # \n\n[1] 8.826491"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#example-converting-units",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#example-converting-units",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Example: converting units",
+    "text": "Example: converting units\n\nIf the mean and variance in height (in centimers) in a sample are \\(\\bar{X}=169.8\\text{ cm}\\) and \\(s^2=131.98\\text{ cm}^2\\) and \\(1\\text{ cm} = 0.394\\) inches, find the mean and variance in inches.\n\n\nMean: \\(E[cX] = cE[X]\\)\n\\(0.394\\times169.8\\text{ cm}=66.90\\text{ inches}\\)\nVariance: \\(Var[cX] = c^2 Var[X]\\)\n\\(0.394^2\\times131.98\\text{ cm}^2 = 20.488\\text{ inches}^2\\)"
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#rounding",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#rounding",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "Rounding",
+    "text": "Rounding\n\nComputers can return values with precision that exceeds biological interest.\nWhen sharing results, round numbers to a reasonable number of significant figures.\nPresenting one or two more digits than initially measured is a good rule of thumb.\nDO NOT round while calculating or sharing intermediate results!\nRound only the final results of the specific summaries of interest."
+  },
+  {
+    "objectID": "slides/2.2.Displaying-and-Describing-Data.html#how-about-plots",
+    "href": "slides/2.2.Displaying-and-Describing-Data.html#how-about-plots",
+    "title": "2.2.Displaying & Describing Data",
+    "section": "How about plots?",
+    "text": "How about plots?\n\nAren’t numerical summaries enough?"
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples4.html#acknowledgments",
+    "href": "slides/Statistics_and_Samples4.html#acknowledgments",
+    "title": "1.4. A soft intro to causal inference",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\n\nSome code and slide content was borrowed from Yaniv Brandvain and Michael Whitlock.\nSpecifically, here, I used the smoking and cancer example from Y. Brandvain’s book Applied Biostats).\nSome content is based on the textbook used in the course (by Freeman & Company)."
+  },
+  {
     "objectID": "slides/Statistics_and_Samples4.html#quick-recap",
     "href": "slides/Statistics_and_Samples4.html#quick-recap",
     "title": "1.4. A soft intro to causal inference",
@@ -109,14 +312,14 @@
     "href": "slides/Statistics_and_Samples4.html#comic-moment",
     "title": "1.4. A soft intro to causal inference",
     "section": "Comic moment",
-    "text": "Comic moment\n\nFrom: https://www.xkcd.com/552/. Correlation doesn’t imply causation, but it does waggle its eyebrows suggestively and gesture furtively while mouthing ‘look over there’."
+    "text": "Comic moment\n\n\n\nFrom: https://www.xkcd.com/552/. Correlation doesn’t imply causation, but it does waggle its eyebrows suggestively and gesture furtively while mouthing ‘look over there’."
   },
   {
-    "objectID": "slides/Statistics_and_Samples4.html#acknowledgments",
-    "href": "slides/Statistics_and_Samples4.html#acknowledgments",
-    "title": "1.4. A soft intro to causal inference",
+    "objectID": "slides/Statistics_and_Samples2.html#acknowledgments",
+    "href": "slides/Statistics_and_Samples2.html#acknowledgments",
+    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Acknowledgments",
-    "text": "Acknowledgments\nYaniv Brandvain (specifically, here, I used the smoking and cancer example from his book Applied Biostats); Freeman & Company; and Michael Whitlock for some materials used in these slides."
+    "text": "Acknowledgments\n\nSome code and slide content was borrowed from Yaniv Brandvain and Michael Whitlock.\nSome content is based on the textbook used in the course (by Freeman & Company)."
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#quick-recap",
@@ -158,7 +361,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\nHide the code# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 5 4 1\n\nHide the code# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 10  3  4"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\nHide the code# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 4 6 8\n\nHide the code# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 8 1 7"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
@@ -329,13 +532,6 @@
     "text": "Coming up next:\n\nDifferent types of variables\nDifferent types of study\nCorrelation \\(\\neq\\) causation"
   },
   {
-    "objectID": "slides/Statistics_and_Samples2.html#acknowledgments",
-    "href": "slides/Statistics_and_Samples2.html#acknowledgments",
-    "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
-  },
-  {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
     "title": "Syllabus",
@@ -400,7 +596,7 @@
     "href": "index.html",
     "title": "B215: Biostatistics with R",
     "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nmodule\nweek\ndow\ndate\nwhat\ntopic\ndue\nexam\n\n\n\n\n1\n1\nM\nAug-31\n0\nIntro to class\n\n\n\n\n1\n1\nT\nSep-1\n1\nLab1: Intro to R\nDC: Introduction to R (ch.1-2) + Lab worksheet 1\n\n\n\n1\n1\nW\nSep-2\n2\nStatistics and Samples\n\n\n\n\n1\n2\nM\nSep-7\n\n\nNo classes (labor day)\n\n\n\n\n1\n2\nT\nSep-8\n3\nLab 2: Data structures & basic summary stats\nDC: Introduction to R (ch.1-6) + Lab worksheet 2\n\n\n\n1\n2\nW\nSep-9\n4\nUnit 1 (review) + Basic summary stats (cont.)\n\n\n\n\n1\n3\nM\nSep-14\n5\nDisplaying & Describing Data I\n\n\n\n\n1\n3\nT\nSep-15\n6\nLab 3: ggplot and dplyr\nDC: Intro to the Tidyverse (1-4) + Lab woksheet 3\n\n\n\n1\n3\nW\nSep-16\n7\nDisplaying & Describing Data I\n\n\n\n\n1\n4\nM\nSep-21\n8\nDisplaying & Describing Data II\n\n\n\n\n1\n4\nT\nSep-22\n9\nLab 4: Exploratory data analysis\nLab woksheet 4\n\n\n\n1\n4\nW\nSep-23\n10\nDisplaying & Describing Data II\nProblem set 1\n\n\n\n2\n5\nM\nSep-28\n11\nProbability I: Proportions\nAll DCs (hard deadline)\n\n\n\n2\n5\nT\nSep-29\n12\n\n\n\n\nMidterm 1\n\n\n2\n5\nW\nSep-30\n13\nProbability I: Rules\n\n\n\n\n2\n6\nM\nOct-5\n14\nProbability II: Binomial & Bayes\n\n\n\n\n2\n6\nT\nOct-6\n15\nLab 5:\nLab woksheet 5\n\n\n\n2\n6\nW\nOct-7\n16\nProbability II: Binomial & Bayes\n\n\n\n\n\n\n\nOct-10-Oct18\n\n\nFall break (no classes)\n\n\n\n\n2\n7\nM\nOct-19\n17\nEstimation\n\n\n\n\n2\n7\nT\nOct-20\n18\nLab 6:\nLab worksheet 6\n\n\n\n2\n7\nW\nOct-21\n19\nEstimation\nCoding project checkpoint 1\n\n\n\n2\n8\nM\nOct-26\n20\nEstimation|Hypothesis testing\n\n\n\n\n2\n8\nT\nOct-27\n21\nLab 7:\nLab worksheet\n\n\n\n2\n8\nW\nOct-28\n22\nHypothesis testing\nCoding checkpoint\n\n\n\n2\n9\nM\nNov-2\n23\nGoodness-of-fit test\n\n\n\n\n2\n9\nT\nNov-3\n24\nLab 8:\nLab worksheet\n\n\n\n2\n9\nW\nNov-4\n25\nGoodness-of-fit test\nCoding project checkpoint 2\n\n\n\n3\n10\nM\n2026-11-09\n26\nContingency analyses\nAll DCs (hard deadline); PS2\n\n\n\n3\n10\nT\nNov-10\n27\n\n\n\n\nMidterm 2\n\n\n3\n10\nW\nNov-11\n28\nContingency analyses\n\n\n\n\n3\n11\nM\nNov-16\n29\nContingency analyses\n\n\n\n\n3\n11\nT\nNov-17\n30\nLab 9:\nLab worksheet\n\n\n\n3\n11\nW\nNov-18\n31\nContingency analyses\n\n\n\n\n3\n12\nM\nNov-23\n32\nNormal Distribution\n\n\n\n\n3\n12\nT\nNov-24\n33\nLab 10:\nLab worksheet\n\n\n\n3\n12\nW\nNov-25\n\n\nNo class (day before thanksgiving)\n\n\n\n\n3\n13\nM\nNov-30\n34\nt-values\n\n\n\n\n3\n13\nT\nDec-1\n35\nLab 11: TBD + Peer-review activity\n\n\n\n\n3\n13\nW\nDec-2\n36\nt-tests\nProblem set 3\n\n\n\n3\n14\nM\nDec-7\n37\n\n\n\n\n\n\n3\n14\nT\nDec-8\n38\nLab 11: |Work on coding project\n\n\n\n\n3\n14\nW\nDec-9\n39\nReview|Course Evals\nCoding project\n\n\n\n\n15\n\n\n\n\n\n\n\n\nFinal exam: during finals week, date TBD",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nmodule\nweek\ndow\ndate\nwhat\ntopic\ndue\nexam\n\n\n\n\n1\n1\nM\nAug-31\n0\nIntro to class\n\n\n\n\n1\n1\nT\nSep-1\n1\nLab1: Intro to R\nDC: Introduction to R (ch.1-2) + Lab worksheet 1\n\n\n\n1\n1\nW\nSep-2\n2\nStatistics and Samples\n\n\n\n\n1\n2\nM\nSep-7\n\n\nNo classes (labor day)\n\n\n\n\n1\n2\nT\nSep-8\n3\nLab 2: Data structures & basic summary stats\nDC: Introduction to R (ch.1-6) + Lab worksheet 2\n\n\n\n1\n2\nW\nSep-9\n4\nUnit 1 (review)\n\n\n\n\n1\n3\nM\nSep-14\n5\nSummarising Data\n\n\n\n\n1\n3\nT\nSep-15\n6\nLab 3: Intro to tidyverse & markdown\nDC: Intro to the Tidyverse (1-4) + Lab woksheet 3\n\n\n\n1\n3\nW\nSep-16\n7\nVisualizing Data\n\n\n\n\n1\n4\nM\nSep-21\n8\nSummarising & Visualizing Data\n\n\n\n\n1\n4\nT\nSep-22\n9\nLab 4: Plots and Exploratory Data Analysis\nLab woksheet 4\n\n\n\n1\n4\nW\nSep-23\n10\nDisplaying & Describing Data II\nProblem set 1\n\n\n\n2\n5\nM\nSep-28\n11\nProbability I: Proportions\nAll DCs (hard deadline)\n\n\n\n2\n5\nT\nSep-29\n12\n\n\n\n\nMidterm 1\n\n\n2\n5\nW\nSep-30\n13\nProbability I: Rules\n\n\n\n\n2\n6\nM\nOct-5\n14\nProbability II: Binomial & Bayes\n\n\n\n\n2\n6\nT\nOct-6\n15\nLab 5:\nLab woksheet 5\n\n\n\n2\n6\nW\nOct-7\n16\nProbability II: Binomial & Bayes\n\n\n\n\n\n\n\nOct-10-Oct18\n\n\nFall break (no classes)\n\n\n\n\n2\n7\nM\nOct-19\n17\nEstimation\n\n\n\n\n2\n7\nT\nOct-20\n18\nLab 6:\nLab worksheet 6\n\n\n\n2\n7\nW\nOct-21\n19\nEstimation\nCoding project checkpoint 1\n\n\n\n2\n8\nM\nOct-26\n20\nEstimation|Hypothesis testing\n\n\n\n\n2\n8\nT\nOct-27\n21\nLab 7:\nLab worksheet\n\n\n\n2\n8\nW\nOct-28\n22\nHypothesis testing\nCoding checkpoint\n\n\n\n2\n9\nM\nNov-2\n23\nGoodness-of-fit test\n\n\n\n\n2\n9\nT\nNov-3\n24\nLab 8:\nLab worksheet\n\n\n\n2\n9\nW\nNov-4\n25\nGoodness-of-fit test\nCoding project checkpoint 2\n\n\n\n3\n10\nM\n2026-11-09\n26\nContingency analyses\nAll DCs (hard deadline); PS2\n\n\n\n3\n10\nT\nNov-10\n27\n\n\n\n\nMidterm 2\n\n\n3\n10\nW\nNov-11\n28\nContingency analyses\n\n\n\n\n3\n11\nM\nNov-16\n29\nContingency analyses\n\n\n\n\n3\n11\nT\nNov-17\n30\nLab 9:\nLab worksheet\n\n\n\n3\n11\nW\nNov-18\n31\nContingency analyses\n\n\n\n\n3\n12\nM\nNov-23\n32\nNormal Distribution\n\n\n\n\n3\n12\nT\nNov-24\n33\nLab 10:\nLab worksheet\n\n\n\n3\n12\nW\nNov-25\n\n\nNo class (day before thanksgiving)\n\n\n\n\n3\n13\nM\nNov-30\n34\nt-values\n\n\n\n\n3\n13\nT\nDec-1\n35\nLab 11: TBD + Peer-review activity\n\n\n\n\n3\n13\nW\nDec-2\n36\nt-tests\nProblem set 3\n\n\n\n3\n14\nM\nDec-7\n37\n\n\n\n\n\n\n3\n14\nT\nDec-8\n38\nLab 11: |Work on coding project\n\n\n\n\n3\n14\nW\nDec-9\n39\nReview|Course Evals\nCoding project\n\n\n\n\n15\n\n\n\n\n\n\n\n\nFinal exam: during finals week, date TBD",
     "crumbs": [
       "Schedule"
     ]
@@ -410,7 +606,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\n1.1.Statistics & Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nUnit 1\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nUnit 1\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nUnit 1\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 1\n\n\nReview/practice problems\n\n\nWed, Sep 09\n\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\n1.1.Statistics & Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nUnit 1\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nUnit 1\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nUnit 1\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.2.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Slides"
     ]
@@ -420,10 +616,17 @@
     "href": "slides.html#attribution",
     "title": "Slides",
     "section": "Attribution",
-    "text": "Attribution\nMuch of the content is based on those of others, which I have tried sincerely to acknowledge at every point (see also: Acknowlegments). If you see something that lacks proper attribution, I warmly encourage you to reach out. Outside of materials contributed by others, the following applies:\n\nThis work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.",
+    "text": "Attribution\nMuch of the content is based on those of others, which I have tried sincerely to acknowledge at every point (see also: Acknowlegments). If you see something that lacks proper attribution, I encourage you to reach out.",
     "crumbs": [
       "Slides"
     ]
+  },
+  {
+    "objectID": "slides/Statistics_and_Samples1.html#acknowledgments",
+    "href": "slides/Statistics_and_Samples1.html#acknowledgments",
+    "title": "1.1.Statistics & Samples",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\n\nSome code and slide content was borrowed from Yaniv Brandvain and Michael Whitlock.\nSome content is based on the textbook used in the course (by Freeman & Company)."
   },
   {
     "objectID": "slides/Statistics_and_Samples1.html#learning-goals",
@@ -531,11 +734,11 @@
     "text": "A sample of starfish\n\n\n\nEstimates (statistics) approximate parameters as inferred from samples.\nWe estimate the proportion of pink as inferred from this sample and extrapolate to the population as an approximation."
   },
   {
-    "objectID": "slides/Statistics_and_Samples1.html#acknowledgments",
-    "href": "slides/Statistics_and_Samples1.html#acknowledgments",
-    "title": "1.1.Statistics & Samples",
+    "objectID": "slides/Statistics_and_Samples3.html#acknowledgments",
+    "href": "slides/Statistics_and_Samples3.html#acknowledgments",
+    "title": "1.3.Types of variables",
     "section": "Acknowledgments",
-    "text": "Acknowledgments\n\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
+    "text": "Acknowledgments\n\nSome code and slide content was borrowed from Yaniv Brandvain and Michael Whitlock.\nSome content is based on the textbook used in the course (by Freeman & Company)."
   },
   {
     "objectID": "slides/Statistics_and_Samples3.html#quick-recap",
@@ -633,28 +836,21 @@
     "href": "slides/Statistics_and_Samples3.html#discuss",
     "title": "1.3.Types of variables",
     "section": "Discuss",
-    "text": "Discuss\n\n\n\n\n\n\n\n\n\nVariables? Types? Explanatory & response variables?\nDescribe the population this result came from…\nHow far would you generalize from this to “Women & Children 1st?”\nExperimental or observational study?\n\n\n\nWe will continue with this case study at our next in-person meeting!"
-  },
-  {
-    "objectID": "slides/Statistics_and_Samples3.html#acknowledgments",
-    "href": "slides/Statistics_and_Samples3.html#acknowledgments",
-    "title": "1.3.Types of variables",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments\nYaniv Brandvain, Freeman & Company, and Michael Whitlock for some materials used in these slides."
+    "text": "Discuss\n\n\n\n\n\n\n\n\n\nVariables? Types? Explanatory & response variables?\nDescribe the population this result came from…\nHow far would you generalize from this to “Women & Children 1st?”\nExperimental or observational study?\n\n\n\n\n\nWe will continue with this case study at our next in-person meeting!"
   },
   {
     "objectID": "slides/Unit1-practice.html#acknowledgments",
     "href": "slides/Unit1-practice.html#acknowledgments",
     "title": "Review/practice problems",
     "section": "Acknowledgments",
-    "text": "Acknowledgments\nMost of these are modified from the textbook “The analysis of biological data”, by Whitlock & Schluter, Macmillan, 3rd edition."
+    "text": "Acknowledgments\n\nMost of these examples are based on the textbook used in the course: “The analysis of biological data”, by Whitlock & Schluter, Macmillan, 3rd edition.\nCode for the titanic plot was borrowed from Y. Brandvain."
   },
   {
     "objectID": "slides/Unit1-practice.html#case-study-1-the-titanic-its-back",
     "href": "slides/Unit1-practice.html#case-study-1-the-titanic-its-back",
     "title": "Review/practice problems",
     "section": "Case study 1: the titanic (it’s back!)",
-    "text": "Case study 1: the titanic (it’s back!)\n\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.2.0\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.3     ✔ tibble    3.3.1\n✔ lubridate 1.9.5     ✔ tidyr     1.3.2\n✔ purrr     1.2.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\n\n\nThink for a moment, then discuss with someone.\nQuestions:\n\nVariables? Types? Explanatory & response variables?\nDescribe the population this result came from…\nHow far would you generalize from this to “Women & Children 1st?”\nExperimental or observational study?\n\n\nSex (categ, nominal), life stage (categ ordinal), survival status (categ). Life stage is response, the others are explanatory.\nThe population is the titanic! And we have all of the info!\nAs great as the dataset is, we can’t generalize beyong the titanic. Who knows whether or not this is true for other ships?\nObservational, of course. Treatments were not assigned randomly to explanatory variable groups."
+    "text": "Case study 1: the titanic (it’s back!)\n\nThink for a moment, then discuss with someone.\nQuestions:\n\nVariables? Types? Explanatory & response variables?\nDescribe the population this result came from…\nHow far would you generalize from this to “Women & Children 1st?”\nExperimental or observational study?\n\n\nSex (categ, nominal), life stage (categ ordinal), survival status (categ). Life stage is response, the others are explanatory.\nThe population is the titanic! And we have all of the info!\nAs great as the dataset is, we can’t generalize beyong the titanic. Who knows whether or not this is true for other ships?\nObservational, of course. Treatments were not assigned randomly to explanatory variable groups."
   },
   {
     "objectID": "slides/Unit1-practice.html#case-study-2-12",
@@ -703,7 +899,14 @@
     "href": "slides/Unit1-practice.html#more-practice-problems",
     "title": "Review/practice problems",
     "section": "More practice problems",
-    "text": "More practice problems\n\nStudy guide\nEnd of chapter 1 questions from WS*\nEnd of chapter 14 questions from WS – we only covered some of that though, but it’s worth checking out some of those review questions\nReview problems in WS\n\nStephen D. Turner’s “Biological Data Science with R” has great practice problems and is freely available.\n\nMine Çetinkaya-Rundel and Johanna Hardin’s “Introduction to Modern Statistics (2e)” has great practice problems and is freely available.\n\n\n\n\n\n\nWhitlock & Schluter, The analysis of Biological Data"
+    "text": "More practice problems\n\nStudy guide\nEnd of chapter 1 questions from WS**\nEnd of chapter 14 questions from WS – we only covered some of that though, but it’s worth checking out some of those review questions\nReview problems in WS\n\nStephen D. Turner’s “Biological Data Science with R” has great practice problems and is freely available.\n\nMine Çetinkaya-Rundel and Johanna Hardin’s “Introduction to Modern Statistics (2e)” has great practice problems and is freely available.\n\n\n\n\n\n** Whitlock & Schluter, The analysis of Biological Data"
+  },
+  {
+    "objectID": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
+    "href": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
+    "title": "2.1.Displaying & Describing Data",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\n\nSome code and slide content was borrowed from Yaniv Brandvain and Michael Whitlock.\nSome content is based on the textbook used in the course (by Freeman & Company)."
   },
   {
     "objectID": "slides/2.1.DisplayingAndDescribingData.html#outline",
@@ -839,13 +1042,6 @@
     "text": "Next\nMeasures of spread (width):\n\nrange\nq-quantiles, interquartile range\nVariance\nStandard deviation\nCoefficient of variation"
   },
   {
-    "objectID": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
-    "href": "slides/2.1.DisplayingAndDescribingData.html#acknowledgments",
-    "title": "2.1.Displaying & Describing Data",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments\nYaniv Brandvain; Freeman & Company; and Michael Whitlock for some materials used in these slides."
-  },
-  {
     "objectID": "rlearn.html",
     "href": "rlearn.html",
     "title": "Learning R (and statistics)",
@@ -890,7 +1086,7 @@
     "href": "rlearn.html#tutorials-simulations",
     "title": "Learning R (and statistics)",
     "section": "Tutorials & Simulations",
-    "text": "Tutorials & Simulations\n\nfasteR: Fast Lane to Learning R! – If you wanna speed things up!\nR Workflow for Reproducible Data Analysis and Reporting by Frank E. Harrell Jr – Great resource. Provides tutorials and also link to other freely available materials.\nR for Beginners –– An on-line introduction to R by Emmanuel Paradis\nr-statistics.co, by Selva Prabhakaran - includes very good section on ggplot!\nFrom your textbook\nQuick-R\nRstudio Education\nPosit Cloud Recipes\nPower analyses in R",
+    "text": "Tutorials & Simulations\n\nW3schools R tuturial: - I recommend for reviewing the basics and testing your knowledge.\nfasteR: Fast Lane to Learning R! – If you wanna speed things up!\nR Workflow for Reproducible Data Analysis and Reporting by Frank E. Harrell Jr – Great resource. Provides tutorials and also link to other freely available materials.\nR for Beginners –– An on-line introduction to R by Emmanuel Paradis\nr-statistics.co, by Selva Prabhakaran - includes very good section on ggplot!\nFrom your textbook\nQuick-R\nRstudio Education\nPosit Cloud Recipes\nPower analyses in R",
     "crumbs": [
       "Rrresources"
     ]

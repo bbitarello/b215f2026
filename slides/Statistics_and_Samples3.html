@@ -202,7 +202,6 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center"><h1 class="title">1.3.Types of variables</h1>
-  <p class="subtitle">Acknowledgments: see last slide</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -213,7 +212,11 @@ Bárbara D. Bitarello
 </div>
 
   <p class="date">September 2, 2026</p>
-</section><section id="quick-recap" class="slide level2"><h2>Quick recap</h2>
+</section><section id="acknowledgments" class="slide level2"><h2>Acknowledgments</h2>
+<ul>
+<li><p>Some code and slide content was borrowed from Yaniv Brandvain and Michael Whitlock.</p></li>
+<li><p>Some content is based on the textbook used in the course (by Freeman &amp; Company).</p></li>
+</ul></section><section id="quick-recap" class="slide level2"><h2>Quick recap</h2>
 <p>Last lecture we discussed:</p>
 <ul>
 <li>The two types of errors associated with sampling: sampling error and sampling bias.</li>
@@ -292,23 +295,23 @@ Bárbara D. Bitarello
 </ul></section><section id="example-the-iris-dataset-in-r" class="slide level2"><h2>Example: the <code>iris</code> dataset in R</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div id="ozfjlzudty" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ozfjlzudty table {
+<div id="gkmvqkazoi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gkmvqkazoi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ozfjlzudty thead, #ozfjlzudty tbody, #ozfjlzudty tfoot, #ozfjlzudty tr, #ozfjlzudty td, #ozfjlzudty th {
+#gkmvqkazoi thead, #gkmvqkazoi tbody, #gkmvqkazoi tfoot, #gkmvqkazoi tr, #gkmvqkazoi td, #gkmvqkazoi th {
   border-style: none;
 }
 
-#ozfjlzudty p {
+#gkmvqkazoi p {
   margin: 0;
   padding: 0;
 }
 
-#ozfjlzudty .gt_table {
+#gkmvqkazoi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -334,12 +337,12 @@ Bárbara D. Bitarello
   border-left-color: #D3D3D3;
 }
 
-#ozfjlzudty .gt_caption {
+#gkmvqkazoi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ozfjlzudty .gt_title {
+#gkmvqkazoi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -351,7 +354,7 @@ Bárbara D. Bitarello
   border-bottom-width: 0;
 }
 
-#ozfjlzudty .gt_subtitle {
+#gkmvqkazoi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -363,7 +366,7 @@ Bárbara D. Bitarello
   border-top-width: 0;
 }
 
-#ozfjlzudty .gt_heading {
+#gkmvqkazoi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -375,13 +378,13 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#ozfjlzudty .gt_bottom_border {
+#gkmvqkazoi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ozfjlzudty .gt_col_headings {
+#gkmvqkazoi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -396,7 +399,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#ozfjlzudty .gt_col_heading {
+#gkmvqkazoi .gt_col_heading {
   color: #FFFFFF;
   background-color: #365C8D;
   font-size: 100%;
@@ -416,7 +419,7 @@ Bárbara D. Bitarello
   overflow-x: hidden;
 }
 
-#ozfjlzudty .gt_column_spanner_outer {
+#gkmvqkazoi .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #365C8D;
   font-size: 100%;
@@ -428,15 +431,15 @@ Bárbara D. Bitarello
   padding-right: 4px;
 }
 
-#ozfjlzudty .gt_column_spanner_outer:first-child {
+#gkmvqkazoi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ozfjlzudty .gt_column_spanner_outer:last-child {
+#gkmvqkazoi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ozfjlzudty .gt_column_spanner {
+#gkmvqkazoi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -448,11 +451,11 @@ Bárbara D. Bitarello
   width: 100%;
 }
 
-#ozfjlzudty .gt_spanner_row {
+#gkmvqkazoi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ozfjlzudty .gt_group_heading {
+#gkmvqkazoi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -478,7 +481,7 @@ Bárbara D. Bitarello
   text-align: left;
 }
 
-#ozfjlzudty .gt_empty_group_heading {
+#gkmvqkazoi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -493,15 +496,15 @@ Bárbara D. Bitarello
   vertical-align: middle;
 }
 
-#ozfjlzudty .gt_from_md > :first-child {
+#gkmvqkazoi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ozfjlzudty .gt_from_md > :last-child {
+#gkmvqkazoi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ozfjlzudty .gt_row {
+#gkmvqkazoi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -520,7 +523,7 @@ Bárbara D. Bitarello
   overflow-x: hidden;
 }
 
-#ozfjlzudty .gt_stub {
+#gkmvqkazoi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -533,7 +536,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#ozfjlzudty .gt_stub_row_group {
+#gkmvqkazoi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -547,15 +550,15 @@ Bárbara D. Bitarello
   vertical-align: top;
 }
 
-#ozfjlzudty .gt_row_group_first td {
+#gkmvqkazoi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ozfjlzudty .gt_row_group_first th {
+#gkmvqkazoi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ozfjlzudty .gt_summary_row {
+#gkmvqkazoi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -565,16 +568,16 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#ozfjlzudty .gt_first_summary_row {
+#gkmvqkazoi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ozfjlzudty .gt_first_summary_row.thick {
+#gkmvqkazoi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ozfjlzudty .gt_last_summary_row {
+#gkmvqkazoi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -584,7 +587,7 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#ozfjlzudty .gt_grand_summary_row {
+#gkmvqkazoi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -594,7 +597,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#ozfjlzudty .gt_first_grand_summary_row {
+#gkmvqkazoi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -604,7 +607,7 @@ Bárbara D. Bitarello
   border-top-color: #D3D3D3;
 }
 
-#ozfjlzudty .gt_last_grand_summary_row_top {
+#gkmvqkazoi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -614,11 +617,11 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#ozfjlzudty .gt_striped {
+#gkmvqkazoi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ozfjlzudty .gt_table_body {
+#gkmvqkazoi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -627,7 +630,7 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#ozfjlzudty .gt_footnotes {
+#gkmvqkazoi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -641,7 +644,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#ozfjlzudty .gt_footnote {
+#gkmvqkazoi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -650,7 +653,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#ozfjlzudty .gt_sourcenotes {
+#gkmvqkazoi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -664,7 +667,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#ozfjlzudty .gt_sourcenote {
+#gkmvqkazoi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -672,72 +675,72 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#ozfjlzudty .gt_left {
+#gkmvqkazoi .gt_left {
   text-align: left;
 }
 
-#ozfjlzudty .gt_center {
+#gkmvqkazoi .gt_center {
   text-align: center;
 }
 
-#ozfjlzudty .gt_right {
+#gkmvqkazoi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ozfjlzudty .gt_font_normal {
+#gkmvqkazoi .gt_font_normal {
   font-weight: normal;
 }
 
-#ozfjlzudty .gt_font_bold {
+#gkmvqkazoi .gt_font_bold {
   font-weight: bold;
 }
 
-#ozfjlzudty .gt_font_italic {
+#gkmvqkazoi .gt_font_italic {
   font-style: italic;
 }
 
-#ozfjlzudty .gt_super {
+#gkmvqkazoi .gt_super {
   font-size: 65%;
 }
 
-#ozfjlzudty .gt_footnote_marks {
+#gkmvqkazoi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ozfjlzudty .gt_asterisk {
+#gkmvqkazoi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ozfjlzudty .gt_indent_1 {
+#gkmvqkazoi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ozfjlzudty .gt_indent_2 {
+#gkmvqkazoi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ozfjlzudty .gt_indent_3 {
+#gkmvqkazoi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ozfjlzudty .gt_indent_4 {
+#gkmvqkazoi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ozfjlzudty .gt_indent_5 {
+#gkmvqkazoi .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ozfjlzudty .katex-display {
+#gkmvqkazoi .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ozfjlzudty div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#gkmvqkazoi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -923,13 +926,11 @@ Bárbara D. Bitarello
 <li><p>Experimental or observational study?</p></li>
 </ol>
 
+
+
 <aside><div>
 <p>We will continue with this case study at our next in-person meeting!</p>
-</div></aside></section><section id="acknowledgments" class="slide level2"><h2>Acknowledgments</h2>
-<p>Yaniv Brandvain, Freeman &amp; Company, and Michael Whitlock for some materials used in these slides.</p>
-
-
-</section>
+</div></aside></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

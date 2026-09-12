@@ -9,10 +9,10 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-eaeb381c6b7494c50009502241a4985c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
-<meta name="author" content="Bárbara D. Bitarello">
+<meta name="author" content="B.Bitarello">
 <meta name="dcterms.date" content="2026-09-09">
 <meta name="keywords" content="Unit 2">
-<title>BIOL B215: Biostatistics with R – 2.1.Displaying &amp; Describing Data</title>
+<title>BIOL B215: Biostatistics with R – 2.2.Displaying &amp; Describing Data</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -201,1623 +201,120 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center"><h1 class="title">2.1.Displaying &amp; Describing Data</h1>
-  <p class="subtitle">2.1.Descriptive statistics</p>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">2.2.Displaying &amp; Describing Data</h1>
+  <p class="subtitle">Descriptive statistics</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Bárbara D. Bitarello
+B.Bitarello
 </div>
 </div>
 </div>
 
   <p class="date">September 9, 2026</p>
-</section><section id="we-have-already-introduced" class="slide level2"><h2>We have already introduced:</h2>
+</section><section id="acknowledgments" class="slide level2"><h2>Acknowledgments</h2>
 <ul>
-<li><p>mean</p></li>
-<li><p>median</p></li>
-<li><p>mode</p></li>
+<li><p>Some code and slide content was borrowed from Yaniv Brandvain and Michael Whitlock.</p></li>
+<li><p>Some content is based on the textbook used in the course (by Freeman &amp; Company).</p></li>
+</ul></section><section><section id="recap" class="title-slide slide level1 center"><h1>Recap</h1>
+
+</section><section id="the-data-33" class="slide level2"><h2>The data (3/3)</h2>
+<ul>
+<li><p>A measure of center (or location) of our data: ⭐</p></li>
+<li><p>A measure of spread (or width) of our data (red).</p></li>
+</ul>
+
+<img data-src="images/points3.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" alt="Several pink points somewhat clustered around the center of a black background. A yellow star is at the center of the image, amongst the points."></section><section id="we-have-already-introduced" class="slide level2"><h2>We have already introduced:</h2>
+<ul>
+<li><p>mean (numeric)</p></li>
+<li><p>median (numeric)</p></li>
+<li><p>mode (numeric, categorical)</p></li>
 <li><p>mean x median</p></li>
-</ul>
-<p>All of these are numerical summaries we can use for numerical variables. (mode can also be used for categorical ones)</p>
-</section><section id="case-study-us-income-12" class="slide level2"><h2>Case Study: US income (1/2)</h2>
-<div class="goal">
-<p><em>2005 U.S. Census</em>. The plot shows the income per household distribution for the bottom 98% of the population. Median = <span class="math inline">\(\sim46\)</span>k; Mean: <span class="math inline">\(\sim63\)</span>k; Mode: [<span class="math inline">\(5,000-9,9999\)</span>]. Why?</p>
-</div>
-
-<img data-src="images/2005_income_distribution.png" class="margin-caption r-stretch quarto-figure-center" alt="An infographic titled “Income Distribution (Bottom 98%)” shows the 2005 income distribution of U.S. households. Hundreds of small black house icons form descending columns across a horizontal income scale from 0to0to250,000; each house represents 500,000 households. The tallest columns are concentrated at lower incomes, with progressively shorter columns extending toward 250,000.Thechartidentifies112,363,000householdsbelow250,000." width="323"><p class="caption">From: https://www.visualizingeconomics.com/blog/2006/11/05/2005-us-income-distribution</p></section><section id="case-study-us-income-22" class="slide level2"><h2>Case Study: US income (2/2)</h2>
+</ul></section><section id="reality-check-a-note-about-modes" class="slide level2"><h2>Reality check: A note about modes</h2>
 <ul>
-<li><p>For measures like income, medians are generally preferable to means.</p></li>
-<li><p>Why?</p></li>
-</ul>
-<div class="fragment">
-<p>Populations are right-skewed (there are few very rich people), and we care more about the typical person than the mean, which is influenced by the skew.</p>
-</div>
-</section><section id="mean-from-a-frequency-table-12" class="slide level2"><h2>Mean from a frequency table (1/2)</h2>
-<div class="columns">
-<div class="column">
+<li><p>we defined the mode mathematically as the value with the most occurrences in the dataset.</p></li>
+<li><p>for many real-world datasets, it is common to have <em>no</em> observations with the same value in a dataset, making this definition impractical in data analysis.</p></li>
+</ul></section><section id="modes-as-peaks-in-distributions" class="slide level2"><h2>Modes as peaks in distributions</h2>
 <ul>
-<li><p>How many variables are present here?</p></li>
-<li><p>Frequency tables show the number of times, <span class="math inline">\(n_{i}\)</span> a value, <span class="math inline">\(Y_{i}\)</span>, is observed in a sample of size <span class="math inline">\(n_{total}\)</span></p></li>
-<li><p>We calculate the mean from a frequency table by summing the product of <span class="math inline">\(n_{i}\)</span> and <span class="math inline">\(Y_{i}\)</span> all values and diving by <span class="math inline">\(n_{total}\)</span>.</p></li>
+<li><p>Any distribution with more than two prominent peaks is called multimodal.</p></li>
+<li><p>Notice: more than one prominent peak in the unimodal distribution with a second less prominent peak that was not counted since it only differs from its neighboring bins by a few observations.</p></li>
 </ul>
-</div><div class="column">
-<div class="cell">
-<div class="cell-output-display margin-caption">
-<div id="icixvfxrvd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#icixvfxrvd table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#icixvfxrvd thead, #icixvfxrvd tbody, #icixvfxrvd tfoot, #icixvfxrvd tr, #icixvfxrvd td, #icixvfxrvd th {
-  border-style: none;
-}
-
-#icixvfxrvd p {
-  margin: 0;
-  padding: 0;
-}
-
-#icixvfxrvd .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#icixvfxrvd .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#icixvfxrvd .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#icixvfxrvd .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#icixvfxrvd .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#icixvfxrvd .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#icixvfxrvd .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#icixvfxrvd .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#icixvfxrvd .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#icixvfxrvd .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#icixvfxrvd .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#icixvfxrvd .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#icixvfxrvd .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#icixvfxrvd .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#icixvfxrvd .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#icixvfxrvd .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#icixvfxrvd .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#icixvfxrvd .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#icixvfxrvd .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#icixvfxrvd .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#icixvfxrvd .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#icixvfxrvd .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#icixvfxrvd .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#icixvfxrvd .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#icixvfxrvd .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#icixvfxrvd .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#icixvfxrvd .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#icixvfxrvd .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#icixvfxrvd .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#icixvfxrvd .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#icixvfxrvd .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#icixvfxrvd .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#icixvfxrvd .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#icixvfxrvd .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#icixvfxrvd .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#icixvfxrvd .gt_left {
-  text-align: left;
-}
-
-#icixvfxrvd .gt_center {
-  text-align: center;
-}
-
-#icixvfxrvd .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#icixvfxrvd .gt_font_normal {
-  font-weight: normal;
-}
-
-#icixvfxrvd .gt_font_bold {
-  font-weight: bold;
-}
-
-#icixvfxrvd .gt_font_italic {
-  font-style: italic;
-}
-
-#icixvfxrvd .gt_super {
-  font-size: 65%;
-}
-
-#icixvfxrvd .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#icixvfxrvd .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#icixvfxrvd .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#icixvfxrvd .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#icixvfxrvd .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#icixvfxrvd .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#icixvfxrvd .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#icixvfxrvd .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#icixvfxrvd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-<table class="gt_table" data-quarto-bootstrap="false">
-<caption>A frequency table</caption>
-<thead><tr class="gt_col_headings header">
-<th id="lifetimeRS" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">lifetimeRS</th>
-<th id="freq" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">freq</th>
-</tr></thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_right" headers="lifetimeRS">0</td>
-<td class="gt_row gt_right" headers="freq">38</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="lifetimeRS">1</td>
-<td class="gt_row gt_right" headers="freq">17</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="lifetimeRS">2</td>
-<td class="gt_row gt_right" headers="freq">7</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="lifetimeRS">3</td>
-<td class="gt_row gt_right" headers="freq">6</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="lifetimeRS">4</td>
-<td class="gt_row gt_right" headers="freq">4</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="lifetimeRS">5</td>
-<td class="gt_row gt_right" headers="freq">10</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="lifetimeRS">6</td>
-<td class="gt_row gt_right" headers="freq">2</td>
-</tr>
-</tbody>
-<tfoot><tr class="gt_footnotes odd">
-<td colspan="2" class="gt_footnote">Lifetime reproductive success of male sparrows.</td>
-</tr></tfoot>
-</table>
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure><p><a href="https://openintrostat.github.io/ims/explore-numerical_files/figure-html/fig-singleBiMultiModalPlots-1.png"><img data-src="images/fig-singleBiMultiModalPlots-1.png" alt="A wide image shows three side-by-side blue bar charts on a white background with light gray gridlines. All three charts use horizontal values from 0 to 30 and vertical values from 0 to just above 20. The left chart has its tallest bars near the beginning, reaching approximately 22, 17, and 12, followed by shorter bars ranging from about 1 to 6. The middle chart contains several low-to-moderate bars, with the tallest cluster near values 19–22 reaching approximately 14. The right chart has separated clusters of bars: an early cluster reaching about 11, a middle cluster reaching about 14, and a later cluster with bars between approximately 3 and 7. No chart titles, axis titles, or legends are visible."></a></p>
+<figcaption>Counting only prominent peaks, the distributions are (left to right) unimodal, bimodal, and multimodal. Note that the left plot is unimodal because we are counting prominent peaks, not just any peak.</figcaption></figure>
 </div>
-<p>A frequency table. Data from Jensen et al.&nbsp;2004. Journal of Animal Ecology 73: 599-611.</p>
-</div>
-</div>
-</div></div>
-</section><section id="mean-from-a-frequency-table-22" class="slide level2"><h2>Mean from a frequency table (2/2)</h2>
-<div class="columns">
-<div class="column">
+</section></section><section><section id="manipulating-means-and-median" class="title-slide slide level1 center"><h1>Manipulating means and median</h1>
+
+</section><section id="manipulating-means-and-medians-12" class="slide level2"><h2>Manipulating means and medians (1/2)</h2>
+<div class="r-fit-text">
 <ul>
-<li>Sample size:</li>
+<li><p>The mean (or the median) of the sum of two variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>: <span class="math inline">\(E[X + Y] = E[X]+ E[Y]\)</span></p></li>
+<li><p>The mean (or the median) of the sum of a variable <span class="math inline">\(X\)</span> and a constant <span class="math inline">\(c\)</span>: <span class="math inline">\(E[X + c] = E[X]+ c\)</span></p></li>
+<li><p>The mean (or the median) of a product of a variable <span class="math inline">\(X\)</span> and a constant <span class="math inline">\(c\)</span>: <span class="math inline">\(E[cX] = cE[X]\)</span></p></li>
 </ul>
-<div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>lifetimeRS <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>,</span>
-<span id="cb1-2"><a aria-label="2"></a>    <span class="dv">5</span>, <span class="dv">6</span>)</span>
-<span id="cb1-3"><a aria-label="3"></a>freqs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">38</span>L, <span class="dv">17</span>L, <span class="dv">7</span>L, <span class="dv">6</span>L, <span class="dv">4</span>L,</span>
-<span id="cb1-4"><a aria-label="4"></a>    <span class="dv">10</span>L, <span class="dv">2</span>L)</span>
-<span id="cb1-5"><a aria-label="5"></a>n_total <span class="ot">&lt;-</span> <span class="fu">sum</span>(freqs)  <span class="co"># 84</span></span>
-<span id="cb1-6"><a aria-label="6"></a>n_total</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 84</code></pre>
 </div>
-</div>
-<ul>
-<li>Mean:</li>
-</ul>
-<div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="co"># multiply two vectors of</span></span>
-<span id="cb3-2"><a aria-label="2"></a><span class="co"># same length</span></span>
-<span id="cb3-3"><a aria-label="3"></a></span>
-<span id="cb3-4"><a aria-label="4"></a>FinalMean <span class="ot">&lt;-</span> <span class="fu">sum</span>(lifetimeRS <span class="sc">*</span> freqs)<span class="sc">/</span>n_total</span>
-<span id="cb3-5"><a aria-label="5"></a>FinalMean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.511905</code></pre>
-</div>
-</div>
-</div><div class="column">
-<div class="cell">
-<div class="cell-output-display margin-caption">
-<div id="mrzlmybvao" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#mrzlmybvao table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#mrzlmybvao thead, #mrzlmybvao tbody, #mrzlmybvao tfoot, #mrzlmybvao tr, #mrzlmybvao td, #mrzlmybvao th {
-  border-style: none;
-}
-
-#mrzlmybvao p {
-  margin: 0;
-  padding: 0;
-}
-
-#mrzlmybvao .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#mrzlmybvao .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#mrzlmybvao .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#mrzlmybvao .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#mrzlmybvao .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#mrzlmybvao .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#mrzlmybvao .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#mrzlmybvao .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#mrzlmybvao .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#mrzlmybvao .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#mrzlmybvao .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#mrzlmybvao .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#mrzlmybvao .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#mrzlmybvao .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#mrzlmybvao .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#mrzlmybvao .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#mrzlmybvao .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#mrzlmybvao .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#mrzlmybvao .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#mrzlmybvao .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#mrzlmybvao .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#mrzlmybvao .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#mrzlmybvao .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#mrzlmybvao .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#mrzlmybvao .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#mrzlmybvao .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#mrzlmybvao .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#mrzlmybvao .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#mrzlmybvao .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#mrzlmybvao .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#mrzlmybvao .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#mrzlmybvao .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#mrzlmybvao .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#mrzlmybvao .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#mrzlmybvao .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#mrzlmybvao .gt_left {
-  text-align: left;
-}
-
-#mrzlmybvao .gt_center {
-  text-align: center;
-}
-
-#mrzlmybvao .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#mrzlmybvao .gt_font_normal {
-  font-weight: normal;
-}
-
-#mrzlmybvao .gt_font_bold {
-  font-weight: bold;
-}
-
-#mrzlmybvao .gt_font_italic {
-  font-style: italic;
-}
-
-#mrzlmybvao .gt_super {
-  font-size: 65%;
-}
-
-#mrzlmybvao .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#mrzlmybvao .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#mrzlmybvao .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#mrzlmybvao .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#mrzlmybvao .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#mrzlmybvao .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#mrzlmybvao .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#mrzlmybvao .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#mrzlmybvao div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-<table class="gt_table" data-quarto-bootstrap="false">
-<caption>A frequency table</caption>
-<thead><tr class="gt_col_headings header">
-<th id="lifetimeRS" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">lifetimeRS</th>
-<th id="freq" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">freq</th>
-<th id="RSxfreq" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">RSxfreq</th>
-</tr></thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_right" headers="lifetimeRS">0</td>
-<td class="gt_row gt_right" headers="freq">38</td>
-<td class="gt_row gt_right" headers="RSxfreq">0</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="lifetimeRS">1</td>
-<td class="gt_row gt_right" headers="freq">17</td>
-<td class="gt_row gt_right" headers="RSxfreq">17</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="lifetimeRS">2</td>
-<td class="gt_row gt_right" headers="freq">7</td>
-<td class="gt_row gt_right" headers="RSxfreq">14</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="lifetimeRS">3</td>
-<td class="gt_row gt_right" headers="freq">6</td>
-<td class="gt_row gt_right" headers="RSxfreq">18</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="lifetimeRS">4</td>
-<td class="gt_row gt_right" headers="freq">4</td>
-<td class="gt_row gt_right" headers="RSxfreq">16</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="lifetimeRS">5</td>
-<td class="gt_row gt_right" headers="freq">10</td>
-<td class="gt_row gt_right" headers="RSxfreq">50</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="lifetimeRS">6</td>
-<td class="gt_row gt_right" headers="freq">2</td>
-<td class="gt_row gt_right" headers="RSxfreq">12</td>
-</tr>
-</tbody>
-<tfoot><tr class="gt_footnotes odd">
-<td colspan="3" class="gt_footnote">Lifetime reproductive success of male sparrows.</td>
-</tr></tfoot>
-</table>
-</div>
-</div>
-</div>
-</div></div>
 
 <aside><div>
-<p>Important: assumes all data are presented in the tables (i.e., tables is not made of intervals).</p>
-</div></aside></section><section id="how-would-we-recreate-the-original-data-from-this-frequency-table" class="slide level2"><h2>How would we recreate the original data from this frequency table?</h2>
+<p><span class="math inline">\(E\)</span>: expected value of a variable</p>
+</div></aside></section><section id="manipulating-means-and-medians-22" class="slide level2"><h2>Manipulating means and medians (2/2)</h2>
+<div class="r-fit-text">
+<ul>
+<li>The mean (or median) of the sum of two variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>: <span class="math inline">\(E[X + Y] = E[X]+ E[Y]\)</span>
+</li>
+</ul>
 <div class="cell">
-<div class="cell-output-display margin-caption">
-<div id="gqpzxzxwos" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gqpzxzxwos table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#gqpzxzxwos thead, #gqpzxzxwos tbody, #gqpzxzxwos tfoot, #gqpzxzxwos tr, #gqpzxzxwos td, #gqpzxzxwos th {
-  border-style: none;
-}
-
-#gqpzxzxwos p {
-  margin: 0;
-  padding: 0;
-}
-
-#gqpzxzxwos .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#gqpzxzxwos .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#gqpzxzxwos .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#gqpzxzxwos .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#gqpzxzxwos .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#gqpzxzxwos .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#gqpzxzxwos .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#gqpzxzxwos .gt_col_heading {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#gqpzxzxwos .gt_column_spanner_outer {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#gqpzxzxwos .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#gqpzxzxwos .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#gqpzxzxwos .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#gqpzxzxwos .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#gqpzxzxwos .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#gqpzxzxwos .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#gqpzxzxwos .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#gqpzxzxwos .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#gqpzxzxwos .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#gqpzxzxwos .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#gqpzxzxwos .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#gqpzxzxwos .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#gqpzxzxwos .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#gqpzxzxwos .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#gqpzxzxwos .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#gqpzxzxwos .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#gqpzxzxwos .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#gqpzxzxwos .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#gqpzxzxwos .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#gqpzxzxwos .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#gqpzxzxwos .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#gqpzxzxwos .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#gqpzxzxwos .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#gqpzxzxwos .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#gqpzxzxwos .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#gqpzxzxwos .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#gqpzxzxwos .gt_left {
-  text-align: left;
-}
-
-#gqpzxzxwos .gt_center {
-  text-align: center;
-}
-
-#gqpzxzxwos .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#gqpzxzxwos .gt_font_normal {
-  font-weight: normal;
-}
-
-#gqpzxzxwos .gt_font_bold {
-  font-weight: bold;
-}
-
-#gqpzxzxwos .gt_font_italic {
-  font-style: italic;
-}
-
-#gqpzxzxwos .gt_super {
-  font-size: 65%;
-}
-
-#gqpzxzxwos .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#gqpzxzxwos .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#gqpzxzxwos .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#gqpzxzxwos .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#gqpzxzxwos .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#gqpzxzxwos .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#gqpzxzxwos .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#gqpzxzxwos .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#gqpzxzxwos div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-<table class="gt_table" data-quarto-bootstrap="false">
-<caption>A frequency table</caption>
-<thead><tr class="gt_col_headings header">
-<th id="lifetimeRS" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">lifetimeRS</th>
-<th id="freq" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">freq</th>
-<th id="RSxfreq" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">RSxfreq</th>
-</tr></thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_right" headers="lifetimeRS">0</td>
-<td class="gt_row gt_right" headers="freq">38</td>
-<td class="gt_row gt_right" headers="RSxfreq">0</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="lifetimeRS">1</td>
-<td class="gt_row gt_right" headers="freq">17</td>
-<td class="gt_row gt_right" headers="RSxfreq">17</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="lifetimeRS">2</td>
-<td class="gt_row gt_right" headers="freq">7</td>
-<td class="gt_row gt_right" headers="RSxfreq">14</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="lifetimeRS">3</td>
-<td class="gt_row gt_right" headers="freq">6</td>
-<td class="gt_row gt_right" headers="RSxfreq">18</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="lifetimeRS">4</td>
-<td class="gt_row gt_right" headers="freq">4</td>
-<td class="gt_row gt_right" headers="RSxfreq">16</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="lifetimeRS">5</td>
-<td class="gt_row gt_right" headers="freq">10</td>
-<td class="gt_row gt_right" headers="RSxfreq">50</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="lifetimeRS">6</td>
-<td class="gt_row gt_right" headers="freq">2</td>
-<td class="gt_row gt_right" headers="RSxfreq">12</td>
-</tr>
-</tbody>
-<tfoot><tr class="gt_footnotes odd">
-<td colspan="3" class="gt_footnote">Lifetime reproductive success of male sparrows.</td>
-</tr></tfoot>
-</table>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> iris<span class="sc">$</span>Petal.Length</span>
+<span id="cb1-2"><a aria-label="2"></a>y <span class="ot">&lt;-</span> iris<span class="sc">$</span>Petal.Width</span>
+<span id="cb1-3"><a aria-label="3"></a><span class="fu">mean</span>(x <span class="sc">+</span> y)  <span class="co">#is the same as:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.957333</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">mean</span>(x) <span class="sc">+</span> <span class="fu">mean</span>(y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.957333</code></pre>
 </div>
 </div>
-</div>
+<ul>
+<li>The mean (or median) of the sum of a variable <span class="math inline">\(X\)</span> and a constant <span class="math inline">\(c\)</span>: <span class="math inline">\(E[X + c] = E[X]+ c\)</span>
+</li>
+</ul>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="co"># the rep() function: rep(x, times = 1)</span></span>
-<span id="cb5-2"><a aria-label="2"></a>rawD <span class="ot">&lt;-</span> <span class="fu">rep</span>(lifetimeRS, freqs)</span>
-<span id="cb5-3"><a aria-label="3"></a>rawD</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code> [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-[39] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 5 5 5 5
-[77] 5 5 5 5 5 5 6 6</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">mean</span>(x <span class="sc">+</span> <span class="dv">10</span>)  <span class="co">#is the same as:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13.758</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">mean</span>(x) <span class="sc">+</span> <span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 13.758</code></pre>
 </div>
 </div>
+<ul>
+<li>The mean (or median) of a product of a variable <span class="math inline">\(X\)</span> and a constant <span class="math inline">\(c\)</span>: <span class="math inline">\(E[cX] = cE[X]\)</span>
+</li>
+</ul>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="co"># getting the mean</span></span>
-<span id="cb7-2"><a aria-label="2"></a><span class="fu">mean</span>(rawD)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.511905</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">mean</span>(x <span class="sc">*</span> <span class="dv">20</span>)  <span class="co">#is the same as</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 75.16</code></pre>
 </div>
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">median</span>(rawD)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 1</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="dv">20</span> <span class="sc">*</span> <span class="fu">mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 75.16</code></pre>
 </div>
 </div>
-</section><section id="mean-or-median" class="slide level2"><h2>Mean or median?</h2>
-<p>We saw that mean (green, full line below) &gt; median (blue dashed line) in this example. Let’s plot the distribution to confirm our intuition:</p>
-<div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">as_tibble</span>(rawD) <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a aria-label="2"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> value)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>,</span>
-<span id="cb11-3"><a aria-label="3"></a>    <span class="at">to =</span> <span class="dv">8</span>, <span class="at">by =</span> <span class="dv">1</span>), <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(rawD)),</span>
-<span id="cb11-4"><a aria-label="4"></a>    <span class="at">color =</span> <span class="st">"#1F9E89FF"</span>) <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(rawD)),</span>
-<span id="cb11-5"><a aria-label="5"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"#31688EFF"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
-<img data-src="2.2.Displaying-and-Describing-Data_files/figure-revealjs/sparrow9-1.png" class="margin-caption r-stretch" width="960"></section><section id="measures-of-dispersion-spread-width" class="slide level2"><h2>Measures of dispersion (spread, width)</h2>
+<p>Convince yourself this is true for the median as well!</p>
+</section></section><section><section id="measures-of-dispersion-spread-width" class="title-slide slide level1 center"><h1>Measures of dispersion (spread, width)</h1>
+
+</section><section id="these-apply-to-numerical-data" class="slide level2"><h2>These apply to numerical data</h2>
 <ul>
 <li class="fragment"><p>Range [<code>max value - min value</code>]</p></li>
 <li class="fragment"><p>Quartiles, interquartile range [<code>75th percentile - 25th percentile</code>]</p></li>
 <li class="fragment"><p>Variance [<font color="#00a1b7"> estimate = <span class="math inline">\(s^2\)</span> =<span class="math inline">\(\frac{\Sigma(x_i - \bar{x})^2}{n-1}\)</span></font>, <font color="#ad7237">param = <span class="math inline">\(\sigma ^2\)</span> = <span class="math inline">\(\frac{\Sigma(x_i - \mu)^2}{n}\)</span> ]</font></p></li>
 <li class="fragment"><p>Standard deviation [<font color="#00a1b7"> estimate = <span class="math inline">\(s\)</span> =<span class="math inline">\(\sqrt{s^2}\)</span></font>, <font color="#ad7237">param = <span class="math inline">\(\sigma\)</span> = <span class="math inline">\(\sqrt{\sigma^2}\)</span> ]</font></p></li>
 <li class="fragment"><p>Coefficient of variation [<font color="#00a1b7"> estimate = CV = <span class="math inline">\(\frac{s}{\bar{Y}}\)</span></font>, <font color="#ad7237">param = <span class="math inline">\(\frac{\sigma}{\mu}\)</span> ]</font></p></li>
-</ul></section><section id="width-aka-variability" class="slide level2 center"><h2>Width (aka variability)</h2>
+</ul></section></section><section><section id="width-aka-variability" class="title-slide slide level1 center"><h1>Width (aka variability)</h1>
 <div class="r-fit-text">
 <p>Variability of a population should not be ignored as simply noise about the mean, but is biologically important in its own right.</p>
 <p>Variation has a true value from a population that we estimate from a sample.</p>
@@ -1826,48 +323,72 @@ Bárbara D. Bitarello
 <div class="goal">
 <p>The difference between the maximum and minimum observed values in a sample</p>
 </div>
-</section><section id="range-12" class="slide level2"><h2>Range (1/2)</h2>
-<div class="goal">
-<p>The range of a sample corresponds to the size of the narrowest interval containing all the data. Operationally, it’s calculated as the difference between the maximum and minimum</p>
-</div>
 <ul>
-<li>Example: Range of weight of 46 chicks at 20 days since birth:</li>
-</ul>
-<div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>chick20 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">199</span>, <span class="dv">209</span>, <span class="dv">198</span>, <span class="dv">160</span>, <span class="dv">220</span>, <span class="dv">160</span>, <span class="dv">288</span>, <span class="dv">125</span>, <span class="dv">100</span>, <span class="dv">120</span>,</span>
-<span id="cb12-2"><a aria-label="2"></a>    <span class="dv">181</span>, <span class="dv">195</span>, <span class="dv">91</span>, <span class="dv">259</span>, <span class="dv">133</span>, <span class="dv">144</span>, <span class="dv">115</span>, <span class="dv">318</span>, <span class="dv">164</span>, <span class="dv">170</span>, <span class="dv">76</span>, <span class="dv">259</span>,</span>
-<span id="cb12-3"><a aria-label="3"></a>    <span class="dv">236</span>, <span class="dv">185</span>, <span class="dv">212</span>, <span class="dv">279</span>, <span class="dv">157</span>, <span class="dv">235</span>, <span class="dv">291</span>, <span class="dv">156</span>, <span class="dv">327</span>, <span class="dv">361</span>, <span class="dv">225</span>, <span class="dv">169</span>,</span>
-<span id="cb12-4"><a aria-label="4"></a>    <span class="dv">280</span>, <span class="dv">250</span>, <span class="dv">295</span>, <span class="dv">199</span>, <span class="dv">269</span>, <span class="dv">199</span>, <span class="dv">197</span>, <span class="dv">231</span>, <span class="dv">210</span>, <span class="dv">303</span>, <span class="dv">233</span>, <span class="dv">264</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<li><p>The range of a sample corresponds to the size of the narrowest interval containing all the data.</p></li>
+<li><p>Operationally, it’s calculated as the difference between the maximum and minimum.</p></li>
+</ul></section><section id="range-example-13" class="slide level2"><h2>Range: example (1/3)</h2>
+<div class="goal">
+<p>Example: Range of weight of 46 chicks at 20 days since birth:</p>
 </div>
-<p>Max and Min in this dataset at time 20:</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a><span class="fu">summary</span>(chick20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>chick20 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">199</span>, <span class="dv">209</span>, <span class="dv">198</span>, <span class="dv">160</span>, <span class="dv">220</span>, <span class="dv">160</span>, <span class="dv">288</span>, <span class="dv">125</span>, <span class="dv">100</span>, <span class="dv">120</span>,</span>
+<span id="cb13-2"><a aria-label="2"></a>    <span class="dv">181</span>, <span class="dv">195</span>, <span class="dv">91</span>, <span class="dv">259</span>, <span class="dv">133</span>, <span class="dv">144</span>, <span class="dv">115</span>, <span class="dv">318</span>, <span class="dv">164</span>, <span class="dv">170</span>, <span class="dv">76</span>, <span class="dv">259</span>,</span>
+<span id="cb13-3"><a aria-label="3"></a>    <span class="dv">236</span>, <span class="dv">185</span>, <span class="dv">212</span>, <span class="dv">279</span>, <span class="dv">157</span>, <span class="dv">235</span>, <span class="dv">291</span>, <span class="dv">156</span>, <span class="dv">327</span>, <span class="dv">361</span>, <span class="dv">225</span>, <span class="dv">169</span>,</span>
+<span id="cb13-4"><a aria-label="4"></a>    <span class="dv">280</span>, <span class="dv">250</span>, <span class="dv">295</span>, <span class="dv">199</span>, <span class="dv">269</span>, <span class="dv">199</span>, <span class="dv">197</span>, <span class="dv">231</span>, <span class="dv">210</span>, <span class="dv">303</span>, <span class="dv">233</span>, <span class="dv">264</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Sorting the values:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>chick20.sorted <span class="ot">&lt;-</span> <span class="fu">sort</span>(chick20)</span>
+<span id="cb14-2"><a aria-label="2"></a>chick20.sorted</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  76  91 100 115 120 125 133 144 156 157 160 160 164 169 170 181 185 195 197
+[20] 198 199 199 199 209 210 212 220 225 231 233 235 236 250 259 259 264 269 279
+[39] 280 288 291 295 303 318 327 361</code></pre>
+</div>
+</div>
+<p>and selecting the first and last values:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a>chick20.sorted[<span class="dv">1</span>]  <span class="co">#first value</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 76</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>chick20.sorted[<span class="fu">length</span>(chick20)]  <span class="co">#last value</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 361</code></pre>
+</div>
+</div>
+</section><section id="range-example-23" class="slide level2"><h2>Range: example (2/3)</h2>
+<p>Using the <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code> and <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code> functions:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a><span class="fu">c</span>(<span class="fu">min</span>(chick20), <span class="fu">max</span>(chick20))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  76 361</code></pre>
+</div>
+</div>
+<p>using the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a><span class="fu">summary</span>(chick20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
    76.0   161.0   204.0   209.7   259.0   361.0 </code></pre>
 </div>
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="co"># or</span></span>
-<span id="cb15-2"><a aria-label="2"></a><span class="fu">c</span>(<span class="fu">min</span>(chick20), <span class="fu">max</span>(chick20))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1]  76 361</code></pre>
 </div>
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="co"># commonly the diff between them is shown</span></span>
-<span id="cb17-2"><a aria-label="2"></a><span class="fu">max</span>(chick20) <span class="sc">-</span> <span class="fu">min</span>(chick20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 285</code></pre>
-</div>
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a><span class="co"># or simply</span></span>
-<span id="cb19-2"><a aria-label="2"></a><span class="fu">range</span>(chick20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
+<p>or the <code><a href="https://rdrr.io/r/base/range.html">range()</a></code> function:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a><span class="fu">range</span>(chick20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>[1]  76 361</code></pre>
 </div>
 </div>
-</section><section id="range-22" class="slide level2"><h2>Range (2/2)</h2>
+</section><section id="range-example-33" class="slide level2"><h2>Range: example (3/3)</h2>
 <ul>
 <li><p>What happens to the range as sample size increases?</p></li>
 <li><p>What happens to the range if there are rare outliers?</p></li>
 <li><p>Not a good measure of spread. Let’s look for a better one.</p></li>
+</ul>
+
+<img data-src="2.2.Displaying-and-Describing-Data_files/figure-revealjs/chicks-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"><ul>
+<li>These are histograms. Histograms depict a frequency distribution for discrete or continuous data.</li>
 </ul>
 <aside class="notes"><p>Small samples tend to give lower estimates of the range than large samples. So the sample range is a <em>biased estimator</em> of the true range of the population. So sample range is a biased estimator of the true range of the population.</p>
 <style type="text/css">
@@ -1880,113 +401,64 @@ Bárbara D. Bitarello
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="scenario" class="slide level2"><h2>Scenario</h2>
-<div class="goal">
-<p>Salary range in a company will give a very good sense of the disparities between the ones in each end, but not a good sense of what the “average” employee earns</p>
-<p>What can you do then?</p>
-</div>
-<aside class="notes"><p>You could calculate the median, sure, but what about the spread? Interquartile range would be a better measure here</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section id="q-quantiles" class="slide level2"><h2>Q-Quantiles</h2>
+      }</style></aside></section><section id="q-quantiles-12" class="slide level2"><h2>Q-quantiles (1/2)</h2>
+<p>q-quantiles are cut points dividing the range of a probability distribution into q intervals with (approx) equal probabilities.</p>
 <ul>
-<li><p>q-quantiles are cut points dividing the range of a probability distribution into q intervals with (approx) equal probabilities.</p></li>
-<li><p>2 quantiles: median</p></li>
-<li><p>4 quantiles: quartiles (1st quartile, median, 3rd Q)</p></li>
-</ul></section><section id="interquartile-range-iqr" class="slide level2"><h2>Inter<u>q</u>uartile Range (IQR)</h2>
-<div class="goal">
-<p>The difference between the 75th and 25th percentiles of the data. A.k.a., the “middle 50%” of the data.</p>
-</div>
-<ul>
-<li>less biased estimator than range</li>
-<li>necessary for making boxplots</li>
+<li>Two quantiles: median</li>
 </ul>
 
-<img data-src="images/boxplot.png" class="margin-caption r-stretch" data-fig-cap="Modified from atlassian.com/data/charts/box-plot-complete-guide"></section><section id="iqr" class="slide level2"><h2>IQR</h2>
-<p>Imagine sorting your data.</p>
+<img data-src="2.2.Displaying-and-Describing-Data_files/figure-revealjs/unnamed-chunk-10-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="q-quantiles-22" class="slide level2"><h2>Q-quantiles (2/2)</h2>
+<ul>
+<li>4 quantiles: quartiles</li>
+</ul>
+
+<img data-src="2.2.Displaying-and-Describing-Data_files/figure-revealjs/unnamed-chunk-11-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="interquartile-range-iqr" class="slide level2"><h2>Inter<u>q</u>uartile Range (IQR)</h2>
+<div class="goal">
+<p>The difference between the 75th and 25th percentiles of the data. A.k.a., the “middle 50%” of the data. <span class="math inline">\(IQR=Q3-Q1\)</span>. Can sometimes be expressed as an interval, though less common.</p>
+</div>
+
+<img data-src="2.2.Displaying-and-Describing-Data_files/figure-revealjs/iqr-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"><aside class="notes"><p>Imagine sorting your data.</p>
 <ul>
 <li>The individual in the middle is the median.</li>
 <li>The first and last individuals mark the range</li>
 <li>The other two quantiles are the individuals ¼ and ¾ the way into your sorted list of data</li>
 <li>The difference between these is the interquartile range</li>
-</ul>
-
-<img data-src="images/clipboard-3649107495.png" class="margin-caption r-stretch"></section><section id="iqr-example" class="slide level2"><h2>IQR Example</h2>
-<div class="goal">
-<p>Example: Running speeds (cm/s) of Tidarren spiders before voluntary amputation of pedipalp</p>
-</div>
-
-<img data-src="images/clipboard-3649107495.png" class="margin-caption quarto-figure quarto-figure-center r-stretch"></section><section id="iqr-example-1" class="slide level2"><h2>IQR Example</h2>
-<p><img data-src="images/clipboard-3649107495.png" class="margin-caption"></p>
-<div class="columns">
-<div class="column">
-<div class="fragment">
-<p><span class="math inline">\(n=16\)</span></p>
-<p>1st quartile: <span class="math inline">\(j=0.25n=4\)</span></p>
-<p>3rd quartile: <span class="math inline">\(j=0.75n=12\)</span></p>
-</div>
-</div><div class="column">
-<div class="fragment">
-<p>If <span class="math inline">\(j\)</span> is integer, <span class="math inline">\(\frac{Y_{j}+Y_{j+1}}{2}\)</span></p>
-<p><span class="math inline">\(\frac{Y_{4}+Y_{5}}{2}=\frac{2.31+2.37}{2}=2.34\)</span></p>
-<p><span class="math inline">\(\frac{Y_{12}+Y_{13}}{2}=\frac{3+3.09}{2}=3.045\)</span></p>
-</div>
-</div></div>
-
-<aside><div>
-<p>Note: software may use slightly different algorithms.</p>
-</div></aside></section><section id="iqr-in-r" class="slide level2"><h2>IQR in R</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
+<li>less biased than range</li>
+</ul><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside><p>Recommended: <a href="https://psu-eberly.shinyapps.io/Effect_of_Outliers/" class="uri">https://psu-eberly.shinyapps.io/Effect_of_Outliers/</a></p>
+</section><section id="iqr-example" class="slide level2"><h2>IQR example</h2>
 <p><code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> gives quartiles and max/min</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a><span class="co"># summary gives quartiles and max/min</span></span>
-<span id="cb21-2"><a aria-label="2"></a><span class="fu">summary</span>(chick20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a>chick20.sorted</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  76  91 100 115 120 125 133 144 156 157 160 160 164 169 170 181 185 195 197
+[20] 198 199 199 199 209 210 212 220 225 231 233 235 236 250 259 259 264 269 279
+[39] 280 288 291 295 303 318 327 361</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a><span class="co"># summary gives quartiles and max/min</span></span>
+<span id="cb28-2"><a aria-label="2"></a><span class="fu">summary</span>(chick20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
    76.0   161.0   204.0   209.7   259.0   361.0 </code></pre>
 </div>
 </div>
-<p>The “long” route:</p>
+<p>IQR too:</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="fu">as.numeric</span>(<span class="fu">summary</span>(chick20)[<span class="dv">5</span>] <span class="sc">-</span> <span class="fu">summary</span>(chick20)[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a><span class="fu">IQR</span>(chick20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>[1] 98</code></pre>
 </div>
 </div>
-<p>The shortcut</p>
-<div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a aria-label="1"></a><span class="fu">IQR</span>(chick20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 98</code></pre>
-</div>
-</div>
-</div><div class="column" style="width:60%;">
-<p>Boxplots reveal quartiles</p>
-<div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a aria-label="1"></a><span class="fu">boxplot</span>(chick20, <span class="at">names =</span> <span class="st">"chicks day 20"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
-<div>
-<figure><p><img data-src="2.2.Displaying-and-Describing-Data_files/figure-revealjs/unnamed-chunk-4-1.png" class="margin-caption" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section><section id="iqr-can-give-us-more-information-than-the-range-but-its-still-only-looking-at-the-values-in-the-middle" class="slide level2 center"><h2>IQR can give us more information than the range, but it’s still only looking at the values “in the middle”</h2>
-</section><section id="but-there-are-metrics-that-look-at-all-the-values" class="slide level2"><h2>But there are metrics that look at all the values</h2>
-<div class="r-fit-text">
-<p>Variance, Standard Deviation, &amp; Coefficient of Variation all communicate how far individual observations are expected to deviate from the mean.</p>
-</div>
-<aside class="notes"><p><font color="#d1d9ce">Because (by definition) the differences between all observations and the mean sum to zero (<span class="math inline">\(\sum{Y_i-\bar{Y}=0}\)</span>), these summaries work from the squared difference between observations and the mean (<span class="math inline">\(\sum{(Y_i-\bar{Y})^2}\)</span>).</font></p>
+<aside class="notes"><p>IQR can give us more information than the range, but it’s still only looking at the values “in the middle”</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1997,11 +469,39 @@ Bárbara D. Bitarello
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="variance" class="slide level2"><h2>Variance</h2>
-<div class="goal">
-<p>Variance is a measure of dispersion of data points in a sample (or population) around the mean of the sample (or population). It is the expected squared difference between an observations and the mean.</p>
+      }</style></aside></section></section><section><section id="box-and-whiskers-plot-boxplot" class="title-slide slide level1 center"><h1>Box-and-whiskers plot (“boxplot”)</h1>
+
+</section><section id="a-standard-boxplot" class="slide level2"><h2>A standard boxplot</h2>
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure><div class="quarto-figure quarto-figure-center">
+<figure><p><a href="https://psu-eberly.shinyapps.io/Effect_of_Outliers/"><img data-src="images/boxplot-psu.png" class="quarto-figure quarto-figure-center" data-alt-text="Horizontal box plot showing values from approximately −4.5 to 4.3, with a median near 0 and an IQR from about −1.5 to 0.9." alt="Horizontal box plot showing values from approximately −4.5 to 4.3, with a median near 0 and an IQR from about −1.5 to 0.9."></a></p>
+</figure>
 </div>
-</section><section id="variance-1" class="slide level2"><h2>Variance</h2>
+<figcaption>It is actually not the most commonly seen one in bio, though. Image from: https://psu-eberly.shinyapps.io/Effect_of_Outliers/</figcaption></figure>
+</div>
+
+<aside><div>
+<p>It is actually not the most commonly seen one in bio, though.</p>
+</div></aside></section><section id="modified-or-outlier-box-plot" class="slide level2"><h2>Modified or outlier box plot</h2>
+<ul>
+<li>This is the most commonly seen one in bio.</li>
+<li>Important: Figure captions MUST always describe how the whiskers were defined.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure><div class="quarto-figure quarto-figure-center">
+<figure><p><a href="https://psu-eberly.shinyapps.io/Effect_of_Outliers/"><img data-src="images/outlier-boxplot-psu.png" class="quarto-figure quarto-figure-center" data-alt-text="A horizontal box-and-whisker plot illustrates the components of a data distribution. A gold rectangular box extends from Q1 to Q3, with a vertical blue line marking the median near 0.0. Thin horizontal whiskers extend left and right from the box to the lower and upper hinge limits. One black dot appears beyond the left whisker as a potential outlier, while three black dots appear beyond the right whisker as potential outliers. The horizontal axis is labeled “Value,” with tick labels at −2.5, 0.0, and 2.5. A bracket beneath the box identifies the interquartile range, or IQR."></a></p>
+</figure>
+</div>
+<figcaption>Image from: https://psu-eberly.shinyapps.io/Effect_of_Outliers/</figcaption></figure>
+</div>
+</section><section id="but-there-are-metrics-that-look-at-all-the-values" class="slide level2"><h2>But there are metrics that look at all the values</h2>
+<ul>
+<li><p>Variance, Standard Deviation, &amp; Coefficient of Variation all communicate how far individual observations are expected to deviate from the mean.</p></li>
+<li><p>Because (by definition) the differences between all observations and the mean sum to zero (<span class="math inline">\(\sum{Y_i-\bar{Y}=0}\)</span>), these summaries work from the squared difference between observations and the mean (<span class="math inline">\(\sum{(Y_i-\bar{Y})^2}\)</span>).</p></li>
+</ul></section><section id="variance" class="slide level2"><h2>Variance</h2>
+<div class="goal">
+<p>Variance: The expected value of the squared deviation from the mean.</p>
+</div>
 <div class="columns">
 <div class="column">
 <p><font color="#ad7237"><strong>Parameter</strong></font></p>
@@ -2014,76 +514,40 @@ Bárbara D. Bitarello
 </div></div>
 
 <aside><div>
-<p>Note: the numerator here is called “sum of squares”</p>
-</div></aside></section><section id="sample-variance-shortcut" class="slide level2"><h2>Sample variance (shortcut)</h2>
-<p><span class="math display">\[s^2=\left(\frac{n}{n-1}\right)\left(\frac{\sum^{n}_{i=1}{Y^2_i}}{n}-\bar{Y}^2\right)\]</span></p>
-</section><section id="variance-example" class="slide level2"><h2>Variance Example</h2>
-<div class="goal">
-<p>Lifespan of 12 forager bees (in hours).</p>
-</div>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby">
-<li><a data-tabby-default="" href="#tabset-1-1">Mean</a></li>
-<li><a href="#tabset-1-2">Sum of squares</a></li>
-<li><a href="#tabset-1-3">Sum of squares (cont)</a></li>
+<p>Note: the numerator here is called “sum of squares”. Bessel’s correction: using <span class="math inline">\(n\)</span> causes an underestimation of sample variance, so we use <span class="math inline">\(n-1\)</span>.</p>
+</div></aside></section><section id="variance-example" class="slide level2"><h2>Variance example</h2>
+<ul>
+<li>mean chick weight:</li>
 </ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<blockquote>
-<p>2.3 2.3 3.9 4.0 7.1 9.5 9.6 10.8 12.8 13.6 14.6 18.2 18.2 19.0 20.9 24.3 25.8 25.9 26.5 27.1 30.0 33.3 34.8 34.8 35.7 36.9 41.3 44.2 54.2 55.8 65.8 71.1 84.7</p>
-</blockquote>
-<p><span class="math display">\[\bar{Y} = \frac{\sum{Y_i}}{n} = \frac{919}{33}= 27.848\text{ hours}\]</span></p>
-</div>
-<div id="tabset-1-2">
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>beesDF <span class="sc">|&gt;</span></span>
-<span id="cb28-2"><a aria-label="2"></a>    <span class="fu">mutate</span>(<span class="st">`</span><span class="at">Y-meanY</span><span class="st">`</span> <span class="ot">=</span> hours <span class="sc">-</span> <span class="fu">mean</span>(hours)) <span class="sc">|&gt;</span></span>
-<span id="cb28-3"><a aria-label="3"></a>    <span class="fu">mutate</span>(<span class="st">`</span><span class="at">(Y-meanY)^2</span><span class="st">`</span> <span class="ot">=</span> (hours <span class="sc">-</span> <span class="fu">mean</span>(hours))<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 33 × 3
-   hours `Y-meanY` `(Y-meanY)^2`
-   &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;
- 1   2.3     -25.5          653.
- 2   2.3     -25.5          653.
- 3   3.9     -23.9          574.
- 4   4       -23.8          569.
- 5   7.1     -20.7          430.
- 6   9.5     -18.3          337.
- 7   9.6     -18.2          333.
- 8  10.8     -17.0          291.
- 9  12.8     -15.0          226.
-10  13.6     -14.2          203.
-# ℹ 23 more rows</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a>mean.chick20 <span class="ot">&lt;-</span> <span class="fu">mean</span>(chick20)</span>
+<span id="cb32-2"><a aria-label="2"></a>mean.chick20  <span class="co">#209.7174</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 209.7174</code></pre>
 </div>
 </div>
-</div>
-<div id="tabset-1-3">
+<ul>
+<li>subtract mean from each data point and square it</li>
+</ul>
+<ul>
+<li>add up and divide by <span class="math inline">\(n-1\)</span> to obtain the sample variance:</li>
+</ul>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a>beesDF <span class="ot">&lt;-</span> beesDF <span class="sc">|&gt;</span></span>
-<span id="cb30-2"><a aria-label="2"></a>    <span class="fu">mutate</span>(<span class="st">`</span><span class="at">Y-meanY</span><span class="st">`</span> <span class="ot">=</span> hours <span class="sc">-</span> <span class="fu">mean</span>(hours)) <span class="sc">|&gt;</span></span>
-<span id="cb30-3"><a aria-label="3"></a>    <span class="fu">mutate</span>(<span class="st">`</span><span class="at">(Y-meanY)^2</span><span class="st">`</span> <span class="ot">=</span> (hours <span class="sc">-</span> <span class="fu">mean</span>(hours))<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb30-4"><a aria-label="4"></a><span class="fu">sum</span>(beesDF[, <span class="dv">3</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 13520.96</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a>step3 <span class="ot">&lt;-</span> <span class="fu">sum</span>(step2)</span>
+<span id="cb34-2"><a aria-label="2"></a>sample.size <span class="ot">&lt;-</span> <span class="fu">length</span>(chick20)  <span class="co">#46</span></span>
+<span id="cb34-3"><a aria-label="3"></a>step4 <span class="ot">&lt;-</span> step3<span class="sc">/</span>(sample.size <span class="sc">-</span> <span class="dv">1</span>)  <span class="co">#bessel's correction</span></span>
+<span id="cb34-4"><a aria-label="4"></a>step4  <span class="co">#unit: grams squared (grams^2)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4423.807</code></pre>
 </div>
 </div>
-<p>So</p>
-<p><span class="math display">\[s^2 = \frac{13520.96}{33-1}=422.53\text{ hours}^2\]</span></p>
-<p>Note: the unit here is hours <strong>squared</strong>. Also, note that we don’t divide by <span class="math inline">\(n\)</span> but by <span class="math inline">\(n-1\)</span>.</p>
-<aside class="notes"><p>4 differences from population mean:<br>
-s^2 instead of sigma^2; uses sample size instead of population size, taken as deviations from sample mean rather than population mean (which is not available); n-1, to account for bias caused by using Ybar (which is slightly closer to the individuals in the sample than the true mean is, because the sample mean is calculated from the sample too</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</div>
+<ul>
+<li>or, the short way:</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a><span class="fu">var</span>(chick20)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4423.807</code></pre>
 </div>
 </div>
 </section><section id="standard-deviation" class="slide level2"><h2>Standard Deviation</h2>
@@ -2097,47 +561,105 @@ s^2 instead of sigma^2; uses sample size instead of population size, taken as de
 <p><font color="#00a1b7"><span class="math display">\[s=\sqrt{\frac{\sum_{i=1}^{n}(Y_{i}-\bar{Y})^2}{n-1}}=\sqrt{s^2}\]</span> </font> <span class="math inline">\(n\)</span>: number of individuals in sample</p>
 <p><span class="math inline">\(\bar{Y}\)</span>: sample mean</p>
 </div></div>
-</section><section id="standard-deviation-1" class="slide level2"><h2>Standard Deviation</h2>
-<p>Using the previous example, with forager bees.</p>
-<p><span class="math display">\[s^2 = \frac{13520.96}{33-1}=422.53\text{ hours}^2\]</span> <span class="math display">\[s = \sqrt{422.53}=20.555\]</span> ## In R</p>
-<p>Variance</p>
 <div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a><span class="fu">var</span>(beesDF<span class="sc">$</span>hours)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 422.5301</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a><span class="fu">sqrt</span>(step4)  <span class="co">#step 4 from prev. slide was the variance</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 66.51171</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a aria-label="1"></a><span class="co"># same as:</span></span>
+<span id="cb40-2"><a aria-label="2"></a><span class="fu">sd</span>(chick20)  <span class="co">#66.51171</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 66.51171</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a aria-label="1"></a><span class="co"># same as:</span></span>
+<span id="cb42-2"><a aria-label="2"></a><span class="fu">sqrt</span>(<span class="fu">sum</span>((chick20 <span class="sc">-</span> mean.chick20)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">/</span>(sample.size <span class="sc">-</span> <span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 66.51171</code></pre>
 </div>
 </div>
-<p>Standard deviation</p>
-<div class="cell">
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a><span class="fu">sd</span>(beesDF<span class="sc">$</span>hours)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 20.55554</code></pre>
-</div>
-<details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a><span class="fu">sqrt</span>(<span class="fu">var</span>(beesDF<span class="sc">$</span>hours))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output cell-output-stdout">
-<pre><code>[1] 20.55554</code></pre>
-</div>
+</section><section id="in-summary" class="slide level2"><h2>In summary</h2>
+<div class="goal">
+<p>Range: The difference between the largest and smallest values. Underestimates population range (biased estimator).</p>
+<p>Interquartile Range: The difference between the 25th and 75th percentile.</p>
+<p>Variance &amp; Standard Deviation: The difference between observations &amp; the mean.</p>
+<p>Coefficient of Variation: A measure of the standard deviation that’s independent of the mean.</p>
 </div>
 </section><section id="coefficient-of-variation-cv" class="slide level2"><h2>Coefficient of Variation (CV)</h2>
 <ul>
 <li><p>The variance and standard deviation increase with the mean.</p></li>
 <li><p>The coefficient of variation allows for fair comparisons of variability between measures on different scales.</p></li>
 </ul>
+<p><span class="math display">\[CV=\frac{s}{\bar{Y}}\]</span>, sometimes expressed as:</p>
 <p><span class="math display">\[CV = 100\% \times \frac{s}{\bar{Y}}\]</span></p>
-</section><section id="in-summary" class="slide level2"><h2>In summary</h2>
-<div class="goal">
-<p>Range: The difference between the largest and smallest values.</p>
-<p>Interquartile Range: The difference between the 25th and 75th percentile.</p>
-<p>Variance &amp; Standard Deviation: The difference between observations &amp; the mean.</p>
-<p>Coefficient of Variation: A measure of the standard deviation that’s independent of the mean.</p>
+</section><section id="manipulating-variance-and-standard-deviation" class="slide level2"><h2>Manipulating variance and standard deviation</h2>
+<ul>
+<li>The variance (or standard deviation) of the sum of a variable <span class="math inline">\(X\)</span> and a constant <span class="math inline">\(c\)</span>: <span class="math inline">\(Var[X + c] = Var[X]\)</span> (same is true for <span class="math inline">\(s\)</span>, the SD)</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a aria-label="1"></a>x <span class="ot">&lt;-</span> iris<span class="sc">$</span>Petal.Length</span>
+<span id="cb44-2"><a aria-label="2"></a><span class="fu">var</span>(x <span class="sc">+</span> <span class="dv">20</span>)  <span class="co">#is the same as:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.116278</code></pre>
 </div>
-</section><section id="variance-standard-deviation-or-coefficient-of-variation" class="slide level2 center" data-background="#55cfd8"><h2>Variance, Standard Deviation or Coefficient of Variation?</h2>
-<div class="columns">
-<div class="column">
-<p>Variance and standard deviation convey the same information and are used in many equations.</p>
-</div><div class="column">
-<p>The coefficient of variation is less directly used in equations, but is ideal for comparing variation between different types of comparisons.</p>
-</div></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a aria-label="1"></a><span class="fu">var</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.116278</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a aria-label="1"></a><span class="co"># sd:</span></span>
+<span id="cb48-2"><a aria-label="2"></a><span class="fu">sd</span>(x)  <span class="co">#is the same as:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.765298</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a aria-label="1"></a><span class="fu">sd</span>(x <span class="sc">+</span> <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.765298</code></pre>
+</div>
+</div>
+<ul>
+<li>The variance of a product of a variable <span class="math inline">\(X\)</span> and a constant <span class="math inline">\(c\)</span>: <span class="math inline">\(Var[cX] = c^2 Var[X]\)</span>: (attention! It’s different for the SD)</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a aria-label="1"></a><span class="fu">var</span>(x <span class="sc">*</span> <span class="dv">5</span>)  <span class="co">#is the same as:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 77.90695</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a aria-label="1"></a><span class="dv">5</span><span class="sc">^</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">var</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 77.90695</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a aria-label="1"></a><span class="co"># but attention for the SD!</span></span>
+<span id="cb56-2"><a aria-label="2"></a><span class="fu">sd</span>(x <span class="sc">*</span> <span class="dv">5</span>)  <span class="co">#is the same as:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8.826491</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a aria-label="1"></a><span class="fu">sd</span>(x) <span class="sc">*</span> <span class="dv">5</span>  <span class="co"># </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 8.826491</code></pre>
+</div>
+</div>
+</section><section id="example-converting-units" class="slide level2"><h2>Example: converting units</h2>
+<div class="goal">
+<p>If the mean and variance in height (in centimers) in a sample are <span class="math inline">\(\bar{X}=169.8\text{ cm}\)</span> and <span class="math inline">\(s^2=131.98\text{ cm}^2\)</span> and <span class="math inline">\(1\text{ cm} = 0.394\)</span> inches, find the mean and variance in inches.</p>
+</div>
+<div class="fragment">
+<p>Mean: <span class="math inline">\(E[cX] = cE[X]\)</span></p>
+<p><span class="math inline">\(0.394\times169.8\text{ cm}=66.90\text{ inches}\)</span></p>
+<p>Variance: <span class="math inline">\(Var[cX] = c^2 Var[X]\)</span></p>
+<p><span class="math inline">\(0.394^2\times131.98\text{ cm}^2 = 20.488\text{ inches}^2\)</span></p>
+</div>
+</section><section id="rounding" class="slide level2"><h2>Rounding</h2>
+<ul>
+<li>Computers can return values with precision that exceeds biological interest.</li>
+<li>When sharing results, round numbers to a reasonable number of significant figures.</li>
+<li>Presenting one or two more digits than initially measured is a good rule of thumb.</li>
+<li>DO NOT round while calculating or sharing intermediate results!</li>
+<li>Round only the final results of the specific summaries of interest.</li>
+</ul></section><section id="how-about-plots" class="slide level2 center" data-background="#55cfd8"><h2>How about plots?</h2>
+<div class="r-fit-text">
+<p>Aren’t numerical summaries enough?</p>
+</div>
+</section></section><section id="no" class="title-slide slide level1 center" data-background="#55cfd8"><h1>No!</h1>
+<p>Next time!</p>
 
 
 </section>
