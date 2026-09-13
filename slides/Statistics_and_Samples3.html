@@ -36,6 +36,7 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -246,7 +247,7 @@ Bárbara D. Bitarello
 <li><p><strong>Dataset</strong> is a collection of data taken from a single source or intended for a single purpose.</p></li>
 </ul>
 </div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center">
+<div class="quarto-figure quarto-figure-center margin-caption">
 <figure><div class="quarto-figure quarto-figure-center">
 <figure><p><a href="https://xkcd.com/1429/"><img data-src="https://imgs.xkcd.com/comics/data_2x.png" class="quarto-figure quarto-figure-center" alt="[Cueball reading off a smart phone to someone off-screen.]     Cueball: According to this polling data, after Kirk and Picard, the most popular Star Trek character are Data.     Off-screen voice: Augh!     [Caption below the frame:]     Annoy grammar pedants on all sides by making \&quot;data\&quot; singular except when referring to the android."></a></p>
 </figure>
@@ -255,7 +256,7 @@ Bárbara D. Bitarello
 </div>
 </div><p>:::</p>
 </section><section id="the-tidy-way-to-organize-data-in-datasets" class="slide level2"><h2>The tidy way to organize data in datasets</h2>
-<table class="caption-top">
+<table>
 <caption>Each column records one variable. Each row corresponds to one observation.</caption>
 <thead><tr class="header">
 <th>Individual</th>
@@ -294,24 +295,24 @@ Bárbara D. Bitarello
 <li>Important: never, ever, modify the original (raw) dataset. Instead, focus on reproducibility.</li>
 </ul></section><section id="example-the-iris-dataset-in-r" class="slide level2"><h2>Example: the <code>iris</code> dataset in R</h2>
 <div class="cell">
-<div class="cell-output-display">
-<div id="gkmvqkazoi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gkmvqkazoi table {
+<div class="cell-output-display margin-caption">
+<div id="rafoofroav" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rafoofroav table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#gkmvqkazoi thead, #gkmvqkazoi tbody, #gkmvqkazoi tfoot, #gkmvqkazoi tr, #gkmvqkazoi td, #gkmvqkazoi th {
+#rafoofroav thead, #rafoofroav tbody, #rafoofroav tfoot, #rafoofroav tr, #rafoofroav td, #rafoofroav th {
   border-style: none;
 }
 
-#gkmvqkazoi p {
+#rafoofroav p {
   margin: 0;
   padding: 0;
 }
 
-#gkmvqkazoi .gt_table {
+#rafoofroav .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -337,12 +338,12 @@ Bárbara D. Bitarello
   border-left-color: #D3D3D3;
 }
 
-#gkmvqkazoi .gt_caption {
+#rafoofroav .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#gkmvqkazoi .gt_title {
+#rafoofroav .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -354,7 +355,7 @@ Bárbara D. Bitarello
   border-bottom-width: 0;
 }
 
-#gkmvqkazoi .gt_subtitle {
+#rafoofroav .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -366,7 +367,7 @@ Bárbara D. Bitarello
   border-top-width: 0;
 }
 
-#gkmvqkazoi .gt_heading {
+#rafoofroav .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -378,13 +379,13 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#gkmvqkazoi .gt_bottom_border {
+#rafoofroav .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gkmvqkazoi .gt_col_headings {
+#rafoofroav .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -399,7 +400,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#gkmvqkazoi .gt_col_heading {
+#rafoofroav .gt_col_heading {
   color: #FFFFFF;
   background-color: #365C8D;
   font-size: 100%;
@@ -419,7 +420,7 @@ Bárbara D. Bitarello
   overflow-x: hidden;
 }
 
-#gkmvqkazoi .gt_column_spanner_outer {
+#rafoofroav .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #365C8D;
   font-size: 100%;
@@ -431,15 +432,15 @@ Bárbara D. Bitarello
   padding-right: 4px;
 }
 
-#gkmvqkazoi .gt_column_spanner_outer:first-child {
+#rafoofroav .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gkmvqkazoi .gt_column_spanner_outer:last-child {
+#rafoofroav .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gkmvqkazoi .gt_column_spanner {
+#rafoofroav .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -451,11 +452,11 @@ Bárbara D. Bitarello
   width: 100%;
 }
 
-#gkmvqkazoi .gt_spanner_row {
+#rafoofroav .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#gkmvqkazoi .gt_group_heading {
+#rafoofroav .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -481,7 +482,7 @@ Bárbara D. Bitarello
   text-align: left;
 }
 
-#gkmvqkazoi .gt_empty_group_heading {
+#rafoofroav .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -496,15 +497,15 @@ Bárbara D. Bitarello
   vertical-align: middle;
 }
 
-#gkmvqkazoi .gt_from_md > :first-child {
+#rafoofroav .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gkmvqkazoi .gt_from_md > :last-child {
+#rafoofroav .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gkmvqkazoi .gt_row {
+#rafoofroav .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -523,7 +524,7 @@ Bárbara D. Bitarello
   overflow-x: hidden;
 }
 
-#gkmvqkazoi .gt_stub {
+#rafoofroav .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -536,7 +537,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#gkmvqkazoi .gt_stub_row_group {
+#rafoofroav .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -550,15 +551,15 @@ Bárbara D. Bitarello
   vertical-align: top;
 }
 
-#gkmvqkazoi .gt_row_group_first td {
+#rafoofroav .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#gkmvqkazoi .gt_row_group_first th {
+#rafoofroav .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#gkmvqkazoi .gt_summary_row {
+#rafoofroav .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -568,16 +569,16 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#gkmvqkazoi .gt_first_summary_row {
+#rafoofroav .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#gkmvqkazoi .gt_first_summary_row.thick {
+#rafoofroav .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#gkmvqkazoi .gt_last_summary_row {
+#rafoofroav .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -587,7 +588,7 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#gkmvqkazoi .gt_grand_summary_row {
+#rafoofroav .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -597,7 +598,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#gkmvqkazoi .gt_first_grand_summary_row {
+#rafoofroav .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -607,7 +608,7 @@ Bárbara D. Bitarello
   border-top-color: #D3D3D3;
 }
 
-#gkmvqkazoi .gt_last_grand_summary_row_top {
+#rafoofroav .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -617,11 +618,11 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#gkmvqkazoi .gt_striped {
+#rafoofroav .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gkmvqkazoi .gt_table_body {
+#rafoofroav .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -630,7 +631,7 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#gkmvqkazoi .gt_footnotes {
+#rafoofroav .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -644,7 +645,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#gkmvqkazoi .gt_footnote {
+#rafoofroav .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -653,7 +654,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#gkmvqkazoi .gt_sourcenotes {
+#rafoofroav .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -667,7 +668,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#gkmvqkazoi .gt_sourcenote {
+#rafoofroav .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -675,76 +676,76 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#gkmvqkazoi .gt_left {
+#rafoofroav .gt_left {
   text-align: left;
 }
 
-#gkmvqkazoi .gt_center {
+#rafoofroav .gt_center {
   text-align: center;
 }
 
-#gkmvqkazoi .gt_right {
+#rafoofroav .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gkmvqkazoi .gt_font_normal {
+#rafoofroav .gt_font_normal {
   font-weight: normal;
 }
 
-#gkmvqkazoi .gt_font_bold {
+#rafoofroav .gt_font_bold {
   font-weight: bold;
 }
 
-#gkmvqkazoi .gt_font_italic {
+#rafoofroav .gt_font_italic {
   font-style: italic;
 }
 
-#gkmvqkazoi .gt_super {
+#rafoofroav .gt_super {
   font-size: 65%;
 }
 
-#gkmvqkazoi .gt_footnote_marks {
+#rafoofroav .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#gkmvqkazoi .gt_asterisk {
+#rafoofroav .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#gkmvqkazoi .gt_indent_1 {
+#rafoofroav .gt_indent_1 {
   text-indent: 5px;
 }
 
-#gkmvqkazoi .gt_indent_2 {
+#rafoofroav .gt_indent_2 {
   text-indent: 10px;
 }
 
-#gkmvqkazoi .gt_indent_3 {
+#rafoofroav .gt_indent_3 {
   text-indent: 15px;
 }
 
-#gkmvqkazoi .gt_indent_4 {
+#rafoofroav .gt_indent_4 {
   text-indent: 20px;
 }
 
-#gkmvqkazoi .gt_indent_5 {
+#rafoofroav .gt_indent_5 {
   text-indent: 25px;
 }
 
-#gkmvqkazoi .katex-display {
+#rafoofroav .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#gkmvqkazoi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#rafoofroav div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
-<table class="gt_table caption-top" data-quarto-bootstrap="false">
+<table class="gt_table" data-quarto-bootstrap="false">
 <thead><tr class="gt_col_headings header">
 <th id="Sepal.Length" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Sepal.Length</th>
 <th id="Sepal.Width" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Sepal.Width</th>
@@ -804,8 +805,7 @@ Bárbara D. Bitarello
 <li>you can learn more about this dataset by looking it up in R:</li>
 </ul>
 <div class="cell">
-<details class="code-fold"><summary>Hide the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="st">`</span><span class="at">?</span><span class="st">`</span>(iris)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="st">`</span><span class="at">?</span><span class="st">`</span>(iris)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section id="types-of-variablesdata" class="slide level2"><h2>Types of variables/data</h2>
 <div class="goal">
@@ -853,7 +853,7 @@ Bárbara D. Bitarello
 <li>Number of offspring</li>
 <li>Number of petals</li>
 <li>Number of teeth</li>
-<li>Natural numbers: <span class="math inline">\(\{0,1,2,3,4,5,6,7,...,\infty\}\)</span>
+<li>Natural numbers: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5C%7B0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C...%2C%5Cinfty%5C%7D" alt="\{0,1,2,3,4,5,6,7,...,\infty\}" title="\{0,1,2,3,4,5,6,7,...,\infty\}" class="math inline">
 </li>
 </ul></section><section id="numeric-datavariables-1" class="slide level2"><h2>Numeric Data/Variables</h2>
 <div class="goal">
@@ -898,8 +898,8 @@ Bárbara D. Bitarello
       }</style></aside><aside><div>
 <p>Outdated nomenclature: dependent and independent variables</p>
 </div></aside></section><section id="case-study-surviving-the-titanic-12" class="slide level2"><h2>Case Study: surviving the Titanic (1/2)</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/clipboard-1607041779.png"></p>
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure><p><img data-src="images/clipboard-1607041779.png" class="margin-caption"></p>
 <figcaption>Confession: I watched this EIGHT times in the movie theater!</figcaption></figure>
 </div>
 
@@ -910,11 +910,11 @@ Bárbara D. Bitarello
 <p>Consider the fate of the approximatley 2,200 passengers of the titanic, including children and adults of both sexes.</p>
 </div>
 
-<img data-src="Statistics_and_Samples3_files/figure-revealjs/titanic-1.png" alt="Left, proportion of males and females among adults in the titanic who survived.  Right, same thing but for children." width="960" class="r-stretch quarto-figure-center"><p class="caption">This is a mosaic plot. We will learn about it in our next topic. Code based on snippets from Y. Brandvain.</p></section><section id="discuss" class="slide level2 scrollable"><h2>Discuss</h2>
+<img data-src="Statistics_and_Samples3_files/figure-revealjs/titanic-1.png" class="margin-caption r-stretch quarto-figure-center" alt="Left, proportion of males and females among adults in the titanic who survived.  Right, same thing but for children." width="960"><p class="caption">This is a mosaic plot. We will learn about it in our next topic. Code based on snippets from Y. Brandvain.</p></section><section id="discuss" class="slide level2 scrollable"><h2>Discuss</h2>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="Statistics_and_Samples3_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<figure><p><img data-src="Statistics_and_Samples3_files/figure-revealjs/unnamed-chunk-3-1.png" class="margin-caption quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -934,18 +934,18 @@ Bárbara D. Bitarello
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
-<p>B215</p>
+
 </div>
 </div></div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
       Reveal.initialize({
 'controlsAuto': false,
 'previewLinksAuto': false,
-'pdfSeparateFragments': false,
+'pdfSeparateFragments': true,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
@@ -1103,27 +1103,9 @@ Bárbara D. Bitarello
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
-        math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
-          config: 'TeX-AMS_HTML-full',
-          tex2jax: {
-            inlineMath: [['\\(','\\)']],
-            displayMath: [['\\[','\\]']],
-            balanceBraces: true,
-            processEscapes: false,
-            processRefs: true,
-            processEnvironments: true,
-            preview: 'TeX',
-            skipTags: ['script','noscript','style','textarea','pre','code'],
-            ignoreClass: 'tex2jax_ignore',
-            processClass: 'tex2jax_process'
-          },
-        },
-
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
-          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom
