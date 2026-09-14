@@ -70,6 +70,13 @@
     "text": "Exercise: lifespan of forager bees (variance)\n\nLifespan of forager bees (in hours).\n\n\n\n [1]  2.3  2.3  3.9  4.0  7.1  9.5  9.6 10.8 12.8 13.6 14.6 18.2 18.2 19.0 20.9\n[16] 24.3 25.8 25.9 26.5 27.1 30.0 33.3 34.8 34.8 35.7 36.9 41.3 44.2 54.2 55.8\n[31] 65.8 71.1 84.7"
   },
   {
+    "objectID": "slides/Unit2-CaseStudies&Problems.html#exercise-lifespan-of-forager-bees-variance-1",
+    "href": "slides/Unit2-CaseStudies&Problems.html#exercise-lifespan-of-forager-bees-variance-1",
+    "title": "Review/practice problems",
+    "section": "Exercise: lifespan of forager bees (variance)",
+    "text": "Exercise: lifespan of forager bees (variance)\n\nLifespan of forager bees (in hours).\n\n\n\n [1]  2.3  2.3  3.9  4.0  7.1  9.5  9.6 10.8 12.8 13.6 14.6 18.2 18.2 19.0 20.9\n[16] 24.3 25.8 25.9 26.5 27.1 30.0 33.3 34.8 34.8 35.7 36.9 41.3 44.2 54.2 55.8\n[31] 65.8 71.1 84.7\n\n\n\n\nMean\nSum of squares\nSum of squares (cont)\n\n\n\n\n2.3 2.3 3.9 4.0 7.1 9.5 9.6 10.8 12.8 13.6 14.6 18.2 18.2 19.0 20.9 24.3 25.8 25.9 26.5 27.1 30.0 33.3 34.8 34.8 35.7 36.9 41.3 44.2 54.2 55.8 65.8 71.1 84.7\n\n\n\n\n\n\n# A tibble: 33 × 3\n   hours `Y-meanY` `(Y-meanY)^2`\n   &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n 1   2.3     -25.5          653.\n 2   2.3     -25.5          653.\n 3   3.9     -23.9          574.\n 4   4       -23.8          569.\n 5   7.1     -20.7          430.\n 6   9.5     -18.3          337.\n 7   9.6     -18.2          333.\n 8  10.8     -17.0          291.\n 9  12.8     -15.0          226.\n10  13.6     -14.2          203.\n# ℹ 23 more rows\n\n\n\n\n\n\n[1] 13520.96\n\n\nSo\n\nNote: the unit here is hours squared. Also, note that we don’t divide by  but by .\n4 differences from population mean:\ns^2 instead of sigma^2; uses sample size instead of population size, taken as deviations from sample mean rather than population mean (which is not available); n-1, to account for bias caused by using Ybar (which is slightly closer to the individuals in the sample than the true mean is, because the sample mean is calculated from the sample too"
+  },
+  {
     "objectID": "slides/Unit2-CaseStudies&Problems.html#exercise-units",
     "href": "slides/Unit2-CaseStudies&Problems.html#exercise-units",
     "title": "Review/practice problems",
@@ -466,7 +473,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 5 7 3\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1]  3 10  4"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 8 2 9\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1]  4 10  5"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
