@@ -4,7 +4,7 @@
     "href": "slides/Unit2-CaseStudies&Problems.html#acknowledgments",
     "title": "Review/practice problems",
     "section": "Acknowledgments",
-    "text": "Acknowledgments"
+    "text": "Acknowledgments\n\nSome code and slide content was borrowed from Yaniv Brandvain and Michael Whitlock."
   },
   {
     "objectID": "slides/Unit2-CaseStudies&Problems.html#outline",
@@ -39,49 +39,35 @@
     "href": "slides/Unit2-CaseStudies&Problems.html#mean-from-a-frequency-table-22",
     "title": "Review/practice problems",
     "section": "Mean from a frequency table (2/2)",
-    "text": "Mean from a frequency table (2/2)\n\n\n\nSample size:\n\n\nlifetimeRS &lt;- c(0, 1, 2, 3, 4,\n    5, 6)\nfreqs &lt;- c(38L, 17L, 7L, 6L, 4L,\n    10L, 2L)\nn_total &lt;- sum(freqs)  # 84\nn_total\n\n[1] 84\n\n\n\nMean:\n\n\n# multiply two vectors of\n# same length\n\nFinalMean &lt;- sum(lifetimeRS * freqs)/n_total\nFinalMean\n\n[1] 1.511905\n\n\n\n\n\n\n\n\nA frequency table\n\nlifetimeRS\nfreq\nRSxfreq\n\n\n\n0\n38\n0\n\n\n1\n17\n17\n\n\n2\n7\n14\n\n\n3\n6\n18\n\n\n4\n4\n16\n\n\n5\n10\n50\n\n\n6\n2\n12\n\n\n\nLifetime reproductive success of male sparrows.\n\n\n\n\n\n\n\n\nImportant: assumes all data are presented in the tables (i.e., tables is not made of intervals)."
+    "text": "Mean from a frequency table (2/2)\n\n\n\nSample size:\n\n\nCodelifetimeRS &lt;- c(0, 1, 2, 3, 4,\n    5, 6)\nfreqs &lt;- c(38L, 17L, 7L, 6L, 4L,\n    10L, 2L)\nn_total &lt;- sum(freqs)  # 84\nn_total\n\n[1] 84\n\n\n\nMean:\n\n\nCode# multiply two vectors of\n# same length\n\nFinalMean &lt;- sum(lifetimeRS * freqs)/n_total\nFinalMean\n\n[1] 1.511905\n\n\n\n\n\n\n\n\nA frequency table\n\nlifetimeRS\nfreq\nRSxfreq\n\n\n\n0\n38\n0\n\n\n1\n17\n17\n\n\n2\n7\n14\n\n\n3\n6\n18\n\n\n4\n4\n16\n\n\n5\n10\n50\n\n\n6\n2\n12\n\n\n\nLifetime reproductive success of male sparrows.\n\n\n\n\n\n\n\n\nImportant: assumes all data are presented in the tables (i.e., tables is not made of intervals)."
   },
   {
     "objectID": "slides/Unit2-CaseStudies&Problems.html#how-would-we-recreate-the-original-data-from-this-frequency-table",
     "href": "slides/Unit2-CaseStudies&Problems.html#how-would-we-recreate-the-original-data-from-this-frequency-table",
     "title": "Review/practice problems",
     "section": "How would we recreate the original data from this frequency table?",
-    "text": "How would we recreate the original data from this frequency table?\n\n\n\n\n\nA frequency table\n\nlifetimeRS\nfreq\nRSxfreq\n\n\n\n0\n38\n0\n\n\n1\n17\n17\n\n\n2\n7\n14\n\n\n3\n6\n18\n\n\n4\n4\n16\n\n\n5\n10\n50\n\n\n6\n2\n12\n\n\n\nLifetime reproductive success of male sparrows.\n\n\n\n\n\n\n# the rep() function: rep(x, times = 1)\nrawD &lt;- rep(lifetimeRS, freqs)\nrawD\n\n [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[39] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 5 5 5 5\n[77] 5 5 5 5 5 5 6 6\n\n\n\n# getting the mean\nmean(rawD)\n\n[1] 1.511905\n\nmedian(rawD)\n\n[1] 1"
+    "text": "How would we recreate the original data from this frequency table?\n\n\n\n\n\nA frequency table\n\nlifetimeRS\nfreq\nRSxfreq\n\n\n\n0\n38\n0\n\n\n1\n17\n17\n\n\n2\n7\n14\n\n\n3\n6\n18\n\n\n4\n4\n16\n\n\n5\n10\n50\n\n\n6\n2\n12\n\n\n\nLifetime reproductive success of male sparrows."
+  },
+  {
+    "objectID": "slides/Unit2-CaseStudies&Problems.html#how-would-we-recreate-the-original-data-from-this-frequency-table-1",
+    "href": "slides/Unit2-CaseStudies&Problems.html#how-would-we-recreate-the-original-data-from-this-frequency-table-1",
+    "title": "Review/practice problems",
+    "section": "How would we recreate the original data from this frequency table?",
+    "text": "How would we recreate the original data from this frequency table?\n\n\n\n\n\nA frequency table\n\nlifetimeRS\nfreq\nRSxfreq\n\n\n\n0\n38\n0\n\n\n1\n17\n17\n\n\n2\n7\n14\n\n\n3\n6\n18\n\n\n4\n4\n16\n\n\n5\n10\n50\n\n\n6\n2\n12\n\n\n\nLifetime reproductive success of male sparrows.\n\n\n\n\n\n\n\n [1] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0\n[39] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 3 3 3 3 3 3 4 4 4 4 5 5 5 5\n[77] 5 5 5 5 5 5 6 6\n\n\n\n\n[1] 1.511905\n\n\n[1] 1"
   },
   {
     "objectID": "slides/Unit2-CaseStudies&Problems.html#practice",
     "href": "slides/Unit2-CaseStudies&Problems.html#practice",
     "title": "Review/practice problems",
     "section": "Practice",
-    "text": "Practice\n\nHow many variables do we have here? How many mice? How many tumors?What is the mean number of tumors observed in the 20 autopsies performed on the mice?\n\n\n\n\n\n\nNumber of tumors discovered in autopsies of experimental mice.\n\nNr_tumors\nFreq\n\n\n\n0\n8\n\n\n1\n6\n\n\n2\n3\n\n\n3\n2\n\n\n4\n1"
-  },
-  {
-    "objectID": "slides/Unit2-CaseStudies&Problems.html#practice-1",
-    "href": "slides/Unit2-CaseStudies&Problems.html#practice-1",
-    "title": "Review/practice problems",
-    "section": "Practice",
-    "text": "Practice\n\nHow many variables do we have here? How many mice? How many tumors?What is the mean number of tumors observed in the 20 autopsies performed on the mice?\n\n\n\n\n\n\nNumber of tumors discovered in autopsies of experimental mice.\n\nNr_tumors\nFreq\n\n\n\n0\n8\n\n\n1\n6\n\n\n2\n3\n\n\n3\n2\n\n\n4\n1"
-  },
-  {
-    "objectID": "slides/Unit2-CaseStudies&Problems.html#which-measure-of-spread",
-    "href": "slides/Unit2-CaseStudies&Problems.html#which-measure-of-spread",
-    "title": "Review/practice problems",
-    "section": "Which measure of spread?",
-    "text": "Which measure of spread?\n\nSalary range in a company will give a very good sense of the disparities between the ones in each end, but not a good sense of what the “average” employee earns\nWhat can you do then?\n\nYou could calculate the median, sure, but what about the spread? Interquartile range would be a better measure here"
+    "text": "Practice\n\nHow many variables do we have here? How many mice? How many tumors? What is the mean number of tumors observed in autopsies performed on the mice?\n\n\n\n\n\n\nNumber of tumors discovered in autopsies of experimental mice.\n\nNr_tumors\nFreq\n\n\n\n0\n8\n\n\n1\n6\n\n\n2\n3\n\n\n3\n2\n\n\n4\n1"
   },
   {
     "objectID": "slides/Unit2-CaseStudies&Problems.html#exercise-lifespan-of-forager-bees-variance",
     "href": "slides/Unit2-CaseStudies&Problems.html#exercise-lifespan-of-forager-bees-variance",
     "title": "Review/practice problems",
     "section": "Exercise: lifespan of forager bees (variance)",
-    "text": "Exercise: lifespan of forager bees (variance)\n\nLifespan of forager bees (in hours).\n\n\nbees$hours\n\n [1]  2.3  2.3  3.9  4.0  7.1  9.5  9.6 10.8 12.8 13.6 14.6 18.2 18.2 19.0 20.9\n[16] 24.3 25.8 25.9 26.5 27.1 30.0 33.3 34.8 34.8 35.7 36.9 41.3 44.2 54.2 55.8\n[31] 65.8 71.1 84.7"
-  },
-  {
-    "objectID": "slides/Unit2-CaseStudies&Problems.html#exercise-lifespan-of-forager-bees-variance-1",
-    "href": "slides/Unit2-CaseStudies&Problems.html#exercise-lifespan-of-forager-bees-variance-1",
-    "title": "Review/practice problems",
-    "section": "Exercise: lifespan of forager bees (variance)",
-    "text": "Exercise: lifespan of forager bees (variance)\n\nLifespan of forager bees (in hours).\n\n\nbees$hours\n\n [1]  2.3  2.3  3.9  4.0  7.1  9.5  9.6 10.8 12.8 13.6 14.6 18.2 18.2 19.0 20.9\n[16] 24.3 25.8 25.9 26.5 27.1 30.0 33.3 34.8 34.8 35.7 36.9 41.3 44.2 54.2 55.8\n[31] 65.8 71.1 84.7\n\n\n\n\nMean\nSum of squares\nSum of squares (cont)\n\n\n\n\n2.3 2.3 3.9 4.0 7.1 9.5 9.6 10.8 12.8 13.6 14.6 18.2 18.2 19.0 20.9 24.3 25.8 25.9 26.5 27.1 30.0 33.3 34.8 34.8 35.7 36.9 41.3 44.2 54.2 55.8 65.8 71.1 84.7\n\n\n\n\n\nbees |&gt;\n    mutate(`Y-meanY` = hours - mean(hours)) |&gt;\n    mutate(`(Y-meanY)^2` = (hours - mean(hours))^2)\n\n# A tibble: 33 × 3\n   hours `Y-meanY` `(Y-meanY)^2`\n   &lt;dbl&gt;     &lt;dbl&gt;         &lt;dbl&gt;\n 1   2.3     -25.5          653.\n 2   2.3     -25.5          653.\n 3   3.9     -23.9          574.\n 4   4       -23.8          569.\n 5   7.1     -20.7          430.\n 6   9.5     -18.3          337.\n 7   9.6     -18.2          333.\n 8  10.8     -17.0          291.\n 9  12.8     -15.0          226.\n10  13.6     -14.2          203.\n# ℹ 23 more rows\n\n\n\n\n\nbees &lt;- bees |&gt;\n    mutate(`Y-meanY` = hours - mean(hours)) |&gt;\n    mutate(`(Y-meanY)^2` = (hours - mean(hours))^2)\nsum(bees[, 3])\n\n[1] 13520.96\n\n\nSo\n\nNote: the unit here is hours squared. Also, note that we don’t divide by  but by .\n4 differences from population mean:\ns^2 instead of sigma^2; uses sample size instead of population size, taken as deviations from sample mean rather than population mean (which is not available); n-1, to account for bias caused by using Ybar (which is slightly closer to the individuals in the sample than the true mean is, because the sample mean is calculated from the sample too"
+    "text": "Exercise: lifespan of forager bees (variance)\n\nLifespan of forager bees (in hours).\n\n\n\n [1]  2.3  2.3  3.9  4.0  7.1  9.5  9.6 10.8 12.8 13.6 14.6 18.2 18.2 19.0 20.9\n[16] 24.3 25.8 25.9 26.5 27.1 30.0 33.3 34.8 34.8 35.7 36.9 41.3 44.2 54.2 55.8\n[31] 65.8 71.1 84.7"
   },
   {
     "objectID": "slides/Unit2-CaseStudies&Problems.html#exercise-units",
@@ -102,28 +88,21 @@
     "href": "slides/Unit2-CaseStudies&Problems.html#iqr-walkthrough-1",
     "title": "Review/practice problems",
     "section": "IQR walkthrough",
-    "text": "IQR walkthrough\n\nFirst, sort the values\n\n\nsort(bees$hours)\n\n [1]  2.3  2.3  3.9  4.0  7.1  9.5  9.6 10.8 12.8 13.6 14.6 18.2 18.2 19.0 20.9\n[16] 24.3 25.8 25.9 26.5 27.1 30.0 33.3 34.8 34.8 35.7 36.9 41.3 44.2 54.2 55.8\n[31] 65.8 71.1 84.7\n\n\n\nFind the median:\nFind the range:\nFind Q1 and Q3: The other two quantiles are the individuals ¼ and ¾ the way into your sorted list of data"
+    "text": "IQR walkthrough\n\nFirst, sort the values\n\n\nCodesort(bees$hours)\n\n [1]  2.3  2.3  3.9  4.0  7.1  9.5  9.6 10.8 12.8 13.6 14.6 18.2 18.2 19.0 20.9\n[16] 24.3 25.8 25.9 26.5 27.1 30.0 33.3 34.8 34.8 35.7 36.9 41.3 44.2 54.2 55.8\n[31] 65.8 71.1 84.7\n\n\n\nFind the median:\nFind the range:\nFind Q1 and Q3: The other two quantiles are the individuals ¼ and ¾ the way into your sorted list of data"
   },
   {
     "objectID": "slides/Unit2-CaseStudies&Problems.html#iqr-walkthrough-2",
     "href": "slides/Unit2-CaseStudies&Problems.html#iqr-walkthrough-2",
     "title": "Review/practice problems",
     "section": "IQR walkthrough",
-    "text": "IQR walkthrough\n\nFirst, sort the values\n\n\nsort(bees$hours)\n\n [1]  2.3  2.3  3.9  4.0  7.1  9.5  9.6 10.8 12.8 13.6 14.6 18.2 18.2 19.0 20.9\n[16] 24.3 25.8 25.9 26.5 27.1 30.0 33.3 34.8 34.8 35.7 36.9 41.3 44.2 54.2 55.8\n[31] 65.8 71.1 84.7\n\n\n\n\n1st quartile: \n3rd quartile: \n\nIf  is integer, \nIf  is not integer, round up to the next integer. Then, , where  is now the integer rounded up to. Same for Q3.\n\n\nNote: software may use slightly different algorithms."
+    "text": "IQR walkthrough\n\nFirst, sort the values\n\n\nCodesort(bees$hours)\n\n [1]  2.3  2.3  3.9  4.0  7.1  9.5  9.6 10.8 12.8 13.6 14.6 18.2 18.2 19.0 20.9\n[16] 24.3 25.8 25.9 26.5 27.1 30.0 33.3 34.8 34.8 35.7 36.9 41.3 44.2 54.2 55.8\n[31] 65.8 71.1 84.7\n\n\n\n\n1st quartile: \n3rd quartile: \n\nIf  is integer, \nIf  is not integer, round up to the next integer. Then, , where  is now the integer rounded up to. Same for Q3.\n\n\nNote: software may use slightly different algorithms."
   },
   {
     "objectID": "slides/Unit2-CaseStudies&Problems.html#iqr-walkthrough-3",
     "href": "slides/Unit2-CaseStudies&Problems.html#iqr-walkthrough-3",
     "title": "Review/practice problems",
     "section": "IQR walkthrough",
-    "text": "IQR walkthrough\n\n\n1st quartile: \n3rd quartile: \n\nIf  is integer, \nIf  is not integer, round up to the next integer. Then, , where  is now the integer rounded up to. Same for Q3.\n\n\n# we can then check our result:\nsummary(bees$hours)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   2.30   12.80   25.80   27.85   35.70   84.70 \n\nIQR(bees$hours)\n\n[1] 22.9"
-  },
-  {
-    "objectID": "slides/Unit2-CaseStudies&Problems.html#iqr-practice",
-    "href": "slides/Unit2-CaseStudies&Problems.html#iqr-practice",
-    "title": "Review/practice problems",
-    "section": "IQR practice",
-    "text": "IQR practice"
+    "text": "IQR walkthrough\n\n\n1st quartile: \n3rd quartile: \n\nIf  is integer, \nIf  is not integer, round up to the next integer. Then, , where  is now the integer rounded up to. Same for Q3.\n\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   2.30   12.80   25.80   27.85   35.70   84.70 \n\n\n[1] 22.9"
   },
   {
     "objectID": "acknowledgments.html",
@@ -487,7 +466,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1]  8  5 10\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 5 2 4"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 5 7 3\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1]  3 10  4"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
