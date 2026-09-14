@@ -487,7 +487,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1]  7  6 10\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 3 2 9"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1]  8  5 10\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 5 2 4"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
@@ -732,7 +732,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\n1.1.Statistics & Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nUnit 1\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nUnit 1\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nUnit 1\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.2.Displaying & Describing Data\n\n\nFri, Sep 11\n\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\n1.1.Statistics & Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nUnit 1\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nUnit 1\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nUnit 1\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.2.Displaying & Describing Data\n\n\nFri, Sep 11\n\n\n\n\n\n\nUnit 2\n\n\n2.3.Data Visualization\n\n\nMon, Sep 14\n\n\n\n\n\n\nUnit 2\n\n\nReview/practice problems\n\n\nMon, Sep 14\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Slides"
     ]
