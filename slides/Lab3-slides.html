@@ -10,9 +10,9 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 <meta name="author" content="Bárbara D. Bitarello">
-<meta name="dcterms.date" content="2026-09-02">
-<meta name="keywords" content="Unit 1">
-<title>BIOL B215: Biostatistics with R – 1.3.Types of variables</title>
+<meta name="dcterms.date" content="2026-09-15">
+<meta name="keywords" content="EDA">
+<title>BIOL B215: Biostatistics with R – Lab 3: Exploring Data I</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -105,6 +105,7 @@
     code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
 <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-ac6c02ca5a07ac614c2f066fce0ae2e0.css">
+<link rel="stylesheet" href="labs.css">
 <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -202,7 +203,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center"><h1 class="title">1.3.Types of variables</h1>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Lab 3: Exploring Data I</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -212,18 +213,130 @@ Bárbara D. Bitarello
 </div>
 </div>
 
-  <p class="date">September 2, 2026</p>
-</section><section id="acknowledgments" class="slide level2"><h2>Acknowledgments</h2>
+  <p class="date">September 15, 2026</p>
+</section><section><section id="a-bit-on-good-coding-practices" class="title-slide slide level1 center"><h1>A bit on good coding practices</h1>
+
+</section><section id="code-quality" class="slide level2"><h2>Code quality</h2>
 <ul>
-<li><p>Some code and slide content was borrowed from Yaniv Brandvain and Michael Whitlock.</p></li>
-<li><p>Some content is based on the textbook used in the course (by Freeman &amp; Company).</p></li>
-</ul></section><section id="quick-recap" class="slide level2"><h2>Quick recap</h2>
-<p>Last lecture we discussed:</p>
-<ul>
-<li>The two types of errors associated with sampling: sampling error and sampling bias.</li>
-<li>Properties of a good sample.</li>
+<li><p>Writing well-organized and well-labeled code allows your code to be more easily read and understood by another person.</p></li>
+<li><p>Your well-written code is more accessible to you hours, days, or even months later. We are hoping that you can use the code you write in this class in future projects and research.</p></li>
 </ul>
-<aside class="notes"><p>Ask for volunteers to remind these concepts</p>
+<div class="quarto-figure quarto-figure-center">
+<figure><div class="quarto-figure quarto-figure-center">
+<figure><p><a href="https://xkcd.com/1513/"><img data-src="https://www.stt.msu.edu/~melfi/figures/code_quality.png" class="quarto-figure quarto-figure-center" alt="Four-panel black-and-white comic in which two people critique messy computer code through increasingly absurd comparisons before one agrees to read a style guide."></a></p>
+</figure>
+</div>
+<figcaption>xkcd: Code Quality</figcaption></figure>
+</div>
+</section><section id="naming-files" class="slide level2"><h2>Naming files</h2>
+<ul>
+<li><p>File names should be machine readable: avoid spaces, symbols, and special characters.</p></li>
+<li><p>Prefer file names that are all lower case, and never have names that differ only in their capitalization.</p></li>
+<li><p>Delimit words with <code>-</code> or <code>_</code>.</p></li>
+<li><p>File names should be meaningful and end in <code>.R</code>.</p></li>
+</ul></section><section id="file-naming" class="slide level2"><h2>File naming</h2>
+<div class="cell" data-warnings="false">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co">#GOOD:</span></span>
+<span id="cb1-2"><a aria-label="2"></a>african_rhino_distribution.R</span>
+<span id="cb1-3"><a aria-label="3"></a>africanRhinoDistribution.R</span>
+<span id="cb1-4"><a aria-label="4"></a></span>
+<span id="cb1-5"><a aria-label="5"></a><span class="co">#BAD:</span></span>
+<span id="cb1-6"><a aria-label="6"></a>speciesDist.R <span class="co">#(too ambiguous)</span></span>
+<span id="cb1-7"><a aria-label="7"></a>species.dist.R <span class="co">#(too ambiguous and two periods can confuse operating systems’ file type auto-detect)</span></span>
+<span id="cb1-8"><a aria-label="8"></a>species dist.R <span class="co">#(too ambiguous and confusing; spaces)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="naming-variables-and-functions" class="slide level2"><h2>Naming variables and functions</h2>
+<p>Variable and function names should use only lowercase letters, numbers, and <em>. Use underscores (</em>) (so called snake case) to separate words within a name.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="co"># Good</span></span>
+<span id="cb2-2"><a aria-label="2"></a>day_one</span>
+<span id="cb2-3"><a aria-label="3"></a>day_1</span>
+<span id="cb2-4"><a aria-label="4"></a></span>
+<span id="cb2-5"><a aria-label="5"></a><span class="co"># Bad</span></span>
+<span id="cb2-6"><a aria-label="6"></a>DayOne</span>
+<span id="cb2-7"><a aria-label="7"></a>dayone</span>
+<span id="cb2-8"><a aria-label="8"></a>day.one  <span class="co"># why is this not good?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+
+<aside><div>
+<p>Base R uses dots in function names (contrib.url()) and class names (data.frame), but it’s better to reserve dots exclusively for the S3 object system. This is beyond out scope for now, so just trust me on this one.</p>
+</div></aside></section><section id="avoid-re-using-names-of-common-functions-and-variables" class="slide level2"><h2>Avoid re-using names of common functions and variables</h2>
+<ul>
+<li>This will cause confusion for the readers of your code.</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="co"># Bad</span></span>
+<span id="cb3-2"><a aria-label="2"></a>T <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb3-3"><a aria-label="3"></a>c <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb3-4"><a aria-label="4"></a>mean <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">sum</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="pipes" class="slide level2"><h2>Pipes</h2>
+<ul>
+<li><p>Use <code>|&gt;</code> to emphasise a sequence of actions, rather than the object that the actions are being performed on.</p></li>
+<li><p>The tidyverse has been designed to work particularly well with the pipe, but you can use it with any code, particularly in conjunction with the _ placeholder.</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>strings <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a aria-label="2"></a>  <span class="fu">str_replace</span>(<span class="st">"a"</span>, <span class="st">"b"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a aria-label="3"></a>  <span class="fu">str_replace</span>(<span class="st">"x"</span>, <span class="st">"y"</span>)</span>
+<span id="cb4-4"><a aria-label="4"></a></span>
+<span id="cb4-5"><a aria-label="5"></a>strings <span class="sc">|&gt;</span></span>
+<span id="cb4-6"><a aria-label="6"></a>  <span class="fu">gsub</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="at">x =</span> _) <span class="sc">|&gt;</span></span>
+<span id="cb4-7"><a aria-label="7"></a>  <span class="fu">gsub</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, <span class="at">x =</span> _)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section></section><section><section id="how-to-make-plots-in-r-the-basics" class="title-slide slide level1 center"><h1>How to make plots in R (the basics)</h1>
+
+</section><section id="in-a-nutshell" class="slide level2"><h2>In a nutshell</h2>
+<ul>
+<li><p>Base R functions like: <code>plot</code>, <code>hist</code>, <code>barplot</code>, etc.</p></li>
+<li>
+<p><code>ggplot2</code>: an R package for making plots.</p>
+<ul>
+<li>advantage: prettier, customisable, easier in the long run</li>
+<li>disadvantages: new syntax, learning curve in the beginning</li>
+</ul>
+</li>
+</ul></section><section id="ggplot2-key-points" class="slide level2"><h2>ggplot2: Key points</h2>
+<ul>
+<li>the <code>ggplot()</code> function initiates a plot, and <code>geom_</code> functions add representations of your data</li>
+<li>use <code>aes()</code> when mapping a variable from the data to a part of the plot</li>
+<li>use <code>scale_</code> functions to modify the scales used to represent variables</li>
+<li>use premade <code>theme_</code> functions to broadly change appearance, and the <code>theme()</code> function to fine-tune start simple and build your plots iteratively</li>
+</ul></section></section><section><section id="section" class="title-slide slide level1 center" data-background-color="#FFCD00"><h1></h1>
+
+<img data-src="https://www.tidyverse.org/images/hex-tidyverse.png" title="The Tidyverse logo" class="quarto-figure quarto-figure-center r-stretch"></section><section id="packages-functions" class="slide level2"><h2>Packages &amp; Functions</h2>
+
+<img data-src="images/collection_package_function.png" title="Visualization of functions, packages and package collections like the Tidyverse" class="r-stretch"></section><section id="packages-functions-1" class="slide level2"><h2>Packages &amp; Functions</h2>
+<iframe src="https://cran.r-project.org/web/packages/available_packages_by_name.html" width="100%" height="500"></iframe>
+</section><section id="packages-functions-2" class="slide level2 scrollable"><h2>Packages &amp; Functions</h2>
+<ol type="1">
+<li>Installing a package (once):</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">install.packages</span>(<span class="st">"dplyr"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<ol start="2" type="1">
+<li>Loading a package (every time you want to use it):</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">library</span>(dplyr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>Now you can use functions from this package! (every time you want to use it)</li>
+</ol>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>dplyr<span class="sc">::</span><span class="fu">rename</span>(iris, <span class="at">petal_length =</span> Petal.Length)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</section><section id="what-is-the-tidyverse" class="slide level2"><h2>What is the tidyverse?</h2>
+<blockquote>
+<p>The tidyverse is an opinionated collection of R packages <strong>designed for data science</strong>. All packages <strong>share an underlying design</strong> philosophy, grammar, and data structures (<a href="https://www.tidyverse.org/">tidyverse.org</a>).</p>
+</blockquote>
+
+<img data-src="https://elixir-luxembourg.org/assets/events_photos/2021_05_06_R_Tidyverse.png" title="Logos of common tidyverse packages" class="quarto-figure quarto-figure-center r-stretch"></section><section id="the-data-science-workflow" class="slide level2"><h2>The Data Science workflow</h2>
+
+<img data-src="https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png" title="The data science workflow." class="r-stretch quarto-figure-center"><p class="caption">Source: <a href="https://r4ds.had.co.nz/introduction.html">R 4 Data Science</a></p><aside class="notes"><p>We will move a data frame through the different steps in a data science workflow. This means that often the results of one step will be the input for the next</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -234,703 +347,169 @@ Bárbara D. Bitarello
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="learning-goals" class="slide level2"><h2>Learning goals</h2>
+      }</style></aside></section><section id="tidyverse-core-packages" class="slide level2"><h2>tidyverse core packages</h2>
+
+<img data-src="images/tidyverse_packages_per_step.png" class="r-stretch"><aside class="notes"><ul>
+<li>
+<code>readr</code>: data import</li>
+<li>
+<code>tibble</code>: modern data frame object</li>
+<li>
+<code>stringr</code>: working with strings</li>
+<li>
+<code>forcats</code>: working with factors</li>
+<li>
+<code>tidyr</code>: data tidying</li>
+<li>
+<code>dplyr</code>: data manipulation</li>
+<li>
+<code>ggplot2</code>: data visualization</li>
+<li>
+<code>purrr</code>: functional programming</li>
+</ul><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section></section><section><section id="section-1" class="title-slide slide level1 center" data-background-color="#FFCD00"><h1>🐧🐧🐧</h1>
+
+</section><section id="a-typical-workflow" class="slide level2 scrollable"><h2>A typical workflow</h2>
+<ol type="1">
+<li class="fragment">Read a file into R</li>
+<li class="fragment">Clean the data:
 <ul>
-<li>Detect the differences between [observational]{.underline} and <u>experimental</u> studies.</li>
-<li>Identify whether a variable is <u>numeric</u> or <u>categorical</u> (and subtypes).</li>
-</ul></section><section id="types-of-variables" class="slide level2 center"><h2>Types of Variables</h2>
-</section><section id="variables-and-data" class="slide level2"><h2>Variables and “Data”</h2>
-<div class="column" style="width:60%;">
-<ul>
-<li><p>A <strong>variable</strong> is a characteristic measured on individuals drawn from a population under study.</p></li>
-<li><p><strong>Data</strong> are measurements of one or more variables made on a collection of individuals. (i.e., your sample).</p></li>
-<li><p><strong>Dataset</strong> is a collection of data taken from a single source or intended for a single purpose.</p></li>
+<li class="fragment">Select only relevant columns</li>
+<li class="fragment">Filter on relevant rows</li>
 </ul>
-</div><div class="column" style="width:40%;">
-<div class="quarto-figure quarto-figure-center margin-caption">
-<figure><div class="quarto-figure quarto-figure-center">
-<figure><p><a href="https://xkcd.com/1429/"><img data-src="https://imgs.xkcd.com/comics/data_2x.png" class="quarto-figure quarto-figure-center" alt="[Cueball reading off a smart phone to someone off-screen.]     Cueball: According to this polling data, after Kirk and Picard, the most popular Star Trek character are Data.     Off-screen voice: Augh!     [Caption below the frame:]     Annoy grammar pedants on all sides by making \&quot;data\&quot; singular except when referring to the android."></a></p>
-</figure>
-</div>
-<figcaption>From: https://xkcd.com/1429. If you want to have more fun at the expense of language pedants, try developing an hypercorrection habit.</figcaption></figure>
-</div>
-</div><p>:::</p>
-</section><section id="the-tidy-way-to-organize-data-in-datasets" class="slide level2"><h2>The tidy way to organize data in datasets</h2>
-<table>
-<caption>Each column records one variable. Each row corresponds to one observation.</caption>
+</li>
+<li class="fragment">Calculate a new column</li>
+<li class="fragment">Rename a column</li>
+<li class="fragment">Put the dataframe into a long (tidy) format</li>
+<li class="fragment">Summarize the dataframe</li>
+<li class="fragment">Visualize the dataframe</li>
+<li class="fragment">Write the summarized dataframe to a file</li>
+</ol></section><section id="data-palmerpenguins" class="slide level2"><h2>Data: palmerpenguins</h2>
+<ul>
+<li>Observations about penguins from the Palmer Archipelago (Antarctica)</li>
+<li>Package created by Allison Horst for worldwide use</li>
+<li>species, island, culmen length and depth, flipper length, etc.</li>
+</ul>
+
+<img data-src="https://allisonhorst.github.io/palmerpenguins/reference/figures/lter_penguins.png" style="width:10.0%" class="r-stretch"></section></section><section><section id="importing-data" class="title-slide slide level1 center" data-background-color="#FFCD00"><h1>Importing Data</h1>
+
+</section><section id="reading-data-into-r" class="slide level2"><h2>Reading data into R</h2>
+
+<img data-src="images/reading_writing.png" title="Importing files into R, and exporting them into a file again" class="r-stretch"></section><section id="readr-read-rectangular-text-data" class="slide level2"><h2>readr: Read Rectangular Text Data</h2>
+<p><img data-src="images/csv-file.png" style="width:60.0%"><img data-src="images/tsv-file.png" style="width:60.0%"></p>
+</section><section id="readr-read-rectangular-text-data-1" class="slide level2"><h2>readr: Read Rectangular Text Data</h2>
+<p>To read text data, you need:</p>
+<ul>
+<li>
+<strong>location</strong> of the data (path)</li>
+<li>
+<strong>delimiter</strong> (value separator) of the data, e.g.&nbsp;<code>,</code>, <code>;</code> or <code>\t</code>
+</li>
+<li>
+<strong>function</strong> to use to read data into R</li>
+</ul>
+<div class="fragment">
+<table class="caption-top">
 <thead><tr class="header">
-<th>Individual</th>
-<th>var1</th>
-<th>var2</th>
-<th>var3</th>
+<th>Read <em>from</em> file</th>
+<th>Write <em>to</em> file</th>
+<th>Value separator</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td>ind01</td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>read_delim()</code></td>
+<td><code>write_delim()</code></td>
+<td>catch-all: user needs to specify</td>
 </tr>
 <tr class="even">
-<td>ind02</td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>read_csv()</code></td>
+<td><code>write_csv()</code></td>
+<td>comma separated</td>
 </tr>
 <tr class="odd">
-<td>ind03</td>
-<td></td>
-<td></td>
-<td></td>
+<td><code>read_csv2()</code></td>
+<td><code>write_csv2()</code></td>
+<td>semicolon separated</td>
 </tr>
 <tr class="even">
-<td>ind04</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Important: never, ever, modify the original (raw) dataset. Instead, focus on reproducibility.</li>
-</ul></section><section id="example-the-iris-dataset-in-r" class="slide level2"><h2>Example: the <code>iris</code> dataset in R</h2>
-<div class="cell">
-<div class="cell-output-display margin-caption">
-<div id="cpvuxkikpa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cpvuxkikpa table {
-  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#cpvuxkikpa thead, #cpvuxkikpa tbody, #cpvuxkikpa tfoot, #cpvuxkikpa tr, #cpvuxkikpa td, #cpvuxkikpa th {
-  border-style: none;
-}
-
-#cpvuxkikpa p {
-  margin: 0;
-  padding: 0;
-}
-
-#cpvuxkikpa .gt_table {
-  display: table;
-  border-collapse: collapse;
-  line-height: normal;
-  margin-left: auto;
-  margin-right: auto;
-  color: #333333;
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  background-color: #FFFFFF;
-  width: auto;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #A8A8A8;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #A8A8A8;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-}
-
-#cpvuxkikpa .gt_caption {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-#cpvuxkikpa .gt_title {
-  color: #333333;
-  font-size: 125%;
-  font-weight: initial;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-color: #FFFFFF;
-  border-bottom-width: 0;
-}
-
-#cpvuxkikpa .gt_subtitle {
-  color: #333333;
-  font-size: 85%;
-  font-weight: initial;
-  padding-top: 3px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-color: #FFFFFF;
-  border-top-width: 0;
-}
-
-#cpvuxkikpa .gt_heading {
-  background-color: #FFFFFF;
-  text-align: center;
-  border-bottom-color: #FFFFFF;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#cpvuxkikpa .gt_bottom_border {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#cpvuxkikpa .gt_col_headings {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-}
-
-#cpvuxkikpa .gt_col_heading {
-  color: #FFFFFF;
-  background-color: #365C8D;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
-  overflow-x: hidden;
-}
-
-#cpvuxkikpa .gt_column_spanner_outer {
-  color: #FFFFFF;
-  background-color: #365C8D;
-  font-size: 100%;
-  font-weight: normal;
-  text-transform: inherit;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-
-#cpvuxkikpa .gt_column_spanner_outer:first-child {
-  padding-left: 0;
-}
-
-#cpvuxkikpa .gt_column_spanner_outer:last-child {
-  padding-right: 0;
-}
-
-#cpvuxkikpa .gt_column_spanner {
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: bottom;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  overflow-x: hidden;
-  display: inline-block;
-  width: 100%;
-}
-
-#cpvuxkikpa .gt_spanner_row {
-  border-bottom-style: hidden;
-}
-
-#cpvuxkikpa .gt_group_heading {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  text-align: left;
-}
-
-#cpvuxkikpa .gt_empty_group_heading {
-  padding: 0.5px;
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  vertical-align: middle;
-}
-
-#cpvuxkikpa .gt_from_md > :first-child {
-  margin-top: 0;
-}
-
-#cpvuxkikpa .gt_from_md > :last-child {
-  margin-bottom: 0;
-}
-
-#cpvuxkikpa .gt_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin: 10px;
-  border-top-style: solid;
-  border-top-width: 1px;
-  border-top-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 1px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 1px;
-  border-right-color: #D3D3D3;
-  vertical-align: middle;
-  overflow-x: hidden;
-}
-
-#cpvuxkikpa .gt_stub {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#cpvuxkikpa .gt_stub_row_group {
-  color: #333333;
-  background-color: #FFFFFF;
-  font-size: 100%;
-  font-weight: initial;
-  text-transform: inherit;
-  border-right-style: solid;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-  padding-left: 5px;
-  padding-right: 5px;
-  vertical-align: top;
-}
-
-#cpvuxkikpa .gt_row_group_first td {
-  border-top-width: 2px;
-}
-
-#cpvuxkikpa .gt_row_group_first th {
-  border-top-width: 2px;
-}
-
-#cpvuxkikpa .gt_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#cpvuxkikpa .gt_first_summary_row {
-  border-top-style: solid;
-  border-top-color: #D3D3D3;
-}
-
-#cpvuxkikpa .gt_first_summary_row.thick {
-  border-top-width: 2px;
-}
-
-#cpvuxkikpa .gt_last_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#cpvuxkikpa .gt_grand_summary_row {
-  color: #333333;
-  background-color: #FFFFFF;
-  text-transform: inherit;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#cpvuxkikpa .gt_first_grand_summary_row {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-top-style: double;
-  border-top-width: 6px;
-  border-top-color: #D3D3D3;
-}
-
-#cpvuxkikpa .gt_last_grand_summary_row_top {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-bottom-style: double;
-  border-bottom-width: 6px;
-  border-bottom-color: #D3D3D3;
-}
-
-#cpvuxkikpa .gt_striped {
-  background-color: rgba(128, 128, 128, 0.05);
-}
-
-#cpvuxkikpa .gt_table_body {
-  border-top-style: solid;
-  border-top-width: 2px;
-  border-top-color: #D3D3D3;
-  border-bottom-style: solid;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-}
-
-#cpvuxkikpa .gt_footnotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#cpvuxkikpa .gt_footnote {
-  margin: 0px;
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#cpvuxkikpa .gt_sourcenotes {
-  color: #333333;
-  background-color: #FFFFFF;
-  border-bottom-style: none;
-  border-bottom-width: 2px;
-  border-bottom-color: #D3D3D3;
-  border-left-style: none;
-  border-left-width: 2px;
-  border-left-color: #D3D3D3;
-  border-right-style: none;
-  border-right-width: 2px;
-  border-right-color: #D3D3D3;
-}
-
-#cpvuxkikpa .gt_sourcenote {
-  font-size: 90%;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-#cpvuxkikpa .gt_left {
-  text-align: left;
-}
-
-#cpvuxkikpa .gt_center {
-  text-align: center;
-}
-
-#cpvuxkikpa .gt_right {
-  text-align: right;
-  font-variant-numeric: tabular-nums;
-}
-
-#cpvuxkikpa .gt_font_normal {
-  font-weight: normal;
-}
-
-#cpvuxkikpa .gt_font_bold {
-  font-weight: bold;
-}
-
-#cpvuxkikpa .gt_font_italic {
-  font-style: italic;
-}
-
-#cpvuxkikpa .gt_super {
-  font-size: 65%;
-}
-
-#cpvuxkikpa .gt_footnote_marks {
-  font-size: 75%;
-  vertical-align: 0.4em;
-  position: initial;
-}
-
-#cpvuxkikpa .gt_asterisk {
-  font-size: 100%;
-  vertical-align: 0;
-}
-
-#cpvuxkikpa .gt_indent_1 {
-  text-indent: 5px;
-}
-
-#cpvuxkikpa .gt_indent_2 {
-  text-indent: 10px;
-}
-
-#cpvuxkikpa .gt_indent_3 {
-  text-indent: 15px;
-}
-
-#cpvuxkikpa .gt_indent_4 {
-  text-indent: 20px;
-}
-
-#cpvuxkikpa .gt_indent_5 {
-  text-indent: 25px;
-}
-
-#cpvuxkikpa .katex-display {
-  display: inline-flex !important;
-  margin-bottom: 0.75em !important;
-}
-
-#cpvuxkikpa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
-  height: 0px !important;
-}
-</style>
-<table class="gt_table" data-quarto-bootstrap="false">
-<thead><tr class="gt_col_headings header">
-<th id="Sepal.Length" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Sepal.Length</th>
-<th id="Sepal.Width" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Sepal.Width</th>
-<th id="Petal.Length" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Petal.Length</th>
-<th id="Petal.Width" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Petal.Width</th>
-<th id="Species" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">Species</th>
-</tr></thead>
-<tbody class="gt_table_body">
-<tr class="odd">
-<td class="gt_row gt_right" headers="Sepal.Length">5.1</td>
-<td class="gt_row gt_right" headers="Sepal.Width">3.5</td>
-<td class="gt_row gt_right" headers="Petal.Length">1.4</td>
-<td class="gt_row gt_right" headers="Petal.Width">0.2</td>
-<td class="gt_row gt_center" headers="Species">setosa</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Sepal.Length">4.9</td>
-<td class="gt_row gt_right" headers="Sepal.Width">3.0</td>
-<td class="gt_row gt_right" headers="Petal.Length">1.4</td>
-<td class="gt_row gt_right" headers="Petal.Width">0.2</td>
-<td class="gt_row gt_center" headers="Species">setosa</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Sepal.Length">4.7</td>
-<td class="gt_row gt_right" headers="Sepal.Width">3.2</td>
-<td class="gt_row gt_right" headers="Petal.Length">1.3</td>
-<td class="gt_row gt_right" headers="Petal.Width">0.2</td>
-<td class="gt_row gt_center" headers="Species">setosa</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Sepal.Length">4.6</td>
-<td class="gt_row gt_right" headers="Sepal.Width">3.1</td>
-<td class="gt_row gt_right" headers="Petal.Length">1.5</td>
-<td class="gt_row gt_right" headers="Petal.Width">0.2</td>
-<td class="gt_row gt_center" headers="Species">setosa</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="Sepal.Length">5.0</td>
-<td class="gt_row gt_right" headers="Sepal.Width">3.6</td>
-<td class="gt_row gt_right" headers="Petal.Length">1.4</td>
-<td class="gt_row gt_right" headers="Petal.Width">0.2</td>
-<td class="gt_row gt_center" headers="Species">setosa</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="Sepal.Length">5.4</td>
-<td class="gt_row gt_right" headers="Sepal.Width">3.9</td>
-<td class="gt_row gt_right" headers="Petal.Length">1.7</td>
-<td class="gt_row gt_right" headers="Petal.Width">0.4</td>
-<td class="gt_row gt_center" headers="Species">setosa</td>
+<td><code>read_tsv()</code></td>
+<td><code>write_tsv()</code></td>
+<td>tab separated</td>
 </tr>
 </tbody>
 </table>
 </div>
-</div>
-</div>
-<ul>
-<li>you can learn more about this dataset by looking it up in R:</li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="st">`</span><span class="at">?</span><span class="st">`</span>(iris)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section><section id="types-of-variablesdata" class="slide level2"><h2>Types of variables/data</h2>
-<div class="goal">
-<p>Numeric (also known as quantitative)</p>
-</div>
+</section><section id="reading-non-text-data-file" class="slide level2"><h2>Reading non-text data file</h2>
+<p>For non-text data files, there are other R packages:</p>
 <ul>
 <li>
-<strong>Discrete:</strong> can be <em>counted</em>
-</li>
+<code>readxl</code>: Excel files</li>
 <li>
-<strong>Continuous:</strong> can be <em>measured</em>
-</li>
-</ul>
-<div class="goal">
-<p>Categorical (also known as class or nominal variables)</p>
-</div>
-<ul>
+<code>haven</code>: SPSS &amp; STATA files</li>
 <li>
-<strong>Ordinal:</strong> can be <em>ranked</em>
-</li>
+<code>googlesheets4</code>: Google Sheets</li>
 <li>
-<strong>Nominal:</strong> cannot be ranked</li>
-</ul>
+<code>rvest</code>: HTML files</li>
+</ul></section><section id="example-reading-data" class="slide level2"><h2>Example: reading data</h2>
+<p>Read a file located in the same folder as your script:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>raw_tsv_data <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"my_raw_data.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<p>Read a file located in a different folder:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>raw_csv_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/my_raw_data.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>Or from the web:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="co"># Source: https://catalog.data.gov/dataset/electric-vehicle-population-data</span></span>
+<span id="cb10-2"><a aria-label="2"></a>electric_vehicles <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://data.wa.gov/api/views/f6w7-q2d2/rows.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<p>Bonus: use an in-built dataset from R</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">data</span>(iris)        <span class="co"># Observational data on iris flowers</span></span>
+<span id="cb11-2"><a aria-label="2"></a><span class="fu">data</span>(mtcars)      <span class="co"># Motor Trend Car Road Tests</span></span>
+<span id="cb11-3"><a aria-label="3"></a></span>
+<span id="cb11-4"><a aria-label="4"></a><span class="fu">data</span>()            <span class="co"># Check all the available in-built datasets!</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section></section><section><section id="go-to-exercise-1-2-and-3" class="title-slide slide level1 center"><h1>Go to Exercise 1, 2 and 3</h1>
 
-<aside class="notes"><p>Why do we care about these types? We will focus a lot on this in our next topic about how to display and describe data. Knowing what kind of variable we have drives our models of data analysis, and is therefore critical to the enterprise of statistics.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside><aside><div>
-<p>This is essential for our next topic: Displaying &amp; Describing Data.</p>
-</div></aside></section><section id="numeric-datavariables" class="slide level2"><h2>Numeric Data/Variables</h2>
-<div class="goal">
-<p>Discrete: can only take some values within acceptable interval</p>
-</div>
-<p>Examples:</p>
-<ul>
-<li>Number of limbs</li>
-<li>Number of offspring</li>
-<li>Number of petals</li>
-<li>Number of teeth</li>
-<li>Natural numbers: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5C%7B0%2C1%2C2%2C3%2C4%2C5%2C6%2C7%2C...%2C%5Cinfty%5C%7D" alt="\{0,1,2,3,4,5,6,7,...,\infty\}" title="\{0,1,2,3,4,5,6,7,...,\infty\}" class="math inline">
-</li>
-</ul></section><section id="numeric-datavariables-1" class="slide level2"><h2>Numeric Data/Variables</h2>
-<div class="goal">
-<p>Continuous: Can take any value within acceptable interval</p>
-</div>
-<p>Examples:</p>
-<ul>
-<li>Arm length (cm, inches)</li>
-<li>Height (cm, inches)</li>
-<li>Weight (kg, lbs)</li>
-<li>Age and longevity (in years, months, etc.)</li>
-<li>Tail length (cm, inches)</li>
-<li>Dose (e.g., in micrograms/gram)</li>
-<li>Skin color (measured using a reflectometer, measure in wavelengths)</li>
-</ul></section><section id="categorical-variables" class="slide level2"><h2>Categorical variables</h2>
-<p>Examples:</p>
-<ul>
-<li>Genotype (e.g., AA, AG, GG)</li>
-<li>Drug treatment (e.g.&nbsp;aspirin <em>vs.</em>ibuprofen)</li>
-<li>Province of origin</li>
-<li>Survival status (i.e., live or die)</li>
-<li>Skin/fur/coat/feather color (e.g., black, yellow, red, etc.)</li>
-</ul></section><section id="relationships-between-variables" class="slide level2"><h2>Relationships between variables</h2>
-<ul>
-<li><p><strong>Explanatory variables:</strong> predict or affect other variables.</p></li>
-<li><p><strong>Response variables:</strong> is affected by another variable.</p></li>
-<li><p>Valid nomenclature for both observational and experimental results, but interpretation is different</p></li>
-</ul>
-
-<aside class="notes"><p>One major use of statistics is to relate one variable to another by examining associations between variables and differences between groups. Measuring an association is equivalent to measuring a difference, statistically speaking. Showing that “the proportion of survivors differs between treatment categories” is the same as showing that the variables “survival” and “treatment” are associated.</p>
-<p>In an observational study, their association might nevertheless be described by the “effect” of one of the variables (the explanatory) on the other (the response), even though the association itself is not direct evidence for causation.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside><aside><div>
-<p>Outdated nomenclature: dependent and independent variables</p>
-</div></aside></section><section id="case-study-surviving-the-titanic-12" class="slide level2"><h2>Case Study: surviving the Titanic (1/2)</h2>
-<div class="quarto-figure quarto-figure-center margin-caption">
-<figure><p><img data-src="images/clipboard-1607041779.png" class="margin-caption"></p>
-<figcaption>Confession: I watched this EIGHT times in the movie theater!</figcaption></figure>
-</div>
-
-<aside><div>
-<p>Image from: <a href="https://upload.wikimedia.org/wikipedia/commons/9/91/Titanic_struck_iceberg.jpg">Wikipedia Commons</a>.</p>
-</div></aside></section><section id="case-study-surviving-the-titanic-22" class="slide level2"><h2>Case Study: surviving the Titanic (2/2)</h2>
-<div class="goal">
-<p>Consider the fate of the approximatley 2,200 passengers of the titanic, including children and adults of both sexes.</p>
-</div>
-
-<img data-src="Statistics_and_Samples3_files/figure-revealjs/titanic-1.png" class="margin-caption r-stretch quarto-figure-center" alt="Left, proportion of males and females among adults in the titanic who survived.  Right, same thing but for children." width="960"><p class="caption">This is a mosaic plot. We will learn about it in our next topic. Code based on snippets from Y. Brandvain.</p></section><section id="discuss" class="slide level2 scrollable"><h2>Discuss</h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="Statistics_and_Samples3_files/figure-revealjs/unnamed-chunk-3-1.png" class="margin-caption quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
+</section><section id="answers-exercise-1-2-and-3" class="slide level2 scrollable"><h2>Answers Exercise 1, 2 and 3</h2>
 <ol type="1">
-<li><p>Variables? Types? Explanatory &amp; response variables?</p></li>
-<li><p>Describe the population this result came from…</p></li>
-<li><p>How far would you generalize from this to “Women &amp; Children 1st?”</p></li>
-<li><p>Experimental or observational study?</p></li>
+<li>Reading the penguins dataset into R.</li>
 </ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>penguins <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"data/penguins.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="fragment">
+<ol start="2" type="1">
+<li>Reading penguins_isotopes.xlsx into R.</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a>penguins_isotopes <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="at">path =</span> <span class="st">"data/penguins_isotopes.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li>Writing <code>penguins_isotopes</code> to a csv file.</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a><span class="fu">write_csv</span>(penguins_isotopes,</span>
+<span id="cb14-2"><a aria-label="2"></a>          <span class="at">file =</span> <span class="st">"data/penguins_isotopes.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section id="acknowledgments" class="slide level2"><h2>Acknowledgments</h2>
+<p>Some of these materials were modified from:</p>
+<ul>
+<li><p>Introduction to R &amp; Data<a href="https://utrechtuniversity.github.io/workshop-introduction-to-R-and-data/">https://utrechtuniversity.github.io/workshop-introduction-to-R-and-data/</a>, 10.5281/zenodo.8167877,licensed under <a href="https://uw-madison-datascience.github.io/R-hsdc-lesson/LICENSE.html">CC-BY 4.0</a> by the authors</p></li>
+<li><p><a href="https://uw-madison-datascience.github.io/R-hsdc-lesson/visualizing-ggplot.html#plotting-with-ggplot2">Data Analysis and Visualization in R for Ecologists, from the Data Carpentries</a>, licensed under <a href="https://uw-madison-datascience.github.io/R-hsdc-lesson/LICENSE.html">CC-BY 4.0</a> by the authors</p></li>
+<li><p><a href="https://www.stt.msu.edu/~melfi/STT180Text/data.html">R Programming for Data Sciences, by Vince Melfi, Andrew O. Finley, Jeffrey W. Doser</a></p></li>
+<li><p><a href="https://style.tidyverse.org/">Tidyverse Style Guide</a></p></li>
+<li><p>Google R style guide<a href="https://google.github.io/styleguide/Rguide.html">https://google.github.io/styleguide/Rguide.html</a></p></li>
+</ul>
 
 
-
-<aside><div>
-<p>We will continue with this case study at our next in-person meeting!</p>
-</div></aside></section>
+</section></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

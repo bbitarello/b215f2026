@@ -1,5 +1,166 @@
 [
   {
+    "objectID": "slides/Lab3-slides.html#code-quality",
+    "href": "slides/Lab3-slides.html#code-quality",
+    "title": "Lab 3: Exploring Data I",
+    "section": "Code quality",
+    "text": "Code quality\n\nWriting well-organized and well-labeled code allows your code to be more easily read and understood by another person.\nYour well-written code is more accessible to you hours, days, or even months later. We are hoping that you can use the code you write in this class in future projects and research.\n\n\n\n\n\n\nxkcd: Code Quality"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#naming-files",
+    "href": "slides/Lab3-slides.html#naming-files",
+    "title": "Lab 3: Exploring Data I",
+    "section": "Naming files",
+    "text": "Naming files\n\nFile names should be machine readable: avoid spaces, symbols, and special characters.\nPrefer file names that are all lower case, and never have names that differ only in their capitalization.\nDelimit words with - or _.\nFile names should be meaningful and end in .R."
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#file-naming",
+    "href": "slides/Lab3-slides.html#file-naming",
+    "title": "Lab 3: Exploring Data I",
+    "section": "File naming",
+    "text": "File naming\n\n#GOOD:\nafrican_rhino_distribution.R\nafricanRhinoDistribution.R\n\n#BAD:\nspeciesDist.R #(too ambiguous)\nspecies.dist.R #(too ambiguous and two periods can confuse operating systems’ file type auto-detect)\nspecies dist.R #(too ambiguous and confusing; spaces)"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#naming-variables-and-functions",
+    "href": "slides/Lab3-slides.html#naming-variables-and-functions",
+    "title": "Lab 3: Exploring Data I",
+    "section": "Naming variables and functions",
+    "text": "Naming variables and functions\nVariable and function names should use only lowercase letters, numbers, and . Use underscores () (so called snake case) to separate words within a name.\n\n# Good\nday_one\nday_1\n\n# Bad\nDayOne\ndayone\nday.one  # why is this not good?\n\n\n\nBase R uses dots in function names (contrib.url()) and class names (data.frame), but it’s better to reserve dots exclusively for the S3 object system. This is beyond out scope for now, so just trust me on this one."
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#avoid-re-using-names-of-common-functions-and-variables",
+    "href": "slides/Lab3-slides.html#avoid-re-using-names-of-common-functions-and-variables",
+    "title": "Lab 3: Exploring Data I",
+    "section": "Avoid re-using names of common functions and variables",
+    "text": "Avoid re-using names of common functions and variables\n\nThis will cause confusion for the readers of your code.\n\n\n# Bad\nT &lt;- FALSE\nc &lt;- 10\nmean &lt;- function(x) sum(x)"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#pipes",
+    "href": "slides/Lab3-slides.html#pipes",
+    "title": "Lab 3: Exploring Data I",
+    "section": "Pipes",
+    "text": "Pipes\n\nUse |&gt; to emphasise a sequence of actions, rather than the object that the actions are being performed on.\nThe tidyverse has been designed to work particularly well with the pipe, but you can use it with any code, particularly in conjunction with the _ placeholder.\n\n\nstrings |&gt;\n  str_replace(\"a\", \"b\") |&gt;\n  str_replace(\"x\", \"y\")\n\nstrings |&gt;\n  gsub(\"a\", \"b\", x = _) |&gt;\n  gsub(\"x\", \"y\", x = _)"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#in-a-nutshell",
+    "href": "slides/Lab3-slides.html#in-a-nutshell",
+    "title": "Lab 3: Exploring Data I",
+    "section": "In a nutshell",
+    "text": "In a nutshell\n\nBase R functions like: plot, hist, barplot, etc.\n\nggplot2: an R package for making plots.\n\nadvantage: prettier, customisable, easier in the long run\ndisadvantages: new syntax, learning curve in the beginning"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#ggplot2-key-points",
+    "href": "slides/Lab3-slides.html#ggplot2-key-points",
+    "title": "Lab 3: Exploring Data I",
+    "section": "ggplot2: Key points",
+    "text": "ggplot2: Key points\n\nthe ggplot() function initiates a plot, and geom_ functions add representations of your data\nuse aes() when mapping a variable from the data to a part of the plot\nuse scale_ functions to modify the scales used to represent variables\nuse premade theme_ functions to broadly change appearance, and the theme() function to fine-tune start simple and build your plots iteratively"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#packages-functions",
+    "href": "slides/Lab3-slides.html#packages-functions",
+    "title": "Lab 3: Exploring Data I",
+    "section": "Packages & Functions",
+    "text": "Packages & Functions"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#packages-functions-1",
+    "href": "slides/Lab3-slides.html#packages-functions-1",
+    "title": "Lab 3: Exploring Data I",
+    "section": "Packages & Functions",
+    "text": "Packages & Functions"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#packages-functions-2",
+    "href": "slides/Lab3-slides.html#packages-functions-2",
+    "title": "Lab 3: Exploring Data I",
+    "section": "Packages & Functions",
+    "text": "Packages & Functions\n\nInstalling a package (once):\n\ninstall.packages(\"dplyr\")\n\n\nLoading a package (every time you want to use it):\n\n\nlibrary(dplyr)\n\n\n\n\nNow you can use functions from this package! (every time you want to use it)\n\n\ndplyr::rename(iris, petal_length = Petal.Length)"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#what-is-the-tidyverse",
+    "href": "slides/Lab3-slides.html#what-is-the-tidyverse",
+    "title": "Lab 3: Exploring Data I",
+    "section": "What is the tidyverse?",
+    "text": "What is the tidyverse?\n\nThe tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures (tidyverse.org)."
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#the-data-science-workflow",
+    "href": "slides/Lab3-slides.html#the-data-science-workflow",
+    "title": "Lab 3: Exploring Data I",
+    "section": "The Data Science workflow",
+    "text": "The Data Science workflow\n\nSource: R 4 Data ScienceWe will move a data frame through the different steps in a data science workflow. This means that often the results of one step will be the input for the next"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#tidyverse-core-packages",
+    "href": "slides/Lab3-slides.html#tidyverse-core-packages",
+    "title": "Lab 3: Exploring Data I",
+    "section": "tidyverse core packages",
+    "text": "tidyverse core packages\n\n\n\nreadr: data import\n\ntibble: modern data frame object\n\nstringr: working with strings\n\nforcats: working with factors\n\ntidyr: data tidying\n\ndplyr: data manipulation\n\nggplot2: data visualization\n\npurrr: functional programming"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#a-typical-workflow",
+    "href": "slides/Lab3-slides.html#a-typical-workflow",
+    "title": "Lab 3: Exploring Data I",
+    "section": "A typical workflow",
+    "text": "A typical workflow\n\nRead a file into R\nClean the data:\n\nSelect only relevant columns\nFilter on relevant rows\n\n\nCalculate a new column\nRename a column\nPut the dataframe into a long (tidy) format\nSummarize the dataframe\nVisualize the dataframe\nWrite the summarized dataframe to a file"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#data-palmerpenguins",
+    "href": "slides/Lab3-slides.html#data-palmerpenguins",
+    "title": "Lab 3: Exploring Data I",
+    "section": "Data: palmerpenguins",
+    "text": "Data: palmerpenguins\n\nObservations about penguins from the Palmer Archipelago (Antarctica)\nPackage created by Allison Horst for worldwide use\nspecies, island, culmen length and depth, flipper length, etc."
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#reading-data-into-r",
+    "href": "slides/Lab3-slides.html#reading-data-into-r",
+    "title": "Lab 3: Exploring Data I",
+    "section": "Reading data into R",
+    "text": "Reading data into R"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#readr-read-rectangular-text-data",
+    "href": "slides/Lab3-slides.html#readr-read-rectangular-text-data",
+    "title": "Lab 3: Exploring Data I",
+    "section": "readr: Read Rectangular Text Data",
+    "text": "readr: Read Rectangular Text Data"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#readr-read-rectangular-text-data-1",
+    "href": "slides/Lab3-slides.html#readr-read-rectangular-text-data-1",
+    "title": "Lab 3: Exploring Data I",
+    "section": "readr: Read Rectangular Text Data",
+    "text": "readr: Read Rectangular Text Data\nTo read text data, you need:\n\n\nlocation of the data (path)\n\ndelimiter (value separator) of the data, e.g. ,, ; or \\t\n\n\nfunction to use to read data into R\n\n\n\n\nRead from file\nWrite to file\nValue separator\n\n\n\nread_delim()\nwrite_delim()\ncatch-all: user needs to specify\n\n\nread_csv()\nwrite_csv()\ncomma separated\n\n\nread_csv2()\nwrite_csv2()\nsemicolon separated\n\n\nread_tsv()\nwrite_tsv()\ntab separated"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#reading-non-text-data-file",
+    "href": "slides/Lab3-slides.html#reading-non-text-data-file",
+    "title": "Lab 3: Exploring Data I",
+    "section": "Reading non-text data file",
+    "text": "Reading non-text data file\nFor non-text data files, there are other R packages:\n\n\nreadxl: Excel files\n\nhaven: SPSS & STATA files\n\ngooglesheets4: Google Sheets\n\nrvest: HTML files"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#example-reading-data",
+    "href": "slides/Lab3-slides.html#example-reading-data",
+    "title": "Lab 3: Exploring Data I",
+    "section": "Example: reading data",
+    "text": "Example: reading data\nRead a file located in the same folder as your script:\nraw_tsv_data &lt;- read_tsv(\"my_raw_data.tsv\")\n\nRead a file located in a different folder:\nraw_csv_data &lt;- read_csv(\"data/raw/my_raw_data.csv\")\n\n\nOr from the web:\n# Source: https://catalog.data.gov/dataset/electric-vehicle-population-data\nelectric_vehicles &lt;- read_csv(\"https://data.wa.gov/api/views/f6w7-q2d2/rows.csv\")\n\n\nBonus: use an in-built dataset from R\ndata(iris)        # Observational data on iris flowers\ndata(mtcars)      # Motor Trend Car Road Tests\n\ndata()            # Check all the available in-built datasets!"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#answers-exercise-1-2-and-3",
+    "href": "slides/Lab3-slides.html#answers-exercise-1-2-and-3",
+    "title": "Lab 3: Exploring Data I",
+    "section": "Answers Exercise 1, 2 and 3",
+    "text": "Answers Exercise 1, 2 and 3\n\nReading the penguins dataset into R.\n\npenguins &lt;- read_tsv(\"data/penguins.tsv\")\n\n\nReading penguins_isotopes.xlsx into R.\n\npenguins_isotopes &lt;- read_excel(path = \"data/penguins_isotopes.xlsx\")\n\n\n\nWriting penguins_isotopes to a csv file.\n\nwrite_csv(penguins_isotopes,\n          file = \"data/penguins_isotopes.csv\")"
+  },
+  {
+    "objectID": "slides/Lab3-slides.html#acknowledgments",
+    "href": "slides/Lab3-slides.html#acknowledgments",
+    "title": "Lab 3: Exploring Data I",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\nSome of these materials were modified from:\n\nIntroduction to R & Datahttps://utrechtuniversity.github.io/workshop-introduction-to-R-and-data/, 10.5281/zenodo.8167877,licensed under CC-BY 4.0 by the authors\nData Analysis and Visualization in R for Ecologists, from the Data Carpentries, licensed under CC-BY 4.0 by the authors\nR Programming for Data Sciences, by Vince Melfi, Andrew O. Finley, Jeffrey W. Doser\nTidyverse Style Guide\nGoogle R style guidehttps://google.github.io/styleguide/Rguide.html"
+  },
+  {
     "objectID": "slides/Unit2-CaseStudies&Problems.html#acknowledgments",
     "href": "slides/Unit2-CaseStudies&Problems.html#acknowledgments",
     "title": "Review/practice problems",
@@ -315,6 +476,13 @@
     "text": "How about plots?\n\nAren’t numerical summaries enough?"
   },
   {
+    "objectID": "slides/Lab1-slides.html#lists",
+    "href": "slides/Lab1-slides.html#lists",
+    "title": "Lab1: R Crash Course",
+    "section": "Lists",
+    "text": "Lists\nElements can be of different types\n\nPlease enable JavaScript to experience the dynamic code cell content on this page."
+  },
+  {
     "objectID": "slides/Statistics_and_Samples4.html#acknowledgments",
     "href": "slides/Statistics_and_Samples4.html#acknowledgments",
     "title": "1.4. A soft intro to causal inference",
@@ -473,7 +641,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 8 2 9\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1]  4 10  5"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 7 1 3\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 10  3  8"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
@@ -644,6 +812,46 @@
     "text": "Coming up next:\n\nDifferent types of variables\nDifferent types of study\nCorrelation  causation"
   },
   {
+    "objectID": "cheatsheets.html",
+    "href": "cheatsheets.html",
+    "title": "Cheatsheets",
+    "section": "",
+    "text": "Base R\n\n\n\n\nRstudio IDE\n\n\n\n\nData Import\n\n\n\n\nData Wrangling\n\n\n\n\nggplot2",
+    "crumbs": [
+      "R cheatsheets"
+    ]
+  },
+  {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides",
+    "section": "",
+    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\n1.1.Statistics & Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nUnit 1\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nUnit 1\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nUnit 1\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.2.Displaying & Describing Data\n\n\nFri, Sep 11\n\n\n\n\n\n\nUnit 2\n\n\n2.3.Data Visualization\n\n\nMon, Sep 14\n\n\n\n\n\n\nUnit 2\n\n\nReview/practice problems\n\n\nMon, Sep 14\n\n\n\n\n\n\nUnit 2 (plots)\n\n\nUnit 2: Review/practice problems\n\n\nMon, Sep 14\n\n\n\n\n\n\nNo matching items",
+    "crumbs": [
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "slides.html#attribution",
+    "href": "slides.html#attribution",
+    "title": "Slides",
+    "section": "Attribution",
+    "text": "Attribution\nMuch of the content is based on those of others, which I have tried sincerely to acknowledge at every point (see also: Acknowlegments). If you see something that lacks proper attribution, I encourage you to reach out.",
+    "crumbs": [
+      "Slides"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "B215: Biostatistics with R",
+    "section": "",
+    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nmodule\nweek\ndow\ndate\nwhat\ntopic\ndue\nexam\n\n\n\n\n1\n1\nM\nAug-31\n0\nIntro to class\n\n\n\n\n1\n1\nT\nSep-1\n1\nLab1: Intro to R\nDC: Introduction to R (ch.1-2) + Lab worksheet 1\n\n\n\n1\n1\nW\nSep-2\n2\nStatistics and Samples\n\n\n\n\n1\n2\nM\nSep-7\n\n\nNo classes (labor day)\n\n\n\n\n1\n2\nT\nSep-8\n3\nLab 2: Data structures & basic summary stats\nDC: Introduction to R (ch.1-6) + Lab worksheet 2\n\n\n\n1\n2\nW\nSep-9\n4\nUnit 1 (review)\n\n\n\n\n1\n3\nM\nSep-14\n5\nSummarising Data\n\n\n\n\n1\n3\nT\nSep-15\n6\nLab 3: Intro to tidyverse & markdown\nDC: Intro to the Tidyverse (1-4) + Lab woksheet 3\n\n\n\n1\n3\nW\nSep-16\n7\nVisualizing Data\n\n\n\n\n1\n4\nM\nSep-21\n8\nProbability I: proportions\n\n\n\n\n1\n4\nT\nSep-22\n9\nLab 4: Plots and Exploratory Data Analysis\nLab woksheet 4\n\n\n\n1\n4\nW\nSep-23\n10\nProbability II:\nProblem set 1\n\n\n\n2\n5\nM\nSep-28\n11\nProbability I: Proportions\nAll DCs (hard deadline)\n\n\n\n2\n5\nT\nSep-29\n12\n\n\n\n\nMidterm 1\n\n\n2\n5\nW\nSep-30\n13\nProbability I: Rules\n\n\n\n\n2\n6\nM\nOct-5\n14\nProbability II: Binomial & Bayes\n\n\n\n\n2\n6\nT\nOct-6\n15\nLab 5:\nLab woksheet 5\n\n\n\n2\n6\nW\nOct-7\n16\nProbability II: Binomial & Bayes\n\n\n\n\n\n\n\nOct-10-Oct18\n\n\nFall break (no classes)\n\n\n\n\n2\n7\nM\nOct-19\n17\nEstimation\n\n\n\n\n2\n7\nT\nOct-20\n18\nLab 6:\nLab worksheet 6\n\n\n\n2\n7\nW\nOct-21\n19\nEstimation\nCoding project checkpoint 1\n\n\n\n2\n8\nM\nOct-26\n20\nEstimation|Hypothesis testing\n\n\n\n\n2\n8\nT\nOct-27\n21\nLab 7:\nLab worksheet\n\n\n\n2\n8\nW\nOct-28\n22\nHypothesis testing\nCoding checkpoint\n\n\n\n2\n9\nM\nNov-2\n23\nGoodness-of-fit test\n\n\n\n\n2\n9\nT\nNov-3\n24\nLab 8:\nLab worksheet\n\n\n\n2\n9\nW\nNov-4\n25\nGoodness-of-fit test\nCoding project checkpoint 2\n\n\n\n3\n10\nM\n2026-11-09\n26\nContingency analyses\nAll DCs (hard deadline); PS2\n\n\n\n3\n10\nT\nNov-10\n27\n\n\n\n\nMidterm 2\n\n\n3\n10\nW\nNov-11\n28\nContingency analyses\n\n\n\n\n3\n11\nM\nNov-16\n29\nContingency analyses\n\n\n\n\n3\n11\nT\nNov-17\n30\nLab 9:\nLab worksheet\n\n\n\n3\n11\nW\nNov-18\n31\nContingency analyses\n\n\n\n\n3\n12\nM\nNov-23\n32\nNormal Distribution\n\n\n\n\n3\n12\nT\nNov-24\n33\nLab 10:\nLab worksheet\n\n\n\n3\n12\nW\nNov-25\n\n\nNo class (day before thanksgiving)\n\n\n\n\n3\n13\nM\nNov-30\n34\nt-values\n\n\n\n\n3\n13\nT\nDec-1\n35\nLab 11: TBD + Peer-review activity\n\n\n\n\n3\n13\nW\nDec-2\n36\nt-tests\nProblem set 3\n\n\n\n3\n14\nM\nDec-7\n37\n\n\n\n\n\n\n3\n14\nT\nDec-8\n38\nLab 11: |Work on coding project\n\n\n\n\n3\n14\nW\nDec-9\n39\nReview|Course Evals\nCoding project\n\n\n\n\n15\n\n\n\n\n\n\n\n\nFinal exam: during finals week, date TBD",
+    "crumbs": [
+      "Schedule"
+    ]
+  },
+  {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
     "title": "Syllabus",
@@ -701,36 +909,6 @@
     "text": "Footnotes\n\n\nThank you, A. Heiss!↩︎\nThe AI clause to the Honor Code was approved in plenary by BMC members in April 2024.↩︎\nNevertheless, I am providing you with a several recommended alternatives that will make you learn for real.↩︎\nhttps://datavizf25.classes.andrewheiss.com/resource/ai-bs.html↩︎",
     "crumbs": [
       "Syllabus"
-    ]
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "B215: Biostatistics with R",
-    "section": "",
-    "text": "This page contains an outline of the topics, content, and assignments for the semester. Note that this schedule will be updated as the semester progresses and the timeline of topics and assignments might be updated throughout the semester.\n\n\n\n\n\n\n\n\n\nmodule\nweek\ndow\ndate\nwhat\ntopic\ndue\nexam\n\n\n\n\n1\n1\nM\nAug-31\n0\nIntro to class\n\n\n\n\n1\n1\nT\nSep-1\n1\nLab1: Intro to R\nDC: Introduction to R (ch.1-2) + Lab worksheet 1\n\n\n\n1\n1\nW\nSep-2\n2\nStatistics and Samples\n\n\n\n\n1\n2\nM\nSep-7\n\n\nNo classes (labor day)\n\n\n\n\n1\n2\nT\nSep-8\n3\nLab 2: Data structures & basic summary stats\nDC: Introduction to R (ch.1-6) + Lab worksheet 2\n\n\n\n1\n2\nW\nSep-9\n4\nUnit 1 (review)\n\n\n\n\n1\n3\nM\nSep-14\n5\nSummarising Data\n\n\n\n\n1\n3\nT\nSep-15\n6\nLab 3: Intro to tidyverse & markdown\nDC: Intro to the Tidyverse (1-4) + Lab woksheet 3\n\n\n\n1\n3\nW\nSep-16\n7\nVisualizing Data\n\n\n\n\n1\n4\nM\nSep-21\n8\nProbability I: proportions\n\n\n\n\n1\n4\nT\nSep-22\n9\nLab 4: Plots and Exploratory Data Analysis\nLab woksheet 4\n\n\n\n1\n4\nW\nSep-23\n10\nProbability II:\nProblem set 1\n\n\n\n2\n5\nM\nSep-28\n11\nProbability I: Proportions\nAll DCs (hard deadline)\n\n\n\n2\n5\nT\nSep-29\n12\n\n\n\n\nMidterm 1\n\n\n2\n5\nW\nSep-30\n13\nProbability I: Rules\n\n\n\n\n2\n6\nM\nOct-5\n14\nProbability II: Binomial & Bayes\n\n\n\n\n2\n6\nT\nOct-6\n15\nLab 5:\nLab woksheet 5\n\n\n\n2\n6\nW\nOct-7\n16\nProbability II: Binomial & Bayes\n\n\n\n\n\n\n\nOct-10-Oct18\n\n\nFall break (no classes)\n\n\n\n\n2\n7\nM\nOct-19\n17\nEstimation\n\n\n\n\n2\n7\nT\nOct-20\n18\nLab 6:\nLab worksheet 6\n\n\n\n2\n7\nW\nOct-21\n19\nEstimation\nCoding project checkpoint 1\n\n\n\n2\n8\nM\nOct-26\n20\nEstimation|Hypothesis testing\n\n\n\n\n2\n8\nT\nOct-27\n21\nLab 7:\nLab worksheet\n\n\n\n2\n8\nW\nOct-28\n22\nHypothesis testing\nCoding checkpoint\n\n\n\n2\n9\nM\nNov-2\n23\nGoodness-of-fit test\n\n\n\n\n2\n9\nT\nNov-3\n24\nLab 8:\nLab worksheet\n\n\n\n2\n9\nW\nNov-4\n25\nGoodness-of-fit test\nCoding project checkpoint 2\n\n\n\n3\n10\nM\n2026-11-09\n26\nContingency analyses\nAll DCs (hard deadline); PS2\n\n\n\n3\n10\nT\nNov-10\n27\n\n\n\n\nMidterm 2\n\n\n3\n10\nW\nNov-11\n28\nContingency analyses\n\n\n\n\n3\n11\nM\nNov-16\n29\nContingency analyses\n\n\n\n\n3\n11\nT\nNov-17\n30\nLab 9:\nLab worksheet\n\n\n\n3\n11\nW\nNov-18\n31\nContingency analyses\n\n\n\n\n3\n12\nM\nNov-23\n32\nNormal Distribution\n\n\n\n\n3\n12\nT\nNov-24\n33\nLab 10:\nLab worksheet\n\n\n\n3\n12\nW\nNov-25\n\n\nNo class (day before thanksgiving)\n\n\n\n\n3\n13\nM\nNov-30\n34\nt-values\n\n\n\n\n3\n13\nT\nDec-1\n35\nLab 11: TBD + Peer-review activity\n\n\n\n\n3\n13\nW\nDec-2\n36\nt-tests\nProblem set 3\n\n\n\n3\n14\nM\nDec-7\n37\n\n\n\n\n\n\n3\n14\nT\nDec-8\n38\nLab 11: |Work on coding project\n\n\n\n\n3\n14\nW\nDec-9\n39\nReview|Course Evals\nCoding project\n\n\n\n\n15\n\n\n\n\n\n\n\n\nFinal exam: during finals week, date TBD",
-    "crumbs": [
-      "Schedule"
-    ]
-  },
-  {
-    "objectID": "slides.html",
-    "href": "slides.html",
-    "title": "Slides",
-    "section": "",
-    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\n1.1.Statistics & Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nUnit 1\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nUnit 1\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nUnit 1\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.2.Displaying & Describing Data\n\n\nFri, Sep 11\n\n\n\n\n\n\nUnit 2\n\n\n2.3.Data Visualization\n\n\nMon, Sep 14\n\n\n\n\n\n\nUnit 2\n\n\nReview/practice problems\n\n\nMon, Sep 14\n\n\n\n\n\n\nNo matching items",
-    "crumbs": [
-      "Slides"
-    ]
-  },
-  {
-    "objectID": "slides.html#attribution",
-    "href": "slides.html#attribution",
-    "title": "Slides",
-    "section": "Attribution",
-    "text": "Attribution\nMuch of the content is based on those of others, which I have tried sincerely to acknowledge at every point (see also: Acknowlegments). If you see something that lacks proper attribution, I encourage you to reach out.",
-    "crumbs": [
-      "Slides"
     ]
   },
   {
@@ -1235,14 +1413,14 @@
     "href": "slides/2.3.Data-Viz.html#outline",
     "title": "2.3.Data Visualization",
     "section": "Outline",
-    "text": "Outline\n\nWhy plot? The importance of data visualization\nLetting data type guide visualizations"
+    "text": "Outline\n\nWhy plot? The importance of data visualization\n\nLetting data type guide visualizations\n\nsingle variable\nrelationships between variables"
   },
   {
     "objectID": "slides/2.3.Data-Viz.html#learning-goals",
     "href": "slides/2.3.Data-Viz.html#learning-goals",
     "title": "2.3.Data Visualization",
     "section": "Learning goals",
-    "text": "Learning goals\n\nDistinguish between explanatory and exploratory figures and when to use them.\nExplain why we must consider the shape of data when summarizing it.\nUnderstand how data types drive figure and table design."
+    "text": "Learning goals\n\nDistinguish between explanatory and exploratory figures and when to use them.\nExplain why we must consider the shape of data when summarizing it.\nUnderstand how data types drive figure and table design.\nKnow how to interpret and make the different kinds of visualizations appropriate for different situations."
   },
   {
     "objectID": "slides/2.3.Data-Viz.html#biased-and-unbiased-estimators",
@@ -1252,11 +1430,11 @@
     "text": "Biased and unbiased estimators\n\nThe expected value of an unbiased estimator equals the population parameter. Good estimators are unbiased\n\n\nBiased estimators should be avoided if possible.\nBiased estimators (often) change with the sample size.\nThe sample variance and sample standard deviation are divided by  (rather than just ) to minimize bias. Bessel’s correction makes the variance an unbiased estimator.\nThe range is a bad summary statistic because it is biased: it underestimates parameter and increases with sample size."
   },
   {
-    "objectID": "slides/2.3.Data-Viz.html#how-about-plots",
-    "href": "slides/2.3.Data-Viz.html#how-about-plots",
+    "objectID": "slides/2.3.Data-Viz.html#why-plots",
+    "href": "slides/2.3.Data-Viz.html#why-plots",
     "title": "2.3.Data Visualization",
-    "section": "How about plots?",
-    "text": "How about plots?\n\nAren’t numerical summaries enough?"
+    "section": "Why plots?",
+    "text": "Why plots?\n\nAren’t numerical summaries enough?"
   },
   {
     "objectID": "slides/2.3.Data-Viz.html#no",
@@ -1301,74 +1479,67 @@
     "text": "Ascombe described the article as being intended to counter the impression among statisticians that “numerical calculations are exact, but graphs are rough.”\nConstructed by F. Anscombe (1973)\nDemonstrates both the importance of graphing data when analyzing it, and the effect of outliers and other influential observations on statistical properties."
   },
   {
-    "objectID": "slides/2.3.Data-Viz.html#displaying-data-is-very-important",
-    "href": "slides/2.3.Data-Viz.html#displaying-data-is-very-important",
-    "title": "2.3.Data Visualization",
-    "section": "Displaying data is very important",
-    "text": "Displaying data is very important\n\nDisplaying data helps you:\n\nUnderstand your data\nCommunicate your results"
-  },
-  {
     "objectID": "slides/2.3.Data-Viz.html#exploratory-vs.-explanatory-plotstables-goals",
     "href": "slides/2.3.Data-Viz.html#exploratory-vs.-explanatory-plotstables-goals",
     "title": "2.3.Data Visualization",
     "section": "Exploratory vs. Explanatory Plots/Tables: Goals",
-    "text": "Exploratory vs. Explanatory Plots/Tables: Goals\n\nIn exploratory data analysis, you aim to find the story of the data.\nIn explanatory data analysis, you aim to share the story of the data.\n\n\n\nNote: There is a continuum between explanatory and exploratory plots. For example, the plot you show your lab is probably somewhere between what you make for yourself and what you send to the New York Times."
+    "text": "Exploratory vs. Explanatory Plots/Tables: Goals\n\n\nIn exploratory data analysis, you aim to find the story of the data.\nIn explanatory data analysis, you aim to share the story of the data.\n\n\n\n\nNote: There is a continuum between explanatory and exploratory plots. For example, the plot you show your lab is probably somewhere between what you make for yourself and what you send to the New York Times."
   },
   {
     "objectID": "slides/2.3.Data-Viz.html#exploratory-vs.-explanatory-plotstables-focus",
     "href": "slides/2.3.Data-Viz.html#exploratory-vs.-explanatory-plotstables-focus",
     "title": "2.3.Data Visualization",
     "section": "Exploratory vs. Explanatory Plots/Tables: Focus",
-    "text": "Exploratory vs. Explanatory Plots/Tables: Focus\n\nFor exploratory plots/tables: Don’t fuss about colors, labels, names etc. The goal is for you to understand the data.\nFor explanatory plots/tables: Fuss about all of this. You must consider your audience may, for example, consist of:\n- People unfamiliar with your data\n- People who are colorblind\n\nThe suggestions we will cover will help the story of the data reveal itself, and are therefore useful for exploratory & explanatory plots."
+    "text": "Exploratory vs. Explanatory Plots/Tables: Focus\n\n\nFor exploratory plots/tables: Don’t fuss about colors, labels, names etc. The goal is for you to understand the data.\nFor explanatory plots/tables: Fuss about all of this. You must consider your audience may, for example, consist of:\nPeople unfamiliar with your data\nPeople who are colorblind\n\n\nThe suggestions we will cover will help the story of the data reveal itself, and are therefore useful for both exploratory & explanatory plots."
   },
   {
-    "objectID": "slides/2.3.Data-Viz.html#to-visualize-data-for-a-single-variable",
-    "href": "slides/2.3.Data-Viz.html#to-visualize-data-for-a-single-variable",
+    "objectID": "slides/2.3.Data-Viz.html#section",
+    "href": "slides/2.3.Data-Viz.html#section",
     "title": "2.3.Data Visualization",
-    "section": "To visualize data for a single variable…",
-    "text": "To visualize data for a single variable…\nShow its frequency distribution"
+    "section": "",
+    "text": "How to make good plots\n\n\nShow the data.\nMake patterns easy to see.\nDisplay magnitudes honestly.\nDraw graphics clearly.\n\n\n\n\nWe will come back to this."
+  },
+  {
+    "objectID": "slides/2.3.Data-Viz.html#show-its-frequency-distribution",
+    "href": "slides/2.3.Data-Viz.html#show-its-frequency-distribution",
+    "title": "2.3.Data Visualization",
+    "section": "Show its frequency distribution!",
+    "text": "Show its frequency distribution!"
   },
   {
     "objectID": "slides/2.3.Data-Viz.html#barplotbar-graph",
     "href": "slides/2.3.Data-Viz.html#barplotbar-graph",
     "title": "2.3.Data Visualization",
     "section": "Barplot/bar graph",
-    "text": "Barplot/bar graph\n\nA bar plot is a common way to display a single categorical variable.\n\n\n\n\nWhat is the variable?\nNotice the ordering\nAbsolute or relative frequencies?\nBar area reflects frequencies\n\n\n\n\n\n\nThe y axis can be either absolute (left) or relative (right) frequencies."
+    "text": "Barplot/bar graph\n\nA barplot is a common way to display a single categorical variable. The height of the bars reflects frequencies (absolute or relative).\n\n\n\n\nWhat is the variable?\nNotice the ordering\nAbsolute or relative frequencies?\n\n\n\n\n\n\nThe y axis can be either absolute (left) or relative (right) frequencies.\n\n\n\n\n\n\n\nWidth must be the same for all bars\nIf variable is nominal, sort bars by frequency\ny-axis should always start at zero"
   },
   {
-    "objectID": "slides/2.3.Data-Viz.html#warning-pie-charts",
-    "href": "slides/2.3.Data-Viz.html#warning-pie-charts",
+    "objectID": "slides/2.3.Data-Viz.html#pie-charts",
+    "href": "slides/2.3.Data-Viz.html#pie-charts",
     "title": "2.3.Data Visualization",
-    "section": "Warning: pie charts",
-    "text": "Warning: pie charts\n\nSame purpose as bar graph\nMuch harder to spot patterns\nBar graphs generally preferred"
+    "section": "Pie charts",
+    "text": "Pie charts\n\nSame purpose as bar graph\nMuch harder to spot patterns\nBar graphs generally preferred\n\n\n\nAlso: a waffle plot is way cooler than a pie chart and much more useful."
   },
   {
-    "objectID": "slides/2.3.Data-Viz.html#frequency-table-categorical",
-    "href": "slides/2.3.Data-Viz.html#frequency-table-categorical",
+    "objectID": "slides/2.3.Data-Viz.html#frequency-table",
+    "href": "slides/2.3.Data-Viz.html#frequency-table",
     "title": "2.3.Data Visualization",
-    "section": "Frequency table: categorical",
-    "text": "Frequency table: categorical\n\nThis can be used for exploring single categorical or numerical variables. For continuous variables, intervals are used instead of single values.\n\n\n\n\n\n\n\n\nCause_of_death\nNumber\n\n\n\nAccidents\n6688\n\n\nHomicide\n2093\n\n\nSuicide\n1615\n\n\nMalig. tumor\n745\n\n\nHeart disease\n463\n\n\nCongen. abnor.\n222\n\n\nChronic res. disease\n107\n\n\nFlu/pneumonia\n73\n\n\nCerebrov. disease\n67\n\n\nOther tumor\n52\n\n\nAll other cause\n1653\n\n\n\n\n\n\n\nWhat is the variable?\nNotice the ordering\nAbsolute or relative frequencies?"
+    "section": "Frequency table",
+    "text": "Frequency table\n\nThis can be used for exploring single categorical or numerical variables. For continuous variables, intervals are used instead of single values.\n\n\n\n\nWhat is the variable?\nNotice the ordering\nAbsolute or relative frequencies?\n\n\n\n\n\n\n\n\nCause_of_death\nNumber\n\n\n\nAccidents\n6688\n\n\nHomicide\n2093\n\n\nSuicide\n1615\n\n\nMalig. tumor\n745\n\n\nHeart disease\n463\n\n\nCongen. abnor.\n222\n\n\nChronic res. disease\n107\n\n\nFlu/pneumonia\n73\n\n\nCerebrov. disease\n67\n\n\nOther tumor\n52\n\n\nAll other cause\n1653\n\n\n\n\n\n\n\n\nWhat is the variable?\nNotice the ordering\nAbsolute or relative frequencies?"
   },
   {
-    "objectID": "slides/2.3.Data-Viz.html#one-numerical-variable",
-    "href": "slides/2.3.Data-Viz.html#one-numerical-variable",
+    "objectID": "slides/2.3.Data-Viz.html#frequency-table-numeric",
+    "href": "slides/2.3.Data-Viz.html#frequency-table-numeric",
     "title": "2.3.Data Visualization",
-    "section": "One numerical variable",
-    "text": "One numerical variable\nGoals\n\nVisualize the center (“average”)\nVisualize the spread (variability)\nVisualize the shape (distribution)"
-  },
-  {
-    "objectID": "slides/2.3.Data-Viz.html#frequency-table-continuous-data",
-    "href": "slides/2.3.Data-Viz.html#frequency-table-continuous-data",
-    "title": "2.3.Data Visualization",
-    "section": "Frequency table: continuous data",
-    "text": "Frequency table: continuous data\nRather than showing the value of each observation, we can think of the value as belonging to a bin.\n\nDaily air quality measurements in New York, May to September 1973.\n\n\n\n\n\n\n\ntemp_range\nn\n\n\n\n(56,60.1]\n8\n\n\n(60.1,64.2]\n8\n\n\n(64.2,68.3]\n13\n\n\n(68.3,72.4]\n10\n\n\n(72.4,76.5]\n22\n\n\n(76.5,80.6]\n24\n\n\n(80.6,84.7]\n29\n\n\n(84.7,88.8]\n20\n\n\n(88.8,92.9]\n12\n\n\n(92.9,97]\n7"
+    "section": "Frequency table: numeric",
+    "text": "Frequency table: numeric\n\n\n\nDiscrete: Reproductive success for male sparrows. Notice the order.\n\n\n\n\n\n\n\nlifetimeRS\nfreq\n\n\n\n0\n38\n\n\n1\n17\n\n\n2\n7\n\n\n3\n6\n\n\n4\n4\n\n\n5\n10\n\n\n6\n2\n\n\n\n\n\n\n\n\nContinuous: Daily air quality measurements in New York, May to September 1973.\n\n\n\n\n\n\n\ntemp_range\nn\n\n\n\n[56,60.1)\n8\n\n\n[60.1,64.2)\n8\n\n\n[64.2,68.3)\n13\n\n\n[68.3,72.4)\n10\n\n\n[72.4,76.5)\n22\n\n\n[76.5,80.6)\n24\n\n\n[80.6,84.7)\n29\n\n\n[84.7,88.8)\n20\n\n\n[88.8,92.9)\n12\n\n\n[92.9,97)\n7"
   },
   {
     "objectID": "slides/2.3.Data-Viz.html#histograms",
     "href": "slides/2.3.Data-Viz.html#histograms",
     "title": "2.3.Data Visualization",
     "section": "Histograms",
-    "text": "Histograms\n\nHistograms provide a view of the data density. Higher bars represent where the data are relatively more common. Histograms are especially convenient for understanding the shape of the data distribution.\n\nData: Daily air quality measurements in New York, May to September 1973.\n\n10 bins"
+    "text": "Histograms\n\nArea of bars represents frequency distribution (absolute or relative).Especially convenient for understanding the shape of the data distribution. Histograms provide a view of the data density.\n\n\nData: Daily air quality measurements in New York, May to September 1973. In histograms, y-axis can be absolute or relative frequency10 bins\nThis plot displays the (absolute) frequency, relative frequency, or density of data using bars that are typically adjacent to one another. Each bar covers an interval (a set) of values marked by the bar’s width. The height of each bar tells us how many observed values are in that interval, either as an direct count (absolute frequency), a proportion of the total (relative frequency), or as a density."
   },
   {
     "objectID": "slides/2.3.Data-Viz.html#histograms-reveal-measures-of-center",
@@ -1383,6 +1554,13 @@
     "title": "2.3.Data Visualization",
     "section": "Histograms reveal measures of center",
     "text": "Histograms reveal measures of center\n\n\nFigure\nCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(ggplot2)\nggplot(iris, aes(x = Petal.Width, fill = Species)) +\n    geom_histogram(binwidth = 0.1, show.legend = FALSE,\n        alpha = 0.9) + xlab(\"Petal Width (cm)\") + facet_wrap(~Species,\n    ncol = 1) + scale_x_continuous(breaks = seq(0.5,\n    2.5, 0.5))"
+  },
+  {
+    "objectID": "slides/2.3.Data-Viz.html#histograms-reveal-shape-of-distribution",
+    "href": "slides/2.3.Data-Viz.html#histograms-reveal-shape-of-distribution",
+    "title": "2.3.Data Visualization",
+    "section": "Histograms reveal shape of distribution",
+    "text": "Histograms reveal shape of distribution"
   },
   {
     "objectID": "slides/2.3.Data-Viz.html#histograms-consider-your-bins",
@@ -1410,7 +1588,7 @@
     "href": "slides/2.3.Data-Viz.html#cumulative-frequency-distributions-1",
     "title": "2.3.Data Visualization",
     "section": "Cumulative Frequency Distributions",
-    "text": "Cumulative Frequency Distributions\n\nLifespan of bees (in hours).\n\n\n\n\n\n\n\nhours\n\n\n\n2.3\n\n\n2.3\n\n\n3.9\n\n\n4.0\n\n\n7.1\n\n\n9.5\n\n\n9.6\n\n\n10.8\n\n\n12.8\n\n\n13.6\n\n\n14.6\n\n\n18.2\n\n\n18.2\n\n\n19.0\n\n\n20.9\n\n\n24.3\n\n\n25.8\n\n\n25.9\n\n\n26.5\n\n\n27.1\n\n\n30.0\n\n\n33.3\n\n\n34.8\n\n\n34.8\n\n\n35.7\n\n\n36.9\n\n\n41.3\n\n\n44.2\n\n\n54.2\n\n\n55.8\n\n\n65.8\n\n\n71.1\n\n\n84.7\n\n\n\n\n\n\n\nThe cumulative frequency of a value is the proportion of individuals equal to or less than that value. In this case, equal or less than a given grade."
+    "text": "Cumulative Frequency Distributions\n\nLifespan of bees (in hours).\n\n\n\n [1]  2.3  2.3  3.9  4.0  7.1  9.5  9.6 10.8 12.8 13.6 14.6 18.2 18.2 19.0 20.9\n[16] 24.3 25.8 25.9 26.5 27.1 30.0 33.3 34.8 34.8 35.7 36.9 41.3 44.2 54.2 55.8\n[31] 65.8 71.1 84.7\n\n\n\nThe cumulative frequency of a value is the proportion of individuals equal to or less than that value. In this case, equal or less than a given grade."
   },
   {
     "objectID": "slides/2.3.Data-Viz.html#cumulative-frequency-distributions-2",
@@ -1424,118 +1602,27 @@
     "href": "slides/2.3.Data-Viz.html#cumulative-frequency-distributions-3",
     "title": "2.3.Data Visualization",
     "section": "Cumulative Frequency Distributions",
-    "text": "Cumulative Frequency Distributions\n\nPlot the values on the  and their cumulative relative frequencies on the \n\nConnect the values with lines\n\n\n\nPlot\nCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(df, aes(x = school_grade)) + stat_ecdf(geom = \"step\") +\n    theme_bw()  #this is just to make the background clear\n\n\n\n\n\necdf: Empirical Cumulative Distribution Function"
+    "text": "Cumulative Frequency Distributions\n\nPlot the values on the  and their cumulative relative frequencies on the \n\nConnect the values with lines\n\n\n\nPlot\nCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(df, aes(x = school_grade)) + stat_ecdf(geom = \"step\")\n\n\n\n\n\necdf: Empirical Cumulative Distribution Function"
   },
   {
     "objectID": "slides/2.3.Data-Viz.html#less-common-plots-for-one-numerical-variable",
     "href": "slides/2.3.Data-Viz.html#less-common-plots-for-one-numerical-variable",
     "title": "2.3.Data Visualization",
     "section": "Less common plots for one numerical variable",
-    "text": "Less common plots for one numerical variable\nThese are more often used to look at the association between a numerical and a categorical variable:\n\nBoxplots\nViolin plots\nStrip charts"
+    "text": "Less common plots for one numerical variable\nThese are more often used to look at the association between a numerical and a categorical variable:\n\nBoxplots\nViolin plots\nStrip charts\n\n\n\nThese are also used (more commonly) for relationships between categorical and numerical variables, so we talk about them later!"
   },
   {
-    "objectID": "slides/2.3.Data-Viz.html#section-1",
-    "href": "slides/2.3.Data-Viz.html#section-1",
-    "title": "2.3.Data Visualization",
-    "section": "",
-    "text": "Two or more variables …"
+    "objectID": "slides/Unit2-CaseStudies&Problems2.html#acknowledgments",
+    "href": "slides/Unit2-CaseStudies&Problems2.html#acknowledgments",
+    "title": "Unit 2: Review/practice problems",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\n\nSome code and slide content was borrowed from Yaniv Brandvain and Michael Whitlock."
   },
   {
-    "objectID": "slides/2.3.Data-Viz.html#categorical-x-categorical",
-    "href": "slides/2.3.Data-Viz.html#categorical-x-categorical",
-    "title": "2.3.Data Visualization",
-    "section": "Categorical x Categorical",
-    "text": "Categorical x Categorical\n\nContingency Table. Typically totals (row and column) are also shown.\n\n\n\n     \n      1st 2nd 3rd\n  no  129 161 574\n  yes 193 119 137"
-  },
-  {
-    "objectID": "slides/2.3.Data-Viz.html#categorical-x-categorical-1",
-    "href": "slides/2.3.Data-Viz.html#categorical-x-categorical-1",
-    "title": "2.3.Data Visualization",
-    "section": "Categorical x Categorical",
-    "text": "Categorical x Categorical\n\nGrouped bar plot"
-  },
-  {
-    "objectID": "slides/2.3.Data-Viz.html#categorical-x-categorical-2",
-    "href": "slides/2.3.Data-Viz.html#categorical-x-categorical-2",
-    "title": "2.3.Data Visualization",
-    "section": "Categorical x Categorical",
-    "text": "Categorical x Categorical\n\nMosaic plot\n\n\n\n2+ variables. No upper limit, but too many variables may be confusing\nWidth indicates the relative proportion of the corresponding value. Here, 35 (control) and 30 (egg removal)"
-  },
-  {
-    "objectID": "slides/2.3.Data-Viz.html#numerical-x-numerical",
-    "href": "slides/2.3.Data-Viz.html#numerical-x-numerical",
-    "title": "2.3.Data Visualization",
-    "section": "Numerical x Numerical",
-    "text": "Numerical x Numerical\nScatter Plot\n\n\nPlot\nCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(ggplot2)\nggplot(iris,aes(x = Petal.Width, y = Petal.Length)) + \n  geom_point()+\n  xlab(\"Petal Width (cm)\") + \n  ylab(\"Petal Length (cm)\")"
-  },
-  {
-    "objectID": "slides/2.3.Data-Viz.html#numerical-x-numerical-1",
-    "href": "slides/2.3.Data-Viz.html#numerical-x-numerical-1",
-    "title": "2.3.Data Visualization",
-    "section": "Numerical x Numerical",
-    "text": "Numerical x Numerical\nScatter Plot\n\n\nPlot\nCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nlibrary(ggplot2)\nggplot(iris, aes(x = Petal.Width, y = Petal.Length)) +\n    geom_point() + xlab(\"Petal Width (cm)\") + ylab(\"Petal Length (cm)\") +\n    geom_smooth(method = \"lm\", se = F)"
-  },
-  {
-    "objectID": "slides/2.3.Data-Viz.html#numerical-x-categorical",
-    "href": "slides/2.3.Data-Viz.html#numerical-x-categorical",
-    "title": "2.3.Data Visualization",
-    "section": "Numerical x Categorical",
-    "text": "Numerical x Categorical\nMultiple Histograms"
-  },
-  {
-    "objectID": "slides/2.3.Data-Viz.html#numerical-x-categorical-1",
-    "href": "slides/2.3.Data-Viz.html#numerical-x-categorical-1",
-    "title": "2.3.Data Visualization",
-    "section": "Numerical x Categorical",
-    "text": "Numerical x Categorical\nStrip Chart"
-  },
-  {
-    "objectID": "slides/2.3.Data-Viz.html#numerical-x-categorical-2",
-    "href": "slides/2.3.Data-Viz.html#numerical-x-categorical-2",
-    "title": "2.3.Data Visualization",
-    "section": "Numerical x Categorical",
-    "text": "Numerical x Categorical\nBoxplot"
-  },
-  {
-    "objectID": "slides/2.3.Data-Viz.html#numerical-x-categorical-3",
-    "href": "slides/2.3.Data-Viz.html#numerical-x-categorical-3",
-    "title": "2.3.Data Visualization",
-    "section": "Numerical x Categorical",
-    "text": "Numerical x Categorical\nViolin Plot"
-  },
-  {
-    "objectID": "slides/2.3.Data-Viz.html#numerical-2-categorical",
-    "href": "slides/2.3.Data-Viz.html#numerical-2-categorical",
-    "title": "2.3.Data Visualization",
-    "section": "Numerical (2) + Categorical",
-    "text": "Numerical (2) + Categorical\nMultiple Scatterplots with legend"
-  },
-  {
-    "objectID": "slides/2.3.Data-Viz.html#numerical-2-x-categorical",
-    "href": "slides/2.3.Data-Viz.html#numerical-2-x-categorical",
-    "title": "2.3.Data Visualization",
-    "section": "Numerical (2) x Categorical",
-    "text": "Numerical (2) x Categorical\nMultiple scatterplots plotted separately"
-  },
-  {
-    "objectID": "slides/2.3.Data-Viz.html#visualizations-over-time-and-space",
-    "href": "slides/2.3.Data-Viz.html#visualizations-over-time-and-space",
-    "title": "2.3.Data Visualization",
-    "section": "Visualizations Over Time and Space",
-    "text": "Visualizations Over Time and Space\nLine Graphs Show Data Over Time\nFor temporal data, note all observations with a data point, and connect each point with a line."
-  },
-  {
-    "objectID": "slides/2.3.Data-Viz.html#small-multiples-line-chart",
-    "href": "slides/2.3.Data-Viz.html#small-multiples-line-chart",
-    "title": "2.3.Data Visualization",
-    "section": "Small multiples line chart",
-    "text": "Small multiples line chart\nA grid of line charts that uses the same scales and axes"
-  },
-  {
-    "objectID": "slides/2.3.Data-Viz.html#to-show-spatial-data",
-    "href": "slides/2.3.Data-Viz.html#to-show-spatial-data",
-    "title": "2.3.Data Visualization",
-    "section": "To show spatial data",
-    "text": "To show spatial data\nMaps\nSpatial data does not have to be a geographical map"
+    "objectID": "slides/Unit2-CaseStudies&Problems2.html#outline",
+    "href": "slides/Unit2-CaseStudies&Problems2.html#outline",
+    "title": "Unit 2: Review/practice problems",
+    "section": "Outline",
+    "text": "Outline"
   }
 ]

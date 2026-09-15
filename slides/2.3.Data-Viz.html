@@ -218,12 +218,19 @@ B.Bitarello
 </section><section id="outline" class="slide level2 scrollable"><h2>Outline</h2>
 <ol type="1">
 <li><p>Why plot? The importance of data visualization</p></li>
-<li><p>Letting data type guide visualizations</p></li>
+<li>
+<p>Letting data type guide visualizations</p>
+<ul>
+<li><p>single variable</p></li>
+<li><p>relationships between variables</p></li>
+</ul>
+</li>
 </ol></section><section id="learning-goals" class="slide level2"><h2>Learning goals</h2>
 <ul>
 <li>Distinguish between explanatory and exploratory figures and when to use them.</li>
 <li>Explain why we must consider the shape of data when summarizing it.</li>
 <li>Understand how data types drive figure and table design.</li>
+<li>Know how to interpret and make the different kinds of visualizations appropriate for different situations.</li>
 </ul></section><section id="biased-and-unbiased-estimators" class="slide level2"><h2>Biased and unbiased estimators</h2>
 <div class="goal">
 <p>The expected value of an unbiased estimator equals the population parameter. Good estimators are <u>unbiased</u></p>
@@ -235,7 +242,7 @@ B.Bitarello
 1" title="n –
 1" class="math inline"> (rather than just <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20n" alt="n" title="n" class="math inline">) to minimize bias. Bessel’s correction makes the variance an unbiased estimator.</p></li>
 <li><p>The range is a bad summary statistic because it is biased: it underestimates parameter and increases with sample size.</p></li>
-</ul></section><section id="how-about-plots" class="slide level2 center" data-background="#55cfd8"><h2>How about plots?</h2>
+</ul></section><section id="why-plots" class="slide level2 center" data-background="#55cfd8"><h2>Why plots?</h2>
 <div class="r-fit-text">
 <p>Aren’t numerical summaries enough?</p>
 </div>
@@ -790,45 +797,62 @@ B.Bitarello
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="displaying-data-is-very-important" class="slide level2 scrollable"><h2>Displaying data is very important</h2>
-<div class="r-fit-text">
+      }</style></aside></section><section><section id="displaying-data-is-very-important" class="title-slide slide level1 center scrollable"><h1>Displaying data is very important</h1>
 <p>Displaying data helps you:</p>
 <ol type="1">
-<li>Understand your data</li>
-<li>Communicate your results</li>
-</ol>
-</div>
-</section><section id="exploratory-vs.-explanatory-plotstables-goals" class="slide level2"><h2>Exploratory vs.&nbsp;Explanatory Plots/Tables: Goals</h2>
+<li>
+<u>Understand</u> your data</li>
+<li>
+<u>Communicate</u> your results</li>
+</ol></section><section id="exploratory-vs.-explanatory-plotstables-goals" class="slide level2"><h2>Exploratory vs.&nbsp;Explanatory Plots/Tables: Goals</h2>
 <div class="r-fit-text">
-<p>In <strong>exploratory</strong> data analysis, you aim to find the story of the data.</p>
-<p>In <strong>explanatory</strong> data analysis, you aim to share the story of the data.</p>
+<ul>
+<li><p>In <strong>exploratory</strong> data analysis, you aim to <em>find the story</em> of the data.</p></li>
+<li><p>In <strong>explanatory</strong> data analysis, you aim to <em>share the story</em> of the data.</p></li>
+</ul>
 </div>
 
 <aside><div>
 <p>Note: There is a continuum between explanatory and exploratory plots. For example, the plot you show your lab is probably somewhere between what you make for yourself and what you send to the New York Times.</p>
 </div></aside></section><section id="exploratory-vs.-explanatory-plotstables-focus" class="slide level2"><h2>Exploratory vs.&nbsp;Explanatory Plots/Tables: Focus</h2>
 <div class="r-fit-text">
-<p>For <strong>exploratory</strong> plots/tables: Don’t fuss about colors, labels, names etc. The goal is for <em>you</em> to understand the data.</p>
-<p>For <strong>explanatory</strong> plots/tables: Fuss about all of this. You must consider your <em>audience</em> may, for example, consist of:<br>
-- People unfamiliar with your data<br>
-- People who are colorblind</p>
+<ul>
+<li><p>For <strong>exploratory</strong> plots/tables: Don’t fuss about colors, labels, names etc. The goal is for <em>you</em> to understand the data.</p></li>
+<li><p>For <strong>explanatory</strong> plots/tables: Fuss about all of this. You must consider your <em>audience</em> may, for example, consist of:<br></p></li>
+<li><p>People unfamiliar with your data<br></p></li>
+<li><p>People who are colorblind</p></li>
+</ul>
 </div>
-<p>The suggestions we will cover will help the story of the data reveal itself, and are therefore useful for exploratory &amp; explanatory plots.</p>
-</section><section id="which-types-of-summaries-and-graphs-to-use" class="title-slide slide level1 center" data-background="#55cfd8"><h1>Which types of summaries and graphs to use?</h1>
+<p>The suggestions we will cover will help the story of the data reveal itself, and are therefore useful for both exploratory &amp; explanatory plots.</p>
+</section><section id="section" class="slide level2 center scrollable" data-background="#55cfd8"><h2></h2>
 <div class="r-fit-text">
-<p>Let data type and type of question guide presentation.</p>
+<p>How to make good plots</p>
+<ol type="1">
+<li>
+<strong>Show</strong> the data.</li>
+<li>Make patterns <strong>easy</strong> to see.</li>
+<li>Display magnitudes <strong>honestly</strong>.</li>
+<li>Draw graphics <strong>clearly</strong>.</li>
+</ol>
 </div>
+
+<aside><div>
+<p>We will come back to this.</p>
+</div></aside></section></section><section id="which-types-of-summaries-and-graphs-to-use" class="title-slide slide level1 center" data-background="#55cfd8"><h1>Which types of summaries and graphs to use?</h1>
+<div class="r-fit-text">
+<p>“Form follows data structure”</p>
 <ul>
 <li>Is it one variable? Which type?</li>
 <li>Association between two or more variables? What are their types?</li>
-</ul></section><section><section id="form-follows-data-structure" class="title-slide slide level1 center"><h1>“Form follows data structure”</h1>
+</ul>
+</div>
+</section><section><section id="part-1-visualizing-data-for-a-single-variable" class="title-slide slide level1 center"><h1>Part 1: visualizing data for a single variable…</h1>
 
-</section><section id="to-visualize-data-for-a-single-variable" class="slide level2"><h2>To visualize data for a single variable…</h2>
-<p>Show its frequency distribution</p>
+</section><section id="show-its-frequency-distribution" class="slide level2"><h2>Show its frequency distribution!</h2>
 
 <img data-src="images/one-variable.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" alt="A white slide presents a simple classification diagram for displaying one variable. “One variable” appears on the left and branches to “Categorical” near the top center and “Numerical” near the lower center. Thin blue connector lines link “Categorical” to “Barplot” and “Frequency table” on the right. “Numerical” connects toward a list of display types on the right, including histogram, density plot, cumulative frequency distribution, strip chart, boxplot, and violin plot."></section><section id="barplotbar-graph" class="slide level2"><h2>Barplot/bar graph</h2>
 <div class="goal">
-<p>A bar plot is a common way to display a single categorical variable.</p>
+<p>A barplot is a common way to display a single categorical variable. The height of the bars reflects frequencies (absolute or relative).</p>
 </div>
 <div class="columns">
 <div class="column" style="width:20%;">
@@ -836,7 +860,6 @@ B.Bitarello
 <li>What is the variable?</li>
 <li>Notice the ordering</li>
 <li>Absolute or relative frequencies?</li>
-<li>Bar area reflects frequencies</li>
 </ul>
 </div><div class="column" style="width:80%;">
 <div class="cell">
@@ -848,19 +871,35 @@ B.Bitarello
 </div>
 </div>
 </div></div>
-</section><section id="warning-pie-charts" class="slide level2"><h2>Warning: pie charts</h2>
+
+<aside><div>
+<ul>
+<li>Width must be the same for all bars</li>
+<li>If variable is nominal, sort bars by frequency</li>
+<li>y-axis should always start at zero</li>
+</ul>
+</div></aside></section><section id="pie-charts" class="slide level2"><h2>Pie charts</h2>
 <ul>
 <li>Same purpose as bar graph</li>
 <li>Much harder to spot patterns</li>
 <li>Bar graphs generally preferred</li>
 </ul>
 
-<img data-src="2.3.Data-Viz_files/figure-revealjs/piechartssuck-1.png" class="margin-caption r-stretch" width="960"></section><section id="frequency-table-categorical" class="slide level2"><h2>Frequency table: categorical</h2>
+<img data-src="2.3.Data-Viz_files/figure-revealjs/piechartssuck-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"><ul>
+<li>Also: a waffle plot is way cooler than a pie chart and much more useful.</li>
+</ul></section><section id="frequency-table" class="slide level2"><h2>Frequency table</h2>
 <div class="goal">
 <p>This can be used for exploring single categorical or numerical variables. For continuous variables, intervals are used instead of single values.</p>
 </div>
+<div class="columns">
+<div class="column" style="width:20%;">
+<ul>
+<li>What is the variable?</li>
+<li>Notice the ordering</li>
+<li>Absolute or relative frequencies?</li>
+</ul>
+</div><div class="column" style="width:80%;">
 <div class="cell">
-
 <div class="cell-output-display margin-caption">
 <div id="jevleqnesr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#jevleqnesr table {
@@ -1366,7 +1405,8 @@ B.Bitarello
 </div>
 </div>
 </div>
-<img data-src="2.3.Data-Viz_files/figure-revealjs/freq-table-1.png" class="margin-caption r-stretch" width="960"><aside class="notes"><ul>
+</div></div>
+<aside class="notes"><ul>
 <li>What is the variable?</li>
 <li>Notice the ordering</li>
 <li>Absolute or relative frequencies?</li>
@@ -1380,16 +1420,17 @@ B.Bitarello
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="one-numerical-variable" class="slide level2"><h2>One numerical variable</h2>
+      }</style></aside></section></section><section><section id="one-numerical-variable" class="title-slide slide level1 center"><h1>One numerical variable</h1>
 <p><strong>Goals</strong></p>
 <ul>
 <li>Visualize the center (“average”)</li>
 <li>Visualize the spread (variability)</li>
 <li>Visualize the shape (distribution)</li>
-</ul></section><section id="frequency-table-continuous-data" class="slide level2"><h2>Frequency table: continuous data</h2>
-<p>Rather than showing the value of each observation, we can think of the value as belonging to a bin.</p>
+</ul></section><section id="frequency-table-numeric" class="slide level2"><h2>Frequency table: numeric</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
 <div class="goal">
-<p>Daily air quality measurements in New York, May to September 1973.</p>
+<p>Discrete: Reproductive success for male sparrows. Notice the order.</p>
 </div>
 <div class="cell">
 <div class="cell-output-display margin-caption">
@@ -1844,132 +1885,46 @@ B.Bitarello
 </style>
 <table class="gt_table" data-quarto-bootstrap="false">
 <thead><tr class="gt_col_headings header">
-<th id="temp_range" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">temp_range</th>
-<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
+<th id="lifetimeRS" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">lifetimeRS</th>
+<th id="freq" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">freq</th>
 </tr></thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_center" headers="temp_range">(56,60.1]</td>
-<td class="gt_row gt_right" headers="n">8</td>
+<td class="gt_row gt_right" headers="lifetimeRS">0</td>
+<td class="gt_row gt_right" headers="freq">38</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="temp_range">(60.1,64.2]</td>
-<td class="gt_row gt_right" headers="n">8</td>
+<td class="gt_row gt_right" headers="lifetimeRS">1</td>
+<td class="gt_row gt_right" headers="freq">17</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="temp_range">(64.2,68.3]</td>
-<td class="gt_row gt_right" headers="n">13</td>
+<td class="gt_row gt_right" headers="lifetimeRS">2</td>
+<td class="gt_row gt_right" headers="freq">7</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="temp_range">(68.3,72.4]</td>
-<td class="gt_row gt_right" headers="n">10</td>
+<td class="gt_row gt_right" headers="lifetimeRS">3</td>
+<td class="gt_row gt_right" headers="freq">6</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="temp_range">(72.4,76.5]</td>
-<td class="gt_row gt_right" headers="n">22</td>
+<td class="gt_row gt_right" headers="lifetimeRS">4</td>
+<td class="gt_row gt_right" headers="freq">4</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_center" headers="temp_range">(76.5,80.6]</td>
-<td class="gt_row gt_right" headers="n">24</td>
+<td class="gt_row gt_right" headers="lifetimeRS">5</td>
+<td class="gt_row gt_right" headers="freq">10</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_center" headers="temp_range">(80.6,84.7]</td>
-<td class="gt_row gt_right" headers="n">29</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="temp_range">(84.7,88.8]</td>
-<td class="gt_row gt_right" headers="n">20</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_center" headers="temp_range">(88.8,92.9]</td>
-<td class="gt_row gt_right" headers="n">12</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_center" headers="temp_range">(92.9,97]</td>
-<td class="gt_row gt_right" headers="n">7</td>
+<td class="gt_row gt_right" headers="lifetimeRS">6</td>
+<td class="gt_row gt_right" headers="freq">2</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-</section><section id="histograms" class="slide level2"><h2>Histograms</h2>
+</div><div class="column" style="width:55%;">
 <div class="goal">
-<p>Histograms provide a view of the data density. Higher bars represent where the data are relatively more common. Histograms are especially convenient for understanding the shape of the data distribution.</p>
-</div>
-<p>Data: Daily air quality measurements in New York, May to September 1973.</p>
-
-<img data-src="2.3.Data-Viz_files/figure-revealjs/temp-hist-1.png" class="margin-caption r-stretch" width="960"><aside class="notes"><p>10 bins</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside></section><section id="histograms-reveal-measures-of-center" class="slide level2"><h2>Histograms reveal measures of center</h2>
-<div class="goal">
-<p>Recall the <code>iris</code> dataset</p>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Machine+Learning+R/iris-machinelearning.png" class="margin-caption quarto-figure quarto-figure-center" width="450" height="175"></p>
-</figure>
-</div>
-</section><section id="histograms-reveal-measures-of-center-1" class="slide level2"><h2>Histograms reveal measures of center</h2>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby">
-<li><a data-tabby-default="" href="#tabset-1-1">Figure</a></li>
-<li><a href="#tabset-1-2">Code</a></li>
-</ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="2.3.Data-Viz_files/figure-revealjs/hist-1.png" class="margin-caption" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-1-2">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb5-2"><a aria-label="2"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb5-3"><a aria-label="3"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb5-4"><a aria-label="4"></a>        <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Petal Width (cm)"</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species,</span>
-<span id="cb5-5"><a aria-label="5"></a>    <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fl">0.5</span>,</span>
-<span id="cb5-6"><a aria-label="6"></a>    <span class="fl">2.5</span>, <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-</div>
-</section><section id="histograms-consider-your-bins" class="slide level2"><h2>Histograms – consider your bins</h2>
-<ul>
-<li>Each block of a histogram is called a “bin”</li>
-<li>The size or “width” of a bin refers to the range in each block.</li>
-<li>Changing bins can change stories</li>
-<li>Don’t be fooled.</li>
-<li>Don’t allow bad bin widths to obscure your data.</li>
-</ul>
-<div class="goal">
-<p>DO NOT assume that default bin widths are appropriate.</p>
-</div>
-</section><section id="density-plot" class="slide level2"><h2>Density Plot</h2>
-<blockquote>
-<p>A smoothed out histogram. The technical details for how to smooth out the histogram are beyond our scope, but note: the shape, scale, and spread of the observations are displayed similarly in a histogram as in a density plot.</p>
-</blockquote>
-
-<img data-src="2.3.Data-Viz_files/figure-revealjs/distribs2-1.png" class="margin-caption r-stretch" width="960"></section><section id="cumulative-frequency-distributions" class="slide level2"><h2>Cumulative Frequency Distributions</h2>
-<blockquote>
-<p>The percentile of a measurement specifies the percentage of observations less than or equal to it; the remaining observations exceed it. The quantile of a measurement specifies the fraction of observations less than or equal to it.</p>
-</blockquote>
-</section><section id="cumulative-frequency-distributions-1" class="slide level2"><h2>Cumulative Frequency Distributions</h2>
-<div class="example">
-<p>Lifespan of bees (in hours).</p>
+<p>Continuous: Daily air quality measurements in New York, May to September 1973.</p>
 </div>
 <div class="cell">
 <div class="cell-output-display margin-caption">
@@ -2424,111 +2379,151 @@ B.Bitarello
 </style>
 <table class="gt_table" data-quarto-bootstrap="false">
 <thead><tr class="gt_col_headings header">
-<th id="hours" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">hours</th>
+<th id="temp_range" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">temp_range</th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
 </tr></thead>
 <tbody class="gt_table_body">
 <tr class="odd">
-<td class="gt_row gt_right" headers="hours">2.3</td>
+<td class="gt_row gt_center" headers="temp_range">[56,60.1)</td>
+<td class="gt_row gt_right" headers="n">8</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="hours">2.3</td>
+<td class="gt_row gt_center" headers="temp_range">[60.1,64.2)</td>
+<td class="gt_row gt_right" headers="n">8</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_right" headers="hours">3.9</td>
+<td class="gt_row gt_center" headers="temp_range">[64.2,68.3)</td>
+<td class="gt_row gt_right" headers="n">13</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="hours">4.0</td>
+<td class="gt_row gt_center" headers="temp_range">[68.3,72.4)</td>
+<td class="gt_row gt_right" headers="n">10</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_right" headers="hours">7.1</td>
+<td class="gt_row gt_center" headers="temp_range">[72.4,76.5)</td>
+<td class="gt_row gt_right" headers="n">22</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="hours">9.5</td>
+<td class="gt_row gt_center" headers="temp_range">[76.5,80.6)</td>
+<td class="gt_row gt_right" headers="n">24</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_right" headers="hours">9.6</td>
+<td class="gt_row gt_center" headers="temp_range">[80.6,84.7)</td>
+<td class="gt_row gt_right" headers="n">29</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="hours">10.8</td>
+<td class="gt_row gt_center" headers="temp_range">[84.7,88.8)</td>
+<td class="gt_row gt_right" headers="n">20</td>
 </tr>
 <tr class="odd">
-<td class="gt_row gt_right" headers="hours">12.8</td>
+<td class="gt_row gt_center" headers="temp_range">[88.8,92.9)</td>
+<td class="gt_row gt_right" headers="n">12</td>
 </tr>
 <tr class="even">
-<td class="gt_row gt_right" headers="hours">13.6</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="hours">14.6</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="hours">18.2</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="hours">18.2</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="hours">19.0</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="hours">20.9</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="hours">24.3</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="hours">25.8</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="hours">25.9</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="hours">26.5</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="hours">27.1</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="hours">30.0</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="hours">33.3</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="hours">34.8</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="hours">34.8</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="hours">35.7</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="hours">36.9</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="hours">41.3</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="hours">44.2</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="hours">54.2</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="hours">55.8</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="hours">65.8</td>
-</tr>
-<tr class="even">
-<td class="gt_row gt_right" headers="hours">71.1</td>
-</tr>
-<tr class="odd">
-<td class="gt_row gt_right" headers="hours">84.7</td>
+<td class="gt_row gt_center" headers="temp_range">[92.9,97)</td>
+<td class="gt_row gt_right" headers="n">7</td>
 </tr>
 </tbody>
 </table>
 </div>
+</div>
+</div>
+</div></div>
+</section><section id="histograms" class="slide level2"><h2>Histograms</h2>
+<div class="goal">
+<p>Area of bars represents frequency distribution (absolute or relative).Especially convenient for understanding the shape of the data distribution. Histograms provide a view of the data density.</p>
+</div>
+
+<img data-src="2.3.Data-Viz_files/figure-revealjs/temp-hist-1.png" class="margin-caption r-stretch quarto-figure-center" width="960"><p class="caption">Data: Daily air quality measurements in New York, May to September 1973. In histograms, y-axis can be absolute or relative frequency</p><aside class="notes"><p>10 bins</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside><aside class="notes"><p>This plot displays the (absolute) frequency, relative frequency, or density of data using bars that are typically adjacent to one another. Each bar covers an interval (a set) of values marked by the bar’s width. The height of each bar tells us how many observed values are in that interval, either as an direct count (absolute frequency), a proportion of the total (relative frequency), or as a density.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="histograms-reveal-measures-of-center" class="slide level2"><h2>Histograms reveal measures of center</h2>
+<div class="goal">
+<p>Recall the <code>iris</code> dataset</p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Machine+Learning+R/iris-machinelearning.png" class="margin-caption quarto-figure quarto-figure-center" width="450" height="175"></p>
+</figure>
+</div>
+</section><section id="histograms-reveal-measures-of-center-1" class="slide level2"><h2>Histograms reveal measures of center</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby">
+<li><a data-tabby-default="" href="#tabset-1-1">Figure</a></li>
+<li><a href="#tabset-1-2">Code</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure><p><img data-src="2.3.Data-Viz_files/figure-revealjs/hist-1.png" class="margin-caption" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a aria-label="2"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb5-3"><a aria-label="3"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb5-4"><a aria-label="4"></a>        <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Petal Width (cm)"</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species,</span>
+<span id="cb5-5"><a aria-label="5"></a>    <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fl">0.5</span>,</span>
+<span id="cb5-6"><a aria-label="6"></a>    <span class="fl">2.5</span>, <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="histograms-reveal-shape-of-distribution" class="slide level2"><h2>Histograms reveal shape of distribution</h2>
+
+<img data-src="2.3.Data-Viz_files/figure-revealjs/unnamed-chunk-3-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="histograms-consider-your-bins" class="slide level2"><h2>Histograms – consider your bins</h2>
+<ul>
+<li>Each block of a histogram is called a “bin”</li>
+<li>The size or “width” of a bin refers to the range in each block.</li>
+<li>Changing bins can change stories</li>
+<li>Don’t be fooled.</li>
+<li>Don’t allow bad bin widths to obscure your data.</li>
+</ul>
+<div class="goal">
+<p>DO NOT assume that default bin widths are appropriate.</p>
+</div>
+</section><section id="density-plot" class="slide level2"><h2>Density Plot</h2>
+<blockquote>
+<p>A smoothed out histogram. The technical details for how to smooth out the histogram are beyond our scope, but note: the shape, scale, and spread of the observations are displayed similarly in a histogram as in a density plot.</p>
+</blockquote>
+
+<img data-src="2.3.Data-Viz_files/figure-revealjs/distribs2-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="cumulative-frequency-distributions" class="slide level2"><h2>Cumulative Frequency Distributions</h2>
+<blockquote>
+<p>The percentile of a measurement specifies the percentage of observations less than or equal to it; the remaining observations exceed it. The quantile of a measurement specifies the fraction of observations less than or equal to it.</p>
+</blockquote>
+</section><section id="cumulative-frequency-distributions-1" class="slide level2"><h2>Cumulative Frequency Distributions</h2>
+<div class="example">
+<p>Lifespan of bees (in hours).</p>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  2.3  2.3  3.9  4.0  7.1  9.5  9.6 10.8 12.8 13.6 14.6 18.2 18.2 19.0 20.9
+[16] 24.3 25.8 25.9 26.5 27.1 30.0 33.3 34.8 34.8 35.7 36.9 41.3 44.2 54.2 55.8
+[31] 65.8 71.1 84.7</code></pre>
 </div>
 </div>
 <ul>
@@ -3161,17 +3156,14 @@ B.Bitarello
 </div>
 <div id="tabset-2-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> school_grade)) <span class="sc">+</span> <span class="fu">stat_ecdf</span>(<span class="at">geom =</span> <span class="st">"step"</span>) <span class="sc">+</span></span>
-<span id="cb7-2"><a aria-label="2"></a>    <span class="fu">theme_bw</span>()  <span class="co">#this is just to make the background clear</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> school_grade)) <span class="sc">+</span> <span class="fu">stat_ecdf</span>(<span class="at">geom =</span> <span class="st">"step"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 <aside><div>
 <p>ecdf: Empirical Cumulative Distribution Function</p>
-</div></aside></section></section><section><section id="section" class="title-slide slide level1 center"><h1></h1>
-<div class="r-fit-text">
-<p>Histograms, density plots, &amp; cumulative frequency plots …</p>
+</div></aside></section></section><section><section id="histograms-density-plots-cumulative-frequency-plots" class="title-slide slide level1 center"><h1>Histograms, density plots, &amp; cumulative frequency plots</h1>
 <div class="goal">
 <ul>
 <li><p>can reveal the shapes of distributions</p></li>
@@ -3179,133 +3171,17 @@ B.Bitarello
 <li><p>and choosing a statistical approach</p></li>
 </ul>
 </div>
-</div>
 </section><section id="less-common-plots-for-one-numerical-variable" class="slide level2"><h2>Less common plots for one numerical variable</h2>
 <p>These are more often used to look at the association between a numerical and a categorical variable:</p>
 <ul>
 <li>Boxplots</li>
 <li>Violin plots</li>
 <li>Strip charts</li>
-</ul></section><section id="section-1" class="slide level2 center" data-background="#55cfd8"><h2></h2>
-<div class="r-fit-text">
-<p>Two or more variables …</p>
-</div>
-</section><section id="section-2" class="slide level2" data-background="#55cfd8"><h2></h2>
-
-<img data-src="images/clipboard-866997848.png" class="margin-caption quarto-figure quarto-figure-center r-stretch"></section><section id="categorical-x-categorical" class="slide level2"><h2>Categorical x Categorical</h2>
-<div class="goal">
-<p>Contingency Table. Typically totals (row and column) are also shown.</p>
-</div>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>     
-      1st 2nd 3rd
-  no  129 161 574
-  yes 193 119 137</code></pre>
-</div>
-</div>
-</section><section id="categorical-x-categorical-1" class="slide level2"><h2>Categorical x Categorical</h2>
-<div class="goal">
-<p>Grouped bar plot</p>
-</div>
-
-<img data-src="2.3.Data-Viz_files/figure-revealjs/bird-malaria-1.png" class="margin-caption r-stretch" width="960"></section><section id="categorical-x-categorical-2" class="slide level2"><h2>Categorical x Categorical</h2>
-<div class="goal">
-<p>Mosaic plot</p>
-</div>
-
-<img data-src="2.3.Data-Viz_files/figure-revealjs/mosaic-1.png" class="margin-caption r-stretch" width="960"><ul>
-<li><p>2+ variables. No upper limit, but too many variables may be confusing</p></li>
-<li><p>Width indicates the relative proportion of the corresponding value. Here, 35 (control) and 30 (egg removal)</p></li>
-</ul></section><section id="numerical-x-numerical" class="slide level2"><h2>Numerical x Numerical</h2>
-<p><strong>Scatter Plot</strong></p>
-<div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby">
-<li><a data-tabby-default="" href="#tabset-3-1">Plot</a></li>
-<li><a href="#tabset-3-2">Code</a></li>
 </ul>
-<div class="tab-content">
-<div id="tabset-3-1">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="2.3.Data-Viz_files/figure-revealjs/scatter-1.png" class="margin-caption" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-3-2">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb10-2"><a aria-label="2"></a><span class="fu">ggplot</span>(iris,<span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">y =</span> Petal.Length)) <span class="sc">+</span> </span>
-<span id="cb10-3"><a aria-label="3"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb10-4"><a aria-label="4"></a>  <span class="fu">xlab</span>(<span class="st">"Petal Width (cm)"</span>) <span class="sc">+</span> </span>
-<span id="cb10-5"><a aria-label="5"></a>  <span class="fu">ylab</span>(<span class="st">"Petal Length (cm)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-</div>
-</section><section id="numerical-x-numerical-1" class="slide level2"><h2>Numerical x Numerical</h2>
-<p><strong>Scatter Plot</strong></p>
-<div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby">
-<li><a data-tabby-default="" href="#tabset-4-1">Plot</a></li>
-<li><a href="#tabset-4-2">Code</a></li>
-</ul>
-<div class="tab-content">
-<div id="tabset-4-1">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="2.3.Data-Viz_files/figure-revealjs/scatter2-1.png" class="margin-caption" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-4-2">
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb11-2"><a aria-label="2"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">y =</span> Petal.Length)) <span class="sc">+</span></span>
-<span id="cb11-3"><a aria-label="3"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Petal Width (cm)"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Petal Length (cm)"</span>) <span class="sc">+</span></span>
-<span id="cb11-4"><a aria-label="4"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> F)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-</div>
-</div>
-</section><section id="numerical-x-categorical" class="slide level2"><h2>Numerical x Categorical</h2>
-<p><strong>Multiple Histograms</strong></p>
 
-<img data-src="2.3.Data-Viz_files/figure-revealjs/hist3-1.png" class="margin-caption r-stretch" width="960"></section><section id="numerical-x-categorical-1" class="slide level2"><h2>Numerical x Categorical</h2>
-<p><strong>Strip Chart</strong></p>
-
-<img data-src="2.3.Data-Viz_files/figure-revealjs/strip3-1.png" class="margin-caption r-stretch" width="960"></section><section id="numerical-x-categorical-2" class="slide level2"><h2>Numerical x Categorical</h2>
-<p><strong>Boxplot</strong></p>
-
-<img data-src="2.3.Data-Viz_files/figure-revealjs/box-1.png" class="margin-caption r-stretch" width="960"></section><section id="numerical-x-categorical-3" class="slide level2"><h2>Numerical x Categorical</h2>
-<p><strong>Violin Plot</strong></p>
-
-<img data-src="2.3.Data-Viz_files/figure-revealjs/strip2-1.png" class="margin-caption r-stretch" width="960"></section><section id="numerical-2-categorical" class="slide level2"><h2>Numerical (2) + Categorical</h2>
-<p><strong>Multiple Scatterplots with legend</strong></p>
-
-<img data-src="2.3.Data-Viz_files/figure-revealjs/scatter3-1.png" class="margin-caption r-stretch" width="960"></section><section id="numerical-2-x-categorical" class="slide level2"><h2>Numerical (2) x Categorical</h2>
-<p><strong>Multiple scatterplots plotted separately</strong></p>
-
-<img data-src="2.3.Data-Viz_files/figure-revealjs/scatter4-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="visualizations-over-time-and-space" class="slide level2"><h2>Visualizations Over Time and Space</h2>
-<p><strong>Line Graphs Show Data Over Time</strong></p>
-<p>For temporal data, note all observations with a data point, and connect each point with a line.</p>
-
-<img data-src="2.3.Data-Viz_files/figure-revealjs/laguardia-1.png" class="margin-caption r-stretch" width="960"></section><section id="small-multiples-line-chart" class="slide level2"><h2>Small multiples line chart</h2>
-<p>A grid of line charts that uses the same scales and axes</p>
-
-<img data-src="2.3.Data-Viz_files/figure-revealjs/laguardia2-1.png" class="margin-caption r-stretch" width="960"></section><section id="to-show-spatial-data" class="slide level2"><h2>To show spatial data</h2>
-<p><strong>Maps</strong></p>
-<p>Spatial data does not have to be a geographical map</p>
-
-
-
-<img data-src="2.3.Data-Viz_files/figure-revealjs/anatom-1.png" class="margin-caption r-stretch" width="960"></section></section>
+<aside><div>
+<p>These are also used (more commonly) for relationships between categorical and numerical variables, so we talk about them later!</p>
+</div></aside></section></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
