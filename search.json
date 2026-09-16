@@ -1,17 +1,304 @@
 [
   {
-    "objectID": "slides/Unit2-CaseStudies&Problems2.html#acknowledgments",
-    "href": "slides/Unit2-CaseStudies&Problems2.html#acknowledgments",
-    "title": "Unit 2: Review/practice problems",
-    "section": "Acknowledgments",
-    "text": "Acknowledgments\n\nSome code and slide content was borrowed from Yaniv Brandvain and Michael Whitlock."
+    "objectID": "slides/2.4.Data-Viz.html#concept-check",
+    "href": "slides/2.4.Data-Viz.html#concept-check",
+    "title": "2.4.Data Visualization",
+    "section": "Concept check",
+    "text": "Concept check\n\nWhich of the boxplots shows the data for a sample with a median of 4 and an interquartile distance of 5?\n\n\nImage from: The Analysis of Biological Data, 3rd edition, Macmillan."
   },
   {
-    "objectID": "slides/Unit2-CaseStudies&Problems2.html#outline",
-    "href": "slides/Unit2-CaseStudies&Problems2.html#outline",
-    "title": "Unit 2: Review/practice problems",
-    "section": "Outline",
-    "text": "Outline"
+    "objectID": "slides/2.4.Data-Viz.html#concept-check-2",
+    "href": "slides/2.4.Data-Viz.html#concept-check-2",
+    "title": "2.4.Data Visualization",
+    "section": "Concept check 2",
+    "text": "Concept check 2\nWhat is (approximately) the IQR for this?\n\nQ1: ~ 12 Q3: ~ 35 IQR ~ 35-12=23 actual IQR is 23"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#a-note-about-boxplots",
+    "href": "slides/2.4.Data-Viz.html#a-note-about-boxplots",
+    "title": "2.4.Data Visualization",
+    "section": "A note about boxplots",
+    "text": "A note about boxplots\n\nThere is more than one way to define the whiskers in a boxplot\nR (both base and ggplot) use the following. If there are no outliers, whiskers go up to max and min value\nBut how are outliers defined?"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#case-1-if-there-are-no-outliers-in-the-dataset",
+    "href": "slides/2.4.Data-Viz.html#case-1-if-there-are-no-outliers-in-the-dataset",
+    "title": "2.4.Data Visualization",
+    "section": "Case 1: If there are no outliers in the dataset",
+    "text": "Case 1: If there are no outliers in the dataset\n\nR uses the popular method of  and .\nIf there are no values beyond these limits, it considers the dataset to not have outliers for the purposes of a boxplot. Whiskers go down to min and up to max value, i.e, the range.\nE.g. for the bees:\n\n\nCodeQ1 = 12.8\nQ3 = 35.7\nrange(bees$hours)\n\n[1]  2.3 84.7\n\nCode(lowerF = Q1 - 1.5 * IQR(bees$hours))  #negative value: -21.55\n\n[1] -21.55\n\nCode(upperF = Q3 + 1.5 * IQR(bees$hours))  #70.05, so we do have outliers here\n\n[1] 70.05"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#case-2-there-are-outliers",
+    "href": "slides/2.4.Data-Viz.html#case-2-there-are-outliers",
+    "title": "2.4.Data Visualization",
+    "section": "Case 2: there are outliers",
+    "text": "Case 2: there are outliers\nIf there are outliers, whiskers go up to  and down to  and outliers are shown as circles"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#case-2-there-are-outliers-1",
+    "href": "slides/2.4.Data-Viz.html#case-2-there-are-outliers-1",
+    "title": "2.4.Data Visualization",
+    "section": "Case 2: there are outliers",
+    "text": "Case 2: there are outliers\nIf there are outliers, whiskers go up to  and down to  and outliers are shown as circles"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#categorical-x-categorical",
+    "href": "slides/2.4.Data-Viz.html#categorical-x-categorical",
+    "title": "2.4.Data Visualization",
+    "section": "Categorical x Categorical",
+    "text": "Categorical x Categorical\n\nContingency Table. Typically totals (row and column) are also shown.\n\n\nCodetitanicTab &lt;- table(titanicData$survive, titanicData$passenger_class)\ntitanicTab\n\n     \n      1st 2nd 3rd\n  no  129 161 574\n  yes 193 119 137\n\n\nAdd row and col sums\n\nCodeaddmargins(titanicTab, margin = c(1, 2), FUN = sum, quiet = TRUE)\n\n     \n       1st  2nd  3rd  sum\n  no   129  161  574  864\n  yes  193  119  137  449\n  sum  322  280  711 1313"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#categorical-x-categorical-1",
+    "href": "slides/2.4.Data-Viz.html#categorical-x-categorical-1",
+    "title": "2.4.Data Visualization",
+    "section": "Categorical x Categorical",
+    "text": "Categorical x Categorical\n\nGrouped bar plot\n\n\nCodeBirdMalaria &lt;- read_csv(\"~/Documents/GitHub/DataSetsb215/data-raw/chap02e3aBirdMalaria.csv\")\nBirdMalaria |&gt;\n    ggplot(aes(x = treatment, fill = response)) + geom_bar(position = \"dodge\") +\n    ylab(\"Frequency\")"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#categorical-x-categorical-2",
+    "href": "slides/2.4.Data-Viz.html#categorical-x-categorical-2",
+    "title": "2.4.Data Visualization",
+    "section": "Categorical x Categorical",
+    "text": "Categorical x Categorical\n\nMosaic plot\n\n\n\nPlot\nCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCodelibrary(ggmosaic)\n\nBirdMalaria |&gt;\n    ggplot(aes(x = product(treatment, response), fill = response)) +\n    geom_mosaic(aes(x = product(response, treatment), fill = response)) +\n    xlab(\"\") + ylab(\"Relative Frequency\") + scale_y_continuous(expand = c(0,\n    0))\n\n\n\n\n\n\n\n\n2+ variables. No upper limit, but too many variables may be confusing\nWidth indicates the relative proportion of the corresponding value. Here, 35 (control) and 30 (egg removal)"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#numerical-x-numerical",
+    "href": "slides/2.4.Data-Viz.html#numerical-x-numerical",
+    "title": "2.4.Data Visualization",
+    "section": "Numerical x Numerical",
+    "text": "Numerical x Numerical\nScatter Plot\n\n\nPlot\nCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCodelibrary(ggplot2)\nggplot(iris, aes(x = Petal.Width, y = Petal.Length)) +\n    geom_point() + xlab(\"Petal Width (cm)\") + ylab(\"Petal Length (cm)\")"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#numerical-x-numerical-1",
+    "href": "slides/2.4.Data-Viz.html#numerical-x-numerical-1",
+    "title": "2.4.Data Visualization",
+    "section": "Numerical x Numerical",
+    "text": "Numerical x Numerical\nScatter Plot\n\n\nPlot\nCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCodelibrary(ggplot2)\nggplot(iris, aes(x = Petal.Width, y = Petal.Length)) +\n    geom_point() + xlab(\"Petal Width (cm)\") + ylab(\"Petal Length (cm)\") +\n    geom_smooth(method = \"lm\", se = F)"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#numerical-x-categorical",
+    "href": "slides/2.4.Data-Viz.html#numerical-x-categorical",
+    "title": "2.4.Data Visualization",
+    "section": "Numerical x Categorical",
+    "text": "Numerical x Categorical\nMultiple Histograms\n\nCodelibrary(ggplot2)\nggplot(iris, aes(x = Petal.Width, fill = Species)) +\n    geom_histogram(binwidth = 0.1, show.legend = FALSE,\n        alpha = 0.7, col = \"lightgray\") + xlab(\"Petal Width (cm)\") +\n    facet_wrap(~Species, ncol = 1) + scale_x_continuous(breaks = seq(0.5,\n    2.5, 0.5))"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#numerical-x-categorical-1",
+    "href": "slides/2.4.Data-Viz.html#numerical-x-categorical-1",
+    "title": "2.4.Data Visualization",
+    "section": "Numerical x Categorical",
+    "text": "Numerical x Categorical\nStrip Chart\n\nCodelibrary(ggplot2)\nggplot(iris, aes(x = Species, y = Petal.Width, color = Species)) +\n    geom_jitter(show.legend = F) + xlab(\"\")"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#numerical-x-categorical-2",
+    "href": "slides/2.4.Data-Viz.html#numerical-x-categorical-2",
+    "title": "2.4.Data Visualization",
+    "section": "Numerical x Categorical",
+    "text": "Numerical x Categorical\nBoxplot\n\nCodelibrary(ggplot2)\nggplot(iris, aes(x = Species, y = Petal.Width, color = Species)) +\n    geom_boxplot(show.legend = F) + xlab(\"\")"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#numerical-x-categorical-3",
+    "href": "slides/2.4.Data-Viz.html#numerical-x-categorical-3",
+    "title": "2.4.Data Visualization",
+    "section": "Numerical x Categorical",
+    "text": "Numerical x Categorical\nViolin Plot\n\nCodelibrary(ggplot2)\nggplot(iris, aes(x = Species, y = Petal.Width, color = Species)) +\n    geom_violin(show.legend = F) + xlab(\"\")"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#numerical-2-categorical",
+    "href": "slides/2.4.Data-Viz.html#numerical-2-categorical",
+    "title": "2.4.Data Visualization",
+    "section": "Numerical (2) + Categorical",
+    "text": "Numerical (2) + Categorical\nMultiple Scatterplots with legend\n\nCodelibrary(ggplot2)\nggplot(iris, aes(x = Petal.Width, y = Petal.Length,\n    group = Species, color = Species)) + geom_point(aes(x = Petal.Width,\n    y = Petal.Length, group = Species, color = Species)) +\n    # geom_smooth(method = 'lm', se = F)+\nxlab(\"Petal Width (cm)\") + ylab(\"Petal Length (cm)\")"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#numerical-2-x-categorical",
+    "href": "slides/2.4.Data-Viz.html#numerical-2-x-categorical",
+    "title": "2.4.Data Visualization",
+    "section": "Numerical (2) x Categorical",
+    "text": "Numerical (2) x Categorical\nMultiple scatterplots plotted separately\n\nCodelibrary(ggplot2)\nggplot(iris, aes(x = Petal.Width, y = Petal.Length,\n    group = Species, color = Species)) + geom_point(aes(x = Petal.Width,\n    y = Petal.Length, group = Species, color = Species),\n    show.legend = F) + facet_wrap(~Species) + xlab(\"Petal Width (cm)\") +\n    ylab(\"Petal Length (cm)\")"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#visualizations-over-time-and-space",
+    "href": "slides/2.4.Data-Viz.html#visualizations-over-time-and-space",
+    "title": "2.4.Data Visualization",
+    "section": "Visualizations Over Time and Space",
+    "text": "Visualizations Over Time and Space\nLine Graphs Show Data Over Time\nFor temporal data, note all observations with a data point, and connect each point with a line.\n\nCodeairquality |&gt;\n    dplyr::filter(Month == 7) |&gt;\n    ggplot(aes(x = Day, y = Temp)) + geom_point(size = 0.5) +\n    geom_line() + ggtitle(\"Maximum Daily Temperature (F)\", subtitle = \"Laguardia, NY (1973)\")"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#small-multiples-line-chart",
+    "href": "slides/2.4.Data-Viz.html#small-multiples-line-chart",
+    "title": "2.4.Data Visualization",
+    "section": "Small multiples line chart",
+    "text": "Small multiples line chart\nA grid of line charts that uses the same scales and axes\n\nCodeairquality |&gt;\n    dplyr::filter(Month &lt; 8) |&gt;\n    ggplot(aes(x = Day, y = Temp)) + geom_point(size = 0.5) +\n    geom_line() + ylab(\"Daily Temperature\") + facet_wrap(vars(Month),\n    ncol = 1) + ggtitle(\"Maximum Daily Temperature (F)\", subtitle = \"Laguardia, NY (1973)\") +\n    theme(axis.title.y = element_text(angle = 90))"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#to-show-spatial-data",
+    "href": "slides/2.4.Data-Viz.html#to-show-spatial-data",
+    "title": "2.4.Data Visualization",
+    "section": "To show spatial data",
+    "text": "To show spatial data\nMaps\nSpatial data does not have to be a geographical map\n\nCodelibrary(gganatogram)\n\ngganatogram(data = mmFemale_key, organism = \"mouse\", sex = \"female\",\n    fill = \"value\", fillOutline = \"#a6bddb\") + theme_void() +\n    scale_fill_viridis_c() + coord_fixed()"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#make-good-plots",
+    "href": "slides/2.4.Data-Viz.html#make-good-plots",
+    "title": "2.4.Data Visualization",
+    "section": "Make good plots",
+    "text": "Make good plots\n\n\n\n\nShow the data.\nMake patterns easy to see.\nDisplay magnitudes honestly.\nDraw graphics clearly."
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#mistakes",
+    "href": "slides/2.4.Data-Viz.html#mistakes",
+    "title": "2.4.Data Visualization",
+    "section": "👎 Mistakes",
+    "text": "👎 Mistakes\n\nHide the data.\nMake patterns hard to see.\nDisplay magnitudes dishonestly.\nDraw graphics unclearly."
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#example-1-what-is-the-main-problem-here",
+    "href": "slides/2.4.Data-Viz.html#example-1-what-is-the-main-problem-here",
+    "title": "2.4.Data Visualization",
+    "section": "Example 1: What is the main problem here?",
+    "text": "Example 1: What is the main problem here?\n\n\n\n\nHide the data.\nMake patterns hard to see.\nDisplay magnitudes dishonestly.\nDraw graphics unclearly.\n\n\n\n\nCodespiderData &lt;- read_csv(url(\"https://whitlockschluter3e.zoology.ubc.ca/Data/chapter03/chap03e2SpiderAmputation.csv\"))\nspiderData |&gt;\n    group_by(treatment) |&gt;\n    summarize(mean_speed = mean(speed)) |&gt;\n    ggplot(aes(x = treatment, y = mean_speed)) + geom_col() +\n    ylab(\"Mean Speed\") + ggtitle(\"Mean speed in spiders before and after pedipalp removal\")\n\n\n\n\n\n\n\n\n\n👎 Not showing data, just summaries (hiding the data). This plot hides the variation between positions."
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#example-2-what-is-the-main-problem-here",
+    "href": "slides/2.4.Data-Viz.html#example-2-what-is-the-main-problem-here",
+    "title": "2.4.Data Visualization",
+    "section": "Example 2: What is the main problem here?",
+    "text": "Example 2: What is the main problem here?\n\n\n\n\nHide the data.\nMake patterns hard to see.\nDisplay magnitudes dishonestly.\nDraw graphics unclearly.\n\n\n\n\nCodespiderData |&gt;\n    group_by(treatment) |&gt;\n    ggplot(aes(x = treatment, y = speed)) + geom_point() + ylab(\"Speed\") +\n    ggtitle(\"Speed in spiders before and after pedipalp removal\")\n\n\n\n\n\n\n\n\n\n👎 Not showing data, overplotting. Over-plotting hides data by placing data points on top of each other."
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#showing-data-by-jittering",
+    "href": "slides/2.4.Data-Viz.html#showing-data-by-jittering",
+    "title": "2.4.Data Visualization",
+    "section": "👍 Showing data by jittering",
+    "text": "👍 Showing data by jittering\n\nCodespiderData |&gt;\n    group_by(treatment) |&gt;\n    ggplot(aes(x = treatment, y = speed)) + geom_jitter(width = 0.1,\n    alpha = 0.8) + ylab(\"Speed\") + ggtitle(\"Speed in spiders before and after pedipalp removal\")\n\n\n👍 This plot shows all the observations"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#section-1",
+    "href": "slides/2.4.Data-Viz.html#section-1",
+    "title": "2.4.Data Visualization",
+    "section": "",
+    "text": "👎 How to hide data\n\nProvide only statistical summaries.\nOver-plotting - too many points.\n\n👍 How to reveal data\n\nPresent all of the data points.\nAllow all points to be seen."
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#example-3-whats-the-main-problem-here",
+    "href": "slides/2.4.Data-Viz.html#example-3-whats-the-main-problem-here",
+    "title": "2.4.Data Visualization",
+    "section": "Example 3: What’s the main problem here?",
+    "text": "Example 3: What’s the main problem here?\n\n\n👎 Nonsensical order hides pattern"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#reordering-factors-makes-pattern-clear",
+    "href": "slides/2.4.Data-Viz.html#reordering-factors-makes-pattern-clear",
+    "title": "2.4.Data Visualization",
+    "section": "👍 Reordering factors makes pattern clear",
+    "text": "👍 Reordering factors makes pattern clear\n\nCodedeath0 + geom_bar(stat = \"identity\") + coord_flip()"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#tables-should-follow-similar-rules",
+    "href": "slides/2.4.Data-Viz.html#tables-should-follow-similar-rules",
+    "title": "2.4.Data Visualization",
+    "section": "Tables should follow similar rules",
+    "text": "Tables should follow similar rules\n\n\n\nCodetype.of.death |&gt;\n    select(Cause_of_death, Number) |&gt;\n    sample_n(11) |&gt;\n    gt(auto_align = TRUE)\n\n\n\n\n\nCause_of_death\nNumber\n\n\n\nOther tumor\n52\n\n\nAccidents\n6688\n\n\nCongen. abnor.\n222\n\n\nCerebrov. disease\n67\n\n\nAll other cause\n1653\n\n\nSuicide\n1615\n\n\nFlu/pneumonia\n73\n\n\nHomicide\n2093\n\n\nMalig. tumor\n745\n\n\nChronic res. disease\n107\n\n\nHeart disease\n463\n\n\n\n\n\n\n\n👎\n\nNonsense order hides patterns\nAlphabetical order is usually a bad idea."
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#tables-should-follow-similar-rules-1",
+    "href": "slides/2.4.Data-Viz.html#tables-should-follow-similar-rules-1",
+    "title": "2.4.Data Visualization",
+    "section": "Tables should follow similar rules",
+    "text": "Tables should follow similar rules\n\n\n\nCodetype.of.death |&gt;\n    select(Cause_of_death, Number) |&gt;\n    gt(auto_align = TRUE)\n\n\n\n\n\nCause_of_death\nNumber\n\n\n\nAccidents\n6688\n\n\nHomicide\n2093\n\n\nSuicide\n1615\n\n\nMalig. tumor\n745\n\n\nHeart disease\n463\n\n\nCongen. abnor.\n222\n\n\nChronic res. disease\n107\n\n\nFlu/pneumonia\n73\n\n\nCerebrov. disease\n67\n\n\nOther tumor\n52\n\n\nAll other cause\n1653\n\n\n\n\n\n\n\n👍\n\nOrder to reveal patterns\nList ordinal factors in a meaningful order\nList nominal factors from greatest to least, with “all others” last."
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#section-2",
+    "href": "slides/2.4.Data-Viz.html#section-2",
+    "title": "2.4.Data Visualization",
+    "section": "",
+    "text": "How to hide patterns 👎\n\n\nMake one plot and call it good\nUnreasonable scales\nArrange factors nonsensically\n\n\n\nHow to reveal patterns 👍\n\n\nExplore multiple potential plots\nUse appropriate scales\nArrange factors meaningfully\nOrder ordinal factors meaningfully (e.g., January to December.\nOrder nominal factors by count\nIf there is a grab bag category, place it after the lowest count"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#example-4-what-is-the-main-problem-here",
+    "href": "slides/2.4.Data-Viz.html#example-4-what-is-the-main-problem-here",
+    "title": "2.4.Data Visualization",
+    "section": "Example 4: What is the main problem here?",
+    "text": "Example 4: What is the main problem here?\n\nCodespiderData |&gt;\n    ggplot(aes(x = treatment, y = speed)) + geom_jitter() + ylim(0,\n    50) + ylab(\"Speed\") + ggtitle(\"Speed in spiders before and after pedipalp removal\")\n\n\n\n👎Bad Axis-Limits Hide Patterns. In this plot, the large scale hides the pattern (difference between the two groups)"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#example-5-what-is-the-main-problem-here",
+    "href": "slides/2.4.Data-Viz.html#example-5-what-is-the-main-problem-here",
+    "title": "2.4.Data Visualization",
+    "section": "Example 5: What is the main problem here?",
+    "text": "Example 5: What is the main problem here?\n\nCodeggplot(mammals, aes(x = Body_Weight_kg, y = life_span_years)) +\n    geom_point() + ylab(\"Maximum Lifespan \\n(in years)\") + xlab(\"Adult Body Weight \\n(in kg)\")\n\n\nLifespan by body size in mammals, data from Allison & Cicchetti 1976."
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#transform-data-to-reveal-patterns",
+    "href": "slides/2.4.Data-Viz.html#transform-data-to-reveal-patterns",
+    "title": "2.4.Data Visualization",
+    "section": "👍 Transform Data to Reveal Patterns",
+    "text": "👍 Transform Data to Reveal Patterns\n\nCodeggplot(mammals, aes(x = log10(Body_Weight_kg), y = life_span_years)) +\n    geom_point() + ylab(\"Maximum Lifespan \\n(in years)\") + xlab(\"Adult Body Weight \\n(in kg)\")"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#example-6-main-problem",
+    "href": "slides/2.4.Data-Viz.html#example-6-main-problem",
+    "title": "2.4.Data Visualization",
+    "section": "Example 6: Main Problem?",
+    "text": "Example 6: Main Problem?\n\nFigure from Y. Brandvain.\n👎 Presenting magnitudes dishonestly. This plot suggests that centers are 20X taller than guards."
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#better",
+    "href": "slides/2.4.Data-Viz.html#better",
+    "title": "2.4.Data Visualization",
+    "section": "👍Better!",
+    "text": "👍Better!\nFigure from Y. Brandvain."
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#how-to-represent-magnitudes-dishonestly",
+    "href": "slides/2.4.Data-Viz.html#how-to-represent-magnitudes-dishonestly",
+    "title": "2.4.Data Visualization",
+    "section": "👎 How to represent magnitudes dishonestly: 👎",
+    "text": "👎 How to represent magnitudes dishonestly: 👎\n\nStart bar plots at a non-zero value\n\nHow to represent magnitudes honestly: 👍\n\nStart bar plots at zero (if the variable starts at zero)\n\n\nWhy? The height of a bar plot makes us think in magnitudes."
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#example-6-main-problem-1",
+    "href": "slides/2.4.Data-Viz.html#example-6-main-problem-1",
+    "title": "2.4.Data Visualization",
+    "section": "Example 6: main problem?",
+    "text": "Example 6: main problem?\n\n\n👎 x-axis labels obscure one another."
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#flip-axes-to-present-graphics-clearly",
+    "href": "slides/2.4.Data-Viz.html#flip-axes-to-present-graphics-clearly",
+    "title": "2.4.Data Visualization",
+    "section": "👍 Flip Axes to Present Graphics Clearly",
+    "text": "👍 Flip Axes to Present Graphics Clearly\n\nCodedeath0 + geom_col() + coord_flip()"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#clear-graphics-for-everyone",
+    "href": "slides/2.4.Data-Viz.html#clear-graphics-for-everyone",
+    "title": "2.4.Data Visualization",
+    "section": "👍 Clear Graphics for Everyone",
+    "text": "👍 Clear Graphics for Everyone\nConsider your audience\n\n\nFigure from Y. Brandvain.\n\n\n\nColorblind simulator: www.color-blindness.com/coblis-color-blindness-simulator/"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#direct-labelling-may-clarify-graphics",
+    "href": "slides/2.4.Data-Viz.html#direct-labelling-may-clarify-graphics",
+    "title": "2.4.Data Visualization",
+    "section": "Direct Labelling May Clarify Graphics",
+    "text": "Direct Labelling May Clarify Graphics\n\nFigure from Y. Brandvain.Labels directly on plots may also help with clarifying patterns"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#in-summary",
+    "href": "slides/2.4.Data-Viz.html#in-summary",
+    "title": "2.4.Data Visualization",
+    "section": "In summary",
+    "text": "In summary\n\n\nHow to draw graphical elements unclearly: 👎\n\n\nUnthinkingly accept default options from plotting programs\nDo not consider how a diverse audience will consume your figure\n\n\nHow to draw graphical elements clearly: 👍\n\n\nReflect on plot design\nConsider the diverse audience you are reaching and how they may interact with your plot"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#please-contribute",
+    "href": "slides/2.4.Data-Viz.html#please-contribute",
+    "title": "2.4.Data Visualization",
+    "section": "Please contribute!",
+    "text": "Please contribute!\nA thread on plots that could use some TLC:\nhttps://piazza.com/class/mtag5wjmrj557o/post/12"
   },
   {
     "objectID": "slides/2.3.Data-Viz.html#acknowledgments",
@@ -788,7 +1075,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\n1.1.Statistics & Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nUnit 1\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nUnit 1\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nUnit 1\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.2.Displaying & Describing Data\n\n\nFri, Sep 11\n\n\n\n\n\n\nUnit 2\n\n\n2.3.Data Visualization\n\n\nMon, Sep 14\n\n\n\n\n\n\nUnit 2\n\n\nReview/practice problems\n\n\nMon, Sep 14\n\n\n\n\n\n\nUnit 2 (plots)\n\n\nUnit 2: Review/practice problems\n\n\nMon, Sep 14\n\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\n1.1.Statistics & Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nUnit 1\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nUnit 1\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nUnit 1\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.2.Displaying & Describing Data\n\n\nFri, Sep 11\n\n\n\n\n\n\nUnit 2\n\n\n2.3.Data Visualization\n\n\nMon, Sep 14\n\n\n\n\n\n\nUnit 2 (stats)\n\n\nReview/practice problems\n\n\nMon, Sep 14\n\n\n\n\n\n\nEDA\n\n\nLab 3: Exploring Data I\n\n\nTue, Sep 15\n\n\n\n\n\n\nUnit 2\n\n\n2.4.Data Visualization\n\n\nWed, Sep 16\n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Slides"
     ]
@@ -860,7 +1147,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 2 6 3\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1]  4  9 10"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1]  6  1 10\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 8 1 6"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
@@ -1505,118 +1792,6 @@
     "title": "Lab 3: Exploring Data I",
     "section": "Pipes",
     "text": "Pipes\n\nUse |&gt; to emphasise a sequence of actions, rather than the object that the actions are being performed on.\nThe tidyverse has been designed to work particularly well with the pipe, but you can use it with any code, particularly in conjunction with the _ placeholder.\n\n\nstrings |&gt;\n  str_replace(\"a\", \"b\") |&gt;\n  str_replace(\"x\", \"y\")\n\nstrings |&gt;\n  gsub(\"a\", \"b\", x = _) |&gt;\n  gsub(\"x\", \"y\", x = _)"
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#in-a-nutshell",
-    "href": "slides/Lab3-slides.html#in-a-nutshell",
-    "title": "Lab 3: Exploring Data I",
-    "section": "In a nutshell",
-    "text": "In a nutshell\n\nBase R functions like: plot, hist, barplot, etc.\n\nggplot2: an R package for making plots.\n\nadvantage: prettier, customisable, easier in the long run\ndisadvantages: new syntax, learning curve in the beginning"
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#ggplot2-key-points",
-    "href": "slides/Lab3-slides.html#ggplot2-key-points",
-    "title": "Lab 3: Exploring Data I",
-    "section": "ggplot2: Key points",
-    "text": "ggplot2: Key points\n\nthe ggplot() function initiates a plot, and geom_ functions add representations of your data\nuse aes() when mapping a variable from the data to a part of the plot\nuse scale_ functions to modify the scales used to represent variables\nuse premade theme_ functions to broadly change appearance, and the theme() function to fine-tune start simple and build your plots iteratively"
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#packages-functions",
-    "href": "slides/Lab3-slides.html#packages-functions",
-    "title": "Lab 3: Exploring Data I",
-    "section": "Packages & Functions",
-    "text": "Packages & Functions"
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#packages-functions-1",
-    "href": "slides/Lab3-slides.html#packages-functions-1",
-    "title": "Lab 3: Exploring Data I",
-    "section": "Packages & Functions",
-    "text": "Packages & Functions"
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#packages-functions-2",
-    "href": "slides/Lab3-slides.html#packages-functions-2",
-    "title": "Lab 3: Exploring Data I",
-    "section": "Packages & Functions",
-    "text": "Packages & Functions\n\nInstalling a package (once):\n\ninstall.packages(\"dplyr\")\n\n\nLoading a package (every time you want to use it):\n\n\nlibrary(dplyr)\n\n\n\n\nNow you can use functions from this package! (every time you want to use it)\n\n\ndplyr::rename(iris, petal_length = Petal.Length)"
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#what-is-the-tidyverse",
-    "href": "slides/Lab3-slides.html#what-is-the-tidyverse",
-    "title": "Lab 3: Exploring Data I",
-    "section": "What is the tidyverse?",
-    "text": "What is the tidyverse?\n\nThe tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures (tidyverse.org)."
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#the-data-science-workflow",
-    "href": "slides/Lab3-slides.html#the-data-science-workflow",
-    "title": "Lab 3: Exploring Data I",
-    "section": "The Data Science workflow",
-    "text": "The Data Science workflow\n\nSource: R 4 Data ScienceWe will move a data frame through the different steps in a data science workflow. This means that often the results of one step will be the input for the next"
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#tidyverse-core-packages",
-    "href": "slides/Lab3-slides.html#tidyverse-core-packages",
-    "title": "Lab 3: Exploring Data I",
-    "section": "tidyverse core packages",
-    "text": "tidyverse core packages\n\n\n\nreadr: data import\n\ntibble: modern data frame object\n\nstringr: working with strings\n\nforcats: working with factors\n\ntidyr: data tidying\n\ndplyr: data manipulation\n\nggplot2: data visualization\n\npurrr: functional programming"
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#a-typical-workflow",
-    "href": "slides/Lab3-slides.html#a-typical-workflow",
-    "title": "Lab 3: Exploring Data I",
-    "section": "A typical workflow",
-    "text": "A typical workflow\n\nRead a file into R\nClean the data:\n\nSelect only relevant columns\nFilter on relevant rows\n\n\nCalculate a new column\nRename a column\nPut the dataframe into a long (tidy) format\nSummarize the dataframe\nVisualize the dataframe\nWrite the summarized dataframe to a file"
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#data-palmerpenguins",
-    "href": "slides/Lab3-slides.html#data-palmerpenguins",
-    "title": "Lab 3: Exploring Data I",
-    "section": "Data: palmerpenguins",
-    "text": "Data: palmerpenguins\n\nObservations about penguins from the Palmer Archipelago (Antarctica)\nPackage created by Allison Horst for worldwide use\nspecies, island, culmen length and depth, flipper length, etc."
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#reading-data-into-r",
-    "href": "slides/Lab3-slides.html#reading-data-into-r",
-    "title": "Lab 3: Exploring Data I",
-    "section": "Reading data into R",
-    "text": "Reading data into R"
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#readr-read-rectangular-text-data",
-    "href": "slides/Lab3-slides.html#readr-read-rectangular-text-data",
-    "title": "Lab 3: Exploring Data I",
-    "section": "readr: Read Rectangular Text Data",
-    "text": "readr: Read Rectangular Text Data"
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#readr-read-rectangular-text-data-1",
-    "href": "slides/Lab3-slides.html#readr-read-rectangular-text-data-1",
-    "title": "Lab 3: Exploring Data I",
-    "section": "readr: Read Rectangular Text Data",
-    "text": "readr: Read Rectangular Text Data\nTo read text data, you need:\n\n\nlocation of the data (path)\n\ndelimiter (value separator) of the data, e.g. ,, ; or \\t\n\n\nfunction to use to read data into R\n\n\n\n\nRead from file\nWrite to file\nValue separator\n\n\n\nread_delim()\nwrite_delim()\ncatch-all: user needs to specify\n\n\nread_csv()\nwrite_csv()\ncomma separated\n\n\nread_csv2()\nwrite_csv2()\nsemicolon separated\n\n\nread_tsv()\nwrite_tsv()\ntab separated"
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#reading-non-text-data-file",
-    "href": "slides/Lab3-slides.html#reading-non-text-data-file",
-    "title": "Lab 3: Exploring Data I",
-    "section": "Reading non-text data file",
-    "text": "Reading non-text data file\nFor non-text data files, there are other R packages:\n\n\nreadxl: Excel files\n\nhaven: SPSS & STATA files\n\ngooglesheets4: Google Sheets\n\nrvest: HTML files"
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#example-reading-data",
-    "href": "slides/Lab3-slides.html#example-reading-data",
-    "title": "Lab 3: Exploring Data I",
-    "section": "Example: reading data",
-    "text": "Example: reading data\nRead a file located in the same folder as your script:\nraw_tsv_data &lt;- read_tsv(\"my_raw_data.tsv\")\n\nRead a file located in a different folder:\nraw_csv_data &lt;- read_csv(\"data/raw/my_raw_data.csv\")\n\n\nOr from the web:\n# Source: https://catalog.data.gov/dataset/electric-vehicle-population-data\nelectric_vehicles &lt;- read_csv(\"https://data.wa.gov/api/views/f6w7-q2d2/rows.csv\")\n\n\nBonus: use an in-built dataset from R\ndata(iris)        # Observational data on iris flowers\ndata(mtcars)      # Motor Trend Car Road Tests\n\ndata()            # Check all the available in-built datasets!"
-  },
-  {
-    "objectID": "slides/Lab3-slides.html#answers-exercise-1-2-and-3",
-    "href": "slides/Lab3-slides.html#answers-exercise-1-2-and-3",
-    "title": "Lab 3: Exploring Data I",
-    "section": "Answers Exercise 1, 2 and 3",
-    "text": "Answers Exercise 1, 2 and 3\n\nReading the penguins dataset into R.\n\npenguins &lt;- read_tsv(\"data/penguins.tsv\")\n\n\nReading penguins_isotopes.xlsx into R.\n\npenguins_isotopes &lt;- read_excel(path = \"data/penguins_isotopes.xlsx\")\n\n\n\nWriting penguins_isotopes to a csv file.\n\nwrite_csv(penguins_isotopes,\n          file = \"data/penguins_isotopes.csv\")"
   },
   {
     "objectID": "slides/Lab3-slides.html#acknowledgments",
