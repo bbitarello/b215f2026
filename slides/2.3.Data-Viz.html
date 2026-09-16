@@ -3156,7 +3156,12 @@ B.Bitarello
 </div>
 <div id="tabset-2-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> school_grade)) <span class="sc">+</span> <span class="fu">stat_ecdf</span>(<span class="at">geom =</span> <span class="st">"step"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a aria-label="2"></a><span class="co"># summary(bees$hours) #median 25.8</span></span>
+<span id="cb8-3"><a aria-label="3"></a><span class="fu">ggplot</span>(bees, <span class="fu">aes</span>(<span class="at">x =</span> hours)) <span class="sc">+</span> <span class="fu">stat_ecdf</span>(<span class="at">geom =</span> <span class="st">"step"</span>) <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(hours)),</span>
+<span id="cb8-4"><a aria-label="4"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> vir[<span class="dv">3</span>]) <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">median</span>(hours) <span class="sc">-</span></span>
+<span id="cb8-5"><a aria-label="5"></a>    <span class="dv">7</span>), <span class="at">y =</span> <span class="fl">0.52</span>, <span class="at">label =</span> <span class="st">"median"</span>) <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fl">0.5</span>),</span>
+<span id="cb8-6"><a aria-label="6"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> vir[<span class="dv">3</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
