@@ -291,49 +291,66 @@ B.Bitarello
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a><span class="co"># all in one go with dplyr</span></span>
 <span id="cb11-2"><a aria-label="2"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb11-3"><a aria-label="3"></a><span class="fu">library</span>(gt)  <span class="co"># gt is a package that makes pretty tables: https://gt.rstudio.com/</span></span>
-<span id="cb11-4"><a aria-label="4"></a>bees <span class="ot">&lt;-</span> bees <span class="sc">|&gt;</span></span>
+<span id="cb11-4"><a aria-label="4"></a>bees2 <span class="ot">&lt;-</span> bees <span class="sc">|&gt;</span></span>
 <span id="cb11-5"><a aria-label="5"></a>    dplyr<span class="sc">::</span><span class="fu">count</span>(hours)  <span class="co"># add a column (n) counting occurrences in hours (similar to table)</span></span>
-<span id="cb11-6"><a aria-label="6"></a><span class="fu">head</span>(bees, <span class="at">n =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-6"><a aria-label="6"></a>bees2<span class="sc">$</span>n <span class="sc">==</span> <span class="fu">unname</span>(temp1)  <span class="co">#sanity check: should all be true</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 3 × 2
-  hours     n
-  &lt;dbl&gt; &lt;int&gt;
-1   2.3     2
-2   3.9     1
-3   4       1</code></pre>
+<pre><code> [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+[16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a><span class="co"># add absolute cumulative frequency</span></span>
-<span id="cb13-2"><a aria-label="2"></a>bees <span class="ot">&lt;-</span> bees <span class="sc">|&gt;</span></span>
-<span id="cb13-3"><a aria-label="3"></a>    <span class="fu">mutate</span>(<span class="at">Cum_Frq_Abs =</span> <span class="fu">cumsum</span>(n)  <span class="co">#cumul. freq for the `n` column</span></span>
-<span id="cb13-4"><a aria-label="4"></a>)</span>
-<span id="cb13-5"><a aria-label="5"></a><span class="co"># Relative:</span></span>
-<span id="cb13-6"><a aria-label="6"></a>bees <span class="ot">&lt;-</span> bees <span class="sc">|&gt;</span></span>
-<span id="cb13-7"><a aria-label="7"></a>    <span class="fu">mutate</span>(<span class="at">Cum_Frq_Rel =</span> Cum_Frq_Abs<span class="sc">/</span>(<span class="fu">nrow</span>(bees))  <span class="co">#33 bees</span></span>
-<span id="cb13-8"><a aria-label="8"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a><span class="fu">head</span>(bees, <span class="at">n =</span> <span class="dv">3</span>)  <span class="co">#show first three rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 1
+  hours
+  &lt;dbl&gt;
+1   2.3
+2   2.3
+3   3.9</code></pre>
 </div>
-</section><section id="head-and-tail" class="slide level2"><h2>Head and Tail</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a><span class="co"># add absolute cumulative frequency</span></span>
+<span id="cb15-2"><a aria-label="2"></a>bees2 <span class="ot">&lt;-</span> bees2 <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a aria-label="3"></a>    <span class="fu">mutate</span>(<span class="at">Cum_Frq_Abs =</span> <span class="fu">cumsum</span>(n)  <span class="co">#cumul. freq for the `n` column</span></span>
+<span id="cb15-4"><a aria-label="4"></a>)</span>
+<span id="cb15-5"><a aria-label="5"></a><span class="co"># sanity check: should all be true</span></span>
+<span id="cb15-6"><a aria-label="6"></a>bees2<span class="sc">$</span>Cum_Frq_Abs <span class="sc">==</span> <span class="fu">unname</span>(abs.cfrq)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+[16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="co"># Relative:</span></span>
+<span id="cb17-2"><a aria-label="2"></a>bees2 <span class="ot">&lt;-</span> bees2 <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a aria-label="3"></a>    <span class="fu">mutate</span>(<span class="at">Cum_Frq_Rel =</span> Cum_Frq_Abs<span class="sc">/</span><span class="fu">sum</span>(n)  <span class="co">#33 bees</span></span>
+<span id="cb17-4"><a aria-label="4"></a>)</span>
+<span id="cb17-5"><a aria-label="5"></a><span class="co"># sanity check: should all be true</span></span>
+<span id="cb17-6"><a aria-label="6"></a>bees2<span class="sc">$</span>Cum_Frq_Rel <span class="sc">==</span> <span class="fu">unname</span>(rel.cfrq)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+[16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE</code></pre>
+</div>
+</div>
+</section><section id="check-head-and-tail" class="slide level2"><h2>Check: Head and Tail</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a aria-label="1"></a>bees <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a aria-label="2"></a>    <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a aria-label="3"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a aria-label="1"></a>bees2 <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a aria-label="2"></a>    <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a aria-label="3"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display margin-caption">
-<div id="dvaqkihbvm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dvaqkihbvm table {
+<div id="nqkcvtvrbo" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#nqkcvtvrbo table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#dvaqkihbvm thead, #dvaqkihbvm tbody, #dvaqkihbvm tfoot, #dvaqkihbvm tr, #dvaqkihbvm td, #dvaqkihbvm th {
+#nqkcvtvrbo thead, #nqkcvtvrbo tbody, #nqkcvtvrbo tfoot, #nqkcvtvrbo tr, #nqkcvtvrbo td, #nqkcvtvrbo th {
   border-style: none;
 }
 
-#dvaqkihbvm p {
+#nqkcvtvrbo p {
   margin: 0;
   padding: 0;
 }
 
-#dvaqkihbvm .gt_table {
+#nqkcvtvrbo .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -359,12 +376,12 @@ B.Bitarello
   border-left-color: #D3D3D3;
 }
 
-#dvaqkihbvm .gt_caption {
+#nqkcvtvrbo .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dvaqkihbvm .gt_title {
+#nqkcvtvrbo .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -376,7 +393,7 @@ B.Bitarello
   border-bottom-width: 0;
 }
 
-#dvaqkihbvm .gt_subtitle {
+#nqkcvtvrbo .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -388,7 +405,7 @@ B.Bitarello
   border-top-width: 0;
 }
 
-#dvaqkihbvm .gt_heading {
+#nqkcvtvrbo .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -400,13 +417,13 @@ B.Bitarello
   border-right-color: #D3D3D3;
 }
 
-#dvaqkihbvm .gt_bottom_border {
+#nqkcvtvrbo .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dvaqkihbvm .gt_col_headings {
+#nqkcvtvrbo .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -421,7 +438,7 @@ B.Bitarello
   border-right-color: #D3D3D3;
 }
 
-#dvaqkihbvm .gt_col_heading {
+#nqkcvtvrbo .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -441,7 +458,7 @@ B.Bitarello
   overflow-x: hidden;
 }
 
-#dvaqkihbvm .gt_column_spanner_outer {
+#nqkcvtvrbo .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -453,15 +470,15 @@ B.Bitarello
   padding-right: 4px;
 }
 
-#dvaqkihbvm .gt_column_spanner_outer:first-child {
+#nqkcvtvrbo .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dvaqkihbvm .gt_column_spanner_outer:last-child {
+#nqkcvtvrbo .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dvaqkihbvm .gt_column_spanner {
+#nqkcvtvrbo .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -473,11 +490,11 @@ B.Bitarello
   width: 100%;
 }
 
-#dvaqkihbvm .gt_spanner_row {
+#nqkcvtvrbo .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#dvaqkihbvm .gt_group_heading {
+#nqkcvtvrbo .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -503,7 +520,7 @@ B.Bitarello
   text-align: left;
 }
 
-#dvaqkihbvm .gt_empty_group_heading {
+#nqkcvtvrbo .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -518,15 +535,15 @@ B.Bitarello
   vertical-align: middle;
 }
 
-#dvaqkihbvm .gt_from_md > :first-child {
+#nqkcvtvrbo .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dvaqkihbvm .gt_from_md > :last-child {
+#nqkcvtvrbo .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dvaqkihbvm .gt_row {
+#nqkcvtvrbo .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -545,7 +562,7 @@ B.Bitarello
   overflow-x: hidden;
 }
 
-#dvaqkihbvm .gt_stub {
+#nqkcvtvrbo .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -558,7 +575,7 @@ B.Bitarello
   padding-right: 5px;
 }
 
-#dvaqkihbvm .gt_stub_row_group {
+#nqkcvtvrbo .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -572,15 +589,15 @@ B.Bitarello
   vertical-align: top;
 }
 
-#dvaqkihbvm .gt_row_group_first td {
+#nqkcvtvrbo .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dvaqkihbvm .gt_row_group_first th {
+#nqkcvtvrbo .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#dvaqkihbvm .gt_summary_row {
+#nqkcvtvrbo .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -590,16 +607,16 @@ B.Bitarello
   padding-right: 5px;
 }
 
-#dvaqkihbvm .gt_first_summary_row {
+#nqkcvtvrbo .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dvaqkihbvm .gt_first_summary_row.thick {
+#nqkcvtvrbo .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dvaqkihbvm .gt_last_summary_row {
+#nqkcvtvrbo .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -609,7 +626,7 @@ B.Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#dvaqkihbvm .gt_grand_summary_row {
+#nqkcvtvrbo .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -619,7 +636,7 @@ B.Bitarello
   padding-right: 5px;
 }
 
-#dvaqkihbvm .gt_first_grand_summary_row {
+#nqkcvtvrbo .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -629,7 +646,7 @@ B.Bitarello
   border-top-color: #D3D3D3;
 }
 
-#dvaqkihbvm .gt_last_grand_summary_row_top {
+#nqkcvtvrbo .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -639,11 +656,11 @@ B.Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#dvaqkihbvm .gt_striped {
+#nqkcvtvrbo .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dvaqkihbvm .gt_table_body {
+#nqkcvtvrbo .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -652,7 +669,7 @@ B.Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#dvaqkihbvm .gt_footnotes {
+#nqkcvtvrbo .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -666,7 +683,7 @@ B.Bitarello
   border-right-color: #D3D3D3;
 }
 
-#dvaqkihbvm .gt_footnote {
+#nqkcvtvrbo .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -675,7 +692,7 @@ B.Bitarello
   padding-right: 5px;
 }
 
-#dvaqkihbvm .gt_sourcenotes {
+#nqkcvtvrbo .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -689,7 +706,7 @@ B.Bitarello
   border-right-color: #D3D3D3;
 }
 
-#dvaqkihbvm .gt_sourcenote {
+#nqkcvtvrbo .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -697,72 +714,72 @@ B.Bitarello
   padding-right: 5px;
 }
 
-#dvaqkihbvm .gt_left {
+#nqkcvtvrbo .gt_left {
   text-align: left;
 }
 
-#dvaqkihbvm .gt_center {
+#nqkcvtvrbo .gt_center {
   text-align: center;
 }
 
-#dvaqkihbvm .gt_right {
+#nqkcvtvrbo .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dvaqkihbvm .gt_font_normal {
+#nqkcvtvrbo .gt_font_normal {
   font-weight: normal;
 }
 
-#dvaqkihbvm .gt_font_bold {
+#nqkcvtvrbo .gt_font_bold {
   font-weight: bold;
 }
 
-#dvaqkihbvm .gt_font_italic {
+#nqkcvtvrbo .gt_font_italic {
   font-style: italic;
 }
 
-#dvaqkihbvm .gt_super {
+#nqkcvtvrbo .gt_super {
   font-size: 65%;
 }
 
-#dvaqkihbvm .gt_footnote_marks {
+#nqkcvtvrbo .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#dvaqkihbvm .gt_asterisk {
+#nqkcvtvrbo .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dvaqkihbvm .gt_indent_1 {
+#nqkcvtvrbo .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dvaqkihbvm .gt_indent_2 {
+#nqkcvtvrbo .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dvaqkihbvm .gt_indent_3 {
+#nqkcvtvrbo .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dvaqkihbvm .gt_indent_4 {
+#nqkcvtvrbo .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dvaqkihbvm .gt_indent_5 {
+#nqkcvtvrbo .gt_indent_5 {
   text-indent: 25px;
 }
 
-#dvaqkihbvm .katex-display {
+#nqkcvtvrbo .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#dvaqkihbvm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#nqkcvtvrbo div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -778,45 +795,45 @@ B.Bitarello
 <td class="gt_row gt_right" headers="hours">2.3</td>
 <td class="gt_row gt_right" headers="n">2</td>
 <td class="gt_row gt_right" headers="Cum_Frq_Abs">2</td>
-<td class="gt_row gt_right" headers="Cum_Frq_Rel">0.06666667</td>
+<td class="gt_row gt_right" headers="Cum_Frq_Rel">0.06060606</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_right" headers="hours">3.9</td>
 <td class="gt_row gt_right" headers="n">1</td>
 <td class="gt_row gt_right" headers="Cum_Frq_Abs">3</td>
-<td class="gt_row gt_right" headers="Cum_Frq_Rel">0.10000000</td>
+<td class="gt_row gt_right" headers="Cum_Frq_Rel">0.09090909</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="hours">4.0</td>
 <td class="gt_row gt_right" headers="n">1</td>
 <td class="gt_row gt_right" headers="Cum_Frq_Abs">4</td>
-<td class="gt_row gt_right" headers="Cum_Frq_Rel">0.13333333</td>
+<td class="gt_row gt_right" headers="Cum_Frq_Rel">0.12121212</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a aria-label="1"></a>bees <span class="sc">|&gt;</span></span>
-<span id="cb15-2"><a aria-label="2"></a>    <span class="fu">tail</span>(<span class="at">n =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-3"><a aria-label="3"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a>bees2 <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a aria-label="2"></a>    <span class="fu">tail</span>(<span class="at">n =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a aria-label="3"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display margin-caption">
-<div id="ewyqppzuvn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ewyqppzuvn table {
+<div id="zqszztbpfi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#zqszztbpfi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ewyqppzuvn thead, #ewyqppzuvn tbody, #ewyqppzuvn tfoot, #ewyqppzuvn tr, #ewyqppzuvn td, #ewyqppzuvn th {
+#zqszztbpfi thead, #zqszztbpfi tbody, #zqszztbpfi tfoot, #zqszztbpfi tr, #zqszztbpfi td, #zqszztbpfi th {
   border-style: none;
 }
 
-#ewyqppzuvn p {
+#zqszztbpfi p {
   margin: 0;
   padding: 0;
 }
 
-#ewyqppzuvn .gt_table {
+#zqszztbpfi .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -842,12 +859,12 @@ B.Bitarello
   border-left-color: #D3D3D3;
 }
 
-#ewyqppzuvn .gt_caption {
+#zqszztbpfi .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ewyqppzuvn .gt_title {
+#zqszztbpfi .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -859,7 +876,7 @@ B.Bitarello
   border-bottom-width: 0;
 }
 
-#ewyqppzuvn .gt_subtitle {
+#zqszztbpfi .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -871,7 +888,7 @@ B.Bitarello
   border-top-width: 0;
 }
 
-#ewyqppzuvn .gt_heading {
+#zqszztbpfi .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -883,13 +900,13 @@ B.Bitarello
   border-right-color: #D3D3D3;
 }
 
-#ewyqppzuvn .gt_bottom_border {
+#zqszztbpfi .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ewyqppzuvn .gt_col_headings {
+#zqszztbpfi .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -904,7 +921,7 @@ B.Bitarello
   border-right-color: #D3D3D3;
 }
 
-#ewyqppzuvn .gt_col_heading {
+#zqszztbpfi .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -924,7 +941,7 @@ B.Bitarello
   overflow-x: hidden;
 }
 
-#ewyqppzuvn .gt_column_spanner_outer {
+#zqszztbpfi .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -936,15 +953,15 @@ B.Bitarello
   padding-right: 4px;
 }
 
-#ewyqppzuvn .gt_column_spanner_outer:first-child {
+#zqszztbpfi .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ewyqppzuvn .gt_column_spanner_outer:last-child {
+#zqszztbpfi .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ewyqppzuvn .gt_column_spanner {
+#zqszztbpfi .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -956,11 +973,11 @@ B.Bitarello
   width: 100%;
 }
 
-#ewyqppzuvn .gt_spanner_row {
+#zqszztbpfi .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ewyqppzuvn .gt_group_heading {
+#zqszztbpfi .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -986,7 +1003,7 @@ B.Bitarello
   text-align: left;
 }
 
-#ewyqppzuvn .gt_empty_group_heading {
+#zqszztbpfi .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1001,15 +1018,15 @@ B.Bitarello
   vertical-align: middle;
 }
 
-#ewyqppzuvn .gt_from_md > :first-child {
+#zqszztbpfi .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ewyqppzuvn .gt_from_md > :last-child {
+#zqszztbpfi .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ewyqppzuvn .gt_row {
+#zqszztbpfi .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1028,7 +1045,7 @@ B.Bitarello
   overflow-x: hidden;
 }
 
-#ewyqppzuvn .gt_stub {
+#zqszztbpfi .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1041,7 +1058,7 @@ B.Bitarello
   padding-right: 5px;
 }
 
-#ewyqppzuvn .gt_stub_row_group {
+#zqszztbpfi .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1055,15 +1072,15 @@ B.Bitarello
   vertical-align: top;
 }
 
-#ewyqppzuvn .gt_row_group_first td {
+#zqszztbpfi .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ewyqppzuvn .gt_row_group_first th {
+#zqszztbpfi .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ewyqppzuvn .gt_summary_row {
+#zqszztbpfi .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1073,16 +1090,16 @@ B.Bitarello
   padding-right: 5px;
 }
 
-#ewyqppzuvn .gt_first_summary_row {
+#zqszztbpfi .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ewyqppzuvn .gt_first_summary_row.thick {
+#zqszztbpfi .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ewyqppzuvn .gt_last_summary_row {
+#zqszztbpfi .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1092,7 +1109,7 @@ B.Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#ewyqppzuvn .gt_grand_summary_row {
+#zqszztbpfi .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1102,7 +1119,7 @@ B.Bitarello
   padding-right: 5px;
 }
 
-#ewyqppzuvn .gt_first_grand_summary_row {
+#zqszztbpfi .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1112,7 +1129,7 @@ B.Bitarello
   border-top-color: #D3D3D3;
 }
 
-#ewyqppzuvn .gt_last_grand_summary_row_top {
+#zqszztbpfi .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1122,11 +1139,11 @@ B.Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#ewyqppzuvn .gt_striped {
+#zqszztbpfi .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ewyqppzuvn .gt_table_body {
+#zqszztbpfi .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1135,7 +1152,7 @@ B.Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#ewyqppzuvn .gt_footnotes {
+#zqszztbpfi .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1149,7 +1166,7 @@ B.Bitarello
   border-right-color: #D3D3D3;
 }
 
-#ewyqppzuvn .gt_footnote {
+#zqszztbpfi .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1158,7 +1175,7 @@ B.Bitarello
   padding-right: 5px;
 }
 
-#ewyqppzuvn .gt_sourcenotes {
+#zqszztbpfi .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1172,7 +1189,7 @@ B.Bitarello
   border-right-color: #D3D3D3;
 }
 
-#ewyqppzuvn .gt_sourcenote {
+#zqszztbpfi .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1180,72 +1197,72 @@ B.Bitarello
   padding-right: 5px;
 }
 
-#ewyqppzuvn .gt_left {
+#zqszztbpfi .gt_left {
   text-align: left;
 }
 
-#ewyqppzuvn .gt_center {
+#zqszztbpfi .gt_center {
   text-align: center;
 }
 
-#ewyqppzuvn .gt_right {
+#zqszztbpfi .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ewyqppzuvn .gt_font_normal {
+#zqszztbpfi .gt_font_normal {
   font-weight: normal;
 }
 
-#ewyqppzuvn .gt_font_bold {
+#zqszztbpfi .gt_font_bold {
   font-weight: bold;
 }
 
-#ewyqppzuvn .gt_font_italic {
+#zqszztbpfi .gt_font_italic {
   font-style: italic;
 }
 
-#ewyqppzuvn .gt_super {
+#zqszztbpfi .gt_super {
   font-size: 65%;
 }
 
-#ewyqppzuvn .gt_footnote_marks {
+#zqszztbpfi .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ewyqppzuvn .gt_asterisk {
+#zqszztbpfi .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ewyqppzuvn .gt_indent_1 {
+#zqszztbpfi .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ewyqppzuvn .gt_indent_2 {
+#zqszztbpfi .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ewyqppzuvn .gt_indent_3 {
+#zqszztbpfi .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ewyqppzuvn .gt_indent_4 {
+#zqszztbpfi .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ewyqppzuvn .gt_indent_5 {
+#zqszztbpfi .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ewyqppzuvn .katex-display {
+#zqszztbpfi .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ewyqppzuvn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#zqszztbpfi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1261,44 +1278,52 @@ B.Bitarello
 <td class="gt_row gt_right" headers="hours">65.8</td>
 <td class="gt_row gt_right" headers="n">1</td>
 <td class="gt_row gt_right" headers="Cum_Frq_Abs">31</td>
-<td class="gt_row gt_right" headers="Cum_Frq_Rel">1.033333</td>
+<td class="gt_row gt_right" headers="Cum_Frq_Rel">0.9393939</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_right" headers="hours">71.1</td>
 <td class="gt_row gt_right" headers="n">1</td>
 <td class="gt_row gt_right" headers="Cum_Frq_Abs">32</td>
-<td class="gt_row gt_right" headers="Cum_Frq_Rel">1.066667</td>
+<td class="gt_row gt_right" headers="Cum_Frq_Rel">0.9696970</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="hours">84.7</td>
 <td class="gt_row gt_right" headers="n">1</td>
 <td class="gt_row gt_right" headers="Cum_Frq_Abs">33</td>
-<td class="gt_row gt_right" headers="Cum_Frq_Rel">1.100000</td>
+<td class="gt_row gt_right" headers="Cum_Frq_Rel">1.0000000</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-</section><section id="plotting" class="slide level2"><h2>Plotting</h2>
+</section><section id="plotting-base-r" class="slide level2"><h2>Plotting: base R</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a aria-label="1"></a><span class="fu">plot</span>(<span class="at">x =</span> <span class="fu">as.numeric</span>(<span class="fu">names</span>(temp1)), <span class="at">y =</span> rel.cfrq, <span class="at">xlab =</span> <span class="st">"Longevity (hours)"</span>,</span>
+<span id="cb21-2"><a aria-label="2"></a>    <span class="at">ylab =</span> <span class="st">"Relative Cumulative Frequency"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
+</div>
+<img data-src="2.4.Data-Viz_files/figure-revealjs/baseR-1.png" class="margin-caption r-stretch" width="960"></section><section id="plotting-ggplot2" class="slide level2"><h2>Plotting: ggplot2</h2>
 <p>“Manually:”</p>
 <div class="cell" data-warnings="false">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb16-2"><a aria-label="2"></a><span class="fu">ggplot</span>(bees, <span class="fu">aes</span>(<span class="at">x =</span> hours, <span class="at">y =</span> Cum_Frq_Rel)) <span class="sc">+</span> <span class="fu">geom_step</span>() <span class="sc">+</span></span>
-<span id="cb16-3"><a aria-label="3"></a>    <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(hours)), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"orange"</span>) <span class="sc">+</span></span>
-<span id="cb16-4"><a aria-label="4"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">median</span>(hours) <span class="sc">-</span> <span class="dv">7</span>), <span class="at">y =</span> <span class="fl">0.52</span>, <span class="at">label =</span> <span class="st">"median"</span>) <span class="sc">+</span></span>
-<span id="cb16-5"><a aria-label="5"></a>    <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fl">0.5</span>), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"orange"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb22-2"><a aria-label="2"></a><span class="fu">ggplot</span>(bees2, <span class="fu">aes</span>(<span class="at">x =</span> hours, <span class="at">y =</span> Cum_Frq_Rel)) <span class="sc">+</span> <span class="fu">geom_step</span>() <span class="sc">+</span></span>
+<span id="cb22-3"><a aria-label="3"></a>    <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(hours)), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"orange"</span>) <span class="sc">+</span></span>
+<span id="cb22-4"><a aria-label="4"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">median</span>(hours) <span class="sc">-</span> <span class="dv">7</span>), <span class="at">y =</span> <span class="fl">0.52</span>, <span class="at">label =</span> <span class="st">"median"</span>) <span class="sc">+</span></span>
+<span id="cb22-5"><a aria-label="5"></a>    <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fl">0.5</span>), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"orange"</span>) <span class="sc">+</span></span>
+<span id="cb22-6"><a aria-label="6"></a>    <span class="fu">ylab</span>(<span class="st">"Relative Cumulative Frequency"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Longevity (hours)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="2.4.Data-Viz_files/figure-revealjs/manually-1.png" class="margin-caption r-stretch" width="960"></section><section id="with-built-in-function" class="slide level2"><h2>With built-in function</h2>
 <div class="cell" data-warnings="false">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb17-2"><a aria-label="2"></a><span class="co"># set_theme(bb_theme()) #yes, I made my own, but you don't</span></span>
-<span id="cb17-3"><a aria-label="3"></a><span class="co"># have to summary(bees$hours) #median 25.8</span></span>
-<span id="cb17-4"><a aria-label="4"></a><span class="fu">ggplot</span>(bees, <span class="fu">aes</span>(<span class="at">x =</span> hours)) <span class="sc">+</span> <span class="fu">stat_ecdf</span>(<span class="at">geom =</span> <span class="st">"step"</span>) <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(hours)),</span>
-<span id="cb17-5"><a aria-label="5"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"orange"</span>) <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">median</span>(hours) <span class="sc">-</span></span>
-<span id="cb17-6"><a aria-label="6"></a>    <span class="dv">7</span>), <span class="at">y =</span> <span class="fl">0.52</span>, <span class="at">label =</span> <span class="st">"median"</span>) <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fl">0.5</span>),</span>
-<span id="cb17-7"><a aria-label="7"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"orange"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb23-2"><a aria-label="2"></a><span class="co"># set_theme(bb_theme()) #yes, I made my own, but you don't</span></span>
+<span id="cb23-3"><a aria-label="3"></a><span class="co"># have to summary(bees$hours) #median 25.8</span></span>
+<span id="cb23-4"><a aria-label="4"></a><span class="fu">ggplot</span>(bees2, <span class="fu">aes</span>(<span class="at">x =</span> hours)) <span class="sc">+</span> <span class="fu">stat_ecdf</span>(<span class="at">geom =</span> <span class="st">"step"</span>) <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(hours)),</span>
+<span id="cb23-5"><a aria-label="5"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"orange"</span>) <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">median</span>(hours) <span class="sc">-</span></span>
+<span id="cb23-6"><a aria-label="6"></a>    <span class="dv">7</span>), <span class="at">y =</span> <span class="fl">0.52</span>, <span class="at">label =</span> <span class="st">"median"</span>) <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fl">0.5</span>),</span>
+<span id="cb23-7"><a aria-label="7"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"orange"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Relative Cumulative Frequency"</span>) <span class="sc">+</span></span>
+<span id="cb23-8"><a aria-label="8"></a>    <span class="fu">xlab</span>(<span class="st">"Longevity (hours)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="2.4.Data-Viz_files/figure-revealjs/cumdist4-1.png" class="margin-caption r-stretch" width="960"></section><section id="concept-check" class="slide level2"><h2>Concept check</h2>
@@ -1332,19 +1357,19 @@ B.Bitarello
 <li><p>E.g. for the bees:</p></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a>Q1 <span class="ot">=</span> <span class="fl">12.8</span></span>
-<span id="cb18-2"><a aria-label="2"></a>Q3 <span class="ot">=</span> <span class="fl">35.7</span></span>
-<span id="cb18-3"><a aria-label="3"></a><span class="fu">range</span>(bees<span class="sc">$</span>hours)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a>Q1 <span class="ot">=</span> <span class="fl">12.8</span></span>
+<span id="cb24-2"><a aria-label="2"></a>Q3 <span class="ot">=</span> <span class="fl">35.7</span></span>
+<span id="cb24-3"><a aria-label="3"></a><span class="fu">range</span>(bees<span class="sc">$</span>hours)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  2.3 84.7</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a aria-label="1"></a>(<span class="at">lowerF =</span> Q1 <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">IQR</span>(bees<span class="sc">$</span>hours))  <span class="co">#negative value: -21.55</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a>(<span class="at">lowerF =</span> Q1 <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">IQR</span>(bees<span class="sc">$</span>hours))  <span class="co">#negative value: -21.55</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -22.6</code></pre>
+<pre><code>[1] -21.55</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a aria-label="1"></a>(<span class="at">upperF =</span> Q3 <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">IQR</span>(bees<span class="sc">$</span>hours))  <span class="co">#70.05, so we do have outliers here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>(<span class="at">upperF =</span> Q3 <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> <span class="fu">IQR</span>(bees<span class="sc">$</span>hours))  <span class="co">#70.05, so we do have outliers here</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 71.1</code></pre>
+<pre><code>[1] 70.05</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1384,8 +1409,8 @@ B.Bitarello
 <p>Contingency Table. Typically totals (row and column) are also shown.</p>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a aria-label="1"></a>titanicTab <span class="ot">&lt;-</span> <span class="fu">table</span>(titanicData<span class="sc">$</span>survive, titanicData<span class="sc">$</span>passenger_class)</span>
-<span id="cb24-2"><a aria-label="2"></a>titanicTab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a>titanicTab <span class="ot">&lt;-</span> <span class="fu">table</span>(titanicData<span class="sc">$</span>survive, titanicData<span class="sc">$</span>passenger_class)</span>
+<span id="cb30-2"><a aria-label="2"></a>titanicTab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     
       1st 2nd 3rd
@@ -1395,7 +1420,7 @@ B.Bitarello
 </div>
 <p>Add row and col sums</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a><span class="fu">addmargins</span>(titanicTab, <span class="at">margin =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">FUN =</span> sum, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a><span class="fu">addmargins</span>(titanicTab, <span class="at">margin =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">FUN =</span> sum, <span class="at">quiet =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     
        1st  2nd  3rd  sum
@@ -1409,10 +1434,10 @@ B.Bitarello
 <p>Grouped bar plot</p>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a aria-label="1"></a>BirdMalaria <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"~/Documents/GitHub/DataSetsb215/data-raw/chap02e3aBirdMalaria.csv"</span>)</span>
-<span id="cb28-2"><a aria-label="2"></a>BirdMalaria <span class="sc">|&gt;</span></span>
-<span id="cb28-3"><a aria-label="3"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">fill =</span> response)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb28-4"><a aria-label="4"></a>    <span class="fu">ylab</span>(<span class="st">"Frequency"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a aria-label="1"></a>BirdMalaria <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"~/Documents/GitHub/DataSetsb215/data-raw/chap02e3aBirdMalaria.csv"</span>)</span>
+<span id="cb34-2"><a aria-label="2"></a>BirdMalaria <span class="sc">|&gt;</span></span>
+<span id="cb34-3"><a aria-label="3"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> treatment, <span class="at">fill =</span> response)) <span class="sc">+</span> <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb34-4"><a aria-label="4"></a>    <span class="fu">ylab</span>(<span class="st">"Frequency"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="2.4.Data-Viz_files/figure-revealjs/bird-malaria-1.png" class="margin-caption r-stretch" width="960"></section><section id="categorical-x-categorical-2" class="slide level2"><h2>Categorical x Categorical</h2>
@@ -1437,13 +1462,13 @@ B.Bitarello
 </div>
 <div id="tabset-1-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a aria-label="1"></a><span class="fu">library</span>(ggmosaic)</span>
-<span id="cb29-2"><a aria-label="2"></a></span>
-<span id="cb29-3"><a aria-label="3"></a>BirdMalaria <span class="sc">|&gt;</span></span>
-<span id="cb29-4"><a aria-label="4"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(treatment, response), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
-<span id="cb29-5"><a aria-label="5"></a>    <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(response, treatment), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
-<span id="cb29-6"><a aria-label="6"></a>    <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Relative Frequency"</span>) <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,</span>
-<span id="cb29-7"><a aria-label="7"></a>    <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a aria-label="1"></a><span class="fu">library</span>(ggmosaic)</span>
+<span id="cb35-2"><a aria-label="2"></a></span>
+<span id="cb35-3"><a aria-label="3"></a>BirdMalaria <span class="sc">|&gt;</span></span>
+<span id="cb35-4"><a aria-label="4"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(treatment, response), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
+<span id="cb35-5"><a aria-label="5"></a>    <span class="fu">geom_mosaic</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">product</span>(response, treatment), <span class="at">fill =</span> response)) <span class="sc">+</span></span>
+<span id="cb35-6"><a aria-label="6"></a>    <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Relative Frequency"</span>) <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,</span>
+<span id="cb35-7"><a aria-label="7"></a>    <span class="dv">0</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1474,9 +1499,9 @@ B.Bitarello
 </div>
 <div id="tabset-2-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb30-2"><a aria-label="2"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">y =</span> Petal.Length)) <span class="sc">+</span></span>
-<span id="cb30-3"><a aria-label="3"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Petal Width (cm)"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Petal Length (cm)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb36-2"><a aria-label="2"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">y =</span> Petal.Length)) <span class="sc">+</span></span>
+<span id="cb36-3"><a aria-label="3"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Petal Width (cm)"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Petal Length (cm)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1501,10 +1526,10 @@ B.Bitarello
 </div>
 <div id="tabset-3-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb31-2"><a aria-label="2"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">y =</span> Petal.Length)) <span class="sc">+</span></span>
-<span id="cb31-3"><a aria-label="3"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Petal Width (cm)"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Petal Length (cm)"</span>) <span class="sc">+</span></span>
-<span id="cb31-4"><a aria-label="4"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> F)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb37-2"><a aria-label="2"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">y =</span> Petal.Length)) <span class="sc">+</span></span>
+<span id="cb37-3"><a aria-label="3"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Petal Width (cm)"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Petal Length (cm)"</span>) <span class="sc">+</span></span>
+<span id="cb37-4"><a aria-label="4"></a>    <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> F)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -1512,20 +1537,20 @@ B.Bitarello
 </section><section id="numerical-x-categorical" class="slide level2"><h2>Numerical x Categorical</h2>
 <p><strong>Multiple Histograms</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb32-2"><a aria-label="2"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb32-3"><a aria-label="3"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb32-4"><a aria-label="4"></a>        <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">col =</span> <span class="st">"lightgray"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Petal Width (cm)"</span>) <span class="sc">+</span></span>
-<span id="cb32-5"><a aria-label="5"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fl">0.5</span>,</span>
-<span id="cb32-6"><a aria-label="6"></a>    <span class="fl">2.5</span>, <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb38-2"><a aria-label="2"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb38-3"><a aria-label="3"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb38-4"><a aria-label="4"></a>        <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">col =</span> <span class="st">"lightgray"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Petal Width (cm)"</span>) <span class="sc">+</span></span>
+<span id="cb38-5"><a aria-label="5"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fl">0.5</span>,</span>
+<span id="cb38-6"><a aria-label="6"></a>    <span class="fl">2.5</span>, <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="2.4.Data-Viz_files/figure-revealjs/hist3-1.png" class="margin-caption r-stretch" width="960"></section><section id="numerical-x-categorical-1" class="slide level2"><h2>Numerical x Categorical</h2>
 <p><strong>Strip Chart</strong></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb33-2"><a aria-label="2"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Petal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
-<span id="cb33-3"><a aria-label="3"></a>    <span class="fu">geom_jitter</span>(<span class="at">show.legend =</span> F) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb39-2"><a aria-label="2"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Species, <span class="at">y =</span> Petal.Width, <span class="at">color =</span> Species)) <span class="sc">+</span></span>
+<span id="cb39-3"><a aria-label="3"></a>    <span class="fu">geom_jitter</span>(<span class="at">show.legend =</span> F) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="2.4.Data-Viz_files/figure-revealjs/strip3-1.png" class="margin-caption r-stretch" width="960"></section><section id="please-contribute" class="slide level2 center"><h2>Please contribute!</h2>

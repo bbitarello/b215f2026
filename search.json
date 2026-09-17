@@ -557,7 +557,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 1 4 6\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 3 5 9"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 9 1 8\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 6 7 9"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
@@ -1546,28 +1546,35 @@
     "href": "slides/2.4.Data-Viz.html#with-dplyr",
     "title": "2.4.Data Visualization",
     "section": "With dplyr",
-    "text": "With dplyr\n\n# all in one go with dplyr\nlibrary(dplyr)\nlibrary(gt)  # gt is a package that makes pretty tables: https://gt.rstudio.com/\nbees &lt;- bees |&gt;\n    dplyr::count(hours)  # add a column (n) counting occurrences in hours (similar to table)\nhead(bees, n = 3)\n\n# A tibble: 3 × 2\n  hours     n\n  &lt;dbl&gt; &lt;int&gt;\n1   2.3     2\n2   3.9     1\n3   4       1\n\n# add absolute cumulative frequency\nbees &lt;- bees |&gt;\n    mutate(Cum_Frq_Abs = cumsum(n)  #cumul. freq for the `n` column\n)\n# Relative:\nbees &lt;- bees |&gt;\n    mutate(Cum_Frq_Rel = Cum_Frq_Abs/(nrow(bees))  #33 bees\n)"
+    "text": "With dplyr\n\n# all in one go with dplyr\nlibrary(dplyr)\nlibrary(gt)  # gt is a package that makes pretty tables: https://gt.rstudio.com/\nbees2 &lt;- bees |&gt;\n    dplyr::count(hours)  # add a column (n) counting occurrences in hours (similar to table)\nbees2$n == unname(temp1)  #sanity check: should all be true\n\n [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE\n[16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE\n\nhead(bees, n = 3)  #show first three rows\n\n# A tibble: 3 × 1\n  hours\n  &lt;dbl&gt;\n1   2.3\n2   2.3\n3   3.9\n\n# add absolute cumulative frequency\nbees2 &lt;- bees2 |&gt;\n    mutate(Cum_Frq_Abs = cumsum(n)  #cumul. freq for the `n` column\n)\n# sanity check: should all be true\nbees2$Cum_Frq_Abs == unname(abs.cfrq)\n\n [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE\n[16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE\n\n# Relative:\nbees2 &lt;- bees2 |&gt;\n    mutate(Cum_Frq_Rel = Cum_Frq_Abs/sum(n)  #33 bees\n)\n# sanity check: should all be true\nbees2$Cum_Frq_Rel == unname(rel.cfrq)\n\n [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE\n[16] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE"
   },
   {
-    "objectID": "slides/2.4.Data-Viz.html#head-and-tail",
-    "href": "slides/2.4.Data-Viz.html#head-and-tail",
+    "objectID": "slides/2.4.Data-Viz.html#check-head-and-tail",
+    "href": "slides/2.4.Data-Viz.html#check-head-and-tail",
     "title": "2.4.Data Visualization",
-    "section": "Head and Tail",
-    "text": "Head and Tail\n\nbees |&gt;\n    head(n = 3) |&gt;\n    gt()\n\n\n\n\n\nhours\nn\nCum_Frq_Abs\nCum_Frq_Rel\n\n\n\n2.3\n2\n2\n0.06666667\n\n\n3.9\n1\n3\n0.10000000\n\n\n4.0\n1\n4\n0.13333333\n\n\n\n\n\nbees |&gt;\n    tail(n = 3) |&gt;\n    gt()\n\n\n\n\n\nhours\nn\nCum_Frq_Abs\nCum_Frq_Rel\n\n\n\n65.8\n1\n31\n1.033333\n\n\n71.1\n1\n32\n1.066667\n\n\n84.7\n1\n33\n1.100000"
+    "section": "Check: Head and Tail",
+    "text": "Check: Head and Tail\n\nbees2 |&gt;\n    head(n = 3) |&gt;\n    gt()\n\n\n\n\n\nhours\nn\nCum_Frq_Abs\nCum_Frq_Rel\n\n\n\n2.3\n2\n2\n0.06060606\n\n\n3.9\n1\n3\n0.09090909\n\n\n4.0\n1\n4\n0.12121212\n\n\n\n\n\nbees2 |&gt;\n    tail(n = 3) |&gt;\n    gt()\n\n\n\n\n\nhours\nn\nCum_Frq_Abs\nCum_Frq_Rel\n\n\n\n65.8\n1\n31\n0.9393939\n\n\n71.1\n1\n32\n0.9696970\n\n\n84.7\n1\n33\n1.0000000"
   },
   {
-    "objectID": "slides/2.4.Data-Viz.html#plotting",
-    "href": "slides/2.4.Data-Viz.html#plotting",
+    "objectID": "slides/2.4.Data-Viz.html#plotting-base-r",
+    "href": "slides/2.4.Data-Viz.html#plotting-base-r",
     "title": "2.4.Data Visualization",
-    "section": "Plotting",
-    "text": "Plotting\n“Manually:”\n\nlibrary(ggplot2)\nggplot(bees, aes(x = hours, y = Cum_Frq_Rel)) + geom_step() +\n    geom_vline(aes(xintercept = median(hours)), lty = 2, col = \"orange\") +\n    geom_text(aes(x = median(hours) - 7), y = 0.52, label = \"median\") +\n    geom_hline(aes(yintercept = 0.5), lty = 2, col = \"orange\")"
+    "section": "Plotting: base R",
+    "text": "Plotting: base R\n\nplot(x = as.numeric(names(temp1)), y = rel.cfrq, xlab = \"Longevity (hours)\",\n    ylab = \"Relative Cumulative Frequency\")"
+  },
+  {
+    "objectID": "slides/2.4.Data-Viz.html#plotting-ggplot2",
+    "href": "slides/2.4.Data-Viz.html#plotting-ggplot2",
+    "title": "2.4.Data Visualization",
+    "section": "Plotting: ggplot2",
+    "text": "Plotting: ggplot2\n“Manually:”\n\nlibrary(ggplot2)\nggplot(bees2, aes(x = hours, y = Cum_Frq_Rel)) + geom_step() +\n    geom_vline(aes(xintercept = median(hours)), lty = 2, col = \"orange\") +\n    geom_text(aes(x = median(hours) - 7), y = 0.52, label = \"median\") +\n    geom_hline(aes(yintercept = 0.5), lty = 2, col = \"orange\") +\n    ylab(\"Relative Cumulative Frequency\") + xlab(\"Longevity (hours)\")"
   },
   {
     "objectID": "slides/2.4.Data-Viz.html#with-built-in-function",
     "href": "slides/2.4.Data-Viz.html#with-built-in-function",
     "title": "2.4.Data Visualization",
     "section": "With built-in function",
-    "text": "With built-in function\n\nlibrary(ggplot2)\n# set_theme(bb_theme()) #yes, I made my own, but you don't\n# have to summary(bees$hours) #median 25.8\nggplot(bees, aes(x = hours)) + stat_ecdf(geom = \"step\") + geom_vline(aes(xintercept = median(hours)),\n    lty = 2, col = \"orange\") + geom_text(aes(x = median(hours) -\n    7), y = 0.52, label = \"median\") + geom_hline(aes(yintercept = 0.5),\n    lty = 2, col = \"orange\")"
+    "text": "With built-in function\n\nlibrary(ggplot2)\n# set_theme(bb_theme()) #yes, I made my own, but you don't\n# have to summary(bees$hours) #median 25.8\nggplot(bees2, aes(x = hours)) + stat_ecdf(geom = \"step\") + geom_vline(aes(xintercept = median(hours)),\n    lty = 2, col = \"orange\") + geom_text(aes(x = median(hours) -\n    7), y = 0.52, label = \"median\") + geom_hline(aes(yintercept = 0.5),\n    lty = 2, col = \"orange\") + ylab(\"Relative Cumulative Frequency\") +\n    xlab(\"Longevity (hours)\")"
   },
   {
     "objectID": "slides/2.4.Data-Viz.html#concept-check",
@@ -1595,7 +1602,7 @@
     "href": "slides/2.4.Data-Viz.html#case-1-if-there-are-no-outliers-in-the-dataset",
     "title": "2.4.Data Visualization",
     "section": "Case 1: If there are no outliers in the dataset",
-    "text": "Case 1: If there are no outliers in the dataset\n\nR uses the popular method of  and .\nIf there are no values beyond these limits, it considers the dataset to not have outliers for the purposes of a boxplot. Whiskers go down to min and up to max value, i.e, the range.\nE.g. for the bees:\n\n\nQ1 = 12.8\nQ3 = 35.7\nrange(bees$hours)\n\n[1]  2.3 84.7\n\n(lowerF = Q1 - 1.5 * IQR(bees$hours))  #negative value: -21.55\n\n[1] -22.6\n\n(upperF = Q3 + 1.5 * IQR(bees$hours))  #70.05, so we do have outliers here\n\n[1] 71.1"
+    "text": "Case 1: If there are no outliers in the dataset\n\nR uses the popular method of  and .\nIf there are no values beyond these limits, it considers the dataset to not have outliers for the purposes of a boxplot. Whiskers go down to min and up to max value, i.e, the range.\nE.g. for the bees:\n\n\nQ1 = 12.8\nQ3 = 35.7\nrange(bees$hours)\n\n[1]  2.3 84.7\n\n(lowerF = Q1 - 1.5 * IQR(bees$hours))  #negative value: -21.55\n\n[1] -21.55\n\n(upperF = Q3 + 1.5 * IQR(bees$hours))  #70.05, so we do have outliers here\n\n[1] 70.05"
   },
   {
     "objectID": "slides/2.4.Data-Viz.html#case-2-there-are-outliers",
