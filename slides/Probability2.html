@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-eaeb381c6b7494c50009502241a4985c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
-<meta name="dcterms.date" content="2026-09-21">
+<meta name="dcterms.date" content="2026-09-23">
 <meta name="keywords" content="Unit 3">
 <title>BIOL B215: Biostatistics with R – Probability I</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,72 +36,6 @@
       vertical-align: middle;
     }
     .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #97947a;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #97947a;  padding-left: 4px; }
-    div.sourceCode
-      { color: #f8f8f2; background-color: #2b2b2b; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #f8f8f2; } /* Normal */
-    code span.al { color: #dcc6e0; } /* Alert */
-    code span.an { color: #d4d0ab; } /* Annotation */
-    code span.at { color: #ffd700; } /* Attribute */
-    code span.bn { color: #dcc6e0; } /* BaseN */
-    code span.bu { color: #f5ab35; } /* BuiltIn */
-    code span.cf { color: #ffa07a; } /* ControlFlow */
-    code span.ch { color: #abe338; } /* Char */
-    code span.cn { color: #ffa07a; } /* Constant */
-    code span.co { color: #d4d0ab; } /* Comment */
-    code span.cv { color: #d4d0ab; font-style: italic; } /* CommentVar */
-    code span.do { color: #d4d0ab; font-style: italic; } /* Documentation */
-    code span.dt { color: #dcc6e0; } /* DataType */
-    code span.dv { color: #dcc6e0; } /* DecVal */
-    code span.er { color: #dcc6e0; } /* Error */
-    code span.ex { color: #ffd700; } /* Extension */
-    code span.fl { color: #f5ab35; } /* Float */
-    code span.fu { color: #ffd700; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #d4d0ab; } /* Information */
-    code span.kw { color: #ffa07a; } /* Keyword */
-    code span.op { color: #00e0e0; } /* Operator */
-    code span.ot { color: #ffa07a; } /* Other */
-    code span.pp { color: #dcc6e0; } /* Preprocessor */
-    code span.sc { color: #00e0e0; } /* SpecialChar */
-    code span.ss { color: #abe338; } /* SpecialString */
-    code span.st { color: #abe338; } /* String */
-    code span.va { color: #f5ab35; } /* Variable */
-    code span.vs { color: #abe338; } /* VerbatimString */
-    code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
 <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-ac6c02ca5a07ac614c2f066fce0ae2e0.css">
 <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -202,194 +136,2917 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center"><h1 class="title">Probability I</h1>
-  <p class="subtitle">Why study probability?</p>
+  <p class="subtitle">Probability is NOT intuitive!</p>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">September 21, 2026</p>
+  <p class="date">September 23, 2026</p>
 </section><section id="outline" class="slide level2"><h2>Outline</h2>
 <ul>
-<li>Definition(s) &amp; Foundational Concepts
-<ul>
-<li>Probability as long-term frequency</li>
-<li>Random trials</li>
-<li>Types of events (exclusive and non-exclusive)</li>
-<li>Probability distributions x probability densities x proportions</li>
-<li>the general addition principle</li>
-</ul>
-</li>
-</ul></section><section><section id="why-do-we-need-probabilities" class="title-slide slide level1 center"><h1>Why do we need probabilities?</h1>
-
-</section><section id="statistics-and-probability-are-not-intuitive" class="slide level2"><h2>Statistics and probability are not intuitive</h2>
-<div class="goal">
-<p>Our brains do a bad job of interpreting data</p>
+<li><p>Understand once and for all that statistics and probability are NOT intuitive</p></li>
+<li><p>Review concepts introduced in the recorded lecture</p></li>
+</ul></section><section id="statistics-and-probability-in-particular-are-not-intuitive" class="slide level2 dark-theme center"><h2>Statistics (and probability, in particular) are not intuitive</h2>
+<div class="r-fit-text">
+<p>“If something has a 50% chance of happening, then 9 times out of 10 it will” — Yogi Berra</p>
 </div>
+</section><section id="meaning-of-intuitive" class="slide level2 scrollable"><h2>Meaning of “intuitive”</h2>
+<ol type="1">
+<li><p>“easy to understand”</p></li>
+<li><p>“instinctive, or acting on what one feels to be true even without reason”</p></li>
+</ol></section><section id="each-row-is-a-basketball-player-1" class="slide level2"><h2>Each row is a basketball player (1)</h2>
+<div class="cell">
+<div class="cell-output-display margin-caption">
+<div id="kxvgxotlta" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#kxvgxotlta table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#kxvgxotlta thead, #kxvgxotlta tbody, #kxvgxotlta tfoot, #kxvgxotlta tr, #kxvgxotlta td, #kxvgxotlta th {
+  border-style: none;
+}
+
+#kxvgxotlta p {
+  margin: 0;
+  padding: 0;
+}
+
+#kxvgxotlta .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#kxvgxotlta .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#kxvgxotlta .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#kxvgxotlta .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#kxvgxotlta .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kxvgxotlta .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kxvgxotlta .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#kxvgxotlta .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#kxvgxotlta .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#kxvgxotlta .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#kxvgxotlta .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#kxvgxotlta .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#kxvgxotlta .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#kxvgxotlta .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#kxvgxotlta .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#kxvgxotlta .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#kxvgxotlta .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#kxvgxotlta .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#kxvgxotlta .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kxvgxotlta .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#kxvgxotlta .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#kxvgxotlta .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#kxvgxotlta .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kxvgxotlta .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#kxvgxotlta .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#kxvgxotlta .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kxvgxotlta .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kxvgxotlta .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#kxvgxotlta .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kxvgxotlta .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#kxvgxotlta .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#kxvgxotlta .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kxvgxotlta .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kxvgxotlta .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#kxvgxotlta .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#kxvgxotlta .gt_left {
+  text-align: left;
+}
+
+#kxvgxotlta .gt_center {
+  text-align: center;
+}
+
+#kxvgxotlta .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#kxvgxotlta .gt_font_normal {
+  font-weight: normal;
+}
+
+#kxvgxotlta .gt_font_bold {
+  font-weight: bold;
+}
+
+#kxvgxotlta .gt_font_italic {
+  font-style: italic;
+}
+
+#kxvgxotlta .gt_super {
+  font-size: 65%;
+}
+
+#kxvgxotlta .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#kxvgxotlta .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#kxvgxotlta .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#kxvgxotlta .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#kxvgxotlta .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#kxvgxotlta .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#kxvgxotlta .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#kxvgxotlta .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#kxvgxotlta div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="20" class="gt_heading gt_title gt_font_normal gt_bottom_border">1. Do you see a pattern?</td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="a1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">1</th>
+<th id="a2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2</th>
+<th id="a3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">3</th>
+<th id="a4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">4</th>
+<th id="a5" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">5</th>
+<th id="a6" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">6</th>
+<th id="a7" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">7</th>
+<th id="a8" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">8</th>
+<th id="a9" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">9</th>
+<th id="a10" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">10</th>
+<th id="a11" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">11</th>
+<th id="a12" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">12</th>
+<th id="a13" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">13</th>
+<th id="a14" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">14</th>
+<th id="a15" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">15</th>
+<th id="a16" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">16</th>
+<th id="a17" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">17</th>
+<th id="a18" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">18</th>
+<th id="a19" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">19</th>
+<th id="a20" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">20</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+</tbody>
+<tfoot>
+<tr class="gt_footnotes odd">
+<td colspan="20" class="gt_footnote">0: miss</td>
+</tr>
+<tr class="gt_footnotes even">
+<td colspan="20" class="gt_footnote">1: hit</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+</div>
+</section><section id="each-row-is-a-basketball-player-2" class="slide level2"><h2>Each row is a basketball player (2)</h2>
+<div class="cell">
+<div class="cell-output-display margin-caption">
+<div id="imqjiucouf" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#imqjiucouf table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#imqjiucouf thead, #imqjiucouf tbody, #imqjiucouf tfoot, #imqjiucouf tr, #imqjiucouf td, #imqjiucouf th {
+  border-style: none;
+}
+
+#imqjiucouf p {
+  margin: 0;
+  padding: 0;
+}
+
+#imqjiucouf .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#imqjiucouf .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#imqjiucouf .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#imqjiucouf .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#imqjiucouf .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#imqjiucouf .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#imqjiucouf .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#imqjiucouf .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#imqjiucouf .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#imqjiucouf .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#imqjiucouf .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#imqjiucouf .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#imqjiucouf .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#imqjiucouf .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#imqjiucouf .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#imqjiucouf .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#imqjiucouf .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#imqjiucouf .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#imqjiucouf .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#imqjiucouf .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#imqjiucouf .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#imqjiucouf .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#imqjiucouf .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#imqjiucouf .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#imqjiucouf .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#imqjiucouf .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#imqjiucouf .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#imqjiucouf .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#imqjiucouf .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#imqjiucouf .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#imqjiucouf .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#imqjiucouf .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#imqjiucouf .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#imqjiucouf .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#imqjiucouf .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#imqjiucouf .gt_left {
+  text-align: left;
+}
+
+#imqjiucouf .gt_center {
+  text-align: center;
+}
+
+#imqjiucouf .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#imqjiucouf .gt_font_normal {
+  font-weight: normal;
+}
+
+#imqjiucouf .gt_font_bold {
+  font-weight: bold;
+}
+
+#imqjiucouf .gt_font_italic {
+  font-style: italic;
+}
+
+#imqjiucouf .gt_super {
+  font-size: 65%;
+}
+
+#imqjiucouf .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#imqjiucouf .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#imqjiucouf .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#imqjiucouf .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#imqjiucouf .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#imqjiucouf .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#imqjiucouf .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#imqjiucouf .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#imqjiucouf div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="20" class="gt_heading gt_title gt_font_normal gt_bottom_border">2. Do you see a pattern?</td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="a1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">1</th>
+<th id="a2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2</th>
+<th id="a3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">3</th>
+<th id="a4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">4</th>
+<th id="a5" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">5</th>
+<th id="a6" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">6</th>
+<th id="a7" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">7</th>
+<th id="a8" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">8</th>
+<th id="a9" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">9</th>
+<th id="a10" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">10</th>
+<th id="a11" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">11</th>
+<th id="a12" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">12</th>
+<th id="a13" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">13</th>
+<th id="a14" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">14</th>
+<th id="a15" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">15</th>
+<th id="a16" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">16</th>
+<th id="a17" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">17</th>
+<th id="a18" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">18</th>
+<th id="a19" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">19</th>
+<th id="a20" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">20</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+</tbody>
+<tfoot>
+<tr class="gt_footnotes odd">
+<td colspan="20" class="gt_footnote">0: miss</td>
+</tr>
+<tr class="gt_footnotes even">
+<td colspan="20" class="gt_footnote">1: hit</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+</div>
+</section><section id="each-row-is-a-basketball-player-3" class="slide level2"><h2>Each row is a basketball player (3)</h2>
+<div class="cell">
+<div class="cell-output-display margin-caption">
+<div id="ggfkvhxuga" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ggfkvhxuga table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ggfkvhxuga thead, #ggfkvhxuga tbody, #ggfkvhxuga tfoot, #ggfkvhxuga tr, #ggfkvhxuga td, #ggfkvhxuga th {
+  border-style: none;
+}
+
+#ggfkvhxuga p {
+  margin: 0;
+  padding: 0;
+}
+
+#ggfkvhxuga .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ggfkvhxuga .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ggfkvhxuga .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ggfkvhxuga .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ggfkvhxuga .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ggfkvhxuga .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ggfkvhxuga .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ggfkvhxuga .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ggfkvhxuga .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ggfkvhxuga .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ggfkvhxuga .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ggfkvhxuga .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ggfkvhxuga .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ggfkvhxuga .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ggfkvhxuga .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ggfkvhxuga .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ggfkvhxuga .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ggfkvhxuga .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ggfkvhxuga .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ggfkvhxuga .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ggfkvhxuga .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ggfkvhxuga .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ggfkvhxuga .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ggfkvhxuga .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ggfkvhxuga .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ggfkvhxuga .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ggfkvhxuga .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ggfkvhxuga .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ggfkvhxuga .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ggfkvhxuga .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ggfkvhxuga .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ggfkvhxuga .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ggfkvhxuga .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ggfkvhxuga .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ggfkvhxuga .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ggfkvhxuga .gt_left {
+  text-align: left;
+}
+
+#ggfkvhxuga .gt_center {
+  text-align: center;
+}
+
+#ggfkvhxuga .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ggfkvhxuga .gt_font_normal {
+  font-weight: normal;
+}
+
+#ggfkvhxuga .gt_font_bold {
+  font-weight: bold;
+}
+
+#ggfkvhxuga .gt_font_italic {
+  font-style: italic;
+}
+
+#ggfkvhxuga .gt_super {
+  font-size: 65%;
+}
+
+#ggfkvhxuga .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ggfkvhxuga .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ggfkvhxuga .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ggfkvhxuga .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ggfkvhxuga .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ggfkvhxuga .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ggfkvhxuga .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ggfkvhxuga .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ggfkvhxuga div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="20" class="gt_heading gt_title gt_font_normal gt_bottom_border">3. Do you see a pattern?</td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="a1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">1</th>
+<th id="a2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2</th>
+<th id="a3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">3</th>
+<th id="a4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">4</th>
+<th id="a5" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">5</th>
+<th id="a6" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">6</th>
+<th id="a7" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">7</th>
+<th id="a8" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">8</th>
+<th id="a9" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">9</th>
+<th id="a10" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">10</th>
+<th id="a11" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">11</th>
+<th id="a12" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">12</th>
+<th id="a13" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">13</th>
+<th id="a14" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">14</th>
+<th id="a15" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">15</th>
+<th id="a16" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">16</th>
+<th id="a17" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">17</th>
+<th id="a18" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">18</th>
+<th id="a19" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">19</th>
+<th id="a20" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">20</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+</tbody>
+<tfoot>
+<tr class="gt_footnotes odd">
+<td colspan="20" class="gt_footnote">0: miss</td>
+</tr>
+<tr class="gt_footnotes even">
+<td colspan="20" class="gt_footnote">1: hit</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+</div>
+</section><section id="each-row-is-a-basketball-player-3-1" class="slide level2"><h2>Each row is a basketball player (3)</h2>
+<div class="cell">
+<div class="cell-output-display margin-caption">
+<div id="xgkfaiwwig" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#xgkfaiwwig table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xgkfaiwwig thead, #xgkfaiwwig tbody, #xgkfaiwwig tfoot, #xgkfaiwwig tr, #xgkfaiwwig td, #xgkfaiwwig th {
+  border-style: none;
+}
+
+#xgkfaiwwig p {
+  margin: 0;
+  padding: 0;
+}
+
+#xgkfaiwwig .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xgkfaiwwig .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xgkfaiwwig .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xgkfaiwwig .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xgkfaiwwig .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xgkfaiwwig .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xgkfaiwwig .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xgkfaiwwig .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xgkfaiwwig .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xgkfaiwwig .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xgkfaiwwig .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xgkfaiwwig .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xgkfaiwwig .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xgkfaiwwig .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xgkfaiwwig .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xgkfaiwwig .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xgkfaiwwig .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xgkfaiwwig .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xgkfaiwwig .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xgkfaiwwig .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xgkfaiwwig .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xgkfaiwwig .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xgkfaiwwig .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xgkfaiwwig .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xgkfaiwwig .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xgkfaiwwig .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xgkfaiwwig .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xgkfaiwwig .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xgkfaiwwig .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xgkfaiwwig .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xgkfaiwwig .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xgkfaiwwig .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xgkfaiwwig .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xgkfaiwwig .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xgkfaiwwig .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xgkfaiwwig .gt_left {
+  text-align: left;
+}
+
+#xgkfaiwwig .gt_center {
+  text-align: center;
+}
+
+#xgkfaiwwig .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xgkfaiwwig .gt_font_normal {
+  font-weight: normal;
+}
+
+#xgkfaiwwig .gt_font_bold {
+  font-weight: bold;
+}
+
+#xgkfaiwwig .gt_font_italic {
+  font-style: italic;
+}
+
+#xgkfaiwwig .gt_super {
+  font-size: 65%;
+}
+
+#xgkfaiwwig .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xgkfaiwwig .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xgkfaiwwig .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xgkfaiwwig .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xgkfaiwwig .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xgkfaiwwig .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xgkfaiwwig .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#xgkfaiwwig .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xgkfaiwwig div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_heading header">
+<td colspan="20" class="gt_heading gt_title gt_font_normal gt_bottom_border">4. Do you see a pattern?</td>
+</tr>
+<tr class="gt_col_headings even">
+<th id="a1" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">1</th>
+<th id="a2" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">2</th>
+<th id="a3" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">3</th>
+<th id="a4" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">4</th>
+<th id="a5" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">5</th>
+<th id="a6" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">6</th>
+<th id="a7" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">7</th>
+<th id="a8" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">8</th>
+<th id="a9" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">9</th>
+<th id="a10" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">10</th>
+<th id="a11" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">11</th>
+<th id="a12" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">12</th>
+<th id="a13" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">13</th>
+<th id="a14" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">14</th>
+<th id="a15" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">15</th>
+<th id="a16" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">16</th>
+<th id="a17" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">17</th>
+<th id="a18" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">18</th>
+<th id="a19" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">19</th>
+<th id="a20" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">20</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #FDE725; color: #000000">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="1" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="1" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="2" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="3" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="4" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="5" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="6" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="7" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="8" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="9" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="10" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="11" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="12" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="13" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="14" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="15" style="background-color: #440154; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="16" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="17" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="18" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="19" style="background-color: #FDE725; color: #000000">1</td>
+<td class="gt_row gt_right" headers="20" style="background-color: #440154; color: #FFFFFF">0</td>
+</tr>
+</tbody>
+<tfoot>
+<tr class="gt_footnotes odd">
+<td colspan="20" class="gt_footnote">0: miss</td>
+</tr>
+<tr class="gt_footnotes even">
+<td colspan="20" class="gt_footnote">1: hit</td>
+</tr>
+</tfoot>
+</table>
+</div>
+</div>
+</div>
+</section><section id="generalizing-from-a-sample-to-a-population-seems-to-be-hard-wired-into-our-brains" class="slide level2"><h2>Generalizing from a sample to a population seems to be hard-wired into our brains</h2>
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure><p><a href="https://www.bbc.com/future/article/20140730-why-do-we-see-faces-in-objects"><img data-src="images/clipboard-1022667622.png" width="517"></a></p>
+<figcaption>Images: AFP/Getty Images/Warner Bros Records. Taken from: https://www.bbc.com/future/article/20140730-why-do-we-see-faces-in-objects</figcaption></figure>
+</div>
+</section><section id="pick-a-range-that-you-think-has-a-90-chance-of-containing-the-right" class="slide level2 scrollable"><h2>Pick a range that you think has a 90% chance of containing the right</h2>
+<p>answer</p>
+<div class="goal">
+<p>Don’t consult anything/anyone. The goal is to quantify your uncertainty. If you truly have no idea, you can use the broadest range that is plausible (which you can be 100% sure includes the answer) but try to narrow down your answers to a range that you are 90% sure contains the right answer.</p>
+</div>
+<div class="columns">
+<div class="column">
+<ol type="1">
+<li>Martin Luther King Jr’s age at death</li>
+<li>Length of the Nile river (miles; km)</li>
+<li>Number of countries in OPEC<sup>1</sup>
+</li>
+<li>Number of books in the Old Testament</li>
+<li>Diameter of the moon (miles; km)</li>
+<li>Weight of an empty Boeing 747 (lbs; kg)</li>
+</ol>
+</div><div class="column">
+<ol start="7" type="1">
+<li>Year Mozart was born</li>
+<li>Gestation period of an Asian elephant (days)</li>
+<li>Distance from London to Tokyo (miles; km)</li>
+<li>Deepest know point in the ocean (miles; km)</li>
+</ol>
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Organization of the Petroleum Exporting Countries</p></li></ol></aside></section><section id="statistics-and-probability-in-particular-are-not-intuitive-1" class="slide level2 center"><h2>Statistics (and probability, in particular) are not intuitive</h2>
 <ul>
 <li>we see patterns in random data</li>
 <li>we tend to be overconfident</li>
-<li>we tend to jump to conclusions</li>
-<li>we don’t realize that coincidences are common</li>
-<li>we have incorrect feelings about probability</li>
-<li>we don’t expect variability to depend on sample size</li>
-<li>we find it hard to combine probabilities (coming up soon)</li>
-</ul></section><section id="why-do-we-need-probabilities-1" class="slide level2"><h2>Why do we need probabilities?</h2>
-<p>We can use probability theory to connect <font color="#C0532B">sample <strong>estimates</strong></font></p>
-<ul>
-<li>Which we can obtain from data.</li>
-<li>Which take their values by chance (<font color="#C0532B"><strong>variable</strong></font>).</li>
-</ul>
-<p>To <font color="#00a1b7">population <strong>parameters</strong></font>:</p>
-<ul>
-<li>Which we can almost never obtain.</li>
-<li>With values free from chance (<font color="#00a1b7">population <strong>constant</strong></font>).</li>
-</ul></section><section id="section" class="slide level2 dark-theme center"><h2></h2>
-<div class="r-fit-text">
-<p>To help us when generalizing from sample to population, we need Probability Theory:</p>
-<p>The foundation of statistical thinking</p>
-</div>
-</section></section><section><section id="definitions-terminologies-and-notations" class="title-slide slide level1 center"><h1>Definitions, Terminologies, and Notations</h1>
-
-</section><section id="what-is-probability" class="slide level2"><h2>What is probability?</h2>
-<ul>
-<li>It depends.</li>
-<li>Probability is super complex.</li>
-<li>Entire books have been written on it and there are fiery debates about what even <em>IS</em> a probability.</li>
-</ul></section><section id="some-definitions" class="slide level2 scrollable"><h2>Some definitions</h2>
-<ol type="1">
-<li>Probability “out there” - outside your head.</li>
-</ol>
-<p>But also…</p>
-<ol start="2" type="1">
-<li><p>Probability that is “inside your head” — as strength of subjective beliefs; may vary among people or even different assessments by the same person.</p></li>
-<li><p>“Probabilities” used to quantify ignorance – e.g.&nbsp;probability that a pregnant person is pregnant with a girl</p></li>
-<li><p>Quantitive predictions of one time events – e.g., presidential polls</p></li>
-</ol>
-
-<aside><div>
-<p>From: Kruschke’s (2011) terminology.</p>
-</div></aside></section><section id="probability-out-there---outside-your-head" class="slide level2"><h2>Probability “out there” - outside your head</h2>
-<p>What we deal with in biology most of the time.</p>
-<div class="goal">
-<ul>
-<li>This is probability as long-term frequency</li>
-<li>The probability that a certain event will happen has a definite value (a parameter)</li>
-<li>We rarely have enough data to know that value precisely (or good data to know it accurately), but we estimate it and give it different levels of confidence</li>
-</ul>
-</div>
-</section><section id="probability-as-long-term-frequency" class="slide level2"><h2>Probability as long-term frequency</h2>
-<ul>
-<li><p>The probability of an event is its true relative frequency - “out there”</p></li>
-<li><p>This is the proportion of times the event would occur if we repeated the same random trial over and over again under the same conditions</p></li>
-</ul></section><section id="probability-theory-statistics" class="slide level2"><h2>Probability Theory &amp; Statistics</h2>
-<p>Probabilities take values from 0-1 (or 0-100%)</p>
-<p>They are used to quantify a prediction about a future event <strong><em>OR</em></strong> the certainty of a belief</p>
-<div class="quarto-layout-panel" data-layout-ncol="3">
-<div class="quarto-layout-row">
-<div class="column quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="goal">
-<div class="fragment fade-in">
-<p>A probability of zero (0%) indicates:</p>
-<ul>
-<li>An event is impossible<br><u><strong><em>OR</em></strong></u>
-</li>
-<li>Someone is absolutely (100%) sure that a statement is wrong</li>
-</ul>
-</div>
-</div>
-</div><div class="column quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="goal">
-<div class="fragment fade-in">
-<p>A probability of one (100%) indicates:</p>
-<ul>
-<li>An event is certain to happen<br><u><strong><em>OR</em></strong></u>
-</li>
-<li>Someone is absolutely (100%) sure that a statement is correct</li>
-</ul>
-</div>
-</div>
-</div><div class="column quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
-<div class="goal">
-<div class="fragment fade-in">
-<p>A probability of 0.5 (50%) indicates:</p>
-<ul>
-<li>An event is equally likely to happen or not happen<br><u><strong><em>OR</em></strong></u>
-</li>
-<li>Someone believes that a statement is equally likely to be true or false</li>
-</ul>
-</div>
-</div>
-</div></div>
-</div>
-</section><section id="random-trials" class="slide level2"><h2>Random Trials</h2>
-<div class="goal">
-<p>Rolling a die.</p>
-</div>
-<ul>
-<li><p>A random trial is a process or experiment that has two or more possible outcomes whose occurrence cannot be predicted with certainty.</p></li>
-<li><p>Only one outcome is observed from each repetition of a random trial.</p></li>
-<li><p>An event is any potential subset of all the possible outcomes.</p></li>
-</ul>
-
-<img data-src="images/clipboard-2248999926.png" class="margin-caption r-stretch quarto-figure-center"><p class="caption">Figure caption: figure 5.2-1 from the textbook.</p></section><section id="mutually-exclusive-events" class="slide level2"><h2>Mutually exclusive events</h2>
-<div class="goal">
-<p>Getting an odd or even number on a die roll.</p>
-</div>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p>If <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline"> are mutually exclusive:</p>
-<ul>
-<li>Either <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> or <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline"> are individually plausible outcomes</li>
-<li>
-<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A%5C%26B" alt="A\&amp;B" title="A\&amp;B" class="math inline"> is not plausible (i.e., <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%28A%5C%26B%29%3D0" alt="Pr(A\&amp;B)=0" title="Pr(A\&amp;B)=0" class="math inline">)</li>
-</ul>
-</div><div class="column" style="width:70%;">
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>even_numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>)</span>
-<span id="cb1-2"><a aria-label="2"></a>odd_numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)</span>
-<span id="cb1-3"><a aria-label="3"></a>l <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">even =</span> even_numbers, <span class="at">odd =</span> odd_numbers, <span class="at">all =</span> <span class="fu">sort</span>(<span class="fu">c</span>(even_numbers,</span>
-<span id="cb1-4"><a aria-label="4"></a>    odd_numbers)))</span>
-<span id="cb1-5"><a aria-label="5"></a><span class="fu">library</span>(ggvenn)</span>
-<span id="cb1-6"><a aria-label="6"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggvenn</span>(l[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)], <span class="at">fill_color =</span> <span class="fu">asteroidcity1</span>(), <span class="at">show_elements =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1-7"><a aria-label="7"></a>    <span class="at">text_size =</span> <span class="dv">12</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Cannot be even AND odd"</span>)</span>
-<span id="cb1-8"><a aria-label="8"></a>p1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
-<div>
-<figure><p><img data-src="Probability2_files/figure-revealjs/even_odd-1.png" class="margin-caption" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>E.g., <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%28%5Ctext%7Beven%20AND%20odd%7D%29%3D0" alt="Pr(\text{even AND odd})=0" title="Pr(\text{even AND odd})=0" class="math inline"> in a die roll</p>
-</div></div>
-</section><section id="non-mutually-exclusive-events" class="slide level2"><h2>Non-mutually exclusive events</h2>
-<div class="goal">
-<p>Example: getting an even number that is also a prime number.</p>
-</div>
-<div class="columns">
-<div class="column" style="width:30%;">
-<p>If <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline"> are <em>not</em> mutually exclusive:</p>
-<ul>
-<li>There’s a chance of outcome <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline">.</li>
-<li>I.e., it is plausible that <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20P%28A%20%5C%26%20B%29%5Cneq0" alt="P(A \&amp; B)\neq0" title="P(A \&amp; B)\neq0" class="math inline">
-</li>
-</ul>
-</div><div class="column" style="width:70%;">
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a>l2 <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">even =</span> even_numbers, <span class="at">prime =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>))</span>
-<span id="cb2-2"><a aria-label="2"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggvenn</span>(l2, <span class="at">fill_color =</span> <span class="fu">asteroidcity1</span>(), <span class="at">show_elements =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb2-3"><a aria-label="3"></a>    <span class="at">text_size =</span> <span class="dv">12</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Can be even AND prime"</span>)</span>
-<span id="cb2-4"><a aria-label="4"></a>p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
-<div>
-<figure><p><img data-src="Probability2_files/figure-revealjs/even_prime-1.png" class="margin-caption" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>E.g., <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20P%28%5Ctext%7Beven%20AND%20prime%7D%29%20%5Cneq%200" alt="P(\text{even AND prime}) \neq 0" title="P(\text{even AND prime}) \neq 0" class="math inline"> in a die roll – in fact, what is it?</p>
-</div></div>
-<aside class="notes"><p>only one nummber out of the six is both even and prime,so: 2/6=1/3</p>
+</ul></section><section id="practice-problems" class="slide level2"><h2>Practice problems</h2>
+</section><section id="practice-1" class="slide level2"><h2>Practice 1</h2>
+<p>Consider a population of 80 birds where 35 of them are pigeons and the rest are seagulls. If a bird is randomly chosen from this population, what is the probability (expressed as percentage) it will NOT be a pigeon?</p>
+<aside class="notes"><p>1-35/80</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -400,146 +3057,43 @@
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section></section><section><section id="probability-distributions" class="title-slide slide level1 center"><h1>Probability distributions</h1>
-<p>A probability distribution is the true relative frequency of all possible values of a random variable.</p>
-</section><section id="probability-distributions-vs.-densities" class="slide level2"><h2>Probability: Distributions vs.&nbsp;Densities</h2>
-<div class="columns">
-<div class="column" style="width:25%;">
-<p>Probability distributions describe <strong>discrete</strong> variables.</p>
-<p>Probability distributions sum to 1.</p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Csum%7BPr%5Bx%5D%7D%3D1" alt="\sum{Pr[x]}=1" title="\sum{Pr[x]}=1" class="math inline"></p>
-</div><div class="column" style="width:75%;">
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>ns <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fl">1e+06</span>)</span>
-<span id="cb3-2"><a aria-label="2"></a><span class="fu">ggplot</span>(<span class="fu">tibble</span>(<span class="at">x =</span> ns), <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"darkgray"</span>,</span>
-<span id="cb3-3"><a aria-label="3"></a>    <span class="at">fill =</span> <span class="st">"#440154FF"</span>, <span class="at">bins =</span> <span class="dv">30</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Probability Distribution"</span>) <span class="sc">+</span></span>
-<span id="cb3-4"><a aria-label="4"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="at">y =</span> <span class="fl">1e+05</span>, <span class="at">parse =</span> <span class="cn">TRUE</span>, <span class="at">label =</span> <span class="st">"sum(P(x))==1"</span>,</span>
-<span id="cb3-5"><a aria-label="5"></a>        <span class="at">size =</span> <span class="dv">4</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
-<div>
-<figure><p><img data-src="Probability2_files/figure-revealjs/probdist-1.png" class="margin-caption" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section></section><section><section id="section-1" class="title-slide slide level1 center"><h1></h1>
-<p>Technically, only discrete variables have probability distributions,as all discrete values have a finite probability.</p>
-</section><section id="example-probability-distribution-for-rolling-a-die" class="slide level2"><h2>Example: probability distribution for rolling a die</h2>
-<div class="columns">
-<div class="column" style="width:25%;">
-<p>All possible values: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20x%3D%5C%7B1%2C2%2C3%2C4%2C5%2C6%5C%7D" alt="x=\{1,2,3,4,5,6\}" title="x=\{1,2,3,4,5,6\}" class="math inline"></p>
-<p>Probabilities of particular outcomes: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5B1%5D%3D1%2F6" alt="Pr[1]=1/6" title="Pr[1]=1/6" class="math inline"></p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5B2%5D%3D1%2F6%2C%5Ctext%7Betc%7D" alt="Pr[2]=1/6,\text{etc}" title="Pr[2]=1/6,\text{etc}" class="math inline"></p>
-<p>Sum of probabilities of all possible outcomes:</p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Csum%7BPr%5Bx%5D%7D%3D1" alt="\sum{Pr[x]}=1" title="\sum{Pr[x]}=1" class="math inline"></p>
-</div><div class="column" style="width:75%;">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="Probability2_files/figure-revealjs/dieRollDist-1.png" class="margin-caption" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section><section id="probability-distributions-vs.-densities-1" class="slide level2"><h2>Probability: Distributions <em>vs.</em> Densities</h2>
-<div class="columns">
-<div class="column" style="width:25%;">
-<ul>
-<li><p>The probability of any value from a <strong>continuous</strong> distribution is infinitesimally small.</p></li>
-<li><p>Probability densities integrate to 1.</p></li>
-</ul>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cint%7BPr%5Bx%5D%7D%3D1" alt="\int{Pr[x]}=1" title="\int{Pr[x]}=1" class="math inline"></p>
-</div><div class="column" style="width:75%;">
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>plot.dens <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">tibble</span>(<span class="at">x =</span> ns), <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>,</span>
-<span id="cb4-2"><a aria-label="2"></a>    <span class="at">fill =</span> vir[<span class="dv">2</span>]) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Probability Density"</span>)</span>
-<span id="cb4-3"><a aria-label="3"></a>plot.dens</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
-<div>
-<figure><p><img data-src="Probability2_files/figure-revealjs/probdens-1.png" class="margin-caption" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-</section><section id="example-the-normal-distribution" class="slide level2"><h2>Example: the normal distribution!</h2>
-<p>Area under the curve gives you the probability of values in a range <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cleft%5Ba%2Cb%5Cright%5D" alt="\left[a,b\right]" title="\left[a,b\right]" class="math inline"> Each value has an an infinitesimal probability value</p>
-<div class="quarto-figure quarto-figure-center margin-caption">
-<figure><p><img data-src="images/clipboard-1619218967.png" class="margin-caption"></p>
-<figcaption>Figure caption: figure 5.4-4 from the textbook.</figcaption></figure>
-</div>
-</section><section id="proportion" class="slide level2"><h2>Proportion</h2>
-<ul>
-<li><p>The proportion is the number of times an event occurs divided by the number of tries.</p></li>
-<li><p>We can think of a proportion as a realized sample from our probability distribution.</p></li>
-</ul></section><section id="proportion-outcome-of-a-die" class="slide level2"><h2>Proportion: Outcome of a Die 🎲</h2>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb5-2"><a aria-label="2"></a>plot.one.dice.prob <span class="sc">+</span> one.roll</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-<img data-src="Probability2_files/figure-revealjs/dice1-1.png" class="margin-caption r-stretch" width="960"></section></section><section><section id="probability-rules" class="title-slide slide level1 center"><h1>Probability rules</h1>
-<ul>
-<li><p>The general multiplication principle</p></li>
-<li><p>The general addition principle</p></li>
-</ul></section><section id="the-general-addition-principle-this-or-that" class="slide level2"><h2>The general addition principle (“this OR that”)</h2>
+      }</style></aside></section><section id="practice-2" class="slide level2 scrollable"><h2>Practice 2</h2>
+<p>The list of the probabilities of all the mutually exclusive outcomes of a random trial is called which of the following?</p>
+<ol type="A">
+<li><p>An exhaustive list.</p></li>
+<li><p>A probability distribution.</p></li>
+<li><p>A tree diagram.</p></li>
+</ol>
+<p>D)A Venn diagram.</p>
+</section><section id="practice-3" class="slide level2"><h2>Practice 3</h2>
+<p>Consider a population of 400 total individuals that has three types: types A, B, and C. If the probability of choosing a type A individual when randomly choosing an individual is 0.35 and the probability of not choosing type B is 0.5, how many type C individuals are there in the population?</p>
+<aside class="notes"><p>0.15*400</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="practice-4" class="slide level2"><h2>Practice 4</h2>
+<p>Consider a garden with two types of trees, 4 aspen and 6 cedar, and two types of flowers, 8 roses and 2 daffodils. If we randomly pick a tree and a flower, and our choices are unrelated to one another, what is the probability that we select an aspen and a rose?</p>
+<aside class="notes"><p>(4/10)*(8/10)=0.32</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 
-<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BA%20%5Ctext%7B%20OR%20%7D%20B%5D%3DPr%5BA%5D%20%2B%20Pr%5BB%5D%20-%20Pr%5BA%20%5Ctext%7B%20and%20%7D%20B%5D" alt="Pr[A \text{ OR } B]=Pr[A] + Pr[B] - Pr[A \text{ and } B]" title="Pr[A \text{ OR } B]=Pr[A] + Pr[B] - Pr[A \text{ and } B]" class="math inline r-stretch"></section><section id="a-special-case-of-the-addition-principle" class="slide level2"><h2>A special case of the addition principle</h2>
-<p>Special case: if A and B are mutually exclusive, then:</p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BA%20%5Ctext%7B%20%5C%26%20%7D%20B%5D%20%3D%200" alt="Pr[A \text{ \&amp; } B] = 0" title="Pr[A \text{ \&amp; } B] = 0" class="math inline">,</p>
-<p>so:</p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BA%20%5Ctext%7B%20OR%20%7D%20B%5D%3DPr%5BA%5D%20%2B%20Pr%5BB%5D" alt="Pr[A \text{ OR } B]=Pr[A] + Pr[B]" title="Pr[A \text{ OR } B]=Pr[A] + Pr[B]" class="math inline"></p>
-</section><section id="example-1" class="slide level2"><h2>Example 1:</h2>
-<div class="goal">
-<p>What is the probability of a die roll resulting in an even number OR a prime number?</p>
-</div>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
-<div>
-<figure><p><img data-src="Probability2_files/figure-revealjs/example1-1.png" class="margin-caption" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Even numbers: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5C%7B2%2C4%2C6%5C%7D" alt="\{2,4,6\}" title="\{2,4,6\}" class="math inline">; <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5Beven%5D%3D%5Cfrac%7B3%7D%7B6%7D%3D%5Cfrac%7B1%7D%7B2%7D" alt="Pr[even]=\frac{3}{6}=\frac{1}{2}" title="Pr[even]=\frac{3}{6}=\frac{1}{2}" class="math inline"></p>
-<p>Prime numbers: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5C%7B2%2C3%2C5%5C%7D" alt="\{2,3,5\}" title="\{2,3,5\}" class="math inline">; <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5Bprime%5D%3D%5Cfrac%7B3%7D%7B6%7D%3D%5Cfrac%7B1%7D%7B2%7D" alt="Pr[prime]=\frac{3}{6}=\frac{1}{2}" title="Pr[prime]=\frac{3}{6}=\frac{1}{2}" class="math inline"></p>
-<p>Even and prime: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5C%7B2%5C%7D" alt="\{2\}" title="\{2\}" class="math inline">; <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5B%5Ctext%7Beven%20%5C%26%20%20prime%7D%5D%3D%5Cfrac%7B1%7D%7B6%7D" alt="Pr[\text{even \&amp;  prime}]=\frac{1}{6}" title="Pr[\text{even \&amp;  prime}]=\frac{1}{6}" class="math inline"></p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5B%5Ctext%7Beven%20OR%20prime%7D%5D%20%3D%201%2F2%20%2B%201%2F2%20-%201%2F3%20%3D%200.83333" alt="Pr[\text{even OR prime}] = 1/2 + 1/2 - 1/3 = 0.83333" title="Pr[\text{even OR prime}] = 1/2 + 1/2 - 1/3 = 0.83333" class="math inline"></p>
-</section><section id="the-general-multiplication-principle-this-and-that" class="slide level2 center"><h2>The General Multiplication principle (“this AND that”)</h2>
-</section><section id="the-general-multiplication-principle" class="slide level2"><h2>The General Multiplication Principle</h2>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BA%20%5Ctext%7B%20%5C%26%20%7D%20B%5D%20%3D%20Pr%5BA%5D%20%5Ctimes%20Pr%5BB%7CA%5D" alt="Pr[A \text{ \&amp; } B] = Pr[A] \times Pr[B|A]" title="Pr[A \text{ \&amp; } B] = Pr[A] \times Pr[B|A]" class="math inline"></p>
-<ul>
-<li>
-<p>The probability of “<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A%20%5Ctext%7B%20AND%20%7DB" alt="A \text{ AND }B" title="A \text{ AND }B" class="math inline">” equals:</p>
-<p>the probability of one event <strong><em>times</em></strong> the probability of the other, conditioned on the first.</p>
-</li>
-<li><p>Read <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A%7CB" alt="A|B" title="A|B" class="math inline"> as <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> “given” <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline">.</p></li>
-</ul></section><section id="special-case-a-and-b-are-independent" class="slide level2"><h2>Special case: A and B are independent</h2>
-<ul>
-<li class="fragment"><p>Two events are independent if the occurrence of one gives no information about whether the second will occur.</p></li>
-<li class="fragment"><p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline"> are independent if <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BB%20%7C%20A%5D%20%3D%20Pr%5BB%5D" alt="Pr[B | A] = Pr[B]" title="Pr[B | A] = Pr[B]" class="math inline"></p></li>
-<li class="fragment"><p>So the rule becomes: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BA%20%5Ctext%7B%20%5C%26%20%7D%20B%5D%20%3D%20Pr%5BA%5D%20%5Ctimes%20Pr%5BB%7CA%5D%20%3D%20%20Pr%5BA%5D%20%5Ctimes%20Pr%5BB%5D" alt="Pr[A \text{ \&amp; } B] = Pr[A] \times Pr[B|A] =  Pr[A] \times Pr[B]" title="Pr[A \text{ \&amp; } B] = Pr[A] \times Pr[B|A] =  Pr[A] \times Pr[B]" class="math inline"></p></li>
-<li class="fragment"><p>I.e., if <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> &amp; <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline"> are independent, the probability of “<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A%20%5Ctext%7B%20AND%20%7DB" alt="A \text{ AND }B" title="A \text{ AND }B" class="math inline">” is simply the product of their probabilities.</p></li>
-</ul>
-
-<aside><div>
-<p>Note: (in)dependence does not imply any mechanistic or causative relationship.</p>
-</div></aside></section><section id="example" class="slide level2"><h2>Example</h2>
-<div class="goal">
-<p>Probably of getting even numbers in two consecutive rolls of a die.</p>
-</div>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BA%5D%3DPr%5Beven%5D%3D1%2F2" alt="Pr[A]=Pr[even]=1/2" title="Pr[A]=Pr[even]=1/2" class="math inline"></p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BB%5D%3DPr%5Beve%5D%3D1%2F2" alt="Pr[B]=Pr[eve]=1/2" title="Pr[B]=Pr[eve]=1/2" class="math inline"></p>
-<p>Since each trial (roll) is independent, then: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5B%5Ctext%7Beven%20in%20both%20rolls%7D%5D%3D1%2F2%5Ctimes%201%2F2%20%3D%201%2F4" alt="Pr[\text{even in both rolls}]=1/2\times 1/2 = 1/4" title="Pr[\text{even in both rolls}]=1/2\times 1/2 = 1/4" class="math inline"></p>
-
-
-
-<aside><div>
-<p>We will learn about cases on non-independence later</p>
-</div></aside></section></section>
+</section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

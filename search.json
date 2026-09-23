@@ -4,175 +4,105 @@
     "href": "slides/Probability2.html#outline",
     "title": "Probability I",
     "section": "Outline",
-    "text": "Outline\n\nDefinition(s) & Foundational Concepts\n\nProbability as long-term frequency\nRandom trials\nTypes of events (exclusive and non-exclusive)\nProbability distributions x probability densities x proportions\nthe general addition principle"
+    "text": "Outline\n\nUnderstand once and for all that statistics and probability are NOT intuitive\nReview concepts introduced in the recorded lecture"
   },
   {
-    "objectID": "slides/Probability2.html#statistics-and-probability-are-not-intuitive",
-    "href": "slides/Probability2.html#statistics-and-probability-are-not-intuitive",
+    "objectID": "slides/Probability2.html#statistics-and-probability-in-particular-are-not-intuitive",
+    "href": "slides/Probability2.html#statistics-and-probability-in-particular-are-not-intuitive",
     "title": "Probability I",
-    "section": "Statistics and probability are not intuitive",
-    "text": "Statistics and probability are not intuitive\n\nOur brains do a bad job of interpreting data\n\n\nwe see patterns in random data\nwe tend to be overconfident\nwe tend to jump to conclusions\nwe don’t realize that coincidences are common\nwe have incorrect feelings about probability\nwe don’t expect variability to depend on sample size\nwe find it hard to combine probabilities (coming up soon)"
+    "section": "Statistics (and probability, in particular) are not intuitive",
+    "text": "Statistics (and probability, in particular) are not intuitive\n\n“If something has a 50% chance of happening, then 9 times out of 10 it will” — Yogi Berra"
   },
   {
-    "objectID": "slides/Probability2.html#why-do-we-need-probabilities-1",
-    "href": "slides/Probability2.html#why-do-we-need-probabilities-1",
+    "objectID": "slides/Probability2.html#meaning-of-intuitive",
+    "href": "slides/Probability2.html#meaning-of-intuitive",
     "title": "Probability I",
-    "section": "Why do we need probabilities?",
-    "text": "Why do we need probabilities?\nWe can use probability theory to connect sample estimates\n\nWhich we can obtain from data.\nWhich take their values by chance (variable).\n\nTo population parameters:\n\nWhich we can almost never obtain.\nWith values free from chance (population constant)."
+    "section": "Meaning of “intuitive”",
+    "text": "Meaning of “intuitive”\n\n“easy to understand”\n“instinctive, or acting on what one feels to be true even without reason”"
   },
   {
-    "objectID": "slides/Probability2.html#section",
-    "href": "slides/Probability2.html#section",
+    "objectID": "slides/Probability2.html#each-row-is-a-basketball-player-1",
+    "href": "slides/Probability2.html#each-row-is-a-basketball-player-1",
     "title": "Probability I",
-    "section": "",
-    "text": "To help us when generalizing from sample to population, we need Probability Theory:\nThe foundation of statistical thinking"
+    "section": "Each row is a basketball player (1)",
+    "text": "Each row is a basketball player (1)\n\n\n\n\n\n\n\n1. Do you see a pattern?\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n\n\n\n\n1\n1\n1\n1\n0\n1\n0\n0\n0\n1\n1\n1\n1\n0\n1\n1\n1\n0\n1\n1\n\n\n1\n1\n1\n1\n1\n1\n0\n1\n1\n1\n0\n1\n0\n0\n0\n1\n0\n1\n1\n0\n\n\n1\n0\n1\n1\n1\n0\n0\n0\n0\n1\n1\n1\n1\n1\n0\n1\n0\n0\n1\n0\n\n\n1\n1\n0\n1\n0\n0\n1\n0\n0\n1\n1\n0\n0\n0\n1\n1\n1\n0\n1\n0\n\n\n0\n1\n0\n1\n0\n1\n0\n1\n1\n0\n0\n0\n0\n1\n0\n1\n1\n0\n1\n1\n\n\n1\n0\n0\n0\n0\n1\n0\n1\n0\n0\n0\n1\n1\n1\n1\n0\n1\n0\n1\n0\n\n\n0\n1\n1\n0\n1\n0\n1\n1\n1\n1\n0\n0\n1\n0\n0\n1\n1\n1\n1\n1\n\n\n0\n1\n0\n1\n1\n0\n1\n1\n0\n1\n1\n1\n0\n0\n0\n0\n1\n1\n1\n0\n\n\n0\n0\n0\n1\n1\n1\n1\n1\n0\n1\n1\n0\n0\n0\n0\n1\n1\n0\n1\n0\n\n\n0\n0\n0\n0\n1\n1\n0\n1\n0\n1\n1\n1\n0\n1\n1\n0\n1\n0\n0\n0\n\n\n\n\n0: miss\n\n\n1: hit"
   },
   {
-    "objectID": "slides/Probability2.html#what-is-probability",
-    "href": "slides/Probability2.html#what-is-probability",
+    "objectID": "slides/Probability2.html#each-row-is-a-basketball-player-2",
+    "href": "slides/Probability2.html#each-row-is-a-basketball-player-2",
     "title": "Probability I",
-    "section": "What is probability?",
-    "text": "What is probability?\n\nIt depends.\nProbability is super complex.\nEntire books have been written on it and there are fiery debates about what even IS a probability."
+    "section": "Each row is a basketball player (2)",
+    "text": "Each row is a basketball player (2)\n\n\n\n\n\n\n\n2. Do you see a pattern?\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n\n\n\n\n1\n1\n0\n1\n1\n0\n0\n1\n1\n1\n0\n0\n0\n1\n1\n1\n1\n0\n1\n1\n\n\n1\n0\n0\n1\n0\n1\n1\n0\n0\n0\n1\n0\n1\n0\n0\n0\n0\n0\n0\n0\n\n\n0\n0\n1\n0\n0\n0\n0\n1\n1\n1\n1\n0\n0\n0\n0\n0\n0\n1\n1\n0\n\n\n1\n1\n1\n0\n1\n1\n0\n0\n1\n1\n1\n0\n0\n0\n1\n1\n0\n1\n1\n1\n\n\n0\n0\n0\n1\n1\n1\n0\n1\n1\n1\n0\n1\n1\n0\n0\n1\n0\n1\n1\n0\n\n\n0\n0\n0\n0\n0\n1\n1\n1\n1\n0\n1\n0\n0\n0\n0\n1\n1\n0\n1\n1\n\n\n1\n0\n0\n0\n1\n0\n1\n0\n0\n1\n0\n0\n0\n0\n0\n1\n0\n1\n1\n1\n\n\n1\n0\n0\n1\n1\n0\n1\n1\n0\n1\n1\n0\n1\n1\n1\n1\n1\n0\n0\n1\n\n\n1\n0\n1\n0\n1\n1\n0\n1\n0\n1\n1\n0\n1\n0\n1\n0\n1\n0\n1\n1\n\n\n1\n0\n0\n0\n1\n1\n0\n1\n0\n0\n1\n1\n0\n1\n0\n1\n0\n1\n0\n1\n\n\n\n\n0: miss\n\n\n1: hit"
   },
   {
-    "objectID": "slides/Probability2.html#some-definitions",
-    "href": "slides/Probability2.html#some-definitions",
+    "objectID": "slides/Probability2.html#each-row-is-a-basketball-player-3",
+    "href": "slides/Probability2.html#each-row-is-a-basketball-player-3",
     "title": "Probability I",
-    "section": "Some definitions",
-    "text": "Some definitions\n\nProbability “out there” - outside your head.\n\nBut also…\n\nProbability that is “inside your head” — as strength of subjective beliefs; may vary among people or even different assessments by the same person.\n“Probabilities” used to quantify ignorance – e.g. probability that a pregnant person is pregnant with a girl\nQuantitive predictions of one time events – e.g., presidential polls\n\n\n\nFrom: Kruschke’s (2011) terminology."
+    "section": "Each row is a basketball player (3)",
+    "text": "Each row is a basketball player (3)\n\n\n\n\n\n\n\n3. Do you see a pattern?\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n\n\n\n\n0\n0\n1\n1\n1\n0\n0\n1\n0\n1\n1\n0\n0\n1\n0\n0\n1\n0\n1\n0\n\n\n1\n0\n0\n1\n0\n0\n1\n1\n1\n1\n1\n0\n1\n0\n1\n0\n1\n0\n0\n1\n\n\n0\n1\n0\n1\n1\n1\n1\n0\n1\n1\n0\n1\n1\n0\n1\n0\n1\n1\n0\n0\n\n\n1\n1\n0\n0\n1\n0\n1\n0\n1\n1\n1\n0\n0\n1\n0\n1\n0\n1\n1\n0\n\n\n0\n0\n0\n1\n0\n1\n1\n1\n1\n0\n1\n1\n0\n1\n1\n0\n1\n0\n1\n1\n\n\n0\n1\n0\n0\n0\n0\n0\n0\n0\n0\n1\n0\n1\n0\n1\n0\n0\n1\n1\n0\n\n\n0\n0\n0\n0\n0\n1\n0\n0\n1\n0\n0\n1\n0\n1\n0\n0\n0\n1\n1\n1\n\n\n1\n0\n1\n0\n0\n0\n0\n0\n1\n1\n1\n1\n1\n1\n1\n0\n1\n1\n1\n0\n\n\n1\n1\n1\n0\n1\n1\n1\n1\n1\n0\n0\n1\n1\n0\n0\n0\n1\n1\n1\n0\n\n\n0\n0\n0\n0\n1\n1\n1\n0\n1\n1\n1\n1\n1\n1\n1\n0\n0\n1\n0\n1\n\n\n\n\n0: miss\n\n\n1: hit"
   },
   {
-    "objectID": "slides/Probability2.html#probability-out-there---outside-your-head",
-    "href": "slides/Probability2.html#probability-out-there---outside-your-head",
+    "objectID": "slides/Probability2.html#each-row-is-a-basketball-player-3-1",
+    "href": "slides/Probability2.html#each-row-is-a-basketball-player-3-1",
     "title": "Probability I",
-    "section": "Probability “out there” - outside your head",
-    "text": "Probability “out there” - outside your head\nWhat we deal with in biology most of the time.\n\n\nThis is probability as long-term frequency\nThe probability that a certain event will happen has a definite value (a parameter)\nWe rarely have enough data to know that value precisely (or good data to know it accurately), but we estimate it and give it different levels of confidence"
+    "section": "Each row is a basketball player (3)",
+    "text": "Each row is a basketball player (3)\n\n\n\n\n\n\n\n4. Do you see a pattern?\n\n\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n\n\n\n\n0\n0\n1\n1\n1\n1\n1\n1\n0\n0\n1\n0\n1\n1\n1\n1\n0\n1\n1\n0\n\n\n1\n1\n1\n1\n1\n1\n1\n0\n1\n0\n0\n0\n1\n0\n0\n1\n1\n1\n0\n1\n\n\n0\n0\n1\n1\n1\n1\n1\n0\n1\n0\n0\n0\n0\n0\n1\n0\n0\n0\n1\n1\n\n\n1\n0\n0\n0\n0\n0\n0\n1\n1\n1\n1\n0\n1\n0\n0\n0\n1\n0\n1\n0\n\n\n1\n1\n0\n1\n1\n0\n1\n0\n0\n0\n0\n0\n0\n1\n1\n1\n1\n0\n1\n1\n\n\n1\n0\n1\n1\n0\n1\n1\n0\n1\n1\n1\n1\n1\n0\n1\n0\n0\n1\n1\n0\n\n\n1\n0\n1\n1\n1\n0\n1\n0\n1\n1\n0\n0\n0\n0\n1\n0\n1\n0\n1\n0\n\n\n1\n0\n0\n0\n0\n0\n1\n1\n1\n0\n0\n1\n1\n1\n0\n0\n0\n0\n0\n0\n\n\n0\n0\n1\n1\n1\n1\n0\n0\n1\n0\n1\n0\n1\n0\n1\n0\n1\n0\n1\n0\n\n\n1\n1\n0\n1\n1\n0\n0\n1\n0\n1\n1\n1\n1\n0\n0\n1\n1\n1\n1\n0\n\n\n\n\n0: miss\n\n\n1: hit"
   },
   {
-    "objectID": "slides/Probability2.html#probability-as-long-term-frequency",
-    "href": "slides/Probability2.html#probability-as-long-term-frequency",
+    "objectID": "slides/Probability2.html#generalizing-from-a-sample-to-a-population-seems-to-be-hard-wired-into-our-brains",
+    "href": "slides/Probability2.html#generalizing-from-a-sample-to-a-population-seems-to-be-hard-wired-into-our-brains",
     "title": "Probability I",
-    "section": "Probability as long-term frequency",
-    "text": "Probability as long-term frequency\n\nThe probability of an event is its true relative frequency - “out there”\nThis is the proportion of times the event would occur if we repeated the same random trial over and over again under the same conditions"
+    "section": "Generalizing from a sample to a population seems to be hard-wired into our brains",
+    "text": "Generalizing from a sample to a population seems to be hard-wired into our brains\n\n\nImages: AFP/Getty Images/Warner Bros Records. Taken from: https://www.bbc.com/future/article/20140730-why-do-we-see-faces-in-objects"
   },
   {
-    "objectID": "slides/Probability2.html#probability-theory-statistics",
-    "href": "slides/Probability2.html#probability-theory-statistics",
+    "objectID": "slides/Probability2.html#pick-a-range-that-you-think-has-a-90-chance-of-containing-the-right",
+    "href": "slides/Probability2.html#pick-a-range-that-you-think-has-a-90-chance-of-containing-the-right",
     "title": "Probability I",
-    "section": "Probability Theory & Statistics",
-    "text": "Probability Theory & Statistics\nProbabilities take values from 0-1 (or 0-100%)\nThey are used to quantify a prediction about a future event OR the certainty of a belief\n\n\n\n\n\nA probability of zero (0%) indicates:\n\nAn event is impossibleOR\n\nSomeone is absolutely (100%) sure that a statement is wrong\n\n\n\n\n\n\nA probability of one (100%) indicates:\n\nAn event is certain to happenOR\n\nSomeone is absolutely (100%) sure that a statement is correct\n\n\n\n\n\n\nA probability of 0.5 (50%) indicates:\n\nAn event is equally likely to happen or not happenOR\n\nSomeone believes that a statement is equally likely to be true or false"
+    "section": "Pick a range that you think has a 90% chance of containing the right",
+    "text": "Pick a range that you think has a 90% chance of containing the right\nanswer\n\nDon’t consult anything/anyone. The goal is to quantify your uncertainty. If you truly have no idea, you can use the broadest range that is plausible (which you can be 100% sure includes the answer) but try to narrow down your answers to a range that you are 90% sure contains the right answer.\n\n\n\n\nMartin Luther King Jr’s age at death\nLength of the Nile river (miles; km)\nNumber of countries in OPEC1\n\nNumber of books in the Old Testament\nDiameter of the moon (miles; km)\nWeight of an empty Boeing 747 (lbs; kg)\n\n\n\nYear Mozart was born\nGestation period of an Asian elephant (days)\nDistance from London to Tokyo (miles; km)\nDeepest know point in the ocean (miles; km)\n\n\nOrganization of the Petroleum Exporting Countries"
   },
   {
-    "objectID": "slides/Probability2.html#random-trials",
-    "href": "slides/Probability2.html#random-trials",
+    "objectID": "slides/Probability2.html#statistics-and-probability-in-particular-are-not-intuitive-1",
+    "href": "slides/Probability2.html#statistics-and-probability-in-particular-are-not-intuitive-1",
     "title": "Probability I",
-    "section": "Random Trials",
-    "text": "Random Trials\n\nRolling a die.\n\n\nA random trial is a process or experiment that has two or more possible outcomes whose occurrence cannot be predicted with certainty.\nOnly one outcome is observed from each repetition of a random trial.\nAn event is any potential subset of all the possible outcomes.\n\n\nFigure caption: figure 5.2-1 from the textbook."
+    "section": "Statistics (and probability, in particular) are not intuitive",
+    "text": "Statistics (and probability, in particular) are not intuitive\n\nwe see patterns in random data\nwe tend to be overconfident"
   },
   {
-    "objectID": "slides/Probability2.html#mutually-exclusive-events",
-    "href": "slides/Probability2.html#mutually-exclusive-events",
+    "objectID": "slides/Probability2.html#practice-problems",
+    "href": "slides/Probability2.html#practice-problems",
     "title": "Probability I",
-    "section": "Mutually exclusive events",
-    "text": "Mutually exclusive events\n\nGetting an odd or even number on a die roll.\n\n\n\nIf  and  are mutually exclusive:\n\nEither  or  are individually plausible outcomes\n\n is not plausible (i.e., )\n\n\n\nCodeeven_numbers &lt;- c(2, 4, 6)\nodd_numbers &lt;- c(1, 3, 5)\nl &lt;- list(even = even_numbers, odd = odd_numbers, all = sort(c(even_numbers,\n    odd_numbers)))\nlibrary(ggvenn)\np1 &lt;- ggvenn(l[c(1:2)], fill_color = asteroidcity1(), show_elements = TRUE,\n    text_size = 12) + ggtitle(\"Cannot be even AND odd\")\np1\n\n\n\n\n\n\n\nE.g.,  in a die roll"
+    "section": "Practice problems",
+    "text": "Practice problems"
   },
   {
-    "objectID": "slides/Probability2.html#non-mutually-exclusive-events",
-    "href": "slides/Probability2.html#non-mutually-exclusive-events",
+    "objectID": "slides/Probability2.html#practice-1",
+    "href": "slides/Probability2.html#practice-1",
     "title": "Probability I",
-    "section": "Non-mutually exclusive events",
-    "text": "Non-mutually exclusive events\n\nExample: getting an even number that is also a prime number.\n\n\n\nIf  and  are not mutually exclusive:\n\nThere’s a chance of outcome  and .\nI.e., it is plausible that \n\n\n\n\nCodel2 &lt;- list(even = even_numbers, prime = c(2, 3, 5))\np2 &lt;- ggvenn(l2, fill_color = asteroidcity1(), show_elements = TRUE,\n    text_size = 12) + ggtitle(\"Can be even AND prime\")\np2\n\n\n\n\n\n\n\nE.g.,  in a die roll – in fact, what is it?\n\nonly one nummber out of the six is both even and prime,so: 2/6=1/3"
+    "section": "Practice 1",
+    "text": "Practice 1\nConsider a population of 80 birds where 35 of them are pigeons and the rest are seagulls. If a bird is randomly chosen from this population, what is the probability (expressed as percentage) it will NOT be a pigeon?\n1-35/80"
   },
   {
-    "objectID": "slides/Probability2.html#probability-distributions-vs.-densities",
-    "href": "slides/Probability2.html#probability-distributions-vs.-densities",
+    "objectID": "slides/Probability2.html#practice-2",
+    "href": "slides/Probability2.html#practice-2",
     "title": "Probability I",
-    "section": "Probability: Distributions vs. Densities",
-    "text": "Probability: Distributions vs. Densities\n\n\nProbability distributions describe discrete variables.\nProbability distributions sum to 1.\n\n\n\nCodens &lt;- rnorm(1e+06)\nggplot(tibble(x = ns), aes(x = x)) + geom_histogram(color = \"darkgray\",\n    fill = \"#440154FF\", bins = 30, alpha = 0.5) + ggtitle(\"Probability Distribution\") +\n    annotate(\"text\", x = -4, y = 1e+05, parse = TRUE, label = \"sum(P(x))==1\",\n        size = 4)"
+    "section": "Practice 2",
+    "text": "Practice 2\nThe list of the probabilities of all the mutually exclusive outcomes of a random trial is called which of the following?\n\nAn exhaustive list.\nA probability distribution.\nA tree diagram.\n\nD)A Venn diagram."
   },
   {
-    "objectID": "slides/Probability2.html#example-probability-distribution-for-rolling-a-die",
-    "href": "slides/Probability2.html#example-probability-distribution-for-rolling-a-die",
+    "objectID": "slides/Probability2.html#practice-3",
+    "href": "slides/Probability2.html#practice-3",
     "title": "Probability I",
-    "section": "Example: probability distribution for rolling a die",
-    "text": "Example: probability distribution for rolling a die\n\n\nAll possible values: \nProbabilities of particular outcomes: \n\nSum of probabilities of all possible outcomes:"
+    "section": "Practice 3",
+    "text": "Practice 3\nConsider a population of 400 total individuals that has three types: types A, B, and C. If the probability of choosing a type A individual when randomly choosing an individual is 0.35 and the probability of not choosing type B is 0.5, how many type C individuals are there in the population?\n0.15*400"
   },
   {
-    "objectID": "slides/Probability2.html#probability-distributions-vs.-densities-1",
-    "href": "slides/Probability2.html#probability-distributions-vs.-densities-1",
+    "objectID": "slides/Probability2.html#practice-4",
+    "href": "slides/Probability2.html#practice-4",
     "title": "Probability I",
-    "section": "Probability: Distributions vs. Densities",
-    "text": "Probability: Distributions vs. Densities\n\n\n\nThe probability of any value from a continuous distribution is infinitesimally small.\nProbability densities integrate to 1.\n\n\n\n\nCodeplot.dens &lt;- ggplot(tibble(x = ns), aes(x = x)) + geom_density(alpha = 0.8,\n    fill = vir[2]) + ggtitle(\"Probability Density\")\nplot.dens"
-  },
-  {
-    "objectID": "slides/Probability2.html#example-the-normal-distribution",
-    "href": "slides/Probability2.html#example-the-normal-distribution",
-    "title": "Probability I",
-    "section": "Example: the normal distribution!",
-    "text": "Example: the normal distribution!\nArea under the curve gives you the probability of values in a range  Each value has an an infinitesimal probability value\n\n\nFigure caption: figure 5.4-4 from the textbook."
-  },
-  {
-    "objectID": "slides/Probability2.html#proportion",
-    "href": "slides/Probability2.html#proportion",
-    "title": "Probability I",
-    "section": "Proportion",
-    "text": "Proportion\n\nThe proportion is the number of times an event occurs divided by the number of tries.\nWe can think of a proportion as a realized sample from our probability distribution."
-  },
-  {
-    "objectID": "slides/Probability2.html#proportion-outcome-of-a-die",
-    "href": "slides/Probability2.html#proportion-outcome-of-a-die",
-    "title": "Probability I",
-    "section": "Proportion: Outcome of a Die 🎲",
-    "text": "Proportion: Outcome of a Die 🎲\n\nCodelibrary(patchwork)\nplot.one.dice.prob + one.roll"
-  },
-  {
-    "objectID": "slides/Probability2.html#the-general-addition-principle-this-or-that",
-    "href": "slides/Probability2.html#the-general-addition-principle-this-or-that",
-    "title": "Probability I",
-    "section": "The general addition principle (“this OR that”)",
-    "text": "The general addition principle (“this OR that”)"
-  },
-  {
-    "objectID": "slides/Probability2.html#a-special-case-of-the-addition-principle",
-    "href": "slides/Probability2.html#a-special-case-of-the-addition-principle",
-    "title": "Probability I",
-    "section": "A special case of the addition principle",
-    "text": "A special case of the addition principle\nSpecial case: if A and B are mutually exclusive, then:\n,\nso:"
-  },
-  {
-    "objectID": "slides/Probability2.html#example-1",
-    "href": "slides/Probability2.html#example-1",
-    "title": "Probability I",
-    "section": "Example 1:",
-    "text": "Example 1:\n\nWhat is the probability of a die roll resulting in an even number OR a prime number?\n\n\nCodep2\n\n\n\n\n\n\n\nEven numbers: ; \nPrime numbers: ; \nEven and prime: ;"
-  },
-  {
-    "objectID": "slides/Probability2.html#the-general-multiplication-principle-this-and-that",
-    "href": "slides/Probability2.html#the-general-multiplication-principle-this-and-that",
-    "title": "Probability I",
-    "section": "The General Multiplication principle (“this AND that”)",
-    "text": "The General Multiplication principle (“this AND that”)"
-  },
-  {
-    "objectID": "slides/Probability2.html#the-general-multiplication-principle",
-    "href": "slides/Probability2.html#the-general-multiplication-principle",
-    "title": "Probability I",
-    "section": "The General Multiplication Principle",
-    "text": "The General Multiplication Principle\n\n\n\nThe probability of “” equals:\nthe probability of one event times the probability of the other, conditioned on the first.\n\nRead  as  “given” ."
-  },
-  {
-    "objectID": "slides/Probability2.html#special-case-a-and-b-are-independent",
-    "href": "slides/Probability2.html#special-case-a-and-b-are-independent",
-    "title": "Probability I",
-    "section": "Special case: A and B are independent",
-    "text": "Special case: A and B are independent\n\nTwo events are independent if the occurrence of one gives no information about whether the second will occur.\n and  are independent if \nSo the rule becomes: \nI.e., if  &  are independent, the probability of “” is simply the product of their probabilities.\n\n\n\nNote: (in)dependence does not imply any mechanistic or causative relationship."
-  },
-  {
-    "objectID": "slides/Probability2.html#example",
-    "href": "slides/Probability2.html#example",
-    "title": "Probability I",
-    "section": "Example",
-    "text": "Example\n\nProbably of getting even numbers in two consecutive rolls of a die.\n\n\n\nSince each trial (roll) is independent, then: \n\n\n\n\nWe will learn about cases on non-independence later"
+    "section": "Practice 4",
+    "text": "Practice 4\nConsider a garden with two types of trees, 4 aspen and 6 cedar, and two types of flowers, 8 roses and 2 daffodils. If we randomly pick a tree and a flower, and our choices are unrelated to one another, what is the probability that we select an aspen and a rose?\n(4/10)*(8/10)=0.32"
   },
   {
     "objectID": "slides/extra.html#cumulative-frequency-distributions",
@@ -1124,7 +1054,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\n1.1.Statistics & Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nUnit 1\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nUnit 1\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nUnit 1\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\nReview/practice problems\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.2.Displaying & Describing Data\n\n\nFri, Sep 11\n\n\n\n\n\n\nUnit 2\n\n\n2.3.Data Visualization\n\n\nMon, Sep 14\n\n\n\n\n\n\nUnit 2 (stats)\n\n\nReview/practice problems\n\n\nMon, Sep 14\n\n\n\n\n\n\nEDA\n\n\nLab 3: Exploring Data I\n\n\nTue, Sep 15\n\n\n\n\n\n\nUnit 2\n\n\n2.4.Data Visualization\n\n\nWed, Sep 16\n\n\n\n\n\n\nUnit 2\n\n\n2.5.Data Visualization\n\n\nFri, Sep 18\n\n\n\n\n\n\nUnit 3\n\n\nProbability I\n\n\nMon, Sep 21\n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\n1.1.Statistics & Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nUnit 1\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nUnit 1\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nUnit 1\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\nReview/practice problems\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.2.Displaying & Describing Data\n\n\nFri, Sep 11\n\n\n\n\n\n\nUnit 2\n\n\n2.3.Data Visualization\n\n\nMon, Sep 14\n\n\n\n\n\n\nUnit 2 (stats)\n\n\nReview/practice problems\n\n\nMon, Sep 14\n\n\n\n\n\n\nEDA\n\n\nLab 3: Exploring Data I\n\n\nTue, Sep 15\n\n\n\n\n\n\nUnit 2\n\n\n2.4.Data Visualization\n\n\nWed, Sep 16\n\n\n\n\n\n\nUnit 2\n\n\n2.5.Data Visualization\n\n\nFri, Sep 18\n\n\n\n\n\n\nUnit 3\n\n\nProbability I\n\n\nMon, Sep 21\n\n\n\n\n\n\nUnit 3\n\n\nProbability I\n\n\nWed, Sep 23\n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Slides"
     ]
@@ -1196,7 +1126,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 7 9 3\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 1 4 6"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1]  2  4 10\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1]  9  1 10"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
