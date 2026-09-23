@@ -4,14 +4,63 @@
     "href": "slides/Probability2.html#outline",
     "title": "Probability I",
     "section": "Outline",
-    "text": "Outline\n\nUnderstand once and for all that statistics and probability are NOT intuitive\nReview concepts introduced in the recorded lecture"
+    "text": "Outline\n\nReview concepts introduced in the recorded lecture\nUnderstand once and for all that statistics and probability are NOT intuitive"
+  },
+  {
+    "objectID": "slides/Probability2.html#practice-problems",
+    "href": "slides/Probability2.html#practice-problems",
+    "title": "Probability I",
+    "section": "Practice problems",
+    "text": "Practice problems"
+  },
+  {
+    "objectID": "slides/Probability2.html#practice-1",
+    "href": "slides/Probability2.html#practice-1",
+    "title": "Probability I",
+    "section": "Practice 1",
+    "text": "Practice 1\nConsider a population of 80 birds where 35 of them are pigeons and the rest are seagulls. If a bird is randomly chosen from this population, what is the probability (expressed as percentage) it will NOT be a pigeon?\n1-35/80"
+  },
+  {
+    "objectID": "slides/Probability2.html#practice-2",
+    "href": "slides/Probability2.html#practice-2",
+    "title": "Probability I",
+    "section": "Practice 2",
+    "text": "Practice 2\nThe list of the probabilities of all the mutually exclusive outcomes of a random trial is called which of the following?\n\nAn exhaustive list.\nA probability distribution.\nA tree diagram.\n\nD)A Venn diagram."
+  },
+  {
+    "objectID": "slides/Probability2.html#practice-3",
+    "href": "slides/Probability2.html#practice-3",
+    "title": "Probability I",
+    "section": "Practice 3",
+    "text": "Practice 3\nConsider a population of 400 total individuals that has three types: types A, B, and C. If the probability of choosing a type A individual when randomly choosing an individual is 0.35 and the probability of not choosing type B is 0.5, how many type C individuals are there in the population?\n0.15*400"
+  },
+  {
+    "objectID": "slides/Probability2.html#practice-4",
+    "href": "slides/Probability2.html#practice-4",
+    "title": "Probability I",
+    "section": "Practice 4",
+    "text": "Practice 4\nConsider a garden with two types of trees, 4 aspen and 6 cedar, and two types of flowers, 8 roses and 2 daffodils. If we randomly pick a tree and a flower, and our choices are unrelated to one another, what is the probability that we select an aspen and a rose?\n(4/10)*(8/10)=0.32"
+  },
+  {
+    "objectID": "slides/Probability2.html#lingo-alert-odds-vs.-probability",
+    "href": "slides/Probability2.html#lingo-alert-odds-vs.-probability",
+    "title": "Probability I",
+    "section": "Lingo alert: Odds vs. probability",
+    "text": "Lingo alert: Odds vs. probability\n\nThey express the same thing\nProbabilities can be expressed as odds\nOdds can be expressed as probability\nBut odds have a specific meaning in stats\nNo consistency across fields and no advantage of one over the other\nI learned and most often use “probability” - It sounds less ambiguous to me than odds, which people use more in normal parlance"
+  },
+  {
+    "objectID": "slides/Probability2.html#example-sex-ratio",
+    "href": "slides/Probability2.html#example-sex-ratio",
+    "title": "Probability I",
+    "section": "Example: Sex ratio",
+    "text": "Example: Sex ratio\n\nWorldwide, the boy to girl sex ratio of babies born has been estimated to be 1.07. What is the probability of a random birth being a boy?\n\n\nOdds: Probability that event will occur (male born) divided by probability it will not occur (female born). Can be any value 0 or positive (not negative).\n\nOdds of having boy versus girl is: – can also be phrased as  or \nEquivalent to  (),  (), etc\n\nProbability: if there are 107 boys born for every 100 girls,  or  is the probability of having a boy."
   },
   {
     "objectID": "slides/Probability2.html#statistics-and-probability-in-particular-are-not-intuitive",
     "href": "slides/Probability2.html#statistics-and-probability-in-particular-are-not-intuitive",
     "title": "Probability I",
     "section": "Statistics (and probability, in particular) are not intuitive",
-    "text": "Statistics (and probability, in particular) are not intuitive\n\n“If something has a 50% chance of happening, then 9 times out of 10 it will” — Yogi Berra"
+    "text": "Statistics (and probability, in particular) are not intuitive\n\n\n“If something has a 50% chance of happening, then 9 times out of 10 it will” — Yogi Berra"
   },
   {
     "objectID": "slides/Probability2.html#meaning-of-intuitive",
@@ -68,41 +117,6 @@
     "title": "Probability I",
     "section": "Statistics (and probability, in particular) are not intuitive",
     "text": "Statistics (and probability, in particular) are not intuitive\n\nwe see patterns in random data\nwe tend to be overconfident"
-  },
-  {
-    "objectID": "slides/Probability2.html#practice-problems",
-    "href": "slides/Probability2.html#practice-problems",
-    "title": "Probability I",
-    "section": "Practice problems",
-    "text": "Practice problems"
-  },
-  {
-    "objectID": "slides/Probability2.html#practice-1",
-    "href": "slides/Probability2.html#practice-1",
-    "title": "Probability I",
-    "section": "Practice 1",
-    "text": "Practice 1\nConsider a population of 80 birds where 35 of them are pigeons and the rest are seagulls. If a bird is randomly chosen from this population, what is the probability (expressed as percentage) it will NOT be a pigeon?\n1-35/80"
-  },
-  {
-    "objectID": "slides/Probability2.html#practice-2",
-    "href": "slides/Probability2.html#practice-2",
-    "title": "Probability I",
-    "section": "Practice 2",
-    "text": "Practice 2\nThe list of the probabilities of all the mutually exclusive outcomes of a random trial is called which of the following?\n\nAn exhaustive list.\nA probability distribution.\nA tree diagram.\n\nD)A Venn diagram."
-  },
-  {
-    "objectID": "slides/Probability2.html#practice-3",
-    "href": "slides/Probability2.html#practice-3",
-    "title": "Probability I",
-    "section": "Practice 3",
-    "text": "Practice 3\nConsider a population of 400 total individuals that has three types: types A, B, and C. If the probability of choosing a type A individual when randomly choosing an individual is 0.35 and the probability of not choosing type B is 0.5, how many type C individuals are there in the population?\n0.15*400"
-  },
-  {
-    "objectID": "slides/Probability2.html#practice-4",
-    "href": "slides/Probability2.html#practice-4",
-    "title": "Probability I",
-    "section": "Practice 4",
-    "text": "Practice 4\nConsider a garden with two types of trees, 4 aspen and 6 cedar, and two types of flowers, 8 roses and 2 daffodils. If we randomly pick a tree and a flower, and our choices are unrelated to one another, what is the probability that we select an aspen and a rose?\n(4/10)*(8/10)=0.32"
   },
   {
     "objectID": "slides/extra.html#cumulative-frequency-distributions",
@@ -1126,7 +1140,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1]  2  4 10\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1]  9  1 10"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 2 3 8\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1]  1  6 10"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
