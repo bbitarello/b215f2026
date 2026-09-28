@@ -35,11 +35,11 @@
     "text": "Using probability trees"
   },
   {
-    "objectID": "slides/Probability3.html#why",
-    "href": "slides/Probability3.html#why",
+    "objectID": "slides/Probability3.html#why-probability-trees",
+    "href": "slides/Probability3.html#why-probability-trees",
     "title": "Probability I",
-    "section": "Why?",
-    "text": "Why?\n\nProbability theory can be hard.\nBeing explicit about what you’re doing makes this easier.\nProbability trees offer a simple way to follow the thought process."
+    "section": "Why probability trees",
+    "text": "Why probability trees\n\nA probability tree is a diagram that can be used to calculate the probabilities of combinations of events resulting from multiple random trials. – WS\n\n\nProbability theory can be hard.\nBeing explicit about what you’re doing makes this easier.\nProbability trees offer a simple way to follow the thought process."
   },
   {
     "objectID": "slides/Probability3.html#how-to-make-probability-trees",
@@ -56,11 +56,11 @@
     "text": "Example: Oguchi Disease\n\nOguchi disease, also called congenital stationary night blindness, Oguchi type 1 or Oguchi disease 1, is an autosomal recessive form of congenital stationary night blindness associated with (…) abnormally slow dark adaptation (From: Wikipedia)\n\nAutosomal: not sex chromosome.\nRecessive: phenotype only expressed if two copies are present (in diploids)."
   },
   {
-    "objectID": "slides/Probability3.html#scenario-children-of-oguchi-carriers",
-    "href": "slides/Probability3.html#scenario-children-of-oguchi-carriers",
+    "objectID": "slides/Probability3.html#independent-events-children-of-oguchi-carriers",
+    "href": "slides/Probability3.html#independent-events-children-of-oguchi-carriers",
     "title": "Probability I",
-    "section": "Scenario: Children of Oguchi Carriers",
-    "text": "Scenario: Children of Oguchi Carriers\n\nIf both of parents have an affected chromosome but no disease, what’s the probability that none, one or both (three separate questions here) of their children will have Oguchi disease?\n\nLet’s use probability trees!"
+    "section": "Independent events: Children of Oguchi Carriers",
+    "text": "Independent events: Children of Oguchi Carriers\n\nIf both of parents have an affected chromosome but no disease, what’s the probability that none, one or both (three separate questions here) of their children will have Oguchi disease?\n\nLet’s use probability trees!"
   },
   {
     "objectID": "slides/Probability3.html#step-1-write-down-all-possible-outcomes",
@@ -95,7 +95,7 @@
     "href": "slides/Probability3.html#step-3.-multiply-each-value-down-a-path-to-find-the-probability-of-that-path-1",
     "title": "Probability I",
     "section": "Step 3. Multiply each value down a path to find the probability of that path",
-    "text": "Step 3. Multiply each value down a path to find the probability of that path"
+    "text": "Step 3. Multiply each value down a path to find the probability of that path\nEach tree tip defines a unique and mutually exclusive sequence of events. . . ."
   },
   {
     "objectID": "slides/Probability3.html#step-4.-sum-paths-that-lead-to-the-same-destination",
@@ -109,7 +109,7 @@
     "href": "slides/Probability3.html#dependent-events-conditional-probabilities",
     "title": "Probability I",
     "section": "Dependent events & Conditional Probabilities",
-    "text": "Dependent events & Conditional Probabilities"
+    "text": "Dependent events & Conditional Probabilities\nMuch of science involves identifying variables that are associated."
   },
   {
     "objectID": "slides/Probability3.html#dependent-events",
@@ -145,13 +145,6 @@
     "title": "Probability I",
     "section": "Example: Surviving the Titanic Conditional on Class",
     "text": "Example: Surviving the Titanic Conditional on Class\n\nHypothesis: If survival and sitting in 1st class are not independent"
-  },
-  {
-    "objectID": "slides/Probability3.html#titanic-survival-conditional-on-class-with-probability-trees",
-    "href": "slides/Probability3.html#titanic-survival-conditional-on-class-with-probability-trees",
-    "title": "Probability I",
-    "section": "Titanic survival conditional on class with probability trees",
-    "text": "Titanic survival conditional on class with probability trees\n\nWe recover"
   },
   {
     "objectID": "slides/Probability.html#outline",
@@ -1201,7 +1194,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1]  9  2 10\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 6 9 3"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1]  8 10  3\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 1 7 2"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
