@@ -9,9 +9,9 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-eaeb381c6b7494c50009502241a4985c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
-<meta name="dcterms.date" content="2026-09-29">
+<meta name="dcterms.date" content="2026-10-01">
 <meta name="keywords" content="Unit 3">
-<title>BIOL B215: Biostatistics with R – Probability I &amp; PS discussion</title>
+<title>BIOL B215: Biostatistics with R – Probability II</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -135,43 +135,145 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center"><h1 class="title">Probability I &amp; PS discussion</h1>
-  <p class="subtitle">Probability is NOT intuitive!</p>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">Probability II</h1>
+  <p class="subtitle">Probability trees &amp; conditional probability</p>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">September 29, 2026</p>
-</section><section id="outline" class="slide level2"><h2>Outline</h2>
-<ul>
-<li>Continue last week’s activity</li>
-<li>Go over PS</li>
-</ul></section><section id="pick-a-range-that-you-think-has-a-90-chance-of-containing-the-right-answer" class="slide level2 scrollable"><h2>Pick a range that you think has a 90% chance of containing the right answer</h2>
+  <p class="date">October 1, 2026</p>
+</section><section id="about-last-classs-activity" class="slide level2" data-visibility="uncounted"><h2>About last class’s activity</h2>
+<p>99% of people are overconfident in this test</p>
 <div class="goal">
-<p>Don’t consult anything/anyone. The goal is to quantify your uncertainty. If you truly have no idea, you can use the broadest range that is plausible (which you can be 100% sure includes the answer) but try to narrow down your answers to a range that you are 90% sure contains the right answer.</p>
+<p>These questions were used in a study by Russo and Shoemaker (1989) and 99% of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20~1%2C000" alt="~1,000" title="~1,000" class="math inline"> participants, but most of them included narrow ranges that included 30 to 60% of correct answers.</p>
 </div>
-<div class="columns">
-<div class="column">
+<p>Similar studies done with experts answering questions in their own field of expertise led to similar results.</p>
+
+<aside><div>
+<p>Russo, J. E., &amp; Schoemaker, P. J. H. (1989). Decision traps. The ten barriers to brilliant decision-asking and how to overcome them. New York: Simon &amp; Schuster.</p>
+</div></aside></section><section id="outline" class="slide level2"><h2>Outline</h2>
+<ul>
+<li>Probability trees: why and demo with independent events</li>
+<li>Dependent Events &amp; Conditional probability</li>
+<li>Probability tree demo with conditional probability</li>
+</ul></section><section id="moving-on-with-probability" class="slide level2"><h2>Moving on with probability</h2>
+<ul>
+<li>We talked about the general addition principle (and its special case)</li>
+<li>We talked about the multiplication principle when events are independent</li>
+<li>Things start getting more complicated now, so we will introduce probability trees</li>
+</ul></section><section id="case-study-oguchi-disease" class="slide level2 center"><h2>Case study: Oguchi disease</h2>
+</section><section id="oguchi-disease" class="slide level2"><h2>Oguchi disease</h2>
+<blockquote>
+<p>Oguchi disease, also called congenital stationary night blindness, Oguchi type 1 or Oguchi disease 1, is an autosomal recessive form of congenital stationary night blindness associated with (…) abnormally slow dark adaptation (From: Wikipedia)</p>
+</blockquote>
+<p><strong>Autosomal:</strong> not sex chromosome.</p>
+<p><strong>Recessive:</strong> phenotype only expressed if two copies are present (in diploids).</p>
+</section><section id="using-probability-trees" class="slide level2 center"><h2>Using probability trees</h2>
+</section><section id="why-probability-trees" class="slide level2"><h2>Why probability trees</h2>
+<blockquote>
+<p>A probability tree is a diagram that can be used to calculate the probabilities of combinations of events resulting from multiple random trials. – WS</p>
+</blockquote>
+<ul>
+<li><p>Probability theory can be hard.</p></li>
+<li><p>Being explicit about what you’re doing makes this easier.</p></li>
+<li><p>Probability trees offer a simple way to follow the thought process.</p></li>
+</ul></section><section id="how-to-make-probability-trees" class="slide level2 scrollable"><h2>How to make probability trees</h2>
 <ol type="1">
-<li>Martin Luther King Jr’s age at death</li>
-<li>Length of the Nile river (miles; km)</li>
-<li>Number of countries in OPEC<sup>1</sup>
+<li><p>Write down all possible outcomes for event one, two… etc. and connect them.</p></li>
+<li><p>Write down the probability of each outcome, conditional on their path.</p></li>
+<li>
+<p>Multiply each value down a path to find the probability of that path.</p>
+<p>Repeat 1-3 for all paths.</p>
 </li>
-<li>Number of books in the Old Testament</li>
-<li>Diameter of the moon (miles; km)</li>
-<li>Weight of an empty Boeing 747 (lbs; kg)</li>
-</ol>
-</div><div class="column">
-<ol start="7" type="1">
-<li>Year Mozart was born</li>
-<li>Gestation period of an Asian elephant (days)</li>
-<li>Distance from London to Tokyo (miles; km)</li>
-<li>Deepest know point in the ocean (miles; km)</li>
-</ol>
-</div></div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Organization of the Petroleum Exporting Countries</p></li></ol></aside></section><section id="address-some-ps-stuff" class="slide level2 center"><h2>Address some PS stuff …</h2>
+<li><p>Find probability: sum paths that lead to the same destination - i.e. the same outcome.</p></li>
+</ol></section><section id="independent-events-children-of-oguchi-carriers" class="slide level2"><h2>Independent events: Children of Oguchi Carriers</h2>
+<div class="goal">
+<p>If both of parents have an affected chromosome but no disease, what’s the probability that <strong><em>none, one or both (three separate questions here)</em></strong> of their children will have Oguchi disease?</p>
+</div>
+<p>Let’s use probability trees!</p>
+</section><section id="step-1-write-down-all-possible-outcomes" class="slide level2"><h2>Step 1: Write down all possible outcomes</h2>
+<div class="fragment">
+<p><img data-src="images/clipboard-897739780.png" class="margin-caption"></p>
+</div>
+</section><section id="step-1-write-down-all-possible-outcomes-1" class="slide level2"><h2>Step 1: Write down all possible outcomes</h2>
+<div class="fragment">
+<p><img data-src="images/clipboard-7639108.png" class="margin-caption"></p>
+</div>
+</section><section id="step-2.-write-down-the-probability-of-each-outcome-conditional-on-their-path" class="slide level2"><h2>Step 2. Write down the probability of each outcome, conditional on their path</h2>
+<div class="fragment">
+<p><img data-src="images/clipboard-3251760107.png" class="margin-caption"></p>
+</div>
+</section><section id="step-3.-multiply-each-value-down-a-path-to-find-the-probability-of-that-path" class="slide level2"><h2>Step 3. Multiply each value down a path to find the probability of that path</h2>
+<div class="fragment">
+<p><img data-src="images/clipboard-4091397874.png" class="margin-caption"></p>
+</div>
+</section><section id="step-3.-multiply-each-value-down-a-path-to-find-the-probability-of-that-path-1" class="slide level2"><h2>Step 3. Multiply each value down a path to find the probability of that path</h2>
+<p>Each tree tip defines a unique and mutually exclusive sequence of events. . . .</p>
 
+<img data-src="images/clipboard-3424223039.png" class="margin-caption r-stretch"></section><section id="step-4.-sum-paths-that-lead-to-the-same-destination" class="slide level2"><h2>Step 4. Sum paths that lead to the same destination</h2>
+<div class="fragment">
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5B2%5Ctext%7BAffected%20%7D%5D%20%3D%201%2F16" alt="Pr[2\text{Affected }] = 1/16" title="Pr[2\text{Affected }] = 1/16" class="math inline">; <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5B1%5Ctext%7B%20Affected%20%7D%5D%20%3D%206%2F16" alt="Pr[1\text{ Affected }] = 6/16" title="Pr[1\text{ Affected }] = 6/16" class="math inline"> ; <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5B0%20%5Ctext%7B%20Affected%20%7D%3D%209%2F16%5D" alt="Pr[0 \text{ Affected }= 9/16]" title="Pr[0 \text{ Affected }= 9/16]" class="math inline"></p>
+<p><img data-src="images/clipboard-2539150621.png" class="margin-caption"></p>
+</div>
+</section><section id="dependent-events-conditional-probabilities" class="slide level2 center"><h2>Dependent events &amp; Conditional Probabilities</h2>
+<p>Much of science involves identifying variables that are associated.</p>
+</section><section id="dependent-events" class="slide level2"><h2>Dependent Events</h2>
+<p>Events are dependent when the probability of one event depends on the outcome of another.</p>
+<p>E.g. The Probability of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> depends on the value of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline">.</p>
+<p>If <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> depends on <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline">:</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Cdisplaystyle%20Pr%5BA%5Ctext%7B%20%26%20%7DB%5D%5Cneq%20Pr%5BA%5D%5Ctimes%20Pr%5BB%5D" alt="Pr[A\text{ &amp; }B]\neq Pr[A]\times Pr[B]" title="Pr[A\text{ &amp; }B]\neq Pr[A]\times Pr[B]" class="math display"></p>
+</section><section id="example-surviving-the-titanic" class="slide level2"><h2>Example: Surviving the Titanic</h2>
+<div class="goal">
+<p>Of the 2092 Adults on the Titanic</p>
+<ul>
+<li>319 [<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Capprox%200.152" alt="\approx 0.152" title="\approx 0.152" class="math inline">] sat in 1st class.<br>
+</li>
+<li>654 [<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Capprox%200.312" alt="\approx 0.312" title="\approx 0.312" class="math inline">] survived.</li>
+</ul>
+</div>
+<p><strong>Hypothesis:</strong> <strong><em>If</em></strong> survival and sitting in 1st class are <strong>independent</strong>:</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Cdisplaystyle%20Pr%5B%5Ctext%7B%201st%20class%20%26%20survived%20%7D%5D%20%3D%20Pr%5B%5Ctext%7B%201st%20class%20%7D%5D%20x%20Pr%5B%5Ctext%7B%20survived%20%7D%5D" alt="Pr[\text{ 1st class &amp; survived }] = Pr[\text{ 1st class }] x Pr[\text{ survived }]" title="Pr[\text{ 1st class &amp; survived }] = Pr[\text{ 1st class }] x Pr[\text{ survived }]" class="math display"></p>
+<ul>
+<li>
+<p>Expected number of 1st class adults to survive:</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%200.152%5Ctimes0.312%3D0.047424%20%5Ctimes2092%20%3D%2099.7256%5Capprox100" alt="0.152\times0.312=0.047424 \times2092 = 99.7256\approx100" title="0.152\times0.312=0.047424 \times2092 = 99.7256\approx100" class="math inline"> 1st class adults would survive.</p>
+</li>
+<li>
+<p>Expected number of non-1st class adults to survive: we expect</p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%200.848%5Ctimes0.312%3D0.2649%20%3D0.26%5Ctimes2092%20%5Capprox%20554" alt="0.848\times0.312=0.2649 =0.26\times2092 \approx 554" title="0.848\times0.312=0.2649 =0.26\times2092 \approx 554" class="math inline"> other adults would survive</p>
+</li>
+</ul></section><section id="surviving-the-titanic" class="slide level2"><h2>Surviving the titanic</h2>
+<h3 id="actually">Actually …</h3>
+<ul>
+<li>
+<p><em>More</em> 1st class passengers survived than expected.</p>
+<ul>
+<li>197 of the 319 people in 1st class survived. (~ 62%)</li>
+<li>This severely exceeds the 100 expected survivors.</li>
+</ul>
+</li>
+<li>
+<p><em>Fewer</em> other passengers survived than expected.</p>
+<ul>
+<li>457 of the 1773 other passengers survived. (~ 26%)</li>
+<li>This is way less than the 554 expected survivors.</li>
+</ul>
+</li>
+</ul>
 
+<aside><div>
+<p>We will learn soon how to test how likely (or unlikely) such an event is under the assumption of independence.</p>
+</div></aside></section><section id="conditional-probability" class="slide level2"><h2>Conditional Probability</h2>
+<ul>
+<li><p>The conditional probability of an event is the probability of that event occurring given that a condition is met.</p></li>
+<li><p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BX%7CY%5D" alt="Pr[X|Y]" title="Pr[X|Y]" class="math inline"> (read “<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%7C" alt="|" title="|" class="math inline">” as “given”.)</p></li>
+<li><p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BX%7CY%5D" alt="Pr[X|Y]" title="Pr[X|Y]" class="math inline"> means the probability of <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20X" alt="X" title="X" class="math inline"> if <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Y" alt="Y" title="Y" class="math inline"> is true.</p></li>
+</ul></section><section id="example-surviving-the-titanic-conditional-on-class" class="slide level2"><h2>Example: Surviving the Titanic Conditional on Class</h2>
+<div class="goal">
+<p>Hypothesis: If survival and sitting in 1st class are not independent</p>
+</div>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5B%5Ctext%7B%20Survive%7C%20Adult%20in%201st%20class%7D%5D%20%3D%20197%2F319%20%3D%200.62" alt="Pr[\text{ Survive| Adult in 1st class}] = 197/319 = 0.62" title="Pr[\text{ Survive| Adult in 1st class}] = 197/319 = 0.62" class="math inline"></p>
+<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5B%5Ctext%7B%20Survive%7C%20Adult%20NOT%20in%201st%20class%7D%5D%20%3D%20457%2F1773%20%3D%200.26" alt="Pr[\text{ Survive| Adult NOT in 1st class}] = 457/1773 = 0.26" title="Pr[\text{ Survive| Adult NOT in 1st class}] = 457/1773 = 0.26" class="math inline"></p>
 </section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
