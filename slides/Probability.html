@@ -35,7 +35,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
     /* CSS for syntax highlighting */
     html { -webkit-text-size-adjust: 100%; }
     pre > code.sourceCode { white-space: pre; position: relative; }
@@ -337,11 +336,11 @@
 </div>
 <div class="columns">
 <div class="column" style="width:30%;">
-<p>If <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline"> are mutually exclusive:</p>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are mutually exclusive:</p>
 <ul>
-<li>Either <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> or <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline"> are individually plausible outcomes</li>
+<li>Either <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span> are individually plausible outcomes</li>
 <li>
-<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A%5C%26B" alt="A\&amp;B" title="A\&amp;B" class="math inline"> is not plausible (i.e., <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%28A%5C%26B%29%3D0" alt="Pr(A\&amp;B)=0" title="Pr(A\&amp;B)=0" class="math inline">)</li>
+<span class="math inline">\(A\&amp;B\)</span> is not plausible (i.e., <span class="math inline">\(Pr(A\&amp;B)=0\)</span>)</li>
 </ul>
 </div><div class="column" style="width:70%;">
 <div class="cell">
@@ -360,7 +359,7 @@
 </div>
 </div>
 </div>
-<p>E.g., <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%28%5Ctext%7Beven%20AND%20odd%7D%29%3D0" alt="Pr(\text{even AND odd})=0" title="Pr(\text{even AND odd})=0" class="math inline"> in a die roll</p>
+<p>E.g., <span class="math inline">\(Pr(\text{even AND odd})=0\)</span> in a die roll</p>
 </div></div>
 </section><section id="non-mutually-exclusive-events" class="slide level2"><h2>Non-mutually exclusive events</h2>
 <div class="goal">
@@ -368,10 +367,10 @@
 </div>
 <div class="columns">
 <div class="column" style="width:30%;">
-<p>If <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline"> are <em>not</em> mutually exclusive:</p>
+<p>If <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <em>not</em> mutually exclusive:</p>
 <ul>
-<li>There’s a chance of outcome <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline">.</li>
-<li>I.e., it is plausible that <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20P%28A%20%5C%26%20B%29%5Cneq0" alt="P(A \&amp; B)\neq0" title="P(A \&amp; B)\neq0" class="math inline">
+<li>There’s a chance of outcome <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>.</li>
+<li>I.e., it is plausible that <span class="math inline">\(P(A \&amp; B)\neq0\)</span>
 </li>
 </ul>
 </div><div class="column" style="width:70%;">
@@ -387,7 +386,7 @@
 </div>
 </div>
 </div>
-<p>E.g., <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20P%28%5Ctext%7Beven%20AND%20prime%7D%29%20%5Cneq%200" alt="P(\text{even AND prime}) \neq 0" title="P(\text{even AND prime}) \neq 0" class="math inline"> in a die roll – in fact, what is it?</p>
+<p>E.g., <span class="math inline">\(P(\text{even AND prime}) \neq 0\)</span> in a die roll – in fact, what is it?</p>
 </div></div>
 <aside class="notes"><p>only one nummber out of the six is both even and prime,so: 2/6=1/3</p>
 <style type="text/css">
@@ -407,7 +406,7 @@
 <div class="column" style="width:25%;">
 <p>Probability distributions describe <strong>discrete</strong> variables.</p>
 <p>Probability distributions sum to 1.</p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Csum%7BPr%5Bx%5D%7D%3D1" alt="\sum{Pr[x]}=1" title="\sum{Pr[x]}=1" class="math inline"></p>
+<p><span class="math display">\[\sum{Pr[x]}=1\]</span></p>
 </div><div class="column" style="width:75%;">
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>ns <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fl">1e+06</span>)</span>
@@ -428,11 +427,11 @@
 </section><section id="example-probability-distribution-for-rolling-a-die" class="slide level2"><h2>Example: probability distribution for rolling a die</h2>
 <div class="columns">
 <div class="column" style="width:25%;">
-<p>All possible values: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20x%3D%5C%7B1%2C2%2C3%2C4%2C5%2C6%5C%7D" alt="x=\{1,2,3,4,5,6\}" title="x=\{1,2,3,4,5,6\}" class="math inline"></p>
-<p>Probabilities of particular outcomes: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5B1%5D%3D1%2F6" alt="Pr[1]=1/6" title="Pr[1]=1/6" class="math inline"></p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5B2%5D%3D1%2F6%2C%5Ctext%7Betc%7D" alt="Pr[2]=1/6,\text{etc}" title="Pr[2]=1/6,\text{etc}" class="math inline"></p>
+<p>All possible values: <span class="math inline">\(x=\{1,2,3,4,5,6\}\)</span></p>
+<p>Probabilities of particular outcomes: <span class="math inline">\(Pr[1]=1/6\)</span></p>
+<p><span class="math display">\[Pr[2]=1/6,\text{etc}\]</span></p>
 <p>Sum of probabilities of all possible outcomes:</p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Csum%7BPr%5Bx%5D%7D%3D1" alt="\sum{Pr[x]}=1" title="\sum{Pr[x]}=1" class="math inline"></p>
+<p><span class="math display">\[\sum{Pr[x]}=1\]</span></p>
 </div><div class="column" style="width:75%;">
 <div class="cell">
 <div class="cell-output-display">
@@ -450,7 +449,7 @@
 <li><p>The probability of any value from a <strong>continuous</strong> distribution is infinitesimally small.</p></li>
 <li><p>Probability densities integrate to 1.</p></li>
 </ul>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cint%7BPr%5Bx%5D%7D%3D1" alt="\int{Pr[x]}=1" title="\int{Pr[x]}=1" class="math inline"></p>
+<p><span class="math display">\[\int{Pr[x]}=1\]</span></p>
 </div><div class="column" style="width:75%;">
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>plot.dens <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="fu">tibble</span>(<span class="at">x =</span> ns), <span class="fu">aes</span>(<span class="at">x =</span> x)) <span class="sc">+</span> <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>,</span>
@@ -465,12 +464,9 @@
 </div>
 </div></div>
 </section><section id="example-the-normal-distribution" class="slide level2"><h2>Example: the normal distribution!</h2>
-<p>Area under the curve gives you the probability of values in a range <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5Cleft%5Ba%2Cb%5Cright%5D" alt="\left[a,b\right]" title="\left[a,b\right]" class="math inline"> Each value has an an infinitesimal probability value</p>
-<div class="quarto-figure quarto-figure-center margin-caption">
-<figure><p><img data-src="images/clipboard-1619218967.png" class="margin-caption"></p>
-<figcaption>Figure caption: figure 5.4-4 from the textbook.</figcaption></figure>
-</div>
-</section><section id="proportion" class="slide level2"><h2>Proportion</h2>
+<p>Area under the curve gives you the probability of values in a range <span class="math inline">\(\left[a,b\right]\)</span> Each value has an an infinitesimal probability value</p>
+
+<img data-src="images/clipboard-1619218967.png" class="margin-caption r-stretch quarto-figure-center"><p class="caption">Figure caption: figure 5.4-4 from the textbook.</p></section><section id="proportion" class="slide level2"><h2>Proportion</h2>
 <ul>
 <li><p>The proportion is the number of times an event occurs divided by the number of tries.</p></li>
 <li><p>We can think of a proportion as a realized sample from our probability distribution.</p></li>
@@ -485,44 +481,39 @@
 <li><p>The general multiplication principle</p></li>
 <li><p>The general addition principle</p></li>
 </ul></section><section id="the-general-addition-principle-this-or-that" class="slide level2"><h2>The general addition principle (“this OR that”)</h2>
-
-<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BA%20%5Ctext%7B%20OR%20%7D%20B%5D%3DPr%5BA%5D%20%2B%20Pr%5BB%5D%20-%20Pr%5BA%20%5Ctext%7B%20and%20%7D%20B%5D" alt="Pr[A \text{ OR } B]=Pr[A] + Pr[B] - Pr[A \text{ and } B]" title="Pr[A \text{ OR } B]=Pr[A] + Pr[B] - Pr[A \text{ and } B]" class="math inline r-stretch"></section><section id="a-special-case-of-the-addition-principle" class="slide level2"><h2>A special case of the addition principle</h2>
+<p><span class="math display">\[Pr[A \text{ OR } B]=Pr[A] + Pr[B] - Pr[A \text{ and } B]\]</span></p>
+</section><section id="a-special-case-of-the-addition-principle" class="slide level2"><h2>A special case of the addition principle</h2>
 <p>Special case: if A and B are mutually exclusive, then:</p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BA%20%5Ctext%7B%20%5C%26%20%7D%20B%5D%20%3D%200" alt="Pr[A \text{ \&amp; } B] = 0" title="Pr[A \text{ \&amp; } B] = 0" class="math inline">,</p>
+<p><span class="math inline">\(Pr[A \text{ \&amp; } B] = 0\)</span>,</p>
 <p>so:</p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BA%20%5Ctext%7B%20OR%20%7D%20B%5D%3DPr%5BA%5D%20%2B%20Pr%5BB%5D" alt="Pr[A \text{ OR } B]=Pr[A] + Pr[B]" title="Pr[A \text{ OR } B]=Pr[A] + Pr[B]" class="math inline"></p>
+<p><span class="math display">\[Pr[A \text{ OR } B]=Pr[A] + Pr[B]\]</span></p>
 </section><section id="example-1" class="slide level2"><h2>Example 1:</h2>
 <div class="goal">
 <p>What is the probability of a die roll resulting in an even number OR a prime number?</p>
 </div>
 <div class="cell">
 <details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details><div class="cell-output-display">
-<div>
-<figure><p><img data-src="Probability_files/figure-revealjs/example1-1.png" class="margin-caption" width="960"></p>
-</figure>
+</details>
 </div>
-</div>
-</div>
-<p>Even numbers: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5C%7B2%2C4%2C6%5C%7D" alt="\{2,4,6\}" title="\{2,4,6\}" class="math inline">; <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5Beven%5D%3D%5Cfrac%7B3%7D%7B6%7D%3D%5Cfrac%7B1%7D%7B2%7D" alt="Pr[even]=\frac{3}{6}=\frac{1}{2}" title="Pr[even]=\frac{3}{6}=\frac{1}{2}" class="math inline"></p>
-<p>Prime numbers: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5C%7B2%2C3%2C5%5C%7D" alt="\{2,3,5\}" title="\{2,3,5\}" class="math inline">; <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5Bprime%5D%3D%5Cfrac%7B3%7D%7B6%7D%3D%5Cfrac%7B1%7D%7B2%7D" alt="Pr[prime]=\frac{3}{6}=\frac{1}{2}" title="Pr[prime]=\frac{3}{6}=\frac{1}{2}" class="math inline"></p>
-<p>Even and prime: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20%5C%7B2%5C%7D" alt="\{2\}" title="\{2\}" class="math inline">; <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5B%5Ctext%7Beven%20%5C%26%20%20prime%7D%5D%3D%5Cfrac%7B1%7D%7B6%7D" alt="Pr[\text{even \&amp;  prime}]=\frac{1}{6}" title="Pr[\text{even \&amp;  prime}]=\frac{1}{6}" class="math inline"></p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5B%5Ctext%7Beven%20OR%20prime%7D%5D%20%3D%201%2F2%20%2B%201%2F2%20-%201%2F3%20%3D%200.83333" alt="Pr[\text{even OR prime}] = 1/2 + 1/2 - 1/3 = 0.83333" title="Pr[\text{even OR prime}] = 1/2 + 1/2 - 1/3 = 0.83333" class="math inline"></p>
+<img data-src="Probability_files/figure-revealjs/example1-1.png" class="margin-caption r-stretch" width="960"><p>Even numbers: <span class="math inline">\(\{2,4,6\}\)</span>; <span class="math inline">\(Pr[even]=\frac{3}{6}=\frac{1}{2}\)</span></p>
+<p>Prime numbers: <span class="math inline">\(\{2,3,5\}\)</span>; <span class="math inline">\(Pr[prime]=\frac{3}{6}=\frac{1}{2}\)</span></p>
+<p>Even and prime: <span class="math inline">\(\{2\}\)</span>; <span class="math inline">\(Pr[\text{even \&amp;  prime}]=\frac{1}{6}\)</span></p>
+<p><span class="math display">\[Pr[\text{even OR prime}] = 1/2 + 1/2 - 1/3 = 0.83333\]</span></p>
 </section><section id="the-general-multiplication-principle-this-and-that" class="slide level2 center"><h2>The General Multiplication principle (“this AND that”)</h2>
 </section><section id="the-general-multiplication-principle" class="slide level2"><h2>The General Multiplication Principle</h2>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BA%20%5Ctext%7B%20%5C%26%20%7D%20B%5D%20%3D%20Pr%5BA%5D%20%5Ctimes%20Pr%5BB%7CA%5D" alt="Pr[A \text{ \&amp; } B] = Pr[A] \times Pr[B|A]" title="Pr[A \text{ \&amp; } B] = Pr[A] \times Pr[B|A]" class="math inline"></p>
+<p><span class="math display">\[Pr[A \text{ \&amp; } B] = Pr[A] \times Pr[B|A]\]</span></p>
 <ul>
 <li>
-<p>The probability of “<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A%20%5Ctext%7B%20AND%20%7DB" alt="A \text{ AND }B" title="A \text{ AND }B" class="math inline">” equals:</p>
+<p>The probability of “<span class="math inline">\(A \text{ AND }B\)</span>” equals:</p>
 <p>the probability of one event <strong><em>times</em></strong> the probability of the other, conditioned on the first.</p>
 </li>
-<li><p>Read <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A%7CB" alt="A|B" title="A|B" class="math inline"> as <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> “given” <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline">.</p></li>
+<li><p>Read <span class="math inline">\(A|B\)</span> as <span class="math inline">\(A\)</span> “given” <span class="math inline">\(B\)</span>.</p></li>
 </ul></section><section id="special-case-a-and-b-are-independent" class="slide level2"><h2>Special case: A and B are independent</h2>
 <ul>
 <li class="fragment"><p>Two events are independent if the occurrence of one gives no information about whether the second will occur.</p></li>
-<li class="fragment"><p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> and <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline"> are independent if <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BB%20%7C%20A%5D%20%3D%20Pr%5BB%5D" alt="Pr[B | A] = Pr[B]" title="Pr[B | A] = Pr[B]" class="math inline"></p></li>
-<li class="fragment"><p>So the rule becomes: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BA%20%5Ctext%7B%20%5C%26%20%7D%20B%5D%20%3D%20Pr%5BA%5D%20%5Ctimes%20Pr%5BB%7CA%5D%20%3D%20%20Pr%5BA%5D%20%5Ctimes%20Pr%5BB%5D" alt="Pr[A \text{ \&amp; } B] = Pr[A] \times Pr[B|A] =  Pr[A] \times Pr[B]" title="Pr[A \text{ \&amp; } B] = Pr[A] \times Pr[B|A] =  Pr[A] \times Pr[B]" class="math inline"></p></li>
-<li class="fragment"><p>I.e., if <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A" alt="A" title="A" class="math inline"> &amp; <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20B" alt="B" title="B" class="math inline"> are independent, the probability of “<img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20A%20%5Ctext%7B%20AND%20%7DB" alt="A \text{ AND }B" title="A \text{ AND }B" class="math inline">” is simply the product of their probabilities.</p></li>
+<li class="fragment"><p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if <span class="math inline">\(Pr[B | A] = Pr[B]\)</span></p></li>
+<li class="fragment"><p>So the rule becomes: <span class="math inline">\(Pr[A \text{ \&amp; } B] = Pr[A] \times Pr[B|A] =  Pr[A] \times Pr[B]\)</span></p></li>
+<li class="fragment"><p>I.e., if <span class="math inline">\(A\)</span> &amp; <span class="math inline">\(B\)</span> are independent, the probability of “<span class="math inline">\(A \text{ AND }B\)</span>” is simply the product of their probabilities.</p></li>
 </ul>
 
 <aside><div>
@@ -531,9 +522,9 @@
 <div class="goal">
 <p>Probably of getting even numbers in two consecutive rolls of a die.</p>
 </div>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BA%5D%3DPr%5Beven%5D%3D1%2F2" alt="Pr[A]=Pr[even]=1/2" title="Pr[A]=Pr[even]=1/2" class="math inline"></p>
-<p><img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5BB%5D%3DPr%5Beve%5D%3D1%2F2" alt="Pr[B]=Pr[eve]=1/2" title="Pr[B]=Pr[eve]=1/2" class="math inline"></p>
-<p>Since each trial (roll) is independent, then: <img style="vertical-align:middle" src="https://latex.codecogs.com/svg.latex?%5Ctextstyle%20Pr%5B%5Ctext%7Beven%20in%20both%20rolls%7D%5D%3D1%2F2%5Ctimes%201%2F2%20%3D%201%2F4" alt="Pr[\text{even in both rolls}]=1/2\times 1/2 = 1/4" title="Pr[\text{even in both rolls}]=1/2\times 1/2 = 1/4" class="math inline"></p>
+<p><span class="math display">\[Pr[A]=Pr[even]=1/2\]</span></p>
+<p><span class="math display">\[Pr[B]=Pr[eve]=1/2\]</span></p>
+<p>Since each trial (roll) is independent, then: <span class="math inline">\(Pr[\text{even in both rolls}]=1/2\times 1/2 = 1/4\)</span></p>
 
 
 
@@ -547,7 +538,7 @@
 </div>
 </div></div>
 
-  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="../site_libs/revealjs/dist/reveal.js"></script><!-- reveal.js plugins --><script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script><script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script><script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script><script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script><script src="../site_libs/revealjs/plugin/notes/notes.js"></script><script src="../site_libs/revealjs/plugin/search/search.js"></script><script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script><script src="../site_libs/revealjs/plugin/math/math.js"></script><script>window.define = window.backupDefine; window.backupDefine = undefined;</script><script>
 
       // Full list of configuration options available at:
       // https://revealjs.com/config/
@@ -712,9 +703,27 @@
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
 
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
         // reveal.js plugins
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
+          RevealMath,
           RevealNotes,
           RevealSearch,
           RevealZoom

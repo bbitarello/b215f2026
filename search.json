@@ -4,14 +4,7 @@
     "href": "slides/Probability4.html#about-last-classs-activity",
     "title": "Probability II",
     "section": "About last class’s activity",
-    "text": "About last class’s activity\n99% of people are overconfident in this test\n\nThese questions were used in a study by Russo and Shoemaker (1989) and 99% of  participants, but most of them included narrow ranges that included 30 to 60% of correct answers.\n\nSimilar studies done with experts answering questions in their own field of expertise led to similar results.\n\n\nRusso, J. E., & Schoemaker, P. J. H. (1989). Decision traps. The ten barriers to brilliant decision-asking and how to overcome them. New York: Simon & Schuster."
-  },
-  {
-    "objectID": "slides/Probability4.html#outline",
-    "href": "slides/Probability4.html#outline",
-    "title": "Probability II",
-    "section": "Outline",
-    "text": "Outline\n\nProbability trees: why and demo with independent events\nDependent Events & Conditional probability\nProbability tree demo with conditional probability"
+    "text": "About last class’s activity\n99% of people are overconfident in this test\n\nThese questions were used in a study by Russo and Shoemaker (1989) and 99% of \\(~1,000\\) participants, but most of them included narrow ranges that included 30 to 60% of correct answers.\n\nSimilar studies done with experts answering questions in their own field of expertise led to similar results.\n\n\nRusso, J. E., & Schoemaker, P. J. H. (1989). Decision traps. The ten barriers to brilliant decision-asking and how to overcome them. New York: Simon & Schuster."
   },
   {
     "objectID": "slides/Probability4.html#moving-on-with-probability",
@@ -19,6 +12,13 @@
     "title": "Probability II",
     "section": "Moving on with probability",
     "text": "Moving on with probability\n\nWe talked about the general addition principle (and its special case)\nWe talked about the multiplication principle when events are independent\nThings start getting more complicated now, so we will introduce probability trees"
+  },
+  {
+    "objectID": "slides/Probability4.html#outline",
+    "href": "slides/Probability4.html#outline",
+    "title": "Probability II",
+    "section": "Outline",
+    "text": "Outline\n\nRecap: combined probability of independent events\nProbability trees: why and demo with independent events\nDependent Events & Conditional probability\nProbability tree demo with conditional probability"
   },
   {
     "objectID": "slides/Probability4.html#case-study-oguchi-disease",
@@ -33,6 +33,20 @@
     "title": "Probability II",
     "section": "Oguchi disease",
     "text": "Oguchi disease\n\nOguchi disease, also called congenital stationary night blindness, Oguchi type 1 or Oguchi disease 1, is an autosomal recessive form of congenital stationary night blindness associated with (…) abnormally slow dark adaptation (From: Wikipedia)\n\nAutosomal: not sex chromosome.\nRecessive: phenotype only expressed if two copies are present (in diploids)."
+  },
+  {
+    "objectID": "slides/Probability4.html#scenario-1",
+    "href": "slides/Probability4.html#scenario-1",
+    "title": "Probability II",
+    "section": "Scenario 1",
+    "text": "Scenario 1\n\nIf both of parents have an affected chromosome but no disease, what’s the probability that their child will have Oguchi disease?\n\n[work in pairs for a few mins]"
+  },
+  {
+    "objectID": "slides/Probability4.html#scenario-2",
+    "href": "slides/Probability4.html#scenario-2",
+    "title": "Probability II",
+    "section": "Scenario 2",
+    "text": "Scenario 2\n\nIf both of parents have an affected chromosome but no disease, what’s the probability that both of their children will have Oguchi disease?\n\n[Work in pairs for a few minutes]"
   },
   {
     "objectID": "slides/Probability4.html#using-probability-trees",
@@ -56,11 +70,11 @@
     "text": "How to make probability trees\n\nWrite down all possible outcomes for event one, two… etc. and connect them.\nWrite down the probability of each outcome, conditional on their path.\n\nMultiply each value down a path to find the probability of that path.\nRepeat 1-3 for all paths.\n\nFind probability: sum paths that lead to the same destination - i.e. the same outcome."
   },
   {
-    "objectID": "slides/Probability4.html#independent-events-children-of-oguchi-carriers",
-    "href": "slides/Probability4.html#independent-events-children-of-oguchi-carriers",
+    "objectID": "slides/Probability4.html#probability-tree-demo-independent-events",
+    "href": "slides/Probability4.html#probability-tree-demo-independent-events",
     "title": "Probability II",
-    "section": "Independent events: Children of Oguchi Carriers",
-    "text": "Independent events: Children of Oguchi Carriers\n\nIf both of parents have an affected chromosome but no disease, what’s the probability that none, one or both (three separate questions here) of their children will have Oguchi disease?\n\nLet’s use probability trees!"
+    "section": "Probability tree demo (independent events)",
+    "text": "Probability tree demo (independent events)\n\nIf both of parents have an affected chromosome but no disease, let’s answer three questions:\n\nwhat’s the probability that none of their children will have Oguchi disease?\nwhat’s the probability that one of their children will have Oguchi\nwhat’s the probability that both will have Oguchi?\n\n\nLet’s use probability trees!"
   },
   {
     "objectID": "slides/Probability4.html#step-1-write-down-all-possible-outcomes",
@@ -102,7 +116,7 @@
     "href": "slides/Probability4.html#step-4.-sum-paths-that-lead-to-the-same-destination",
     "title": "Probability II",
     "section": "Step 4. Sum paths that lead to the same destination",
-    "text": "Step 4. Sum paths that lead to the same destination\n\n;  ;"
+    "text": "Step 4. Sum paths that lead to the same destination\n\n\n\\[\nPr[2\\text{ Affected }] = 1/16;\nPr[1\\text{ Affected }] = 3/16+3/16=6/16;\nPr[0 \\text{ Affected }= 9/16]\n\\]"
   },
   {
     "objectID": "slides/Probability4.html#dependent-events-conditional-probabilities",
@@ -116,35 +130,77 @@
     "href": "slides/Probability4.html#dependent-events",
     "title": "Probability II",
     "section": "Dependent Events",
-    "text": "Dependent Events\nEvents are dependent when the probability of one event depends on the outcome of another.\nE.g. The Probability of  depends on the value of .\nIf  depends on :"
+    "text": "Dependent Events\nEvents are dependent when the probability of one event depends on the outcome of another. I.e., the outcome of the\nE.g. The Probability of \\(A\\) depends on the value of \\(B\\).\nIf \\(A\\) depends on \\(B\\):\n\\[\nPr[A\\text{ & }B]\\neq Pr[A]\\times Pr[B]\n\\] In fact, in that case:\n\\[\nPr[A\\text{ & }B] = Pr[A]\\times Pr[B|A]\n\\] ::: aside WARNING: Observing a statistical dependence between two outcomes does not necessarily imply a causal connection. :::"
   },
   {
-    "objectID": "slides/Probability4.html#example-surviving-the-titanic",
-    "href": "slides/Probability4.html#example-surviving-the-titanic",
+    "objectID": "slides/Probability4.html#example-surviving-the-titanic-1",
+    "href": "slides/Probability4.html#example-surviving-the-titanic-1",
     "title": "Probability II",
-    "section": "Example: Surviving the Titanic",
-    "text": "Example: Surviving the Titanic\n\nOf the 2092 Adults on the Titanic\n\n319 [] sat in 1st class.\n\n654 [] survived.\n\n\nHypothesis: If survival and sitting in 1st class are independent:\n\n\n\nExpected number of 1st class adults to survive:\n 1st class adults would survive.\n\n\nExpected number of non-1st class adults to survive: we expect\n other adults would survive"
+    "section": "Example: Surviving the Titanic (1/)",
+    "text": "Example: Surviving the Titanic (1/)\n\nReal question: did being on the 3rd class make you more likely to die on the titanic?\n\n\nStatistical/probability hypothesis: Survival and sitting in the 1st class are independent.\nIf survival and sitting in 1st class are independent:\n\n\\[Pr[\\text{ 1st class & survived }] = Pr[\\text{ 1st class }] \\times  Pr[\\text{ survived }]\\]"
   },
   {
-    "objectID": "slides/Probability4.html#surviving-the-titanic",
-    "href": "slides/Probability4.html#surviving-the-titanic",
+    "objectID": "slides/Probability4.html#example-surviving-the-titanic-2",
+    "href": "slides/Probability4.html#example-surviving-the-titanic-2",
     "title": "Probability II",
-    "section": "Surviving the titanic",
-    "text": "Surviving the titanic\nActually …\n\n\nMore 1st class passengers survived than expected.\n\n197 of the 319 people in 1st class survived. (~ 62%)\nThis severely exceeds the 100 expected survivors.\n\n\n\nFewer other passengers survived than expected.\n\n457 of the 1773 other passengers survived. (~ 26%)\nThis is way less than the 554 expected survivors.\n\n\n\n\n\nWe will learn soon how to test how likely (or unlikely) such an event is under the assumption of independence."
+    "section": "Example: Surviving the Titanic (2/)",
+    "text": "Example: Surviving the Titanic (2/)\n\n\nAdults by class\n\nCodeTitanic_full |&gt;\n    filter(Age == \"Adult\") |&gt;\n    group_by(Class) |&gt;\n    tally() |&gt;\n    mutate(prop = n/sum(n)) |&gt;\n    gt()\n\n\n\n\n\nClass\nn\nprop\n\n\n\n1st\n319\n0.1524857\n\n\n2nd\n261\n0.1247610\n\n\n3rd\n627\n0.2997132\n\n\nCrew\n885\n0.4230402\n\n\n\n\n\n\n\nAdults by survival status\n\nCodeTitanic_full |&gt;\n    filter(Age == \"Adult\") |&gt;\n    group_by(Survived) |&gt;\n    tally() |&gt;\n    mutate(prop = n/sum(n)) |&gt;\n    gt()\n\n\n\n\n\nSurvived\nn\nprop\n\n\n\nNo\n1438\n0.6873805\n\n\nYes\n654\n0.3126195"
+  },
+  {
+    "objectID": "slides/Probability4.html#example-surviving-the-titanic-3",
+    "href": "slides/Probability4.html#example-surviving-the-titanic-3",
+    "title": "Probability II",
+    "section": "Example: Surviving the Titanic (3/)",
+    "text": "Example: Surviving the Titanic (3/)\nPredictions: Of the 2,092 Adults on the Titanic\n\n319 [\\(\\approx 0.152\\)] sat in 1st class.\n654 [\\(\\approx 0.312\\)] survived.\nIf survival and sitting in 1st class are independent:\n\n\\[Pr[\\text{ 1st class & survived }] = Pr[\\text{ 1st class }] \\times Pr[\\text{ survived }]\\]\n\nExpected number of 1st class adults to survive: \\(0.152\\times0.313=0.047576 \\times2092 = 99.52899\\approx100\\) 1st class adults would survive.\nExpected number of non-1st class adults to survive: we expect \\((1-0.152)\\times0.313=0.265424 =0.26\\times2092 \\approx 554\\) other adults would survive"
+  },
+  {
+    "objectID": "slides/Probability4.html#example-surviving-the-titanic-4",
+    "href": "slides/Probability4.html#example-surviving-the-titanic-4",
+    "title": "Probability II",
+    "section": "Example: Surviving the Titanic (4/)",
+    "text": "Example: Surviving the Titanic (4/)\nReality:\nAdults by survival status and class\n\nCodeTitanic_full |&gt;\n    filter(Age == \"Adult\") |&gt;\n    group_by(Survived, Class) |&gt;\n    tally() |&gt;\n    gt()\n\n\n\n\n\nClass\nn\n\n\n\nNo\n\n\n1st\n122\n\n\n2nd\n167\n\n\n3rd\n476\n\n\nCrew\n673\n\n\nYes\n\n\n1st\n197\n\n\n2nd\n94\n\n\n3rd\n151\n\n\nCrew\n212"
+  },
+  {
+    "objectID": "slides/Probability4.html#example-surviving-the-titanic-4-1",
+    "href": "slides/Probability4.html#example-surviving-the-titanic-4-1",
+    "title": "Probability II",
+    "section": "Example: Surviving the Titanic (4/)",
+    "text": "Example: Surviving the Titanic (4/)\nReality: surviving the titanic depends on class\n\n\nMore 1st class passengers survived than expected.\n\n197 of the 319 people in 1st class (\\(\\approx 62\\)%) survived.\nThis severely exceeds the 100 expected survivors.\n\n\n\nFewer other passengers survived than expected.\n\n457 of the 1773 other passengers survived. (~ 26%)\nThis is way less than the 554 expected survivors.\n\n\n\n\n\nWe will learn soon how to test how likely (or unlikely) such an event is under the assumption of independence."
   },
   {
     "objectID": "slides/Probability4.html#conditional-probability",
     "href": "slides/Probability4.html#conditional-probability",
     "title": "Probability II",
     "section": "Conditional Probability",
-    "text": "Conditional Probability\n\nThe conditional probability of an event is the probability of that event occurring given that a condition is met.\n (read “” as “given”.)\n means the probability of  if  is true."
+    "text": "Conditional Probability\n\nThe conditional probability of an event is the probability of that event occurring given that a condition is met.\n\\(Pr[X|Y]\\) (read “\\(|\\)” as “given”.)\n\\(Pr[X|Y]\\) means the probability of \\(X\\) if \\(Y\\) is true."
   },
   {
-    "objectID": "slides/Probability4.html#example-surviving-the-titanic-conditional-on-class",
-    "href": "slides/Probability4.html#example-surviving-the-titanic-conditional-on-class",
+    "objectID": "slides/Probability4.html#surviving-the-titanic-conditional-on-class",
+    "href": "slides/Probability4.html#surviving-the-titanic-conditional-on-class",
     "title": "Probability II",
-    "section": "Example: Surviving the Titanic Conditional on Class",
-    "text": "Example: Surviving the Titanic Conditional on Class\n\nHypothesis: If survival and sitting in 1st class are not independent"
+    "section": "Surviving the Titanic Conditional on Class",
+    "text": "Surviving the Titanic Conditional on Class\n\\(Pr[\\text{ Survive| Adult in 1st class}] = 197/319 = 0.62\\)\n\\(Pr[\\text{ Survive| Adult NOT in 1st class}] = 457/1773 = 0.26\\)"
+  },
+  {
+    "objectID": "slides/Probability4.html#the-law-of-total-probability",
+    "href": "slides/Probability4.html#the-law-of-total-probability",
+    "title": "Probability II",
+    "section": "The Law of Total Probability",
+    "text": "The Law of Total Probability\n\nConvert conditional probabilities (\\(Pr[X|Y_{i}]\\)) to total probabilities (\\(Pr[X]\\)) by weighting conditional probabilities by the probability of the condition (\\(Y_{i}\\)) and summing over all conditions.\n\n\\[Pr[X]=\\sum{(Pr[X|Y_{i}]\\times Pr[Y_{i}])}\\]"
+  },
+  {
+    "objectID": "slides/Probability4.html#example-the-total-probability-of-surviving-the-titanic",
+    "href": "slides/Probability4.html#example-the-total-probability-of-surviving-the-titanic",
+    "title": "Probability II",
+    "section": "Example: The Total Probability of Surviving the Titanic",
+    "text": "Example: The Total Probability of Surviving the Titanic\n\\[Pr[X]=\\sum{(Pr[X|Y_{i}]\\times Pr[Y_{i}])}\\]\n\\(Pr[\\text{Survive}]=\\sum{(Pr[\\text{Survive}|\\text{Class}_{i}]\\times Pr[\\text{Class}_{i}])}\\)\n\n$Pr[]= + $\n\\(Pr[\\text{Survive}|\\text{NOT 1st class}]\\times Pr[\\text{NOT 1st class}])\\)\n\n\n\\(Pr[\\text{Survive}]=(0.62\\times 0.152)+(0.26\\times 0.848)\\)\n\n\n\\(Pr[\\text{Survive}]=0.314\\)"
+  },
+  {
+    "objectID": "slides/Probability4.html#titanic-survival-conditional-on-class-with-probability-trees",
+    "href": "slides/Probability4.html#titanic-survival-conditional-on-class-with-probability-trees",
+    "title": "Probability II",
+    "section": "Titanic survival conditional on class with probability trees",
+    "text": "Titanic survival conditional on class with probability trees\nTry it!"
   },
   {
     "objectID": "slides/Probability2.html#outline",
@@ -179,7 +235,7 @@
     "href": "slides/Probability2.html#practice-2",
     "title": "Probability I",
     "section": "Practice 2",
-    "text": "Practice 2\nThe list of the probabilities of all the mutually exclusive outcomes of a random trial is called which of the following?\n\nAn exhaustive list.\nA probability distribution.\nA tree diagram.\n\nD)A Venn diagram."
+    "text": "Practice 2\nThe list of the probabilities of all the mutually exclusive outcomes of a random trial is called which of the following?\n\nAn exhaustive list.\nA probability distribution.\nA tree diagram.\nA Venn diagram."
   },
   {
     "objectID": "slides/Probability2.html#practice-3",
@@ -207,7 +263,7 @@
     "href": "slides/Probability2.html#example-sex-ratio",
     "title": "Probability I",
     "section": "Example: Sex ratio",
-    "text": "Example: Sex ratio\n\nWorldwide, the boy to girl sex ratio of babies born has been estimated to be 1.07. What is the probability of a random birth being a boy?\n\n\nOdds: Probability that event will occur (male born) divided by probability it will not occur (female born). Can be any value 0 or positive (not negative).\n\nOdds of having boy versus girl is: – can also be phrased as  or \nEquivalent to  (),  (), etc\n\nProbability: if there are 107 boys born for every 100 girls,  or  is the probability of having a boy."
+    "text": "Example: Sex ratio\n\nWorldwide, the boy to girl sex ratio of babies born has been estimated to be 1.07. What is the probability of a random birth being a boy?\n\n\nOdds: Probability that event will occur (male born) divided by probability it will not occur (female born). Can be any value 0 or positive (not negative).\n\nOdds of having boy versus girl is: \\[Pr[boy]/Pr[girl]=1.07\\] – can also be phrased as \\[1.07 \\text{ to } 1\\] or \\[1.07:1\\]\nEquivalent to \\(107 \\text{ to } 100\\) (\\(107:100\\)), \\(1070 \\text{ to } 1000\\) (\\(1070:1000\\)), etc\n\nProbability: if there are 107 boys born for every 100 girls, \\(107/(100+107)=51.7\\%\\) or \\(0.517\\) is the probability of having a boy."
   },
   {
     "objectID": "slides/Probability2.html#statistics-and-probability-in-particular-are-not-intuitive",
@@ -1294,7 +1350,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 3 6 7\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 3 7 8"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 4 2 5\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1]  7 10  9"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
@@ -2365,42 +2421,42 @@
     "href": "slides/Probability.html#mutually-exclusive-events",
     "title": "Probability I",
     "section": "Mutually exclusive events",
-    "text": "Mutually exclusive events\n\nGetting an odd or even number on a die roll.\n\n\n\nIf  and  are mutually exclusive:\n\nEither  or  are individually plausible outcomes\n\n is not plausible (i.e., )\n\n\n\nCodeeven_numbers &lt;- c(2, 4, 6)\nodd_numbers &lt;- c(1, 3, 5)\nl &lt;- list(even = even_numbers, odd = odd_numbers, all = sort(c(even_numbers,\n    odd_numbers)))\nlibrary(ggvenn)\np1 &lt;- ggvenn(l[c(1:2)], fill_color = asteroidcity1(), show_elements = TRUE,\n    text_size = 12) + ggtitle(\"Cannot be even AND odd\")\np1\n\n\n\n\n\n\n\nE.g.,  in a die roll"
+    "text": "Mutually exclusive events\n\nGetting an odd or even number on a die roll.\n\n\n\nIf \\(A\\) and \\(B\\) are mutually exclusive:\n\nEither \\(A\\) or \\(B\\) are individually plausible outcomes\n\n\\(A\\&B\\) is not plausible (i.e., \\(Pr(A\\&B)=0\\))\n\n\n\nCodeeven_numbers &lt;- c(2, 4, 6)\nodd_numbers &lt;- c(1, 3, 5)\nl &lt;- list(even = even_numbers, odd = odd_numbers, all = sort(c(even_numbers,\n    odd_numbers)))\nlibrary(ggvenn)\np1 &lt;- ggvenn(l[c(1:2)], fill_color = asteroidcity1(), show_elements = TRUE,\n    text_size = 12) + ggtitle(\"Cannot be even AND odd\")\np1\n\n\n\n\n\n\n\nE.g., \\(Pr(\\text{even AND odd})=0\\) in a die roll"
   },
   {
     "objectID": "slides/Probability.html#non-mutually-exclusive-events",
     "href": "slides/Probability.html#non-mutually-exclusive-events",
     "title": "Probability I",
     "section": "Non-mutually exclusive events",
-    "text": "Non-mutually exclusive events\n\nExample: getting an even number that is also a prime number.\n\n\n\nIf  and  are not mutually exclusive:\n\nThere’s a chance of outcome  and .\nI.e., it is plausible that \n\n\n\n\nCodel2 &lt;- list(even = even_numbers, prime = c(2, 3, 5))\np2 &lt;- ggvenn(l2, fill_color = asteroidcity1(), show_elements = TRUE,\n    text_size = 12) + ggtitle(\"Can be even AND prime\")\np2\n\n\n\n\n\n\n\nE.g.,  in a die roll – in fact, what is it?\n\nonly one nummber out of the six is both even and prime,so: 2/6=1/3"
+    "text": "Non-mutually exclusive events\n\nExample: getting an even number that is also a prime number.\n\n\n\nIf \\(A\\) and \\(B\\) are not mutually exclusive:\n\nThere’s a chance of outcome \\(A\\) and \\(B\\).\nI.e., it is plausible that \\(P(A \\& B)\\neq0\\)\n\n\n\n\nCodel2 &lt;- list(even = even_numbers, prime = c(2, 3, 5))\np2 &lt;- ggvenn(l2, fill_color = asteroidcity1(), show_elements = TRUE,\n    text_size = 12) + ggtitle(\"Can be even AND prime\")\np2\n\n\n\n\n\n\n\nE.g., \\(P(\\text{even AND prime}) \\neq 0\\) in a die roll – in fact, what is it?\n\nonly one nummber out of the six is both even and prime,so: 2/6=1/3"
   },
   {
     "objectID": "slides/Probability.html#probability-distributions-vs.-densities",
     "href": "slides/Probability.html#probability-distributions-vs.-densities",
     "title": "Probability I",
     "section": "Probability: Distributions vs. Densities",
-    "text": "Probability: Distributions vs. Densities\n\n\nProbability distributions describe discrete variables.\nProbability distributions sum to 1.\n\n\n\nCodens &lt;- rnorm(1e+06)\nggplot(tibble(x = ns), aes(x = x)) + geom_histogram(color = \"darkgray\",\n    fill = \"#440154FF\", bins = 30, alpha = 0.5) + ggtitle(\"Probability Distribution\") +\n    annotate(\"text\", x = -4, y = 1e+05, parse = TRUE, label = \"sum(P(x))==1\",\n        size = 4)"
+    "text": "Probability: Distributions vs. Densities\n\n\nProbability distributions describe discrete variables.\nProbability distributions sum to 1.\n\\[\\sum{Pr[x]}=1\\]\n\n\nCodens &lt;- rnorm(1e+06)\nggplot(tibble(x = ns), aes(x = x)) + geom_histogram(color = \"darkgray\",\n    fill = \"#440154FF\", bins = 30, alpha = 0.5) + ggtitle(\"Probability Distribution\") +\n    annotate(\"text\", x = -4, y = 1e+05, parse = TRUE, label = \"sum(P(x))==1\",\n        size = 4)"
   },
   {
     "objectID": "slides/Probability.html#example-probability-distribution-for-rolling-a-die",
     "href": "slides/Probability.html#example-probability-distribution-for-rolling-a-die",
     "title": "Probability I",
     "section": "Example: probability distribution for rolling a die",
-    "text": "Example: probability distribution for rolling a die\n\n\nAll possible values: \nProbabilities of particular outcomes: \n\nSum of probabilities of all possible outcomes:"
+    "text": "Example: probability distribution for rolling a die\n\n\nAll possible values: \\(x=\\{1,2,3,4,5,6\\}\\)\nProbabilities of particular outcomes: \\(Pr[1]=1/6\\)\n\\[Pr[2]=1/6,\\text{etc}\\]\nSum of probabilities of all possible outcomes:\n\\[\\sum{Pr[x]}=1\\]"
   },
   {
     "objectID": "slides/Probability.html#probability-distributions-vs.-densities-1",
     "href": "slides/Probability.html#probability-distributions-vs.-densities-1",
     "title": "Probability I",
     "section": "Probability: Distributions vs. Densities",
-    "text": "Probability: Distributions vs. Densities\n\n\n\nThe probability of any value from a continuous distribution is infinitesimally small.\nProbability densities integrate to 1.\n\n\n\n\nCodeplot.dens &lt;- ggplot(tibble(x = ns), aes(x = x)) + geom_density(alpha = 0.8,\n    fill = vir[2]) + ggtitle(\"Probability Density\")\nplot.dens"
+    "text": "Probability: Distributions vs. Densities\n\n\n\nThe probability of any value from a continuous distribution is infinitesimally small.\nProbability densities integrate to 1.\n\n\\[\\int{Pr[x]}=1\\]\n\n\nCodeplot.dens &lt;- ggplot(tibble(x = ns), aes(x = x)) + geom_density(alpha = 0.8,\n    fill = vir[2]) + ggtitle(\"Probability Density\")\nplot.dens"
   },
   {
     "objectID": "slides/Probability.html#example-the-normal-distribution",
     "href": "slides/Probability.html#example-the-normal-distribution",
     "title": "Probability I",
     "section": "Example: the normal distribution!",
-    "text": "Example: the normal distribution!\nArea under the curve gives you the probability of values in a range  Each value has an an infinitesimal probability value\n\n\nFigure caption: figure 5.4-4 from the textbook."
+    "text": "Example: the normal distribution!\nArea under the curve gives you the probability of values in a range \\(\\left[a,b\\right]\\) Each value has an an infinitesimal probability value\n\nFigure caption: figure 5.4-4 from the textbook."
   },
   {
     "objectID": "slides/Probability.html#proportion",
@@ -2421,21 +2477,21 @@
     "href": "slides/Probability.html#the-general-addition-principle-this-or-that",
     "title": "Probability I",
     "section": "The general addition principle (“this OR that”)",
-    "text": "The general addition principle (“this OR that”)"
+    "text": "The general addition principle (“this OR that”)\n\\[Pr[A \\text{ OR } B]=Pr[A] + Pr[B] - Pr[A \\text{ and } B]\\]"
   },
   {
     "objectID": "slides/Probability.html#a-special-case-of-the-addition-principle",
     "href": "slides/Probability.html#a-special-case-of-the-addition-principle",
     "title": "Probability I",
     "section": "A special case of the addition principle",
-    "text": "A special case of the addition principle\nSpecial case: if A and B are mutually exclusive, then:\n,\nso:"
+    "text": "A special case of the addition principle\nSpecial case: if A and B are mutually exclusive, then:\n\\(Pr[A \\text{ \\& } B] = 0\\),\nso:\n\\[Pr[A \\text{ OR } B]=Pr[A] + Pr[B]\\]"
   },
   {
     "objectID": "slides/Probability.html#example-1",
     "href": "slides/Probability.html#example-1",
     "title": "Probability I",
     "section": "Example 1:",
-    "text": "Example 1:\n\nWhat is the probability of a die roll resulting in an even number OR a prime number?\n\n\nCodep2\n\n\n\n\n\n\n\nEven numbers: ; \nPrime numbers: ; \nEven and prime: ;"
+    "text": "Example 1:\n\nWhat is the probability of a die roll resulting in an even number OR a prime number?\n\n\nCodep2\n\n\nEven numbers: \\(\\{2,4,6\\}\\); \\(Pr[even]=\\frac{3}{6}=\\frac{1}{2}\\)\nPrime numbers: \\(\\{2,3,5\\}\\); \\(Pr[prime]=\\frac{3}{6}=\\frac{1}{2}\\)\nEven and prime: \\(\\{2\\}\\); \\(Pr[\\text{even \\&  prime}]=\\frac{1}{6}\\)\n\\[Pr[\\text{even OR prime}] = 1/2 + 1/2 - 1/3 = 0.83333\\]"
   },
   {
     "objectID": "slides/Probability.html#the-general-multiplication-principle-this-and-that",
@@ -2449,21 +2505,21 @@
     "href": "slides/Probability.html#the-general-multiplication-principle",
     "title": "Probability I",
     "section": "The General Multiplication Principle",
-    "text": "The General Multiplication Principle\n\n\n\nThe probability of “” equals:\nthe probability of one event times the probability of the other, conditioned on the first.\n\nRead  as  “given” ."
+    "text": "The General Multiplication Principle\n\\[Pr[A \\text{ \\& } B] = Pr[A] \\times Pr[B|A]\\]\n\n\nThe probability of “\\(A \\text{ AND }B\\)” equals:\nthe probability of one event times the probability of the other, conditioned on the first.\n\nRead \\(A|B\\) as \\(A\\) “given” \\(B\\)."
   },
   {
     "objectID": "slides/Probability.html#special-case-a-and-b-are-independent",
     "href": "slides/Probability.html#special-case-a-and-b-are-independent",
     "title": "Probability I",
     "section": "Special case: A and B are independent",
-    "text": "Special case: A and B are independent\n\nTwo events are independent if the occurrence of one gives no information about whether the second will occur.\n and  are independent if \nSo the rule becomes: \nI.e., if  &  are independent, the probability of “” is simply the product of their probabilities.\n\n\n\nNote: (in)dependence does not imply any mechanistic or causative relationship."
+    "text": "Special case: A and B are independent\n\nTwo events are independent if the occurrence of one gives no information about whether the second will occur.\n\\(A\\) and \\(B\\) are independent if \\(Pr[B | A] = Pr[B]\\)\nSo the rule becomes: \\(Pr[A \\text{ \\& } B] = Pr[A] \\times Pr[B|A] =  Pr[A] \\times Pr[B]\\)\nI.e., if \\(A\\) & \\(B\\) are independent, the probability of “\\(A \\text{ AND }B\\)” is simply the product of their probabilities.\n\n\n\nNote: (in)dependence does not imply any mechanistic or causative relationship."
   },
   {
     "objectID": "slides/Probability.html#example",
     "href": "slides/Probability.html#example",
     "title": "Probability I",
     "section": "Example",
-    "text": "Example\n\nProbably of getting even numbers in two consecutive rolls of a die.\n\n\n\nSince each trial (roll) is independent, then: \n\n\n\n\nWe will learn about cases on non-independence later"
+    "text": "Example\n\nProbably of getting even numbers in two consecutive rolls of a die.\n\n\\[Pr[A]=Pr[even]=1/2\\]\n\\[Pr[B]=Pr[eve]=1/2\\]\nSince each trial (roll) is independent, then: \\(Pr[\\text{even in both rolls}]=1/2\\times 1/2 = 1/4\\)\n\n\n\n\nWe will learn about cases on non-independence later"
   },
   {
     "objectID": "slides/Probability3.html#outline",
