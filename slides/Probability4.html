@@ -11,7 +11,7 @@
 <meta name="generator" content="quarto-1.10.18">
 <meta name="dcterms.date" content="2026-09-30">
 <meta name="keywords" content="Unit 3">
-<title>BIOL B215: Biostatistics with R – Probability II</title>
+<title>BIOL B215: Biostatistics with R – 3.3. Probability II</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -118,6 +118,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -199,14 +200,15 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="quarto-title-block center"><h1 class="title">Probability II</h1>
+<section id="title-slide" class="quarto-title-block center"><h1 class="title">3.3. Probability II</h1>
   <p class="subtitle">Probability trees &amp; conditional probability</p>
 
 <div class="quarto-title-authors">
 </div>
 
   <p class="date">September 30, 2026</p>
-</section><section class="slide level2">
+</section><section id="which-mr.-data-are-you-today" class="slide level2"><h2>Which Mr.&nbsp;Data are you today?</h2>
+
 <img data-src="images/clipboard-1263958359.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" alt="Mr. Data from Start Trek with several faces"></section><section id="about-last-classs-activity" class="slide level2" data-visibility="uncounted"><h2>About last class’s activity</h2>
 <p>99% of people are overconfident in this test</p>
 <div class="goal">
@@ -253,7 +255,7 @@
 <li><p>Probability theory can be hard.</p></li>
 <li><p>Being explicit about what you’re doing makes this easier.</p></li>
 <li><p>Probability trees offer a simple way to follow the thought process.</p></li>
-</ul></section><section id="how-to-make-probability-trees" class="slide level2"><h2>How to make probability trees</h2>
+</ul></section><section id="how-to-make-probability-trees" class="slide level2 scrollable"><h2>How to make probability trees</h2>
 <ol type="1">
 <li><p>Write down all possible outcomes for event one, two… etc. and connect them.</p></li>
 <li><p>Write down the probability of each outcome, conditional on their path.</p></li>
@@ -261,7 +263,7 @@
 <p>Multiply each value down a path to find the probability of that path.</p>
 <p>Repeat 1-3 for all paths.</p>
 </li>
-<li><p>Find probability: sum paths that lead to the same destination - i.e. the same outcome.</p></li>
+<li><p>Find probability: sum paths that lead to the same destination - i.e.&nbsp;the same outcome.</p></li>
 </ol></section><section id="probability-tree-demo-independent-events" class="slide level2"><h2>Probability tree demo (independent events)</h2>
 <div class="goal">
 <p>If both of parents have an affected chromosome but no disease, let’s answer three questions:</p>
@@ -275,42 +277,43 @@
 </section><section id="step-1-write-down-all-possible-outcomes" class="slide level2"><h2>Step 1: Write down all possible outcomes</h2>
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/clipboard-897739780.png" class="margin-caption quarto-figure quarto-figure-center" alt="laying out the events (1st child; 2nd child) with two arrows stemming from one point to the left of 1st child and then two pairs of arrows starting from the left of 2nd child"></p>
+<figure><p><img data-src="images/clipboard-897739780.png" class="margin-caption quarto-figure quarto-figure-center" alt="laying out the events (1st child; 2nd child) with two arrows stemming from one point to the left of 1st child and then two pairs of arrows starting from the left of 2nd child" width="460"></p>
 </figure>
 </div>
 </div>
 </section><section id="step-1-write-down-all-possible-outcomes-1" class="slide level2"><h2>Step 1: Write down all possible outcomes</h2>
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/clipboard-7639108.png" class="margin-caption quarto-figure quarto-figure-center" alt="added words &quot;affected&quot; and &quot;not affected&quot; to the ends of each pair of arrows"></p>
+<figure><p><img data-src="images/clipboard-7639108.png" class="margin-caption quarto-figure quarto-figure-center" alt="added words &quot;affected&quot; and &quot;not affected&quot; to the ends of each pair of arrows" width="492"></p>
 </figure>
 </div>
 </div>
 </section><section id="step-2.-write-down-the-probability-of-each-outcome-conditional-on-their-path" class="slide level2"><h2>Step 2. Write down the probability of each outcome, conditional on their path</h2>
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/clipboard-3251760107.png" class="margin-caption quarto-figure quarto-figure-center" alt="now we add the probabilities on top of the arrows: 1/4 for the arrow leading to &quot;affected&quot; and 3/4 for the other one."></p>
+<figure><p><img data-src="images/clipboard-3251760107.png" class="margin-caption quarto-figure quarto-figure-center" alt="now we add the probabilities on top of the arrows: 1/4 for the arrow leading to &quot;affected&quot; and 3/4 for the other one." width="479"></p>
 </figure>
 </div>
 </div>
 </section><section id="step-3.-multiply-each-value-down-a-path-to-find-the-probability-of-that-path" class="slide level2"><h2>Step 3. Multiply each value down a path to find the probability of that path</h2>
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/clipboard-4091397874.png" class="margin-caption quarto-figure quarto-figure-center" alt="added a column to the right saying &quot;probability of path&quot;"></p>
+<figure><p><img data-src="images/clipboard-4091397874.png" class="margin-caption quarto-figure quarto-figure-center" alt="added a column to the right saying &quot;probability of path&quot;" width="614"></p>
 </figure>
 </div>
 </div>
 </section><section id="step-3.-multiply-each-value-down-a-path-to-find-the-probability-of-that-path-1" class="slide level2"><h2>Step 3. Multiply each value down a path to find the probability of that path</h2>
 <p>Each tree tip defines a unique and mutually exclusive sequence of events. . . .</p>
 
-<img data-src="images/clipboard-3424223039.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" alt="added the probabilities for each path: affected-affected: 1/4 times 1/4=1/16; affected-not-affected: 1/4 times 3/4=3/16, etc."></section><section id="step-4.-sum-paths-that-lead-to-the-same-destination" class="slide level2"><h2>Step 4. Sum paths that lead to the same destination</h2>
+<img data-src="images/clipboard-3424223039.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" alt="added the probabilities for each path: affected-affected: 1/4 times 1/4=1/16; affected-not-affected: 1/4 times 3/4=3/16, etc." width="629"></section><section id="step-4.-sum-paths-that-lead-to-the-same-destination" class="slide level2"><h2>Step 4. Sum paths that lead to the same destination</h2>
 <div class="fragment">
-<p><img data-src="images/clipboard-2539150621.png" class="margin-caption"></p>
-<p><span class="math display">\[
-Pr[2\text{ Affected }] = 1/16;
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/clipboard-2539150621.png" class="margin-caption quarto-figure quarto-figure-center" width="687"></p>
+</figure>
+</div>
+<p><span class="math display">\[Pr[2\text{ Affected }] = 1/16;
 Pr[1\text{ Affected }] = 3/16+3/16=6/16;
-Pr[0 \text{ Affected }= 9/16]
-\]</span></p>
+Pr[0 \text{ Affected }= 9/16]\]</span></p>
 </div>
 </section><section id="dependent-events-conditional-probabilities" class="slide level2 center"><h2>Dependent events &amp; Conditional Probabilities</h2>
 <p>Much of science involves identifying variables that are associated.</p>
@@ -318,13 +321,12 @@ Pr[0 \text{ Affected }= 9/16]
 <p>Events are dependent when the probability of one event depends on the outcome of another. I.e., the outcome of the</p>
 <p>E.g. The Probability of <span class="math inline">\(A\)</span> depends on the value of <span class="math inline">\(B\)</span>.</p>
 <p>If <span class="math inline">\(A\)</span> depends on <span class="math inline">\(B\)</span>:</p>
-<p><span class="math display">\[
-Pr[A\text{ &amp; }B]\neq Pr[A]\times Pr[B]
-\]</span> In fact, in that case:</p>
-<p><span class="math display">\[
-Pr[A\text{ &amp; }B] = Pr[A]\times Pr[B|A]
-\]</span> ::: aside WARNING: Observing a statistical dependence between two outcomes does not necessarily imply a causal connection. :::</p>
-</section><section id="example-surviving-the-titanic-1" class="slide level2"><h2>Example: Surviving the Titanic (1/)</h2>
+<p><span class="math display">\[Pr[A\text{ &amp; }B]\neq Pr[A]\times Pr[B]\]</span> In fact, in that case:</p>
+<p><span class="math display">\[Pr[A\text{ &amp; }B] = Pr[A]\times Pr[B|A]\]</span></p>
+
+<aside><div>
+<p>WARNING: Observing a statistical dependence between two outcomes does not necessarily imply a causal connection.</p>
+</div></aside></section><section id="example-surviving-the-titanic-1" class="slide level2"><h2>Example: Surviving the Titanic (1/)</h2>
 <div class="goal">
 <p>Real question: did being on the 3rd class make you more likely to die on the titanic?</p>
 </div>
@@ -1828,7 +1830,7 @@ Pr[A\text{ &amp; }B] = Pr[A]\times Pr[B|A]
 </div>
 </div>
 </section><section id="example-surviving-the-titanic-4-1" class="slide level2"><h2>Example: Surviving the Titanic (4/)</h2>
-<p>Reality: surviving the titanic depends on class</p>
+<p>Reality: surviving the titanic seems to* depend on class</p>
 <ul>
 <li>
 <p><em>More</em> 1st class passengers survived than expected.</p>
@@ -1865,7 +1867,7 @@ Pr[A\text{ &amp; }B] = Pr[A]\times Pr[B|A]
 <p><span class="math display">\[Pr[X]=\sum{(Pr[X|Y_{i}]\times Pr[Y_{i}])}\]</span></p>
 <p><span class="math inline">\(Pr[\text{Survive}]=\sum{(Pr[\text{Survive}|\text{Class}_{i}]\times Pr[\text{Class}_{i}])}\)</span></p>
 <div class="fragment">
-<p>$Pr[]= + $</p>
+<p><span class="math inline">\(Pr[\text{Survive}]=\sum{(Pr[\text{Survive}|\text{1st class}]\times Pr[\text{1st class}])}+\)</span></p>
 <p><span class="math inline">\(Pr[\text{Survive}|\text{NOT 1st class}]\times Pr[\text{NOT 1st class}])\)</span></p>
 </div>
 <div class="fragment">
