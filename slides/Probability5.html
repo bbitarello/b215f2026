@@ -244,7 +244,7 @@
 
 <aside><div>
 <p>Example from WS.</p>
-</div></aside></section><section id="practice-4" class="slide level2"><h2>Practice 4</h2>
+</div></aside></section><section id="practice-4" class="slide level2"><h2>Practice 4:</h2>
 <p>Within the United States, approximately 11.25% of the population is left‑handed. Of the males, 12.6% are left‑handed, compared to only 9.9% of the females. If a person is selected at random, what is the probability that the selected person is a female, given the person is right-handed?</p>
 </section><section id="practice-5-challenge" class="slide level2"><h2>Practice 5 (challenge):</h2>
 <div class="goal">
@@ -732,42 +732,7 @@
 
 <aside><div>
 <p>Tip: use a probability tree and Bayes’ theorem</p>
-</div></aside></section><section id="solution-1-2" class="slide level2"><h2>Solution 1</h2>
-
-<img data-src="images/clipboard-4142506875.png" class="margin-caption r-stretch"></section><section id="solution-1-3" class="slide level2"><h2>Solution 1</h2>
-
-<img data-src="images/clipboard-42998925.png" class="margin-caption r-stretch"></section><section id="solution-1-4" class="slide level2"><h2>Solution 1</h2>
-
-<img data-src="images/clipboard-914645614.png" class="margin-caption r-stretch"></section><section id="solution-1-5" class="slide level2"><h2>Solution 1</h2>
-
-<img data-src="images/clipboard-3203265178.png" class="margin-caption r-stretch"></section><section id="solution-1-6" class="slide level2"><h2>Solution 1</h2>
-
-<img data-src="images/clipboard-3322131651.png" class="margin-caption r-stretch"></section><section id="solution-1-7" class="slide level2"><h2>Solution 1</h2>
-
-<img data-src="images/clipboard-225578788.png" class="margin-caption r-stretch" width="455"><p><span class="math inline">\(Pr[+]=0.0184+0.098=0.1164\)</span></p>
-<p>Proportion of + tests where there actually is cancer is:</p>
-<p><span class="math inline">\(= \frac{Pr[C,+]}{Pr[+]}=\frac{0.0184}{0.1164}=0.1578\)</span></p>
-</section><section id="solution-2-bayes-theorem" class="slide level2"><h2>Solution 2: Bayes’ Theorem</h2>
-<ul>
-<li><p>Let <span class="math inline">\(C\)</span> and <span class="math inline">\(NC\)</span> be the cancer statuses and <span class="math inline">\(+\)</span> and <span class="math inline">\(-\)</span> the test results.</p></li>
-<li><p><span class="math inline">\(Pr[C]=0.02\)</span></p></li>
-<li><p><span class="math inline">\(Pr[NC]=1-0.02=0.98\)</span></p></li>
-<li><p><span class="math inline">\(Pr[+|C]=0.92\)</span></p></li>
-<li><p><span class="math inline">\(Pr[+|NC]=0.10\)</span></p></li>
-<li><p>What we want: <span class="math inline">\(Pr[C|+]\)</span> or, in other words, the proportion of positive test cases that are actually true positives</p></li>
-<li><p>So we want: <span class="math inline">\(Pr[C|+]=\frac{Pr[+|C]\times Pr[C]}{Pr[+]}\)</span></p></li>
-<li><p>We have <span class="math inline">\(Pr[+|C], Pr[C]\)</span>, but what about <span class="math inline">\(Pr[+]\)</span>?</p></li>
-</ul></section><section id="solution-2-bayes-theorem-1" class="slide level2"><h2>Solution 2: Bayes’ Theorem</h2>
-<ul>
-<li class="fragment"><p>So we want: <span class="math inline">\(Pr[C|+]=\frac{Pr[+|C]\times Pr[C]}{Pr[+]}\)</span></p></li>
-<li class="fragment"><p>We have <span class="math inline">\(Pr[+|C], Pr[C]\)</span>, but what about <span class="math inline">\(Pr[+]\)</span>?</p></li>
-<li class="fragment"><p>Law of total probability: <span class="math inline">\(Pr[+]=Pr[+|C]\times Pr[C]+(Pr[+|NC]\times Pr[NC]\)</span></p></li>
-<li class="fragment"><p><span class="math inline">\(Pr[+]= (0.92\times0.02)+(0.10\times0.98)=0.0184+0.098=0.1164\)</span></p></li>
-<li class="fragment"><p>Now we can use Bayes’ theorem: <span class="math inline">\(Pr[C|+]=\frac{Pr[+|C]\times Pr[C]}{Pr[+]}\)</span></p></li>
-<li class="fragment"><p><span class="math inline">\(Pr[C|+]=\frac{0.92\times 0.02}{0.1164}=0.1580756\approx 0.158\)</span></p></li>
-</ul></section></section><section><section id="challenge-monty-hall" class="title-slide slide level1 center"><h1>Challenge: Monty Hall</h1>
-
-</section><section id="the-problem" class="slide level2"><h2>The problem:</h2>
+</div></aside></section></section><section><section id="the-problem" class="slide level2"><h2>The problem:</h2>
 <ul>
 <li>You are a contestant in a show and you are presented with 3 doors. You must choose one door and you get to keep what’s behind it. Behind one of the doors is a fancy new car</li>
 <li>You pick one door (but the host doesn’t open it yet)</li>
@@ -775,49 +740,7 @@
 <li>He now offers you the chance to choose the other door (the one you didn’t choose and hasn’t been opened yet). What do you do?</li>
 </ul>
 
-<img data-src="images/clipboard-1597478462.png" class="margin-caption r-stretch"><p>Vote before class on W! <a href="https://piazza.com/class/mtag5wjmrj557o/post/22">https://piazza.com/class/mtag5wjmrj557o/post/22</a> ## Cont.</p>
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby">
-<li><a data-tabby-default="" href="#tabset-1-1">Scenario:</a></li>
-<li><a href="#tabset-1-2">Poll results</a></li>
-</ul>
-<div class="tab-content">
-<div id="tabset-1-1">
-<ul>
-<li>There are no tricks here, just probability</li>
-<li>All doors look identical.</li>
-<li>The host (who knows which door has the car) has a perfect poker face and reveals nothing</li>
-<li>Because the host knows where the car is, he would never have chosen the door that has the car.</li>
-</ul>
-</div>
-<div id="tabset-1-2">
-
-</div>
-</div>
-</div>
-</section><section id="in-summary-1" class="slide level2"><h2>In summary</h2>
-<ul>
-<li><p>Probability theory provides a foundation for rigorous statistics.</p></li>
-<li><p>Application of simple rules of probability facilitates the generation of more complex predictions.</p></li>
-<li><p>We can use Bayes’ Theorem to translate between probabilistic statements</p></li>
-</ul>
-<div class="quarto-figure quarto-figure-center margin-caption">
-<figure><p><a href="https://xkcd.com/1236/"><img data-src="images/clipboard-665297176.png" width="400"></a></p>
-<figcaption>From: https://xkcd.com/1236/</figcaption></figure>
-</div>
-<aside class="notes"><p>Probability handout (Moodle) should have more practice questions.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-
+<img data-src="images/clipboard-1597478462.png" class="margin-caption r-stretch"><p>Vote before class on W! <a href="https://piazza.com/class/mtag5wjmrj557o/post/22">https://piazza.com/class/mtag5wjmrj557o/post/22</a></p>
 </section></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">

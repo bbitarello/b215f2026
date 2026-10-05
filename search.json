@@ -150,8 +150,8 @@
     "objectID": "slides/Probability5.html#practice-4",
     "href": "slides/Probability5.html#practice-4",
     "title": "Unit 3 (part II): problems",
-    "section": "Practice 4",
-    "text": "Practice 4\nWithin the United States, approximately 11.25% of the population is left‑handed. Of the males, 12.6% are left‑handed, compared to only 9.9% of the females. If a person is selected at random, what is the probability that the selected person is a female, given the person is right-handed?"
+    "section": "Practice 4:",
+    "text": "Practice 4:\nWithin the United States, approximately 11.25% of the population is left‑handed. Of the males, 12.6% are left‑handed, compared to only 9.9% of the females. If a person is selected at random, what is the probability that the selected person is a female, given the person is right-handed?"
   },
   {
     "objectID": "slides/Probability5.html#practice-5-challenge",
@@ -161,74 +161,11 @@
     "text": "Practice 5 (challenge):\n\nWhat proportion of women (ages 40-49) whose 1st mammogram suggests they have breast cancer actually do have breast cancer?\n\nAbout 20 in 1000 women (ages 40-49) have breast cancer.\nA mammogram will reliably detect breast cancer in ~ 920 of every 1000 patients who truly have cancer. (this is called a “true positive” result)\nA mammogram will incorrectly diagnose 100 of every 1000 cancer free patients as having cancer. (this is called a “false positive” result)\n\n\nLet C and NC be the cancer statuses and + and - the test results.\n\n\n\n\n\n\n\n+\n-\n\n\n\nC\nTP\nFN\n\n\nNC\nFP\nTN\n\n\n\n\n\n\n\n\nTip: use a probability tree and Bayes’ theorem"
   },
   {
-    "objectID": "slides/Probability5.html#solution-1-2",
-    "href": "slides/Probability5.html#solution-1-2",
-    "title": "Unit 3 (part II): problems",
-    "section": "Solution 1",
-    "text": "Solution 1"
-  },
-  {
-    "objectID": "slides/Probability5.html#solution-1-3",
-    "href": "slides/Probability5.html#solution-1-3",
-    "title": "Unit 3 (part II): problems",
-    "section": "Solution 1",
-    "text": "Solution 1"
-  },
-  {
-    "objectID": "slides/Probability5.html#solution-1-4",
-    "href": "slides/Probability5.html#solution-1-4",
-    "title": "Unit 3 (part II): problems",
-    "section": "Solution 1",
-    "text": "Solution 1"
-  },
-  {
-    "objectID": "slides/Probability5.html#solution-1-5",
-    "href": "slides/Probability5.html#solution-1-5",
-    "title": "Unit 3 (part II): problems",
-    "section": "Solution 1",
-    "text": "Solution 1"
-  },
-  {
-    "objectID": "slides/Probability5.html#solution-1-6",
-    "href": "slides/Probability5.html#solution-1-6",
-    "title": "Unit 3 (part II): problems",
-    "section": "Solution 1",
-    "text": "Solution 1"
-  },
-  {
-    "objectID": "slides/Probability5.html#solution-1-7",
-    "href": "slides/Probability5.html#solution-1-7",
-    "title": "Unit 3 (part II): problems",
-    "section": "Solution 1",
-    "text": "Solution 1\n\n\\(Pr[+]=0.0184+0.098=0.1164\\)\nProportion of + tests where there actually is cancer is:\n\\(= \\frac{Pr[C,+]}{Pr[+]}=\\frac{0.0184}{0.1164}=0.1578\\)"
-  },
-  {
-    "objectID": "slides/Probability5.html#solution-2-bayes-theorem",
-    "href": "slides/Probability5.html#solution-2-bayes-theorem",
-    "title": "Unit 3 (part II): problems",
-    "section": "Solution 2: Bayes’ Theorem",
-    "text": "Solution 2: Bayes’ Theorem\n\nLet \\(C\\) and \\(NC\\) be the cancer statuses and \\(+\\) and \\(-\\) the test results.\n\\(Pr[C]=0.02\\)\n\\(Pr[NC]=1-0.02=0.98\\)\n\\(Pr[+|C]=0.92\\)\n\\(Pr[+|NC]=0.10\\)\nWhat we want: \\(Pr[C|+]\\) or, in other words, the proportion of positive test cases that are actually true positives\nSo we want: \\(Pr[C|+]=\\frac{Pr[+|C]\\times Pr[C]}{Pr[+]}\\)\nWe have \\(Pr[+|C], Pr[C]\\), but what about \\(Pr[+]\\)?"
-  },
-  {
-    "objectID": "slides/Probability5.html#solution-2-bayes-theorem-1",
-    "href": "slides/Probability5.html#solution-2-bayes-theorem-1",
-    "title": "Unit 3 (part II): problems",
-    "section": "Solution 2: Bayes’ Theorem",
-    "text": "Solution 2: Bayes’ Theorem\n\nSo we want: \\(Pr[C|+]=\\frac{Pr[+|C]\\times Pr[C]}{Pr[+]}\\)\nWe have \\(Pr[+|C], Pr[C]\\), but what about \\(Pr[+]\\)?\nLaw of total probability: \\(Pr[+]=Pr[+|C]\\times Pr[C]+(Pr[+|NC]\\times Pr[NC]\\)\n\\(Pr[+]= (0.92\\times0.02)+(0.10\\times0.98)=0.0184+0.098=0.1164\\)\nNow we can use Bayes’ theorem: \\(Pr[C|+]=\\frac{Pr[+|C]\\times Pr[C]}{Pr[+]}\\)\n\\(Pr[C|+]=\\frac{0.92\\times 0.02}{0.1164}=0.1580756\\approx 0.158\\)"
-  },
-  {
     "objectID": "slides/Probability5.html#the-problem",
     "href": "slides/Probability5.html#the-problem",
     "title": "Unit 3 (part II): problems",
     "section": "The problem:",
-    "text": "The problem:\n\nYou are a contestant in a show and you are presented with 3 doors. You must choose one door and you get to keep what’s behind it. Behind one of the doors is a fancy new car\nYou pick one door (but the host doesn’t open it yet)\nAt this point the host chooses one of the other two doors and opens it. There is a goat behind it.\nHe now offers you the chance to choose the other door (the one you didn’t choose and hasn’t been opened yet). What do you do?\n\n\nVote before class on W! https://piazza.com/class/mtag5wjmrj557o/post/22 ## Cont.\n\n\nScenario:\nPoll results\n\n\n\n\nThere are no tricks here, just probability\nAll doors look identical.\nThe host (who knows which door has the car) has a perfect poker face and reveals nothing\nBecause the host knows where the car is, he would never have chosen the door that has the car."
-  },
-  {
-    "objectID": "slides/Probability5.html#in-summary-1",
-    "href": "slides/Probability5.html#in-summary-1",
-    "title": "Unit 3 (part II): problems",
-    "section": "In summary",
-    "text": "In summary\n\nProbability theory provides a foundation for rigorous statistics.\nApplication of simple rules of probability facilitates the generation of more complex predictions.\nWe can use Bayes’ Theorem to translate between probabilistic statements\n\n\n\nFrom: https://xkcd.com/1236/\n\nProbability handout (Moodle) should have more practice questions."
+    "text": "The problem:\n\nYou are a contestant in a show and you are presented with 3 doors. You must choose one door and you get to keep what’s behind it. Behind one of the doors is a fancy new car\nYou pick one door (but the host doesn’t open it yet)\nAt this point the host chooses one of the other two doors and opens it. There is a goat behind it.\nHe now offers you the chance to choose the other door (the one you didn’t choose and hasn’t been opened yet). What do you do?\n\n\nVote before class on W! https://piazza.com/class/mtag5wjmrj557o/post/22"
   },
   {
     "objectID": "slides/Probability3.html#which-mr.-data-are-you-today",
@@ -1488,7 +1425,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 6 3 9\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 6 3 4"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1]  9  7 10\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1]  9 10  8"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
