@@ -1,24 +1,234 @@
 [
   {
-    "objectID": "slides/Discuss-PS1.html#outline",
-    "href": "slides/Discuss-PS1.html#outline",
-    "title": "Discuss PS1",
+    "objectID": "slides/Lab5-slides.html#goals",
+    "href": "slides/Lab5-slides.html#goals",
+    "title": "Lab 5 slides",
+    "section": "Goals",
+    "text": "Goals\nCritical thinking\nCoding\nR\n\nmarkdown\n\ngit\nData wrangling\nVisualization and stats\nWriting and communication\nwill be some of the most transferable you acquire as an undergraduate."
+  },
+  {
+    "objectID": "slides/Lab5-slides.html#last-lab-r-markdown",
+    "href": "slides/Lab5-slides.html#last-lab-r-markdown",
+    "title": "Lab 5 slides",
+    "section": "Last lab: R markdown",
+    "text": "Last lab: R markdown\n\nAllowing you to use R markdown for all labs moving forward.\nGiving you a transferable skill: markdown exists outside of R and is immensely useful for formatting text across platforms."
+  },
+  {
+    "objectID": "slides/Lab5-slides.html#reproducible-documents",
+    "href": "slides/Lab5-slides.html#reproducible-documents",
+    "title": "Lab 5 slides",
+    "section": "Reproducible Documents",
+    "text": "Reproducible Documents\nUsing materials from:\n\nSchweinberger, Martin. 2026. The Language Technology and Data Analysis Laboratory (LADAL). Brisbane: The University of Queensland, School of Languages and Cultures. url: https://ladal.edu.au/ (Version 2026.02.09).\n\n\n\nAll LADAL content is freely available under the GNU General Public License, Version 3. You are welcome to use LADAL content in your teaching, adapt code for your research, share resources with colleagues, and build upon our work — provided you cite LADAL appropriately, keep derivatives open-source, and maintain licence notices."
+  },
+  {
+    "objectID": "slides/Lab5-slides.html#what-are-reproducible-notebooks",
+    "href": "slides/Lab5-slides.html#what-are-reproducible-notebooks",
+    "title": "Lab 5 slides",
+    "section": "What Are Reproducible Notebooks?",
+    "text": "What Are Reproducible Notebooks?\nA notebook (R Markdown .Rmd file or Quarto .qmd file) combines three things in one document:\n\n\nProse — written in Markdown for formatted text, headings, and lists\n\nCode — in executable code chunks that R runs when the document is rendered\n\nOutput — tables, figures, and printed results generated directly from the code"
+  },
+  {
+    "objectID": "slides/Lab5-slides.html#document",
+    "href": "slides/Lab5-slides.html#document",
+    "title": "Lab 5 slides",
+    "section": "Document",
+    "text": "Document\n\n\nWhen you click Knit (R Markdown) or Render (Quarto), R executes every code chunk from scratch in a clean environment and weaves the output together with the prose into a finished HTML, PDF, or Word document.\n\n##\n\n\nThe rendered output looks like this."
+  },
+  {
+    "objectID": "slides/Lab5-slides.html#why-notebooks-matter-for-reproducibility",
+    "href": "slides/Lab5-slides.html#why-notebooks-matter-for-reproducibility",
+    "title": "Lab 5 slides",
+    "section": "Why Notebooks Matter for Reproducibility",
+    "text": "Why Notebooks Matter for Reproducibility\n\nevery result derived directly from code\nno manual copying of numbers from a statistical output into a word document\n\nThis means:\n\nf you update your data, you re-render and all results update automatically\nIf a collaborator wants to verify a result, they open the notebook and render it\nIf you revisit the analysis a year later, the notebook shows exactly what was done and why"
+  },
+  {
+    "objectID": "slides/Lab5-slides.html#use-sessioninfo",
+    "href": "slides/Lab5-slides.html#use-sessioninfo",
+    "title": "Lab 5 slides",
+    "section": "Use sessionInfo()",
+    "text": "Use sessionInfo()\nAt the end of a .Rmd or .qmd or even just an .R script, add sessionInfo()\n`{r sess-info} sessionInfo()"
+  },
+  {
+    "objectID": "slides/Lab5-slides.html#last-lab-eda",
+    "href": "slides/Lab5-slides.html#last-lab-eda",
+    "title": "Lab 5 slides",
+    "section": "Last lab: EDA",
+    "text": "Last lab: EDA"
+  },
+  {
+    "objectID": "slides/Probability5.html#acknowledgments",
+    "href": "slides/Probability5.html#acknowledgments",
+    "title": "Unit 3 (part II): problems",
+    "section": "Acknowledgments",
+    "text": "Acknowledgments\n\nhttps://jsgosnell.github.io/cuny_biostats_book/content/chapters/Probability.html\nY. Brandvain\nWS textbook"
+  },
+  {
+    "objectID": "slides/Probability5.html#check-in",
+    "href": "slides/Probability5.html#check-in",
+    "title": "Unit 3 (part II): problems",
+    "section": "Check in",
+    "text": "Check in"
+  },
+  {
+    "objectID": "slides/Probability5.html#outline",
+    "href": "slides/Probability5.html#outline",
+    "title": "Unit 3 (part II): problems",
     "section": "Outline",
-    "text": "Outline\n\nContinue last week’s activity\nGo over PS"
+    "text": "Outline\n\nCheck in (course structure)\nProblem from last class\nBayes Theorem problems\nFinal 15 min: mid-semester check-in"
   },
   {
-    "objectID": "slides/Discuss-PS1.html#pick-a-range-that-you-think-has-a-90-chance-of-containing-the-right-answer",
-    "href": "slides/Discuss-PS1.html#pick-a-range-that-you-think-has-a-90-chance-of-containing-the-right-answer",
-    "title": "Discuss PS1",
-    "section": "Pick a range that you think has a 90% chance of containing the right answer",
-    "text": "Pick a range that you think has a 90% chance of containing the right answer\n\nDon’t consult anything/anyone. The goal is to quantify your uncertainty. If you truly have no idea, you can use the broadest range that is plausible (which you can be 100% sure includes the answer) but try to narrow down your answers to a range that you are 90% sure contains the right answer.\n\n\n\n\nMartin Luther King Jr’s age at death\nLength of the Nile river (miles; km)\nNumber of countries in OPEC1\n\nNumber of books in the Old Testament\nDiameter of the moon (miles; km)\nWeight of an empty Boeing 747 (lbs; kg)\n\n\n\nYear Mozart was born\nGestation period of an Asian elephant (days)\nDistance from London to Tokyo (miles; km)\nDeepest know point in the ocean (miles; km)\n\n\nOrganization of the Petroleum Exporting Countries"
+    "objectID": "slides/Probability5.html#from-last-week-titanic-prsurvival-conditional-on-class-with-probability-trees",
+    "href": "slides/Probability5.html#from-last-week-titanic-prsurvival-conditional-on-class-with-probability-trees",
+    "title": "Unit 3 (part II): problems",
+    "section": "From last week: Titanic Pr[survival] conditional on class with probability trees",
+    "text": "From last week: Titanic Pr[survival] conditional on class with probability trees\nVolunteers?"
   },
   {
-    "objectID": "slides/Discuss-PS1.html#address-some-ps-stuff",
-    "href": "slides/Discuss-PS1.html#address-some-ps-stuff",
-    "title": "Discuss PS1",
-    "section": "Address some PS stuff …",
-    "text": "Address some PS stuff …"
+    "objectID": "slides/Probability5.html#example-surviving-the-titanic-1",
+    "href": "slides/Probability5.html#example-surviving-the-titanic-1",
+    "title": "Unit 3 (part II): problems",
+    "section": "Example: Surviving the Titanic [1/]",
+    "text": "Example: Surviving the Titanic [1/]\nRecall:\n319 of the 2092 adults on the Titanic where in 1st class.\n197 of the 319 1st class adults survived.\n457 of the 1316 of the crew + the 2nd and 3rd class adults survived."
+  },
+  {
+    "objectID": "slides/Probability5.html#example-surviving-the-titanic-2",
+    "href": "slides/Probability5.html#example-surviving-the-titanic-2",
+    "title": "Unit 3 (part II): problems",
+    "section": "Example: Surviving the Titanic [2/]",
+    "text": "Example: Surviving the Titanic [2/]\n\\(Pr[\\text{Adult 1st class}]=319/2092= 0.1524857\\approx 0.152\\)\n\\(Pr[\\text{Adult Not 1st class}]=1-319/2092=0.8475143\\approx 0.848\\)"
+  },
+  {
+    "objectID": "slides/Probability5.html#example-surviving-the-titanic-2-1",
+    "href": "slides/Probability5.html#example-surviving-the-titanic-2-1",
+    "title": "Unit 3 (part II): problems",
+    "section": "Example: Surviving the Titanic [2/]",
+    "text": "Example: Surviving the Titanic [2/]\n\\(Pr[\\text{ Survive| Adult in 1st class}] = 197/319 = 0.6175549\\approx 0.62\\)\n\\(Pr[\\text{ Survive| Adult NOT in 1st class}] = 457/1773 = 0.2577552\\approx 0.26\\)\n\n\n\n\n\n\n\n\n\nWe find: \\(Pr[survive]=0.093 + 0.219=0.312\\)\n\nNote, rounding for simplicity here, but only round at the end."
+  },
+  {
+    "objectID": "slides/Probability5.html#in-summary",
+    "href": "slides/Probability5.html#in-summary",
+    "title": "Unit 3 (part II): problems",
+    "section": "In Summary",
+    "text": "In Summary\n\nWe recover \\(Pr[\\text{survive}]=0.094+0.220=0.314\\)."
+  },
+  {
+    "objectID": "slides/Probability5.html#bayes-theorem-titanic-example-1",
+    "href": "slides/Probability5.html#bayes-theorem-titanic-example-1",
+    "title": "Unit 3 (part II): problems",
+    "section": "Bayes’ Theorem: Titanic Example [1/]",
+    "text": "Bayes’ Theorem: Titanic Example [1/]\n\nFind the probability that an adult survivor was in 1st class.\n\n\n319 of the 2092 adults on the Titanic where in 1st class.\n197 of the 319 adults in 1st class survived.\n457 of the other adults survived.\n\n\\(Pr[\\text{1st class}|\\text{Survive}]=?\\)\nTry it!"
+  },
+  {
+    "objectID": "slides/Probability5.html#bayes-theorem-titanic-example-2",
+    "href": "slides/Probability5.html#bayes-theorem-titanic-example-2",
+    "title": "Unit 3 (part II): problems",
+    "section": "Bayes’ Theorem: Titanic Example [2/]",
+    "text": "Bayes’ Theorem: Titanic Example [2/]\n\\(Pr[\\text{1st class}|\\text{Survive}]=\\frac{Pr[\\text{Survive}|\\text{1st class}]\\times Pr[\\text{1st class}]}{Pr[\\text{Survive}]}\\)\n\n\\(Pr[\\text{1st class}|\\text{Survive}]=\\frac{197/319\\times(319/2092)}{(197+457)/2092}=0.30\\)"
+  },
+  {
+    "objectID": "slides/Probability5.html#practice-1-do-you-agree",
+    "href": "slides/Probability5.html#practice-1-do-you-agree",
+    "title": "Unit 3 (part II): problems",
+    "section": "Practice 1: Do you agree?",
+    "text": "Practice 1: Do you agree?\n\nXKCD Conditional Risk: The annual death rate among people who know that statistics is one is six.For our lightning example, we could use some (pretend) numbers to understand the risk and Bayes’ Theorem. First, let A be the probability of being outside in a lightning storm. B is then the probability of getting struck by lightning, , and Pr[B|A] is the probabiity of getting struck by lightning given that you are outside in a lightning storm (hint: it’s much higher than the Pr[B])."
+  },
+  {
+    "objectID": "slides/Probability5.html#practice-2-trick-question",
+    "href": "slides/Probability5.html#practice-2-trick-question",
+    "title": "Unit 3 (part II): problems",
+    "section": "Practice 2 (trick question!)",
+    "text": "Practice 2 (trick question!)\nRecent statistics indicate that 30% of Americans are overweight. We also know that about 50% of Americans are female. Based on this information, what is the proportion of Americans who are overweight or female?\n\nTrick question! we cannot say what proportion of all Americans are overweight or female because being female and being overweight are NOT mutually exclusive events.\n\nExample from WS."
+  },
+  {
+    "objectID": "slides/Probability5.html#practice-3",
+    "href": "slides/Probability5.html#practice-3",
+    "title": "Unit 3 (part II): problems",
+    "section": "Practice 3:",
+    "text": "Practice 3:\nWithin the United States, approximately 11.25% of the population is left‑handed. Of the males, 12.6% are left‑handed, compared to only 9.9% of the females. If a person is selected at random, what is the probability that the selected person is a left‑handed male? Assume that the probability of selecting a male is the same as selecting a female.\n\n\nExample from WS."
+  },
+  {
+    "objectID": "slides/Probability5.html#practice-4",
+    "href": "slides/Probability5.html#practice-4",
+    "title": "Unit 3 (part II): problems",
+    "section": "Practice 4",
+    "text": "Practice 4\nWithin the United States, approximately 11.25% of the population is left‑handed. Of the males, 12.6% are left‑handed, compared to only 9.9% of the females. If a person is selected at random, what is the probability that the selected person is a female, given the person is right-handed?"
+  },
+  {
+    "objectID": "slides/Probability5.html#practice-5-challenge",
+    "href": "slides/Probability5.html#practice-5-challenge",
+    "title": "Unit 3 (part II): problems",
+    "section": "Practice 5 (challenge):",
+    "text": "Practice 5 (challenge):\n\nWhat proportion of women (ages 40-49) whose 1st mammogram suggests they have breast cancer actually do have breast cancer?\n\nAbout 20 in 1000 women (ages 40-49) have breast cancer.\nA mammogram will reliably detect breast cancer in ~ 920 of every 1000 patients who truly have cancer. (this is called a “true positive” result)\nA mammogram will incorrectly diagnose 100 of every 1000 cancer free patients as having cancer. (this is called a “false positive” result)\n\n\nLet C and NC be the cancer statuses and + and - the test results.\n\n\n\n\n\n\n\n+\n-\n\n\n\nC\nTP\nFN\n\n\nNC\nFP\nTN\n\n\n\n\n\n\n\n\nTip: use a probability tree and Bayes’ theorem"
+  },
+  {
+    "objectID": "slides/Probability5.html#solution-1-2",
+    "href": "slides/Probability5.html#solution-1-2",
+    "title": "Unit 3 (part II): problems",
+    "section": "Solution 1",
+    "text": "Solution 1"
+  },
+  {
+    "objectID": "slides/Probability5.html#solution-1-3",
+    "href": "slides/Probability5.html#solution-1-3",
+    "title": "Unit 3 (part II): problems",
+    "section": "Solution 1",
+    "text": "Solution 1"
+  },
+  {
+    "objectID": "slides/Probability5.html#solution-1-4",
+    "href": "slides/Probability5.html#solution-1-4",
+    "title": "Unit 3 (part II): problems",
+    "section": "Solution 1",
+    "text": "Solution 1"
+  },
+  {
+    "objectID": "slides/Probability5.html#solution-1-5",
+    "href": "slides/Probability5.html#solution-1-5",
+    "title": "Unit 3 (part II): problems",
+    "section": "Solution 1",
+    "text": "Solution 1"
+  },
+  {
+    "objectID": "slides/Probability5.html#solution-1-6",
+    "href": "slides/Probability5.html#solution-1-6",
+    "title": "Unit 3 (part II): problems",
+    "section": "Solution 1",
+    "text": "Solution 1"
+  },
+  {
+    "objectID": "slides/Probability5.html#solution-1-7",
+    "href": "slides/Probability5.html#solution-1-7",
+    "title": "Unit 3 (part II): problems",
+    "section": "Solution 1",
+    "text": "Solution 1\n\n\\(Pr[+]=0.0184+0.098=0.1164\\)\nProportion of + tests where there actually is cancer is:\n\\(= \\frac{Pr[C,+]}{Pr[+]}=\\frac{0.0184}{0.1164}=0.1578\\)"
+  },
+  {
+    "objectID": "slides/Probability5.html#solution-2-bayes-theorem",
+    "href": "slides/Probability5.html#solution-2-bayes-theorem",
+    "title": "Unit 3 (part II): problems",
+    "section": "Solution 2: Bayes’ Theorem",
+    "text": "Solution 2: Bayes’ Theorem\n\nLet \\(C\\) and \\(NC\\) be the cancer statuses and \\(+\\) and \\(-\\) the test results.\n\\(Pr[C]=0.02\\)\n\\(Pr[NC]=1-0.02=0.98\\)\n\\(Pr[+|C]=0.92\\)\n\\(Pr[+|NC]=0.10\\)\nWhat we want: \\(Pr[C|+]\\) or, in other words, the proportion of positive test cases that are actually true positives\nSo we want: \\(Pr[C|+]=\\frac{Pr[+|C]\\times Pr[C]}{Pr[+]}\\)\nWe have \\(Pr[+|C], Pr[C]\\), but what about \\(Pr[+]\\)?"
+  },
+  {
+    "objectID": "slides/Probability5.html#solution-2-bayes-theorem-1",
+    "href": "slides/Probability5.html#solution-2-bayes-theorem-1",
+    "title": "Unit 3 (part II): problems",
+    "section": "Solution 2: Bayes’ Theorem",
+    "text": "Solution 2: Bayes’ Theorem\n\nSo we want: \\(Pr[C|+]=\\frac{Pr[+|C]\\times Pr[C]}{Pr[+]}\\)\nWe have \\(Pr[+|C], Pr[C]\\), but what about \\(Pr[+]\\)?\nLaw of total probability: \\(Pr[+]=Pr[+|C]\\times Pr[C]+(Pr[+|NC]\\times Pr[NC]\\)\n\\(Pr[+]= (0.92\\times0.02)+(0.10\\times0.98)=0.0184+0.098=0.1164\\)\nNow we can use Bayes’ theorem: \\(Pr[C|+]=\\frac{Pr[+|C]\\times Pr[C]}{Pr[+]}\\)\n\\(Pr[C|+]=\\frac{0.92\\times 0.02}{0.1164}=0.1580756\\approx 0.158\\)"
+  },
+  {
+    "objectID": "slides/Probability5.html#the-problem",
+    "href": "slides/Probability5.html#the-problem",
+    "title": "Unit 3 (part II): problems",
+    "section": "The problem:",
+    "text": "The problem:\n\nYou are a contestant in a show and you are presented with 3 doors. You must choose one door and you get to keep what’s behind it. Behind one of the doors is a fancy new car\nYou pick one door (but the host doesn’t open it yet)\nAt this point the host chooses one of the other two doors and opens it. There is a goat behind it.\nHe now offers you the chance to choose the other door (the one you didn’t choose and hasn’t been opened yet). What do you do?\n\n\nVote before class on W! https://piazza.com/class/mtag5wjmrj557o/post/22 ## Cont.\n\n\nScenario:\nPoll results\n\n\n\n\nThere are no tricks here, just probability\nAll doors look identical.\nThe host (who knows which door has the car) has a perfect poker face and reveals nothing\nBecause the host knows where the car is, he would never have chosen the door that has the car."
+  },
+  {
+    "objectID": "slides/Probability5.html#in-summary-1",
+    "href": "slides/Probability5.html#in-summary-1",
+    "title": "Unit 3 (part II): problems",
+    "section": "In summary",
+    "text": "In summary\n\nProbability theory provides a foundation for rigorous statistics.\nApplication of simple rules of probability facilitates the generation of more complex predictions.\nWe can use Bayes’ Theorem to translate between probabilistic statements\n\n\n\nFrom: https://xkcd.com/1236/\n\nProbability handout (Moodle) should have more practice questions."
   },
   {
     "objectID": "slides/Probability3.html#which-mr.-data-are-you-today",
@@ -1278,7 +1488,7 @@
     "href": "slides/Statistics_and_Samples2.html#random-sampling-in-r",
     "title": "1.2.Random samples, sampling error and bias, accuracy and precision",
     "section": "Random sampling in R",
-    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1]  3  8 10\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 2 6 9"
+    "text": "Random sampling in R\n\nIf you run the code below, it is very unlikely you will get the same numbers I did\n\n\nTry it in webr: https://webr.sh/.\nType this code at the bottom left, in the &gt; prompt and then enter/return\n\n\n# Sample 3 random numbers between 1 and 10 1. Define the\n# numbers from which you will sample\nx &lt;- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)\n# 2. Take 3 random numbers from this set\nsample(x, size = 3)\n\n[1] 6 3 9\n\n# now, to convince yourself, do it again\nsample(x, size = 3)\n\n[1] 6 3 4"
   },
   {
     "objectID": "slides/Statistics_and_Samples2.html#section",
@@ -1463,7 +1673,7 @@
     "href": "slides.html",
     "title": "Slides",
     "section": "",
-    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\n1.1.Statistics & Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nUnit 1\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nUnit 1\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nUnit 1\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\nReview/practice problems\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.2.Displaying & Describing Data\n\n\nFri, Sep 11\n\n\n\n\n\n\nUnit 2\n\n\n2.3.Data Visualization\n\n\nMon, Sep 14\n\n\n\n\n\n\nUnit 2 (stats)\n\n\nReview/practice problems\n\n\nMon, Sep 14\n\n\n\n\n\n\nEDA\n\n\nLab 3: Exploring Data I\n\n\nTue, Sep 15\n\n\n\n\n\n\nUnit 2\n\n\n2.4.Data Visualization\n\n\nWed, Sep 16\n\n\n\n\n\n\nUnit 2\n\n\n2.5.Data Visualization\n\n\nFri, Sep 18\n\n\n\n\n\n\nIntro\n\n\n3.1. Probability I\n\n\nMon, Sep 21\n\n\n\n\n\n\nPractice + activity\n\n\n3.2.Probability I\n\n\nWed, Sep 23\n\n\n\n\n\n\nProb. trees & cond. probability\n\n\n3.3. Probability II\n\n\nWed, Sep 30\n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\nNo matching items",
+    "text": "Topic\n\n\n\nTitle\n\n\n\nDate\n\n\n\n\n\n\n\n\nUnit 1\n\n\n1.1.Statistics & Samples\n\n\nMon, Aug 31\n\n\n\n\n\n\nUnit 1\n\n\n1.2.Random samples, sampling error and bias, accuracy and precision\n\n\nMon, Aug 31\n\n\n\n\n\n\nModule 1: R basics\n\n\nLab1: R Crash Course\n\n\nTue, Sep 01\n\n\n\n\n\n\nUnit 1\n\n\n1.3.Types of variables\n\n\nWed, Sep 02\n\n\n\n\n\n\nUnit 1\n\n\n1.4. A soft intro to causal inference\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\nReview/practice problems\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.1.Displaying & Describing Data\n\n\nWed, Sep 09\n\n\n\n\n\n\nUnit 2\n\n\n2.2.Displaying & Describing Data\n\n\nFri, Sep 11\n\n\n\n\n\n\nUnit 2\n\n\n2.3.Data Visualization\n\n\nMon, Sep 14\n\n\n\n\n\n\nUnit 2 (stats)\n\n\nReview/practice problems\n\n\nMon, Sep 14\n\n\n\n\n\n\nEDA\n\n\nLab 3: Exploring Data I\n\n\nTue, Sep 15\n\n\n\n\n\n\nUnit 2\n\n\n2.4.Data Visualization\n\n\nWed, Sep 16\n\n\n\n\n\n\nUnit 2\n\n\n2.5.Data Visualization\n\n\nFri, Sep 18\n\n\n\n\n\n\nIntro\n\n\n3.1. Probability I\n\n\nMon, Sep 21\n\n\n\n\n\n\nPractice + activity\n\n\n3.2.Probability I\n\n\nWed, Sep 23\n\n\n\n\n\n\nWalkthrough\n\n\nDiscuss PS1\n\n\nMon, Sep 28\n\n\n\n\n\n\nProb. trees & cond. probability\n\n\n3.3. Probability II\n\n\nWed, Sep 30\n\n\n\n\n\n\nBayes’ Theorem\n\n\n3.4. Probability II\n\n\nWed, Sep 30\n\n\n\n\n\n\nProblems/Review\n\n\nUnit 3 (part II): problems\n\n\nMon, Oct 05\n\n\n\n\n\n\n \n\n\n \n\n\n \n\n\n\n\n\n\nNo matching items",
     "crumbs": [
       "Slides"
     ]
@@ -2013,7 +2223,7 @@
     "href": "rlearn.html#tutorials-simulations",
     "title": "Learning R (and statistics)",
     "section": "Tutorials & Simulations",
-    "text": "Tutorials & Simulations\n\nReproducibility with R: c\nW3schools R tuturial: - I recommend for reviewing the basics and testing your knowledge.\nfasteR: Fast Lane to Learning R! – If you wanna speed things up!\nR Workflow for Reproducible Data Analysis and Reporting by Frank E. Harrell Jr – Great resource. Provides tutorials and also link to other freely available materials.\nR for Beginners –– An on-line introduction to R by Emmanuel Paradis\nr-statistics.co, by Selva Prabhakaran - includes very good section on ggplot!\nFrom your textbook\nQuick-R\nRstudio Education\nPosit Cloud Recipes\nPower analyses in R",
+    "text": "Tutorials & Simulations\n*Ladal: Language Technology and Data Analysis Laboratory\n\nReproducibility with R: c\nW3schools R tuturial: - I recommend for reviewing the basics and testing your knowledge.\nfasteR: Fast Lane to Learning R! – If you wanna speed things up!\nR Workflow for Reproducible Data Analysis and Reporting by Frank E. Harrell Jr – Great resource. Provides tutorials and also link to other freely available materials.\nR for Beginners –– An on-line introduction to R by Emmanuel Paradis\nr-statistics.co, by Selva Prabhakaran - includes very good section on ggplot!\nFrom your textbook\nQuick-R\nRstudio Education\nPosit Cloud Recipes\nPower analyses in R",
     "crumbs": [
       "Rrresources"
     ]
@@ -2639,5 +2849,26 @@
     "title": "3.4. Probability II",
     "section": "Bayesianism",
     "text": "Bayesianism\n\nBayesian probability is the name given to several related interpretations of probability as an amount of epistemic confidence – the strength of beliefs, hypotheses etc. – rather than a frequency. This allows the application of probability to all sorts of propositions rather than just ones that come with a reference class. – Wikipedia Commons\n\nWatch the video: “All about the Bayes” – in particular the first half!"
+  },
+  {
+    "objectID": "slides/Discuss-PS1.html#outline",
+    "href": "slides/Discuss-PS1.html#outline",
+    "title": "Discuss PS1",
+    "section": "Outline",
+    "text": "Outline\n\nContinue last week’s activity\nGo over PS"
+  },
+  {
+    "objectID": "slides/Discuss-PS1.html#pick-a-range-that-you-think-has-a-90-chance-of-containing-the-right-answer",
+    "href": "slides/Discuss-PS1.html#pick-a-range-that-you-think-has-a-90-chance-of-containing-the-right-answer",
+    "title": "Discuss PS1",
+    "section": "Pick a range that you think has a 90% chance of containing the right answer",
+    "text": "Pick a range that you think has a 90% chance of containing the right answer\n\nDon’t consult anything/anyone. The goal is to quantify your uncertainty. If you truly have no idea, you can use the broadest range that is plausible (which you can be 100% sure includes the answer) but try to narrow down your answers to a range that you are 90% sure contains the right answer.\n\n\n\n\nMartin Luther King Jr’s age at death\nLength of the Nile river (miles; km)\nNumber of countries in OPEC1\n\nNumber of books in the Old Testament\nDiameter of the moon (miles; km)\nWeight of an empty Boeing 747 (lbs; kg)\n\n\n\nYear Mozart was born\nGestation period of an Asian elephant (days)\nDistance from London to Tokyo (miles; km)\nDeepest know point in the ocean (miles; km)\n\n\nOrganization of the Petroleum Exporting Countries"
+  },
+  {
+    "objectID": "slides/Discuss-PS1.html#address-some-ps-stuff",
+    "href": "slides/Discuss-PS1.html#address-some-ps-stuff",
+    "title": "Discuss PS1",
+    "section": "Address some PS stuff …",
+    "text": "Address some PS stuff …"
   }
 ]

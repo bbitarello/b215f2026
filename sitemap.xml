@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bbitarello.github.io/b215f2026/slides/Discuss-PS1.html</loc>
-    <lastmod>2026-09-30T18:48:35.877Z</lastmod>
+    <loc>https://bbitarello.github.io/b215f2026/slides/Lab5-slides.html</loc>
+    <lastmod>2026-10-04T01:53:17.723Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/slides/Probability5.html</loc>
+    <lastmod>2026-10-05T02:28:20.169Z</lastmod>
   </url>
   <url>
     <loc>https://bbitarello.github.io/b215f2026/slides/Probability3.html</loc>
@@ -50,7 +54,7 @@
   </url>
   <url>
     <loc>https://bbitarello.github.io/b215f2026/slides.html</loc>
-    <lastmod>2026-10-03T01:58:44.913Z</lastmod>
+    <lastmod>2026-10-05T15:24:33.655Z</lastmod>
   </url>
   <url>
     <loc>https://bbitarello.github.io/b215f2026/index.html</loc>
@@ -78,7 +82,7 @@
   </url>
   <url>
     <loc>https://bbitarello.github.io/b215f2026/rlearn.html</loc>
-    <lastmod>2026-09-30T19:14:33.408Z</lastmod>
+    <lastmod>2026-10-04T01:48:51.520Z</lastmod>
   </url>
   <url>
     <loc>https://bbitarello.github.io/b215f2026/slides/2.3.Data-Viz.html</loc>
@@ -90,14 +94,18 @@
   </url>
   <url>
     <loc>https://bbitarello.github.io/b215f2026/slides/extra.html</loc>
-    <lastmod>2026-09-16T23:38:28.033Z</lastmod>
+    <lastmod>2026-10-03T23:17:48.620Z</lastmod>
   </url>
   <url>
     <loc>https://bbitarello.github.io/b215f2026/slides/Probability2.html</loc>
-    <lastmod>2026-09-30T18:54:16.449Z</lastmod>
+    <lastmod>2026-10-03T22:38:56.221Z</lastmod>
   </url>
   <url>
     <loc>https://bbitarello.github.io/b215f2026/slides/Probability4.html</loc>
     <lastmod>2026-10-03T02:00:07.737Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/slides/Discuss-PS1.html</loc>
+    <lastmod>2026-09-30T18:48:35.877Z</lastmod>
   </url>
 </urlset>
