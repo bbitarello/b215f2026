@@ -1,0 +1,533 @@
+---
+title: "Exploratory Data Analysis (EDA) - part 2"
+author: "YOUR NAME"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    code_download: true
+    embed_resources: true
+#output: pdf_document
+#pdf-engine: xelatex
+#This code is from (jng, 2021) and is AMAZING! It automatically warps the text to fit the page
+#header-includes:
+#  \usepackage{fvextra}
+#  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+---
+
+```{r packages, message = F, echo = F}
+# packages
+library(tidyverse)
+library(knitr)
+```
+
+```{r knitting parameters, echo = F}
+# setting these parameters will make every chunk echo = T and eval = T unless otherwise stated for an individual chunk.
+knitr::opts_chunk$set(echo = T, eval = T)
+```
+
+## Outline for this document
+
+* More on `dplyr` and `ggplot2`.
+* EDA hands on: mass and metabolic rate in *Artiodactyla* (`mass_metabolism.csv`)
+
+## Tasks
+
+* Fill your name in the YAML.
+* Rename this file as `lastname-lab4.Rmd`.
+* Follow along and include code in their respective chunks.
+* Knit often!
+* Knit your final document into a PDF using the button above this text editor and upload the PDF into Moodle.
+* Also upload proof that you completed the three DCs assigned as prep for this week:
+  * Course: Reporting with R markdown (chapter "Getting Started with R markdown")
+  * Course: Data manipulation with dplyr (chapter: "Transforming Data with dplyr")
+  * Course: Introduction to Data Visualization with ggplot2 (chapter: Introduction)
+
+
+* Optional but highly recommended: Practice code from [lectures](https://bbitarello.github.io/b215f2026/slides.html) in your Posit Cloud workspace.
+
+
+## Applying what you've learned
+
+Today we will be using these functions:
+```{r list-packages, eval=F}
+library()
+readr::read_csv()
+dplyr::select()
+dplyr::filter()
+dplyr::mutate()
+dplyr::group_by()
+dplyr::summarise()
+dplyr::n()
+tibble::is_tibble()
+ggplot2::ggplot()
+```
+
+Note: I am using `nameOfPackage::NameOfFunction` above because that is a unambiguous way to refer to or call a function. YOu don't have to use this syntax most of the time but as you start including many packages in your work it may become necessary because different packages may have functions with the same name.
+
+We will also be working directly within this R Markdown document to help you get more familiar with it for your lab assignments.
+
+----------------------
+
+## Before we get started:
+
+* Replace `YOUR NAME` in the header of this file with your actual name. Then knit the file again and see your name appear!
+
+* I suggest that, after you make a plot, you save it with a descriptive name as a `.png` using `ggsave`. This will not be required but it's a good practice for you. It will save your plots into this workspace. Ideally, use something like `ggsave("figs/your-file.png)` so that things are organized into proper folders. 
+
+* Get in the habit of commenting your code. As we discussed in Lab 1, commenting your code makes your own life easier and makes it easier for others to read and interpret code that you've written. 
+
+* Good code commenting is not simply stating what something does but also relevant context, assumptions, warning of potential issues, etc.
+
+* As you get more advanced in coding, commenting allows you and others to automatically understand the purpose of the code you've written.
+
+----------------------
+
+
+**Ex.1)** Make sure `ggplot2` and `dplyr` are installed. The easiest way is to just use the `tidyverse` package, which installs those two and more for you. Though this is already installed in the workspace, do it again below, for practice.
+
+
+```{r ex1, echo=TRUE}
+# Install the tidyverse packages here:
+
+# install.packages("tidyverse")
+# or
+# install.packages("dplyr")
+# install.packages("ggplot2)
+
+# After you do this, you can comment the line so it doesn't re-install this every time you knit your document.
+
+# Then, load the tidyverse package here:
+library(tidyverse)
+#or, if you prefer, 
+#library(ggplot2)
+#library(dplyr)
+```
+
+## Part 1: Going deeper with `dplyr`
+
+
+Notice that the syntax of `summarise()` is similar to `mutate()`. As with `mutate()`, you give summarise:
+
+* The name of a data frame to transform
+* One or more column names to appear in the transformed output. Each column name is set equal to the R expression that will generate the content of the column.
+
+The main difference between `summarise()` and `mutate()` is the type of function that you use to generate the new columns. 
+
+* `mutate()` takes functions that return an entire vector of output which is appended to the original data frame (adding a new column to the end). 
+
+[Mutate:]{.underline}
+
+```{r mut-example}
+iris |>
+  head() # iris has 5 columns
+iris_mod <- iris |>
+  mutate(NewCol = Petal.Length / Petal.Width)
+iris_mod |>
+  head() # iris_mod has 6 columns: the previous 5 + your new one
+```
+
+
+* `summarise()` takes functions that return a single value (or summary). These values will appear in a new data frame that has as many rows as functions you perform on the original data. Unlike `mutate()` summarise will not add onto the old data set but create its own new data set with only the manipulated data you created within the function.
+
+```{r sum-example}
+iris_mod2 <- iris |>
+  summarise(NewCol2 = mean(Petal.Length) / mean(Petal.Width))
+iris_mod2 |>
+  head() # returns a single value in one column
+```
+
+## `group_by()`
+
+`summarise()` is even more useful when you pair it with `group_by()`. `group_by()` changes the unit of analysis of the data frame: it assigns observations in the data frame to separate groups, and it instructs dplyr to apply functions separately to each group. `group_by()` assigns groups by grouping together observations that have the same combinations of values for the variables that you pass to `group_by()`.
+
+Example: let's look at the titanic dataset again:
+
+
+```{r groupby}
+# reading in titanic dataset with readr::read_csv
+titanicData <- read_csv("datasets/titanic.csv")
+titanicData |>
+  head() # making sure things look good
+```
+
+If we group titanic passengers by sex, we can then look at the mean age for each group:
+
+```{r groupby-summarise}
+# using dplyr functions without the pipe (`|>`)
+# recall that in a previous lab we saw that there are several missing values for age, which is why we use na.rm=T here.
+summarise(group_by(titanicData, sex), Mean_age = mean(age, na.rm = TRUE))
+```
+
+**Ex.2:** The code above is much easier to read, in my view, using `>`. Try it!
+
+
+```{r ex2-groupby-with-pipe, eval = T}
+titanicData |>
+  group_by(sex) |>
+  summarise(mean(age, na.rm = T))
+```
+
+
+## `n()`
+
+Another super useful `dplyr` function to use alongside `summarise()` and `group_by()` is `n()`. 
+
+`n()` counts the number of rows in a group. You can use it to create a column in a summarized data frame (or tibble) that lists the number of data points in each group. 
+
+Example: We can make a count of how many people departed from each place in our titanic data. This is recorded in the column called `embarked`.
+
+```{r n-example}
+summarise(group_by(titanicData, embarked), count = n())
+```
+
+
+**Ex.3:** Rewrite the code above using `|>`:
+
+```{r ex3-groupby-with-pipe}
+titanicData |>
+  group_by(embarked) |>
+  summarise(count = n())
+```
+
+
+Isn't that great?!
+
+Now, it is high time you learn that what you did in the previous exercise is so common that there is a shortcut.
+
+
+```{r tally-example}
+titanicData |>
+  group_by(embarked) |>
+  tally()
+```
+
+
+That's right. The dplyr function `tally()` counts occurrences within a group. It has two very handy arguments that we didn't mess with above. 
+
+
+**Ex.4:** Have a look at the help function for `tally()` and figure out how to rewrite the code above so that the column `n` is called `Nr_Passengers` and so that the values appear in descending order (largest at the top). This will require explicitly defining two arguments.
+
+
+
+```{r ex4-tally, eval = T}
+titanicData |>
+  group_by(embarked) |>
+  tally(sort = T, name = "Nr_Passengers")
+```
+
+
+## Part 2: Practice dplyr and ggplot on a new dataset
+
+
+The relationship between the body size of an organism and its metabolic rate is one of the most well studied and still most controversial areas of organismal physiology. 
+
+We want to graph this relationship in the *Artiodactyla* (an order of mammals including pigs, goats, deer, camels, and more) using a subset of data from a large compilation of body size data [^1]. The data are in the `mass_metabolism.csv` file in your workspace.
+
+Make the following manipulations and plots with appropriate axis labels, and answer the questions.
+
+
+**Ex.5)** Read in the dataset using the `read_csv` function. Recall that `read_csv` is a `readr` function, distinct from base R's `read.csv`. Assign the data into an object called `mass_metabolism`. Have a look at the first few rows 
+
+```{r ex5-artiodactyla}
+# type your code here
+mass_metabolism <- read_csv("datasets/mass_metabolism.csv")
+head(mass_metabolism) #one option is head()
+#but note that because read_csv reads in a tibble, you can also just type
+mass_metabolism # this only works as expected for tibbles.
+```
+
+
+**Ex.6)** What are the dimensions (# rows, # columns)
+```{r ex6}
+# type your code here
+dim(mass_metabolism)
+```
+
+Answer: 25 rows, 3 columns
+
+**Ex.7)** Check whether `mass_metabolism` is a tibble. Try to predict this based on what you know about the way you've just read in the data. Hint: you can use the `is_tibble` function. You will need to install and load the `tibble` package first. Does your prediction match the result of `is_tibble`? What did you base your prediction on? 
+
+```{r ex7}
+# type your code here
+# this function is from the tibble package, which is part of the tidyverse packages
+is_tibble(mass_metabolism)
+```
+
+Answer: It is!
+
+**Ex.8)** Have a feel for the data structure. Remember from lab 3 that there are two very useful functions you can use here (`str` and `dplyr::glimpse()`). What are the classes of each variable in `mass_metabolism`? What are the data types of each of the variables? Do you think they make sense?
+
+```{r ex8}
+# type your code here
+# structure:
+str(mass_metabolism)
+#or:
+glimpse(mass_metabolism)
+#or, given this is a tibble, simply:
+mass_metabolism
+```
+
+Answer: body mass: double (numeric); metabolic rate: double (numeric); family: chr. Doesn't make much sense to have family as character. Factor would be more useful.
+
+**Ex.9)** Let's convert the `family` column into the `factor` data type and assign that new tibble to `mass_metabolism2`. 
+- Use `mutate`.
+- What are the levels of the variable `family?` in `mass_metabolism2`? 
+
+```{r ex9}
+# type your code here
+# mutate family into factor
+mass_metabolism2 <- mass_metabolism |>
+  mutate(family = factor(family))
+# list the levels in this column
+levels(mass_metabolism2$family)
+```
+
+Answer: "Antilocapridae", "Bovidae", "Camelidae", "Canidae", "Cervidae","Suidae", "Tayassuidae", "Tragulidae"
+
+**Ex.10)** Obtain a summary of each variable (column) in `mass_metabolism` and `mass_metabolism2`. What is the main difference between the output provided for each variable and why? Pick your favorite and remove the other with `remove()`.
+
+```{r ex10}
+# type your code here
+summary(mass_metabolism)
+
+summary(mass_metabolism2)
+
+remove(mass_metabolism)
+```
+
+Answer: For the family variable, the summary in mass_metabolism is meaningless because it is being treated as character; for mass_metabolism2 it is much more informative, as we obtain the frequencies of each category.
+
+**Ex.11)** Are there missing data in the dataset? Refer to the previous lab for this one.
+
+```{r ex11}
+# type your code here
+## surrounding is. na(mass_metabolism2) with table() summarises the number of TRUE and FALSE outputs.
+table(is.na(mass_metabolism2))
+```
+
+Answer: apparently not (**sigh of relief**)
+
+**Ex.12)** Explore the variable `body_mass`: what is the range of the values? 
+
+- first, make an object called `range_mass` where you store the range of observed values for body_mass in the entire dataset.
+- then, using `group_by` and `summarise`, get the minimum and maximum values of range mass for each family. Assign this to an object called `range_mass_family`. 
+- now, add a new column to `range_mass_family` that contains the difference between the min and max values you calculated for each family. Call this column `diff_range`.
+- arrange `range_mass` by descending values of `diff_range`.
+- Does it look like the Bovidae individuals are the ones making the range in body mass so huge?
+
+Tip: This is one of the first more complicated multi-step analyses you're completing, now would be a great time to practice those commenting skills!
+
+
+```{r ex12, echo=TRUE, eval=TRUE}
+# type your code here
+
+# creating range_mass in three different ways:
+# 1
+range_mass <- range(mass_metabolism2$body_mass)
+# 2
+range_mass <- c(min = min(mass_metabolism2$body_mass), max = max(mass_metabolism2$body_mass))
+
+
+# 3
+range_mass <- mass_metabolism2 |>
+  summarise(max = max(body_mass), min = min(body_mass))
+
+# the range diff:
+range_mass[1]-range_mass[2]
+
+
+
+# now range_mass_family
+range_mass_family <- mass_metabolism2 |>
+  group_by(family) |>
+  summarise(min = min(body_mass), max = max(body_mass))
+
+# adding new column
+range_mass_family <- range_mass_family |>
+  mutate(diff = max - min) |>
+  arrange(desc(diff))
+
+range_mass_family
+```
+
+Answer: the range in mass overall is pretty huge (405387 kg!). But the range within Bovidae alone is also very impressive: 342800, so yes, I would say yes. I would also note that Camilidae has the higest max value of all (407,000 kg).
+
+**Ex.13)** Make a plot for body mass for members of the `Bovidae` family only. What type of plot would work best for this data? What does this distribution look like? Use the `filter` function, then use `ggplot2`!
+
+
+```{r ex13}
+# type your code here
+
+# 
+
+mass_metabolism2 |>
+  filter(family == "Bovidae") |>
+  ggplot(aes(x = body_mass)) +
+  geom_histogram(bins = 40) +
+  theme_bw() #this theme makes the plot look a bit cleaner
+```
+
+Answer: Since that's a single numeric variable, we try as much as possible to show the data. The distribution looks right skewed.
+
+
+You may have noticed a message from R that asks you to adjust the bins. Something like "`stat_bin()` using `bins = 30`. Pick better value `binwidth`."  Remember, don't just accept defaults here! Play around with the bins.
+
+Use the `bins = ` parameter in your geom and see how that impacts the display of your data, and its legibility. Try to increase and then decrease the values of `bins = `. This kind of adjustment is a preview into making explanatory figures rather than just exploratory figures, which is what we're focusing on today.
+
+Lastly, if, like me, you dislike the gray background, you could use a quick solution which is to change the theme of your plot. You can do this by adding one of these to the end of your ggplot2 code: `+ theme_minimal()`, `+ theme_bw()`, `+ theme_classic()`, `theme_void()`, etc. You can find other themes available through ggplot2 by typing `ggplot2::theme` and seeing all the options that show up. Pick one that seems the best to you.
+
+**Ex.14)** Using the entire data set, make a plot of metabolic rate vs. body mass. Which variable should be the response variable and which should be the explanatory variable?
+
+
+```{r ex14}
+# type your code here
+ggplot(mass_metabolism2, aes(x = body_mass, y = metabolic_rate)) +
+  geom_point() +
+  theme_minimal()
+```
+
+Answer: Metabolic rate is response and body mass is explanatory.
+
+
+**Ex.15)** There is a much larger range in body mass than in metabolic rate. Let's make a plot of body mass vs. metabolic rate using a log scale (base 10). Hint: you can use the [slides 45-46 from class 2.5](https://bbitarello.github.io/b215f2026/slides/2.5.Data-Viz.html#/example-5-what-is-the-main-problem-here) as a reference. Name your axis labels using `xlab()` and `ylab()`. *Note: I am not certain what unit the metabolic rate is in in this dataset, so we will omit that.* 
+
+Q: does this plot enhance the visualization of patterns compared to the previous version of the plot?
+
+
+```{r ex15}
+# type your code here
+ggplot(mass_metabolism2, 
+       aes(x = log10(body_mass), y = log10(metabolic_rate))) +
+    geom_point() + 
+  ylab("Metabolic rate (log scale)") +
+    xlab("Body Mass (in kg, log scale)") +
+  theme_minimal()
+```
+
+Answer: it does indeed!
+
+**Ex.16)** Lastly, let's use different colored points for the different families. You will basically repeat your plot from the previous question but using `color = family` as an extra argument inside your `aes()`.
+
+
+```{r ex16}
+# type your code here
+ggplot(mass_metabolism2, 
+       aes(x = log10(body_mass), y = log10(metabolic_rate), color = family)) +
+    geom_point() + 
+  ylab("Metabolic rate (log scale)") +
+    xlab("Body Mass (in kg, log scale)") +
+  theme_minimal()
+```
+
+**Ex17)** Change the default colors to some other palette. For example, to use colors similar to the ones I am using in class slides, you can use the color palette called "viridis". For that, load the package `viridisLite`. Then, change your previous plot to include the line `scale_color_manual(values = viridisLite::viridis(n = 8))`. This tells ggplot to ignore default colors and use the 8 colors from the palette "viridis" instead.
+
+```{r ex17}
+#your code here
+
+# load package viridisLite
+library(viridisLite)
+ggplot(mass_metabolism2, 
+       aes(x = log10(body_mass), y = log10(metabolic_rate), color = family)) +
+    geom_point() +
+    scale_color_manual(values = viridisLite::viridis(n = 8))+
+    ylab("Metabolic rate (log scale)") +
+    xlab("Body Mass (in kg, log scale)") +
+    theme_minimal()
+
+```
+
+Voilà! There are many other ways to change color, either providing each individual color or using a palette as we did above. I recommend checking out packages like `cols4all`, `viridisLite`, `ggthemes`, and others. 
+
+
+## Part 3: Hands-on EDA!
+
+
+**Ex.18)** Refer to Ex5-Ex8 and repeat the steps here for the dataset `SleepInMammals.csv`. Call the object in R `sleep_mammals`. Comment your steps! How many variables are there and what are their types? What are the dimensions of the dataset?
+
+Note: info on the dataset [here](https://lib.stat.cmu.edu/datasets/sleep).
+
+```{r ex18}
+# your code here
+sleep_mammals <- read_csv("datasets/SleepInMammals.csv")
+head(sleep_mammals) #one option is head()
+#but note that because read_csv reads in a tibble, you can also just type
+sleep_mammals # this only works as expected for tibbles.
+
+# dimensions
+dim(sleep_mammals) #41 rows, 12 columns
+# is tibble?
+is_tibble(sleep_mammals)
+```
+
+
+
+**Ex19)**  Check the structure of the sleep_mammals object. Do you agree with the data types? If you see reason to change any of them, do that here. Save new object as sleep_mammals2. Then, run `summary()` on the new dataset.
+
+
+```{r ex19}
+
+# your code here
+# structure
+str(sleep_mammals)
+# species should be a factor.
+sleep_mammals2<-sleep_mammals |>
+  mutate(Species = factor(Species))
+
+summary(sleep_mammals2)
+
+```
+
+(if you don't manage to do the following Q, that's ok, but give it a try!)
+
+**Ex.20)** CHALLENGE: Are there any missing data points? If so, in what columns and how many per column? Hint: I will help you here. Look at the info on the dataset provided above, then look for missing data in the columns `Slow_wave_sleep_hrs_per_day` and `Paradoxical_sleep_hrs_per_day `. Once you find them, replace them with NAs. You can do this using the command `gsub()`.
+
+
+```{r ex20}
+# 1 row
+sleep_mammals2 |> 
+  filter(`Paradoxical_sleep_hrs_per_day` == -999)
+
+# 1 row (same as above)
+sleep_mammals2 |>
+  filter(`Slow_wave_sleep_hrs_per_day` == -999)
+
+# replace with NAs
+temp<-gsub(-999, NA, sleep_mammals$Paradoxical_sleep_hrs_per_day)
+#this converts the vector to chr, unfortunately, so this is better:
+temp<-as.numeric(gsub(-999, NA, sleep_mammals$Paradoxical_sleep_hrs_per_day))
+# now the other column:
+temp2<-as.numeric(gsub(-999, NA, sleep_mammals$Slow_wave_sleep_hrs_per_day))
+# now use mutate to replace old values with these
+sleep_mammals3<-sleep_mammals2 |>
+  mutate(Paradoxical_sleep_hrs_per_day = temp,
+         Slow_wave_sleep_hrs_per_day = temp2)
+#check that this now has 2 NAs
+table(is.na(sleep_mammals3))
+
+```
+
+
+A simpler laternative
+
+Tell `read_csv` what patterns should be read in as NAs:
+
+```{r sintaxe, eval = F}
+read_csv(na = c("", "NA")) # default values for argument "na"
+```
+
+```{r readcsv}
+sleep_mammals4<-read_csv("datasets/SleepInMammals.csv", na = c("", "NA", "-999"))
+#check
+table(is.na(sleep_mammals4))
+```
+
+
+
+
+## The End!
+
+## References
+
+[^1]: Savage, Van M., et al. "The predominance of quarter‐power scaling in biology." Functional Ecology 18.2 (2004): 257-282.
+
+Data Carpentry for Biologists. https://datacarpentry.org/semester-biology/exercises/Graphing-mass-vs-metabolism-R/
