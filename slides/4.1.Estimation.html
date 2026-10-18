@@ -9,8 +9,8 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-eaeb381c6b7494c50009502241a4985c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
-<meta name="dcterms.date" content="2026-10-05">
-<meta name="keywords" content="Module 2; Sampling Distribution">
+<meta name="dcterms.date" content="2026-10-17">
+<meta name="keywords" content="Module 2; Estimation">
 <title>BIOL B215: Biostatistics with R – 4.1.Estimating with uncertainty</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -35,6 +35,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #97947a;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #97947a;  padding-left: 4px; }
+    div.sourceCode
+      { color: #f8f8f2; background-color: #2b2b2b; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #f8f8f2; } /* Normal */
+    code span.al { color: #dcc6e0; } /* Alert */
+    code span.an { color: #d4d0ab; } /* Annotation */
+    code span.at { color: #ffd700; } /* Attribute */
+    code span.bn { color: #dcc6e0; } /* BaseN */
+    code span.bu { color: #f5ab35; } /* BuiltIn */
+    code span.cf { color: #ffa07a; } /* ControlFlow */
+    code span.ch { color: #abe338; } /* Char */
+    code span.cn { color: #ffa07a; } /* Constant */
+    code span.co { color: #d4d0ab; } /* Comment */
+    code span.cv { color: #d4d0ab; font-style: italic; } /* CommentVar */
+    code span.do { color: #d4d0ab; font-style: italic; } /* Documentation */
+    code span.dt { color: #dcc6e0; } /* DataType */
+    code span.dv { color: #dcc6e0; } /* DecVal */
+    code span.er { color: #dcc6e0; } /* Error */
+    code span.ex { color: #ffd700; } /* Extension */
+    code span.fl { color: #f5ab35; } /* Float */
+    code span.fu { color: #ffd700; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #d4d0ab; } /* Information */
+    code span.kw { color: #ffa07a; } /* Keyword */
+    code span.op { color: #00e0e0; } /* Operator */
+    code span.ot { color: #ffa07a; } /* Other */
+    code span.pp { color: #dcc6e0; } /* Preprocessor */
+    code span.sc { color: #00e0e0; } /* SpecialChar */
+    code span.ss { color: #abe338; } /* SpecialString */
+    code span.st { color: #abe338; } /* String */
+    code span.va { color: #f5ab35; } /* Variable */
+    code span.vs { color: #abe338; } /* VerbatimString */
+    code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
 <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-ac6c02ca5a07ac614c2f066fce0ae2e0.css">
 <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -136,12 +202,14 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center"><h1 class="title">4.1.Estimating with uncertainty</h1>
-  <p class="subtitle">Sampling Distribution</p>
+  <p class="subtitle">Intro</p>
 
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">October 5, 2026</p>
+  <p class="date">October 17, 2026</p>
+</section><section id="acknowledgments" class="slide level2"><h2>Acknowledgments</h2>
+<p>https://exploration.stat.illinois.edu/learn/Populations-Samples-and-Statistics/Sampling-Distributions/</p>
 </section><section id="key-learning-objectives" class="slide level2"><h2>Key Learning Objectives</h2>
 <ul>
 <li>Understand that because <font color="#E69F00">estimates</font> take values by chance, they will differ from true population <font color="#006475">parameters</font>.</li>
@@ -167,49 +235,50 @@
 </div>
 </section><section id="two-ways-to-conceptualize-sampling" class="slide level2 scrollable"><h2>Two Ways to Conceptualize Sampling</h2>
 <p>Okay, so how do we do this?</p>
-<p>Here are the two right* ways to think about the process of taking a sample from a population.</p>
+<p>Here are the two right** ways to think about the process of taking a sample from a population.</p>
 <ol type="1">
-<li><p>If you had a full population and made an estimate from a sample of size <span class="math inline">\(n\)</span>.</p></li>
-<li><p>Think about the PROCESS that generates your population data: what would a sample generated by this process look like? (e.g.&nbsp;flipping a coin).</p></li>
+<li><p>If you had a full population and made an <strong>ESTIMATE</strong> from a sample of size <span class="math inline">\(n\)</span>.</p></li>
+<li><p>Think about the <strong>PROCESS</strong> that generates your population data: what would a sample generated by this process look like? (e.g.&nbsp;flipping a coin).</p></li>
 </ol>
-<ul>
-<li>But sometimes one is more convenient than the other.</li>
-</ul></section><section id="some-definitions" class="slide level2"><h2>Some definitions</h2>
-<div class="goal">
-<p>Estimation: a process of inferring a population parameter from sample data. This estimated value is almost never exactly identical to the true parameter value.</p>
-</div>
-<div class="goal">
-<p>Sampling error affects precision of estimates. It is basically inevitable because it is inherent to random sampling.</p>
-</div>
 
 <aside><div>
-<p>Note: This unit focuses on sampling error and assumes that samples are not biased - i.e, they are random.</p>
-</div></aside></section><section id="generating-samples-from-a-population" class="slide level2 scrollable"><h2>Generating samples from a population</h2>
+<p>** But sometimes one is more convenient than the other.</p>
+</div></aside></section><section id="estimation" class="slide level2"><h2>Estimation</h2>
+<blockquote>
+<p>A process of inferring a population parameter from sample data. This estimated value is almost never exactly identical to the true parameter value.</p>
+</blockquote>
+</section><section id="sampling-error" class="slide level2"><h2>Sampling Error</h2>
+<blockquote>
+<p>Sampling error affects precision of estimates. It is basically inevitable because it is inherent to random sampling.</p>
+</blockquote>
+</section><section><section id="getting-a-feel-for-sampling" class="title-slide slide level1 center"><h1>Getting a “feel” for sampling</h1>
+<aside class="notes"><p>we’ve begun doing that already</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="generating-samples-from-a-population" class="slide level2 scrollable"><h2>Generating samples from a population</h2>
 <p>In two easy steps:</p>
 <ol type="1">
-<li><p>Take a sample of size n.</p></li>
+<li><p>Take a sample of size <span class="math inline">\(n\)</span>.</p></li>
 <li><p>Calculate the parameter estimates.</p></li>
 </ol>
 <p>This is how we do science.</p>
-</section><section><section id="example" class="title-slide slide level1 center"><h1>Example</h1>
 
-</section><section id="a-population-of-diamonds" class="slide level2"><h2>A Population of Diamonds</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
-<p>A population of 180 diamonds of different sizes and colors.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="4.1.Estimation_files/figure-revealjs/pop-1.png" class="margin-caption" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:45%;">
-<div class="cell">
+<aside><div>
+<p>Note: Unless otherwise stated, this unit focuses on sampling error and assumes that samples are not biased - i.e, they are random.</p>
+</div></aside></section><section id="a-population-of-180-diamonds-1" class="slide level2"><h2>A population of 180 diamonds [1/]</h2>
+
+<img data-src="4.1.Estimation_files/figure-revealjs/pop-1.png" class="margin-caption r-stretch" width="672"><div class="cell">
 <div class="cell-output-display margin-caption">
-<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:300px; ">
-<table class="table" style="margin-left: auto; margin-right: auto;">
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:450px; ">
+<table class="table" style="font-size: 12px; margin-left: auto; margin-right: auto;">
 <thead><tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th"></th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">small</th>
@@ -240,9 +309,79 @@
 </div>
 </div>
 </div>
-</div></div>
+</section><section id="a-population-of-180-diamonds-2" class="slide level2"><h2>A population of 180 diamonds [2/]</h2>
+<p>By size:</p>
+<div class="cell">
+<div class="cell-output-display margin-caption">
+<div style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:450px; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">size</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">prop</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; font-size: 11px;">small</td>
+<td style="text-align: right; font-size: 11px;">81</td>
+<td style="text-align: right; font-size: 11px;">0.45</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-size: 13px;">medium</td>
+<td style="text-align: right; font-size: 13px;">72</td>
+<td style="text-align: right; font-size: 13px;">0.40</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-size: 15px;">large</td>
+<td style="text-align: right; font-size: 15px;">27</td>
+<td style="text-align: right; font-size: 15px;">0.15</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>By color:</p>
+<div class="cell">
+<div class="cell-output-display margin-caption">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">color</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">n</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">prop</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; color: rgba(206, 177, 117, 1) !important;">blue</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">51</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.2833333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; color: rgba(10, 159, 157, 1) !important;">gold</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">84</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.4666667</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; color: rgba(229, 78, 33, 1) !important;">red</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">45</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.2500000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section><section id="a-sample-of-20-diamonds" class="slide level2"><h2>A sample of 20 diamonds</h2>
-
+<div class="cell" data-layout-align="center">
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">1990</span>)</span>
+<span id="cb1-2"><a aria-label="2"></a>star.sample.size <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb1-3"><a aria-label="3"></a>stars.sample <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(stars, <span class="at">size =</span> star.sample.size, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-4"><a aria-label="4"></a><span class="fu">ggplot</span>(stars.sample, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> color, <span class="at">size =</span> size)) <span class="sc">+</span></span>
+<span id="cb1-5"><a aria-label="5"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">18</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb1-6"><a aria-label="6"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb1-7"><a aria-label="7"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb1-8"><a aria-label="8"></a>   <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <img data-src="4.1.Estimation_files/figure-revealjs/sample20plot-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="672"><div class="cell">
 <div class="cell-output-display margin-caption">
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -255,20 +394,20 @@
 <tbody>
 <tr class="odd">
 <td style="text-align: left; color: rgba(10, 159, 157, 1) !important;">blue</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">2</td>
 <td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">3</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">3</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: left; color: rgba(206, 177, 117, 1) !important;">gold</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">1</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">5</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">3</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">4</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">2</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">2</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left; color: rgba(229, 78, 33, 1) !important;">red</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">3</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">3</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">4</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">1</td>
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0</td>
 </tr>
 </tbody>
@@ -276,7 +415,16 @@
 </div>
 </div>
 </section><section id="another-sample-of-20-diamonds" class="slide level2"><h2>Another sample of 20 diamonds</h2>
-
+<div class="cell" data-layout-align="center">
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">2001</span>)</span>
+<span id="cb2-2"><a aria-label="2"></a>star.sample.size <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb2-3"><a aria-label="3"></a>stars.sample2 <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(stars, <span class="at">size =</span> star.sample.size, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-4"><a aria-label="4"></a><span class="fu">ggplot</span>(stars.sample2, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> color, <span class="at">size =</span> size)) <span class="sc">+</span></span>
+<span id="cb2-5"><a aria-label="5"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">18</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb2-6"><a aria-label="6"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span>   </span>
+<span id="cb2-7"><a aria-label="7"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <img data-src="4.1.Estimation_files/figure-revealjs/sample20-2-plot-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="672"><div class="cell">
 <div class="cell-output-display margin-caption">
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -289,15 +437,15 @@
 <tbody>
 <tr class="odd">
 <td style="text-align: left; color: rgba(10, 159, 157, 1) !important;">blue</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">2</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">3</td>
 <td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">1</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">3</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">3</td>
 </tr>
 <tr class="even">
 <td style="text-align: left; color: rgba(206, 177, 117, 1) !important;">gold</td>
 <td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">5</td>
 <td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">1</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">1</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left; color: rgba(229, 78, 33, 1) !important;">red</td>
@@ -310,7 +458,17 @@
 </div>
 </div>
 </section><section id="aaaand-another" class="slide level2"><h2>Aaaand … another</h2>
-
+<div class="cell" data-layout-align="center">
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">2010</span>)</span>
+<span id="cb3-2"><a aria-label="2"></a>star.sample.size <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb3-3"><a aria-label="3"></a>stars.sample3 <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(stars, <span class="at">size =</span> star.sample.size, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-4"><a aria-label="4"></a><span class="fu">ggplot</span>(stars.sample3, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> color, <span class="at">size =</span> size)) <span class="sc">+</span></span>
+<span id="cb3-5"><a aria-label="5"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">18</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb3-6"><a aria-label="6"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb3-7"><a aria-label="7"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb3-8"><a aria-label="8"></a>   <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <img data-src="4.1.Estimation_files/figure-revealjs/sample20-3-plot-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="672"><div class="cell">
 <div class="cell-output-display margin-caption">
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -323,20 +481,20 @@
 <tbody>
 <tr class="odd">
 <td style="text-align: left; color: rgba(10, 159, 157, 1) !important;">blue</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">2</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">4</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">3</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">3</td>
 <td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: left; color: rgba(206, 177, 117, 1) !important;">gold</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">6</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">4</td>
 <td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">2</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">1</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">2</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left; color: rgba(229, 78, 33, 1) !important;">red</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">4</td>
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">1</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">3</td>
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0</td>
 </tr>
 </tbody>
@@ -344,7 +502,15 @@
 </div>
 </div>
 </section><section id="one-last-sample-of-20-diamonds" class="slide level2"><h2>One Last Sample of 20 Diamonds</h2>
-
+<div class="cell" data-layout-align="center">
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>star.sample.size <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb4-2"><a aria-label="2"></a>stars.sample <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(stars, <span class="at">size =</span> star.sample.size, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-3"><a aria-label="3"></a><span class="fu">ggplot</span>(stars.sample, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> color, <span class="at">size =</span> size)) <span class="sc">+</span></span>
+<span id="cb4-4"><a aria-label="4"></a>    <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">18</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">asteroidcity1</span>()) <span class="sc">+</span></span>
+<span id="cb4-5"><a aria-label="5"></a>    <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb4-6"><a aria-label="6"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <img data-src="4.1.Estimation_files/figure-revealjs/sample20-4-plot-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="672"><div class="cell">
 <div class="cell-output-display margin-caption">
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -357,33 +523,33 @@
 <tbody>
 <tr class="odd">
 <td style="text-align: left; color: rgba(10, 159, 157, 1) !important;">blue</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">3</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">2</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">2</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">1</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">5</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0</td>
 </tr>
 <tr class="even">
 <td style="text-align: left; color: rgba(206, 177, 117, 1) !important;">gold</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">5</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">4</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">1</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">3</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">2</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">3</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left; color: rgba(229, 78, 33, 1) !important;">red</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">3</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">2</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">4</td>
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-</section><section id="sampling-diamonds-lessons-learned" class="slide level2 scrollable"><h2>Sampling Diamonds: Lessons Learned</h2>
+</section><section id="lessons-learned" class="slide level2 scrollable"><h2>Lessons Learned</h2>
 <ol type="1">
 <li>
-<p>“<em>Sampling is random</em>”</p>
+<p>“Sampling is random”</p>
 <p>Estimates from sampling efforts varied and did not perfectly capture the true population values. I.e, there is sampling error involved.</p>
 </li>
-<li><p>Random <em>DOES NOT</em> mean that all outcomes are equally probable. E.g.:</p></li>
+<li><p>Random <em>DOES NOT</em> mean that all outcomes are equally probable.</p></li>
 </ol>
 <ul>
 <li><p>There are no <font color="#E54E21"><strong>LARGE RED</strong></font> diamonds in the population so we never sampled a LARGE RED diamond.</p></li>
@@ -391,26 +557,23 @@
 </ul>
 
 <aside><div>
-<p>There are some other great interactive simulators out there to help you grasp the sampling distribution. I share one later.</p>
-</div></aside></section><section id="the-sampling-distribution" class="slide level2 center"><h2>The sampling distribution!</h2>
-</section><section id="the-sampling-distribution-1" class="slide level2"><h2>The sampling distribution</h2>
-<ul>
-<li class="fragment"><p>The sampling distribution is the distribution of the parameter estimate of interest from these samples</p></li>
-<li class="fragment"><p>It is basically a histogram of all the values that a sample statistic can take on</p></li>
-<li class="fragment"><p>They are super important: when you take a sample from a population, you base your conclusions on that sample, but we know samples vary randomly (even in the absence of bias)</p></li>
-<li class="fragment"><p>To be able to interpret your sample results (say, mean bill length in a sample of 20 penguins from a given population) you need they stand amongst the “crowd”</p></li>
-<li class="fragment"><p>The “crowd” of all possible sample statistics you can possibly get is the sampling distribution</p></li>
-</ul></section><section id="generating-a-sampling-distribution" class="slide level2 scrollable"><h2>Generating a sampling distribution</h2>
+<p>There are some great interactive simulators out there to help you grasp the sampling distribution. I share one later.</p>
+</div></aside></section></section><section><section id="the-sampling-distribution" class="title-slide slide level1 center"><h1>The sampling distribution!</h1>
+<blockquote>
+<p>A sampling distribution is a distribution of the possible values that a sample statistic can take from repeated random samples of the same sample size n when sampling with replacement from the same population.</p>
+</blockquote>
+</section><section id="sampling-distribution-of-proportion-of-red-diamonds" class="slide level2"><h2>Sampling Distribution of proportion of red diamonds</h2>
+</section><section id="generating-a-sampling-distribution" class="slide level2 scrollable"><h2>Generating a sampling distribution</h2>
 <p>In three easy steps:</p>
 <ol type="1">
-<li><p>Take a sample of size <span class="math inline">\(n\)</span>.</p></li>
+<li><p>Take a random sample of size <span class="math inline">\(n\)</span>.</p></li>
 <li><p>Calculate the parameter estimates.</p></li>
 <li><p>Rinse and repeat many times.</p></li>
 </ol>
 
 <aside><div>
-<p>Assumption: you can sample repeatedly from the population of interest and your sampling does not in iteself change the population of interest. When this is not possible to do, you can bootstrap! (which we did in Lab 6, more on this later). In the meantime, <a href="https://online.stat.psu.edu/stat555/node/119/">check this out.</a></p>
-</div></aside></section><section id="example-the-sampling-distribution-of-diamonds" class="slide level2"><h2>Example: The Sampling Distribution of Diamonds</h2>
+<p>Assumption: you can sample repeatedly from the population of interest and your sampling does not in iteself change the population of interest. When this is not possible to do, you can <a href="https://online.stat.psu.edu/stat555/node/119/">bootstrap</a> (stay tuned).</p>
+</div></aside></section><section id="example-diamonds-sizes-and-color" class="slide level2"><h2>Example: Diamonds (sizes and color)</h2>
 <div class="cell">
 <div class="cell-output-display margin-caption">
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:1000px; overflow-x: scroll; width:800px; ">
@@ -426,85 +589,85 @@
 <tr class="odd">
 <td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">1</td>
 <td style="text-align: left; color: rgba(10, 159, 157, 1) !important;">blue</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.25</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.00</td>
 <td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.10</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.05</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.00</td>
 </tr>
 <tr class="even">
 <td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">1</td>
 <td style="text-align: left; color: rgba(206, 177, 117, 1) !important;">gold</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.25</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.10</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.30</td>
 <td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.05</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.20</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">1</td>
 <td style="text-align: left; color: rgba(229, 78, 33, 1) !important;">red</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.00</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.20</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.25</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.10</td>
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.00</td>
 </tr>
 <tr class="even">
 <td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">2</td>
 <td style="text-align: left; color: rgba(10, 159, 157, 1) !important;">blue</td>
 <td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.05</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.05</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.00</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.20</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.10</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">2</td>
 <td style="text-align: left; color: rgba(206, 177, 117, 1) !important;">gold</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.30</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.30</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.20</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.20</td>
 <td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.05</td>
 </tr>
 <tr class="even">
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">2</td>
 <td style="text-align: left; color: rgba(229, 78, 33, 1) !important;">red</td>
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.05</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.20</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.15</td>
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.00</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">999</td>
 <td style="text-align: left; color: rgba(10, 159, 157, 1) !important;">blue</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.15</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.15</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.05</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.00</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.25</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.10</td>
 </tr>
 <tr class="even">
 <td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">999</td>
 <td style="text-align: left; color: rgba(206, 177, 117, 1) !important;">gold</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.25</td>
 <td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.10</td>
 <td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.15</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.10</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">999</td>
 <td style="text-align: left; color: rgba(229, 78, 33, 1) !important;">red</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.00</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.15</td>
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.15</td>
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.00</td>
 </tr>
 <tr class="even">
 <td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">1000</td>
 <td style="text-align: left; color: rgba(10, 159, 157, 1) !important;">blue</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.10</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.15</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.05</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.20</td>
 <td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">0.00</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">1000</td>
 <td style="text-align: left; color: rgba(206, 177, 117, 1) !important;">gold</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.25</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.40</td>
 <td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.05</td>
 <td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0.10</td>
 </tr>
 <tr class="even">
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">1000</td>
 <td style="text-align: left; color: rgba(229, 78, 33, 1) !important;">red</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.05</td>
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.15</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.20</td>
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">0.00</td>
 </tr>
 </tbody>
@@ -512,7 +675,7 @@
 </div>
 </div>
 </div>
-</section><section id="sampling-distribution-of-diamond-size" class="slide level2"><h2>Sampling distribution of diamond size</h2>
+</section><section id="sampling-distribution-large-diamonds" class="slide level2"><h2>Sampling distribution (large diamonds)</h2>
 <div class="cell">
 <div class="cell-output-display margin-caption">
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -524,70 +687,123 @@
 <th style="text-align: right;" data-quarto-table-cell-role="th">medium blue</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">medium gold</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">medium red</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">large gold</th>
 <th style="text-align: right;" data-quarto-table-cell-role="th">large blue</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">large gold</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: right;">1</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">4</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">3</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">4</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">3</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">6</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">1</td>
 <td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">2</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">2</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">4</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">4</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">1</td>
 <td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">1</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">2</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">2</td>
 <td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">2</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">7</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">5</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">2</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">4</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">2</td>
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">3</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">5</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">1</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">2</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">1</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;">999</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">1</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">3</td>
 <td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">7</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">4</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">1</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">3</td>
 <td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">2</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">1</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">2</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">0</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">3</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">2</td>
 <td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1000</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">2</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">6</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">3</td>
-<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">4</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">2</td>
-<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">1</td>
 <td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">1</td>
-<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">1</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">5</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">3</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">2</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">2</td>
+<td style="text-align: right; color: rgba(229, 78, 33, 1) !important;">4</td>
+<td style="text-align: right; color: rgba(10, 159, 157, 1) !important;">1</td>
+<td style="text-align: right; color: rgba(206, 177, 117, 1) !important;">2</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-</section><section id="sampling-distribution-of-diamond-size-1" class="slide level2"><h2>Sampling distribution of diamond size</h2>
 
+<aside><div>
+<p>Sample size here is <span class="math inline">\(n=20\)</span>.</p>
+</div></aside></section><section id="sampling-distribution-of-proportion-of-large-diamond" class="slide level2"><h2>Sampling distribution of proportion of large diamond</h2>
+<div class="cell" data-fig.caption="the bin size was set to 1/sample_size in all cases.">
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">ggplot</span>(sampling.dist.large, <span class="fu">aes</span>(<span class="at">x =</span> prop)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span><span class="sc">/</span>star.sample.size,</span>
+<span id="cb5-2"><a aria-label="2"></a>    <span class="at">color =</span> <span class="st">"lightgray"</span>, <span class="at">fill =</span> <span class="st">"#006475"</span>) <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> true.prop.large,</span>
+<span id="cb5-3"><a aria-label="3"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="fu">sprintf</span>(<span class="st">"Proportion large diamonds (n = %s)"</span>,</span>
+<span id="cb5-4"><a aria-label="4"></a>    star.sample.size), <span class="at">subtitle =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"Dotted white line is the population parameter (p={true.prop.large})"</span>)) <span class="sc">+</span></span>
+<span id="cb5-5"><a aria-label="5"></a>    <span class="fu">xlab</span>(<span class="st">"proportion"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"# of replicates</span><span class="sc">\n</span><span class="st">(of 1000 simulations)"</span>) <span class="sc">+</span></span>
+<span id="cb5-6"><a aria-label="6"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <img data-src="4.1.Estimation_files/figure-revealjs/sampdist-plot-1.png" class="margin-caption r-stretch" width="960"></section><section id="the-joint-sampling-distribution" class="slide level2"><h2>The joint sampling distribution</h2>
 
-<img data-src="4.1.Estimation_files/figure-revealjs/jointsampdist-1.png" class="margin-caption r-stretch" width="960"></section><section id="how-does-variability-in-an-estimate-change-with-sample-size" class="slide level2 dark-theme center"><h2>How does variability in an estimate change with sample size?</h2>
-</section><section id="variability-in-estimates-decreases-with-n" class="slide level2"><h2>Variability in Estimates Decreases with <em>N</em>
+<img data-src="4.1.Estimation_files/figure-revealjs/jointsampdist-1.png" class="margin-caption r-stretch" width="960"></section></section><section><section id="attention" class="title-slide slide level1 center"><h1>Attention!</h1>
+
+</section><section id="population-distribution-vs-sampling-distribution-12" class="slide level2"><h2>Population distribution vs sampling distribution [1/2]</h2>
+<div class="columns">
+<div class="column">
+<p><u>Population distribution</u>: possible values for a variable from a single observation, along with the corresponding probability for each of the possible values.</p>
+<p>A <u>sample distribution</u> displays the values for a variable for each of the observations in the sample. From that sample distribution, we could calculate the statistic value for that specific sample. That statistic would then be a single observation in the <em>sampling</em> distribution.</p>
+</div><div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure><p><img data-src="4.1.Estimation_files/figure-revealjs/twoplots-1.png" class="margin-caption" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+
+<aside><div>
+<p>Thank you to <a href="https://exploration.stat.illinois.edu/learn/Populations-Samples-and-Statistics/Sampling-Distributions/">this page</a></p>
+</div></aside></section><section id="population-distribution-vs-sampling-distribution-22" class="slide level2"><h2>Population distribution vs sampling distribution [2/2]</h2>
+<div class="columns">
+<div class="column">
+<p>For a <u>sampling distribution</u>, we are no longer interested in the possible values of a single observation but instead want to know the possible values of a statistic calculated from a sample.</p>
+</div><div class="column">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure><p><img data-src="4.1.Estimation_files/figure-revealjs/threeplots-1.png" class="margin-caption" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section><section id="properties-of-the-sampling-distribution" class="slide level2"><h2>Properties of the sampling distribution</h2>
+<p>Things we can control:</p>
+<ul>
+<li>The number of repeated samples to take</li>
+<li>The size of the sample</li>
+<li>The statistic to calculate for each sample</li>
+</ul>
+<p>Properties of the distribution:</p>
+<ul>
+<li>The shape of the distribution</li>
+<li>The center of the distribution</li>
+<li>The variability (spread) of the distribution</li>
+</ul></section><section id="variability-in-estimates-decreases-with-n" class="slide level2"><h2>Variability in Estimates Decreases with <em>N</em>
 </h2>
 
-<img data-src="4.1.Estimation_files/figure-revealjs/variab-1.png" class="margin-caption r-stretch" width="960"></section><section id="variability-in-estimates-decreases-with-n-1" class="slide level2"><h2>Variability in Estimates Decreases with <em>N</em>
-</h2>
-
-<img data-src="images/clipboard-3973341862.png" class="margin-caption r-stretch"></section></section><section><section id="standard-error" class="title-slide slide level1 center"><h1>Standard Error</h1>
+<img data-src="4.1.Estimation_files/figure-revealjs/variab-1.png" class="margin-caption r-stretch" width="960"></section></section><section><section id="standard-error" class="title-slide slide level1 center"><h1>Standard Error</h1>
 
 </section><section id="the-standard-error-definition" class="slide level2"><h2>The Standard Error: Definition</h2>
 <ul>
@@ -602,23 +818,24 @@
 <div class="goal">
 <p>The standard error of an estimate is <em>the standard deviation of its sampling distribution</em>!</p>
 </div>
-</section></section><section><section id="example-human-gene-lengths" class="title-slide slide level1 center"><h1>Example: human gene lengths</h1>
+<p>We often call the standard deviation of a statistic – in this case of the proportion of small gold diamonds – the <strong>standard error</strong> of that statistic. This can also be thought of as the standard deviation of the sampling distribution for the sample mean.</p>
+</section><section id="previous-example" class="slide level2"><h2>Previous example</h2>
 
-</section><section id="human-gene-lengths" class="slide level2"><h2>Human gene lengths</h2>
+<img data-src="4.1.Estimation_files/figure-revealjs/tabSEM3-1.png" class="margin-caption r-stretch" width="960"></section></section><section><section id="apps-can-be-very-helpful" class="slide level2"><h2>Apps can be very helpful</h2>
+<p>From your textbook: <a href="https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm"><img data-src="images/clipboard-4041822552.png" class="quarto-figure quarto-figure-center" width="424" alt="Click on the figure to go to the Web App"></a></p>
+<p>Other ones:</p>
+<p><a href="http://shiny.calpoly.sh/Sampling_Distribution/">http://shiny.calpoly.sh/Sampling_Distribution/</a> ## In summary</p>
+<ul>
+<li><p>The sampling distribution is the distribution of the parameter estimate of interest from these samples</p></li>
+<li><p>It is basically a histogram of all the values that a sample statistic <strong>can</strong> take on</p></li>
+<li><p>They are super important: when you take a sample from a population, you base your conclusions on that sample, but we know samples vary randomly (even in the absence of bias)</p></li>
+<li><p>To be able to interpret your sample results (say, mean bill length in a sample of 20 penguins from a given population) you need they stand amongst the “crowd”</p></li>
+<li><p>The “crowd” of all possible sample statistics you can possibly get is the sampling distribution</p></li>
+<li><p>The standard deviation of the sampling distribution for a statistic is its standard error.</p></li>
+</ul>
 
-<img data-src="4.1.Estimation_files/figure-revealjs/geneleng-1.png" class="margin-caption r-stretch quarto-figure-center" width="960"><p class="caption">Note: parameters shown are for full dataset (n=20,290) but 26 genes with length &gt; 15,000 were omitted from this plot.</p></section><section id="sampling-distribution-from-textbook" class="slide level2"><h2>Sampling Distribution: from textbook</h2>
-<div class="quarto-figure quarto-figure-center margin-caption">
-<figure><div class="quarto-figure quarto-figure-center">
-<figure><p><a href="https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm"><img data-src="images/clipboard-4041822552.png" class="quarto-figure quarto-figure-center" width="424"></a></p>
-</figure>
-</div>
-<figcaption>Click on the figure to go to the Web App</figcaption></figure>
-</div>
-</section><section id="thats-all-for-today" class="slide level2"><h2>That’s all for today</h2>
 
-
-
-<img data-src="images/forrestgump.png" class="margin-caption r-stretch quarto-figure-center" alt="&quot;Forrest says &quot;And that's all I wanted to say about that&quot;" width="347"><p class="caption">From: makeameme.org</p></section></section>
+</section></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
