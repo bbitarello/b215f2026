@@ -215,7 +215,7 @@
 </div>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb1-2"><a aria-label="2"></a>bees<span class="ot">&lt;-</span><span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/bbitarello/DataSetsb215/refs/heads/main/data-raw/chap20q16BeeLifespans.csv"</span>)</span>
+<span id="cb1-2"><a aria-label="2"></a>bees <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/bbitarello/DataSetsb215/refs/heads/main/data-raw/chap20q16BeeLifespans.csv"</span>)</span>
 <span id="cb1-3"><a aria-label="3"></a><span class="fu">summary</span>(bees<span class="sc">$</span>hours)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
@@ -233,8 +233,8 @@
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="co">#same as</span></span>
-<span id="cb4-2"><a aria-label="2"></a><span class="fu">quantile</span>(bees<span class="sc">$</span>hours, <span class="at">probs=</span><span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span><span class="dv">1</span>, <span class="at">by=</span><span class="fl">0.01</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="co"># same as</span></span>
+<span id="cb4-2"><a aria-label="2"></a><span class="fu">quantile</span>(bees<span class="sc">$</span>hours, <span class="at">probs =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <blockquote>
 <p>All the quantiles of a numerical variable can be displayed by graphing the cumulative frequency distribution.</p>
@@ -244,8 +244,8 @@
 <h2>Cumulative Frequency Distributions</h2>
 <p>To get the cumulative sum of the vector <code>bees$hours</code>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="co">#cumsum():Returns a vector whose elements are the cumulative sums</span></span>
-<span id="cb5-2"><a aria-label="2"></a>temp<span class="ot">&lt;-</span><span class="fu">cumsum</span>(bees<span class="sc">$</span>hours)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="co"># cumsum():Returns a vector whose elements are the cumulative sums</span></span>
+<span id="cb5-2"><a aria-label="2"></a>temp <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(bees<span class="sc">$</span>hours)</span>
 <span id="cb5-3"><a aria-label="3"></a>temp</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]   2.3   4.6   8.5  12.5  19.6  29.1  38.7  49.5  62.3  75.9  90.5 108.7
@@ -258,12 +258,12 @@
 <h2>Now we can add the cumulative frequencies</h2>
 <p>Absolute:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="co">#all in one go with dplyr</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="co"># all in one go with dplyr</span></span>
 <span id="cb7-2"><a aria-label="2"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb7-3"><a aria-label="3"></a><span class="fu">library</span>(gt) <span class="co"># gt is a package that makes pretty tables: https://gt.rstudio.com/</span></span>
-<span id="cb7-4"><a aria-label="4"></a>bees<span class="ot">&lt;-</span>bees <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a aria-label="4"></a>bees <span class="ot">&lt;-</span> bees <span class="sc">|&gt;</span></span>
 <span id="cb7-5"><a aria-label="5"></a>  dplyr<span class="sc">::</span><span class="fu">count</span>(hours) <span class="co"># add a column (n) counting occurrences in hours (similar to table)</span></span>
-<span id="cb7-6"><a aria-label="6"></a><span class="fu">head</span>(bees, <span class="at">n=</span><span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb7-6"><a aria-label="6"></a><span class="fu">head</span>(bees, <span class="at">n =</span> <span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   hours     n
@@ -272,37 +272,37 @@
 2   3.9     1
 3   4       1</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="co">#add absolute cum frequency</span></span>
-<span id="cb9-2"><a aria-label="2"></a>bees<span class="ot">&lt;-</span>bees <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="co"># add absolute cum frequency</span></span>
+<span id="cb9-2"><a aria-label="2"></a>bees <span class="ot">&lt;-</span> bees <span class="sc">|&gt;</span></span>
 <span id="cb9-3"><a aria-label="3"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb9-4"><a aria-label="4"></a>    <span class="at">Cum_Frq_Abs =</span> <span class="fu">cumsum</span>(n) <span class="co">#cumul. freq for the `n` column</span></span>
-<span id="cb9-5"><a aria-label="5"></a>)</span>
-<span id="cb9-6"><a aria-label="6"></a><span class="co">#Relative:</span></span>
-<span id="cb9-7"><a aria-label="7"></a>bees<span class="ot">&lt;-</span>bees <span class="sc">|&gt;</span></span>
+<span id="cb9-4"><a aria-label="4"></a>    <span class="at">Cum_Frq_Abs =</span> <span class="fu">cumsum</span>(n) <span class="co"># cumul. freq for the `n` column</span></span>
+<span id="cb9-5"><a aria-label="5"></a>  )</span>
+<span id="cb9-6"><a aria-label="6"></a><span class="co"># Relative:</span></span>
+<span id="cb9-7"><a aria-label="7"></a>bees <span class="ot">&lt;-</span> bees <span class="sc">|&gt;</span></span>
 <span id="cb9-8"><a aria-label="8"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb9-9"><a aria-label="9"></a>    <span class="at">Cum_Frq_Rel =</span> Cum_Frq_Abs <span class="sc">/</span> (<span class="fu">nrow</span>(bees)) <span class="co">#33 bees</span></span>
+<span id="cb9-9"><a aria-label="9"></a>    <span class="at">Cum_Frq_Rel =</span> Cum_Frq_Abs <span class="sc">/</span> (<span class="fu">nrow</span>(bees)) <span class="co"># 33 bees</span></span>
 <span id="cb9-10"><a aria-label="10"></a>  )</span>
-<span id="cb9-11"><a aria-label="11"></a>bees <span class="sc">|&gt;</span> </span>
+<span id="cb9-11"><a aria-label="11"></a>bees <span class="sc">|&gt;</span></span>
 <span id="cb9-12"><a aria-label="12"></a>  <span class="fu">head</span>() <span class="sc">|&gt;</span></span>
 <span id="cb9-13"><a aria-label="13"></a>  <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div id="vjnmlrqosu" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#vjnmlrqosu table {
+<div id="jhygdxzosw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#jhygdxzosw table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#vjnmlrqosu thead, #vjnmlrqosu tbody, #vjnmlrqosu tfoot, #vjnmlrqosu tr, #vjnmlrqosu td, #vjnmlrqosu th {
+#jhygdxzosw thead, #jhygdxzosw tbody, #jhygdxzosw tfoot, #jhygdxzosw tr, #jhygdxzosw td, #jhygdxzosw th {
   border-style: none;
 }
 
-#vjnmlrqosu p {
+#jhygdxzosw p {
   margin: 0;
   padding: 0;
 }
 
-#vjnmlrqosu .gt_table {
+#jhygdxzosw .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -328,12 +328,12 @@
   border-left-color: #D3D3D3;
 }
 
-#vjnmlrqosu .gt_caption {
+#jhygdxzosw .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#vjnmlrqosu .gt_title {
+#jhygdxzosw .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -345,7 +345,7 @@
   border-bottom-width: 0;
 }
 
-#vjnmlrqosu .gt_subtitle {
+#jhygdxzosw .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -357,7 +357,7 @@
   border-top-width: 0;
 }
 
-#vjnmlrqosu .gt_heading {
+#jhygdxzosw .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -369,13 +369,13 @@
   border-right-color: #D3D3D3;
 }
 
-#vjnmlrqosu .gt_bottom_border {
+#jhygdxzosw .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#vjnmlrqosu .gt_col_headings {
+#jhygdxzosw .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -390,7 +390,7 @@
   border-right-color: #D3D3D3;
 }
 
-#vjnmlrqosu .gt_col_heading {
+#jhygdxzosw .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -410,7 +410,7 @@
   overflow-x: hidden;
 }
 
-#vjnmlrqosu .gt_column_spanner_outer {
+#jhygdxzosw .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -422,15 +422,15 @@
   padding-right: 4px;
 }
 
-#vjnmlrqosu .gt_column_spanner_outer:first-child {
+#jhygdxzosw .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#vjnmlrqosu .gt_column_spanner_outer:last-child {
+#jhygdxzosw .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#vjnmlrqosu .gt_column_spanner {
+#jhygdxzosw .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -442,11 +442,11 @@
   width: 100%;
 }
 
-#vjnmlrqosu .gt_spanner_row {
+#jhygdxzosw .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#vjnmlrqosu .gt_group_heading {
+#jhygdxzosw .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -472,7 +472,7 @@
   text-align: left;
 }
 
-#vjnmlrqosu .gt_empty_group_heading {
+#jhygdxzosw .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -487,15 +487,15 @@
   vertical-align: middle;
 }
 
-#vjnmlrqosu .gt_from_md > :first-child {
+#jhygdxzosw .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#vjnmlrqosu .gt_from_md > :last-child {
+#jhygdxzosw .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#vjnmlrqosu .gt_row {
+#jhygdxzosw .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -514,7 +514,7 @@
   overflow-x: hidden;
 }
 
-#vjnmlrqosu .gt_stub {
+#jhygdxzosw .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -527,7 +527,7 @@
   padding-right: 5px;
 }
 
-#vjnmlrqosu .gt_stub_row_group {
+#jhygdxzosw .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -541,15 +541,15 @@
   vertical-align: top;
 }
 
-#vjnmlrqosu .gt_row_group_first td {
+#jhygdxzosw .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#vjnmlrqosu .gt_row_group_first th {
+#jhygdxzosw .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#vjnmlrqosu .gt_summary_row {
+#jhygdxzosw .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -559,16 +559,16 @@
   padding-right: 5px;
 }
 
-#vjnmlrqosu .gt_first_summary_row {
+#jhygdxzosw .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#vjnmlrqosu .gt_first_summary_row.thick {
+#jhygdxzosw .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#vjnmlrqosu .gt_last_summary_row {
+#jhygdxzosw .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -578,7 +578,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#vjnmlrqosu .gt_grand_summary_row {
+#jhygdxzosw .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -588,7 +588,7 @@
   padding-right: 5px;
 }
 
-#vjnmlrqosu .gt_first_grand_summary_row {
+#jhygdxzosw .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -598,7 +598,7 @@
   border-top-color: #D3D3D3;
 }
 
-#vjnmlrqosu .gt_last_grand_summary_row_top {
+#jhygdxzosw .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -608,11 +608,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#vjnmlrqosu .gt_striped {
+#jhygdxzosw .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#vjnmlrqosu .gt_table_body {
+#jhygdxzosw .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -621,7 +621,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#vjnmlrqosu .gt_footnotes {
+#jhygdxzosw .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -635,7 +635,7 @@
   border-right-color: #D3D3D3;
 }
 
-#vjnmlrqosu .gt_footnote {
+#jhygdxzosw .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -644,7 +644,7 @@
   padding-right: 5px;
 }
 
-#vjnmlrqosu .gt_sourcenotes {
+#jhygdxzosw .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -658,7 +658,7 @@
   border-right-color: #D3D3D3;
 }
 
-#vjnmlrqosu .gt_sourcenote {
+#jhygdxzosw .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -666,72 +666,72 @@
   padding-right: 5px;
 }
 
-#vjnmlrqosu .gt_left {
+#jhygdxzosw .gt_left {
   text-align: left;
 }
 
-#vjnmlrqosu .gt_center {
+#jhygdxzosw .gt_center {
   text-align: center;
 }
 
-#vjnmlrqosu .gt_right {
+#jhygdxzosw .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#vjnmlrqosu .gt_font_normal {
+#jhygdxzosw .gt_font_normal {
   font-weight: normal;
 }
 
-#vjnmlrqosu .gt_font_bold {
+#jhygdxzosw .gt_font_bold {
   font-weight: bold;
 }
 
-#vjnmlrqosu .gt_font_italic {
+#jhygdxzosw .gt_font_italic {
   font-style: italic;
 }
 
-#vjnmlrqosu .gt_super {
+#jhygdxzosw .gt_super {
   font-size: 65%;
 }
 
-#vjnmlrqosu .gt_footnote_marks {
+#jhygdxzosw .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#vjnmlrqosu .gt_asterisk {
+#jhygdxzosw .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#vjnmlrqosu .gt_indent_1 {
+#jhygdxzosw .gt_indent_1 {
   text-indent: 5px;
 }
 
-#vjnmlrqosu .gt_indent_2 {
+#jhygdxzosw .gt_indent_2 {
   text-indent: 10px;
 }
 
-#vjnmlrqosu .gt_indent_3 {
+#jhygdxzosw .gt_indent_3 {
   text-indent: 15px;
 }
 
-#vjnmlrqosu .gt_indent_4 {
+#jhygdxzosw .gt_indent_4 {
   text-indent: 20px;
 }
 
-#vjnmlrqosu .gt_indent_5 {
+#jhygdxzosw .gt_indent_5 {
   text-indent: 25px;
 }
 
-#vjnmlrqosu .katex-display {
+#jhygdxzosw .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#vjnmlrqosu div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#jhygdxzosw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -807,13 +807,13 @@
 <p>ggplot2:</p>
 <div class="cell" data-warnings="false">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb10-2"><a aria-label="2"></a><span class="co">#set_theme(bb_theme()) #yes, I made my own, but you don't have to</span></span>
-<span id="cb10-3"><a aria-label="3"></a><span class="co">#summary(bees$hours) #median 25.8</span></span>
-<span id="cb10-4"><a aria-label="4"></a><span class="fu">ggplot</span>(bees, <span class="fu">aes</span>(<span class="at">x =</span> hours))<span class="sc">+</span></span>
-<span id="cb10-5"><a aria-label="5"></a>  <span class="fu">stat_ecdf</span>(<span class="at">geom =</span> <span class="st">"step"</span>)  <span class="sc">+</span></span>
-<span id="cb10-6"><a aria-label="6"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fu">median</span>(hours)), <span class="at">lty=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">"orange"</span>)<span class="sc">+</span></span>
-<span id="cb10-7"><a aria-label="7"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">median</span>(hours)<span class="sc">-</span><span class="dv">7</span>), <span class="at">y=</span><span class="fl">0.52</span>, <span class="at">label=</span><span class="st">"median"</span>)<span class="sc">+</span></span>
-<span id="cb10-8"><a aria-label="8"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept=</span><span class="fl">0.5</span>), <span class="at">lty=</span><span class="dv">2</span>, <span class="at">col=</span><span class="st">"orange"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-2"><a aria-label="2"></a><span class="co"># set_theme(bb_theme()) #yes, I made my own, but you don't have to</span></span>
+<span id="cb10-3"><a aria-label="3"></a><span class="co"># summary(bees$hours) #median 25.8</span></span>
+<span id="cb10-4"><a aria-label="4"></a><span class="fu">ggplot</span>(bees, <span class="fu">aes</span>(<span class="at">x =</span> hours)) <span class="sc">+</span></span>
+<span id="cb10-5"><a aria-label="5"></a>  <span class="fu">stat_ecdf</span>(<span class="at">geom =</span> <span class="st">"step"</span>) <span class="sc">+</span></span>
+<span id="cb10-6"><a aria-label="6"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(hours)), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"orange"</span>) <span class="sc">+</span></span>
+<span id="cb10-7"><a aria-label="7"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">median</span>(hours) <span class="sc">-</span> <span class="dv">7</span>), <span class="at">y =</span> <span class="fl">0.52</span>, <span class="at">label =</span> <span class="st">"median"</span>) <span class="sc">+</span></span>
+<span id="cb10-8"><a aria-label="8"></a>  <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fl">0.5</span>), <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"orange"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure>

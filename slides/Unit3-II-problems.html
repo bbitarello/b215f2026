@@ -674,49 +674,7 @@
 </div>
 <aside><div>
 <p>Tip: use a probability tree and Bayes’ theorem</p>
-</div></aside></section><section id="solution-1" class="slide level2"><h2>Solution 1</h2>
-<p>What we know:</p>
-<ul>
-<li class="fragment"><p><span class="math inline">\(Pr[C]=0.02\)</span></p></li>
-<li class="fragment"><p><span class="math inline">\(Pr[NC]=1-0.02=0.98\)</span></p></li>
-<li class="fragment"><p><span class="math inline">\(Pr[+|C]=0.92\)</span></p></li>
-<li class="fragment"><p><span class="math inline">\(Pr[+|NC]=0.10\)</span></p></li>
-<li class="fragment"><p>What we want: <span class="math inline">\(Pr[C|+]\)</span> or, in other words, the proportion of positive test cases that are actually true positives</p></li>
-<li class="fragment"><p>What proportion of + results actually are obtained by C patients?</p></li>
-</ul>
-<p><span class="math inline">\(\frac{Pr[C\&amp; +]}{Pr[+]}\)</span>, but what’s <span class="math inline">\(Pr[+]\)</span>?</p>
-</section><section id="solution-1-1" class="slide level2"><h2>Solution 1</h2>
-
-<img data-src="images/clipboard-2493443633.png" class="margin-caption r-stretch"></section><section id="solution-1-2" class="slide level2"><h2>Solution 1</h2>
-
-<img data-src="images/clipboard-914645614.png" class="margin-caption r-stretch"></section><section id="solution-1-3" class="slide level2"><h2>Solution 1</h2>
-
-<img data-src="images/clipboard-3203265178.png" class="margin-caption r-stretch"></section><section id="solution-1-4" class="slide level2"><h2>Solution 1</h2>
-
-<img data-src="images/clipboard-3322131651.png" class="margin-caption r-stretch"></section><section id="solution-1-5" class="slide level2"><h2>Solution 1</h2>
-
-<img data-src="images/clipboard-225578788.png" class="margin-caption r-stretch" width="455"><p><span class="math inline">\(Pr[+]=0.0184+0.098=0.1164\)</span></p>
-<p>Proportion of + tests where there actually is cancer is:</p>
-<p><span class="math inline">\(= \frac{Pr[C,+]}{Pr[+]}=\frac{0.0184}{0.1164}=0.1578\)</span></p>
-</section><section id="solution-2-bayes-theorem" class="slide level2"><h2>Solution 2: Bayes’ Theorem</h2>
-<ul>
-<li><p>Let <span class="math inline">\(C\)</span> and <span class="math inline">\(NC\)</span> be the cancer statuses and <span class="math inline">\(+\)</span> and <span class="math inline">\(-\)</span> the test results.</p></li>
-<li><p><span class="math inline">\(Pr[C]=0.02\)</span></p></li>
-<li><p><span class="math inline">\(Pr[NC]=1-0.02=0.98\)</span></p></li>
-<li><p><span class="math inline">\(Pr[+|C]=0.92\)</span></p></li>
-<li><p><span class="math inline">\(Pr[+|NC]=0.10\)</span></p></li>
-<li><p>What we want: <span class="math inline">\(Pr[C|+]\)</span> or, in other words, the proportion of positive test cases that are actually true positives</p></li>
-<li><p>So we want: <span class="math inline">\(Pr[C|+]=\frac{Pr[+|C]\times Pr[C]}{Pr[+]}\)</span></p></li>
-<li><p>We have <span class="math inline">\(Pr[+|C], Pr[C]\)</span>, but what about <span class="math inline">\(Pr[+]\)</span>?</p></li>
-</ul></section><section id="solution-2-bayes-theorem-1" class="slide level2"><h2>Solution 2: Bayes’ Theorem</h2>
-<ul>
-<li class="fragment"><p>So we want: <span class="math inline">\(Pr[C|+]=\frac{Pr[+|C]\times Pr[C]}{Pr[+]}\)</span></p></li>
-<li class="fragment"><p>We have <span class="math inline">\(Pr[+|C], Pr[C]\)</span>, but what about <span class="math inline">\(Pr[+]\)</span>?</p></li>
-<li class="fragment"><p>Law of total probability: <span class="math inline">\(Pr[+]=Pr[+|C]\times Pr[C]+(Pr[+|NC]\times Pr[NC]\)</span></p></li>
-<li class="fragment"><p><span class="math inline">\(Pr[+]= (0.92\times0.02)+(0.10\times0.98)=0.0184+0.098=0.1164\)</span></p></li>
-<li class="fragment"><p>Now we can use Bayes’ theorem: <span class="math inline">\(Pr[C|+]=\frac{Pr[+|C]\times Pr[C]}{Pr[+]}\)</span></p></li>
-<li class="fragment"><p><span class="math inline">\(Pr[C|+]=\frac{0.92\times 0.02}{0.1164}=0.1580756\approx 0.158\)</span></p></li>
-</ul></section><section id="in-summary" class="slide level2"><h2>In summary</h2>
+</div></aside></section><section id="in-summary" class="slide level2"><h2>In summary</h2>
 </section><section id="challenge-monty-hall-1" class="slide level2"><h2>Challenge: Monty Hall [1/]</h2>
 <ul>
 <li>You are a contestant in a show and you are presented with 3 doors.</li>
@@ -751,22 +709,9 @@
 </div>
 <figcaption>Poll results on Piazza</figcaption></figure>
 </div>
-</section></section><section><section id="warning-only-keep-going-if-youre-ready-to-see-the-solution" class="title-slide slide level1 center"><h1>Warning: only keep going if you’re ready to see the solution!</h1>
+</section></section><section><section id="solution-posted-on-moodle" class="title-slide slide level1 center"><h1>Solution posted on Moodle</h1>
 
-</section><section id="key-points-to-understanding-the-monty-hall-puzzle" class="slide level2"><h2>Key points to understanding the Monty Hall puzzle:</h2>
-<ul>
-<li>Two choices are 50-50 when you know nothing about them</li>
-<li>Monty helps us by “filtering” the bad choices on the other side.</li>
-<li>It’s a choice of a random guess and the “Champ door” that’s the best on the other side.</li>
-<li>In general, more information means you re-evaluate your choices.</li>
-</ul></section><section id="tricky" class="slide level2"><h2>Tricky!</h2>
-<div class="r-fit-text">
-<p>The fatal flaw in the Monty Hall paradox is not taking Monty’s filtering into account, thinking the chances are the same before and after.</p>
-<p>But the goal isn’t to understand this puzzle — it’s to realize how subsequent actions &amp; information challenge previous decisions.</p>
-</div>
-</section><section id="monty-hall-one-solution" class="slide level2"><h2>Monty Hall: One Solution</h2>
-
-<img data-src="images/clipboard-3239712795.png" class="margin-caption r-stretch"></section><section id="in-summary-1" class="slide level2"><h2>In summary</h2>
+</section><section id="in-summary-1" class="slide level2"><h2>In summary</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>

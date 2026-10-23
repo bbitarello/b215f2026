@@ -429,9 +429,9 @@
 <span id="cb1-3"><a aria-label="3"></a>stars.sample <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(stars, <span class="at">size =</span> star.sample.size, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb1-4"><a aria-label="4"></a><span class="fu">ggplot</span>(stars.sample, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> color, <span class="at">size =</span> size)) <span class="sc">+</span></span>
 <span id="cb1-5"><a aria-label="5"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">18</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
-<span id="cb1-6"><a aria-label="6"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb1-6"><a aria-label="6"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
 <span id="cb1-7"><a aria-label="7"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
-<span id="cb1-8"><a aria-label="8"></a>   <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-8"><a aria-label="8"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <img data-src="4.1.Estimation_files/figure-revealjs/sample20plot-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="672"><div class="cell">
@@ -472,9 +472,10 @@
 <span id="cb2-2"><a aria-label="2"></a>star.sample.size <span class="ot">&lt;-</span> <span class="dv">20</span></span>
 <span id="cb2-3"><a aria-label="3"></a>stars.sample2 <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(stars, <span class="at">size =</span> star.sample.size, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb2-4"><a aria-label="4"></a><span class="fu">ggplot</span>(stars.sample2, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> color, <span class="at">size =</span> size)) <span class="sc">+</span></span>
-<span id="cb2-5"><a aria-label="5"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">18</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
-<span id="cb2-6"><a aria-label="6"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span>   </span>
-<span id="cb2-7"><a aria-label="7"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-5"><a aria-label="5"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">18</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb2-6"><a aria-label="6"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb2-7"><a aria-label="7"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb2-8"><a aria-label="8"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <img data-src="4.1.Estimation_files/figure-revealjs/sample20-2-plot-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="672"><div class="cell">
@@ -515,10 +516,10 @@
 <span id="cb3-2"><a aria-label="2"></a>star.sample.size <span class="ot">&lt;-</span> <span class="dv">20</span></span>
 <span id="cb3-3"><a aria-label="3"></a>stars.sample3 <span class="ot">&lt;-</span> <span class="fu">sample_n</span>(stars, <span class="at">size =</span> star.sample.size, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb3-4"><a aria-label="4"></a><span class="fu">ggplot</span>(stars.sample3, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> color, <span class="at">size =</span> size)) <span class="sc">+</span></span>
-<span id="cb3-5"><a aria-label="5"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">18</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
-<span id="cb3-6"><a aria-label="6"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb3-5"><a aria-label="5"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">18</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb3-6"><a aria-label="6"></a>  <span class="fu">ylab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
 <span id="cb3-7"><a aria-label="7"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span></span>
-<span id="cb3-8"><a aria-label="8"></a>   <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-8"><a aria-label="8"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(), <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <img data-src="4.1.Estimation_files/figure-revealjs/sample20-3-plot-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="672"><div class="cell">
@@ -646,7 +647,7 @@
 </ul></section><section id="example-possible-outcomes-of-tossing-a-fair-coin-20-times" class="slide level2"><h2>Example: possible outcomes of tossing a fair coin 20 times</h2>
 <p>One possible outcome leads to this histogram:</p>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>i <span class="ot">=</span> <span class="dv">1</span></span>
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>i <span class="ot">&lt;-</span> <span class="dv">1</span></span>
 <span id="cb6-2"><a aria-label="2"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"heads"</span>, <span class="st">"tails"</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb6-3"><a aria-label="3"></a>    <span class="fu">rep_sample_n</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">replace =</span> T, <span class="at">reps =</span> i) <span class="sc">|&gt;</span></span>
 <span id="cb6-4"><a aria-label="4"></a>    <span class="fu">group_by</span>(replicate, <span class="at">heads =</span> x <span class="sc">==</span> <span class="st">"heads"</span>) <span class="sc">|&gt;</span></span>
@@ -665,7 +666,7 @@
 </div>
 <img data-src="4.1.Estimation_files/figure-revealjs/coin2-1.png" class="margin-caption r-stretch" width="960"></section><section id="repeat-this-process-10-times" class="slide level2"><h2>Repeat this process 10 times</h2>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>i <span class="ot">=</span> <span class="dv">10</span></span>
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>i <span class="ot">&lt;-</span> <span class="dv">10</span></span>
 <span id="cb7-2"><a aria-label="2"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"heads"</span>, <span class="st">"tails"</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb7-3"><a aria-label="3"></a>    <span class="fu">rep_sample_n</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">replace =</span> T, <span class="at">reps =</span> i) <span class="sc">|&gt;</span></span>
 <span id="cb7-4"><a aria-label="4"></a>    <span class="fu">group_by</span>(replicate, <span class="at">heads =</span> x <span class="sc">==</span> <span class="st">"heads"</span>) <span class="sc">|&gt;</span></span>
@@ -683,7 +684,7 @@
 </div>
 <img data-src="4.1.Estimation_files/figure-revealjs/coins3-1.png" class="margin-caption r-stretch" width="960"></section><section id="times" class="slide level2"><h2>100 times</h2>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>i <span class="ot">=</span> <span class="dv">100</span></span>
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>i <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb8-2"><a aria-label="2"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"heads"</span>, <span class="st">"tails"</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb8-3"><a aria-label="3"></a>    <span class="fu">rep_sample_n</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">replace =</span> T, <span class="at">reps =</span> i) <span class="sc">|&gt;</span></span>
 <span id="cb8-4"><a aria-label="4"></a>    <span class="fu">group_by</span>(replicate, <span class="at">heads =</span> x <span class="sc">==</span> <span class="st">"heads"</span>) <span class="sc">|&gt;</span></span>
@@ -701,7 +702,7 @@
 </div>
 <img data-src="4.1.Estimation_files/figure-revealjs/coins100-1.png" class="margin-caption r-stretch" width="960"></section><section id="section" class="slide level2"><h2>10000</h2>
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>i <span class="ot">=</span> <span class="dv">10000</span></span>
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>i <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
 <span id="cb9-2"><a aria-label="2"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"heads"</span>, <span class="st">"tails"</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb9-3"><a aria-label="3"></a>    <span class="fu">rep_sample_n</span>(<span class="at">size =</span> <span class="dv">20</span>, <span class="at">replace =</span> T, <span class="at">reps =</span> i) <span class="sc">|&gt;</span></span>
 <span id="cb9-4"><a aria-label="4"></a>    <span class="fu">group_by</span>(replicate, <span class="at">heads =</span> x <span class="sc">==</span> <span class="st">"heads"</span>) <span class="sc">|&gt;</span></span>
@@ -996,7 +997,9 @@
 <div class="columns">
 <div class="column">
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>sampling.dist.large <span class="sc">|&gt;</span> <span class="fu">head</span>() <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>sampling.dist.large <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a aria-label="2"></a>  <span class="fu">head</span>() <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a aria-label="3"></a>  <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div class="cell-output-display margin-caption">
 <table>
 <thead><tr class="header">
@@ -1034,15 +1037,16 @@
 </div>
 </div><div class="column">
 <div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">ggplot</span>(sampling.dist.large, <span class="fu">aes</span>(<span class="at">x =</span> prop)) <span class="sc">+</span> </span>
-<span id="cb12-2"><a aria-label="2"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span><span class="sc">/</span> star.sample.size, <span class="at">color =</span> <span class="st">"lightgray"</span>, <span class="at">fill =</span> <span class="st">"#006475"</span>)<span class="sc">+</span></span>
-<span id="cb12-3"><a aria-label="3"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> true.prop.large, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
-<span id="cb12-4"><a aria-label="4"></a>    <span class="fu">ggtitle</span>(<span class="fu">sprintf</span>(<span class="st">"Proportion large diamonds (n = %s)"</span>, star.sample.size),</span>
-<span id="cb12-5"><a aria-label="5"></a>            <span class="at">subtitle =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"Dotted white line is the population parameter (p={true.prop.large})"</span>)) <span class="sc">+</span></span>
-<span id="cb12-6"><a aria-label="6"></a>    <span class="fu">xlab</span>(<span class="st">"proportion of large diamonds"</span>)<span class="sc">+</span></span>
-<span id="cb12-7"><a aria-label="7"></a>    <span class="fu">ylab</span>(<span class="st">"# of replicates</span><span class="sc">\n</span><span class="st">(of 1000 simulations)"</span>)<span class="sc">+</span></span>
-<span id="cb12-8"><a aria-label="8"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">breaks=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
-<span id="cb12-9"><a aria-label="9"></a>    <span class="fu">xlim</span>(<span class="dv">0</span>,<span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">ggplot</span>(sampling.dist.large, <span class="fu">aes</span>(<span class="at">x =</span> prop)) <span class="sc">+</span></span>
+<span id="cb12-2"><a aria-label="2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span> <span class="sc">/</span> star.sample.size, <span class="at">color =</span> <span class="st">"lightgray"</span>, <span class="at">fill =</span> <span class="st">"#006475"</span>) <span class="sc">+</span></span>
+<span id="cb12-3"><a aria-label="3"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> true.prop.large, <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb12-4"><a aria-label="4"></a>  <span class="fu">ggtitle</span>(<span class="fu">sprintf</span>(<span class="st">"Proportion large diamonds (n = %s)"</span>, star.sample.size),</span>
+<span id="cb12-5"><a aria-label="5"></a>    <span class="at">subtitle =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"Dotted white line is the population parameter (p={true.prop.large})"</span>)</span>
+<span id="cb12-6"><a aria-label="6"></a>  ) <span class="sc">+</span></span>
+<span id="cb12-7"><a aria-label="7"></a>  <span class="fu">xlab</span>(<span class="st">"proportion of large diamonds"</span>) <span class="sc">+</span></span>
+<span id="cb12-8"><a aria-label="8"></a>  <span class="fu">ylab</span>(<span class="st">"# of replicates</span><span class="sc">\n</span><span class="st">(of 1000 simulations)"</span>) <span class="sc">+</span></span>
+<span id="cb12-9"><a aria-label="9"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.1</span>)) <span class="sc">+</span></span>
+<span id="cb12-10"><a aria-label="10"></a>  <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div class="cell-output-display">
 <div>
 <figure><p><img data-src="4.1.Estimation_files/figure-revealjs/SEP2-1.png" class="margin-caption" width="960"></p>
@@ -1056,6 +1060,8 @@
 
 <img data-src="4.1.Estimation_files/figure-revealjs/variab-1.png" class="margin-caption r-stretch quarto-figure-center" width="960"><p class="caption">True proportion is p=0.15. The standard deviation of each of these sampling distributions is the standard error of the estimate for each sample size.Nr of replicates: 1,000.</p></section></section><section><section id="q-isnt-there-an-easier-way-to-estimate-the-standard-error" class="title-slide slide level1 center"><h1>Q: Isn’t there an easier way to estimate the standard error?</h1>
 <p>A: Yes, next time!</p>
+</section><section id="see-also" class="slide level2"><h2>See also:</h2>
+<p>Sampling Distribution Demo on Posit Cloud (part of lab 6).</p>
 </section><section id="in-summary" class="slide level2"><h2>In summary</h2>
 <ul>
 <li><p>The sampling distribution is the distribution of the parameter estimate of interest from these samples</p></li>

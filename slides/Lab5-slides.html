@@ -388,7 +388,7 @@ loaded via a namespace (and not attached):
 <span id="cb15-2"><a aria-label="2"></a>mass_metabolism <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"datasets/mass_metabolism.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">head</span>(mass_metabolism)  <span class="co">#one option is head()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a aria-label="1"></a><span class="fu">head</span>(mass_metabolism)  <span class="co"># one option is head()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   body_mass metabolic_rate family        
@@ -454,7 +454,7 @@ loaded via a namespace (and not attached):
   ..   metabolic_rate = col_double(),
   ..   family = col_character()
   .. )
- - attr(*, "problems")=&lt;pointer: 0xacc4247f0&gt; </code></pre>
+ - attr(*, "problems")=&lt;pointer: 0x7eafcc1f0&gt; </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a aria-label="1"></a><span class="co"># or:</span></span>
 <span id="cb26-2"><a aria-label="2"></a><span class="fu">glimpse</span>(mass_metabolism)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -602,7 +602,7 @@ FALSE
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a aria-label="1"></a>mass_metabolism2 <span class="sc">|&gt;</span></span>
 <span id="cb43-2"><a aria-label="2"></a>    <span class="fu">filter</span>(family <span class="sc">==</span> <span class="st">"Bovidae"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb43-3"><a aria-label="3"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> body_mass)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">40</span>) <span class="sc">+</span></span>
-<span id="cb43-4"><a aria-label="4"></a>    <span class="fu">theme_bw</span>()  <span class="co">#this theme makes the plot look a bit cleaner</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb43-4"><a aria-label="4"></a>    <span class="fu">theme_bw</span>()  <span class="co"># this theme makes the plot look a bit cleaner</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="Lab5-slides_files/figure-revealjs/ex13-1.png" class="margin-caption r-stretch" width="960"></section><section id="ex-14" class="slide level2"><h2>Ex 14</h2>
@@ -619,7 +619,7 @@ FALSE
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a aria-label="1"></a><span class="co"># type your code here</span></span>
 <span id="cb45-2"><a aria-label="2"></a><span class="fu">ggplot</span>(mass_metabolism2, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log10</span>(body_mass), <span class="at">y =</span> <span class="fu">log10</span>(metabolic_rate))) <span class="sc">+</span></span>
 <span id="cb45-3"><a aria-label="3"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Metabolic rate (log scale)"</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Body Mass (in kg, log scale)"</span>) <span class="sc">+</span></span>
-<span id="cb45-4"><a aria-label="4"></a>    <span class="fu">theme_minimal</span>()  <span class="co">#remove ugly gray background</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb45-4"><a aria-label="4"></a>    <span class="fu">theme_minimal</span>()  <span class="co"># remove ugly gray background</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="Lab5-slides_files/figure-revealjs/ex15-1.png" class="margin-caption r-stretch" width="960"></section><section id="ex-16" class="slide level2"><h2>Ex 16</h2>
@@ -653,7 +653,7 @@ FALSE
 <span id="cb48-2"><a aria-label="2"></a>sleep_mammals <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"datasets/SleepInMammals.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a aria-label="1"></a><span class="fu">head</span>(sleep_mammals)  <span class="co">#one option is head()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a aria-label="1"></a><span class="fu">head</span>(sleep_mammals)  <span class="co"># one option is head()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 12
   Species             ji    Body_Weight_kg Brain_Weight_g Slow_wave_sleep_hrs_…¹
@@ -695,7 +695,7 @@ FALSE
 #   sleep_exposure_index &lt;dbl&gt;, overall_danger_index &lt;dbl&gt;</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a aria-label="1"></a><span class="co"># dimensions</span></span>
-<span id="cb53-2"><a aria-label="2"></a><span class="fu">dim</span>(sleep_mammals)  <span class="co">#41 rows, 12 columns</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb53-2"><a aria-label="2"></a><span class="fu">dim</span>(sleep_mammals)  <span class="co"># 41 rows, 12 columns</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 41 12</code></pre>
 </div>
@@ -739,7 +739,7 @@ FALSE
   ..   sleep_exposure_index = col_double(),
   ..   overall_danger_index = col_double()
   .. )
- - attr(*, "problems")=&lt;pointer: 0xacc424810&gt; </code></pre>
+ - attr(*, "problems")=&lt;pointer: 0x7eafcc230&gt; </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a aria-label="1"></a><span class="co"># species should be a factor.</span></span>
 <span id="cb59-2"><a aria-label="2"></a>sleep_mammals2 <span class="ot">&lt;-</span> sleep_mammals <span class="sc">|&gt;</span></span>
