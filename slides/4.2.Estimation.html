@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-eaeb381c6b7494c50009502241a4985c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
-<meta name="dcterms.date" content="2026-10-17">
+<meta name="dcterms.date" content="2026-10-23">
 <meta name="keywords" content="Module 2; Standard error">
 <title>BIOL B215: Biostatistics with R – 4.2.Estimating with uncertainty</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -206,13 +206,21 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">October 17, 2026</p>
+  <p class="date">October 23, 2026</p>
 </section><section id="key-learning-objectives" class="slide level2"><h2>Key Learning Objectives</h2>
 <ul>
 <li>Understand that because <font color="#E69F00">estimates</font> take values by chance, they will differ from true population <font color="#006475">parameters</font>.</li>
 <li>Connect the spread of the sampling distribution to uncertainty in estimates.</li>
 <li>Recognize the standard error as the standard deviation of the <strong>sampling distribution</strong>.</li>
 <li>Understand the confidence interval as a plausible range of a parameter, given an estimate and uncertainty in it.</li>
+</ul></section><section id="acknowledgments" class="slide level2" data-visibility="uncounted"><h2>Acknowledgments</h2>
+<ul>
+<li><p>Some code and slide content was borrowed from Yaniv Brandvain and Michael Whitlock.</p></li>
+<li><p>Some content is based on the WS textbook.</p></li>
+</ul></section><section id="note" class="slide level2" data-visibility="uncounted"><h2>Note</h2>
+<ul>
+<li><p>I am rounding all values to their closest integer to make the lecture easier to follow.</p></li>
+<li><p>In practice, only round at the end!</p></li>
 </ul></section><section id="section" class="slide level2 dark-theme center"><h2></h2>
 <div class="r-fit-text">
 <p>In the face of chance (randomness of my sample),</p>
@@ -224,120 +232,102 @@
 <li><p>Standard Error</p></li>
 <li><p>Confidence Intervals</p></li>
 </ul></section><section id="the-standard-error-definition" class="slide level2"><h2>The Standard Error: Definition</h2>
+<blockquote>
+<p>Definition: The standard error predicts the sampling error of the estimate.</p>
+</blockquote>
 <ul>
-<li><p>The standard error reflects the <u>difference between an estimate and the target parameter</u> value.</p></li>
-<li><p>The standard error predicts the sampling error of the estimate.</p></li>
-<li><p>The standard error of an estimate is the standard deviation of its sampling distribution.</p></li>
-<li><p>We could in principle calculate SE for any summary statistic but we will focus on the most common – the standard error of the mean.</p></li>
-</ul></section><section id="the-standard-error-of-the-mean-sem" class="slide level2"><h2>The Standard Error of the Mean (SEM)</h2>
-<p>The SEM quantifies how <em>precisely</em> you know the population mean.</p>
+<li><p>The standard error predicts the <em>sampling error</em> of the estimate.</p></li>
+<li><p>We can calculate SE for any summary statistic</p></li>
+<li><p>Today we focus on the most common – the standard error of the mean</p></li>
+<li><p>Later we will also learn SE estimators for proportions, odds ratios, and risk ratios.</p></li>
+</ul></section><section><section id="the-standard-error-of-the-mean-sem" class="title-slide slide level1 center"><h1>The Standard Error of the Mean (SEM)</h1>
+
+</section><section id="the-sem-quantifies-how-precisely-you-know-the-population-mean" class="slide level2"><h2>The SEM quantifies how <em>precisely</em> you know the population mean</h2>
 <ul>
-<li class="fragment"><p>Exact value: Because we rarely know the population standard deviation,<font color="#006475"><span class="math inline">\(\sigma\)</span></font>, we cannot find the parameter <font color="#006475"> <span class="math inline">\(\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}\)</span></font> , the standard error of the <font color="#006475">population mean</font>.</p></li>
-<li class="fragment"><p>But, we can use the sample standard deviation, <font color="#E69F00"><span class="math inline">\(s\)</span></font>, to estimate <font color="#E69F00"><span class="math inline">\(SEM_{\bar{x}}=\frac{s}{\sqrt{n}}\)</span></font>, the standard error of the <font color="#E69F00">sample mean</font>.</p></li>
-<li class="fragment"><p>We can also estimate <span class="math inline">\(SEM_{\bar{x}}\)</span> by taking the standard deviaton of the sampling distribution of sample means of a given size.</p></li>
+<li class="fragment"><p>Exact value: Because we rarely know the population standard deviation,<font color="#006475"><span class="math inline">\(\sigma\)</span></font>, we cannot find the <font color="#006475"> parameter <span class="math inline">\(\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}\)</span></font></p></li>
+<li class="fragment"><p>But, we can use the <font color="#E69F00">sample standard deviation <span class="math inline">\(s\)</span></font>, to estimate <font color="#E69F00"><span class="math inline">\(SEM_{\bar{x}}=\frac{s}{\sqrt{n}}\)</span></font></p></li>
+<li class="fragment"><p>Assumption: sample is random.</p></li>
 </ul>
 
 <aside><div>
 <p>Note we use SEM instead of SE to avoid ambiguities. Standard errors can be calculated for other statistics besides the mean.</p>
-</div></aside></section><section><section id="example-human-gene-lengths" class="title-slide slide level1 center"><h1>Example: human gene lengths</h1>
+</div></aside></section></section><section><section id="example-human-gene-lengths" class="title-slide slide level1 center"><h1>Example: human gene lengths</h1>
 <p>See “sampling distribution demo” (Lab 6).</p>
 </section><section id="human-gene-lengths" class="slide level2"><h2>Human gene lengths</h2>
-<p>This distribution is heavily skewed</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>hg_mean<span class="ot">&lt;-</span><span class="fu">mean</span>(human_genes<span class="sc">$</span>size)</span>
-<span id="cb1-2"><a aria-label="2"></a>hg_sd<span class="ot">&lt;-</span><span class="fu">sd</span>(human_genes<span class="sc">$</span>size)</span>
-<span id="cb1-3"><a aria-label="3"></a>human.hist <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(human_genes, <span class="fu">aes</span>(<span class="at">x =</span> size)) <span class="sc">+</span></span>
-<span id="cb1-4"><a aria-label="4"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb1-5"><a aria-label="5"></a>    <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count <span class="sc">/</span> <span class="fu">sum</span>(count))), </span>
-<span id="cb1-6"><a aria-label="6"></a>    <span class="at">bins =</span> <span class="dv">60</span>, <span class="at">color =</span> <span class="st">"lightgray"</span>, <span class="at">fill =</span> <span class="st">"#006475"</span>) <span class="sc">+</span></span>
-<span id="cb1-7"><a aria-label="7"></a>  <span class="fu">xlab</span>(<span class="st">"Gene length (basepairs)"</span>) <span class="sc">+</span></span>
-<span id="cb1-8"><a aria-label="8"></a>  <span class="fu">ylab</span>(<span class="st">"Relative Frequency"</span>) <span class="sc">+</span></span>
-<span id="cb1-9"><a aria-label="9"></a>  <span class="fu">ggtitle</span>(stringr<span class="sc">::</span><span class="fu">str_wrap</span>(<span class="st">"Distribution of human gene lengths (aka, the population of gene lengths)"</span>, <span class="at">width =</span> <span class="dv">40</span>)) <span class="sc">+</span> <span class="co">#this wraps the title text so that is doesn't exceed 40 characters</span></span>
-<span id="cb1-10"><a aria-label="10"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>,</span>
-<span id="cb1-11"><a aria-label="11"></a>    <span class="at">x =</span> <span class="dv">10000</span>, <span class="at">y =</span> <span class="fl">0.04</span>,</span>
-<span id="cb1-12"><a aria-label="12"></a>    <span class="at">label =</span> <span class="st">"mu==3511.5"</span>, <span class="at">parse =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">8</span></span>
-<span id="cb1-13"><a aria-label="13"></a>  ) <span class="sc">+</span></span>
-<span id="cb1-14"><a aria-label="14"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>,</span>
-<span id="cb1-15"><a aria-label="15"></a>    <span class="at">x =</span> <span class="dv">10000</span>, <span class="at">y =</span> <span class="fl">0.03</span>,</span>
-<span id="cb1-16"><a aria-label="16"></a>    <span class="at">label =</span> <span class="st">"sigma==2833.3"</span>, <span class="at">parse =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">8</span></span>
-<span id="cb1-17"><a aria-label="17"></a>  )</span>
-<span id="cb1-18"><a aria-label="18"></a>human.hist</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>hg_mean <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">mean</span>(human_genes<span class="sc">$</span>size))</span>
+<span id="cb1-2"><a aria-label="2"></a>hg_sd <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">sd</span>(human_genes<span class="sc">$</span>size))</span>
+<span id="cb1-3"><a aria-label="3"></a>hg_n <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">nrow</span>(human_genes))</span>
+<span id="cb1-4"><a aria-label="4"></a>human.hist <span class="ot">&lt;-</span></span>
+<span id="cb1-5"><a aria-label="5"></a>  <span class="fu">ggplot</span>(human_genes <span class="sc">|&gt;</span> <span class="fu">filter</span>(size <span class="sc">&lt;=</span> <span class="dv">15000</span>), <span class="fu">aes</span>(<span class="at">x =</span> size)) <span class="sc">+</span></span>
+<span id="cb1-6"><a aria-label="6"></a>  <span class="fu">geom_histogram</span>(</span>
+<span id="cb1-7"><a aria-label="7"></a>    <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count <span class="sc">/</span> <span class="fu">sum</span>(count))),</span>
+<span id="cb1-8"><a aria-label="8"></a>    <span class="co"># this makes the y-axis be in relative frequency</span></span>
+<span id="cb1-9"><a aria-label="9"></a>    <span class="at">bins =</span> <span class="dv">60</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">fill =</span> <span class="st">"#006475"</span></span>
+<span id="cb1-10"><a aria-label="10"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-11"><a aria-label="11"></a>  <span class="fu">xlab</span>(<span class="st">"Gene length (nucleotides)"</span>) <span class="sc">+</span></span>
+<span id="cb1-12"><a aria-label="12"></a>  <span class="fu">ylab</span>(<span class="st">"Proportion of genes"</span>)</span>
+<span id="cb1-13"><a aria-label="13"></a><span class="co">#</span></span>
+<span id="cb1-14"><a aria-label="14"></a><span class="co"># add titble and annotations</span></span>
+<span id="cb1-15"><a aria-label="15"></a><span class="co">#</span></span>
+<span id="cb1-16"><a aria-label="16"></a>human.hist <span class="ot">&lt;-</span> human.hist <span class="sc">+</span></span>
+<span id="cb1-17"><a aria-label="17"></a>  <span class="fu">ggtitle</span>(stringr<span class="sc">::</span><span class="fu">str_wrap</span>(<span class="st">"Population distribution of human gene lengths"</span>, <span class="at">width =</span> <span class="dv">55</span>),</span>
+<span id="cb1-18"><a aria-label="18"></a>    <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">(n = "</span>, hg_n, <span class="st">")"</span>)</span>
+<span id="cb1-19"><a aria-label="19"></a>  ) <span class="sc">+</span> <span class="co"># this wraps the title text so that is doesn't exceed 40 characters</span></span>
+<span id="cb1-20"><a aria-label="20"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>,</span>
+<span id="cb1-21"><a aria-label="21"></a>    <span class="at">x =</span> <span class="dv">12000</span>, <span class="at">y =</span> <span class="fl">0.05</span>,</span>
+<span id="cb1-22"><a aria-label="22"></a>    <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"mu=="</span>, hg_mean), <span class="at">parse =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">5</span></span>
+<span id="cb1-23"><a aria-label="23"></a>  ) <span class="sc">+</span></span>
+<span id="cb1-24"><a aria-label="24"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>,</span>
+<span id="cb1-25"><a aria-label="25"></a>    <span class="at">x =</span> <span class="dv">12000</span>, <span class="at">y =</span> <span class="fl">0.04</span>,</span>
+<span id="cb1-26"><a aria-label="26"></a>    <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"sigma=="</span>, hg_sd), <span class="at">parse =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">5</span></span>
+<span id="cb1-27"><a aria-label="27"></a>  )</span>
+<span id="cb1-28"><a aria-label="28"></a>human.hist</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section><section id="human-gene-lengths-output" class="slide level2 output-location-slide"><h2>Human gene lengths</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center margin-caption">
 <figure><p><img data-src="4.2.Estimation_files/figure-revealjs/skewed-1.png" class="margin-caption" width="960"></p>
-<figcaption>n=22,2385 genes</figcaption></figure>
+<figcaption>Note: 26 genes with length &gt; 15,000 were omitted from this plot but are kept in all calculations and sampling.</figcaption></figure>
 </div>
 </div>
-</div></section><section id="slight-modification" class="slide level2"><h2>Slight modification</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="co"># Note that less than one percent of genes (147) have &gt;15000 bp</span></span>
-<span id="cb2-2"><a aria-label="2"></a><span class="fu">quantile</span>(human_genes<span class="sc">$</span>size, <span class="at">prob=</span><span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.01</span>))[<span class="dv">100</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-
-</section><section id="slight-modification-output" class="slide level2 output-location-slide"><h2>Slight modification</h2><div class="cell output-location-slide">
-<div class="cell-output cell-output-stdout">
-<pre><code>    99% 
-13699.6 </code></pre>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="co"># we will filter them out for this demo</span></span>
-<span id="cb4-2"><a aria-label="2"></a>human_genes_filt<span class="ot">&lt;-</span>human_genes <span class="sc">|&gt;</span> <span class="fu">filter</span>(size <span class="sc">&lt;=</span><span class="dv">15000</span>)</span>
-<span id="cb4-3"><a aria-label="3"></a>hg_filt_mean<span class="ot">&lt;-</span><span class="fu">mean</span>(human_genes_filt<span class="sc">$</span>size)</span>
-<span id="cb4-4"><a aria-label="4"></a>hg_filt_sd<span class="ot">&lt;-</span><span class="fu">sd</span>(human_genes_filt<span class="sc">$</span>size)</span>
-<span id="cb4-5"><a aria-label="5"></a>human.hist2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(human_genes_filt, <span class="fu">aes</span>(<span class="at">x =</span> size)) <span class="sc">+</span></span>
-<span id="cb4-6"><a aria-label="6"></a>  <span class="fu">geom_histogram</span>(</span>
-<span id="cb4-7"><a aria-label="7"></a>    <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count <span class="sc">/</span> <span class="fu">sum</span>(count))), </span>
-<span id="cb4-8"><a aria-label="8"></a>    <span class="at">bins =</span> <span class="dv">60</span>, <span class="at">color =</span> <span class="st">"lightgray"</span>, <span class="at">fill =</span> <span class="st">"#006475"</span>) <span class="sc">+</span></span>
-<span id="cb4-9"><a aria-label="9"></a>  <span class="fu">xlab</span>(<span class="st">"Gene length (basepairs)"</span>) <span class="sc">+</span></span>
-<span id="cb4-10"><a aria-label="10"></a>  <span class="fu">ylab</span>(<span class="st">"Relative Frequency"</span>) <span class="sc">+</span></span>
-<span id="cb4-11"><a aria-label="11"></a>  <span class="fu">ggtitle</span>(stringr<span class="sc">::</span><span class="fu">str_wrap</span>(<span class="st">"Distribution of human gene lengths (aka, the population of gene lengths)"</span>, <span class="at">width =</span> <span class="dv">40</span>)) <span class="sc">+</span> <span class="co">#this wraps the title text so that is doesn't exceed 40 characters</span></span>
-<span id="cb4-12"><a aria-label="12"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>,</span>
-<span id="cb4-13"><a aria-label="13"></a>    <span class="at">x =</span> <span class="dv">10000</span>, <span class="at">y =</span> <span class="fl">0.04</span>,</span>
-<span id="cb4-14"><a aria-label="14"></a>    <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"mu=="</span>, <span class="fu">round</span>(hg_filt_mean,<span class="dv">1</span>)), <span class="at">parse =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">5</span></span>
-<span id="cb4-15"><a aria-label="15"></a>  ) <span class="sc">+</span></span>
-<span id="cb4-16"><a aria-label="16"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>,</span>
-<span id="cb4-17"><a aria-label="17"></a>    <span class="at">x =</span> <span class="dv">10000</span>, <span class="at">y =</span> <span class="fl">0.03</span>,</span>
-<span id="cb4-18"><a aria-label="18"></a>    <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"sigma=="</span>, <span class="fu">round</span>(hg_filt_sd,<span class="dv">1</span>)), <span class="at">parse =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">5</span></span>
-<span id="cb4-19"><a aria-label="19"></a>  )</span>
-<span id="cb4-20"><a aria-label="20"></a>human.hist2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center margin-caption">
-<figure><p><img data-src="4.2.Estimation_files/figure-revealjs/geneleng-1.png" class="margin-caption" width="960"></p>
-<figcaption>Note: parameters shown are for full dataset (n=20,290) but 26 genes with length &gt; 15,000 were omitted from this plot.</figcaption></figure>
-</div>
-</div>
-</div></section><section id="a-random-sample-of-ten-genes" class="slide level2"><h2>A random sample of ten genes</h2>
+</div></section><section id="a-random-sample-of-100-genes" class="slide level2"><h2>A random sample of 100 genes</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
-<span id="cb5-2"><a aria-label="2"></a><span class="fu">library</span>(gt)</span>
-<span id="cb5-3"><a aria-label="3"></a>samp_size <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb5-4"><a aria-label="4"></a>samp10 <span class="ot">&lt;-</span> human_genes <span class="sc">|&gt;</span></span>
-<span id="cb5-5"><a aria-label="5"></a>    <span class="fu">slice_sample</span>(<span class="at">n =</span> samp_size, <span class="at">replace =</span> F) <span class="sc">|&gt;</span></span>
-<span id="cb5-6"><a aria-label="6"></a>    <span class="fu">select</span>(size)</span>
-<span id="cb5-7"><a aria-label="7"></a>samp10 <span class="sc">|&gt;</span></span>
-<span id="cb5-8"><a aria-label="8"></a>    <span class="fu">gt</span>()  <span class="co">#make tibbles/df pretty figs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="co"># set seed to make</span></span>
+<span id="cb2-2"><a aria-label="2"></a><span class="co"># this reproducible</span></span>
+<span id="cb2-3"><a aria-label="3"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb2-4"><a aria-label="4"></a><span class="fu">library</span>(gt)</span>
+<span id="cb2-5"><a aria-label="5"></a><span class="co"># define sample</span></span>
+<span id="cb2-6"><a aria-label="6"></a><span class="co"># size</span></span>
+<span id="cb2-7"><a aria-label="7"></a>samp_size <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb2-8"><a aria-label="8"></a>samp100 <span class="ot">&lt;-</span> human_genes <span class="sc">|&gt;</span></span>
+<span id="cb2-9"><a aria-label="9"></a>    <span class="fu">slice_sample</span>(<span class="at">n =</span> samp_size,</span>
+<span id="cb2-10"><a aria-label="10"></a>        <span class="at">replace =</span> F) <span class="sc">|&gt;</span></span>
+<span id="cb2-11"><a aria-label="11"></a>    <span class="fu">select</span>(size)</span>
+<span id="cb2-12"><a aria-label="12"></a>samp100 <span class="sc">|&gt;</span></span>
+<span id="cb2-13"><a aria-label="13"></a>    <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-14"><a aria-label="14"></a>    <span class="fu">gt</span>()  <span class="co"># make tibbles/df pretty figs</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output-display">
-<div id="dbgvzfontn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#dbgvzfontn table {
+<div id="tqfvzfuumq" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#tqfvzfuumq table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#dbgvzfontn thead, #dbgvzfontn tbody, #dbgvzfontn tfoot, #dbgvzfontn tr, #dbgvzfontn td, #dbgvzfontn th {
+#tqfvzfuumq thead, #tqfvzfuumq tbody, #tqfvzfuumq tfoot, #tqfvzfuumq tr, #tqfvzfuumq td, #tqfvzfuumq th {
   border-style: none;
 }
 
-#dbgvzfontn p {
+#tqfvzfuumq p {
   margin: 0;
   padding: 0;
 }
 
-#dbgvzfontn .gt_table {
+#tqfvzfuumq .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -363,12 +353,12 @@
   border-left-color: #D3D3D3;
 }
 
-#dbgvzfontn .gt_caption {
+#tqfvzfuumq .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#dbgvzfontn .gt_title {
+#tqfvzfuumq .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -380,7 +370,7 @@
   border-bottom-width: 0;
 }
 
-#dbgvzfontn .gt_subtitle {
+#tqfvzfuumq .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -392,7 +382,7 @@
   border-top-width: 0;
 }
 
-#dbgvzfontn .gt_heading {
+#tqfvzfuumq .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -404,13 +394,13 @@
   border-right-color: #D3D3D3;
 }
 
-#dbgvzfontn .gt_bottom_border {
+#tqfvzfuumq .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#dbgvzfontn .gt_col_headings {
+#tqfvzfuumq .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -425,7 +415,7 @@
   border-right-color: #D3D3D3;
 }
 
-#dbgvzfontn .gt_col_heading {
+#tqfvzfuumq .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -445,7 +435,7 @@
   overflow-x: hidden;
 }
 
-#dbgvzfontn .gt_column_spanner_outer {
+#tqfvzfuumq .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -457,15 +447,15 @@
   padding-right: 4px;
 }
 
-#dbgvzfontn .gt_column_spanner_outer:first-child {
+#tqfvzfuumq .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#dbgvzfontn .gt_column_spanner_outer:last-child {
+#tqfvzfuumq .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#dbgvzfontn .gt_column_spanner {
+#tqfvzfuumq .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -477,11 +467,11 @@
   width: 100%;
 }
 
-#dbgvzfontn .gt_spanner_row {
+#tqfvzfuumq .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#dbgvzfontn .gt_group_heading {
+#tqfvzfuumq .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -507,7 +497,7 @@
   text-align: left;
 }
 
-#dbgvzfontn .gt_empty_group_heading {
+#tqfvzfuumq .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -522,15 +512,15 @@
   vertical-align: middle;
 }
 
-#dbgvzfontn .gt_from_md > :first-child {
+#tqfvzfuumq .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#dbgvzfontn .gt_from_md > :last-child {
+#tqfvzfuumq .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#dbgvzfontn .gt_row {
+#tqfvzfuumq .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -549,7 +539,7 @@
   overflow-x: hidden;
 }
 
-#dbgvzfontn .gt_stub {
+#tqfvzfuumq .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -562,7 +552,7 @@
   padding-right: 5px;
 }
 
-#dbgvzfontn .gt_stub_row_group {
+#tqfvzfuumq .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -576,15 +566,15 @@
   vertical-align: top;
 }
 
-#dbgvzfontn .gt_row_group_first td {
+#tqfvzfuumq .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#dbgvzfontn .gt_row_group_first th {
+#tqfvzfuumq .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#dbgvzfontn .gt_summary_row {
+#tqfvzfuumq .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -594,16 +584,16 @@
   padding-right: 5px;
 }
 
-#dbgvzfontn .gt_first_summary_row {
+#tqfvzfuumq .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#dbgvzfontn .gt_first_summary_row.thick {
+#tqfvzfuumq .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#dbgvzfontn .gt_last_summary_row {
+#tqfvzfuumq .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -613,7 +603,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#dbgvzfontn .gt_grand_summary_row {
+#tqfvzfuumq .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -623,7 +613,7 @@
   padding-right: 5px;
 }
 
-#dbgvzfontn .gt_first_grand_summary_row {
+#tqfvzfuumq .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -633,7 +623,7 @@
   border-top-color: #D3D3D3;
 }
 
-#dbgvzfontn .gt_last_grand_summary_row_top {
+#tqfvzfuumq .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -643,11 +633,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#dbgvzfontn .gt_striped {
+#tqfvzfuumq .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#dbgvzfontn .gt_table_body {
+#tqfvzfuumq .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -656,7 +646,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#dbgvzfontn .gt_footnotes {
+#tqfvzfuumq .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -670,7 +660,7 @@
   border-right-color: #D3D3D3;
 }
 
-#dbgvzfontn .gt_footnote {
+#tqfvzfuumq .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -679,7 +669,7 @@
   padding-right: 5px;
 }
 
-#dbgvzfontn .gt_sourcenotes {
+#tqfvzfuumq .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -693,7 +683,7 @@
   border-right-color: #D3D3D3;
 }
 
-#dbgvzfontn .gt_sourcenote {
+#tqfvzfuumq .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -701,72 +691,72 @@
   padding-right: 5px;
 }
 
-#dbgvzfontn .gt_left {
+#tqfvzfuumq .gt_left {
   text-align: left;
 }
 
-#dbgvzfontn .gt_center {
+#tqfvzfuumq .gt_center {
   text-align: center;
 }
 
-#dbgvzfontn .gt_right {
+#tqfvzfuumq .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#dbgvzfontn .gt_font_normal {
+#tqfvzfuumq .gt_font_normal {
   font-weight: normal;
 }
 
-#dbgvzfontn .gt_font_bold {
+#tqfvzfuumq .gt_font_bold {
   font-weight: bold;
 }
 
-#dbgvzfontn .gt_font_italic {
+#tqfvzfuumq .gt_font_italic {
   font-style: italic;
 }
 
-#dbgvzfontn .gt_super {
+#tqfvzfuumq .gt_super {
   font-size: 65%;
 }
 
-#dbgvzfontn .gt_footnote_marks {
+#tqfvzfuumq .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#dbgvzfontn .gt_asterisk {
+#tqfvzfuumq .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#dbgvzfontn .gt_indent_1 {
+#tqfvzfuumq .gt_indent_1 {
   text-indent: 5px;
 }
 
-#dbgvzfontn .gt_indent_2 {
+#tqfvzfuumq .gt_indent_2 {
   text-indent: 10px;
 }
 
-#dbgvzfontn .gt_indent_3 {
+#tqfvzfuumq .gt_indent_3 {
   text-indent: 15px;
 }
 
-#dbgvzfontn .gt_indent_4 {
+#tqfvzfuumq .gt_indent_4 {
   text-indent: 20px;
 }
 
-#dbgvzfontn .gt_indent_5 {
+#tqfvzfuumq .gt_indent_5 {
   text-indent: 25px;
 }
 
-#dbgvzfontn .katex-display {
+#tqfvzfuumq .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#dbgvzfontn div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#tqfvzfuumq div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -811,31 +801,32 @@
 </div>
 </div></div>
 </section><section id="summarising-my-sample" class="slide level2"><h2>Summarising my sample</h2>
-<p>Summarising my sample of <span class="math inline">\(n=10\)</span>:</p>
+<p>Summarising my sample of <span class="math inline">\(n=100\)</span>:</p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a>samp10 <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a aria-label="2"></a>    <span class="fu">summarise</span>(<span class="at">Mean =</span> <span class="fu">mean</span>(size), <span class="at">SD =</span> <span class="fu">sd</span>(size)) <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a aria-label="3"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>samp100 <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a aria-label="2"></a>    <span class="fu">summarise</span>(<span class="at">Mean =</span> <span class="fu">round</span>(<span class="fu">mean</span>(size)),</span>
+<span id="cb3-3"><a aria-label="3"></a>        <span class="at">SD =</span> <span class="fu">round</span>(<span class="fu">sd</span>(size))) <span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a aria-label="4"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output-display">
-<div id="xdduhtxcdz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#xdduhtxcdz table {
+<div id="bfzbupkdcz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#bfzbupkdcz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#xdduhtxcdz thead, #xdduhtxcdz tbody, #xdduhtxcdz tfoot, #xdduhtxcdz tr, #xdduhtxcdz td, #xdduhtxcdz th {
+#bfzbupkdcz thead, #bfzbupkdcz tbody, #bfzbupkdcz tfoot, #bfzbupkdcz tr, #bfzbupkdcz td, #bfzbupkdcz th {
   border-style: none;
 }
 
-#xdduhtxcdz p {
+#bfzbupkdcz p {
   margin: 0;
   padding: 0;
 }
 
-#xdduhtxcdz .gt_table {
+#bfzbupkdcz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -861,12 +852,12 @@
   border-left-color: #D3D3D3;
 }
 
-#xdduhtxcdz .gt_caption {
+#bfzbupkdcz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#xdduhtxcdz .gt_title {
+#bfzbupkdcz .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -878,7 +869,7 @@
   border-bottom-width: 0;
 }
 
-#xdduhtxcdz .gt_subtitle {
+#bfzbupkdcz .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -890,7 +881,7 @@
   border-top-width: 0;
 }
 
-#xdduhtxcdz .gt_heading {
+#bfzbupkdcz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -902,13 +893,13 @@
   border-right-color: #D3D3D3;
 }
 
-#xdduhtxcdz .gt_bottom_border {
+#bfzbupkdcz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xdduhtxcdz .gt_col_headings {
+#bfzbupkdcz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -923,7 +914,7 @@
   border-right-color: #D3D3D3;
 }
 
-#xdduhtxcdz .gt_col_heading {
+#bfzbupkdcz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -943,7 +934,7 @@
   overflow-x: hidden;
 }
 
-#xdduhtxcdz .gt_column_spanner_outer {
+#bfzbupkdcz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -955,15 +946,15 @@
   padding-right: 4px;
 }
 
-#xdduhtxcdz .gt_column_spanner_outer:first-child {
+#bfzbupkdcz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xdduhtxcdz .gt_column_spanner_outer:last-child {
+#bfzbupkdcz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xdduhtxcdz .gt_column_spanner {
+#bfzbupkdcz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -975,11 +966,11 @@
   width: 100%;
 }
 
-#xdduhtxcdz .gt_spanner_row {
+#bfzbupkdcz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#xdduhtxcdz .gt_group_heading {
+#bfzbupkdcz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1005,7 +996,7 @@
   text-align: left;
 }
 
-#xdduhtxcdz .gt_empty_group_heading {
+#bfzbupkdcz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1020,15 +1011,15 @@
   vertical-align: middle;
 }
 
-#xdduhtxcdz .gt_from_md > :first-child {
+#bfzbupkdcz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xdduhtxcdz .gt_from_md > :last-child {
+#bfzbupkdcz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xdduhtxcdz .gt_row {
+#bfzbupkdcz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1047,7 +1038,7 @@
   overflow-x: hidden;
 }
 
-#xdduhtxcdz .gt_stub {
+#bfzbupkdcz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1060,7 +1051,7 @@
   padding-right: 5px;
 }
 
-#xdduhtxcdz .gt_stub_row_group {
+#bfzbupkdcz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1074,15 +1065,15 @@
   vertical-align: top;
 }
 
-#xdduhtxcdz .gt_row_group_first td {
+#bfzbupkdcz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#xdduhtxcdz .gt_row_group_first th {
+#bfzbupkdcz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#xdduhtxcdz .gt_summary_row {
+#bfzbupkdcz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1092,16 +1083,16 @@
   padding-right: 5px;
 }
 
-#xdduhtxcdz .gt_first_summary_row {
+#bfzbupkdcz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#xdduhtxcdz .gt_first_summary_row.thick {
+#bfzbupkdcz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#xdduhtxcdz .gt_last_summary_row {
+#bfzbupkdcz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1111,7 +1102,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#xdduhtxcdz .gt_grand_summary_row {
+#bfzbupkdcz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1121,7 +1112,7 @@
   padding-right: 5px;
 }
 
-#xdduhtxcdz .gt_first_grand_summary_row {
+#bfzbupkdcz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1131,7 +1122,7 @@
   border-top-color: #D3D3D3;
 }
 
-#xdduhtxcdz .gt_last_grand_summary_row_top {
+#bfzbupkdcz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1141,11 +1132,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#xdduhtxcdz .gt_striped {
+#bfzbupkdcz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xdduhtxcdz .gt_table_body {
+#bfzbupkdcz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1154,7 +1145,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#xdduhtxcdz .gt_footnotes {
+#bfzbupkdcz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1168,7 +1159,7 @@
   border-right-color: #D3D3D3;
 }
 
-#xdduhtxcdz .gt_footnote {
+#bfzbupkdcz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1177,7 +1168,7 @@
   padding-right: 5px;
 }
 
-#xdduhtxcdz .gt_sourcenotes {
+#bfzbupkdcz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1191,7 +1182,7 @@
   border-right-color: #D3D3D3;
 }
 
-#xdduhtxcdz .gt_sourcenote {
+#bfzbupkdcz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1199,72 +1190,72 @@
   padding-right: 5px;
 }
 
-#xdduhtxcdz .gt_left {
+#bfzbupkdcz .gt_left {
   text-align: left;
 }
 
-#xdduhtxcdz .gt_center {
+#bfzbupkdcz .gt_center {
   text-align: center;
 }
 
-#xdduhtxcdz .gt_right {
+#bfzbupkdcz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xdduhtxcdz .gt_font_normal {
+#bfzbupkdcz .gt_font_normal {
   font-weight: normal;
 }
 
-#xdduhtxcdz .gt_font_bold {
+#bfzbupkdcz .gt_font_bold {
   font-weight: bold;
 }
 
-#xdduhtxcdz .gt_font_italic {
+#bfzbupkdcz .gt_font_italic {
   font-style: italic;
 }
 
-#xdduhtxcdz .gt_super {
+#bfzbupkdcz .gt_super {
   font-size: 65%;
 }
 
-#xdduhtxcdz .gt_footnote_marks {
+#bfzbupkdcz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#xdduhtxcdz .gt_asterisk {
+#bfzbupkdcz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#xdduhtxcdz .gt_indent_1 {
+#bfzbupkdcz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#xdduhtxcdz .gt_indent_2 {
+#bfzbupkdcz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#xdduhtxcdz .gt_indent_3 {
+#bfzbupkdcz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#xdduhtxcdz .gt_indent_4 {
+#bfzbupkdcz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#xdduhtxcdz .gt_indent_5 {
+#bfzbupkdcz .gt_indent_5 {
   text-indent: 25px;
 }
 
-#xdduhtxcdz .katex-display {
+#bfzbupkdcz .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#xdduhtxcdz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#bfzbupkdcz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1274,44 +1265,62 @@
 <th id="SD" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">SD</th>
 </tr></thead>
 <tbody class="gt_table_body"><tr class="odd">
-<td class="gt_row gt_right" headers="Mean">3734</td>
-<td class="gt_row gt_right" headers="SD">1694.992</td>
+<td class="gt_row gt_right" headers="Mean">3492</td>
+<td class="gt_row gt_right" headers="SD">2712</td>
 </tr></tbody>
 </table>
 </div>
 </div>
 </div></div>
-</section><section id="summarising-my-other-sample" class="slide level2"><h2>Summarising my other sample</h2>
-<p>Summarising my other sample of <span class="math inline">\(n=10\)</span>:</p>
+<h3 id="plotting-my-sample">Plotting my sample</h3>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">1235</span>)</span>
-<span id="cb7-2"><a aria-label="2"></a>samp_size <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb7-3"><a aria-label="3"></a>samp10_2 <span class="ot">&lt;-</span> human_genes <span class="sc">|&gt;</span></span>
-<span id="cb7-4"><a aria-label="4"></a>    <span class="fu">slice_sample</span>(<span class="at">n =</span> samp_size, <span class="at">replace =</span> F) <span class="sc">|&gt;</span></span>
-<span id="cb7-5"><a aria-label="5"></a>    <span class="fu">select</span>(size)</span>
-<span id="cb7-6"><a aria-label="6"></a>samp10_2 <span class="sc">|&gt;</span></span>
-<span id="cb7-7"><a aria-label="7"></a>    <span class="fu">summarise</span>(<span class="at">Mean_length =</span> <span class="fu">mean</span>(size), <span class="at">SD_length =</span> <span class="fu">sd</span>(size)) <span class="sc">|&gt;</span></span>
-<span id="cb7-8"><a aria-label="8"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">ggplot</span>(samp100, <span class="fu">aes</span>(<span class="at">x =</span> size)) <span class="sc">+</span></span>
+<span id="cb4-2"><a aria-label="2"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count<span class="sc">/</span><span class="fu">sum</span>(count))),</span>
+<span id="cb4-3"><a aria-label="3"></a>        <span class="at">bins =</span> <span class="dv">60</span>, <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb4-4"><a aria-label="4"></a>        <span class="at">fill =</span> <span class="st">"#006475"</span>) <span class="sc">+</span></span>
+<span id="cb4-5"><a aria-label="5"></a>    <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Relative frequency"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output-display">
-<div id="lelwbhhlmd" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#lelwbhhlmd table {
+<div>
+<figure><p><img data-src="4.2.Estimation_files/figure-revealjs/plotSamp100-1.png" class="margin-caption" width="960"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</section><section id="taking-another-sample-and-summarising-it" class="slide level2"><h2>Taking another sample and summarising it</h2>
+<p>Summarising my other sample of <span class="math inline">\(n=100\)</span>:</p>
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">set.seed</span>(<span class="dv">1235</span>)</span>
+<span id="cb5-2"><a aria-label="2"></a>samp_size <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb5-3"><a aria-label="3"></a>samp100_2 <span class="ot">&lt;-</span> human_genes <span class="sc">|&gt;</span></span>
+<span id="cb5-4"><a aria-label="4"></a>    <span class="fu">slice_sample</span>(<span class="at">n =</span> samp_size,</span>
+<span id="cb5-5"><a aria-label="5"></a>        <span class="at">replace =</span> F) <span class="sc">|&gt;</span></span>
+<span id="cb5-6"><a aria-label="6"></a>    <span class="fu">select</span>(size)</span>
+<span id="cb5-7"><a aria-label="7"></a>samp100_2 <span class="sc">|&gt;</span></span>
+<span id="cb5-8"><a aria-label="8"></a>    <span class="fu">summarise</span>(<span class="at">Mean_length =</span> <span class="fu">mean</span>(size),</span>
+<span id="cb5-9"><a aria-label="9"></a>        <span class="at">SD_length =</span> <span class="fu">sd</span>(size)) <span class="sc">|&gt;</span></span>
+<span id="cb5-10"><a aria-label="10"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div id="afvomwuqxb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#afvomwuqxb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#lelwbhhlmd thead, #lelwbhhlmd tbody, #lelwbhhlmd tfoot, #lelwbhhlmd tr, #lelwbhhlmd td, #lelwbhhlmd th {
+#afvomwuqxb thead, #afvomwuqxb tbody, #afvomwuqxb tfoot, #afvomwuqxb tr, #afvomwuqxb td, #afvomwuqxb th {
   border-style: none;
 }
 
-#lelwbhhlmd p {
+#afvomwuqxb p {
   margin: 0;
   padding: 0;
 }
 
-#lelwbhhlmd .gt_table {
+#afvomwuqxb .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1337,12 +1346,12 @@
   border-left-color: #D3D3D3;
 }
 
-#lelwbhhlmd .gt_caption {
+#afvomwuqxb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#lelwbhhlmd .gt_title {
+#afvomwuqxb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1354,7 +1363,7 @@
   border-bottom-width: 0;
 }
 
-#lelwbhhlmd .gt_subtitle {
+#afvomwuqxb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1366,7 +1375,7 @@
   border-top-width: 0;
 }
 
-#lelwbhhlmd .gt_heading {
+#afvomwuqxb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1378,13 +1387,13 @@
   border-right-color: #D3D3D3;
 }
 
-#lelwbhhlmd .gt_bottom_border {
+#afvomwuqxb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#lelwbhhlmd .gt_col_headings {
+#afvomwuqxb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1399,7 +1408,7 @@
   border-right-color: #D3D3D3;
 }
 
-#lelwbhhlmd .gt_col_heading {
+#afvomwuqxb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1419,7 +1428,7 @@
   overflow-x: hidden;
 }
 
-#lelwbhhlmd .gt_column_spanner_outer {
+#afvomwuqxb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1431,15 +1440,15 @@
   padding-right: 4px;
 }
 
-#lelwbhhlmd .gt_column_spanner_outer:first-child {
+#afvomwuqxb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#lelwbhhlmd .gt_column_spanner_outer:last-child {
+#afvomwuqxb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#lelwbhhlmd .gt_column_spanner {
+#afvomwuqxb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1451,11 +1460,11 @@
   width: 100%;
 }
 
-#lelwbhhlmd .gt_spanner_row {
+#afvomwuqxb .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#lelwbhhlmd .gt_group_heading {
+#afvomwuqxb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1481,7 +1490,7 @@
   text-align: left;
 }
 
-#lelwbhhlmd .gt_empty_group_heading {
+#afvomwuqxb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1496,15 +1505,15 @@
   vertical-align: middle;
 }
 
-#lelwbhhlmd .gt_from_md > :first-child {
+#afvomwuqxb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#lelwbhhlmd .gt_from_md > :last-child {
+#afvomwuqxb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#lelwbhhlmd .gt_row {
+#afvomwuqxb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1523,7 +1532,7 @@
   overflow-x: hidden;
 }
 
-#lelwbhhlmd .gt_stub {
+#afvomwuqxb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1536,7 +1545,7 @@
   padding-right: 5px;
 }
 
-#lelwbhhlmd .gt_stub_row_group {
+#afvomwuqxb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1550,15 +1559,15 @@
   vertical-align: top;
 }
 
-#lelwbhhlmd .gt_row_group_first td {
+#afvomwuqxb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#lelwbhhlmd .gt_row_group_first th {
+#afvomwuqxb .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#lelwbhhlmd .gt_summary_row {
+#afvomwuqxb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1568,16 +1577,16 @@
   padding-right: 5px;
 }
 
-#lelwbhhlmd .gt_first_summary_row {
+#afvomwuqxb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#lelwbhhlmd .gt_first_summary_row.thick {
+#afvomwuqxb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#lelwbhhlmd .gt_last_summary_row {
+#afvomwuqxb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1587,7 +1596,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#lelwbhhlmd .gt_grand_summary_row {
+#afvomwuqxb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1597,7 +1606,7 @@
   padding-right: 5px;
 }
 
-#lelwbhhlmd .gt_first_grand_summary_row {
+#afvomwuqxb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1607,7 +1616,7 @@
   border-top-color: #D3D3D3;
 }
 
-#lelwbhhlmd .gt_last_grand_summary_row_top {
+#afvomwuqxb .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1617,11 +1626,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#lelwbhhlmd .gt_striped {
+#afvomwuqxb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#lelwbhhlmd .gt_table_body {
+#afvomwuqxb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1630,7 +1639,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#lelwbhhlmd .gt_footnotes {
+#afvomwuqxb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1644,7 +1653,7 @@
   border-right-color: #D3D3D3;
 }
 
-#lelwbhhlmd .gt_footnote {
+#afvomwuqxb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1653,7 +1662,7 @@
   padding-right: 5px;
 }
 
-#lelwbhhlmd .gt_sourcenotes {
+#afvomwuqxb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1667,7 +1676,7 @@
   border-right-color: #D3D3D3;
 }
 
-#lelwbhhlmd .gt_sourcenote {
+#afvomwuqxb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1675,72 +1684,72 @@
   padding-right: 5px;
 }
 
-#lelwbhhlmd .gt_left {
+#afvomwuqxb .gt_left {
   text-align: left;
 }
 
-#lelwbhhlmd .gt_center {
+#afvomwuqxb .gt_center {
   text-align: center;
 }
 
-#lelwbhhlmd .gt_right {
+#afvomwuqxb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#lelwbhhlmd .gt_font_normal {
+#afvomwuqxb .gt_font_normal {
   font-weight: normal;
 }
 
-#lelwbhhlmd .gt_font_bold {
+#afvomwuqxb .gt_font_bold {
   font-weight: bold;
 }
 
-#lelwbhhlmd .gt_font_italic {
+#afvomwuqxb .gt_font_italic {
   font-style: italic;
 }
 
-#lelwbhhlmd .gt_super {
+#afvomwuqxb .gt_super {
   font-size: 65%;
 }
 
-#lelwbhhlmd .gt_footnote_marks {
+#afvomwuqxb .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#lelwbhhlmd .gt_asterisk {
+#afvomwuqxb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#lelwbhhlmd .gt_indent_1 {
+#afvomwuqxb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#lelwbhhlmd .gt_indent_2 {
+#afvomwuqxb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#lelwbhhlmd .gt_indent_3 {
+#afvomwuqxb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#lelwbhhlmd .gt_indent_4 {
+#afvomwuqxb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#lelwbhhlmd .gt_indent_5 {
+#afvomwuqxb .gt_indent_5 {
   text-indent: 25px;
 }
 
-#lelwbhhlmd .katex-display {
+#afvomwuqxb .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#lelwbhhlmd div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#afvomwuqxb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1750,8 +1759,8 @@
 <th id="SD_length" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">SD_length</th>
 </tr></thead>
 <tbody class="gt_table_body"><tr class="odd">
-<td class="gt_row gt_right" headers="Mean_length">3873.8</td>
-<td class="gt_row gt_right" headers="SD_length">3574.855</td>
+<td class="gt_row gt_right" headers="Mean_length">3393.56</td>
+<td class="gt_row gt_right" headers="SD_length">2255.874</td>
 </tr></tbody>
 </table>
 </div>
@@ -1759,39 +1768,45 @@
 </div></div>
 </section></section><section><section id="now-lets-do-this-many-times" class="title-slide slide level1 center"><h1>Now let’s do this many times</h1>
 
-</section><section id="many-samples-of-10-genes" class="slide level2"><h2>Many samples of 10 genes</h2>
+</section><section id="many-samples-of-100-genes" class="slide level2"><h2>Many samples of 100 genes</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">library</span>(infer)  <span class="co"># has function rep_sample_n</span></span>
-<span id="cb8-2"><a aria-label="2"></a><span class="fu">set.seed</span>(<span class="dv">1985</span>)</span>
-<span id="cb8-3"><a aria-label="3"></a>samp_size <span class="ot">&lt;-</span> <span class="dv">10</span></span>
-<span id="cb8-4"><a aria-label="4"></a>nreps <span class="ot">&lt;-</span> <span class="dv">10000</span></span>
-<span id="cb8-5"><a aria-label="5"></a>samp.dist <span class="ot">&lt;-</span> human_genes_filt <span class="sc">|&gt;</span></span>
-<span id="cb8-6"><a aria-label="6"></a>    <span class="fu">rep_sample_n</span>(<span class="at">size =</span> samp_size, <span class="at">replace =</span> <span class="cn">FALSE</span>, <span class="at">reps =</span> nreps) <span class="sc">|&gt;</span></span>
-<span id="cb8-7"><a aria-label="7"></a>    <span class="fu">summarise</span>(<span class="at">mean_length =</span> <span class="fu">mean</span>(size), <span class="at">sd_length =</span> <span class="fu">sd</span>(size))</span>
-<span id="cb8-8"><a aria-label="8"></a><span class="co"># have a look</span></span>
-<span id="cb8-9"><a aria-label="9"></a>samp.dist <span class="sc">|&gt;</span></span>
-<span id="cb8-10"><a aria-label="10"></a>    <span class="fu">head</span>() <span class="sc">|&gt;</span></span>
-<span id="cb8-11"><a aria-label="11"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="fu">library</span>(infer)  <span class="co"># has function rep_sample_n</span></span>
+<span id="cb6-2"><a aria-label="2"></a><span class="fu">set.seed</span>(<span class="dv">1985</span>)</span>
+<span id="cb6-3"><a aria-label="3"></a>samp_size <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb6-4"><a aria-label="4"></a><span class="co"># define number of</span></span>
+<span id="cb6-5"><a aria-label="5"></a><span class="co"># replicates</span></span>
+<span id="cb6-6"><a aria-label="6"></a><span class="co"># (simulations)</span></span>
+<span id="cb6-7"><a aria-label="7"></a>nreps <span class="ot">&lt;-</span> <span class="dv">20000</span></span>
+<span id="cb6-8"><a aria-label="8"></a>samp.dist <span class="ot">&lt;-</span> human_genes <span class="sc">|&gt;</span></span>
+<span id="cb6-9"><a aria-label="9"></a>    <span class="fu">rep_sample_n</span>(<span class="at">size =</span> samp_size,</span>
+<span id="cb6-10"><a aria-label="10"></a>        <span class="at">replace =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb6-11"><a aria-label="11"></a>        <span class="at">reps =</span> nreps) <span class="sc">|&gt;</span></span>
+<span id="cb6-12"><a aria-label="12"></a>    <span class="fu">summarise</span>(<span class="at">mean_length =</span> <span class="fu">mean</span>(size),</span>
+<span id="cb6-13"><a aria-label="13"></a>        <span class="at">sd_length =</span> <span class="fu">sd</span>(size))</span>
+<span id="cb6-14"><a aria-label="14"></a><span class="co"># have a look</span></span>
+<span id="cb6-15"><a aria-label="15"></a>samp.dist <span class="sc">|&gt;</span></span>
+<span id="cb6-16"><a aria-label="16"></a>    <span class="fu">head</span>(<span class="at">n =</span> <span class="dv">10</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-17"><a aria-label="17"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output-display">
-<div id="wxzduaqyxg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wxzduaqyxg table {
+<div id="ovdsopooul" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ovdsopooul table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wxzduaqyxg thead, #wxzduaqyxg tbody, #wxzduaqyxg tfoot, #wxzduaqyxg tr, #wxzduaqyxg td, #wxzduaqyxg th {
+#ovdsopooul thead, #ovdsopooul tbody, #ovdsopooul tfoot, #ovdsopooul tr, #ovdsopooul td, #ovdsopooul th {
   border-style: none;
 }
 
-#wxzduaqyxg p {
+#ovdsopooul p {
   margin: 0;
   padding: 0;
 }
 
-#wxzduaqyxg .gt_table {
+#ovdsopooul .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1817,12 +1832,12 @@
   border-left-color: #D3D3D3;
 }
 
-#wxzduaqyxg .gt_caption {
+#ovdsopooul .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wxzduaqyxg .gt_title {
+#ovdsopooul .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1834,7 +1849,7 @@
   border-bottom-width: 0;
 }
 
-#wxzduaqyxg .gt_subtitle {
+#ovdsopooul .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1846,7 +1861,7 @@
   border-top-width: 0;
 }
 
-#wxzduaqyxg .gt_heading {
+#ovdsopooul .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1858,13 +1873,13 @@
   border-right-color: #D3D3D3;
 }
 
-#wxzduaqyxg .gt_bottom_border {
+#ovdsopooul .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wxzduaqyxg .gt_col_headings {
+#ovdsopooul .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1879,7 +1894,7 @@
   border-right-color: #D3D3D3;
 }
 
-#wxzduaqyxg .gt_col_heading {
+#ovdsopooul .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1899,7 +1914,7 @@
   overflow-x: hidden;
 }
 
-#wxzduaqyxg .gt_column_spanner_outer {
+#ovdsopooul .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1911,15 +1926,15 @@
   padding-right: 4px;
 }
 
-#wxzduaqyxg .gt_column_spanner_outer:first-child {
+#ovdsopooul .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wxzduaqyxg .gt_column_spanner_outer:last-child {
+#ovdsopooul .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wxzduaqyxg .gt_column_spanner {
+#ovdsopooul .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1931,11 +1946,11 @@
   width: 100%;
 }
 
-#wxzduaqyxg .gt_spanner_row {
+#ovdsopooul .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wxzduaqyxg .gt_group_heading {
+#ovdsopooul .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1961,7 +1976,7 @@
   text-align: left;
 }
 
-#wxzduaqyxg .gt_empty_group_heading {
+#ovdsopooul .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1976,15 +1991,15 @@
   vertical-align: middle;
 }
 
-#wxzduaqyxg .gt_from_md > :first-child {
+#ovdsopooul .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wxzduaqyxg .gt_from_md > :last-child {
+#ovdsopooul .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wxzduaqyxg .gt_row {
+#ovdsopooul .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2003,7 +2018,7 @@
   overflow-x: hidden;
 }
 
-#wxzduaqyxg .gt_stub {
+#ovdsopooul .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2016,7 +2031,7 @@
   padding-right: 5px;
 }
 
-#wxzduaqyxg .gt_stub_row_group {
+#ovdsopooul .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2030,15 +2045,15 @@
   vertical-align: top;
 }
 
-#wxzduaqyxg .gt_row_group_first td {
+#ovdsopooul .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wxzduaqyxg .gt_row_group_first th {
+#ovdsopooul .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wxzduaqyxg .gt_summary_row {
+#ovdsopooul .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2048,16 +2063,16 @@
   padding-right: 5px;
 }
 
-#wxzduaqyxg .gt_first_summary_row {
+#ovdsopooul .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wxzduaqyxg .gt_first_summary_row.thick {
+#ovdsopooul .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wxzduaqyxg .gt_last_summary_row {
+#ovdsopooul .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2067,7 +2082,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#wxzduaqyxg .gt_grand_summary_row {
+#ovdsopooul .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2077,7 +2092,7 @@
   padding-right: 5px;
 }
 
-#wxzduaqyxg .gt_first_grand_summary_row {
+#ovdsopooul .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2087,7 +2102,7 @@
   border-top-color: #D3D3D3;
 }
 
-#wxzduaqyxg .gt_last_grand_summary_row_top {
+#ovdsopooul .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2097,11 +2112,11 @@
   border-bottom-color: #D3D3D3;
 }
 
-#wxzduaqyxg .gt_striped {
+#ovdsopooul .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wxzduaqyxg .gt_table_body {
+#ovdsopooul .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2110,7 +2125,7 @@
   border-bottom-color: #D3D3D3;
 }
 
-#wxzduaqyxg .gt_footnotes {
+#ovdsopooul .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2124,7 +2139,7 @@
   border-right-color: #D3D3D3;
 }
 
-#wxzduaqyxg .gt_footnote {
+#ovdsopooul .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2133,7 +2148,7 @@
   padding-right: 5px;
 }
 
-#wxzduaqyxg .gt_sourcenotes {
+#ovdsopooul .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2147,7 +2162,7 @@
   border-right-color: #D3D3D3;
 }
 
-#wxzduaqyxg .gt_sourcenote {
+#ovdsopooul .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2155,72 +2170,72 @@
   padding-right: 5px;
 }
 
-#wxzduaqyxg .gt_left {
+#ovdsopooul .gt_left {
   text-align: left;
 }
 
-#wxzduaqyxg .gt_center {
+#ovdsopooul .gt_center {
   text-align: center;
 }
 
-#wxzduaqyxg .gt_right {
+#ovdsopooul .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wxzduaqyxg .gt_font_normal {
+#ovdsopooul .gt_font_normal {
   font-weight: normal;
 }
 
-#wxzduaqyxg .gt_font_bold {
+#ovdsopooul .gt_font_bold {
   font-weight: bold;
 }
 
-#wxzduaqyxg .gt_font_italic {
+#ovdsopooul .gt_font_italic {
   font-style: italic;
 }
 
-#wxzduaqyxg .gt_super {
+#ovdsopooul .gt_super {
   font-size: 65%;
 }
 
-#wxzduaqyxg .gt_footnote_marks {
+#ovdsopooul .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wxzduaqyxg .gt_asterisk {
+#ovdsopooul .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wxzduaqyxg .gt_indent_1 {
+#ovdsopooul .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wxzduaqyxg .gt_indent_2 {
+#ovdsopooul .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wxzduaqyxg .gt_indent_3 {
+#ovdsopooul .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wxzduaqyxg .gt_indent_4 {
+#ovdsopooul .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wxzduaqyxg .gt_indent_5 {
+#ovdsopooul .gt_indent_5 {
   text-indent: 25px;
 }
 
-#wxzduaqyxg .katex-display {
+#ovdsopooul .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#wxzduaqyxg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#ovdsopooul div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2233,33 +2248,53 @@
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_right" headers="replicate">1</td>
-<td class="gt_row gt_right" headers="mean_length">2995.3</td>
-<td class="gt_row gt_right" headers="sd_length">1974.538</td>
+<td class="gt_row gt_right" headers="mean_length">2907.58</td>
+<td class="gt_row gt_right" headers="sd_length">1929.912</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_right" headers="replicate">2</td>
-<td class="gt_row gt_right" headers="mean_length">3225.3</td>
-<td class="gt_row gt_right" headers="sd_length">2014.987</td>
+<td class="gt_row gt_right" headers="mean_length">3335.35</td>
+<td class="gt_row gt_right" headers="sd_length">2435.519</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="replicate">3</td>
-<td class="gt_row gt_right" headers="mean_length">4171.6</td>
-<td class="gt_row gt_right" headers="sd_length">2366.743</td>
+<td class="gt_row gt_right" headers="mean_length">3568.24</td>
+<td class="gt_row gt_right" headers="sd_length">2175.493</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_right" headers="replicate">4</td>
-<td class="gt_row gt_right" headers="mean_length">5036.1</td>
-<td class="gt_row gt_right" headers="sd_length">3366.969</td>
+<td class="gt_row gt_right" headers="mean_length">3250.99</td>
+<td class="gt_row gt_right" headers="sd_length">2415.219</td>
 </tr>
 <tr class="odd">
 <td class="gt_row gt_right" headers="replicate">5</td>
-<td class="gt_row gt_right" headers="mean_length">4193.3</td>
-<td class="gt_row gt_right" headers="sd_length">2821.117</td>
+<td class="gt_row gt_right" headers="mean_length">3395.54</td>
+<td class="gt_row gt_right" headers="sd_length">3266.918</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_right" headers="replicate">6</td>
-<td class="gt_row gt_right" headers="mean_length">2914.0</td>
-<td class="gt_row gt_right" headers="sd_length">1677.142</td>
+<td class="gt_row gt_right" headers="mean_length">3763.43</td>
+<td class="gt_row gt_right" headers="sd_length">2987.708</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="replicate">7</td>
+<td class="gt_row gt_right" headers="mean_length">3391.65</td>
+<td class="gt_row gt_right" headers="sd_length">2716.901</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="replicate">8</td>
+<td class="gt_row gt_right" headers="mean_length">3440.98</td>
+<td class="gt_row gt_right" headers="sd_length">2351.202</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="replicate">9</td>
+<td class="gt_row gt_right" headers="mean_length">3192.40</td>
+<td class="gt_row gt_right" headers="sd_length">2532.994</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="replicate">10</td>
+<td class="gt_row gt_right" headers="mean_length">3735.80</td>
+<td class="gt_row gt_right" headers="sd_length">2368.880</td>
 </tr>
 </tbody>
 </table>
@@ -2269,140 +2304,622 @@
 </section><section id="summarise" class="slide level2"><h2>Summarise</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a>genes.sum <span class="ot">&lt;-</span> samp.dist<span class="sc">|&gt;</span></span>
-<span id="cb9-2"><a aria-label="2"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a aria-label="3"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb9-4"><a aria-label="4"></a>    <span class="at">mean_of_means =</span> <span class="fu">mean</span>(mean_length),</span>
-<span id="cb9-5"><a aria-label="5"></a>    <span class="at">sd_of_means =</span> <span class="fu">mean</span>(sd_length),</span>
-<span id="cb9-6"><a aria-label="6"></a>    <span class="at">SEM =</span> <span class="fu">sd</span>(mean_length)</span>
-<span id="cb9-7"><a aria-label="7"></a>  ) <span class="sc">|&gt;</span></span>
-<span id="cb9-8"><a aria-label="8"></a>  <span class="fu">unlist</span>() <span class="sc">|&gt;</span></span>
-<span id="cb9-9"><a aria-label="9"></a>  <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">1</span>)</span>
-<span id="cb9-10"><a aria-label="10"></a>genes.sum</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>genes.sum <span class="ot">&lt;-</span> samp.dist <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a aria-label="2"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb7-3"><a aria-label="3"></a>    <span class="at">mean_of_means =</span> <span class="fu">mean</span>(mean_length),</span>
+<span id="cb7-4"><a aria-label="4"></a>    <span class="at">SEM =</span> <span class="fu">sd</span>(mean_length)</span>
+<span id="cb7-5"><a aria-label="5"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb7-6"><a aria-label="6"></a>  <span class="fu">round</span>()</span>
+<span id="cb7-7"><a aria-label="7"></a></span>
+<span id="cb7-8"><a aria-label="8"></a>genes.sum <span class="sc">|&gt;</span> <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
-<div class="cell-output cell-output-stdout">
-<pre><code>mean_of_means   sd_of_means           SEM 
-       3395.6        2292.6         763.1 </code></pre>
+<div class="cell-output-display">
+<div id="ikwafoadyh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ikwafoadyh table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ikwafoadyh thead, #ikwafoadyh tbody, #ikwafoadyh tfoot, #ikwafoadyh tr, #ikwafoadyh td, #ikwafoadyh th {
+  border-style: none;
+}
+
+#ikwafoadyh p {
+  margin: 0;
+  padding: 0;
+}
+
+#ikwafoadyh .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ikwafoadyh .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ikwafoadyh .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ikwafoadyh .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ikwafoadyh .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ikwafoadyh .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ikwafoadyh .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ikwafoadyh .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ikwafoadyh .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ikwafoadyh .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ikwafoadyh .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ikwafoadyh .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ikwafoadyh .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ikwafoadyh .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ikwafoadyh .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ikwafoadyh .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ikwafoadyh .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ikwafoadyh .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ikwafoadyh .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ikwafoadyh .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ikwafoadyh .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ikwafoadyh .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ikwafoadyh .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ikwafoadyh .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ikwafoadyh .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ikwafoadyh .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ikwafoadyh .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ikwafoadyh .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ikwafoadyh .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ikwafoadyh .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ikwafoadyh .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ikwafoadyh .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ikwafoadyh .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ikwafoadyh .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ikwafoadyh .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ikwafoadyh .gt_left {
+  text-align: left;
+}
+
+#ikwafoadyh .gt_center {
+  text-align: center;
+}
+
+#ikwafoadyh .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ikwafoadyh .gt_font_normal {
+  font-weight: normal;
+}
+
+#ikwafoadyh .gt_font_bold {
+  font-weight: bold;
+}
+
+#ikwafoadyh .gt_font_italic {
+  font-style: italic;
+}
+
+#ikwafoadyh .gt_super {
+  font-size: 65%;
+}
+
+#ikwafoadyh .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ikwafoadyh .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ikwafoadyh .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ikwafoadyh .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ikwafoadyh .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ikwafoadyh .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ikwafoadyh .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ikwafoadyh .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ikwafoadyh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings header">
+<th id="mean_of_means" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">mean_of_means</th>
+<th id="SEM" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">SEM</th>
+</tr></thead>
+<tbody class="gt_table_body"><tr class="odd">
+<td class="gt_row gt_right" headers="mean_of_means">3511</td>
+<td class="gt_row gt_right" headers="SEM">280</td>
+</tr></tbody>
+</table>
+</div>
 </div>
 </div></div>
-<h3 id="plotting-the-sampling-distribution">Plotting the Sampling Distribution</h3>
-<p>Notice how close the “mean of means” is to the population mean!</p>
+</section><section id="plotting-the-sampling-distribution" class="slide level2"><h2>Plotting the Sampling Distribution</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a aria-label="1"></a>genes.sum.plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(samp.dist, <span class="fu">aes</span>(<span class="at">x =</span> mean_length)) <span class="sc">+</span> <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(count)),</span>
-<span id="cb11-2"><a aria-label="2"></a>    <span class="at">bins =</span> <span class="dv">100</span>, <span class="at">color =</span> <span class="st">"lightgray"</span>, <span class="at">fill =</span> <span class="st">"#E69F00"</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(stringr<span class="sc">::</span><span class="fu">str_wrap</span>(<span class="st">"Sampling distribution of mean gene lengths"</span>,</span>
-<span id="cb11-3"><a aria-label="3"></a>    <span class="at">width =</span> <span class="dv">40</span>), <span class="at">subtitle =</span> <span class="st">"(n = 10; 10,000 replicates)"</span>) <span class="sc">+</span></span>
-<span id="cb11-4"><a aria-label="4"></a>    <span class="fu">xlab</span>(<span class="at">label =</span> <span class="st">"Mean length (basepairs)"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Proportion of samples"</span>) <span class="sc">+</span></span>
-<span id="cb11-5"><a aria-label="5"></a>    <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">3700</span>, <span class="at">y =</span> <span class="fl">0.032</span>, <span class="at">label =</span> <span class="fu">sprintf</span>(<span class="st">"mean of means = %s"</span>,</span>
-<span id="cb11-6"><a aria-label="6"></a>        <span class="fu">round</span>(genes.sum[<span class="dv">1</span>], <span class="dv">1</span>)), <span class="at">size =</span> <span class="dv">5</span>, <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span> <span class="fu">annotate</span>(<span class="st">"text"</span>,</span>
-<span id="cb11-7"><a aria-label="7"></a>    <span class="at">x =</span> <span class="dv">6000</span>, <span class="at">y =</span> <span class="fl">0.015</span>, <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"mu=="</span>, <span class="fu">round</span>(hg_filt_mean,</span>
-<span id="cb11-8"><a aria-label="8"></a>        <span class="dv">1</span>)), <span class="at">parse =</span> <span class="cn">TRUE</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(human_genes<span class="sc">$</span>size),</span>
-<span id="cb11-9"><a aria-label="9"></a>    <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb11-10"><a aria-label="10"></a>genes.sum.plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a>genes.sum.plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(samp.dist,</span>
+<span id="cb8-2"><a aria-label="2"></a>    <span class="fu">aes</span>(<span class="at">x =</span> mean_length)) <span class="sc">+</span></span>
+<span id="cb8-3"><a aria-label="3"></a>    <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(count)<span class="sc">/</span><span class="fu">sum</span>(count)),</span>
+<span id="cb8-4"><a aria-label="4"></a>        <span class="at">bins =</span> <span class="dv">100</span>, <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb8-5"><a aria-label="5"></a>        <span class="at">fill =</span> <span class="st">"#E69F00"</span>) <span class="sc">+</span></span>
+<span id="cb8-6"><a aria-label="6"></a>    <span class="fu">xlim</span>(<span class="dv">1500</span>, <span class="dv">7000</span>)</span>
+<span id="cb8-7"><a aria-label="7"></a><span class="co"># add annotations</span></span>
+<span id="cb8-8"><a aria-label="8"></a>genes.sum.plot <span class="ot">&lt;-</span> genes.sum.plot <span class="sc">+</span></span>
+<span id="cb8-9"><a aria-label="9"></a>    <span class="fu">ggtitle</span>(stringr<span class="sc">::</span><span class="fu">str_wrap</span>(<span class="st">"Sampling distribution of mean gene lengths"</span>,</span>
+<span id="cb8-10"><a aria-label="10"></a>        <span class="at">width =</span> <span class="dv">40</span>),</span>
+<span id="cb8-11"><a aria-label="11"></a>        <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">"(n = "</span>,</span>
+<span id="cb8-12"><a aria-label="12"></a>            samp_size,</span>
+<span id="cb8-13"><a aria-label="13"></a>            <span class="st">"; "</span>, nreps,</span>
+<span id="cb8-14"><a aria-label="14"></a>            <span class="st">"replicates)"</span>)) <span class="sc">+</span></span>
+<span id="cb8-15"><a aria-label="15"></a>    <span class="fu">xlab</span>(<span class="at">label =</span> <span class="st">"Mean length (nucleotides)"</span>) <span class="sc">+</span></span>
+<span id="cb8-16"><a aria-label="16"></a>    <span class="fu">ylab</span>(<span class="st">"Proportion of </span><span class="sc">\n</span><span class="st">sample means"</span>) <span class="sc">+</span></span>
+<span id="cb8-17"><a aria-label="17"></a>    <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"text"</span>,</span>
+<span id="cb8-18"><a aria-label="18"></a>        <span class="at">x =</span> <span class="dv">3700</span>, <span class="at">y =</span> <span class="fl">0.075</span>,</span>
+<span id="cb8-19"><a aria-label="19"></a>        <span class="at">label =</span> <span class="fu">sprintf</span>(<span class="st">"Grand mean = %s"</span>,</span>
+<span id="cb8-20"><a aria-label="20"></a>            genes.sum[<span class="dv">1</span>],</span>
+<span id="cb8-21"><a aria-label="21"></a>            <span class="dv">1</span>), <span class="at">size =</span> <span class="dv">5</span>,</span>
+<span id="cb8-22"><a aria-label="22"></a>        <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb8-23"><a aria-label="23"></a>    <span class="fu">annotate</span>(<span class="st">"text"</span>,</span>
+<span id="cb8-24"><a aria-label="24"></a>        <span class="at">x =</span> <span class="dv">5000</span>, <span class="at">y =</span> <span class="fl">0.015</span>,</span>
+<span id="cb8-25"><a aria-label="25"></a>        <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"mu=="</span>,</span>
+<span id="cb8-26"><a aria-label="26"></a>            hg_mean),</span>
+<span id="cb8-27"><a aria-label="27"></a>        <span class="at">parse =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb8-28"><a aria-label="28"></a>        <span class="at">size =</span> <span class="dv">5</span>, <span class="at">hjust =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb8-29"><a aria-label="29"></a>    <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"text"</span>,</span>
+<span id="cb8-30"><a aria-label="30"></a>        <span class="at">x =</span> <span class="dv">5000</span>, <span class="at">y =</span> <span class="fl">0.021</span>,</span>
+<span id="cb8-31"><a aria-label="31"></a>        <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"s[bar(x)]=="</span>,</span>
+<span id="cb8-32"><a aria-label="32"></a>            genes.sum[<span class="dv">2</span>]),</span>
+<span id="cb8-33"><a aria-label="33"></a>        <span class="at">size =</span> <span class="dv">5</span>, <span class="at">hjust =</span> <span class="dv">0</span>,</span>
+<span id="cb8-34"><a aria-label="34"></a>        <span class="at">parse =</span> T) <span class="sc">+</span></span>
+<span id="cb8-35"><a aria-label="35"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(human_genes<span class="sc">$</span>size),</span>
+<span id="cb8-36"><a aria-label="36"></a>        <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb8-37"><a aria-label="37"></a>        <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb8-38"><a aria-label="38"></a>genes.sum.plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
-
-<aside><div>
-<p>More formally, the “mean of the means” is the “grand mean”, not the “mean of means” (my favorite). (-:</p>
-</div></aside></section><section id="summarise-output" class="slide level2 output-location-slide"><h2>Summarise</h2><div class="cell output-location-slide">
+</section><section id="plotting-the-sampling-distribution-output" class="slide level2 output-location-slide"><h2>Plotting the Sampling Distribution</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
-<div>
+<div class="quarto-figure quarto-figure-center margin-caption">
 <figure><p><img data-src="4.2.Estimation_files/figure-revealjs/sampdist8-1.png" class="margin-caption" width="960"></p>
-</figure>
+<figcaption>Notice how close the “mean of means” is to the population mean! (More formally, the “mean of means” is called the “grand mean”)</figcaption></figure>
 </div>
 </div>
-</div></section><section id="compare-the-pop-the-sample-dist" class="slide level2"><h2>Compare the pop &amp; the sample dist</h2>
-<p><strong>Mean</strong> parameter estimates of a sampling distribution should equal population parameters.</p>
+</div></section><section id="compare-population-vs.-sampling-distribution" class="slide level2"><h2>Compare: population vs.&nbsp;sampling distribution</h2>
 
-<img data-src="4.2.Estimation_files/figure-revealjs/sampdist9-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"><p><strong>Mean</strong> parameter estimates of a sampling distribution should equal population parameters.</p>
-</section><section id="compare-the-pop-the-sample-dist-1" class="slide level2"><h2>Compare the pop &amp; the sample dist</h2>
-
-<img data-src="4.2.Estimation_files/figure-revealjs/sampdist10-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"><ul>
-<li>
-<strong>The width</strong> (standard deviation) of a population (<span class="math inline">\(\sigma=\)</span> 2438.804101) exceeds that of its sampling distribution (<span class="math inline">\(s_{\text{all means}}=\)</span> 2292.6.</li>
-</ul></section><section id="the-standard-error-the-sampling-distribution" class="slide level2"><h2>The Standard Error &amp; The Sampling Distribution</h2>
+<img data-src="4.2.Estimation_files/figure-revealjs/sampdist9-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"><ul>
+<li><p>Mean parameter estimates of a sampling distribution should equal population parameters.</p></li>
+<li><p><strong>The width</strong> (standard deviation) of a population (<span class="math inline">\(\sigma=\)</span> 2833) exceeds that of its sampling distribution (<span class="math inline">\(s_{\bar{x}}=\)</span> 280).</p></li>
+</ul></section><section id="compare-sd-of-sampling-distribution-to-sigmasqrtn-to-ssqrtn" class="slide level2"><h2>Compare: SD of sampling distribution to <span class="math inline">\(\sigma/\sqrt{n}\)</span> to <span class="math inline">\(s/\sqrt{n}\)</span>
+</h2>
 <ul>
-<li><p>The standard error is the standard deviation of the sampling distribution</p></li>
-<li><p>The standard deviation of this distribution is <code>genes.sum[['sd_of_means']]</code> basepairs</p></li>
-<li><p>So <code>genes.sum[['sd_of_means']]</code> is our <strong>estimate</strong> for the standard error of the mean based on our sampling distribution</p></li>
+<li><p>The standard deviation of this distribution (sample size 100) is 280 nucleotides</p></li>
+<li><p>So 280 is our <strong>estimate</strong> for the standard error of the mean based on our sampling distribution</p></li>
+<li><p>Meanwhile, <span class="math inline">\(\sigma_{\bar{x}}=\sigma/\sqrt{n}=283\)</span></p></li>
+<li><p>And the estimate from one sample of 100 genes (slide 12): <span class="math inline">\(SEM_{\bar{x}}=2712/\sqrt(100)=271\)</span></p></li>
 </ul>
-
-<img data-src="4.2.Estimation_files/figure-revealjs/sem-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="the-standard-error-the-sampling-distribution-1" class="slide level2"><h2>The Standard Error &amp; The Sampling Distribution</h2>
-<div class="cell" data-layout-align="center">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a>genes.sum.plot2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-
+<div class="goal">
+<p><span class="math inline">\(SEM_{\bar{x}}\)</span> is an <strong>estimate</strong> of <span class="math inline">\(\sigma_{\bar{x}}\)</span> and is itself estimated with error.</p>
 </div>
-<img data-src="4.2.Estimation_files/figure-revealjs/sampdist11-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"><ul>
+</section><section id="the-standard-error-the-sampling-distribution" class="slide level2"><h2>The Standard Error &amp; The Sampling Distribution</h2>
+<ul>
 <li><p>You might be thinking, but how would I get such a sampling distribution?</p></li>
 <li><p>It turns out there is a clever way of resampling from your own sample to estimate an (unknown) sampling distribution!</p></li>
-</ul></section><section id="bootstrapping" class="slide level2"><h2>Bootstrapping!</h2>
-<ul>
-<li><p>use the observed sample to estimate the population distribution.</p></li>
-<li><p>then samples can be drawn from the estimated population and the sampling distribution of any type of estimator can itself be estimated.</p></li>
-</ul>
+</ul></section></section><section><section id="bootstrapping" class="title-slide slide level1 center"><h1>Bootstrapping!</h1>
+
+</section><section id="not-all-is-lost-bootstrapping" class="slide level2"><h2>Not all is lost: bootstrapping</h2>
+<p>Even if you can’t repeatedly go to the population and sample over and over again …</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>By pretending that the sample itself represents the population, which allows one to approximate the effect of sampling variability by resampling (with replacementt) from the original sample. This is “bootstrap resampling” or, simply, “bootstrapping”.</p>
+</div><div class="column" style="width:70%;">
 <div class="quarto-figure quarto-figure-center margin-caption">
 <figure><p><a href="https://online.stat.psu.edu/stat555/node/119/"><img data-src="images/clipboard-757051427.png" alt="Image explaining bootstrap algorithm" width="414"></a></p>
 <figcaption>From: https://online.stat.psu.edu/stat555/node/119/</figcaption></figure>
 </div>
+</div></div>
 
 <aside><div>
 <p>More on this later in lab.</p>
-</div></aside></section><section id="uncertainty" class="slide level2"><h2>Uncertainty</h2>
-<p>Because we rarely know the <font color="#006475"> population</font> sd <span class="math inline">\((\sigma)\)</span>, we cannot find the <font color="#006475">parameter <span class="math inline">\(\sigma_{\bar{Y}}= \sigma_Y / \sqrt{n}\)</span> </font>.</p>
-<p>But, we can use the <font color="#E69F00">sample</font> standard deviation (<span class="math inline">\(s\)</span>) to estimate the standard error <font color="#E69F00"><span class="math inline">\(SEM_{\bar{Y}}= s / \sqrt{n}\)</span></font></p>
-</section><section id="compare" class="slide level2"><h2>Compare</h2>
-<p>The sampling distribution estimate of $SEM_{{Y}}=$763.1</p>
-<p>and</p>
-<p>the parameter Standard Error of the population mean</p>
-<p><span class="math inline">\(\sigma_{\bar{Y}}=\frac{\sigma_{Y}}{\sqrt{n}}\)</span></p>
-<p><span class="math inline">\(=\frac{2438.804}{\sqrt{10}}=771.2175\approx 771.2\)</span></p>
-<div class="goal">
-<p>These are indeed very similar! <span class="math inline">\(SEM_{\bar{Y}}\)</span> is an <strong>estimate</strong> of <span class="math inline">\(\sigma_{\bar{Y}}\)</span> and is itself estimated with error.</p>
+</div></aside></section><section id="when-is-bootstrap-useful" class="slide level2 scrollable"><h2>When is bootstrap useful?</h2>
+<div class="columns">
+<div class="column" style="width:30%;">
+<p>Always!</p>
+<p>But… it is computationally intensive so:</p>
+<ol type="1">
+<li><p>When no formula (equation) is available for the SE of a statistic of interest</p></li>
+<li><p>When the sampling distribution of an estimate of interest is unknown.</p></li>
+</ol>
+</div><div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure><p><a href="https://bookdown.org/jgscott/DSGI/the-bootstrap.html"><img data-src="images/clipboard-538087364.png" alt="Figure 9.2: A stylized depiction of a bootstrap sampling distribution of an estimator." width="550"></a></p>
+<figcaption>From: Data Science in R, a gentle introduction, Fig. 9.2</figcaption></figure>
 </div>
-</section><section id="sample-size-uncertainty-and-the-standard-error" class="slide level2 center"><h2>Sample size, uncertainty, and the standard error</h2>
+</div></div>
+
+<aside><div>
+<p>More on this later in lab.</p>
+</div></aside></section><section id="sample-size-uncertainty-and-the-standard-error" class="slide level2 center"><h2>Sample size, uncertainty, and the standard error</h2>
 </section><section id="se-decreases-with-sample-size" class="slide level2"><h2>SE Decreases with Sample Size</h2>
 <p>The standard error goes down as a sample size goes up.</p>
-<p>Using the example from before:</p>
-<p><span class="math inline">\(\sigma_{\bar{Y}}=\frac{\sigma_{Y}}{\sqrt{n}}\)</span></p>
-<p>if <span class="math inline">\(n=10\)</span></p>
-<p><span class="math inline">\(\sigma_{\bar{Y}}=\frac{2438.804}{\sqrt{10}}\approx771.2\)</span></p>
-<p>if <span class="math inline">\(n=100\)</span></p>
-<p><span class="math inline">\(\sigma_{\bar{Y}}=\frac{2438.804}{\sqrt{100}}\approx243.9\)</span></p>
-</section><section id="small-samples-large-uncertainty" class="slide level2"><h2>Small Samples, Large Uncertainty</h2>
-<ul>
-<li><p>Uncertainty increases as sample size decreases.</p></li>
-<li><p>Therefore, extreme values are often associated with small sample size.</p></li>
-</ul>
+
+<img data-src="4.2.Estimation_files/figure-revealjs/newSampDist-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="small-samples-large-uncertainty" class="slide level2"><h2>Small Samples, Large Uncertainty</h2>
 <div class="goal">
 <p>Treat simple summary statistics with skepticism.</p>
 <p>Be sure to consider uncertainty before being misled by exceptional values.</p>
 </div>
-</section><section id="se-decreases-with-sample-size-1" class="slide level2"><h2>SE Decreases with Sample Size</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a aria-label="1"></a><span class="fu">tibble</span>(<span class="at">sample_size =</span> <span class="fu">seq</span>(<span class="dv">5</span>, <span class="dv">1000</span>, <span class="dv">15</span>), <span class="at">SEM =</span> <span class="fl">2438.804</span><span class="sc">/</span><span class="fu">sqrt</span>(sample_size)) <span class="sc">|&gt;</span></span>
-<span id="cb13-2"><a aria-label="2"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sample_size, <span class="at">y =</span> SEM)) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"SEM (basepairs)"</span>) <span class="sc">+</span></span>
-<span id="cb13-3"><a aria-label="3"></a>    <span class="fu">xlab</span>(<span class="st">"Nr. of genes"</span>) <span class="sc">+</span> <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell" data-output-position="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">tibble</span>(<span class="at">sample_size =</span> <span class="fu">seq</span>(<span class="dv">5</span>,</span>
+<span id="cb9-2"><a aria-label="2"></a>    <span class="dv">5000</span>, <span class="dv">15</span>), <span class="at">SEM =</span> hg_sd<span class="sc">/</span><span class="fu">sqrt</span>(sample_size)) <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a aria-label="3"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sample_size,</span>
+<span id="cb9-4"><a aria-label="4"></a>        <span class="at">y =</span> SEM)) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"SEM (nucleotides)"</span>) <span class="sc">+</span></span>
+<span id="cb9-5"><a aria-label="5"></a>    <span class="fu">xlab</span>(<span class="st">"Nr. of genes"</span>) <span class="sc">+</span></span>
+<span id="cb9-6"><a aria-label="6"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb9-7"><a aria-label="7"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,</span>
+<span id="cb9-8"><a aria-label="8"></a>        <span class="dv">1300</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>,</span>
+<span id="cb9-9"><a aria-label="9"></a>        <span class="dv">1300</span>, <span class="dv">250</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="4.2.Estimation_files/figure-revealjs/unnamed-chunk-1-1.png" class="margin-caption r-stretch" width="960"></section><section id="how-we-report-sem" class="slide level2"><h2>How we report SEM</h2>
+<img data-src="4.2.Estimation_files/figure-revealjs/scatter-1.png" class="margin-caption r-stretch quarto-figure-center" width="960"><p class="caption">Extreme estimate values are often associated with small sample size.</p></section><section id="how-we-report-sem" class="slide level2"><h2>How we report SEM</h2>
 <ul>
-<li><p><span class="math inline">\(\bar{X}\pm SE\)</span></p></li>
-<li><p>In our previous example, our first sample had <span class="math inline">\(\bar{X}=2533.9\)</span> and <span class="math inline">\(s_{X}=1517.998\)</span>, so <span class="math inline">\(SEM_{\bar{X}}=\frac{1517.998}{\sqrt{20}}\approx339.4\)</span></p></li>
+<li><p><span class="math inline">\(\bar{x}\pm SEM\)</span></p></li>
+<li><p>E.g., if your sample has a mean of <span class="math inline">\(\bar{x}=2300\)</span> and <span class="math inline">\(s_{x}=1300\)</span>, so <span class="math inline">\(SEM_{\bar{x}}=\frac{1300}{\sqrt{10}}\approx411.1\)</span></p></li>
 </ul>
-<p>So we would report <span class="math inline">\(2533.9 \pm339.4 \text{ (SEM)}\)</span>. Later we will also see how the <span class="math inline">\(SEM\)</span> is used in plots (error bars).</p>
-</section><section id="standard-error---summary" class="slide level2"><h2>Standard error - Summary</h2>
+<p>So we would report <span class="math inline">\(2,300 \pm411.1\text{ (}\bar{x}\pm\text{SEM)}\)</span>. Later we will also see how the <span class="math inline">\(SEM\)</span> is used in plots (error bars).</p>
+</section><section id="standard-error---summary" class="slide level2" data-visibility="uncounted"><h2>Standard error - Summary</h2>
 <div class="goal">
 <ul>
-<li>Estimates with smaller standard errors are more precise</li>
-<li>The smaller the sampling error, the less uncertainty (due to random sampling) there is about the target parameter in the population (“out there”).</li>
-<li>You can calculate the standard error for any estimate, not just the mean.</li>
-<li>The SE of the sample mean if sometimes referred to as SE, but this is ambiguous - use SEM instead of SE</li>
-<li>For huge sample sizes, the SEM is always tiny, even if the data have considerable spread (SD).</li>
-<li>Small samples underestimate the SD of the population</li>
-<li>Both SD and SEM are expressed in the same unit as the data</li>
+<li><p>A standard error is just the standard deviation of a statistic</p></li>
+<li><p>We use “standard error” to talk about the distribution of a statistic, whereas “standard deviation” is usually used to talk about the distribution of data itself (either the whole population or a sample)</p></li>
+<li><p>Small samples underestimate the SD of the population</p></li>
+<li><p>For huge sample sizes, the SEM is always tiny, even if the data have considerable spread (SD).</p></li>
+<li><p>Estimates with smaller standard errors are more precise</p></li>
+<li><p>The smaller the sampling error, the less uncertainty (due to random sampling) there is about the target parameter in the population (“out there”).</p></li>
+<li><p>You can calculate the standard error for any estimate, not just the mean.</p></li>
+<li><p>The SE of the sample mean if sometimes referred to as SE, but this is ambiguous - use SEM instead of SE</p></li>
+<li><p>Both SD and SEM are expressed in the same unit as the data</p></li>
 </ul>
 </div>
-
-
 </section></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
