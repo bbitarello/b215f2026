@@ -214,6 +214,46 @@ B.Bitarello
 </div>
 
   <p class="date">September 14, 2026</p>
+</section><section class="slide level2"><div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1          ✔ readr     2.2.0     
+✔ forcats   1.0.1          ✔ stringr   1.6.0     
+✔ ggplot2   4.0.3.9000     ✔ tibble    3.3.1     
+✔ lubridate 1.9.5          ✔ tidyr     1.3.2     
+✔ purrr     1.2.2          
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
+Rows: 1313 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (6): passenger_class, name, embarked, home_destination, sex, survive
+dbl (1): age
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 165 Columns: 2
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): sex
+dbl (1): lifetimeRS
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+New names:
+Rows: 134 Columns: 16
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: "\t"
+chr (2): Sex, Note
+dbl (8): Specimen, Chinese Ancestry, kg, C-R curved, R humeral max, R femora...
+lgl (6): ...11, ...12, ...13, ...14, ...15, ...16
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
 </section><section id="acknowledgments" class="slide level2"><h2>Acknowledgments</h2>
 </section><section id="outline" class="slide level2 scrollable"><h2>Outline</h2>
 <ol type="1">
@@ -252,8 +292,8 @@ B.Bitarello
 <p>Four datasets (A-D) with two numerical variables, 11 observations per variable.</p>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="fu">library</span>(datasets)</span>
-<span id="cb1-2"><a aria-label="2"></a><span class="fu">head</span>(anscombe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">library</span>(datasets)</span>
+<span id="cb2-2"><a aria-label="2"></a><span class="fu">head</span>(anscombe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  x1 x2 x3 x4   y1   y2    y3   y4
 1 10 10 10  8 8.04 9.14  7.46 6.58
@@ -263,7 +303,7 @@ B.Bitarello
 5 11 11 11  8 8.33 9.26  7.81 8.47
 6 14 14 14  8 9.96 8.10  8.84 7.04</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">str</span>(anscombe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="fu">str</span>(anscombe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   11 obs. of  8 variables:
  $ x1: num  10 8 13 9 11 14 6 4 12 7 ...
@@ -780,11 +820,21 @@ B.Bitarello
 </div>
 </section><section id="anscombes-quartet-trendlines" class="slide level2"><h2>Anscombe’s quartet: trendlines</h2>
 <p>Trendlines reveal no difference</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
 
-<img data-src="2.3.Data-Viz_files/figure-revealjs/unnamed-chunk-1-1.png" class="margin-caption r-stretch" width="960"></section><section id="anscombes-quartet-data" class="slide level2"><h2>Anscombe’s Quartet: Data</h2>
+</div>
+<img data-src="2.3.Data-Viz_files/figure-html/unnamed-chunk-1-1.png" class="margin-caption r-stretch" width="672"></section><section id="anscombes-quartet-data" class="slide level2"><h2>Anscombe’s Quartet: Data</h2>
 <p>Showing the data reveals large differences</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
 
-<img data-src="2.3.Data-Viz_files/figure-revealjs/unnamed-chunk-2-1.png" class="margin-caption r-stretch" width="960"></section><section id="ascombe-described-the-article-as-being-intended-to-counter-the-impression-among-statisticians-that-numerical-calculations-are-exact-but-graphs-are-rough." class="slide level2 center" data-background="#55cfd8"><h2>Ascombe described the article as being intended to counter the impression among statisticians that “numerical calculations are exact, but graphs are rough.”</h2>
+</div>
+<img data-src="2.3.Data-Viz_files/figure-html/unnamed-chunk-2-1.png" class="margin-caption r-stretch" width="672"></section><section id="ascombe-described-the-article-as-being-intended-to-counter-the-impression-among-statisticians-that-numerical-calculations-are-exact-but-graphs-are-rough." class="slide level2 center" data-background="#55cfd8"><h2>Ascombe described the article as being intended to counter the impression among statisticians that “numerical calculations are exact, but graphs are rough.”</h2>
 <aside class="notes"><p>Constructed by F. Anscombe (1973)</p>
 <p>Demonstrates both the importance of graphing data when analyzing it, and the effect of outliers and other influential observations on statistical properties.</p>
 <style type="text/css">
@@ -865,7 +915,7 @@ B.Bitarello
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center margin-caption">
-<figure><p><img data-src="2.3.Data-Viz_files/figure-revealjs/causeOfDeath-1.png" class="margin-caption" width="960"></p>
+<figure><p><img data-src="2.3.Data-Viz_files/figure-html/causeOfDeath-1.png" class="margin-caption" width="672"></p>
 <figcaption>The y axis can be either absolute (left) or relative (right) frequencies.</figcaption></figure>
 </div>
 </div>
@@ -885,7 +935,7 @@ B.Bitarello
 <li>Bar graphs generally preferred</li>
 </ul>
 
-<img data-src="2.3.Data-Viz_files/figure-revealjs/piechartssuck-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"><ul>
+<img data-src="2.3.Data-Viz_files/figure-html/piechartssuck-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="672"><ul>
 <li>Also: a waffle plot is way cooler than a pie chart and much more useful.</li>
 </ul></section><section id="frequency-table" class="slide level2"><h2>Frequency table</h2>
 <div class="goal">
@@ -2434,7 +2484,7 @@ B.Bitarello
 <p>Area of bars represents frequency distribution (absolute or relative).Especially convenient for understanding the shape of the data distribution. Histograms provide a view of the data density.</p>
 </div>
 
-<img data-src="2.3.Data-Viz_files/figure-revealjs/temp-hist-1.png" class="margin-caption r-stretch quarto-figure-center" width="960"><p class="caption">Data: Daily air quality measurements in New York, May to September 1973. In histograms, y-axis can be absolute or relative frequency</p><aside class="notes"><p>10 bins</p>
+<img data-src="2.3.Data-Viz_files/figure-html/temp-hist-1.png" class="margin-caption r-stretch quarto-figure-center" width="672"><p class="caption">Data: Daily air quality measurements in New York, May to September 1973. In histograms, y-axis can be absolute or relative frequency</p><aside class="notes"><p>10 bins</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2475,7 +2525,7 @@ B.Bitarello
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2.3.Data-Viz_files/figure-revealjs/hist-1.png" class="margin-caption" width="960"></p>
+<figure><p><img data-src="2.3.Data-Viz_files/figure-html/hist-1.png" class="margin-caption" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2483,19 +2533,34 @@ B.Bitarello
 </div>
 <div id="tabset-1-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb5-2"><a aria-label="2"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
-<span id="cb5-3"><a aria-label="3"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb5-4"><a aria-label="4"></a>        <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Petal Width (cm)"</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species,</span>
-<span id="cb5-5"><a aria-label="5"></a>    <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fl">0.5</span>,</span>
-<span id="cb5-6"><a aria-label="6"></a>    <span class="fl">2.5</span>, <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a aria-label="2"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Width, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
+<span id="cb8-3"><a aria-label="3"></a>    <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.1</span>, <span class="at">show.legend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-4"><a aria-label="4"></a>        <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Petal Width (cm)"</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species,</span>
+<span id="cb8-5"><a aria-label="5"></a>    <span class="at">ncol =</span> <span class="dv">1</span>) <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fl">0.5</span>,</span>
+<span id="cb8-6"><a aria-label="6"></a>    <span class="fl">2.5</span>, <span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 </div>
 </section><section id="histograms-reveal-shape-of-distribution" class="slide level2"><h2>Histograms reveal shape of distribution</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Scale for x is already present.
+Adding another scale for x, which will replace the existing scale.
+`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 139 rows containing non-finite values or values outside the scale range
+(`stat_bin()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 8 rows containing missing values or values outside the scale range
+(`geom_bar()`).</code></pre>
+</div>
 
-<img data-src="2.3.Data-Viz_files/figure-revealjs/unnamed-chunk-3-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="histograms-consider-your-bins" class="slide level2"><h2>Histograms – consider your bins</h2>
+</div>
+<img data-src="2.3.Data-Viz_files/figure-html/unnamed-chunk-3-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="672"></section><section id="histograms-consider-your-bins" class="slide level2"><h2>Histograms – consider your bins</h2>
 <ul>
 <li>Each block of a histogram is called a “bin”</li>
 <li>The size or “width” of a bin refers to the range in each block.</li>
@@ -2510,8 +2575,18 @@ B.Bitarello
 <blockquote>
 <p>A smoothed out histogram. The technical details for how to smooth out the histogram are beyond our scope, but note: the shape, scale, and spread of the observations are displayed similarly in a histogram as in a density plot.</p>
 </blockquote>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Scale for x is already present.
+Adding another scale for x, which will replace the existing scale.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 139 rows containing non-finite values or values outside the scale range
+(`stat_density()`).</code></pre>
+</div>
 
-<img data-src="2.3.Data-Viz_files/figure-revealjs/distribs2-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="cumulative-frequency-distributions" class="slide level2"><h2>Cumulative Frequency Distributions</h2>
+</div>
+<img data-src="2.3.Data-Viz_files/figure-html/distribs2-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="672"></section><section id="cumulative-frequency-distributions" class="slide level2"><h2>Cumulative Frequency Distributions</h2>
 <blockquote>
 <p>The percentile of a measurement specifies the percentage of observations less than or equal to it; the remaining observations exceed it. The quantile of a measurement specifies the fraction of observations less than or equal to it.</p>
 </blockquote>
@@ -2520,6 +2595,15 @@ B.Bitarello
 <p>Lifespan of bees (in hours).</p>
 </div>
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 33 Columns: 1
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (1): hours
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1]  2.3  2.3  3.9  4.0  7.1  9.5  9.6 10.8 12.8 13.6 14.6 18.2 18.2 19.0 20.9
 [16] 24.3 25.8 25.9 26.5 27.1 30.0 33.3 34.8 34.8 35.7 36.9 41.3 44.2 54.2 55.8
@@ -3145,9 +3229,14 @@ B.Bitarello
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_text(aes(x = median(hours) - 7), y = 0.52, label = "median"): All aesthetics have length 1, but the data has 33 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="2.3.Data-Viz_files/figure-revealjs/cumdist3-1.png" class="margin-caption" width="960"></p>
+<figure><p><img data-src="2.3.Data-Viz_files/figure-html/cumdist3-1.png" class="margin-caption" width="672"></p>
 </figure>
 </div>
 </div>
@@ -3156,12 +3245,12 @@ B.Bitarello
 </div>
 <div id="tabset-2-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb8-2"><a aria-label="2"></a><span class="co"># summary(bees$hours) #median 25.8</span></span>
-<span id="cb8-3"><a aria-label="3"></a><span class="fu">ggplot</span>(bees, <span class="fu">aes</span>(<span class="at">x =</span> hours)) <span class="sc">+</span> <span class="fu">stat_ecdf</span>(<span class="at">geom =</span> <span class="st">"step"</span>) <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(hours)),</span>
-<span id="cb8-4"><a aria-label="4"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> vir[<span class="dv">3</span>]) <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">median</span>(hours) <span class="sc">-</span></span>
-<span id="cb8-5"><a aria-label="5"></a>    <span class="dv">7</span>), <span class="at">y =</span> <span class="fl">0.52</span>, <span class="at">label =</span> <span class="st">"median"</span>) <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fl">0.5</span>),</span>
-<span id="cb8-6"><a aria-label="6"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> vir[<span class="dv">3</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a aria-label="1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb18-2"><a aria-label="2"></a><span class="co"># summary(bees$hours) #median 25.8</span></span>
+<span id="cb18-3"><a aria-label="3"></a><span class="fu">ggplot</span>(bees, <span class="fu">aes</span>(<span class="at">x =</span> hours)) <span class="sc">+</span> <span class="fu">stat_ecdf</span>(<span class="at">geom =</span> <span class="st">"step"</span>) <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="fu">median</span>(hours)),</span>
+<span id="cb18-4"><a aria-label="4"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> vir[<span class="dv">3</span>]) <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">median</span>(hours) <span class="sc">-</span></span>
+<span id="cb18-5"><a aria-label="5"></a>    <span class="dv">7</span>), <span class="at">y =</span> <span class="fl">0.52</span>, <span class="at">label =</span> <span class="st">"median"</span>) <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="fu">aes</span>(<span class="at">yintercept =</span> <span class="fl">0.5</span>),</span>
+<span id="cb18-6"><a aria-label="6"></a>    <span class="at">lty =</span> <span class="dv">2</span>, <span class="at">col =</span> vir[<span class="dv">3</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
@@ -3367,41 +3456,6 @@ B.Bitarello
           RevealZoom
         ]
       });
-    </script><script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

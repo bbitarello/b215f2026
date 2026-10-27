@@ -353,8 +353,8 @@ Bárbara D. Bitarello
 <details class="code-fold"><summary>Show the code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co"># a vector with the numbers</span></span>
 <span id="cb1-2"><a aria-label="2"></a>mynumbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">15</span>, <span class="dv">9</span>, <span class="dv">16</span>, <span class="dv">6</span>, <span class="dv">17</span>, <span class="dv">10</span>, <span class="dv">5</span>, <span class="dv">12</span>, <span class="dv">14</span>, <span class="dv">13</span>)</span>
 <span id="cb1-3"><a aria-label="3"></a><span class="co"># mean 'manually'</span></span>
-<span id="cb1-4"><a aria-label="4"></a>mysum <span class="ot">&lt;-</span> <span class="fu">sum</span>(mynumbers)  <span class="co">#sum all numbers</span></span>
-<span id="cb1-5"><a aria-label="5"></a>l <span class="ot">&lt;-</span> <span class="fu">length</span>(mynumbers)  <span class="co">#number of elements in vector</span></span>
+<span id="cb1-4"><a aria-label="4"></a>mysum <span class="ot">&lt;-</span> <span class="fu">sum</span>(mynumbers)  <span class="co"># sum all numbers</span></span>
+<span id="cb1-5"><a aria-label="5"></a>l <span class="ot">&lt;-</span> <span class="fu">length</span>(mynumbers)  <span class="co"># number of elements in vector</span></span>
 <span id="cb1-6"><a aria-label="6"></a>mymean <span class="ot">&lt;-</span> mysum<span class="sc">/</span>l</span>
 <span id="cb1-7"><a aria-label="7"></a>mymean</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div class="cell-output cell-output-stdout">
@@ -410,19 +410,24 @@ Bárbara D. Bitarello
 <li><p>always a <strong>real value</strong> in the data</p></li>
 <li><p>applicable to non-numerical variables!</p></li>
 </ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value `binwidth`.</code></pre>
+</div>
 
-<img data-src="2.1.DisplayingAndDescribingData_files/figure-revealjs/beaver-1.png" class="margin-caption r-stretch quarto-figure-center" width="960"><p class="caption">Histograms reveal measures of center</p></section><section id="but-how-will-you-know-how-your-data-is-distributed" class="slide level2 center"><h2>But how will you know how your data is distributed?</h2>
+</div>
+<img data-src="2.1.DisplayingAndDescribingData_files/figure-html/beaver-1.png" class="margin-caption r-stretch quarto-figure-center" width="672"><p class="caption">Histograms reveal measures of center</p></section><section id="but-how-will-you-know-how-your-data-is-distributed" class="slide level2 center"><h2>But how will you know how your data is distributed?</h2>
 <div class="r-fit-text">
 <p>First step: plot your data</p>
 </div>
 </section><section id="skewness-12" class="slide level2"><h2>Skewness (1/2)</h2>
 
-<img data-src="2.1.DisplayingAndDescribingData_files/figure-revealjs/skew-1.png" class="margin-caption r-stretch" width="768"></section><section id="skewness-22" class="slide level2"><h2>Skewness (2/2)</h2>
+<img data-src="2.1.DisplayingAndDescribingData_files/figure-html/skew-1.png" class="margin-caption r-stretch" width="768"></section><section id="skewness-22" class="slide level2"><h2>Skewness (2/2)</h2>
 <p><strong>Left: Asymmetric</strong> Few small values. <span class="math inline">\(&gt;1/2\)</span> of values exceed the mean.</p>
 <p><strong>Middle: Symmetric</strong> As many large as small values. <span class="math inline">\(\sim1/2\)</span> of values exceed the mean.</p>
 <p><strong>Right: Asymmetric</strong> Few large values. <span class="math inline">\(&gt;1/2\)</span> of values are less than the mean.</p>
 
-<img data-src="2.1.DisplayingAndDescribingData_files/figure-revealjs/skew2-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="768"></section><section id="next" class="slide level2"><h2>Next</h2>
+<img data-src="2.1.DisplayingAndDescribingData_files/figure-html/skew2-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="768"></section><section id="next" class="slide level2"><h2>Next</h2>
 <p>Measures of spread (width):</p>
 <ul>
 <li><p>range</p></li>
@@ -632,41 +637,6 @@ Bárbara D. Bitarello
           RevealZoom
         ]
       });
-    </script><script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
