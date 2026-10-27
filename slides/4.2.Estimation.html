@@ -244,8 +244,8 @@
 
 </section><section id="the-sem-quantifies-how-precisely-you-know-the-population-mean" class="slide level2"><h2>The SEM quantifies how <em>precisely</em> you know the population mean</h2>
 <ul>
-<li class="fragment"><p>Exact value: Because we rarely know the population standard deviation,<font color="#006475"><span class="math inline">\(\sigma\)</span></font>, we cannot find the <font color="#006475"> parameter <span class="math inline">\(\sigma_{\bar{x}}=\frac{\sigma}{\sqrt{n}}\)</span></font></p></li>
-<li class="fragment"><p>But, we can use the <font color="#E69F00">sample standard deviation <span class="math inline">\(s\)</span></font>, to estimate <font color="#E69F00"><span class="math inline">\(SEM_{\bar{x}}=\frac{s}{\sqrt{n}}\)</span></font></p></li>
+<li class="fragment"><p>Exact value: Because we rarely know the population standard deviation,<font color="#006475"><span class="math inline">\(\sigma\)</span></font>, we cannot find the <font color="#006475"> parameter <span class="math inline">\(\sigma_{\bar{X}}=\frac{\sigma_{x}}{\sqrt{n}}\)</span></font></p></li>
+<li class="fragment"><p>But, we can use the <font color="#E69F00">sample standard deviation <span class="math inline">\(s\)</span></font>, to estimate <font color="#E69F00"><span class="math inline">\(SEM_{\bar{X}}=\frac{s}{\sqrt{n}}\)</span></font></p></li>
 <li class="fragment"><p>Assumption: sample is random.</p></li>
 </ul>
 
@@ -289,7 +289,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center margin-caption">
 <figure><p><img data-src="4.2.Estimation_files/figure-revealjs/skewed-1.png" class="margin-caption" width="960"></p>
-<figcaption>Note: 26 genes with length &gt; 15,000 were omitted from this plot but are kept in all calculations and sampling.</figcaption></figure>
+<figcaption>Note: 147 genes with length &gt; 15,000 were omitted from this plot but are kept in all calculations and sampling.</figcaption></figure>
 </div>
 </div>
 </div></section><section id="a-random-sample-of-100-genes" class="slide level2"><h2>A random sample of 100 genes</h2>
@@ -2835,11 +2835,11 @@
 <ul>
 <li><p>The standard deviation of this distribution (sample size 100) is 280 nucleotides</p></li>
 <li><p>So 280 is our <strong>estimate</strong> for the standard error of the mean based on our sampling distribution</p></li>
-<li><p>Meanwhile, <span class="math inline">\(\sigma_{\bar{x}}=\sigma/\sqrt{n}=283\)</span></p></li>
-<li><p>And the estimate from one sample of 100 genes (slide 12): <span class="math inline">\(SEM_{\bar{x}}=2712/\sqrt(100)=271\)</span></p></li>
+<li><p>Meanwhile, <span class="math inline">\(\sigma_{\bar{X}}=\sigma/\sqrt{n}=283\)</span></p></li>
+<li><p>And the estimate from one sample of 100 genes (slide 12): <span class="math inline">\(SEM_{\bar{X}}=2712/\sqrt(100)=271\)</span></p></li>
 </ul>
 <div class="goal">
-<p><span class="math inline">\(SEM_{\bar{x}}\)</span> is an <strong>estimate</strong> of <span class="math inline">\(\sigma_{\bar{x}}\)</span> and is itself estimated with error.</p>
+<p><span class="math inline">\(SEM_{\bar{X}}\)</span> is an <strong>estimate</strong> of <span class="math inline">\(\sigma_{\bar{x}}\)</span> and is itself estimated with error.</p>
 </div>
 </section><section id="the-standard-error-the-sampling-distribution" class="slide level2"><h2>The Standard Error &amp; The Sampling Distribution</h2>
 <ul>
@@ -2903,9 +2903,9 @@
 <img data-src="4.2.Estimation_files/figure-revealjs/scatter-1.png" class="margin-caption r-stretch quarto-figure-center" width="960"><p class="caption">Extreme estimate values are often associated with small sample size.</p></section><section id="how-we-report-sem" class="slide level2"><h2>How we report SEM</h2>
 <ul>
 <li><p><span class="math inline">\(\bar{x}\pm SEM\)</span></p></li>
-<li><p>E.g., if your sample has a mean of <span class="math inline">\(\bar{x}=2300\)</span> and <span class="math inline">\(s_{x}=1300\)</span>, so <span class="math inline">\(SEM_{\bar{x}}=\frac{1300}{\sqrt{10}}\approx411.1\)</span></p></li>
+<li><p>E.g., if your sample has a mean of <span class="math inline">\(\bar{x}=2300\)</span> and <span class="math inline">\(s_{x}=1300\)</span>, so <span class="math inline">\(SEM_{\bar{X}}=\frac{1300}{\sqrt{10}}\approx411.1\)</span></p></li>
 </ul>
-<p>So we would report <span class="math inline">\(2,300 \pm411.1\text{ (}\bar{x}\pm\text{SEM)}\)</span>. Later we will also see how the <span class="math inline">\(SEM\)</span> is used in plots (error bars).</p>
+<p>So we would report <span class="math inline">\(2,300 \pm411.1\text{ (SEM)}\)</span>. Later we will also see how the <span class="math inline">\(SEM\)</span> is used in plots (error bars).</p>
 </section><section id="standard-error---summary" class="slide level2" data-visibility="uncounted"><h2>Standard error - Summary</h2>
 <div class="goal">
 <ul>
