@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-eaeb381c6b7494c50009502241a4985c.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
-<meta name="dcterms.date" content="2026-10-26">
+<meta name="dcterms.date" content="2026-10-28">
 <meta name="keywords" content="Module 2; Confidence Intervals">
 <title>BIOL B215: Biostatistics with R – 4.3.Estimating with uncertainty</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -140,7 +140,7 @@
 <div class="quarto-title-authors">
 </div>
 
-  <p class="date">October 26, 2026</p>
+  <p class="date">October 28, 2026</p>
 </section><section id="key-learning-objectives" class="slide level2"><h2>Key Learning Objectives</h2>
 <ul>
 <li>Understand that because <font color="#E69F00">estimates</font> take values by chance, they will differ from true population <font color="#006475">parameters</font>.</li>
@@ -151,9 +151,55 @@
 <ul>
 <li><p>Some code and slide content was borrowed from Yaniv Brandvain and Michael Whitlock.</p></li>
 <li><p>Some content is based on the WS textbook.</p></li>
-</ul></section><section id="recap" class="slide level2"><h2>Recap</h2>
+</ul></section><section><section id="practice-problems-cont." class="title-slide slide level1 center"><h1>Practice Problems (cont.)</h1>
+
+</section><section id="practice-4" class="slide level2 scrollable"><h2>Practice 4</h2>
+<aside class="notes"><p>4.1 (a) <span class="math inline">\(\bar_{x}=0.6052\)</span>. (b) <span class="math inline">\(s= 0.0131\)</span>.</p>
+<ol start="4" type="a">
+<li>The standard error of the sample mean is given by <span class="math inline">\(s/\sqrt n = 0.0131/\sqrt 70=0.00157\)</span>.</li>
+</ol><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="practice-5" class="slide level2 scrollable"><h2>Practice 5</h2>
+<aside class="notes"><ol type="a">
+<li>This is the sampling distribution of the sample mean.</li>
+<li>The sampling distribution will be normal and symmetric, centered around the theoretical population mean µof the number of eggs laid by this hen species during a breeding period.</li>
+<li>The variability of the distribution is the standard error of the sample mean:<span class="math inline">\(s=s/\sqrt{n}=18.2/\sqrt{45}=2.71\)</span>.</li>
+<li>The variability of the new distribution will be greater than the variability of the original distribution. Conceptually, a smaller sample is less informative, which leads to a more uncertain estimate. This can be shown concretely with a calculation: 18.2 = 5.76 is larger than 2.71.</li>
+</ol><style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section id="how-good-is-the-sem-estimate" class="slide level2 scrollable"><h2>How good is the SEM estimate?</h2>
+<ul>
+<li>The SEM estimate <span class="math inline">\(SEM_{\bar{X}}=s_{x}/\sqrt(n)\)</span> tends to be sufficiently good if:</li>
+</ul>
+<ol type="1">
+<li>The sample size is at least 30 and</li>
+<li>The population distribution is not strongly skewed.</li>
+</ol>
+<p>In the case of skewed distributions, a larger sample size is necessary.</p>
+</section><section id="se-for-a-proportion" class="slide level2"><h2>SE for a proportion</h2>
+<ul>
+<li><p>The standard deviation fo the sampling distribution of a proportion</p></li>
+<li><p>If <span class="math inline">\(p\)</span> (parameter) is known: <span class="math inline">\(\sigma_{p}=\frac{p(1-p)}{\sqrt{n}}\)</span></p></li>
+<li><p>In what we have is <span class="math inline">\(\hat{p}\)</span> (estimate): <span class="math inline">\(SE_{\hat {p}}=\frac{\hat p(1-\hat p)}{\sqrt{n}}\)</span></p></li>
+</ul></section><section id="summary-of-formulas" class="slide level2"><h2>Summary of formulas</h2>
 <div class="columns">
-<div class="column" style="width:60%;">
+<div class="column" style="width:55%;">
 <table>
 <colgroup>
 <col style="width: 26%">
@@ -168,69 +214,64 @@
 <tbody>
 <tr class="odd">
 <td>Mean</td>
-<td><span class="math inline">\(\mu\)</span></td>
+<td><font color="#006475"><span class="math inline">\(\mu\)</span></font></td>
 <td>
-<span class="math inline">\(\bar x, \bar y, \bar X\)</span>, etc</td>
+<font color="#E69F00"><span class="math inline">\(\bar x, \bar y, \bar X\)</span></font>, etc</td>
+</tr>
+<tr class="even">
+<td>Standard deviation</td>
+<td><font color="#006475"><span class="math inline">\(\sigma\)</span></font></td>
+<td><font color="#E69F00"><span class="math inline">\(s\)</span></font></td>
+</tr>
+<tr class="odd">
+<td>Standard error of the mean</td>
+<td><font color="#006475"><span class="math inline">\(\sigma_{\bar{X}}=\frac{\sigma_{x}}{\sqrt{n}}\)</span></font></td>
+<td><font color="#E69F00"><span class="math inline">\(SEM_{\bar{X}}=\frac{s}{\sqrt{n}}\)</span></font></td>
 </tr>
 <tr class="even">
 <td>Proportion</td>
-<td><span class="math inline">\(p\)</span></td>
-<td><span class="math inline">\(\hat{p}\)</span></td>
+<td><font color="#006475"><span class="math inline">\(p\)</span></font></td>
+<td><font color="#E69F00"><span class="math inline">\(\hat{p}\)</span></font></td>
 </tr>
 <tr class="odd">
-<td>Standard deviation</td>
-<td><span class="math inline">\(\sigma\)</span></td>
-<td><span class="math inline">\(s\)</span></td>
+<td>Standard error of a proportion</td>
+<td><font color="#006475"><span class="math inline">\(\sigma_{p}=\frac{p(1-p)}{\sqrt{n}}\)</span></font></td>
+<td><font color="#E69F00"><span class="math inline">\(SE_{\hat {p}}=\frac{\hat p(1-\hat p)}{\sqrt{n}}\)</span></font></td>
 </tr>
 </tbody>
 </table>
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:45%;">
 <ul>
-<li>Your parameter is constant (usually denoted by a greek letter)</li>
-<li>A point estimate is any single number that is calculated from a “parameter space” and serves as your “best guess” or “best estimate” of an unknown population parameter</li>
+<li>Your <font color="#006475">parameter</font> is constant (usually denoted by a greek letter)</li>
+<li>A point <font color="#E69F00">estimate</font> is any single number that is calculated from a “parameter space” and serves as your “best guess” or “best estimate” of an unknown population parameter</li>
 </ul>
 </div></div>
-</section><section id="sem-recap" class="slide level2"><h2>SEM recap</h2>
-<p>– The population mean and standard deviation are denoted by <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>.</p>
-<p>– The sample mean and standard deviation are denoted by <span class="math inline">\(x\)</span> (or some other letter) and <span class="math inline">\(s\)</span>.</p>
-<p>– The distribution of the random variable <span class="math inline">\(X\)</span> refers to the collection of sample means if multiple samples of the same size were repeatedly drawn from a population.</p>
-<p>– The mean of the random variable <span class="math inline">\(X\)</span> equals the population mean <span class="math inline">\(\mu\)</span>.</p>
-<p>– The standard deviation of <span class="math inline">\(X\)</span> (<span class="math inline">\(\sigma_{X}\)</span>) is called the standard error (SEM) of the sample mean.</p>
-<p>– The theoretical standard error of the sample mean, as calculated from a single sample of size <span class="math inline">\(n\)</span>, is equal to <span class="math inline">\(\sigma/\sqrt{n}\)</span>. The standard error is abbreviated by SE (or SEM) and is usually estimated by using <span class="math inline">\(s\)</span>, the sample standard deviation, such that <span class="math inline">\(SEM_{\bar{X}}=s/\sqrt{n}\)</span>.</p>
-</section><section id="sem-recap-1" class="slide level2 scrollable"><h2>SEM recap</h2>
+</section></section><section><section id="confidence-interval-a-plausible-range-for-a-parameter" class="title-slide slide level1 center"><h1>Confidence Interval: a plausible range for a parameter</h1>
+
+</section><section id="ci-web-apps" class="slide level2"><h2>CI Web Apps:</h2>
+<p>I highly recommend using these:</p>
 <ul>
-<li>The SEM estimate <span class="math inline">\(SEM_{\bar{X}}=s_x/sqrt(n)\)</span> tends to be sufficiently good if:</li>
-</ul>
-<ol type="1">
-<li>The sample size is at least 30 and</li>
-<li>The population distribution is not strongly skewed.</li>
-</ol>
-<p>In the case of skewed distributions, a larger sample size is necessary.</p>
-</section><section><section id="confidence-interval-a-plausible-range-for-a-parameter" class="slide level2 center"><h2>Confidence Interval: a plausible range for a parameter</h2>
-</section><section id="interval-estimation" class="slide level2"><h2>Interval Estimation</h2>
-<ul>
-<li><p>Loosely, attempt to define a range of numbers that might include the parameter of interest</p></li>
-<li><p>Also a way of quantifying uncertainty</p></li>
-</ul></section><section id="confidence-interval-ci-definition" class="slide level2"><h2>Confidence Interval (CI): Definition</h2>
-<p>A “1 − 𝛼” confidence interval is an interval <span class="math inline">\((v_1, v_2)\)</span>, where <span class="math inline">\(v_1\)</span> and <span class="math inline">\(v_2\)</span> are instances of random variables satisfying <span class="math display">\[𝑃(v_1 &lt; \theta &lt; v_2) \geq  1 − 𝛼\]</span></p>
-<p>if <span class="math inline">\(\alpha=0.05\)</span>, we have a <span class="math inline">\(95\%\)</span> CI.</p>
-<p>if <span class="math inline">\(\alpha=0.01\)</span>, we have a <span class="math inline">\(99\%\)</span> CI.</p>
-<p>95% and 99% are difference <em>confidence levels</em></p>
-<p>, etc …</p>
-<p>## CIs define “plausible” parameter values</p>
+<li><p>Web app from the book: <a href="http://www.zoology.ubc.ca/~whitlock/Kingfisher/CIMean.htm" class="uri">http://www.zoology.ubc.ca/~whitlock/Kingfisher/CIMean.htm</a> Note: this uses the method involvign the Normal distribution. If you click on calculations you will see it. We will learn that later.</p></li>
+<li><p>And this one: <a href="https://shiny.abdn.ac.uk/Stats/apps/app_sampling/" class="uri">https://shiny.abdn.ac.uk/Stats/apps/app_sampling/</a> This allows you to do something very similar as to what I did in the slides, step by step.</p></li>
+</ul></section><section id="cis-define-plausible-parameter-values" class="slide level2"><h2>CIs define “plausible” parameter values</h2>
+<blockquote>
+<p>A range of numbers, estimated from the data, that is is X% likely to contain the parameter value (unknown) within its range.</p>
+</blockquote>
+<blockquote>
+<p>A confidence interval expresses our level of certainty about an estimate.</p>
+</blockquote>
 <p><a href="https://bbitarello.github.io/b215f2025/slides/Estimation4.html"><img data-src="images/clipboard-1474094082.png" alt="Figure shows point estimate as a point in the middle of a line. A start outside the dot but within the line reads: &quot;Values for the parameter lying within the confidence interval are plausible, given the data and our agreed upon confidence.&quot;. A star outside the dot and the line reads &quot;Values for the parameter lying outside the interval are less plausible, given the data and our agreed upon confidence&quot;." width="791"></a></p>
 </section><section id="ci-width" class="slide level2"><h2>CI width</h2>
+<p>What do we mean by X% likely? It depends on the confidence level!</p>
 <p><a href="https://bbitarello.github.io/b215f2025/slides/Estimation4.html#"><img data-src="images/clipboard-549202599.png" alt="Figure shows two confidence intervals. Both have a point at the center of a horizontal line. At the top, the line is longer, symbolizing the width of the CI. At the bottom the line is shorter. Text at the top: &quot;broader CI: more uncertainty about true value of parameter&quot;. Text at the bottom: &quot;Narrower CI: more certainty that the parameter is close to the point estimate&quot;."></a></p>
-</section><section id="different-samples-can-have-different-cis" class="slide level2 scrollable"><h2>Different samples can have different CIs <img data-src="images/clipboard-1574229353.png" width="622">
-</h2>
-<pre><code>                                            ## In summary: why does the CI vary?
-                     </code></pre>
-<ol type="1">
-<li class="fragment"><p><strong>Sample size:</strong> all other things being equal, bigger <span class="math inline">\(n\)</span> means lower CI</p></li>
-<li class="fragment"><p><strong>Confidence level:</strong> 0.90 gives narrower range than 0.95 In the long run, ~95% of 95% CIs estimated from random samples will include the population parameter of interest!</p></li>
-<li class="fragment"><p><strong>Random sampling:</strong> just like point estimates such as the mean, are prone to the randomness of a given sample</p></li>
-</ol></section><section id="ci-notation" class="slide level2"><h2>CI notation</h2>
-<p>::: goal E.g. for a confidence interval encompassing from values 0.1 to 0.5 (inclusive) :::</p>
+</section><section id="cis-for-any-parameter" class="slide level2"><h2>CIs for any parameter</h2>
+<ul>
+<li>CIs can be calculated for means, proportions, correlations, differences between means, regression lines, and much more …</li>
+<li>We won’t learn yet how to calculate this, but rather focus on how to interpret CIs.</li>
+</ul></section><section id="ci-notation" class="slide level2"><h2>CI notation</h2>
+<div class="goal">
+<p>E.g. for a confidence interval encompassing from values 0.1 to 0.5 (inclusive)</p>
+</div>
 <p><strong>Preferable:</strong></p>
 <p>Using the parameter (e.g.&nbsp;if we’re estimating the mean): <span class="math inline">\(0.1&lt;\mu&lt;0.5\)</span></p>
 <p><span class="math inline">\(\left[0.1,0.5\right]\)</span></p>
@@ -239,7 +280,10 @@
 <p>0.1 to 0.5</p>
 <p>Do <em>not</em> use: 0.1-0.5 or 0.1–0.5</p>
 <p>Why? This can be confusing for negative numbers</p>
-</section><section id="interpreting-cis" class="slide level2"><h2>Interpreting CIs</h2>
+<p>Also: always report the confidence level (95%, 99%, etc)</p>
+</section><section id="different-samples-can-have-different-cis" class="slide level2"><h2>Different samples can have different CIs</h2>
+
+<img data-src="images/clipboard-1574229353.png" class="margin-caption r-stretch" width="622"></section><section id="interpreting-cis" class="slide level2"><h2>Interpreting CIs</h2>
 <div class="columns">
 <div class="colum" width="50%">
 <p>✅ Correct ✅</p>
@@ -267,12 +311,18 @@
           width: 1px!important;
           overflow: hidden!important;
           display:block!important;
-      }</style></aside></section><section id="cis-for-any-parameter" class="slide level2"><h2>CIs for any parameter</h2>
-<ul>
-<li>CIs can be calculated for means, proportions, correlations, differences between means, regression lines, and much more …</li>
-<li>We won’t learn yet how to calculate this, but rather focus on how to interpret CIs.</li>
-</ul></section><section id="ci-and-sample-sizes" class="slide level2"><h2>CI and sample sizes</h2>
-<p>The width of the CI is <em><em>approximately</em></em> proportional to the reciprocal of the square root of the sample size</p>
+      }</style></aside></section><section id="why-does-the-ci-vary" class="slide level2 scrollable"><h2>Why does the CI vary?</h2>
+<ol type="1">
+<li class="fragment"><p><strong>Sample size:</strong> all other things being equal, bigger <span class="math inline">\(n\)</span> means lower CI</p></li>
+<li class="fragment"><p><strong>Confidence level:</strong> 0.90 gives narrower range than 0.95. In the long run, ~95% of 95% CIs estimated from random samples will include the population parameter of interest!</p></li>
+<li class="fragment"><p><strong>Random sampling:</strong> just like point estimates such as the mean, are prone to the randomness of a given sample</p></li>
+</ol></section></section><section><section id="example-gene-lengths" class="title-slide slide level1 center"><h1>Example: gene lengths</h1>
+
+</section><section id="effect-of-sample-size" class="slide level2"><h2>Effect of sample size</h2>
+<p>95% CI for the mean:</p>
+
+<img data-src="4.3.Estimation_files/figure-revealjs/geneleng2-1.png" class="margin-caption r-stretch" width="960"></section><section id="ci-and-sample-sizes" class="slide level2"><h2>CI and sample sizes</h2>
+<p>The width of the CI is <em>approximately</em> proportional to the reciprocal of the square root of the sample size</p>
 <p><span class="math display">\[CI\propto \frac{1}{\sqrt{n}}\]</span></p>
 <ul>
 <li>Translating: to reduce your CI by a factor of 2, you need to increase your sample size by a factor of 4; to reduce the CI by a factor of 10, you would need to increase your sample size by a factor of 100!</li>
@@ -283,30 +333,38 @@
 </div></aside></section><section id="how-do-we-calculate-cis" class="slide level2 scrollable"><h2>How do we calculate CIs?</h2>
 <p>Two ways, mainly:</p>
 <ol type="1">
-<li>If certain assumptions are met (more on this soon), we will learn in a few weeks how to do it</li>
+<li>If certain assumptions are met (more on this soon), we will learn in a few weeks how to do it using properties of the normal distribution</li>
 </ol>
 <p>For all other cases:</p>
 <ol start="2" type="1">
 <li>Simulations! (resampling)</li>
-</ol></section><section id="the-2se-rule-of-thumb-for-the-95-ci-of-the-mean" class="slide level2"><h2>The 2SE Rule of Thumb for the 95% CI of the mean</h2>
-<p><strong>Assumptions</strong></p>
-<p>If and only if:</p>
+</ol></section><section id="a-rough-approximation-to-the-95-confidence-interval-for-the-population-mean" class="slide level2 scrollable"><h2>A rough approximation to the 95% confidence interval for the population mean</h2>
+<p>Assumptions:</p>
+<ol type="1">
+<li><p>Sample is random (equality and independence)</p></li>
+<li><p>Normal distribution</p></li>
+</ol>
 <ul>
-<li>Sample is random, accurate, and composed of independent observations</li>
-<li>Population variable of interest is distributed in a Gaussian/Normal manner (at least approximately)</li>
-<li>Population standard deviation for the variable of interest is known (or we have a decent sample estimate), but population mean is unknown.</li>
+<li>Either the population is normally distributed</li>
 </ul>
-<p><em>THEN</em> …</p>
-</section><section id="the-2se-rule-of-thumb-for-the-95-ci-of-the-mean-1" class="slide level2"><h2>The 2SE Rule of Thumb for the 95% CI of the mean</h2>
-<p>If assumptions are met, then…</p>
+<p>OR</p>
+<ul>
+<li>the sampling distribution of the mean is approximately normal due to the Central Limit Theorem (CLT)</li>
+</ul></section><section id="how-do-you-know-if-the-2nd-condition-is-fulfilled" class="slide level2"><h2>How do you know if the 2nd condition is fulfilled?</h2>
+<p>One thing you can know now is that for very large samples, the CLT assumption is generally fulfilled. See <a href="https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm">here.</a></p>
+<p><em>If</em> assumptions are met, then…</p>
 <p>a <strong>rough</strong> estimate of the 95% CI for the mean is:</p>
-<p>Lower 95% CI: <span class="math inline">\(\bar X - 2\times SEM_{\bar X}\)</span></p>
-<p>Upper 95% CI: <span class="math inline">\(\bar X + 2\times SEM_{\bar X}\)</span></p>
+<p>Lower 95% CI: <span class="math inline">\(\bar x - 2\times SEM_{\bar X}\)</span></p>
+<p>Upper 95% CI: <span class="math inline">\(\bar x + 2\times SEM_{\bar X}\)</span></p>
 
 <aside><div>
-<p>Whenever you use the rule of thumb you should state it as such and justify its use. Later in the course we will learn how to calculate actual CIs using the Normal distribution. These assumptions also applies to the classical approach, that uses the Normal distribution to get more precise estimates than the rule of thumb does</p>
-</div></aside></section><section id="error-bars" class="slide level2 dark-theme center"><h2>Error Bars</h2>
-</section><section id="error-bars-1" class="slide level2"><h2>Error bars</h2>
+<p>Whenever you use the rule of thumb you should state it as such and justify its use. Later in the course we will learn how to calculate actual CIs using the Normal distribution. These assumptions also applies to the classical approach, that uses the Normal distribution to get more precise estimates than the rule of thumb does.</p>
+</div></aside></section><section id="ci-qa" class="slide level2"><h2>CI: Q&amp;A</h2>
+<p><strong>Q: When can I use the rule of thumb that the CI equals the sample mean plus or minus 2 SDs?</strong></p>
+<p><em>Never!</em> In a Gaussian distribution you expect about 95% of the individual values to lie within 2 SD of the mean. But the idea of a CI is to quantify how precisely you know the population mean. For that, you need the sample size to be taken into account.</p>
+<p><strong>Q:When can I use the rule of thumb that the CI equals the sample mean plus or minus 2 SEM?</strong></p>
+<p>When <span class="math inline">\(n\)</span> is sufficiently large and the population variable of interest is normally distributed (approximately). We will come back to this. If in doubt, don’t use it!!! [if you do, acknowledge this shortcoming]</p>
+</section><section id="error-bars" class="slide level2"><h2>Error bars</h2>
 <div class="columns">
 <div class="column">
 <p><strong>What are they?</strong></p>
@@ -318,8 +376,8 @@
 </div></div>
 </section><section id="only-use-error-bars-to-convey-uncertainty-not-spread" class="slide level2"><h2>Only use error bars to convey uncertainty, not spread!</h2>
 <p>Disclaimer: this is a general statistical principle and for this course we will abide to it. Standard deviation is a measure of spread/variability, not of uncertainty. It is possible that you learn elsewhere that in a specific field this is tolerated more than others.</p>
-<pre><code>                   ![](images/clipboard-1865045115.png)</code></pre>
-</section><section id="if-goal-is-to-show-variation-among-data" class="slide level2"><h2>If goal is to show variation among data</h2>
+
+<img data-src="4.3.Estimation_files/figure-revealjs/errorrb-1.png" class="margin-caption r-stretch" width="960"></section><section id="if-goal-is-to-show-variation-among-data" class="slide level2"><h2>If goal is to show variation among data</h2>
 <div class="columns">
 <div class="column" style="width:65%;">
 <p>If =&lt; 100 data points: just plot it all in a strip chart (remember to add jitter and transparency)</p>
@@ -338,24 +396,28 @@
 <figcaption>From: Gopalakrishnan et al.&nbsp;(2022) The population genomic legacy of the second plague pandemic</figcaption></figure>
 </div>
 </div></div>
-</section></section><section><section id="error-bars--cautionary-tales" class="title-slide slide level1 center"><h1>ERROR BARS- CAUTIONARY TALES!</h1>
+</section></section><section><section id="error-bars---cautionary-tales" class="title-slide slide level1 center"><h1>ERROR BARS - CAUTIONARY TALES!</h1>
 
 </section><section id="mistake-1-assuming-distributions-are-gaussian-bell-shaped" class="slide level2"><h2>Mistake 1: assuming distributions are Gaussian (bell-shaped)</h2>
 
 <img data-src="images/clipboard-1284570488.png" class="margin-caption r-stretch quarto-figure-center" alt="Shows a right skewed distribution"><p class="caption">A very asymmetrical distribution. Remade from Colquhoun (2003). The number of citations (X-axis) received (within five years of publication) by 500 papers randomly chosen from the journal Nature. The bin width is 20 citations. The first bar shows that 74 papers received between zero and 20 citations, the second bar shows that 80 papers received between 21 and 40 citations, and so on. Example from: Intuitive Biostatistics</p></section><section id="mistake-2-plotting-mean-and-error-bars-without-defining-how-bars-were-computed" class="slide level2"><h2>Mistake 2: Plotting mean and error bars without defining how bars were computed</h2>
 <p>How will your reader know if it’s the SD, SEM, CI, range, or something else?</p>
 
-<img data-src="images/clipboard-3390932577.png" class="margin-caption r-stretch quarto-figure-center" alt="Source: Mentioned in Intuitive Biostatistics as Frazer et al. (2006), a study of the bladder-relaxing effects of norepinephrine in old rats."><p class="caption">Source: Mentioned in Intuitive Biostatistics as Frazer et al.&nbsp;(2006),a study of the bladder-relaxing effects of norepinephrine in old rats.</p></section><section id="pseudoreplication-when-your-confidence-is-undeserved" class="slide level2 dark-theme center"><h2>PSEUDOREPLICATION: WHEN YOUR CONFIDENCE IS UNDESERVED</h2>
+<img data-src="images/clipboard-3390932577.png" class="margin-caption r-stretch quarto-figure-center" alt="Source: Mentioned in Intuitive Biostatistics as Frazer et al. (2006), a study of the bladder-relaxing effects of norepinephrine in old rats."><p class="caption">Source: Mentioned in Intuitive Biostatistics as Frazer et al.&nbsp;(2006),a study of the bladder-relaxing effects of norepinephrine in old rats.</p></section></section><section><section id="pseudoreplication-when-your-confidence-is-unwarranted" class="title-slide slide level1 center"><h1>Pseudoreplication: when your confidence is unwarranted</h1>
+
 </section><section id="what-is-pseudoreplication" class="slide level2"><h2>What is pseudoreplication?</h2>
 <p>Pseudoreplication is the error that occurs when samples are not independent, but they are treated as though they are.</p>
 <ul>
 <li><p>Thus the sample size is smaller than claimed.</p></li>
 <li><p>Pseudoreplication provides a false sense of high certainty.</p></li>
 <li><p>This is not an uncommon issue in published papers.</p></li>
+<li><p>~ 1 in 8 (12.5%) field ecology studies (Hurlbert &amp; White, 1993; Heffner et al.&nbsp;1996)</p></li>
+<li><p>~ 40% for animal experiments (Lazic et al.&nbsp;2018)!</p></li>
 </ul></section><section id="example" class="slide level2"><h2>Example:</h2>
 <div class="goal">
 <p>You are interested in estimating the average pulse rate of mountain climbers. Since they are hard to find, you decide to take 10 measurements from each climber. You study 6 climbers, so you have 60 measures. What is your sample size (n)?</p>
 </div>
+<div class="fragment">
 <p>It’s 6. But you can and should use the extra data. How? Take the mean for each climber, so that you have 6 pulse rates, one for each climber (<span class="math inline">\(n=6\)</span>).</p>
 <div class="goal">
 <p>This is a simple example but, in practice, <strong>pseudoreplication is hard to identify</strong> and things differ by field</p>
@@ -363,6 +425,7 @@
 <blockquote>
 <p>Pseudoreplication problems arise from the organisational complexity of life itself. (Lazic et al.&nbsp;(2018)</p>
 </blockquote>
+</div>
 </section><section id="requirements-for-genuine-replication" class="slide level2 scrollable"><h2>Requirements for genuine replication</h2>
 <ul>
 <li><p>The best place to start: think about what are the biological and experimental units of your and look for field specific discussion on the topic.</p></li>
@@ -371,7 +434,26 @@
 <blockquote>
 <p><em>To ensure (…) results can be extrapolated to the population of interest, there must also be replication relevant to the hypothesis being tested. (…) define the scientific or biological unit of interest, which is the entity (i.e., people, animals, and cells) that we would like to test a hypothesis or draw a conclusion about. (…) to conclude that a drug is better than a placebo, a large number of patients are required because the hypothesis is about patients. We cannot give Jim the drug and Bob the placebo, take a daily measurement for several weeks, and then make general conclusions about the drug’s efficacy.</em> <sup>1</sup></p>
 </blockquote>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Lazic et al.&nbsp;(2018) <em>What exactly is ‘N’in cell culture and animal experiments?.</em> PLoS Biology. https://doi.org/10.1371/journal.pbio.2005282</p></li></ol></aside></section><section id="estimation---summary" class="slide level2"><h2>Estimation - Summary</h2>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Lazic et al.&nbsp;(2018) <em>What exactly is ‘N’in cell culture and animal experiments?.</em> PLoS Biology. https://doi.org/10.1371/journal.pbio.2005282</p></li></ol></aside></section><section id="a-meta-moment" class="slide level2"><h2>A meta moment</h2>
+<div class="quarto-figure quarto-figure-center margin-caption">
+<figure><p><a href="https://doi.org/10.1371/journal.pbio.2005282.g001"><img data-src="images/pbio.2005282.g001.png" alt="2 figures showing point estimates and confidence intervals for estimates of proportion of published papers with pseudoreplication issues"></a></p>
+<figcaption>Only 22% of studies (95% CI = [17%,29%] had genuine replication and thus made valid statistical inferences. Nearly half of the studies (46%, 95% CI = [38%, 53%] confused pseudoreplication for genuine replication while 32% (95% CI = 26% to 39%) did not provide enough information to determine if the sample size was correct (A). Consistent with previous research, randomisation, blinding, and the sample size was not always reported (B). Error bars are 95% CI.</figcaption></figure>
+</div>
+
+<aside><div>
+<p>From: Lazic et al.&nbsp;(2018) <em>What exactly is ‘N’in cell culture and animal experiments?.</em> PLoS Biology. https://doi.org/10.1371/journal.pbio.2005282</p>
+</div></aside></section><section id="pseudoreplication" class="slide level2"><h2>Pseudoreplication</h2>
+<ul>
+<li>always pay attention when reading the scientific literature, because pseudoreplication might be at play</li>
+</ul>
+<p>What to look out for:</p>
+<ul>
+<li>if the number of measurements, not the number of independent individuals, is reported in a statistical analysis</li>
+</ul>
+<p>Recommendation:</p>
+<ul>
+<li>always report the sample sizes and degrees of freedom (not covered yet) for every analysis. That way others can verify that you used the proper number of independent units.</li>
+</ul></section><section id="estimation---summary" class="slide level2" data-visibility="uncounted"><h2>Estimation - Summary</h2>
 <ul>
 <li><p>Parameter estimates are influenced by chance.</p></li>
 <li><p>The sampling distribution considers what could have happened upon sampling.</p></li>
@@ -380,12 +462,8 @@
 <li><p>Confidence intervals bound plausible parameter values.</p></li>
 <li><p>Uncertainty decreases and precision increases with sample size.</p></li>
 <li><p>Add error bars to graphs to illustrate standard errors or confidence intervals. Make sure to clarify which is being illustrated in the figure legend.</p></li>
-</ul></section><section id="ci-qa-to-answer-your-burning-questions" class="slide level2 dark-theme center"><h2>CI: Q&amp;A to answer your burning questions</h2>
-</section><section id="ci-qa" class="slide level2"><h2>CI: Q&amp;A</h2>
-<p><strong>Q: When can I use the rule of thumb that the CI equals the sample mean plus or minus 2 SDs?</strong></p>
-<p><em>Never!</em> In a Gaussian distribution you expect about 95% of the individual values to lie within 2 SD of the mean. But the idea of a CI is to quantify how precisely you know the population mean. For that, you need the sample size to be taken into account.</p>
-<p><strong>Q:When can I use the rule of thumb that the CI equals the sample mean plus or minus 2 SEM?</strong></p>
-<p>When <span class="math inline">\(n\)</span> is sufficiently large and the population variable of interest is normally distributed (approximately). We will come back to this. If in doubt, don’t use it!!! [if you do, acknowledge this shortcoming]</p>
+<li><p>Watch out for pseudoreplication.</p></li>
+</ul>
 
 
 </section></section>

@@ -288,7 +288,7 @@
 </section><section id="human-gene-lengths-output" class="slide level2 output-location-slide"><h2>Human gene lengths</h2><div class="cell output-location-slide">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center margin-caption">
-<figure><p><img data-src="4.2.Estimation_files/figure-revealjs/skewed-1.png" class="margin-caption" width="960"></p>
+<figure><p><img data-src="4.2.Estimation_files/figure-html/skewed-1.png" class="margin-caption" width="672"></p>
 <figcaption>Note: 147 genes with length &gt; 15,000 were omitted from this plot but are kept in all calculations and sampling.</figcaption></figure>
 </div>
 </div>
@@ -1283,7 +1283,7 @@
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="4.2.Estimation_files/figure-revealjs/plotSamp100-1.png" class="margin-caption" width="960"></p>
+<figure><p><img data-src="4.2.Estimation_files/figure-html/plotSamp100-1.png" class="margin-caption" width="672"></p>
 </figure>
 </div>
 </div>
@@ -2814,20 +2814,28 @@
 <span id="cb8-34"><a aria-label="34"></a>        <span class="at">parse =</span> T) <span class="sc">+</span></span>
 <span id="cb8-35"><a aria-label="35"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(human_genes<span class="sc">$</span>size),</span>
 <span id="cb8-36"><a aria-label="36"></a>        <span class="at">color =</span> <span class="st">"black"</span>,</span>
-<span id="cb8-37"><a aria-label="37"></a>        <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb8-38"><a aria-label="38"></a>genes.sum.plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-37"><a aria-label="37"></a>        <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 </section><section id="plotting-the-sampling-distribution-output" class="slide level2 output-location-slide"><h2>Plotting the Sampling Distribution</h2><div class="cell output-location-slide">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in sprintf("Grand mean = %s", genes.sum[1], 1): one argument not used
+by format 'Grand mean = %s'</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a aria-label="1"></a>genes.sum.plot</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
+(`geom_bar()`).</code></pre>
+</div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center margin-caption">
-<figure><p><img data-src="4.2.Estimation_files/figure-revealjs/sampdist8-1.png" class="margin-caption" width="960"></p>
+<figure><p><img data-src="4.2.Estimation_files/figure-html/sampdist8-1.png" class="margin-caption" width="672"></p>
 <figcaption>Notice how close the “mean of means” is to the population mean! (More formally, the “mean of means” is called the “grand mean”)</figcaption></figure>
 </div>
 </div>
 </div></section><section id="compare-population-vs.-sampling-distribution" class="slide level2"><h2>Compare: population vs.&nbsp;sampling distribution</h2>
 
-<img data-src="4.2.Estimation_files/figure-revealjs/sampdist9-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"><ul>
+<img data-src="4.2.Estimation_files/figure-html/sampdist9-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="672"><ul>
 <li><p>Mean parameter estimates of a sampling distribution should equal population parameters.</p></li>
 <li><p><strong>The width</strong> (standard deviation) of a population (<span class="math inline">\(\sigma=\)</span> 2833) exceeds that of its sampling distribution (<span class="math inline">\(s_{\bar{x}}=\)</span> 280).</p></li>
 </ul></section><section id="compare-sd-of-sampling-distribution-to-sigmasqrtn-to-ssqrtn" class="slide level2"><h2>Compare: SD of sampling distribution to <span class="math inline">\(\sigma/\sqrt{n}\)</span> to <span class="math inline">\(s/\sqrt{n}\)</span>
@@ -2883,24 +2891,24 @@
 </section><section id="se-decreases-with-sample-size" class="slide level2"><h2>SE Decreases with Sample Size</h2>
 <p>The standard error goes down as a sample size goes up.</p>
 
-<img data-src="4.2.Estimation_files/figure-revealjs/newSampDist-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="small-samples-large-uncertainty" class="slide level2"><h2>Small Samples, Large Uncertainty</h2>
+<img data-src="4.2.Estimation_files/figure-html/newSampDist-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="672"></section><section id="small-samples-large-uncertainty" class="slide level2"><h2>Small Samples, Large Uncertainty</h2>
 <div class="goal">
 <p>Treat simple summary statistics with skepticism.</p>
 <p>Be sure to consider uncertainty before being misled by exceptional values.</p>
 </div>
 <div class="cell" data-output-position="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a aria-label="1"></a><span class="fu">tibble</span>(<span class="at">sample_size =</span> <span class="fu">seq</span>(<span class="dv">5</span>,</span>
-<span id="cb9-2"><a aria-label="2"></a>    <span class="dv">5000</span>, <span class="dv">15</span>), <span class="at">SEM =</span> hg_sd<span class="sc">/</span><span class="fu">sqrt</span>(sample_size)) <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a aria-label="3"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sample_size,</span>
-<span id="cb9-4"><a aria-label="4"></a>        <span class="at">y =</span> SEM)) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"SEM (nucleotides)"</span>) <span class="sc">+</span></span>
-<span id="cb9-5"><a aria-label="5"></a>    <span class="fu">xlab</span>(<span class="st">"Nr. of genes"</span>) <span class="sc">+</span></span>
-<span id="cb9-6"><a aria-label="6"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb9-7"><a aria-label="7"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,</span>
-<span id="cb9-8"><a aria-label="8"></a>        <span class="dv">1300</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>,</span>
-<span id="cb9-9"><a aria-label="9"></a>        <span class="dv">1300</span>, <span class="dv">250</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a aria-label="1"></a><span class="fu">tibble</span>(<span class="at">sample_size =</span> <span class="fu">seq</span>(<span class="dv">5</span>,</span>
+<span id="cb12-2"><a aria-label="2"></a>    <span class="dv">5000</span>, <span class="dv">15</span>), <span class="at">SEM =</span> hg_sd<span class="sc">/</span><span class="fu">sqrt</span>(sample_size)) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a aria-label="3"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sample_size,</span>
+<span id="cb12-4"><a aria-label="4"></a>        <span class="at">y =</span> SEM)) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"SEM (nucleotides)"</span>) <span class="sc">+</span></span>
+<span id="cb12-5"><a aria-label="5"></a>    <span class="fu">xlab</span>(<span class="st">"Nr. of genes"</span>) <span class="sc">+</span></span>
+<span id="cb12-6"><a aria-label="6"></a>    <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb12-7"><a aria-label="7"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,</span>
+<span id="cb12-8"><a aria-label="8"></a>        <span class="dv">1300</span>), <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>,</span>
+<span id="cb12-9"><a aria-label="9"></a>        <span class="dv">1300</span>, <span class="dv">250</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="4.2.Estimation_files/figure-revealjs/scatter-1.png" class="margin-caption r-stretch quarto-figure-center" width="960"><p class="caption">Extreme estimate values are often associated with small sample size.</p></section><section id="how-we-report-sem" class="slide level2"><h2>How we report SEM</h2>
+<img data-src="4.2.Estimation_files/figure-html/scatter-1.png" class="margin-caption r-stretch quarto-figure-center" width="672"><p class="caption">Extreme estimate values are often associated with small sample size.</p></section><section id="how-we-report-sem" class="slide level2"><h2>How we report SEM</h2>
 <ul>
 <li><p><span class="math inline">\(\bar{x}\pm SEM\)</span></p></li>
 <li><p>E.g., if your sample has a mean of <span class="math inline">\(\bar{x}=2300\)</span> and <span class="math inline">\(s_{x}=1300\)</span>, so <span class="math inline">\(SEM_{\bar{X}}=\frac{1300}{\sqrt{10}}\approx411.1\)</span></p></li>
@@ -3119,41 +3127,6 @@
           RevealZoom
         ]
       });
-    </script><script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
