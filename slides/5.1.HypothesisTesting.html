@@ -37,7 +37,7 @@
       vertical-align: middle;
     }
   </style>
-<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-c35025cbd95a4a429ff189dda22d2670.css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2c3113f25bd5fd1ff23a352b0726428f.css">
 <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -55,6 +55,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -274,20 +275,19 @@ Bárbara D. Bitarello
 </ul>
 </div></div>
 </section><section id="the-null-hypothesis-implies-a-data-generating-process" class="slide level2"><h2>The null hypothesis implies a data-generating process</h2>
+<ul>
+<li><p><span class="math inline">\(H_{0}\)</span> specifies a value for a population parameter</p></li>
+<li><p>That specification defines a probabilistic data-generating process</p></li>
+<li><p>Repeating the process produces a null distribution</p></li>
+</ul></section><section id="example" class="slide level2"><h2>Example</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
 <ul>
-<li><p>A null hypothesis specifies a value for a population parameter</p></li>
-<li><p>That specification defines a probabilistic data-generating process</p></li>
-<li><p>Repeating that process produces a null distribution</p></li>
+<li><p>2 heterozygous parents reproduce (Aa × Aa)</p></li>
+<li><p>Data-generating process: meiosis produces gametes <strong>A</strong> and <strong>a</strong> (<span class="math inline">\(p=0.5\)</span> each), fertilization pairs gametes at random</p></li>
+<li><p>Expected offspring genotype proportions:</p></li>
 </ul>
 </div><div class="column" style="width:60%;">
-<ul>
-<li><p>Example: Two heterozygous parents reproduce (Aa × Aa)</p></li>
-<li><p>Data-generating process: meiosis produces gametes <strong>A</strong> and <strong>a</strong> with <span class="math inline">\(p=0.5\)</span> each, fertilization pairs gametes at random</p></li>
-<li><p>Expected offspring genotype proportions: AA = 0.25, Aa = 0.50, aa = 0.25</p></li>
-<li><p>These expected proportions define the null distribution for genotype outcomes in offspring</p></li>
-</ul>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-genotype-null-distribution" class="quarto-float quarto-figure quarto-figure-center" alt="Bar chart labeled 'Null distribution' showing expected genotype proportions under a heterozygote cross: AA at 0.25, Aa at 0.50, and aa at 0.25.">
@@ -300,343 +300,14 @@ Figure&nbsp;1: Null distribution for offspring genotypes under Mendelian inherit
 </div>
 </div>
 </div>
-</div></div>
-</section><section id="example-red-vs-blue-wrestlers" class="slide level2"><h2>Example: red vs blue wrestlers</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
 <ul>
-<li><p>“Real world” question: Does wearing a red shirt help win a wrestling match</p></li>
-<li><p>First: Turn this into a more “statistical” question, gather some data, and get to work!</p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/clipboard-2396145161.png" alt="figure shows two wrestlers, one wearing red and the other wearing blue" width="293"></p>
-<figcaption>From: Source: https://commons.wikimedia.org/</figcaption></figure>
-</div>
-</div></div>
-</section><section id="the-experiment-and-results" class="slide level2"><h2>The experiment and results</h2>
-<p><strong>Data / experiment:</strong></p>
-<ul>
-<li><p>16 of 20 rounds had more red-shirted than blue-shirted winners in in the 2004 Olympics. So we estimate <span class="math inline">\(\hat {p_red}=16/20=0.8\)</span></p></li>
-<li><p>Shirt color was randomly assigned.</p></li>
-<li>
-<p>Interpretation:</p>
-<ul>
-<li><p>Potentially related to red as a sign of aggression in animals?</p></li>
-<li><p>Referee bias in favor of wrestlers wearing red?</p></li>
-</ul>
-</li>
-</ul></section><section id="the-steps-of-hypothesis-testing" class="slide level2"><h2>The steps of hypothesis testing</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 4%">
-<col style="width: 25%">
-<col style="width: 34%">
-<col style="width: 36%">
-</colgroup>
-<thead><tr class="header">
-<th style="text-align: left;">Step</th>
-<th style="text-align: left;">Question being answered</th>
-<th style="text-align: left;">What we do</th>
-<th style="text-align: left;">Statistical Meaning</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">What claim are we testing?</td>
-<td style="text-align: left;">State <span class="math inline">\(H_{0}\)</span> and <span class="math inline">\(H_{A}\)</span>
-</td>
-<td style="text-align: left;">Specify a model that defines <span class="math inline">\(Pr[data|H_{0}]\)</span>
-</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">How far do the data depart from the null?</td>
-<td style="text-align: left;">Compute a test statistic</td>
-<td style="text-align: left;">Measure distance from what is expected under <span class="math inline">\(H_0\)</span>
-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">How unusual is this result?</td>
-<td style="text-align: left;">Compute a <span class="math inline">\(P-\)</span>value</td>
-<td style="text-align: left;"><span class="math inline">\(Pr[\text{data as or more extreme}|H_{0}]\)</span></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">What do we conclude?</td>
-<td style="text-align: left;">Translate statistical evidence into a biological conclusion</td>
-<td style="text-align: left;">Make a decision about <span class="math inline">\(H_{0}\)</span> and state the conclusion in biological terms.</td>
-</tr>
-</tbody>
-</table>
-<p><font size="4"> <a href="https://chrismerkord.github.io/biol-275/lectures/slides/lecture-08-hypothesis-testing/#/the-logic-of-hypothesis-testing">https://chrismerkord.github.io/biol-275/</a> </font></p>
-</section><section id="the-steps-of-hypothesis-testing-1" class="slide level2" data-transition="convex" data-transition-speed="fast"><h2>The Steps of Hypothesis Testing</h2>
-<ol type="1">
-<li><p>What claim are we testing? State <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_A\)</span>.</p></li>
-<li><p>Specify a model that defines <span class="math inline">\(Pr[data|H_{0}]\)</span></p></li>
-</ol>
-<pre><code>- Calculate a test statistic; 
-- Generate the null distribution.</code></pre>
-<ol start="3" type="1">
-<li>How unusual is this result?</li>
-</ol>
-<pre><code>- Find critical value at specified $\alpha$, and the p-value.</code></pre>
-<ol start="4" type="1">
-<li>
-<p>What do we conclude?</p>
-<ul>
-<li><p>Reject the <span class="math inline">\(H_0\)</span> if the test stat is <span class="math inline">\(\geq\)</span> the critical value (<span class="math inline">\(p\leq\alpha\)</span>) OR</p></li>
-<li><p>Fail to reject <span class="math inline">\(H_0\)</span> if the test stat is <span class="math inline">\(&lt;\)</span> the critical value (<span class="math inline">\(p&gt;\alpha\)</span>).</p></li>
-</ul>
-</li>
-</ol>
-
-<aside><div>
-<p>Notice that step 4 makes this a YES/NO kind of answer in the end, rather than a quantification of the eﬀect of red on victories</p>
-</div></aside></section><section id="step-1-what-claim-are-we-testing" class="slide level2"><h2>Step 1: What claim are we testing?</h2>
-<p>Are the colors of outfits won by wrestlers predictors of victory/defeat?</p>
-<p>The Null Hypothesis represents no difference in wins between the shirt colors.</p>
-<ul>
-<li>
-<span class="math inline">\(H_0\)</span>: Red and blue-shirted athletes are equally likely to win (proportion of red among winners <span class="math inline">\(p_{red} = 0.5\)</span>). ( specific)</li>
-</ul>
-<p>The alternative hypothesis represents a difference in frequency</p>
-<ul>
-<li>
-<span class="math inline">\(H_A\)</span>: Red &amp; blue-shirted athletes are not equally likely to win (proportion of red among winners <span class="math inline">\(p\neq 0.5\)</span>). (not specific)</li>
-</ul>
-<p>This is a <strong>two-sided test</strong> because the alternative allows values of <span class="math inline">\(p\)</span> on either side of 0.50.</p>
-<p>Q: Is 0.8 a sufficiently unusual result under the null model to reject the null hypothesis that toads do not exhibit handedness?</p>
-</section><section id="generate-null-distribution" class="slide level2"><h2>Generate null distribution</h2>
-<ul>
-<li><p>Obtain the null distribution for the test statistic (the number of rounds of wrestling won by athletes.</p></li>
-<li><p>Let’s assume that shirt colors were either blue or red and they were assigned randomly to participants. There were 20 rounds in total.</p></li>
-<li><p>Generating the sampling distribution for expected number of rounds won by red-shirt-wearing athletes (out of 20 rounds). Our null hypothesis is that no color has an advantage.</p></li>
-</ul></section><section id="the-null-distribution" class="slide level2"><h2>The null distribution</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><p>Even if <span class="math inline">\(H_0: p = 0.50\)</span> is true, we would not expect to observe exactly 10 red-shirt wins every time we have 20 fight rounds.</p></li>
-<li><p>Instead, repeated samples would produce a <strong>distribution</strong> of possible outcomes.</p></li>
-<li><p>Under <span class="math inline">\(H_0\)</span>, the number of red shirt wins in a sample of 20 follows a <em>binomial distribution</em>:</p></li>
-</ul>
-<p><span class="math display">\[
-X \sim \text{Binomial}(n = 18, p = 0.50)
-\]</span></p>
-<ul>
-<li>This distribution is called the <strong>null distribution</strong> because it describes the sampling behavior of the test statistic assuming <span class="math inline">\(H_0\)</span> is true.</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<blockquote>
-<p>Q: Where does our observed value of 16 fall in this distribution?</p>
-</blockquote>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="5.1.HypothesisTesting_files/figure-revealjs/binomialNull-1.png" alt="Bar plot showing the binomial null distribution for the number of red shirt winners out of 20 rounds when $p = 0.50$. The x-axis ranges from 0 to 20 wins, and the y-axis shows probability. The distribution is symmetric and centered at 10, with probabilities decreasing toward the extremes." width="768"></p>
-<figcaption>Null distribution for the number of red shirt wins in a sample of 20 under H_0:p=0.5, showing a binomial probability distribution centered at 10.</figcaption></figure>
-</div>
-</div>
-</div>
-</div></div>
-</section><section id="the-p-value" class="slide level2"><h2>The <span class="keyword"><span class="math inline">\(P\)</span>-value</span>
-</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><p>The <span class="math inline">\(P\)</span>-value measures how unusual the observed result is under <span class="math inline">\(H_0\)</span>.</p></li>
-<li><p>It is the probability of observing data <strong>as extreme as or more extreme than</strong> what we observed, assuming <span class="math inline">\(H_0\)</span> is true.</p></li>
-</ul>
-<p><span class="math display">\[ P = \operatorname{Pr}[\text{data as or more extreme} \mid H_0] \]</span></p>
-<ul>
-<li>For a two-sided test, we consider outcomes extreme in <strong>both directions</strong>.</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="5.1.HypothesisTesting_files/figure-revealjs/binom-1.png" alt="Bar plot showing the binomial null distribution for the number of red shirt wins out of 20 when p = 0.50. The distribution is centered at 10. The bars corresponding to extreme outcomes in both tails are shaded in red, including the observed value of 16 on the right side, illustrating the regions used to compute the two-sided P-value." width="768"></p>
-<figcaption>Null distribution for the number of right-handed toads under H_0: p = 0.50, with both tails shaded to represent outcomes at least as extreme as the observed value of 14.</figcaption></figure>
-</div>
-</div>
-</div>
-</div></div>
-</section><section id="calculating-the-p-value" class="slide level2"><h2>Calculating the <span class="math inline">\(P\)</span>-value</h2>
-<ul>
-<li><p>Our observed test statistic is 16 wins for red shirts.</p></li>
-<li><p>Probability of 16 or more red shirt wins:</p></li>
-</ul>
-<p><span class="math display">\[
-\operatorname{Pr}[X \ge 16] =
-\\ \operatorname{Pr}[X = 16]+\operatorname{Pr}[X = 17]+\operatorname{Pr}[X = 18]+\operatorname{Pr}[X = 19]+\operatorname{Pr}[X = 20] =
-\\ 0.00591
-\]</span></p>
-<ul>
-<li>For a two-sided test, we double this probability:</li>
-</ul>
-<p><span class="math display">\[
-P = 2 \times \operatorname{Pr}[X \ge 16] = 0.0118
-\]</span></p>
-</section><section id="the-significance-level-alpha" class="slide level2"><h2>The <span class="keyword">significance level (<span class="math inline">\(\alpha\)</span>)</span>
-</h2>
-<ul>
-<li><p>The <strong>significance level</strong>, <span class="math inline">\(\alpha\)</span>, is a probability threshold used to decide whether to reject <span class="math inline">\(H_0\)</span>.</p></li>
-<li><p>It represents the probability of rejecting <span class="math inline">\(H_0\)</span> when <span class="math inline">\(H_0\)</span> is actually true (Type I error).</p></li>
-<li><p>A common choice (for arbitrary reasons) is:</p></li>
-</ul>
-<p><span class="math display">\[
-\alpha = 0.05
-\]</span></p>
-<ul>
-<li>
-<p>Decision rule:</p>
-<ul>
-<li>If <span class="math inline">\(P \le \alpha\)</span>, reject <span class="math inline">\(H_0\)</span>
-</li>
-<li>If <span class="math inline">\(P &gt; \alpha\)</span>, fail to reject <span class="math inline">\(H_0\)</span>
-</li>
-</ul>
-</li>
-</ul></section><section id="decision-and-biological-conclusion" class="slide level2"><h2>Decision and biological conclusion</h2>
-<p>Because <span class="math inline">\(0.01182 &lt; 0.05\)</span>, we reject <span class="math inline">\(H_0\)</span>.</p>
-
-<img data-src="5.1.HypothesisTesting_files/figure-revealjs/unnamed-chunk-3-1.png" width="768" class="r-stretch quarto-figure-center"><p class="caption">There was a lot of hype around this at the time, but alternative explanations for the phenomenom have arisen. E.g., see <a href="https://www.nature.com/articles/s41598-024-81373-3" class="uri">https://www.nature.com/articles/s41598-024-81373-3</a>.</p></section><section id="hypothesis-testing-vs.-confidence-intervals" class="slide level2"><h2>Hypothesis testing vs.&nbsp;confidence intervals</h2>
-<ul>
-<li><p>A 95% confidence interval provides an estimate of a parameter and a measure of uncertainty.</p></li>
-<li>
-<p>For a two-sided test at <span class="math inline">\(\alpha = 0.05\)</span>:</p>
-<ul>
-<li>If the null value lies <strong>outside</strong> the 95% confidence interval, we reject <span class="math inline">\(H_0\)</span>.</li>
-<li>If the null value lies <strong>inside</strong> the 95% confidence interval, we fail to reject <span class="math inline">\(H_0\)</span>.</li>
-</ul>
-</li>
-<li><p>Thus, confidence intervals and hypothesis tests often lead to the same conclusion.</p></li>
-<li><p>Hypothesis tests are useful when the goal is to evaluate a specific scientific claim (e.g., <span class="math inline">\(p = 0.50\)</span>), while confidence intervals emphasize estimation and effect size.</p></li>
-</ul></section><section id="reporting-the-results" class="slide level2"><h2>Reporting the results</h2>
-<p>At minimum, report:</p>
-<ul>
-<li>The test statistic: 16 red shirt wins<br>
-</li>
-<li>The sample size: <span class="math inline">\(n = 20\)</span><br>
-</li>
-<li>The <span class="math inline">\(P\)</span>-value: <span class="math inline">\(P = 0.01182\)</span>
-</li>
-</ul>
-<p>In addition, report an estimate of the parameter and its uncertainty:</p>
-<p><span class="math display">\[
-\hat{p} = 0.8
-\]</span></p>
-<ul>
-<li><p>Provide a confidence interval or standard error when possible.</p></li>
-<li><p>E.g. <span class="math inline">\(0.578 &lt; p &lt; 0.925\)</span> (95% CI)</p></li>
-</ul>
-<p>Example:</p>
-<blockquote>
-<p>In a sample of 20 taekwondo wrestling rounds, 16 (80%) were won by wrestlers wearing red. A two-sided test indicated that this differed significantly from 0.50 (<span class="math inline">\(P = 0.01182\)</span>), suggesting a bias in the population.</p>
-</blockquote>
-</section><section id="errors-in-hypothesis-testing" class="slide level2"><h2>Errors in hypothesis testing</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>
-<p>A <span class="keyword">Type I error</span> occurs when we reject <span class="math inline">\(H_0\)</span> even though <span class="math inline">\(H_0\)</span> is true.</p>
-<ul>
-<li>Type I error rate = <span class="math inline">\(\alpha\)</span>
-</li>
-</ul>
-</li>
-<li>
-<p>A <span class="keyword">Type II error</span> occurs when we fail to reject <span class="math inline">\(H_0\)</span> even though <span class="math inline">\(H_0\)</span> is false.</p>
-<ul>
-<li>Type II error rate = <span class="math inline">\(\beta\)</span>
-</li>
-</ul>
-</li>
-<li>
-<p><span class="keyword">Power</span> is the probability of correctly rejecting <span class="math inline">\(H_0\)</span> when it is false.</p>
-<ul>
-<li>Power = <span class="math inline">\(1-\beta\)</span>
-</li>
-</ul>
-</li>
-<li><p>There is a tradeoff: decreasing <span class="math inline">\(\alpha\)</span> generally increases <span class="math inline">\(\beta\)</span>, unless sample size increases.</p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Table summarizing possible combinations of reality (was <span class="math inline">\(H_0\)</span> true or not?) versus the conclusion of a statistical hypothesis test (did you reject <span class="math inline">\(H_0\)</span> or not?)</p>
-<table class="caption-top"><tbody>
-<tr class="odd">
-<td></td>
-<td><strong>Reality</strong></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><strong>Conclusion</strong></td>
-<td>
-<span class="math inline">\(H_0\)</span> True</td>
-<td>
-<span class="math inline">\(H_0\)</span> False</td>
-</tr>
-<tr class="odd">
-<td>Reject <span class="math inline">\(H_0\)</span>
-</td>
-<td>Type I error</td>
-<td>Correct (Power)</td>
-</tr>
-<tr class="even">
-<td>Do not reject <span class="math inline">\(H_0\)</span>
-</td>
-<td>Correct</td>
-<td>Type II error</td>
-</tr>
-</tbody></table>
-</div></div>
-</section><section id="when-the-null-hypothesis-is-not-rejected" class="slide level2"><h2>When the null hypothesis is not rejected</h2>
-<div class="columns">
-<div class="column" style="width:70%;">
-<ul>
-<li><p>If <span class="math inline">\(P &gt; \alpha\)</span>, we <strong>fail to reject</strong> <span class="math inline">\(H_0\)</span>.</p></li>
-<li><p>This is sometimes described as a <em>nonsignificant result</em>.</p></li>
-<li><p>We do <strong>not</strong> conclude that <span class="math inline">\(H_0\)</span> is true or that <span class="math inline">\(H_A\)</span> is false.</p></li>
-<li><p>We conclude only that the data are compatible with <span class="math inline">\(H_0\)</span>.</p></li>
-<li>
-<p>A nonsignificant result may occur because:</p>
-<ul>
-<li>The null hypothesis is true, or</li>
-<li>The study lacked sufficient power to detect a real effect.</li>
-</ul>
-</li>
-</ul>
-</div><div class="column" style="width:30%;">
-<p><a href="https://xkcd.com/892/"><img data-src="https://imgs.xkcd.com/comics/null_hypothesis.png"></a>]</p>
-</div></div>
-</section><section id="one-sided-tests" class="slide level2"><h2>One-sided tests</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>In a <strong>one-sided test</strong>, the alternative hypothesis specifies a direction:</li>
-</ul>
-<p><span class="math display">\[ H_A: p &gt; p_0 \quad \text{or} \quad H_A: p &lt; p_0 \]</span></p>
-<ul>
-<li><p>We reject <span class="math inline">\(H_0\)</span> only if the data depart from <span class="math inline">\(H_0\)</span> in that specified direction.</p></li>
-<li><p>A one-sided test should be used <strong>only if the direction is justified before examining the data</strong>.</p></li>
-<li><p>In most scientific studies, two-sided tests are preferred because effects could plausibly occur in either direction.</p></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>Example: A one-sided test in toxicology</p>
-<ul>
-<li><p>Question: Does exposure to a pollutant increase amphibian mortality?</p></li>
-<li><p>Let <span class="math inline">\(p\)</span> denote the mortality rate in exposed individuals, and <span class="math inline">\(p_0\)</span> the mortality rate in controls.</p></li>
-</ul>
-<p><span class="math display">\[ H_0: p = p_0 \]</span> <span class="math display">\[ H_A: p &gt; p_0 \]</span></p>
-<ul>
-<li><p>The alternative is one-sided because the biological concern is an <strong>increase</strong> in mortality.</p></li>
-<li><p>A decrease in mortality would not support the claim of toxicity.</p></li>
+<li>These exp. proportions define the null distribution for genotype outcomes in offspring</li>
 </ul>
 </div></div>
+</section></section><section id="to-be-continued" class="title-slide slide level1 center"><h1>To be continued</h1>
 
 
-</section></section>
+</section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
