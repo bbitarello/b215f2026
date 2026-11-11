@@ -4259,8 +4259,9 @@ vertical-align: -.125em;
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-keywords',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
+      valueNames: ['listing-date','listing-keywords','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      page: 30,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
@@ -4527,11 +4528,11 @@ Date
 </th>
 
 <th>
-Title
+Topic
 </th>
 
 <th>
-Topic
+Title
 </th>
 
 </tr>
@@ -4543,10 +4544,10 @@ Topic
 <span class="listing-date">Mon, Aug 31</span>
 </td>
 <td>
-<a href="./slides/0-Course-Intro.html" class="title listing-title">0.Course Intro</a>
+<span class="listing-keywords">Intro</span>
 </td>
 <td>
-<span class="listing-keywords">Intro</span>
+<a href="./slides/0-Course-Intro.html" class="title listing-title">0.Course Intro</a>
 </td>
 
 </tr>
@@ -4556,10 +4557,10 @@ Topic
 <span class="listing-date">Mon, Aug 31</span>
 </td>
 <td>
-<a href="./slides/Statistics_and_Samples1.html" class="title listing-title">1.1.Statistics &amp; Samples</a>
+<span class="listing-keywords">Unit 1</span>
 </td>
 <td>
-<span class="listing-keywords">Unit 1</span>
+<a href="./slides/Statistics_and_Samples1.html" class="title listing-title">1.1.Statistics &amp; Samples</a>
 </td>
 
 </tr>
@@ -4569,10 +4570,10 @@ Topic
 <span class="listing-date">Mon, Aug 31</span>
 </td>
 <td>
-<a href="./slides/Statistics_and_Samples2.html" class="title listing-title">1.2.Random samples, sampling error and bias, accuracy and precision</a>
+<span class="listing-keywords">Unit 1</span>
 </td>
 <td>
-<span class="listing-keywords">Unit 1</span>
+<a href="./slides/Statistics_and_Samples2.html" class="title listing-title">1.2.Random samples, sampling error and bias, accuracy and precision</a>
 </td>
 
 </tr>
@@ -4582,10 +4583,10 @@ Topic
 <span class="listing-date">Tue, Sep 01</span>
 </td>
 <td>
-<a href="./slides/Lab1-slides.html" class="title listing-title">Lab1: R Crash Course</a>
+<span class="listing-keywords">Module 1: R basics</span>
 </td>
 <td>
-<span class="listing-keywords">Module 1: R basics</span>
+<a href="./slides/Lab1-slides.html" class="title listing-title">Lab1: R Crash Course</a>
 </td>
 
 </tr>
@@ -4595,10 +4596,10 @@ Topic
 <span class="listing-date">Wed, Sep 02</span>
 </td>
 <td>
-<a href="./slides/Statistics_and_Samples3.html" class="title listing-title">1.3.Types of variables</a>
+<span class="listing-keywords">Unit 1</span>
 </td>
 <td>
-<span class="listing-keywords">Unit 1</span>
+<a href="./slides/Statistics_and_Samples3.html" class="title listing-title">1.3.Types of variables</a>
 </td>
 
 </tr>
@@ -4608,10 +4609,10 @@ Topic
 <span class="listing-date">Wed, Sep 09</span>
 </td>
 <td>
-<a href="./slides/Statistics_and_Samples4.html" class="title listing-title">1.4. A soft intro to causal inference</a>
+<span class="listing-keywords">Unit 1</span>
 </td>
 <td>
-<span class="listing-keywords">Unit 1</span>
+<a href="./slides/Statistics_and_Samples4.html" class="title listing-title">1.4. A soft intro to causal inference</a>
 </td>
 
 </tr>
@@ -4621,10 +4622,10 @@ Topic
 <span class="listing-date">Wed, Sep 09</span>
 </td>
 <td>
-<a href="./slides/Unit1-practice.html" class="title listing-title">Review/practice problems</a>
+<span class="listing-keywords">Unit 2</span>
 </td>
 <td>
-<span class="listing-keywords">Unit 2</span>
+<a href="./slides/Unit1-practice.html" class="title listing-title">Review/practice problems</a>
 </td>
 
 </tr>
@@ -4634,10 +4635,10 @@ Topic
 <span class="listing-date">Wed, Sep 09</span>
 </td>
 <td>
-<a href="./slides/2.1.DisplayingAndDescribingData.html" class="title listing-title">2.1.Displaying &amp; Describing Data</a>
+<span class="listing-keywords">Unit 2</span>
 </td>
 <td>
-<span class="listing-keywords">Unit 2</span>
+<a href="./slides/2.1.DisplayingAndDescribingData.html" class="title listing-title">2.1.Displaying &amp; Describing Data</a>
 </td>
 
 </tr>
@@ -4647,10 +4648,10 @@ Topic
 <span class="listing-date">Fri, Sep 11</span>
 </td>
 <td>
-<a href="./slides/2.2.Displaying-and-Describing-Data.html" class="title listing-title">2.2.Displaying &amp; Describing Data</a>
+<span class="listing-keywords">Unit 2</span>
 </td>
 <td>
-<span class="listing-keywords">Unit 2</span>
+<a href="./slides/2.2.Displaying-and-Describing-Data.html" class="title listing-title">2.2.Displaying &amp; Describing Data</a>
 </td>
 
 </tr>
@@ -4660,10 +4661,10 @@ Topic
 <span class="listing-date">Mon, Sep 14</span>
 </td>
 <td>
-<a href="./slides/2.3.Data-Viz.html" class="title listing-title">2.3.Data Visualization</a>
+<span class="listing-keywords">Unit 2</span>
 </td>
 <td>
-<span class="listing-keywords">Unit 2</span>
+<a href="./slides/2.3.Data-Viz.html" class="title listing-title">2.3.Data Visualization</a>
 </td>
 
 </tr>
@@ -4673,10 +4674,10 @@ Topic
 <span class="listing-date">Mon, Sep 14</span>
 </td>
 <td>
-<a href="./slides/Unit2-CaseStudies&amp;Problems.html" class="title listing-title">Review/practice problems</a>
+<span class="listing-keywords">Unit 2 (stats)</span>
 </td>
 <td>
-<span class="listing-keywords">Unit 2 (stats)</span>
+<a href="./slides/Unit2-CaseStudies&amp;Problems.html" class="title listing-title">Review/practice problems</a>
 </td>
 
 </tr>
@@ -4686,10 +4687,10 @@ Topic
 <span class="listing-date">Tue, Sep 15</span>
 </td>
 <td>
-<a href="./slides/Lab3-slides.html" class="title listing-title">Lab 3: Exploring Data I</a>
+<span class="listing-keywords">EDA</span>
 </td>
 <td>
-<span class="listing-keywords">EDA</span>
+<a href="./slides/Lab3-slides.html" class="title listing-title">Lab 3: Exploring Data I</a>
 </td>
 
 </tr>
@@ -4699,10 +4700,10 @@ Topic
 <span class="listing-date">Wed, Sep 16</span>
 </td>
 <td>
-<a href="./slides/2.4.Data-Viz.html" class="title listing-title">2.4.Data Visualization</a>
+<span class="listing-keywords">Unit 2</span>
 </td>
 <td>
-<span class="listing-keywords">Unit 2</span>
+<a href="./slides/2.4.Data-Viz.html" class="title listing-title">2.4.Data Visualization</a>
 </td>
 
 </tr>
@@ -4712,10 +4713,10 @@ Topic
 <span class="listing-date">Fri, Sep 18</span>
 </td>
 <td>
-<a href="./slides/2.5.Data-Viz.html" class="title listing-title">2.5.Data Visualization</a>
+<span class="listing-keywords">Unit 2</span>
 </td>
 <td>
-<span class="listing-keywords">Unit 2</span>
+<a href="./slides/2.5.Data-Viz.html" class="title listing-title">2.5.Data Visualization</a>
 </td>
 
 </tr>
@@ -4725,10 +4726,10 @@ Topic
 <span class="listing-date">Mon, Sep 21</span>
 </td>
 <td>
-<a href="./slides/Probability.html" class="title listing-title">3.1. Probability I</a>
+<span class="listing-keywords">Intro</span>
 </td>
 <td>
-<span class="listing-keywords">Intro</span>
+<a href="./slides/Probability.html" class="title listing-title">3.1. Probability I</a>
 </td>
 
 </tr>
@@ -4738,10 +4739,10 @@ Topic
 <span class="listing-date">Wed, Sep 23</span>
 </td>
 <td>
-<a href="./slides/Probability2.html" class="title listing-title">3.2.Probability I</a>
+<span class="listing-keywords">Practice + activity</span>
 </td>
 <td>
-<span class="listing-keywords">Practice + activity</span>
+<a href="./slides/Probability2.html" class="title listing-title">3.2.Probability I</a>
 </td>
 
 </tr>
@@ -4751,10 +4752,10 @@ Topic
 <span class="listing-date">Mon, Sep 28</span>
 </td>
 <td>
-<a href="./slides/Discuss-PS1.html" class="title listing-title">Discuss PS1</a>
+<span class="listing-keywords">Walkthrough</span>
 </td>
 <td>
-<span class="listing-keywords">Walkthrough</span>
+<a href="./slides/Discuss-PS1.html" class="title listing-title">Discuss PS1</a>
 </td>
 
 </tr>
@@ -4764,10 +4765,10 @@ Topic
 <span class="listing-date">Wed, Sep 30</span>
 </td>
 <td>
-<a href="./slides/Probability3.html" class="title listing-title">3.3. Probability II</a>
+<span class="listing-keywords">Prob. trees &amp; cond. probability</span>
 </td>
 <td>
-<span class="listing-keywords">Prob. trees &amp; cond. probability</span>
+<a href="./slides/Probability3.html" class="title listing-title">3.3. Probability II</a>
 </td>
 
 </tr>
@@ -4777,10 +4778,10 @@ Topic
 <span class="listing-date">Wed, Sep 30</span>
 </td>
 <td>
-<a href="./slides/Probability4.html" class="title listing-title">3.4. Probability II</a>
+<span class="listing-keywords">Bayes’ Theorem</span>
 </td>
 <td>
-<span class="listing-keywords">Bayes’ Theorem</span>
+<a href="./slides/Probability4.html" class="title listing-title">3.4. Probability II</a>
 </td>
 
 </tr>
@@ -4790,10 +4791,10 @@ Topic
 <span class="listing-date">Mon, Oct 05</span>
 </td>
 <td>
-<a href="./slides/Probability5.html" class="title listing-title">Unit 3 (part II): problems</a>
+<span class="listing-keywords">Problems/Review</span>
 </td>
 <td>
-<span class="listing-keywords">Problems/Review</span>
+<a href="./slides/Probability5.html" class="title listing-title">Unit 3 (part II): problems</a>
 </td>
 
 </tr>
@@ -4803,10 +4804,10 @@ Topic
 <span class="listing-date">Tue, Oct 06</span>
 </td>
 <td>
-<a href="./slides/Lab5-slides.html" class="title listing-title">Lab 5 slides</a>
+<span class="listing-keywords">Labs; reproducibility</span>
 </td>
 <td>
-<span class="listing-keywords">Labs; reproducibility</span>
+<a href="./slides/Lab5-slides.html" class="title listing-title">Lab 5 slides</a>
 </td>
 
 </tr>
@@ -4816,10 +4817,10 @@ Topic
 <span class="listing-date">Wed, Oct 07</span>
 </td>
 <td>
-<a href="./slides/Unit3-II-problems.html" class="title listing-title">Unit 3 (part II): problems (cont.)</a>
+<span class="listing-keywords">Problems/Review</span>
 </td>
 <td>
-<span class="listing-keywords">Problems/Review</span>
+<a href="./slides/Unit3-II-problems.html" class="title listing-title">Unit 3 (part II): problems (cont.)</a>
 </td>
 
 </tr>
@@ -4829,10 +4830,10 @@ Topic
 <span class="listing-date">Sat, Oct 17</span>
 </td>
 <td>
-<a href="./slides/4.1.Estimation.html" class="title listing-title">4.1.Estimating with uncertainty</a>
+<span class="listing-keywords">Module 2; Estimation; Sampling Distribution</span>
 </td>
 <td>
-<span class="listing-keywords">Module 2; Estimation; Sampling Distribution</span>
+<a href="./slides/4.1.Estimation.html" class="title listing-title">4.1.Estimating with uncertainty</a>
 </td>
 
 </tr>
@@ -4842,10 +4843,10 @@ Topic
 <span class="listing-date">Fri, Oct 23</span>
 </td>
 <td>
-<a href="./slides/4.2.Estimation.html" class="title listing-title">4.2.Estimating with uncertainty</a>
+<span class="listing-keywords">Module 2; Standard error</span>
 </td>
 <td>
-<span class="listing-keywords">Module 2; Standard error</span>
+<a href="./slides/4.2.Estimation.html" class="title listing-title">4.2.Estimating with uncertainty</a>
 </td>
 
 </tr>
@@ -4855,10 +4856,10 @@ Topic
 <span class="listing-date">Mon, Oct 26</span>
 </td>
 <td>
-<a href="./slides/Unit4-Practice-Problems-I.html" class="title listing-title">Unit4: Practice Problems</a>
+<span class="listing-keywords">Module 2; Confidence Intervals</span>
 </td>
 <td>
-<span class="listing-keywords">Module 2; Confidence Intervals</span>
+<a href="./slides/Unit4-Practice-Problems-I.html" class="title listing-title">Unit4: Practice Problems</a>
 </td>
 
 </tr>
@@ -4868,10 +4869,10 @@ Topic
 <span class="listing-date">Wed, Oct 28</span>
 </td>
 <td>
-<a href="./slides/4.3.Estimation.html" class="title listing-title">4.3.Estimating with uncertainty</a>
+<span class="listing-keywords">Module 2; Confidence Intervals</span>
 </td>
 <td>
-<span class="listing-keywords">Module 2; Confidence Intervals</span>
+<a href="./slides/4.3.Estimation.html" class="title listing-title">4.3.Estimating with uncertainty</a>
 </td>
 
 </tr>
@@ -4881,10 +4882,10 @@ Topic
 <span class="listing-date">Thu, Oct 29</span>
 </td>
 <td>
-<a href="./slides/4.4.Estimation.html" class="title listing-title">4.4.Estimating with uncertainty</a>
+<span class="listing-keywords">Module 2; Confidence Intervals; Error bars; pseudoreplication</span>
 </td>
 <td>
-<span class="listing-keywords">Module 2; Confidence Intervals; Error bars; pseudoreplication</span>
+<a href="./slides/4.4.Estimation.html" class="title listing-title">4.4.Estimating with uncertainty</a>
 </td>
 
 </tr>
@@ -4894,36 +4895,49 @@ Topic
 <span class="listing-date">Wed, Nov 04</span>
 </td>
 <td>
-<a href="./slides/5.1.Hypothesis-Testing.html" class="title listing-title">5.1.Hypothesis Testing</a>
+<span class="listing-keywords">Module 2; Hypothesis Testing</span>
 </td>
 <td>
-<span class="listing-keywords">Module 2; Hypothesis Testing</span>
+<a href="./slides/5.1.Hypothesis-Testing.html" class="title listing-title">5.1.Hypothesis Testing</a>
 </td>
 
 </tr>
 
-<tr data-index="28" data-listing-date-sort="1793941200000" data-listing-file-modified-sort="1794009372681" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2517" data-listing-title-sort="5.2.Hypothesis Testing" data-listing-filename-sort="5.2.Hypothesis-Testing.qmd">
+<tr data-index="28" data-listing-date-sort="1793941200000" data-listing-file-modified-sort="1794353950359" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="12" data-listing-word-count-sort="2340" data-listing-title-sort="5.2.Hypothesis Testing" data-listing-filename-sort="5.2.Hypothesis-Testing.qmd">
 <td>
 <span class="listing-date">Fri, Nov 06</span>
 </td>
 <td>
-<a href="./slides/5.2.Hypothesis-Testing.html" class="title listing-title">5.2.Hypothesis Testing</a>
+<span class="listing-keywords">Module 2; Hypothesis Testing</span>
 </td>
 <td>
-<span class="listing-keywords">Module 2; Hypothesis Testing</span>
+<a href="./slides/5.2.Hypothesis-Testing.html" class="title listing-title">5.2.Hypothesis Testing</a>
 </td>
 
 </tr>
 
-<tr data-index="29" data-listing-file-modified-sort="1794008415414" data-listing-filename-sort="Lab4-slides.qmd">
+<tr data-index="29" data-listing-date-sort="1794373200000" data-listing-file-modified-sort="1794414844156" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="30" data-listing-word-count-sort="5952" data-listing-title-sort="5.3.Hypothesis Testing" data-listing-filename-sort="5.3.Hypothesis-Testing.qmd">
+<td>
+<span class="listing-date">Wed, Nov 11</span>
+</td>
+<td>
+<span class="listing-keywords">Hypothesis Testing; Caveats</span>
+</td>
+<td>
+<a href="./slides/5.3.Hypothesis-Testing.html" class="title listing-title">5.3.Hypothesis Testing</a>
+</td>
+
+</tr>
+
+<tr data-index="30" data-listing-file-modified-sort="1794008415414" data-listing-filename-sort="Lab4-slides.qmd">
 <td>
 <span class="listing-date"> </span>
 </td>
 <td>
-<a href="./slides/Lab4-slides.qmd" class="title listing-title"> </a>
+<span class="listing-keywords"> </span>
 </td>
 <td>
-<span class="listing-keywords"> </span>
+<a href="./slides/Lab4-slides.qmd" class="title listing-title"> </a>
 </td>
 
 </tr>
@@ -4931,6 +4945,9 @@ Topic
 </tbody>
 </table>
 <div class="listing-no-matching d-none">No matching items</div>
+<nav id="slides-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div>
 <section id="attribution" class="level2">
 <h2 class="anchored" data-anchor-id="attribution">Attribution</h2>

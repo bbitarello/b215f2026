@@ -156,7 +156,7 @@ Bárbara D. Bitarello
 </ul></section><section id="acknowledgments" class="slide level2" data-visibility="uncounted"><h2>Acknowledgments</h2>
 <p>Materials from the following sources were used for some of the slides and examples:</p>
 <ul>
-<li><p>Chris Merkord’s awesome course website <a href="https://chrismerkord.github.io/biol-275/l" class="uri">https://chrismerkord.github.io/biol-275/l</a></p></li>
+<li><p>Chris Merkord’s awesome course website <a href="https://chrismerkord.github.io/biol-275/" class="uri">https://chrismerkord.github.io/biol-275/</a></p></li>
 <li><p>Yaniv Brandvain’s course materials on github</p></li>
 <li><p>Some examples from ABD WS</p></li>
 </ul>
@@ -177,7 +177,7 @@ Bárbara D. Bitarello
 <li>Phylosophical/historical digression</li>
 </ul><aside><ol class="aside-footnotes"><li id="fn1"><p><a href="https://bbitarello.github.io/b215f2026/slides/5.1.HypothesisTesting.html#/title-slide" class="uri">https://bbitarello.github.io/b215f2026/slides/5.1.HypothesisTesting.html#/title-slide</a></p></li></ol></aside></section><section><section id="part-1" class="title-slide slide level1 center"><h1>Part 1</h1>
 
-</section><section id="example-red-vs.-blue-wrestlers" class="slide level2 scrollable"><h2>Example: red vs.&nbsp;blue wrestlers<sup>1</sup>
+</section><section id="example-red-vs.-blue-wrestlers2" class="slide level2 scrollable"><h2>Example: red vs.&nbsp;blue wrestlers<sup>1</sup>
 </h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -198,12 +198,12 @@ Bárbara D. Bitarello
 <li><p>16 of 20 rounds were won by wrestlers wearing red, and only four were won by wrestlers wearing blue.</p></li>
 <li><p>So we estimate <span class="math inline">\(\hat {p}_{red}=16/20=0.8\)</span></p></li>
 </ul></section><section id="the-steps-of-hypothesis-testing" class="slide level2"><h2>The steps of hypothesis testing</h2>
-<table class="caption-top">
+<table class="caption-top" style="width:100%;">
 <colgroup>
-<col style="width: 4%">
-<col style="width: 25%">
-<col style="width: 34%">
-<col style="width: 36%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 28%">
+<col style="width: 30%">
 </colgroup>
 <thead><tr class="header">
 <th style="text-align: left;">Step</th>
@@ -301,7 +301,7 @@ Bárbara D. Bitarello
 <li>It answers this question:</li>
 </ul>
 <blockquote>
-<p>What is the probability of observing data <strong>as extreme as or more extreme than</strong> what we observed, <em>assuming <span class="math inline">\(H_0\)</span> is true</em>.</p>
+<p>What is the probability of observing data <strong>as extreme as or more extreme than</strong> what we observed, <em>assuming</em> <span class="math inline">\(H_0\)</span> is true.</p>
 </blockquote>
 <p><span class="math display">\[ P = \operatorname{Pr}[\text{data as or more extreme} \mid H_0] \]</span></p>
 <ul>
@@ -313,7 +313,7 @@ Bárbara D. Bitarello
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure><p><img data-src="5.2.Hypothesis-Testing_files/figure-revealjs/binom-1.png" alt="Bar plot showing the binomial null distribution for the number of red shirt wins out of 20 when p = 0.50. The distribution is centered at 10. The bars corresponding to extreme outcomes in both tails are shaded in red, including the observed value of 16 on the right side, illustrating the regions used to compute the two-sided P-value." width="768"></p>
-<figcaption>Null distribution for the number of right-handed toads under H_0: p = 0.50, with both tails shaded to represent outcomes at least as extreme as the observed value of 14.</figcaption></figure>
+<figcaption>Null distribution for the number of right-handed toads under H_0: p = 0.50, with both tails shaded to represent outcomes at least as extreme as the observed value of 16.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -354,11 +354,13 @@ P = 2 \times \operatorname{Pr}[X \ge 16] = 0.0118
 </li>
 </ul>
 </li>
-</ul></section><section id="decision-and-biological-conclusion" class="slide level2 scrollable"><h2>Decision and biological conclusion</h2>
+</ul></section><section id="decision-and-biological-conclusion" class="slide level2"><h2>Decision and biological conclusion</h2>
 <ul>
-<li><p>The hypothesis testing framework ends with a binary decision: to reject or not reject the null.<sup>1</sup></p></li>
+<li><p>The hypothesis testing framework ends with a binary decision: to reject or not reject the null.</p></li>
 <li><p>Because <span class="math inline">\(0.01182 &lt; 0.05\)</span>, we reject <span class="math inline">\(H_0\)</span>.</p></li>
-</ul><aside><ol class="aside-footnotes"><li id="fn3"><p>For fun: &lt;https://xkcd.com/892/</p></li></ol></aside></section><section id="hypothesis-testing-vs.-confidence-intervals" class="slide level2"><h2>Hypothesis testing vs.&nbsp;confidence intervals</h2>
+</ul>
+
+<img data-src="https://imgs.xkcd.com/comics/null_hypothesis.png" class="r-stretch"></section><section id="hypothesis-testing-vs.-confidence-intervals" class="slide level2"><h2>Hypothesis testing vs.&nbsp;confidence intervals</h2>
 <div class="columns">
 <div class="column">
 <ul>
