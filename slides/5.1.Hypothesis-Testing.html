@@ -166,7 +166,7 @@ Bárbara D. Bitarello
 </ul></section><section id="acknowledgments" class="slide level2" data-visibility="uncounted"><h2>Acknowledgments</h2>
 <p>Materials from the following sources were used for some of the slides and examples:</p>
 <ul>
-<li><p>Chris Merkord’s awesome course website <a href="https://chrismerkord.github.io/biol-275/l" class="uri">https://chrismerkord.github.io/biol-275/l</a></p></li>
+<li><p>Chris Merkord’s awesome course website <a href="https://chrismerkord.github.io/biol-275/" class="uri">https://chrismerkord.github.io/biol-275/</a></p></li>
 <li><p>Yaniv Brandvain’s course materials on github</p></li>
 <li><p>Some examples from ABD WS</p></li>
 </ul>
@@ -182,7 +182,7 @@ Bárbara D. Bitarello
 <p><font color="black">Build a sampling dist. from population we can describe. </font></p>
 <p><font color="black">Where would or estimate fall on this distribution</font></p>
 
-<img data-src="5.1.Hypothesis-Testing_files/figure-html/unnamed-chunk-1-1.png" width="672" class="r-stretch"></section><section id="critical-assumption" class="slide level2"><h2>Critical Assumption</h2>
+<img data-src="5.1.Hypothesis-Testing_files/figure-revealjs/unnamed-chunk-1-1.png" width="768" class="r-stretch"></section><section id="critical-assumption" class="slide level2"><h2>Critical Assumption</h2>
 <ul>
 <li><p>Hypothesis testing assumes <strong>random sampling</strong> – or that we account for non-random sampling in building the null model.</p></li>
 <li><p>Hypothesis tests account for sampling error, NOT for sampling bias. </p></li>
@@ -233,7 +233,7 @@ Bárbara D. Bitarello
 <div class="cell">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="5.1.Hypothesis-Testing_files/figure-html/unnamed-chunk-2-1.png" width="672"></p>
+<figure><p><img data-src="5.1.Hypothesis-Testing_files/figure-revealjs/unnamed-chunk-2-1.png" width="768"></p>
 </figure>
 </div>
 </div>
@@ -252,7 +252,7 @@ Bárbara D. Bitarello
 <pre><code>## NULL</code></pre>
 
 </div>
-<img data-src="5.1.Hypothesis-Testing_files/figure-html/plot1-1.png" width="672" class="r-stretch"></section><section id="hypotheses-are-about-populations" class="slide level2"><h2>Hypotheses are about POPULATIONS</h2>
+<img data-src="5.1.Hypothesis-Testing_files/figure-revealjs/plot1-1.png" width="768" class="r-stretch"></section><section id="hypotheses-are-about-populations" class="slide level2"><h2>Hypotheses are about POPULATIONS</h2>
 <ul>
 <li>We conduct hypothesis testing by checking if our <em>estimate</em> is surprising (unlikely, unnusual) under the null model.</li>
 </ul>
@@ -292,7 +292,7 @@ Bárbara D. Bitarello
 <div class="cell-output-display">
 <div id="fig-genotype-null-distribution" class="quarto-float quarto-figure quarto-figure-center" alt="Bar chart labeled 'Null distribution' showing expected genotype proportions under a heterozygote cross: AA at 0.25, Aa at 0.50, and aa at 0.25.">
 <figure class="quarto-float quarto-float-fig"><div aria-describedby="fig-genotype-null-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img data-src="5.1.Hypothesis-Testing_files/figure-html/fig-genotype-null-distribution-1.png" alt="Bar chart labeled 'Null distribution' showing expected genotype proportions under a heterozygote cross: AA at 0.25, Aa at 0.50, and aa at 0.25." width="480">
+<img data-src="5.1.Hypothesis-Testing_files/figure-revealjs/fig-genotype-null-distribution-1.png" alt="Bar chart labeled 'Null distribution' showing expected genotype proportions under a heterozygote cross: AA at 0.25, Aa at 0.50, and aa at 0.25." width="480">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-genotype-null-distribution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: Null distribution for offspring genotypes under Mendelian inheritance from a heterozygote cross (Aa × Aa).
@@ -507,6 +507,41 @@ Figure&nbsp;1: Null distribution for offspring genotypes under Mendelian inherit
           RevealZoom
         ]
       });
+    </script><script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

@@ -215,81 +215,134 @@ Bárbara D. Bitarello
 
   <p class="date">2026-11-10</p>
 </section><section class="slide level2"><h2>Key learning goals</h2>
-<p>Explaining probability and proportions Understanding the Binomial Distribution Quantifing the mean and variability of the Binomial</p>
-</section><section class="slide level2"><h2>Proportions</h2>
 <ul>
-<li class="fragment"><p>A proportion is the fraction of individuals having a particular attribute. i.e.&nbsp;# successes divided by # trials</p></li>
-<li class="fragment"><p>A proportion is also the probability that any an individual randomly sampled from that population will have that attribute</p></li>
-</ul></section><section class="slide level2"><h2>Example: Murphy’s Law</h2>
+<li>Determine whether binary data follow a <span class="keyword">binomial</span> model</li>
+<li>Calculate and interpret binomial probabilities</li>
+<li>Describe the distribution of counts and proportions</li>
+<li>Estimate a population proportion from a sample proportion</li>
+<li>Explain how sample size affects variability in the sampling distribution of a proportion</li>
+<li>Construct and interpret a confidence interval for a population proportion</li>
+<li>Use the binomial distribution to test hypotheses about a population proportion</li>
+</ul></section><section class="slide level2" data-visibility="uncounted"><h2>Acknowledgments</h2>
+<p>Materials from the following sources were used for some of the slides and examples:</p>
+<ul>
+<li><p>Chris Merkord’s awesome course website <a href="https://chrismerkord.github.io/biol-275/" class="uri">https://chrismerkord.github.io/biol-275/</a></p></li>
+<li><p>Yaniv Brandvain’s course materials on github</p></li>
+<li><p>Some examples from ABD WS</p></li>
+</ul>
+<p>Thank you!</p>
+</section><section class="slide level2"><h2>Binary outcomes in biology are SUPER common</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Many biological variables have only two possible outcomes.</p>
+<p>These are called a <span class="keyword">binary variable</span> (or Bernoulli variable).</p>
+<p>We record each observation as:</p>
+<ul>
+<li>1 = success</li>
+<li>0 = failure</li>
+</ul>
+<p>Each observation is a single trial with two possible results.</p>
+</div><div class="column" style="width:50%;">
+<p>Examples:</p>
+<ul>
+<li>Individual survives / dies</li>
+<li>Seed germinates / does not germinate</li>
+<li>Nest occupied / not occupied</li>
+<li>Species present / absent</li>
+<li>Offspring male / female</li>
+</ul>
+</div></div>
+</section><section class="slide level2"><h2>Example</h2>
 <div class="goal">
-<p>Researchers found that 6101 of the 9821 slices of toast thrown in the air landed butter side down. What proportion of the slices landed butter side down? Is the deck stacked against us?</p>
+<p>Let’s use this estimated proportion as our <em>best estimate</em> for the true probability of landing butter side down. Question: If three people drop their slice of toast, what is the probability that one falls butter side down and two fall butter side up?</p>
 </div>
-<p>How would you test this?</p>
-</section><section class="slide level2"><h2>From proportions to the binomial</h2>
-<div class="goal">
-<p>Let’s use this estimated proportion as our <em>best estimate</em> for the true probability of landing butter side down. To make the math a little easier, let’s assume that the true probability that toast falls butter side down is 60%.</p>
-<p>Question: If three people drop their slice of toast, what is the probability that one falls butter side down and two fall butter side up?</p>
-</div>
-<p>HINT: Draw trees… Work on this for a few minutes</p>
-</section><section class="slide level2"><h2>From proportions to the binomial</h2>
-<p>First, draw a tree</p>
-
-<img data-src="images/clipboard-1578610557.png" class="r-stretch"></section><section class="slide level2"><h2>From proportions to the binomial</h2>
-<p>Then, work out probabilities</p>
-
-<img data-src="images/clipboard-3097927162.png" class="r-stretch"></section><section class="slide level2"><h2>From proportions to the binomial</h2>
-<p>Finally, count the ways to get the desired outcome</p>
-
-<img data-src="images/clipboard-3376899323.png" class="r-stretch"></section><section class="slide level2"><h2>From proportions to the binomial</h2>
-<p>Add up probabilities</p>
-<p><span class="math inline">\(3 \times (2/5\times 2/5\times 3/5)=0.288\)</span></p>
+<p>To make the math a little easier, I will round <span class="math inline">\(\hat p=6101/9821=0.62\sim 0.60\)</span></p>
+</section><section class="slide level2"><h2>Using a tree</h2>
+<p>Count the ways to get the desired outcome <span class="math inline">\(3 \times (2/5\times 2/5\times 3/5)=0.288\)</span></p>
 
 <img data-src="images/clipboard-3376899323.png" class="r-stretch"></section><section class="slide level2 dark-theme center"><h2>THIS IS OLD NEWS FOR YOU, SO WHAT ELSE IS NEW?</h2>
 
-<img data-src="images/clipboard-3910873552.png" class="r-stretch"></section><section class="slide level2 dark-theme center"><h2>THERE’S AN EASIER WAY: THE BINOMIAL DISTRIBUTION</h2>
-</section><section class="slide level2"><h2>Key learning goals</h2>
+<img data-src="images/clipboard-3910873552.png" class="r-stretch"></section><section class="slide level2 center"><h2>THERE’S AN EASIER WAY!</h2>
+</section><section class="slide level2"><h2>From a Single Trial to Many Trials</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Suppose we observe a binary outcome repeatedly.</p>
+<p>Let:</p>
+<p><span class="math display">\[ X = \text{number of successes in } n \text{ trials} \]</span></p>
+<p>Now we are no longer modeling a single 0/1 outcome.</p>
+<p>We are modeling a count:</p>
 <ul>
-<li class="fragment">Explain probabilities and proportions. Which is the parameter? Which is the estimate?</li>
-<li class="fragment">Explain the binomial. When would you use it?</li>
-<li class="fragment">Understand the binomial distribution and connect it to simple probability rules.</li>
-<li class="fragment">Quantify the expected mean and variability of a binomial distribution.</li>
-<li class="fragment">Be able to appropriately conduct and interpret a binomial test.</li>
-</ul></section><section class="slide level2"><h2>Proportions</h2>
+<li>How many successes occur in a fixed number of trials?</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/binomial-sample.png" alt="Eight circles arranged in a row: five blue circles representing successes and three orange circles representing failures. A key identifies the colors, and the labels &quot;X = 5&quot; and &quot;n = 8&quot; appear below the row."></p>
+<figcaption>Sample of eight binary trials showing five successes and three failures (X = 5, n = 8).</figcaption></figure>
+</div>
+</div></div>
+</section><section class="slide level2"><h2>When Does the <span class="keyword">Binomial Model</span> Apply?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>A dataset follows a binomial model if:</p>
+<ol type="1">
+<li>There is a fixed number of trials ( <span class="math inline">\(n\)</span> )</li>
+<li>Each trial has two possible outcomes</li>
+<li>Trials are independent</li>
+<li>The probability of success ( <span class="math inline">\(p\)</span> ) is constant</li>
+</ol>
+<p>If these conditions hold, then:</p>
+<p><span class="math display">\[ X \sim \text{Binomial}(n, p) \]</span></p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/checklist.png" alt="A vertical checklist with four boxes connected by arrows: “Binary?”, “Fixed n?”, “Independent?”, and “Constant p?”." width="333"></p>
+<figcaption>Binomial model checklist: Binary? → Fixed n? → Independent? → Constant p?</figcaption></figure>
+</div>
+</div></div>
+</section><section class="slide level2"><h2>If the Binomial Model Applies…</h2>
+<p>If:</p>
+<p><span class="math display">\[
+X \sim \text{Binomial}(n, p)
+\]</span></p>
+<p>Then we can compute the probability of any specific number of successes:</p>
+<p><span class="math display">\[
+\operatorname{Pr}[X = x]
+\]</span></p>
+<p>We need a formula that tells us:</p>
+<ol type="1">
+<li>How many ways can ( <span class="math inline">\(x\)</span> ) successes occur?</li>
+<li>What is the probability of each arrangement?</li>
+</ol></section><section class="slide level2"><h2>The <span class="keyword">Binomial Probability</span> Formula</h2>
+<p>For a binomial random variable:</p>
+<p><span class="math display">\[
+\operatorname{Pr}[X = x] =
+\binom{n}{x}
+p^{x}
+(1 - p)^{n - x}
+\]</span></p>
+<p>Where:</p>
 <ul>
-<li class="fragment"><p>A proportion is the fraction of individuals having a particular attribute. i.e.&nbsp;# successes divided by # trials</p></li>
-<li class="fragment"><p>A proportion is also the probability that any an individual randomly sampled from that population will have that attribute</p></li>
-</ul></section><section class="slide level2"><h2>Example: Murphy’s Law</h2>
+<li>
+<span class="math inline">\(\binom{n}{x}\)</span> = number of ways to have <span class="math inline">\(x\)</span> successes out of <span class="math inline">\(n\)</span> trials, read as “n choose x”
+<ul>
+<li>E.g. There are two ways to have one head when you flip a coin twice: a head then a tail, or a tail then a head</li>
+<li>Calculated as <span class="math inline">\(\frac{n!}{x!\times (n-x)!}\)</span>
+</li>
+<li>where <span class="math inline">\(n!=n \times (n-1) \times (n-2) \times \dots \times 2 \times 1\)</span>
+</li>
+</ul>
+</li>
+<li>
+<span class="math inline">\(p^{x}(1 - p)^{n - x}\)</span> = probability of any one specific arrangement</li>
+</ul></section><section class="slide level2"><h2>Back to our example</h2>
 <div class="goal">
 <p>Researchers found that 6101 of the 9821 slices of toast thrown in the air landed butter side down. What proportion of the slices landed butter side down? Is the deck stacked against us?</p>
 </div>
-<p>How would you test this?</p>
-</section><section class="slide level2"><h2>From proportions to the binomial</h2>
-<div class="goal">
-<p>Let’s use this estimated proportion as our <em>best estimate</em> for the true probability of landing butter side down. To make the math a little easier, let’s assume that the true probability that toast falls butter side down is 60%.</p>
-<p>Question: If three people drop their slice of toast, what is the probability that one falls butter side down and two fall butter side up?</p>
-</div>
-<p>HINT: Draw trees… Work on this for a few minutes</p>
-</section><section class="slide level2"><h2>From proportions to the binomial</h2>
-<p>First, draw a tree</p>
-
-<img data-src="images/clipboard-1578610557.png" class="r-stretch"></section><section class="slide level2"><h2>From proportions to the binomial</h2>
-<p>Then, work out probabilities</p>
-
-<img data-src="images/clipboard-3097927162.png" class="r-stretch"></section><section class="slide level2"><h2>From proportions to the binomial</h2>
-<p>Finally, count the ways to get the desired outcome</p>
-
-<img data-src="images/clipboard-3376899323.png" class="r-stretch"></section><section class="slide level2"><h2>From proportions to the binomial</h2>
-<p>Add up probabilities</p>
-<p><span class="math inline">\(3 \times (2/5\times 2/5\times 3/5)=0.288\)</span></p>
-
-<img data-src="images/clipboard-3376899323.png" class="r-stretch"></section><section class="slide level2 dark-theme center"><h2>THIS IS OLD NEWS FOR YOU, SO WHAT ELSE IS NEW?</h2>
-
-<img data-src="images/clipboard-3910873552.png" class="r-stretch"></section><section class="slide level2 dark-theme center" data-transition="concave" data-transition-speed="fast"><h2>THERE’S AN EASIER WAY: THE BINOMIAL DISTRIBUTION</h2>
-</section><section class="slide level2"><h2>The Binomial Distribution: Idea</h2>
 <ul>
-<li class="fragment"><p>The probability of a given number (X) of “successes” from a fixed number of n independent trials.</p></li>
-<li class="fragment"><p>E.g. If three people drop their slice of toast, what is the probability that one falls butter side down and two fall butter side up?</p></li>
-</ul></section><section class="slide level2"><h2>Probability of Successes</h2>
+<li>Let’s use this our estimated proportion as our <em>best estimate</em> for the true probability of landing butter side down: <span class="math inline">\(\hat p = 6101/9821\)</span>
+</li>
+</ul>
+<p>-Question: If three people drop their slice of toast, what is the probability that one falls butter side down and two fall butter side up? :::</p>
+</section><section class="slide level2"><h2>Using the formula</h2>
 <p>Of <span class="math inline">\(n\)</span> independent trials, each with probability of success <span class="math inline">\(p\)</span>, the probably of <span class="math inline">\(X\)</span> successes is given by:</p>
 <p><span class="math display">\[P[X]=\binom {n}{X}p^X(1-p)^{n-X}\]</span></p>
 <div class="fragment">
@@ -564,7 +617,7 @@ Bárbara D. Bitarello
 <p>[1]: In <code>R</code> “<em>Confidence intervals are obtained by a procedure first given in Clopper and Pearson (1934). This guarantees that the confidence level is at least conf.level, but in general does not give the shortest-length confidence intervals.</em>” (from <code><a href="https://rdrr.io/r/stats/binom.test.html">help(binom.test)</a></code> in <code>R</code>)</p>
 </div></aside></section><section class="slide level2"><h2>95% CIs for a proportion (2/)</h2>
 <ul>
-<li class="fragment">The book suggests the Agresti-Coull CIs:</li>
+<li>The book suggests the Agresti-Coull CIs:</li>
 </ul>
 <div class="fragment">
 <p><span class="math display">\[\bigg(p' - 1.96 \sqrt{\frac{p'(1-p')}{n+4}}\bigg) \leq p \leq \bigg(p' + 1.96 \sqrt{\frac{p'(1-p')}{n+4}}\bigg)\]</span></p>
