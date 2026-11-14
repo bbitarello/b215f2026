@@ -103,7 +103,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
-<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-53eea5c7920a879168013d53f1ddb3c1.css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-61de00be47f33701cfa1ba33729c5179.css">
 <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -224,9 +224,11 @@ Bárbara D. Bitarello
 </ul>
 </div><div class="column">
 <div class="cell">
+<pre><code>## Warning: The dot-dot notation (`..count..`) was deprecated in ggplot2 3.4.0.
+## ℹ Please use `after_stat(count)` instead.</code></pre>
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="5.3.Hypothesis-Testing_files/figure-revealjs/pvsCI-1.png" class="margin-caption" width="960"></p>
+<figure><p><img data-src="5.3.Hypothesis-Testing_files/figure-html/pvsCI-1.png" class="margin-caption" width="672"></p>
 </figure>
 </div>
 </div>
@@ -263,8 +265,12 @@ Bárbara D. Bitarello
 <ul>
 <li>This means that a deviation in either tail of the distribution would be worth reporting.</li>
 </ul>
+<div class="cell">
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.</code></pre>
 
-<img data-src="5.3.Hypothesis-Testing_files/figure-revealjs/myps-1.png" class="margin-caption r-stretch" width="960"></section><section id="one-sided-tests" class="slide level2"><h2>One-sided tests</h2>
+</div>
+<img data-src="5.3.Hypothesis-Testing_files/figure-html/myps-1.png" class="margin-caption r-stretch" width="672"></section><section id="one-sided-tests" class="slide level2"><h2>One-sided tests</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -293,7 +299,7 @@ Bárbara D. Bitarello
 <li>If one of the tails of the null distribution is nonsense, calculate a <span class="math inline">\(P\)</span>-value without it. We’ll see that <span class="math inline">\(\chi^2\)</span> tests and F-tests are usually 1-tailed.</li>
 </ul>
 
-<img data-src="5.3.Hypothesis-Testing_files/figure-revealjs/onetail-1.png" class="margin-caption r-stretch" width="960"></section><section id="when-in-doubt-use-a-two-tailed-test" class="slide level2"><h2>When in doubt, use a two-tailed test</h2>
+<img data-src="5.3.Hypothesis-Testing_files/figure-html/onetail-1.png" class="margin-caption r-stretch" width="672"></section><section id="when-in-doubt-use-a-two-tailed-test" class="slide level2"><h2>When in doubt, use a two-tailed test</h2>
 <ul>
 <li>When in doubt, use a two-tailed <span class="math inline">\(P\)</span>-value</li>
 <li>The relationship between <span class="math inline">\(P\)</span>-values and CIs is more straightforward</li>
@@ -446,28 +452,28 @@ Bárbara D. Bitarello
 <p>The exact relationship between several features of the experiment: the significance threshold (<span class="math inline">\(\alpha\)</span>), size of the expected effect, variation present in the population (variance), alternative hypothesis (one or two sided), and sample size.</p>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>sample.size <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">^</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>))</span>
-<span id="cb1-2"><a aria-label="2"></a><span class="fu">tibble</span>(<span class="at">p_reject =</span> <span class="fu">c</span>(<span class="fu">sapply</span>(sample.size, <span class="cf">function</span>(X) {</span>
-<span id="cb1-3"><a aria-label="3"></a>    <span class="fu">mean</span>(<span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">unlist</span>(<span class="fu">t.test</span>(<span class="fu">rnorm</span>(X), <span class="at">mu =</span> <span class="fl">0.3</span>)[<span class="st">"p.value"</span>]) <span class="sc">&lt;</span></span>
-<span id="cb1-4"><a aria-label="4"></a>        <span class="fl">0.05</span>))</span>
-<span id="cb1-5"><a aria-label="5"></a>}), <span class="fu">sapply</span>(sample.size, <span class="cf">function</span>(X) {</span>
-<span id="cb1-6"><a aria-label="6"></a>    <span class="fu">mean</span>(<span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">unlist</span>(<span class="fu">t.test</span>(<span class="fu">rnorm</span>(X), <span class="at">mu =</span> <span class="dv">0</span>)[<span class="st">"p.value"</span>]) <span class="sc">&lt;</span></span>
-<span id="cb1-7"><a aria-label="7"></a>        <span class="fl">0.05</span>))</span>
-<span id="cb1-8"><a aria-label="8"></a>}))) <span class="sc">|&gt;</span></span>
-<span id="cb1-9"><a aria-label="9"></a>    <span class="fu">mutate</span>(<span class="at">H_0 =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">" False"</span>, <span class="st">" True"</span>), <span class="at">each =</span> <span class="fu">length</span>(sample.size)),</span>
-<span id="cb1-10"><a aria-label="10"></a>        <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">" True"</span>, <span class="st">" False"</span>))) <span class="sc">|&gt;</span></span>
-<span id="cb1-11"><a aria-label="11"></a>    <span class="fu">mutate</span>(<span class="at">sample.size =</span> <span class="fu">rep</span>(sample.size, <span class="dv">2</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb1-12"><a aria-label="12"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sample.size, <span class="at">y =</span> p_reject, <span class="at">color =</span> H_0)) <span class="sc">+</span></span>
-<span id="cb1-13"><a aria-label="13"></a>    <span class="fu">geom_point</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb1-14"><a aria-label="14"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>H_0, <span class="at">labeller =</span> label_both) <span class="sc">+</span></span>
-<span id="cb1-15"><a aria-label="15"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">"log2"</span>) <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.05</span>) <span class="sc">+</span></span>
-<span id="cb1-16"><a aria-label="16"></a>    <span class="fu">theme_light</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="fu">expression</span>(Prob. <span class="sc">~</span> of <span class="sc">~</span></span>
-<span id="cb1-17"><a aria-label="17"></a>    rejecting <span class="sc">~</span> null <span class="sc">~</span> <span class="st">"("</span> <span class="sc">~</span> alpha <span class="sc">~</span> <span class="st">""</span> <span class="sc">==</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">")"</span>)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"The probability of reject the null hypothesis"</span>) <span class="sc">+</span></span>
-<span id="cb1-18"><a aria-label="18"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#0072B2"</span>, <span class="st">"#CC79A7"</span>)) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>sample.size <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">^</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>))</span>
+<span id="cb3-2"><a aria-label="2"></a><span class="fu">tibble</span>(<span class="at">p_reject =</span> <span class="fu">c</span>(<span class="fu">sapply</span>(sample.size, <span class="cf">function</span>(X) {</span>
+<span id="cb3-3"><a aria-label="3"></a>    <span class="fu">mean</span>(<span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">unlist</span>(<span class="fu">t.test</span>(<span class="fu">rnorm</span>(X), <span class="at">mu =</span> <span class="fl">0.3</span>)[<span class="st">"p.value"</span>]) <span class="sc">&lt;</span></span>
+<span id="cb3-4"><a aria-label="4"></a>        <span class="fl">0.05</span>))</span>
+<span id="cb3-5"><a aria-label="5"></a>}), <span class="fu">sapply</span>(sample.size, <span class="cf">function</span>(X) {</span>
+<span id="cb3-6"><a aria-label="6"></a>    <span class="fu">mean</span>(<span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">unlist</span>(<span class="fu">t.test</span>(<span class="fu">rnorm</span>(X), <span class="at">mu =</span> <span class="dv">0</span>)[<span class="st">"p.value"</span>]) <span class="sc">&lt;</span></span>
+<span id="cb3-7"><a aria-label="7"></a>        <span class="fl">0.05</span>))</span>
+<span id="cb3-8"><a aria-label="8"></a>}))) <span class="sc">|&gt;</span></span>
+<span id="cb3-9"><a aria-label="9"></a>    <span class="fu">mutate</span>(<span class="at">H_0 =</span> <span class="fu">factor</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">" False"</span>, <span class="st">" True"</span>), <span class="at">each =</span> <span class="fu">length</span>(sample.size)),</span>
+<span id="cb3-10"><a aria-label="10"></a>        <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">" True"</span>, <span class="st">" False"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb3-11"><a aria-label="11"></a>    <span class="fu">mutate</span>(<span class="at">sample.size =</span> <span class="fu">rep</span>(sample.size, <span class="dv">2</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb3-12"><a aria-label="12"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sample.size, <span class="at">y =</span> p_reject, <span class="at">color =</span> H_0)) <span class="sc">+</span></span>
+<span id="cb3-13"><a aria-label="13"></a>    <span class="fu">geom_point</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb3-14"><a aria-label="14"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>H_0, <span class="at">labeller =</span> label_both) <span class="sc">+</span></span>
+<span id="cb3-15"><a aria-label="15"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">"log2"</span>) <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.05</span>) <span class="sc">+</span></span>
+<span id="cb3-16"><a aria-label="16"></a>    <span class="fu">theme_light</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="fu">expression</span>(Prob. <span class="sc">~</span> of <span class="sc">~</span></span>
+<span id="cb3-17"><a aria-label="17"></a>    rejecting <span class="sc">~</span> null <span class="sc">~</span> <span class="st">"("</span> <span class="sc">~</span> alpha <span class="sc">~</span> <span class="st">""</span> <span class="sc">==</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">")"</span>)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"The probability of reject the null hypothesis"</span>) <span class="sc">+</span></span>
+<span id="cb3-18"><a aria-label="18"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#0072B2"</span>, <span class="st">"#CC79A7"</span>)) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
-<figure><p><img data-src="5.3.Hypothesis-Testing_files/figure-revealjs/unnamed-chunk-1-1.png" class="margin-caption" width="960"></p>
+<figure><p><img data-src="5.3.Hypothesis-Testing_files/figure-html/unnamed-chunk-1-1.png" class="margin-caption" width="672"></p>
 </figure>
 </div>
 </div>
@@ -521,7 +527,6 @@ Bárbara D. Bitarello
 </blockquote>
 </section></section><section><section id="to-be-continued" class="title-slide slide level1 center" data-visibility="uncounted"><h1>To be continued!</h1>
 
-</section><section id="example-astrology-and-health-conditions" class="slide level2"><h2>Example: astrology and health conditions</h2>
 </section><section id="acknowledgments-references" class="slide level2" data-visibility="uncounted"><h2>Acknowledgments &amp; References</h2>
 <ul>
 <li><p>Chris Merkord’s awesome course website <a href="https://chrismerkord.github.io/biol-275/" class="uri">https://chrismerkord.github.io/biol-275/</a></p></li>
@@ -742,41 +747,6 @@ Bárbara D. Bitarello
           RevealZoom
         ]
       });
-    </script><script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

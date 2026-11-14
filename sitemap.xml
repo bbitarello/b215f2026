@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://bbitarello.github.io/b215f2026/slides/6.1.Analyzing-Proportions.html</loc>
+    <lastmod>2026-11-14T03:27:45.065Z</lastmod>
+  </url>
+  <url>
     <loc>https://bbitarello.github.io/b215f2026/slides/5.3.Hypothesis-Testing.html</loc>
-    <lastmod>2026-11-11T19:17:38.460Z</lastmod>
+    <lastmod>2026-11-11T22:22:09.538Z</lastmod>
   </url>
   <url>
     <loc>https://bbitarello.github.io/b215f2026/slides/5.1.Hypothesis-Testing.html</loc>
@@ -78,7 +82,7 @@
   </url>
   <url>
     <loc>https://bbitarello.github.io/b215f2026/slides.html</loc>
-    <lastmod>2026-11-11T22:17:23.481Z</lastmod>
+    <lastmod>2026-11-14T03:33:00.525Z</lastmod>
   </url>
   <url>
     <loc>https://bbitarello.github.io/b215f2026/index.html</loc>
@@ -158,6 +162,10 @@
   </url>
   <url>
     <loc>https://bbitarello.github.io/b215f2026/slides/5.4.Hypothesis-Testing.html</loc>
-    <lastmod>2026-11-11T20:27:35.265Z</lastmod>
+    <lastmod>2026-11-12T22:13:17.699Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bbitarello.github.io/b215f2026/slides/draft-prob4.html</loc>
+    <lastmod>2026-10-22T18:04:23.710Z</lastmod>
   </url>
 </urlset>

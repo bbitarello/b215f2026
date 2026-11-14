@@ -103,7 +103,7 @@
     code span.vs { color: #abe338; } /* VerbatimString */
     code span.wa { color: #d4d0ab; font-style: italic; } /* Warning */
   </style>
-<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-53eea5c7920a879168013d53f1ddb3c1.css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-61de00be47f33701cfa1ba33729c5179.css">
 <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -221,73 +221,80 @@ Bárbara D. Bitarello
 </ul>
 <p>Posted on Moodle:</p>
 <ul>
-<li><p>Nuzzo, R (2014). Scientific method: Statistical errors. Nature 506, 150–152. <a href="https://www.nature.com/articles/506150a" class="uri">https://www.nature.com/articles/506150a</a></p></li>
-<li><p>Halsey L al (2015). The fickle P value generates irreproducible results. Nat Methods 12, 179–185. <a href="https://doi.org/10.1038/nmeth.3288" class="uri">https://doi.org/10.1038/nmeth.3288</a></p></li>
+<li><p>Nuzzo, R (2014)<a href="#/footnotes" class="footnote-ref" id="fnref1" role="doc-noteref" data-footnote-href="#/fn1" onclick=""><sup>1</sup></a></p></li>
+<li><p>Halsey et al (2015)<a href="#/footnotes" class="footnote-ref" id="fnref2" role="doc-noteref" data-footnote-href="#/fn2" onclick=""><sup>2</sup></a></p></li>
 </ul>
 
 <aside><div>
-<p>Also, I highly recommend this collection from <em>Nature</em>: Statistics for Biologists. <a href="https://www.nature.com/collections/qghhqm" class="uri">https://www.nature.com/collections/qghhqm</a></p>
+<p>Also, I highly recommend this collection from <em>Nature</em>: Statistics for Biologists<a href="#/footnotes" class="footnote-ref" id="fnref3" role="doc-noteref" data-footnote-href="#/fn3" onclick=""><sup>3</sup></a>.</p>
 </div></aside></section><section id="multiple-testing-example" class="slide level2"><h2>Multiple testing example</h2>
+
 <div class="goal">
-<p>In a study, authors searched through a health database of 10 million residents of Ontario, Canada, collecting their reason for admission into a hospital and their astrological sign. They then asked if people with certain astrological signs are more likely to be admitted to the hospital for certain conditions</p>
+<p>In a study<a href="#/footnotes" class="footnote-ref" id="fnref5" role="doc-noteref" data-footnote-href="#/fn5" onclick=""><sup>5</sup></a>, authors searched through a health database of 10 million residents of Ontario, Canada, collecting their reason for admission into a hospital and their astrological sign. They then asked if people with certain astrological signs are more likely to be admitted to the hospital for certain conditions<a href="#/footnotes" class="footnote-ref" id="fnref6" role="doc-noteref" data-footnote-href="#/fn6" onclick=""><sup>6</sup></a>.</p>
 </div>
+<div class="fragment">
 <p>Result: 72 diseases occurred more frequently in people with one astrological sign than in people with all other astrological signs, and this different was found to be statistically significant</p>
 <p><font color="#E54E21"> <strong>WOW!!!</strong> </font></p>
-
+</div>
 <aside><div>
-<p>Credit: This example was taken from the textbook Intuitive Biostatistics, Motulsky, 4th edition</p>
+<p>Ref<a href="#/footnotes" class="footnote-ref" id="fnref4" role="doc-noteref" data-footnote-href="#/fn4" onclick=""><sup>4</sup></a>.</p>
 </div></aside></section><section id="wow-right" class="slide level2"><h2>…Wow, right?</h2>
 <ul>
 <li>Their significant level going in was α = 0.05</li>
-<li>I.e., the null hypothesis is rejected if a result as or more extreme than the one observed occurs with p &lt; 0.05</li>
+<li>I.e., the null hypothesis is rejected if a result as or more extreme than the one observed occurs with <span class="math inline">\(P&lt;0.05\)</span>
+</li>
 <li>Conclusion: there is a conniving relationship between astrological sign and health outcomes of individuals…right?</li>
 </ul></section><section id="not-quite" class="slide level2"><h2>Not quite</h2>
 <ul>
-<li>Problem: Austin et al.&nbsp;looked at 233 conditions and 12 astrological signs, meaning they did 233 × 12 = 2,796 different hypothesis tests in this study</li>
+<li>Problem: The study looked at 233 conditions and 12 astrological signs, meaning they did 233 × 12 = 2,796 different hypothesis tests in this study</li>
 <li>Therefore: they would expect to find a false positive in <span class="math inline">\(0.05 \times 2796 = 139.75\)</span> times! In reality, they only found 72</li>
 <li>The result was not impressive at all!</li>
 <li>Note: this study was not an epic fail. It wasn’t looking at this relationship “for real” but rather the difficulty of interpreting statistical results.</li>
-</ul>
-
-<aside><div>
-<p>Austin et al.&nbsp;(2006).</p>
-</div></aside></section><section id="family-wise-error-rate-fwer" class="slide level2"><h2>Family-wise error rate (FWER)</h2>
+</ul></section><section id="family-wise-error-rate-fwer" class="slide level2"><h2>Family-wise error rate (FWER)</h2>
 <blockquote>
 <p>the probability that at least one of the tests produces a false positive when running 𝑚 tests of hypothesis each with a significance level 𝛼.</p>
 </blockquote>
-<p><span class="math display">\[Pr[&gt;=1\text{false pos.}]= FWER=1-(1-\alpha)^m\]</span></p>
+<p><span class="math display">\[Pr[&gt;=1\text{false pos.}]= FWER=1-(1-\alpha)^m\]</span> We know how to derive this. <span class="math inline">\(Pr[FP]=\alpha\)</span>, so the probability of at least one FP out of <span class="math inline">\(m\)</span> tests is:</p>
+<p><span class="math display">\[Pr[&gt;=1FP]=1-(1-\alpha)^m\]</span> This is the <span class="keyword">family-wise error rate (FWER)</span>.</p>
 </section><section id="plotting-fwer" class="slide level2"><h2>Plotting FWER</h2>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">N =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-2"><a aria-label="2"></a>    <span class="fu">mutate</span>(<span class="at">fwer =</span> (<span class="dv">1</span> <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">-</span> alpha)<span class="sc">^</span>N))</span>
-<span id="cb1-3"><a aria-label="3"></a></span>
-<span id="cb1-4"><a aria-label="4"></a><span class="co"># now do this for a few more alphas:</span></span>
-<span id="cb1-5"><a aria-label="5"></a>df <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(df, <span class="fu">tibble</span>(<span class="at">alpha =</span> <span class="fl">0.01</span>, <span class="at">N =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-6"><a aria-label="6"></a>    <span class="fu">mutate</span>(<span class="at">fwer =</span> (<span class="dv">1</span> <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">-</span> alpha)<span class="sc">^</span>N)), <span class="fu">tibble</span>(<span class="at">alpha =</span> <span class="fl">0.001</span>,</span>
-<span id="cb1-7"><a aria-label="7"></a>    <span class="at">N =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) <span class="sc">|&gt;</span></span>
-<span id="cb1-8"><a aria-label="8"></a>    <span class="fu">mutate</span>(<span class="at">fwer =</span> (<span class="dv">1</span> <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">-</span> alpha)<span class="sc">^</span>N)))</span>
-<span id="cb1-9"><a aria-label="9"></a></span>
-<span id="cb1-10"><a aria-label="10"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
-<span id="cb1-11"><a aria-label="11"></a>    <span class="fu">mutate</span>(<span class="at">alpha =</span> <span class="fu">factor</span>(alpha))</span>
-<span id="cb1-12"><a aria-label="12"></a><span class="co"># plot</span></span>
-<span id="cb1-13"><a aria-label="13"></a>plot1 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
-<span id="cb1-14"><a aria-label="14"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> N, <span class="at">y =</span> fwer, <span class="at">group =</span> alpha, <span class="at">color =</span> alpha)) <span class="sc">+</span></span>
-<span id="cb1-15"><a aria-label="15"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> alpha)) <span class="sc">+</span> <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb1-16"><a aria-label="16"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">10</span>) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"# independent tests"</span>) <span class="sc">+</span></span>
-<span id="cb1-17"><a aria-label="17"></a>    <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="dv">10</span>), <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>))</span>
-<span id="cb1-18"><a aria-label="18"></a>plot1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co"># create a tible for alpha=0.05, with</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="co"># number of tests ranging from 1-300,</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="co"># calculate fwer for each one</span></span>
+<span id="cb1-4"><a aria-label="4"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">N =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>,</span>
+<span id="cb1-5"><a aria-label="5"></a>    <span class="at">to =</span> <span class="dv">300</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a aria-label="6"></a>    <span class="fu">mutate</span>(<span class="at">fwer =</span> (<span class="dv">1</span> <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">-</span> alpha)<span class="sc">^</span>N))</span>
+<span id="cb1-7"><a aria-label="7"></a></span>
+<span id="cb1-8"><a aria-label="8"></a><span class="co"># now do the same for a few more alpha</span></span>
+<span id="cb1-9"><a aria-label="9"></a><span class="co"># values:</span></span>
+<span id="cb1-10"><a aria-label="10"></a>df <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(df, <span class="fu">tibble</span>(<span class="at">alpha =</span> <span class="fl">0.01</span>,</span>
+<span id="cb1-11"><a aria-label="11"></a>    <span class="at">N =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">300</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-12"><a aria-label="12"></a>    <span class="fu">mutate</span>(<span class="at">fwer =</span> (<span class="dv">1</span> <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">-</span> alpha)<span class="sc">^</span>N)), <span class="fu">tibble</span>(<span class="at">alpha =</span> <span class="fl">0.001</span>,</span>
+<span id="cb1-13"><a aria-label="13"></a>    <span class="at">N =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">300</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb1-14"><a aria-label="14"></a>    <span class="fu">mutate</span>(<span class="at">fwer =</span> (<span class="dv">1</span> <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">-</span> alpha)<span class="sc">^</span>N)))</span>
+<span id="cb1-15"><a aria-label="15"></a></span>
+<span id="cb1-16"><a aria-label="16"></a>df <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb1-17"><a aria-label="17"></a>    <span class="fu">mutate</span>(<span class="at">alpha =</span> <span class="fu">factor</span>(alpha))</span>
+<span id="cb1-18"><a aria-label="18"></a><span class="co"># plot</span></span>
+<span id="cb1-19"><a aria-label="19"></a>plot1 <span class="ot">&lt;-</span> df <span class="sc">|&gt;</span></span>
+<span id="cb1-20"><a aria-label="20"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> N, <span class="at">y =</span> fwer, <span class="at">group =</span> alpha,</span>
+<span id="cb1-21"><a aria-label="21"></a>        <span class="at">color =</span> alpha)) <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> alpha)) <span class="sc">+</span></span>
+<span id="cb1-22"><a aria-label="22"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">15</span>) <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">n.breaks =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb1-23"><a aria-label="23"></a>    <span class="fu">xlab</span>(<span class="st">"# independent tests"</span>) <span class="sc">+</span> <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> <span class="dv">120</span>),</span>
+<span id="cb1-24"><a aria-label="24"></a>    <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"FWER as a function of number of tests"</span>) <span class="sc">+</span></span>
+<span id="cb1-25"><a aria-label="25"></a>    <span class="fu">theme</span>(<span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>))</span>
+<span id="cb1-26"><a aria-label="26"></a>plot1 <span class="sc">+</span> <span class="fu">scale_color_discrete</span>(<span class="at">palette =</span> viridisLite<span class="sc">::</span><span class="fu">viridis</span>(<span class="at">n =</span> <span class="dv">4</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center margin-caption">
 <figure><p><img data-src="5.4.Hypothesis-Testing_files/figure-revealjs/fwer-1.png" class="margin-caption" width="960"></p>
-<figcaption>FWER: The probability of making at least one type I error in N independent tests. The vertical line shows those numbers for 3 different alphas (different colors) when 10 independent tests are carried out.</figcaption></figure>
+<figcaption>FWER: The probability of making at least one type I error in N independent tests. The vertical line shows those numbers for 3 different alphas (different colors) when 120 independent tests are carried out.</figcaption></figure>
 </div>
 </div>
 </div></div>
 </section><section id="fdr" class="slide level2"><h2>FDR</h2>
-<p>Franklin Delano Roosevelt? No!!!</p>
-<p><span class="keyword">False Discovery Rate!</span></p>
+<p>Franklin Delano Roosevelt? No!!! <span class="keyword">False Discovery Rate!</span></p>
 <blockquote>
 <p>Simply put, <span class="math inline">\(FDR = FP / (FP + TP)\)</span>, where <span class="math inline">\(FP\)</span>: false positive; <span class="math inline">\(TP\)</span>: true positive.</p>
 </blockquote>
@@ -295,50 +302,37 @@ Bárbara D. Bitarello
 <blockquote>
 <p>In what fraction of experiments that conclude an effect is statistically significant is the null hypothesis really true?</p>
 </blockquote>
+</section><section id="fdr-1" class="slide level2"><h2>FDR</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center margin-caption">
-<figure><p><img data-src="images/clipboard-2872513162.png" class="margin-caption"></p>
-<figcaption>From: https://www.serjeonstats.com</figcaption></figure>
-</div>
+<p><img data-src="images/clipboard-2872513162.png" class="margin-caption" width="478"></p>
 </div><div class="column" style="width:50%;">
-<p>Each large circle represents a set of tests corrected for family-wise error. Small squares are null effects, small circles are real effects. We have a total of 24 null rejections/significant effects (filled squares and circles), of which 3 are Type I errors (filled blue squares). So <span class="math inline">\(FDR=3/24=0.125\)</span></p>
+<p>Each large circle represents a set of tests corrected for family-wise error. Small squares are null effects, small circles are real effects. We have a total of 24 null rejections/significant effects (filled squares and circles), of which 3 are Type I errors (filled blue squares). So <span class="math inline">\(FDR=3/24=0.125\)</span>.</p>
 </div></div>
-</section><section id="controlling-fwer-x-fdr" class="slide level2"><h2>Controlling FWER x FDR</h2>
-<div class="quarto-figure quarto-figure-center margin-caption">
-<figure><div class="quarto-figure quarto-figure-center">
-<figure><p><a href="https://bookdown.org/mike/data_analysis/sec-false-discovery-rate.html#sec-false-discovery-rate"><img data-src="images/clipboard-2899040513.png" class="quarto-figure quarto-figure-center" alt="Table showing FDR vs FWER and their correction methods." width="800"></a></p>
+
+<aside><div>
+<p>Ref<a href="#/footnotes" class="footnote-ref" id="fnref7" role="doc-noteref" data-footnote-href="#/fn7" onclick=""><sup>7</sup></a>.</p>
+</div></aside></section><section id="controlling-fwer-x-fdr" class="slide level2"><h2>Controlling FWER x FDR</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="images/clipboard-2899040513.png" class="margin-caption quarto-figure quarto-figure-center" alt="Table showing FDR vs FWER and their correction methods." width="800"></p>
 </figure>
 </div>
-<figcaption>From: bookdown.org/mike/data_analysis/sec-false-discovery-rate.html</figcaption></figure>
-</div>
-</section><section id="bonferroni-correction" class="slide level2"><h2>Bonferroni correction</h2>
+
+<aside><div>
+<p>Ref <a href="#/footnotes" class="footnote-ref" id="fnref8" role="doc-noteref" data-footnote-href="#/fn8" onclick=""><sup>8</sup></a>.</p>
+</div></aside></section><section id="bonferroni-correction" class="slide level2"><h2>Bonferroni correction</h2>
 <ul>
 <li><p>The most widespread (albeit very conservative) is the Bonferroni correction</p></li>
-<li><p>rescaling of the significance level for a single test, <span class="math inline">\(\alpha_{1}\)</span>), to account for multiple tests being run simultaneously</p></li>
+<li><p>Rescaling of the significance level for a single test, <span class="math inline">\(\alpha_{1}\)</span>), to account for multiple tests (<span class="math inline">\(m\)</span>) being run simultaneously</p></li>
 </ul>
-<p><span class="math display">\[\alpha_{new}=\frac{\alpha_{orig}}{n}\]</span></p>
-</section><section id="when-to-use-fdr-correction" class="slide level2"><h2>When to use FDR correction</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><span class="keyword">Use FDR</span> correction when:<br></p>
+<p><span class="math display">\[\alpha_{new}=\frac{\alpha_{orig}}{m}\]</span></p>
 <ul>
-<li><p>You perform many hypothesis tests (e.g., genomics).</p></li>
-<li><p>You want to balance false positives and false negatives.</p></li>
-<li><p>Bonferroni is too strict, leading to low power.</p></li>
+<li>Relatedly, one can instead “fix the P-value”, by multiplying the raw <span class="math inline">\(P\)</span>-value by the number of tests.</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<p><span class="keyword">Do NOT use FDR</span> correction if:</p>
-<ul>
-<li><p>Strict control of any false positives is required (e.g., drug approval studies).</p></li>
-<li><p>There are only a few tests, in which case Bonferroni is appropriate.</p></li>
-</ul>
-</div></div>
-<ul>
-<li>In either case, always report your p-values as they are (e.g., <span class="math inline">\(p=0.0312\)</span> instead of <span class="math inline">\(p&lt;0.05\)</span>). If using corrected p-values to assess significance, make sure you say that clearly.</li>
-<li>The <code><a href="https://rdrr.io/r/stats/p.adjust.html">p.adjust()</a></code> function from base R performs both and also other types of corrections defined by the argument <code>methods</code>.</li>
-</ul></section><section id="in-r" class="slide level2"><h2>In R</h2>
-<div class="cell" data-output-position="column">
+<p><span class="math display">\[P_{bonf}=P_{raw}\times m\]</span> - The <code><a href="https://rdrr.io/r/stats/p.adjust.html">p.adjust()</a></code> does this (<code>p.adjust(x, method = "bonferroni")</code>) and also other types of corrections defined by the argument <code>methods</code>.</p>
+</section><section id="in-r" class="slide level2"><h2>In R</h2>
+<div class="cell columns column-output-location">
+<div class="column">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="co"># a vector of raw p-values</span></span>
 <span id="cb2-2"><a aria-label="2"></a>myalpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
 <span id="cb2-3"><a aria-label="3"></a><span class="fu">table</span>(PvalsRaw <span class="sc">&lt;</span> myalpha)</span>
@@ -346,8 +340,8 @@ Bárbara D. Bitarello
 <span id="cb2-5"><a aria-label="5"></a><span class="do">## FALSE  TRUE </span></span>
 <span id="cb2-6"><a aria-label="6"></a><span class="do">##     6     4</span></span>
 <span id="cb2-7"><a aria-label="7"></a></span>
-<span id="cb2-8"><a aria-label="8"></a><span class="co"># bonferroni correction: pcor=praw*m, where m is number of</span></span>
-<span id="cb2-9"><a aria-label="9"></a><span class="co"># comparisons.</span></span>
+<span id="cb2-8"><a aria-label="8"></a><span class="co"># bonferroni correction: pcor=praw*m,</span></span>
+<span id="cb2-9"><a aria-label="9"></a><span class="co"># where m is number of comparisons.</span></span>
 <span id="cb2-10"><a aria-label="10"></a></span>
 <span id="cb2-11"><a aria-label="11"></a>PvalsBonf <span class="ot">&lt;-</span> <span class="fu">p.adjust</span>(PvalsRaw, <span class="at">method =</span> <span class="st">"bonferroni"</span>)</span>
 <span id="cb2-12"><a aria-label="12"></a></span>
@@ -355,7 +349,8 @@ Bárbara D. Bitarello
 <span id="cb2-14"><a aria-label="14"></a>tib <span class="sc">|&gt;</span></span>
 <span id="cb2-15"><a aria-label="15"></a>    <span class="fu">arrange</span>(raw) <span class="sc">|&gt;</span></span>
 <span id="cb2-16"><a aria-label="16"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display margin-caption">
+</div><div class="column">
+<div class="cell-output-display">
 <div id="hjvaxdgoli" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#hjvaxdgoli table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -855,14 +850,17 @@ Bárbara D. Bitarello
 </table>
 </div>
 </div>
-</div>
+</div></div>
 </section><section id="in-r-1" class="slide level2"><h2>In R</h2>
-<div class="cell">
+<div class="cell columns column-output-location">
+<div class="column">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a>tib <span class="sc">|&gt;</span></span>
-<span id="cb3-2"><a aria-label="2"></a>    <span class="fu">group_by</span>(<span class="at">signif_after_adj =</span> raw <span class="sc">&lt;</span> myalpha <span class="sc">&amp;</span> bonf <span class="sc">&lt;=</span> myalpha) <span class="sc">|&gt;</span></span>
-<span id="cb3-3"><a aria-label="3"></a>    <span class="fu">tally</span>() <span class="sc">|&gt;</span></span>
-<span id="cb3-4"><a aria-label="4"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display margin-caption">
+<span id="cb3-2"><a aria-label="2"></a>    <span class="fu">group_by</span>(<span class="at">signif_after_adj =</span> raw <span class="sc">&lt;</span> myalpha <span class="sc">&amp;</span></span>
+<span id="cb3-3"><a aria-label="3"></a>        bonf <span class="sc">&lt;=</span> myalpha) <span class="sc">|&gt;</span></span>
+<span id="cb3-4"><a aria-label="4"></a>    <span class="fu">tally</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-5"><a aria-label="5"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<div class="cell-output-display">
 <div id="ssnqyesrbc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#ssnqyesrbc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1330,19 +1328,24 @@ Bárbara D. Bitarello
 </table>
 </div>
 </div>
-</div>
+</div></div>
 </section><section id="in-r-2" class="slide level2"><h2>In R</h2>
-<div class="cell" data-output-position="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="co"># a vector of raw p-values bh correction</span></span>
-<span id="cb4-2"><a aria-label="2"></a></span>
-<span id="cb4-3"><a aria-label="3"></a>PvalsBH <span class="ot">&lt;-</span> <span class="fu">p.adjust</span>(PvalsRaw, <span class="at">method =</span> <span class="st">"BH"</span>)</span>
-<span id="cb4-4"><a aria-label="4"></a><span class="co"># method = 'fdr' is the same</span></span>
-<span id="cb4-5"><a aria-label="5"></a></span>
-<span id="cb4-6"><a aria-label="6"></a>tib2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">raw =</span> PvalsRaw, <span class="at">bonf =</span> PvalsBonf, <span class="at">bh =</span> PvalsBH)</span>
-<span id="cb4-7"><a aria-label="7"></a>tib2 <span class="sc">|&gt;</span></span>
-<span id="cb4-8"><a aria-label="8"></a>    <span class="fu">arrange</span>(raw) <span class="sc">|&gt;</span></span>
-<span id="cb4-9"><a aria-label="9"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display margin-caption">
+<div class="cell columns column-output-location">
+<div class="column">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="co"># a vector of raw p-values bh</span></span>
+<span id="cb4-2"><a aria-label="2"></a><span class="co"># correction</span></span>
+<span id="cb4-3"><a aria-label="3"></a></span>
+<span id="cb4-4"><a aria-label="4"></a>PvalsBH <span class="ot">&lt;-</span> <span class="fu">p.adjust</span>(PvalsRaw, <span class="at">method =</span> <span class="st">"BH"</span>)</span>
+<span id="cb4-5"><a aria-label="5"></a><span class="co"># method = 'fdr' is the same</span></span>
+<span id="cb4-6"><a aria-label="6"></a></span>
+<span id="cb4-7"><a aria-label="7"></a>tib2 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">raw =</span> PvalsRaw, <span class="at">bonf =</span> PvalsBonf,</span>
+<span id="cb4-8"><a aria-label="8"></a>    <span class="at">bh =</span> PvalsBH)</span>
+<span id="cb4-9"><a aria-label="9"></a></span>
+<span id="cb4-10"><a aria-label="10"></a>tib2 <span class="sc">|&gt;</span></span>
+<span id="cb4-11"><a aria-label="11"></a>    <span class="fu">arrange</span>(raw) <span class="sc">|&gt;</span></span>
+<span id="cb4-12"><a aria-label="12"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<div class="cell-output-display">
 <div id="vlbzipszcn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#vlbzipszcn table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -1853,14 +1856,17 @@ Bárbara D. Bitarello
 </table>
 </div>
 </div>
-</div>
+</div></div>
 </section><section id="in-r-3" class="slide level2"><h2>In R</h2>
-<div class="cell" data-output-position="column">
+<div class="cell columns column-output-location">
+<div class="column">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a>tib2 <span class="sc">|&gt;</span></span>
-<span id="cb5-2"><a aria-label="2"></a>    <span class="fu">group_by</span>(<span class="at">signif_after_adj =</span> raw <span class="sc">&lt;</span> myalpha <span class="sc">&amp;</span> bh <span class="sc">&lt;=</span> myalpha) <span class="sc">|&gt;</span></span>
-<span id="cb5-3"><a aria-label="3"></a>    <span class="fu">tally</span>() <span class="sc">|&gt;</span></span>
-<span id="cb5-4"><a aria-label="4"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display margin-caption">
+<span id="cb5-2"><a aria-label="2"></a>    <span class="fu">group_by</span>(<span class="at">signif_after_adj =</span> raw <span class="sc">&lt;</span> myalpha <span class="sc">&amp;</span></span>
+<span id="cb5-3"><a aria-label="3"></a>        bh <span class="sc">&lt;=</span> myalpha) <span class="sc">|&gt;</span></span>
+<span id="cb5-4"><a aria-label="4"></a>    <span class="fu">tally</span>() <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a aria-label="5"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div><div class="column">
+<div class="cell-output-display">
 <div id="gdgkxyyktx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#gdgkxyyktx table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -2328,45 +2334,52 @@ Bárbara D. Bitarello
 </table>
 </div>
 </div>
-</div>
-</section><section id="in-summary-what-to-do-about-multiple-testing" class="slide level2 scrollable" data-visibility="uncounted"><h2>In summary: What to Do About Multiple Testing?</h2>
+</div></div>
+</section><section id="recommendations" class="slide level2"><h2>Recommendations</h2>
+<ul>
+<li>Always report your <span class="math inline">\(P\)</span>-values as they are (e.g., <span class="math inline">\(P=0.0312\)</span> instead of <span class="math inline">\(P&lt;0.05\)</span>).</li>
+<li>If using adjusted p-values to assess significance, make sure you say that clearly. E.g., <span class="math inline">\(P-adj = 0.03\)</span> (and make sure you explain what correction was implemented).</li>
+</ul>
+<p>Some real examples:</p>
+<blockquote>
+<p>“We observed decreasing but signifi- cant enrichments (P &lt; 0.0033, Bonferroni cor- rection for 15 comparisons) for SNPs in the first four percentiles of mammalian constraint scores” – ref<a href="#/footnotes" class="footnote-ref" id="fnref9" role="doc-noteref" data-footnote-href="#/fn9" onclick=""><sup>9</sup></a></p>
+</blockquote>
+<blockquote>
+<p>“Only SNPs that were observed in at least 50% of the participants for a given phenotype-sex combination were passed to the meta- analysis. SNPs were considered genome-wide significant at p-values smaller than <span class="math inline">\(5\times 10^-8\)</span> (<span class="math inline">\(\alpha\)</span> of of 5%, Bonferroni-corrected for a million tests).” – ref<a href="#/footnotes" class="footnote-ref" id="fnref10" role="doc-noteref" data-footnote-href="#/fn10" onclick=""><sup>10</sup></a></p>
+</blockquote>
+<aside></aside></section><section id="in-summary-what-to-do-about-multiple-testing" class="slide level2 scrollable" data-visibility="uncounted"><h2>In summary: What to Do About Multiple Testing?</h2>
 <p>We have a few options to guard against false negatives that arise from multiple testing.</p>
 <ol type="1">
 <li><p>Do Nothing: If you are simply exploring a data set and do not aim to make statistical statements, you can use P-values to guide further study.</p></li>
-<li><p>Use the Bonferroni correction: Use a stricter threshold by setting to a new significance threshold to <span class="math inline">\(\alpha/n\)</span> tests. This approach is too conservative for cases with many hypothesis tests.</p></li>
+<li><p>Use the Bonferroni correction: Use a stricter threshold by setting to a new significance threshold to <span class="math inline">\(\alpha/m\)</span> tests. This approach is too conservative for cases with many hypothesis tests.</p></li>
 <li><p>Consider FDR: Retain all significant results (at a given α threshold), and then work out the number of such significant results that would arise by chance under <span class="math inline">\(H_{0}\)</span>. You may apply a correction.</p></li>
 </ol></section><section id="p-values-q-a" class="slide level2"><h2>P-values: Q &amp; A</h2>
 <p><strong>Q: Can P values be negative?</strong> No.&nbsp;P values are fractions, so they are always between 0.0 and 1.0.</p>
 <p><strong>Q: Can a P value equal 1.0?</strong> A P value would equal 1.0 only in the rare case in which the treatment effect in your sample precisely equals the one defined by the null hypothesis. When a computer program reports that the P value is 1.0000, it often means that the P value is greater than 0.9999.</p>
 <p><strong>Q: Should P values be reported as fractions or percentages?</strong> By tradition, P values are always presented as fractions and never as percentages.</p>
 <p><strong>Q: Is a one-tailed P value always equal to half the two-tailed P value?</strong> Not always. Some sampling distributions are asymmetrical. Even if the distribution is symmetrical (as most are), the one-tailed P value is only equal to half the two-tailed value if you correctly predicted the direction of the difference (correlation, association, etc.) in advance. If the effect actually went in the opposite direction to your prediction, the one-tailed P will be &gt;0.5 and greater than the two-tailed P value.</p>
-</section><section><section id="thats-all-for-now" class="title-slide slide level1 center" data-visibility="uncounted"><h1>That’s all for now</h1>
-<p>Next: phylosophical/historical digression about NHST</p>
-</section><section id="philosophicalhistorical-digression-alert" class="slide level2"><h2>Philosophical/Historical Digression Alert</h2>
 
-<div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/clipboard-2625600572.png" class="margin-caption quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
 <aside><div>
-<p>Synonyms for Digression. (2016). Retrieved 2025, November 09, from <a href="https://thesaurus.plus/synonyms/digression" class="uri">https://thesaurus.plus/synonyms/digression</a></p>
-</div></aside></section><section id="p-values-are-not-very-reproducible" class="slide level2"><h2>P-values are not very reproducible</h2>
-<p>A reasonable definition of the <span class="math inline">\(P\)</span>-value is that it measures the strength of evidence against the null hypothesis. However, unless statistical power is very high (&gt;90%), the P value does not do this reliably.</p>
+<p>Ref<a href="#/footnotes" class="footnote-ref" id="fnref11" role="doc-noteref" data-footnote-href="#/fn11" onclick=""><sup>11</sup></a>.</p>
+</div></aside></section><section><section id="philosophicalhistorical-digression-alert" class="title-slide slide level1 center"><h1>Philosophical/Historical Digression Alert</h1>
+
+<img data-src="images/clipboard-2625600572.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" data-fig-cap="Figure from^[Synonyms for Digression. (2016). Retrieved 2025, November 09, from <https://thesaurus.plus/synonyms/digression>]"></section><section id="p-values-are-not-very-reproducible" class="slide level2"><h2>P-values are not very reproducible</h2>
+<p>A reasonable definition of the <span class="math inline">\(P\)</span>-value is that it measures the strength of evidence against the null hypothesis. However, unless statistical power is very high (&gt;90%), the <span class="math inline">\(P\)</span>-value does not do this reliably.</p>
 <div class="columns">
 <div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center margin-caption">
-<figure><p><a href="https://www.nature.com/articles/nmeth.3288"><img data-src="images/clipboard-1608105659.png" alt="Shows two normal distributions. The difference between the mean values is 0.5, which is the true (population) effect size. The standard deviation (the spread of values) of each population is 1." width="247"></a></p>
-<figcaption>The difference between the mean values is 0.5, which is the true (population) effect size. The standard deviation (the spread of values) of each population is 1. From: Halsey et al. (2015)</figcaption></figure>
+<figure><p><img data-src="images/clipboard-1608105659.png" class="margin-caption" alt="Shows two normal distributions. The difference between the mean values is 0.5, which is the true (population) effect size. The standard deviation (the spread of values) of each population is 1." width="247"></p>
+<figcaption>The difference between the mean values is 0.5, which is the true (population) effect size. The standard deviation (the spread of values) of each population is 1.</figcaption></figure>
 </div>
 </div><div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center margin-caption">
-<figure><p><a href="https://www.nature.com/articles/nmeth.3288#Sec1"><img data-src="images/clipboard-3026484271.png" alt="We drew samples of ten values at random from each of the populations A and B from Figure 1 to give four simulated comparisons. Horizontal lines denote the mean. We give the estimated effect size (the difference in the means) and the P value when the sample pairs are compared."></a></p>
+<figure><p><img data-src="images/clipboard-3026484271.png" class="margin-caption" alt="We drew samples of ten values at random from each of the populations A and B from Figure 1 to give four simulated comparisons. Horizontal lines denote the mean. We give the estimated effect size (the difference in the means) and the P value when the sample pairs are compared."></p>
 <figcaption>We drew samples of ten values at random from each of the populations A and B from Figure 1 to give four simulated comparisons. Horizontal lines denote the mean. We give the estimated effect size (the difference in the means) and the P value when the sample pairs are compared.</figcaption></figure>
 </div>
 </div></div>
 
 <aside><div>
-<p>From: Halsey et al.&nbsp;(2015) <a href="https://doi.org/10.1038/nmeth.3288" class="uri">https://doi.org/10.1038/nmeth.3288</a></p>
+<p>Ref<a href="#/footnotes" class="footnote-ref" id="fnref12" role="doc-noteref" data-footnote-href="#/fn12" onclick=""><sup>12</sup></a>.</p>
 </div></aside></section><section id="publication-bias" class="slide level2 scrollable"><h2>Publication bias</h2>
 <p>Hot take: Two main things determine if a scientific paper gets published in a respected journal</p>
 <ol type="1">
@@ -2403,23 +2416,31 @@ Bárbara D. Bitarello
 <td>Is there enough evidence to make a decision based on a conclusion that the eﬀect is not zero?</td>
 </tr>
 </tbody>
-</table></section><section id="mistake-believing-that-statistical-hypothesis-is-an-essential-part-of-statistical-analyses-1" class="slide level2"><h2>Mistake: believing that statistical hypothesis is an essential part of statistical analyses</h2>
+</table>
+
+<aside><div>
+<p>Ref<a href="#/footnotes" class="footnote-ref" id="fnref13" role="doc-noteref" data-footnote-href="#/fn13" onclick=""><sup>13</sup></a>.</p>
+</div></aside></section><section id="mistake-believing-that-statistical-hypothesis-is-an-essential-part-of-statistical-analyses-1" class="slide level2"><h2>Mistake: believing that statistical hypothesis is an essential part of statistical analyses</h2>
 <ul>
 <li>In many scientific situations, it is not necessary - and even counterproductive - to reach an all or nothing conclusion that a result is either statistically significant or not</li>
 <li>With P-values and CIs you can assess the scientific evidence without ever using the phrase “statistically significant”</li>
 <li>Stargazing: the process of over-emphasizing statistical significance.</li>
 <li>“Significosis”: a dreadful condition that leads afflicted individuals to fail to identify that just because something is unlikely to have occurred by chance doesn’t mean it’s important/relevant</li>
 <li>When reading the scientific literature, focus instead on the size of the association (difference, correlation etc) and its CI</li>
-</ul></section></section><section><section id="history-of-statistics" class="title-slide slide level1 center"><h1>History of statistics</h1>
+</ul>
+
+<aside><div>
+<p>Ref<a href="#/footnotes" class="footnote-ref" id="fnref14" role="doc-noteref" data-footnote-href="#/fn14" onclick=""><sup>14</sup></a>.</p>
+</div></aside></section></section><section><section id="history-of-statistics" class="title-slide slide level1 center"><h1>History of statistics</h1>
 <ul>
 <li>Modern statistics was in many ways an offshoot of evolutionary biology</li>
-<li>A lot of the methods used in frequentist statistics stem from Francis Galton, Karl Pearlson, and Ronal Fisher</li>
+<li>A lot of the methods used in frequentist statistics stem from Francis Galton, Karl Pearlson, and Ronald Fisher</li>
 </ul></section><section id="francis-galton" class="slide level2"><h2>Francis Galton</h2>
 <ul>
 <li>Studied correlations between parents/offspring for quantitative traits - height, weight, a measure of “intelligence” (later known as IQ test)</li>
-<li>The earliest challenge for the application of eugenics was to encourage marriages between individuals of presumed high intellectual calibre — something unacceptable as an official policy in most modern societies</li>
+<li>The earliest challenge for the application of eugenics was to encourage marriages between individuals of presumed high intellectual calibre — something unacceptable as an official policy in most modern societies - and sometimes referred to as “positive eugenics”<a href="#/footnotes" class="footnote-ref" id="fnref15" role="doc-noteref" data-footnote-href="#/fn15" onclick=""><sup>15</sup></a>.</li>
 <li>This original meaning was a very different concept (although historically intertwined) with what later became the Nazi policy</li>
-</ul></section><section id="ronald-fisher" class="slide level2"><h2>Ronald Fisher</h2>
+</ul><aside></aside></section><section id="ronald-fisher" class="slide level2"><h2>Ronald Fisher</h2>
 <ul>
 <li>UK statistician/eugenicist/geneticist who created many of the tools we use in statistics</li>
 <li>Fisher became enthusiastic about the potential for eugenics based on Mendelian inheritance</li>
@@ -2430,7 +2451,7 @@ Bárbara D. Bitarello
 </ul>
 
 <aside><div>
-<p>Sources: Evolution Institute; Bodmer et al.&nbsp;<a href="https://doi.org/10.1038/s41437-020-00394-6" class="uri">https://doi.org/10.1038/s41437-020-00394-6</a></p>
+<p>Sources: <a href="#/footnotes" class="footnote-ref" id="fnref16" role="doc-noteref" data-footnote-href="#/fn16" onclick=""><sup>16</sup></a> and <a href="#/footnotes" class="footnote-ref" id="fnref17" role="doc-noteref" data-footnote-href="#/fn17" onclick=""><sup>17</sup></a></p>
 </div></aside></section><section id="r.-fisher-cont." class="slide level2"><h2>R. Fisher (cont.)</h2>
 <ul>
 <li>Fisher’s primary concern was the genetic future of England should elite members of society (by which he included himself) fail to reproduce at the same level as the poor.</li>
@@ -2438,7 +2459,7 @@ Bárbara D. Bitarello
 </ul>
 
 <aside><div>
-<p>From: <a href="https://evolution-institute.org/ronald-fisher-is-not-being-cancelled-but-his-eugenic-advocacy-should-have-consequences">Evolution Institute</a>; Bodmer et al.&nbsp;(2021)</p>
+<p>Refs<a href="#/footnotes" class="footnote-ref" id="fnref18" role="doc-noteref" data-footnote-href="#/fn18" onclick=""><sup>18</sup></a> and <a href="#/footnotes" class="footnote-ref" id="fnref19" role="doc-noteref" data-footnote-href="#/fn19" onclick=""><sup>19</sup></a>.</p>
 </div></aside></section><section id="the-p-value-was-created-with-the-goal-of-encouraging-a-closer-look" class="slide level2"><h2>The P-value was created with the goal of encouraging a closer look</h2>
 <ul>
 <li>R. Fisher:Invented the P-value 100 years ago</li>
@@ -2447,11 +2468,11 @@ Bárbara D. Bitarello
 </ul>
 
 <aside><div>
-<p>Regine Nuzzo (2014).</p>
+<p>Ref<a href="#/footnotes" class="footnote-ref" id="fnref20" role="doc-noteref" data-footnote-href="#/fn20" onclick=""><sup>20</sup></a>.</p>
 </div></aside></section><section id="is-alpha-somewhat-arbitrary" class="slide level2"><h2>Is <span class="math inline">\(\alpha\)</span> (Somewhat) Arbitrary?</h2>
 <div class="columns">
 <div class="column" style="width:&quot;70%;">
-<p><img data-src="images/clipboard-41787503.png" class="margin-caption" alt="Funny comic about arbitrary significance thresholds in hypothesis testing."></p>
+<p><img data-src="images/clipboard-41787503.png" class="margin-caption" alt="Funny comic about arbitrary significance thresholds in hypothesis testing." width="404"></p>
 </div><div class="column" style="width:&quot;30%;">
 <p>“If all else fails use significance at the <span class="math inline">\(\alpha=0.05\)</span> level and hope no one notices”. <a href="https://xkcd.com/1478/" class="uri">https://xkcd.com/1478/</a></p>
 <div class="fragment">
@@ -2478,18 +2499,14 @@ Bárbara D. Bitarello
 <li>…people with less statistical knowledge started using this as the ultimate criterium</li>
 </ul>
 </div><div class="column">
-<div class="quarto-figure quarto-figure-center margin-caption">
-<figure><p><a href="https://notawfulandboring.blogspot.com/"><img data-src="images/clipboard-3639298022.png" alt="Freddie Mercury apparently feeling very accomplished by a p<0.05"></a></p>
-<figcaption>From: https://notawfulandboring.blogspot.com/</figcaption></figure>
-</div>
+<p><img data-src="images/clipboard-3639298022.png" class="margin-caption" alt="Freddie Mercury apparently feeling very accomplished by a p<0.05. From ref^[<https://notawfulandboring.blogspot.com/>]."></p>
 </div></div>
 </section><section id="two-philosophical-views-of-p-value" class="slide level2"><h2>Two philosophical views of P-value</h2>
 <p><strong>1) Absolutists</strong></p>
 <blockquote>
-<p>“Every time you say ‘trending towards significance’, a statistician somewhere trips and falls down.” – someone on twitter</p>
+<p>Every time you say ‘trending towards significance’, a statistician somewhere trips and falls down. – someone on twitter</p>
 </blockquote>
-<p>Consider statistics with nuance (e.g.&nbsp;“nearly statistically significant”) a sin</p>
-<p>Reject things like declaring a P-value much smaller than 0.05 “highly significant”</p>
+<p>Consider statistics with nuance (e.g.&nbsp;“nearly statistically significant”) a sin. Reject things like declaring a <span class="math inline">\(P\)</span>-value much smaller than 0.05 “highly significant”.</p>
 <div class="columns">
 <div class="column">
 <p><strong>Strengths:</strong></p>
@@ -2502,17 +2519,16 @@ Bárbara D. Bitarello
 <ul>
 <li>Is <span class="math inline">\(P=0.052\)</span> different from <span class="math inline">\(P=0.048\)</span>?</li>
 <li>Why is <span class="math inline">\(0.05\)</span> enough to reject the null but no <span class="math inline">\(0.051\)</span>?</li>
-<li>Risk of P hacking</li>
+<li>Risk of <em>P</em> hacking</li>
 </ul>
 </div></div>
 
 <aside><div>
-<p>From: http://notawfulandboring.blogspot.com/</p>
+<p>From<a href="#/footnotes" class="footnote-ref" id="fnref21" role="doc-noteref" data-footnote-href="#/fn21" onclick=""><sup>21</sup></a>.</p>
 </div></aside></section><section id="two-philosophical-views-of-p-value-1" class="slide level2"><h2>Two philosophical views of P-value</h2>
 <p><strong>2) Continualists</strong></p>
-<p>Consider the job of the P-value is to express the strength of evidence against the null hypothesis</p>
-<p>Reasoning: P-values as continuous variables that are prone to sampling error. If strength of evidence is continuous (rather than binary), our inferential conclusions should be too</p>
-<p>Report p-values (usually with CIs of sample statistic) and let reader interpret based on their level of skepticism.</p>
+<p>Consider the job of the P-value is to express the strength of evidence against the null hypothesis. Report p-values (usually with CIs of sample statistic) and let reader interpret based on their level of skepticism.</p>
+<p><u>Reasoning:</u> <span class="math inline">\(P\)</span>-values as continuous variables that are prone to sampling error. If strength of evidence is continuous (rather than binary), our inferential conclusions should be too</p>
 <div class="columns">
 <div class="column" style="width:60%;">
 <p><strong>Strengths</strong></p>
@@ -2526,28 +2542,44 @@ Bárbara D. Bitarello
 <li>Harder to remain objective and skeptical when one can keep looking for “trends”</li>
 </ul>
 </div></div>
+</section><section id="tldr" class="slide level2"><h2>Tl;dr</h2>
+<p>Whatever you do, stay honest.</p>
+<div class="r-fit-text">
 <p>As always, there is a trade-off. Just don’t change strategies after you run your tests.</p>
+</div>
 </section></section><section><section id="end-of-digression" class="title-slide slide level1 center" data-visibility="uncounted"><h1>END OF DIGRESSION</h1>
 
 </section><section id="acknowledgments-references" class="slide level2" data-visibility="uncounted"><h2>Acknowledgments &amp; References</h2>
 <ul>
 <li><p>Chris Merkord’s awesome course website <a href="https://chrismerkord.github.io/biol-275/" class="uri">https://chrismerkord.github.io/biol-275/</a></p></li>
 <li><p>Martha Smith’s blog: <a href="https://web.ma.utexas.edu/users/mks/statmistakes/misinterppvalues.html" class="uri">https://web.ma.utexas.edu/users/mks/statmistakes/misinterppvalues.html</a></p></li>
-<li><p><a href="http://notawfulandboring.blogspot.com/" class="uri">http://notawfulandboring.blogspot.com/</a></p></li>
-<li><p><a href="https://www.serjeonstats.com" class="uri">https://www.serjeonstats.com</a></p></li>
 <li><p>Yaniv Branvain and Michael Whitlock’s course materials</p></li>
-<li><p><a href="https://mike-data-analysis.share.connect.posit.cloud/basic-statistical-inference.html" class="uri">https://mike-data-analysis.share.connect.posit.cloud/basic-statistical-inference.html</a></p></li>
 <li><p>ABD, by Whitlock and Schluter, 3rd edition</p></li>
 <li><p>Intuitive Biostatistics, Motulsky, 4th edition</p></li>
-<li><p>Evolution Institute. <a href="https://evolution-institute.org/ronald-fisher-is-not-being-cancelled-but-his-eugenic-advocacy-should-have-consequences/" class="uri">https://evolution-institute.org/ronald-fisher-is-not-being-cancelled-but-his-eugenic-advocacy-should-have-consequences/</a></p></li>
-</ul></section><section id="acknowledgments-references-1" class="slide level2" data-visibility="uncounted"><h2>Acknowledgments &amp; References</h2>
-<ul>
-<li><p>Bodmer et al.&nbsp;(2021) <a href="https://doi.org/10.1038/s41437-020-00394-6" class="uri">https://doi.org/10.1038/s41437-020-00394-6</a></p></li>
-<li><p>Austin et al.&nbsp;(2006). Testing multiple statistical hypotheses resulted in spurious associations: a study of astrological signs and health. Journal of clinical epidemiology, 59(9), 964-969.</p></li>
-<li><p>Nuzzo, R (2014). Scientific method: Statistical errors. Nature 506, 150–152. <a href="https://www.nature.com/articles/506150a" class="uri">https://www.nature.com/articles/506150a</a></p></li>
-<li><p>Halsey L al (2015). The fickle P value generates irreproducible results. Nat Methods 12, 179–185. <a href="https://doi.org/10.1038/nmeth.3288" class="uri">https://doi.org/10.1038/nmeth.3288</a></p></li>
-<li><p>Hoenig and Heisey (2001)The abuse of power: the pervasive fallacy of power calculations for data analysis. The American Statistician, 55(1), 19-24.</p></li>
-</ul></section></section>
+</ul></section></section><section id="footnotes" class="footnotes footnotes-end-of-document smaller scrollable" role="doc-endnotes"><h2>Footnotes</h2>
+<ol>
+<li id="fn1"><p>Nuzzo (2014). Scientific method: Statistical errors. Nature 506, 150–152. &lt;https://www.nature.com/articles/506150a</p></li>
+<li id="fn2"><p>Halsey et al.&nbsp;(2015). The fickle P value generates irreproducible results. Nat Methods 12, 179–185. <a href="https://doi.org/10.1038/nmeth.3288" class="uri">https://doi.org/10.1038/nmeth.3288</a></p></li>
+<li id="fn3"><p>Statistics for Biologists. Nature. <a href="https://www.nature.com/collections/qghhqm" class="uri">https://www.nature.com/collections/qghhqm</a></p></li>
+<li id="fn4"><p>Intuitive Biostatistics, Motulsky, 4th edition</p></li>
+<li id="fn5"><p>Austin</p></li>
+<li id="fn6"><p>Austin et al.&nbsp;(2006). Testing multiple statistical hypotheses resulted in spurious associations: a study of astrological signs and health. Journal of clinical epidemiology, 59(9), 964-969.</p></li>
+<li id="fn7"><p><a href="https://www.serjeonstats.com" class="uri">https://www.serjeonstats.com</a></p></li>
+<li id="fn8"><p>A Guide on Data Analysis. <br><a href="https://mike-data-analysis.share.connect.posit.cloud/" class="uri">https://mike-data-analysis.share.connect.posit.cloud/</a></p></li>
+<li id="fn9"><p>Sullivan et al.(2023). Leveraging base-pair mammalian constraint to understand genetic variation and human disease. Science 380, 10.1126/science.abn2937.</p></li>
+<li id="fn10"><p>Mathieson et al.&nbsp;Genome-wide analysis identifies genetic effects on reproductive success and ongoing natural selection at the FADS locus. Nat Hum Behav 7, 790–801 (2023). <a href="https://doi.org/10.1038/s41562-023-01528-6" class="uri">https://doi.org/10.1038/s41562-023-01528-6</a></p></li>
+<li id="fn11"><p>Intuitive Biostatistics, Motulsky, 4th edition</p></li>
+<li id="fn12"><p>Halsey et al.&nbsp;(2015). The fickle P value generates irreproducible results. Nat Methods 12, 179–185. <a href="https://doi.org/10.1038/nmeth.3288" class="uri">https://doi.org/10.1038/nmeth.3288</a></p></li>
+<li id="fn13"><p>Intuitive Biostatistics, Motulsky, 4th edition</p></li>
+<li id="fn14"><p>Intuitive Biostatistics, Motulsky, 4th edition</p></li>
+<li id="fn15"><p>eugenics</p></li>
+<li id="fn16"><p>Bodmer et al.&nbsp;(2021). <a href="https://doi.org/10.1038/s41437-020-00394-6" class="uri">https://doi.org/10.1038/s41437-020-00394-6</a></p></li>
+<li id="fn17"><p>Evolution Institute. <a href="https://evolution-institute.org/ronald-fisher-is-not-being-cancelled-but-his-eugenic-advocacy-should-have-consequences">Ronald fisher is not being cancelled but his eugenic advocacy should have consequences</a></p></li>
+<li id="fn18"><p>Bodmer et al.&nbsp;(2021). <a href="https://doi.org/10.1038/s41437-020-00394-6" class="uri">https://doi.org/10.1038/s41437-020-00394-6</a></p></li>
+<li id="fn19"><p>Evolution Institute. <a href="https://evolution-institute.org/ronald-fisher-is-not-being-cancelled-but-his-eugenic-advocacy-should-have-consequences">Ronald fisher is not being cancelled but his eugenic advocacy should have consequences</a></p></li>
+<li id="fn20"><p>Nuzzo</p></li>
+<li id="fn21"><p>notBoring</p></li>
+</ol></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

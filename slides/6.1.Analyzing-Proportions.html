@@ -10,9 +10,9 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 <meta name="author" content="Bárbara D. Bitarello">
-<meta name="dcterms.date" content="2026-11-10">
-<meta name="keywords" content="Binomial test">
-<title>BIOL B215: Biostatistics with R – 6.1. Analysing proportions</title>
+<meta name="dcterms.date" content="2026-11-13">
+<meta name="keywords" content="Binomial; Module 3">
+<title>BIOL B215: Biostatistics with R – 6.1. Analyzing proportions</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -103,7 +103,7 @@
     code span.vs { color: #c2d94c; } /* VerbatimString */
     code span.wa { color: #f07178; } /* Warning */
   </style>
-<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2c3113f25bd5fd1ff23a352b0726428f.css">
+<link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-707cdf7cb6609b4e9a0188b776b80763.css">
 <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
 <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
 <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -121,6 +121,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -202,7 +203,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section class="quarto-title-block"><h1 class="title">6.1. Analysing proportions</h1>
+<section class="quarto-title-block"><h1 class="title">6.1. Analyzing proportions</h1>
   <p class="subtitle">The binomial test</p>
 
 <div class="quarto-title-authors">
@@ -213,7 +214,7 @@ Bárbara D. Bitarello
 </div>
 </div>
 
-  <p class="date">2026-11-10</p>
+  <p class="date">2026-11-13</p>
 </section><section class="slide level2"><h2>Key learning goals</h2>
 <ul>
 <li>Determine whether binary data follow a <span class="keyword">binomial</span> model</li>
@@ -231,20 +232,28 @@ Bárbara D. Bitarello
 <li><p>Some examples from ABD WS</p></li>
 </ul>
 <p>Thank you!</p>
-</section><section class="slide level2"><h2>Binary outcomes in biology are SUPER common</h2>
+</section><section class="slide level2"><h2>Outline</h2>
+<ul>
+<li>Binomial distribution</li>
+<li>Binomial test</li>
+<li>Binomial properties</li>
+<li>CI of a proportion</li>
+</ul></section><section class="slide level2"><h2>Binary outcomes in biology are SUPER common</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>Many biological variables have only two possible outcomes.</p>
-<p>These are called a <span class="keyword">binary variable</span> (or Bernoulli variable).</p>
+<blockquote>
+<p>The probability of the outcome of interest (e.g., success) is p, and the probability of the alternative outcome is 1 − p.&nbsp;These are called a <span class="keyword">binary variable</span> (or <span class="keyword">Bernoulli variable</span>).</p>
+</blockquote>
 <p>We record each observation as:</p>
 <ul>
-<li>1 = success</li>
-<li>0 = failure</li>
+<li>success (<span class="math inline">\(p\)</span>)</li>
+<li>failure (<span class="math inline">\(1-p\)</span>)</li>
 </ul>
 <p>Each observation is a single trial with two possible results.</p>
 </div><div class="column" style="width:50%;">
 <p>Examples:</p>
 <ul>
+<li>Coin toss</li>
 <li>Individual survives / dies</li>
 <li>Seed germinates / does not germinate</li>
 <li>Nest occupied / not occupied</li>
@@ -252,37 +261,28 @@ Bárbara D. Bitarello
 <li>Offspring male / female</li>
 </ul>
 </div></div>
-</section><section class="slide level2"><h2>Example</h2>
-<div class="goal">
-<p>Let’s use this estimated proportion as our <em>best estimate</em> for the true probability of landing butter side down. Question: If three people drop their slice of toast, what is the probability that one falls butter side down and two fall butter side up?</p>
-</div>
-<p>To make the math a little easier, I will round <span class="math inline">\(\hat p=6101/9821=0.62\sim 0.60\)</span></p>
-</section><section class="slide level2"><h2>Using a tree</h2>
-<p>Count the ways to get the desired outcome <span class="math inline">\(3 \times (2/5\times 2/5\times 3/5)=0.288\)</span></p>
-
-<img data-src="images/clipboard-3376899323.png" class="r-stretch"></section><section class="slide level2 dark-theme center"><h2>THIS IS OLD NEWS FOR YOU, SO WHAT ELSE IS NEW?</h2>
-
-<img data-src="images/clipboard-3910873552.png" class="r-stretch"></section><section class="slide level2 center"><h2>THERE’S AN EASIER WAY!</h2>
-</section><section class="slide level2"><h2>From a Single Trial to Many Trials</h2>
+</section><section class="slide level2"><h2>From single to many trials</h2>
+<blockquote>
+<p>To find the probabilities associated with outcomes of multiple Bernoulli trials, you use the <span class="keyword">binomial distribution</span>.</p>
+</blockquote>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:40%;">
 <p>Suppose we observe a binary outcome repeatedly.</p>
 <p>Let:</p>
-<p><span class="math display">\[ X = \text{number of successes in } n \text{ trials} \]</span></p>
+<p><span class="math display">\[ X = \text{nr. successes in } n \text{ trials} \]</span></p>
 <p>Now we are no longer modeling a single 0/1 outcome.</p>
-<p>We are modeling a count:</p>
-<ul>
-<li>How many successes occur in a fixed number of trials?</li>
-</ul>
-</div><div class="column" style="width:50%;">
+<p>We are modeling a count: how many successes occur in a fixed number of trials?</p>
+</div><div class="column" style="width:60%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/binomial-sample.png" alt="Eight circles arranged in a row: five blue circles representing successes and three orange circles representing failures. A key identifies the colors, and the labels &quot;X = 5&quot; and &quot;n = 8&quot; appear below the row."></p>
-<figcaption>Sample of eight binary trials showing five successes and three failures (X = 5, n = 8).</figcaption></figure>
+<figure><p><img data-src="6.1.Analyzing-Proportions_files/figure-revealjs/oneSamp-1.png" width="960"></p>
+<figcaption>Top, binomial distribution for 10 trials with p = 0.5; bottom, sample of ten binary trials showing six successes and four failures (X = 6, n = 10).</figcaption></figure>
+</div>
+</div>
 </div>
 </div></div>
-</section><section class="slide level2"><h2>When Does the <span class="keyword">Binomial Model</span> Apply?</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+</section><section class="slide level2 scrollable"><h2>When Does the <span class="keyword">Binomial Model</span> Apply?</h2>
 <p>A dataset follows a binomial model if:</p>
 <ol type="1">
 <li>There is a fixed number of trials ( <span class="math inline">\(n\)</span> )</li>
@@ -292,13 +292,7 @@ Bárbara D. Bitarello
 </ol>
 <p>If these conditions hold, then:</p>
 <p><span class="math display">\[ X \sim \text{Binomial}(n, p) \]</span></p>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="images/checklist.png" alt="A vertical checklist with four boxes connected by arrows: “Binary?”, “Fixed n?”, “Independent?”, and “Constant p?”." width="333"></p>
-<figcaption>Binomial model checklist: Binary? → Fixed n? → Independent? → Constant p?</figcaption></figure>
-</div>
-</div></div>
-</section><section class="slide level2"><h2>If the Binomial Model Applies…</h2>
+</section><section class="slide level2 scrollable"><h2>If the Binomial Model Applies…</h2>
 <p>If:</p>
 <p><span class="math display">\[
 X \sim \text{Binomial}(n, p)
@@ -311,7 +305,8 @@ X \sim \text{Binomial}(n, p)
 <ol type="1">
 <li>How many ways can ( <span class="math inline">\(x\)</span> ) successes occur?</li>
 <li>What is the probability of each arrangement?</li>
-</ol></section><section class="slide level2"><h2>The <span class="keyword">Binomial Probability</span> Formula</h2>
+</ol></section><section class="slide level2"><h2>The <span class="keyword">Binomial Probability Formula</span>
+</h2>
 <p>For a binomial random variable:</p>
 <p><span class="math display">\[
 \operatorname{Pr}[X = x] =
@@ -333,243 +328,619 @@ p^{x}
 </li>
 <li>
 <span class="math inline">\(p^{x}(1 - p)^{n - x}\)</span> = probability of any one specific arrangement</li>
-</ul></section><section class="slide level2"><h2>Back to our example</h2>
-<div class="goal">
-<p>Researchers found that 6101 of the 9821 slices of toast thrown in the air landed butter side down. What proportion of the slices landed butter side down? Is the deck stacked against us?</p>
-</div>
-<ul>
-<li>Let’s use this our estimated proportion as our <em>best estimate</em> for the true probability of landing butter side down: <span class="math inline">\(\hat p = 6101/9821\)</span>
-</li>
 </ul>
-<p>-Question: If three people drop their slice of toast, what is the probability that one falls butter side down and two fall butter side up? :::</p>
-</section><section class="slide level2"><h2>Using the formula</h2>
-<p>Of <span class="math inline">\(n\)</span> independent trials, each with probability of success <span class="math inline">\(p\)</span>, the probably of <span class="math inline">\(X\)</span> successes is given by:</p>
-<p><span class="math display">\[P[X]=\binom {n}{X}p^X(1-p)^{n-X}\]</span></p>
-<div class="fragment">
-<p>Let’s look at these parts separately</p>
-</div>
-</section><section class="slide level2"><h2>Probability of Successes</h2>
-<p><span class="math inline">\(\binom{n}{X}\)</span>: Binomial coefficient: describes the number of ways to get X successes in <span class="math inline">\(n\)</span> trials.</p>
-<div class="fragment">
-<p><span class="math inline">\(\binom {n}{X}=\frac{n!}{X!(n-X)!}\)</span></p>
-</div>
-<div class="fragment">
+<aside class="notes"><p>let’s break this down</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section class="slide level2"><h2>The binomial coefficient</h2>
+<p><span class="math inline">\(\binom{n}{x}\)</span>: Binomial coefficient: describes the number of ways to get <span class="math inline">\(x\)</span> successes in <span class="math inline">\(n\)</span> trials (“<span class="math inline">\(n\)</span> choose <span class="math inline">\(x\)</span>”).</p>
+<p><span class="math inline">\(\binom {n}{x}=\frac{n!}{x!(n-x)!}\)</span></p>
 <p><span class="math inline">\(n!=n\times (n-1) \times (n-2) ...\times 2 \times 1\)</span></p>
-<p>E.g. how many ways are there to toss 3 coins and get 1 tails.</p>
-<p><span class="math display">\[\binom {3}{1}=\frac{3!}{1!(2)!}\]</span> <span class="math display">\[\binom {3}{1}=3\]</span></p>
+<p>E.g. how many ways are there to toss 3 coins and get 1 tails (“3 choose 1”):</p>
+<p><span class="math display">\[\binom {3}{1}=\frac{3!}{1!(2)!}\]</span> <span class="math display">\[\binom {3}{1}=3\]</span> In R:</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co"># binom coef: 'n choose k' number of ways to get 1 success out of 3 trials (k</span></span>
+<span id="cb1-2"><a aria-label="2"></a><span class="co"># is a more common notation than X for the binomial coefficient.)</span></span>
+<span id="cb1-3"><a aria-label="3"></a><span class="fu">choose</span>(<span class="at">n =</span> <span class="dv">3</span>, <span class="at">k =</span> <span class="dv">1</span>)</span>
+<span id="cb1-4"><a aria-label="4"></a><span class="do">## [1] 3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section><section class="slide level2"><h2>Probability of successes</h2>
-<p><span class="math inline">\(P[X]\)</span>: The probability of observing <span class="math inline">\(X\)</span> successes in <span class="math inline">\(n\)</span> trials EQUALS</p>
+<p><span class="math inline">\(P[x]\)</span>: The probability of observing <span class="math inline">\(x\)</span> successes in <span class="math inline">\(n\)</span> trials EQUALS</p>
 <div class="fragment">
-<p><span class="math inline">\(\binom{n}{X}\)</span>: # ways to get <span class="math inline">\(X\)</span> successes from <span class="math inline">\(n\)</span> trials TIMES</p>
+<p><span class="math inline">\(\binom{n}{x}\)</span>: # ways to get <span class="math inline">\(x\)</span> successes from <span class="math inline">\(n\)</span> trials TIMES</p>
 </div>
 <div class="fragment">
-<p><span class="math inline">\(p^X(1-p)^{n-X}\)</span>: The probability of <span class="math inline">\(X\)</span> successes and by <span class="math inline">\(n – X\)</span> failures</p>
+<p><span class="math inline">\(p^X(1-p)^{n-x}\)</span>: The probability of <span class="math inline">\(X\)</span> successes and by <span class="math inline">\(n – x\)</span> failures.</p>
 </div>
-</section><section class="slide level2"><h2>So back to our toast example</h2>
+</section><section class="slide level2"><h2>Silly example</h2>
 <div class="goal">
-<p>Assume that the true probability that toast falls butter side down is 60%.</p>
-<p>Question: If three people drop their slice of toast, what is the probability that one falls butter side down and two fall butter side up?</p>
+<p>Suppose that the probability of a toast falling butter side down in 0.60. If three people drop their slice of toast, what is the probability that one falls butter side down and two fall butter side up?</p>
 </div>
 <div class="fragment">
-<p>Step 1: binomial coefficient</p>
-<p><span class="math inline">\(\binom {n}{X}=\frac{n!}{X!(n-X)!}\)</span></p>
+<p><span class="math inline">\(p = 0.60\)</span> (success)</p>
+<p><span class="math inline">\(1-p= 0.4\)</span> (failure)</p>
+<p>We need <span class="math inline">\(Pr[X=1]\)</span> in a binomial scenario with three trials and <span class="math inline">\(p=0.60\)</span>.</p>
 </div>
-<div class="fragment">
-<p><span class="math inline">\(\binom {3}{1}=\frac{3!}{1!(3-1)!}=\frac{3\times 2}{2}=3\)</span></p>
-<p>In R:</p>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a><span class="co"># binom coef.  k is a more common notation than X for the binomial coefficient.</span></span>
-<span id="cb1-2"><a aria-label="2"></a></span>
-<span id="cb1-3"><a aria-label="3"></a><span class="co"># 'n choose k' number of ways to get 1 success out of 3 trials</span></span>
-<span id="cb1-4"><a aria-label="4"></a></span>
-<span id="cb1-5"><a aria-label="5"></a><span class="fu">choose</span>(<span class="at">n =</span> <span class="dv">3</span>, <span class="at">k =</span> <span class="dv">1</span>)</span>
-<span id="cb1-6"><a aria-label="6"></a><span class="do">## [1] 3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+</section><section class="slide level2"><h2>One way: using a tree</h2>
+
+<img data-src="images/clipboard-3376899323.png" class="r-stretch"><div class="fragment">
+<p>Count the ways to get the desired outcome <span class="math inline">\(3 \times (2/5\times 2/5\times 3/5)=0.288\)</span></p>
 </div>
-</div>
-</section><section class="slide level2"><h2>Toast example (cont.)</h2>
-<p>Step 2: The probability of <span class="math inline">\(X\)</span> successes and <span class="math inline">\(n-X\)</span> failures</p>
-<p><span class="math inline">\(p^X(1-p)^{n-X}\)</span></p>
-<div class="fragment">
-<p><span class="math inline">\(0.60\times(1-0.60)^{3-1}=0.60\times 0.40^2=0.096\)</span></p>
-</div>
-<div class="fragment">
-<p>Putting it all together:</p>
-<p><span class="math inline">\(P[\text{1 successes}]=3\times0.096=0.288\)</span></p>
-<p><img data-src="images/clipboard-4269539214.png" width="368"></p>
+</section><section class="slide level2"><h2>Another way: Binomial Formula</h2>
+
+<img data-src="images/toast.png" width="368" class="r-stretch"><div class="fragment">
+<p>We get: <span class="math inline">\(P[x=1]=\frac{n!}{x!(n-x)!}\times 0.60\times0.40^2=\frac{3\times 2}{1\times 2}\times 0.096=3\times0.096=0.288\)</span></p>
 </div>
 </section><section class="slide level2"><h2>Toast example (in R)</h2>
 <p>“Manually”:</p>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">choose</span>(<span class="at">n =</span> <span class="dv">3</span>, <span class="at">k =</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fl">0.6</span> <span class="sc">*</span> (<span class="fl">0.4</span>)<span class="sc">^</span>(<span class="dv">2</span>)</span>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a aria-label="1"></a><span class="fu">choose</span>(<span class="at">n =</span> <span class="dv">3</span>, <span class="at">k =</span> <span class="dv">1</span>) <span class="sc">*</span> <span class="fl">0.6</span> <span class="sc">*</span> (<span class="fl">0.4</span>)<span class="sc">^</span>(<span class="dv">2</span>)</span>
 <span id="cb2-2"><a aria-label="2"></a><span class="do">## [1] 0.288</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
 </div>
 <p>Dedicated function:</p>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">prob =</span> <span class="fl">0.6</span>)</span>
-<span id="cb3-2"><a aria-label="2"></a><span class="do">## [1] 0.288</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a aria-label="1"></a><span class="co"># 'd' stands for 'density', as in 'probability density function'</span></span>
+<span id="cb3-2"><a aria-label="2"></a></span>
+<span id="cb3-3"><a aria-label="3"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">prob =</span> <span class="fl">0.6</span>)</span>
+<span id="cb3-4"><a aria-label="4"></a><span class="do">## [1] 0.288</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</section><section class="slide level2 dark-theme center"><h2>More problems!</h2>
-</section><section class="slide level2"><h2>Problem 2: A population of paradise flycatchers</h2>
-<div class="columns">
-<div class="column" style="width:70%;">
-<div class="goal">
-<p>The population has 80% brown males and 20% white.You capture 5 male flycatchers at random. What is the chance that 3 of those are brown and 2 are white?</p>
-</div>
-<p><span class="math inline">\(P[X]=\binom {n}{X}p^X(1-p)^{n-X}\)</span></p>
-<p><span class="math inline">\(\binom {n}{X}=\frac{n!}{X!(n-X)!}\)</span></p>
-<p>[work on this for a few minutes]</p>
-</div><div class="column" style="width:30%;">
-<p><img data-src="images/clipboard-4099991647.png" alt="decorative figure showing flycatcher birds"></p>
-</div></div>
-</section><section class="slide level2"><h2>Problem 2: Solution</h2>
-<p><span class="math inline">\(P[X]=\binom {n}{X}p^X(1-p)^{n-X}\)</span>$</p>
-<div class="fragment">
-<p><span class="math inline">\(\binom {n}{X}=\frac{n!}{X!(n-X)!}\)</span></p>
-<p><span class="math inline">\(\binom {n}{X}=\frac{5!}{3!(2)!}\)</span></p>
-<p><span class="math inline">\(P[2]=\frac{120}{12}\times 0.8^X(1-0.8)^{5-3}\)</span></p>
-<p><span class="math inline">\(=19 \times (0.8)^3\times (0.2)^2\)</span></p>
-<p><span class="math inline">\(=0.205\)</span></p>
-</div>
-</section><section class="slide level2"><h2>Problem 2: Solution in R</h2>
-<p>In R</p>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a><span class="co"># Manually</span></span>
-<span id="cb4-2"><a aria-label="2"></a>binom_coef <span class="ot">&lt;-</span> (<span class="dv">5</span> <span class="sc">*</span> <span class="dv">4</span> <span class="sc">*</span> <span class="dv">3</span> <span class="sc">*</span> <span class="dv">2</span>)<span class="sc">/</span>((<span class="dv">3</span> <span class="sc">*</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="dv">2</span>)</span>
-<span id="cb4-3"><a aria-label="3"></a>binom_coef <span class="sc">*</span> (<span class="fl">0.8</span><span class="sc">^</span><span class="dv">3</span>) <span class="sc">*</span> ((<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.8</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb4-4"><a aria-label="4"></a><span class="do">## [1] 0.2048</span></span>
-<span id="cb4-5"><a aria-label="5"></a><span class="co"># or</span></span>
-<span id="cb4-6"><a aria-label="6"></a>binom_coef2 <span class="ot">&lt;-</span> <span class="fu">choose</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">k =</span> <span class="dv">3</span>)</span>
-<span id="cb4-7"><a aria-label="7"></a>binom_coef2 <span class="sc">*</span> (<span class="fl">0.8</span><span class="sc">^</span><span class="dv">3</span>) <span class="sc">*</span> ((<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.8</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb4-8"><a aria-label="8"></a><span class="do">## [1] 0.2048</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-<p>Or:</p>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">3</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">prob =</span> <span class="fl">0.8</span>)</span>
-<span id="cb5-2"><a aria-label="2"></a><span class="do">## [1] 0.2048</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-</section><section class="slide level2"><h2>Problem 2: Solution in R</h2>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a aria-label="1"></a><span class="co"># notice that success can be either outcome: five birds, 3 brown, 2 white.</span></span>
-<span id="cb6-2"><a aria-label="2"></a><span class="co"># p(brown)=3/5, p(white)=2/5 brown as success</span></span>
-<span id="cb6-3"><a aria-label="3"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">3</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">prob =</span> <span class="fl">0.8</span>)</span>
-<span id="cb6-4"><a aria-label="4"></a><span class="do">## [1] 0.2048</span></span>
-<span id="cb6-5"><a aria-label="5"></a><span class="co"># white as success</span></span>
-<span id="cb6-6"><a aria-label="6"></a><span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">2</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">prob =</span> <span class="fl">0.2</span>)</span>
-<span id="cb6-7"><a aria-label="7"></a><span class="do">## [1] 0.2048</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-</section><section class="slide level2 dark-theme center"><h2>The binomial test</h2>
+</section><section class="slide level2"><h2>Properties of proportions: expectations</h2>
+<p>If there are <span class="math inline">\(x\)</span> successes in <span class="math inline">\(n\)</span> trials in a random sample, then the</p>
+<p><em>estimated proportion of successes</em> is:</p>
+<p><span class="math display">\[\hat p = \frac{x}{n}\]</span></p>
+<p><span class="math inline">\(\hat p\)</span>: The hat signals that this is an estimate</p>
+<p><span class="math inline">\(p\)</span>: The expected proportion of successes is the probability of success p</p>
+</section><section class="slide level2"><h2>Expected # successes of n trials</h2>
+<p>Expected successes in <span class="math inline">\(n\)</span> trials</p>
+<p><span class="math display">\[\Huge{\mu = n \times p}\]</span></p>
+<p><span class="math inline">\(\mu\)</span>: That’s right. Mean number of successes, aka, expected number of successes.</p>
+</section><section class="slide level2"><h2>The binomial test</h2>
 <div class="{r-fit-text}">
-<p>Testing <span class="math inline">\(H_0\)</span> that <span class="math inline">\(\hat p\)</span> comes</p>
-<p>from a population with proportion <span class="math inline">\(p_0\)</span></p>
+<p>Testing <span class="math inline">\(H_0\)</span> that <span class="math inline">\(\hat p\)</span> comes from a population with proportion <span class="math inline">\(p_0\)</span>.</p>
 </div>
-</section><section class="slide level2"><h2>Example: the toast is back!</h2>
-<div class="goal">
-<p>Researchers found that 6101 of the 9821 slices of toast thrown in the air landed butter side down.</p>
-<p>What is the probability that we would see a result this or more extreme if toast has a fifty-fifty chance of landing butter side down?</p>
-</div>
+<p>Let’s use our wrestlers example:</p>
+<blockquote>
+<p>Researchers found that 16 of the 20 rounds of wrestling in the 2004 Olympics were won by wrestlers wearing red (and 4 by those wearing blue). Colors were randomly assigned. What is the probability that we would see a result this or more extreme if red and blue-wearing wrestlers are equally likely to win?</p>
+</blockquote>
 <p><strong>State the hypotheses</strong></p>
-<div class="fragment">
-<p>Let’s define butter side down as a “success”</p>
-</div>
-<div class="fragment">
-<p>Null hypothesis (<span class="math inline">\(H_{0}\)</span>):</p>
-<p>The sample proportion comes from a population with a probability of success equal to <span class="math inline">\(p_0=0.5\)</span>.</p>
-<p>Alternate hypothesis (<span class="math inline">\(H_{A}\)</span>):</p>
-<p>The sample proportion comes from a population with a probability of success <span class="math inline">\(\neq p_0\)</span>.</p>
-</div>
+<p>Let’s define red win as “success”.</p>
+<p>Null hypothesis (<span class="math inline">\(H_{0}\)</span>): The sample comes from a population with a probability of success equal to <span class="math inline">\(p_0=0.5\)</span>.</p>
+<p>Alternate hypothesis (<span class="math inline">\(H_{A}\)</span>): The sample comes from a population with a probability of success <span class="math inline">\(\neq p_0\)</span>.</p>
 </section><section class="slide level2"><h2>Calculate test statistic:</h2>
-<p><span class="math inline">\(p_0 = .5\)</span>, <span class="math inline">\(n = 9821\)</span>, <span class="math inline">\(X = 6101\)</span></p>
-<p><span class="math inline">\(\hat p=\frac{X}{n}=\frac{6101}{9821}=0.62\)</span></p>
-</section><section class="slide level2"><h2>Generate the null &amp; Find P-value</h2>
-<p>Actually calculating P-value would look like this</p>
-<p><span class="math inline">\(9821-6101=3719\)</span></p>
-<p>Two-tailed P-value:</p>
-<p><span class="math inline">\(p = \sum_{X = 6101}^{X = 9821} {9821 \choose X} .5^X (.5)^{9821-X}\)</span></p>
-<p><span class="math inline">\(+\)</span></p>
-<p><span class="math inline">\(\sum_{X = 0}^{X = 3719}  {9821 \choose X} .5^X (.5)^{9821-X}\)</span></p>
-</section><section class="slide level2"><h2>We conducted a Binomial Test!</h2>
-<p>We reject <span class="math inline">\(H_0\)</span> &amp; conclude that toast is more likely to land butter side down than not</p>
-<p>👏 Congrats 👏 You already conducted a hypothesis test!</p>
+<p>Our estimate of p is <span class="math inline">\(\hat p=16/20=0.8\)</span> <span class="math inline">\(p_0 = 0.5\)</span>, <span class="math inline">\(n = 20\)</span>, <span class="math inline">\(x = 16\)</span></p>
+<p>We previously calculated <span class="math inline">\(P[X=1]\)</span>, but we could also calculate <span class="math inline">\(P[X=x]\)</span> for any value of <span class="math inline">\(x\)</span>. Together these probabilities form the binomial distribution.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div id="sauujvnjgi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sauujvnjgi table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-<img data-src="6.1.Analyzing-Proportions_files/figure-revealjs/binom-1.png" width="960" class="r-stretch"></section><section class="slide level2"><h2>
-<code>R</code> can make this even easier</h2>
-<div class="cell">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a>butter.down <span class="ot">&lt;-</span> <span class="dv">6101</span></span>
-<span id="cb7-2"><a aria-label="2"></a>slices <span class="ot">&lt;-</span> <span class="dv">9821</span></span>
-<span id="cb7-3"><a aria-label="3"></a>prop.down <span class="ot">&lt;-</span> butter.down<span class="sc">/</span>slices</span>
-<span id="cb7-4"><a aria-label="4"></a><span class="co">#</span></span>
-<span id="cb7-5"><a aria-label="5"></a><span class="fu">binom.test</span>(<span class="at">x =</span> butter.down, <span class="at">n =</span> slices, <span class="at">p =</span> <span class="fl">0.5</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
-<span id="cb7-6"><a aria-label="6"></a><span class="do">## </span></span>
-<span id="cb7-7"><a aria-label="7"></a><span class="do">##  Exact binomial test</span></span>
-<span id="cb7-8"><a aria-label="8"></a><span class="do">## </span></span>
-<span id="cb7-9"><a aria-label="9"></a><span class="do">## data:  butter.down and slices</span></span>
-<span id="cb7-10"><a aria-label="10"></a><span class="do">## number of successes = 6101, number of trials = 9821, p-value &lt; 2.2e-16</span></span>
-<span id="cb7-11"><a aria-label="11"></a><span class="do">## alternative hypothesis: true probability of success is not equal to 0.5</span></span>
-<span id="cb7-12"><a aria-label="12"></a><span class="do">## 95 percent confidence interval:</span></span>
-<span id="cb7-13"><a aria-label="13"></a><span class="do">##  0.6115404 0.6308273</span></span>
-<span id="cb7-14"><a aria-label="14"></a><span class="do">## sample estimates:</span></span>
-<span id="cb7-15"><a aria-label="15"></a><span class="do">## probability of success </span></span>
-<span id="cb7-16"><a aria-label="16"></a><span class="do">##              0.6212198</span></span>
-<span id="cb7-17"><a aria-label="17"></a><span class="co"># doing it 'manually'</span></span>
-<span id="cb7-18"><a aria-label="18"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="dv">6101</span><span class="sc">:</span><span class="dv">9821</span>, <span class="at">size =</span> <span class="dv">9821</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)) <span class="sc">+</span> <span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="dv">1</span><span class="sc">:</span>((<span class="dv">9821</span> <span class="sc">-</span> <span class="dv">6101</span>) <span class="sc">+</span> <span class="dv">1</span>),</span>
-<span id="cb7-19"><a aria-label="19"></a>    <span class="at">size =</span> <span class="dv">9821</span>, <span class="at">prob =</span> <span class="fl">0.5</span>))</span>
-<span id="cb7-20"><a aria-label="20"></a><span class="do">## [1] 1.390148e-128</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
+#sauujvnjgi thead, #sauujvnjgi tbody, #sauujvnjgi tfoot, #sauujvnjgi tr, #sauujvnjgi td, #sauujvnjgi th {
+  border-style: none;
+}
+
+#sauujvnjgi p {
+  margin: 0;
+  padding: 0;
+}
+
+#sauujvnjgi .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#sauujvnjgi .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#sauujvnjgi .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#sauujvnjgi .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#sauujvnjgi .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#sauujvnjgi .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sauujvnjgi .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#sauujvnjgi .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#sauujvnjgi .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#sauujvnjgi .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#sauujvnjgi .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#sauujvnjgi .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#sauujvnjgi .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#sauujvnjgi .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#sauujvnjgi .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#sauujvnjgi .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#sauujvnjgi .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#sauujvnjgi .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#sauujvnjgi .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sauujvnjgi .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#sauujvnjgi .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#sauujvnjgi .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#sauujvnjgi .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sauujvnjgi .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#sauujvnjgi .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#sauujvnjgi .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sauujvnjgi .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sauujvnjgi .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#sauujvnjgi .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sauujvnjgi .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#sauujvnjgi .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#sauujvnjgi .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#sauujvnjgi .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sauujvnjgi .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#sauujvnjgi .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#sauujvnjgi .gt_left {
+  text-align: left;
+}
+
+#sauujvnjgi .gt_center {
+  text-align: center;
+}
+
+#sauujvnjgi .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#sauujvnjgi .gt_font_normal {
+  font-weight: normal;
+}
+
+#sauujvnjgi .gt_font_bold {
+  font-weight: bold;
+}
+
+#sauujvnjgi .gt_font_italic {
+  font-style: italic;
+}
+
+#sauujvnjgi .gt_super {
+  font-size: 65%;
+}
+
+#sauujvnjgi .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#sauujvnjgi .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#sauujvnjgi .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#sauujvnjgi .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#sauujvnjgi .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#sauujvnjgi .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#sauujvnjgi .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#sauujvnjgi .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#sauujvnjgi div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+<table class="gt_table caption-top" data-quarto-bootstrap="false">
+<thead><tr class="gt_col_headings header">
+<th id="successes" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">successes</th>
+<th id="prob" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">prob</th>
+</tr></thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="successes">0</td>
+<td class="gt_row gt_right" headers="prob">9.536743e-07</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="successes">1</td>
+<td class="gt_row gt_right" headers="prob">1.907349e-05</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="successes">2</td>
+<td class="gt_row gt_right" headers="prob">1.811981e-04</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="successes">18</td>
+<td class="gt_row gt_right" headers="prob">1.811981e-04</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="successes">19</td>
+<td class="gt_row gt_right" headers="prob">1.907349e-05</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="successes">20</td>
+<td class="gt_row gt_right" headers="prob">9.536743e-07</td>
+</tr>
+</tbody>
+</table>
 </div>
-</section><section class="slide level2 dark-theme center"><h2>Properties of the binomial distribution</h2>
-</section><section class="slide level2"><h2>Expected # successes of n trials</h2>
-<p>Expected successes in <span class="math inline">\(n\)</span> trials</p>
-<p><span class="math display">\[\Huge{\mu = n \times p}\]</span></p>
-<p><span class="math inline">\(\mu\)</span>: That’s right. Mean number of successes, aka, expected number of successes.</p>
+</div>
+</div>
+</section><section class="slide level2"><h2>Generate the null &amp; Find P-value</h2>
 
-<aside><div>
-<p>Probability Trivia: A binomial with n = 1 is called a Bernoulli process. This will not be a factoid you need to know in this class, but you might hear it some time.</p>
-</div></aside></section><section class="slide level2"><h2>Binomial: Variability and Uncertainty</h2>
-<p>For counts:</p>
-<p><span class="math display">\[\text{population variance: } \sigma^2 = n \times p \times(1-p)\]</span></p>
-<p><span class="math display">\[\text{sample variance: }s^2 = n\times \hat p \times(1-\hat p)\]</span></p>
+<img data-src="6.1.Analyzing-Proportions_files/figure-revealjs/binom-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><p>Adding the two yellow tails gives us the two tailed <span class="math inline">\(P\)</span>-value<span class="math inline">\(=0.005908966+0.005908966= 0.01181793\)</span>.</p>
+</section><section class="slide level2"><h2>We conducted a Binomial Test!</h2>
+<p>Actually calculating <span class="math inline">\(P\)</span>-value would look like this:</p>
+<p>Two-tailed <span class="math inline">\(P\)</span>-value:</p>
+<p><span class="math inline">\(p = \sum_{X = 16}^{20} {20 \choose X} .5^{X} (.5)^{20-X}\)</span></p>
+<p><span class="math inline">\(+\)</span></p>
+<p><span class="math inline">\(\sum_{X = 0}^{4}{20 \choose X} .5^X (.5)^{20-X}\)</span></p>
+<p>Two tailed <span class="math inline">\(P\)</span>-value<span class="math inline">\(=0.005908966+0.005908966= 0.01181793\)</span></p>
+<p>Assuming we had decided on <span class="math inline">\(\alpha = 0.05\)</span>, we reject <span class="math inline">\(H_0\)</span> &amp; conclude that red-wearing wrestlers win more often (at least based on this sample).</p>
+</section><section class="slide level2"><h2>
+<code>R</code> can make this even easier</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>red <span class="ot">&lt;-</span> <span class="dv">16</span></span>
+<span id="cb4-2"><a aria-label="2"></a>blue <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb4-3"><a aria-label="3"></a>prop.red <span class="ot">&lt;-</span> red<span class="sc">/</span>(red <span class="sc">+</span> blue)</span>
+<span id="cb4-4"><a aria-label="4"></a><span class="co"># 'Manually'</span></span>
+<span id="cb4-5"><a aria-label="5"></a><span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">16</span><span class="sc">:</span><span class="dv">20</span>, <span class="at">size =</span> <span class="dv">20</span>, <span class="at">prob =</span> <span class="fl">0.5</span>)) <span class="sc">+</span> <span class="fu">sum</span>(<span class="fu">dbinom</span>(<span class="at">x =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">size =</span> <span class="dv">20</span>, <span class="at">prob =</span> <span class="fl">0.5</span>))  <span class="co">#p=0.01181793</span></span>
+<span id="cb4-6"><a aria-label="6"></a><span class="do">## [1] 0.01181793</span></span>
+<span id="cb4-7"><a aria-label="7"></a></span>
+<span id="cb4-8"><a aria-label="8"></a><span class="co"># Specialized function</span></span>
+<span id="cb4-9"><a aria-label="9"></a><span class="fu">binom.test</span>(<span class="at">x =</span> red, <span class="at">n =</span> red <span class="sc">+</span> blue, <span class="at">p =</span> <span class="fl">0.5</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span>
+<span id="cb4-10"><a aria-label="10"></a><span class="do">## </span></span>
+<span id="cb4-11"><a aria-label="11"></a><span class="do">##  Exact binomial test</span></span>
+<span id="cb4-12"><a aria-label="12"></a><span class="do">## </span></span>
+<span id="cb4-13"><a aria-label="13"></a><span class="do">## data:  red and red + blue</span></span>
+<span id="cb4-14"><a aria-label="14"></a><span class="do">## number of successes = 16, number of trials = 20, p-value = 0.01182</span></span>
+<span id="cb4-15"><a aria-label="15"></a><span class="do">## alternative hypothesis: true probability of success is not equal to 0.5</span></span>
+<span id="cb4-16"><a aria-label="16"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb4-17"><a aria-label="17"></a><span class="do">##  0.563386 0.942666</span></span>
+<span id="cb4-18"><a aria-label="18"></a><span class="do">## sample estimates:</span></span>
+<span id="cb4-19"><a aria-label="19"></a><span class="do">## probability of success </span></span>
+<span id="cb4-20"><a aria-label="20"></a><span class="do">##                    0.8</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section><section><section class="title-slide slide level1 center"><h1>Part 2: properties of proportions and confidence intervals</h1>
 
-<aside><div>
-<p>Note: Some textbooks use n-1 rather than n for the denominator of the standard error. Dividing by n-1 decreases bias, but yields estimates results that are further from the truth, on average.</p>
-</div></aside></section><section class="slide level2"><h2>Properties of proportions: expectations</h2>
-<p>If there are <span class="math inline">\(X\)</span> successes in <span class="math inline">\(n\)</span> trials in a random sample, then the</p>
-<p><em>estimated proportion of successes</em> is:</p>
-<p><span class="math display">\[\hat p = \frac{X}{n}\]</span></p>
-<p><span class="math inline">\(\hat p\)</span>: The hat signals that this is an estimate</p>
-<p><span class="math inline">\(p\)</span>: The expected proportion of successes is the probability of success p</p>
-</section><section class="slide level2"><h2></h2>
-
-<img data-src="images/clipboard-3661136366.png" class="r-stretch"></section><section class="slide level2 dark-theme center"><h2>Properties of the binomial distribution</h2>
-</section><section class="slide level2"><h2>Expected # successes of n trials</h2>
-<p>Expected successes in <span class="math inline">\(n\)</span> trials</p>
-<p><span class="math display">\[\Huge{\mu = n \times p}\]</span></p>
-<p><span class="math inline">\(\mu\)</span>: That’s right. Mean number of successes, aka, expected number of successes.</p>
-
-<aside><div>
-<p>Probability Trivia: A binomial with n = 1 is called a Bernoulli process. This will not be a factoid you need to know in this class, but you might hear it some time.</p>
-</div></aside></section><section class="slide level2"><h2>Binomial: Variability and Uncertainty</h2>
-<p>For counts:</p>
-<p><span class="math display">\[\text{population variance: } \sigma^2 = n \times p \times(1-p)\]</span></p>
-<p><span class="math display">\[\text{sample variance: }s^2 = n\times \hat p \times(1-\hat p)\]</span></p>
-
-<aside><div>
-<p>Note: Some textbooks use n-1 rather than n for the denominator of the standard error. Dividing by n-1 decreases bias, but yields estimates results that are further from the truth, on average.</p>
-</div></aside></section><section class="slide level2"><h2>Properties of proportions: expectations</h2>
-<p>If there are <span class="math inline">\(X\)</span> successes in <span class="math inline">\(n\)</span> trials in a random sample, then the</p>
-<p><em>estimated proportion of successes</em> is:</p>
-<p><span class="math display">\[\hat p = \frac{X}{n}\]</span></p>
-<p><span class="math inline">\(\hat p\)</span>: The hat signals that this is an estimate</p>
-<p><span class="math inline">\(p\)</span>: The expected proportion of successes is the probability of success p</p>
-</section><section class="slide level2"><h2>Sample size and standard error</h2>
-
-<img data-src="6.1.Analyzing-Proportions_files/figure-revealjs/sampdist-1.png" width="960" class="r-stretch"></section><section class="slide level2"><h2>Properties of Proportions: Variability</h2>
+</section><section class="slide level2"><h2>Properties of Proportions: Variability</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 36%">
@@ -584,66 +955,114 @@ p^{x}
 </tr>
 <tr class="even">
 <td>Standard deviation</td>
-<td><span class="math inline">\(\sigma=\sqrt(p(1-p))\)</span></td>
+<td><span class="math inline">\(\sigma=\sqrt{p(1-p)}\)</span></td>
 <td></td>
 </tr>
 <tr class="odd">
 <td>Sample variance</td>
-<td><span class="math inline">\(s^2=\hat p(1-\hat p)\)</span></td>
+<td><span class="math inline">\(s^2=\hat p(1- p)\frac{n}{n-1}\)</span></td>
 <td></td>
 </tr>
 <tr class="even">
 <td>Sample standard deviation</td>
-<td><span class="math inline">\(s=\sqrt{\hat p(1-\hat p)}\)</span></td>
+<td><span class="math inline">\(s=\sqrt{\hat p(1- p)}\frac{n}{n-1}\)</span></td>
 <td></td>
 </tr>
 </tbody>
 </table></section><section class="slide level2"><h2>Standard error of a proportion</h2>
-<p>Recall: the standard error of an estimate is always the standard deviation of its sampling distribution. If we know the real <span class="math inline">\(p\)</span> we can calculate it as:</p>
+<p>The standard deviation of the sampling distribution of <span class="math inline">\(\hat p\)</span> (designated by <span class="math inline">\(\sigma_{\hat p}\)</span>) is</p>
 <p><span class="math display">\[\sigma_{\hat p}=\sqrt{\frac{p(1-p)}{n}}\]</span></p>
-<p>Because <span class="math inline">\(p\)</span> is usually unknown, in practice we have:</p>
-<p><span class="math display">\[s_{\hat p}=\sqrt{\frac{\hat p(1-\hat p)}{n}}\]</span></p>
-
-<aside><div>
-<p>Note: Some textbooks use <span class="math inline">\(n-1\)</span> rather than n for the denominator of the standard error. Dividing by <span class="math inline">\(n-1\)</span> decreases bias, but yields estimates results that are further from the truth, on average.</p>
-</div></aside></section><section class="slide level2"><h2>95% CIs for a proportion (1/)</h2>
+<p>This is also called the standard error of <span class="math inline">\(p\)</span>. Because <span class="math inline">\(p\)</span> is usually unknown, in practice we have:</p>
+<p><span class="math display">\[SE_{\hat p}=\sqrt{\frac{\hat p(1-\hat p)}{n}}\]</span> # Confidence Interval for a proportion (it’s not normal) {.center}</p>
+</section><section class="slide level2"><h2>95% CIs for a proportion</h2>
 <ul>
-<li>For many parameter values, the binomial distribution is not symmetric about its mean. This is one reason why the 2 SE rule of thumb does not work for this.</li>
-<li>The 95% confidence interval of a proportion will enclose the true value of the proportion 95% of the time that it is calculated from new data.</li>
+<li>
+<span class="math inline">\(2SE\)</span> rule of thumb only works when sampling distribution is bell-shaped, which is <em>not</em> true for <span class="math inline">\(SE_{\hat p}\)</span>
+</li>
 <li>There are many ways to <em>approximate</em> the 95% CI of a proportion, and no consensus[1].</li>
+<li>A commonly used method called the “wald method” has been shown to not work well in some situations.</li>
+<li>We recommend the Agresti-Coull method:</li>
 </ul>
-
-<aside><div>
-<p>[1]: In <code>R</code> “<em>Confidence intervals are obtained by a procedure first given in Clopper and Pearson (1934). This guarantees that the confidence level is at least conf.level, but in general does not give the shortest-length confidence intervals.</em>” (from <code><a href="https://rdrr.io/r/stats/binom.test.html">help(binom.test)</a></code> in <code>R</code>)</p>
-</div></aside></section><section class="slide level2"><h2>95% CIs for a proportion (2/)</h2>
+<p><span class="math display">\[\bigg(p' - 1.96 \sqrt{\frac{p'(1-p')}{n+4}}\bigg) \leq p \leq \bigg(p' + 1.96 \sqrt{\frac{p'(1-p')}{n+4}}\bigg)\]</span> , where:</p>
+<p><span class="math display">\[p' = \frac{X+2}{n+4}\]</span> , where <span class="math inline">\(X\)</span> is the observed # of successes, and <span class="math inline">\(n\)</span> is the sample size or number of trials.</p>
+<aside class="notes"><p>[1]: In <code>R</code> “<em>Confidence intervals are obtained by a procedure first given in Clopper and Pearson (1934). This guarantees that the confidence level is at least conf.level, but in general does not give the shortest-length confidence intervals.</em>” (from <code><a href="https://rdrr.io/r/stats/binom.test.html">help(binom.test)</a></code> in <code>R</code>)</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside></section><section class="slide level2"><h2>Using the previous example: wrestlers</h2>
+<p><span class="math inline">\(\hat p = 16/20=0.8\)</span></p>
+<p>Standard error of <span class="math inline">\(\hat p\)</span>:</p>
+<p><span class="math inline">\(SE_\hat{p}=\sqrt{\frac{0.8(1-0.8)}{20}}=0.0894472\)</span></p>
+</section><section class="slide level2"><h2>Applying the Agresti-Coull method to calculate an approximate 95% confidence interval</h2>
+<div class="columns">
+<div class="column" style="width:25%;">
+<p>Uses an adjusted estimate <span class="math inline">\(p'\)</span> for constructing the interval</p>
+<p><span class="math display">\[
+p' = \frac{X + 2}{n + 4}\\=\frac{16+2}{20+4}\\=0.75
+\]</span></p>
+</div><div class="column" style="width:75%;">
+<p><span class="math display">\[
+p' - 1.96 \sqrt{\frac{p'(1 - p')}{n + 4}}\;&lt;\;p\;&lt;\;p' + 1.96 \sqrt{\frac{p'(1 - p')}{n + 4}}
+\]</span></p>
+<p><span class="math display">\[
+0.75 - 1.96 \sqrt{\frac{0.1875}{24}}\;&lt;\;p\;&lt;\;0.75 + 1.96 \sqrt{\frac{0.1875}{23}}
+\]</span></p>
+<p><span class="math display">\[
+0.75 - 1.96 \times  0.08838835\;&lt;\;p\;&lt;\;0.75 + 1.96 \times 0.08838835
+\]</span></p>
+<p><span class="math display">\[
+0.577\;&lt;\;p\;&lt;\;0.9232412
+\]</span></p>
+</div></div>
+</section><section class="slide level2"><h2>From Confidence Interval to Hypothesis Test</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>We estimated the proportion of red wins:</p>
 <ul>
-<li>The book suggests the Agresti-Coull CIs:</li>
+<li><span class="math inline">\(\hat{p} = 0.8\)</span></li>
+<li>95% CI ≈ (0.577, 0.923)</li>
 </ul>
-<div class="fragment">
-<p><span class="math display">\[\bigg(p' - 1.96 \sqrt{\frac{p'(1-p')}{n+4}}\bigg) \leq p \leq \bigg(p' + 1.96 \sqrt{\frac{p'(1-p')}{n+4}}\bigg)\]</span></p>
-<p><span class="math inline">\(p' = (X+2) / (n+4)\)</span>… where <span class="math inline">\(X  =\)</span> observed # of successes</p>
-
+</div><div class="column" style="width:60%;">
+<p>Now test:</p>
+<p><span class="math inline">\(H_0: p = 0.50\)</span><br><span class="math inline">\(H_A: p \ne 0.50\)</span></p>
+<p><strong>Question:</strong></p>
+<p>Does 0.50 fall inside the 95% confidence interval?</p>
+<p><strong>Conclusion:</strong></p>
+<p>Because 0.50 is not in the interval, we would reject <span class="math inline">\(H_0\)</span> at <span class="math inline">\(\alpha = 0.05\)</span>.</p>
+<p>The data suggest the proportion of red wins differs from 50%.</p>
+</div></div>
+</section><section class="slide level2"><h2>In R</h2>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="fu">library</span>(binom)  <span class="co">#specialized package</span></span>
+<span id="cb5-2"><a aria-label="2"></a><span class="co"># return CI for several methods. We can confirm our manual calculation:</span></span>
+<span id="cb5-3"><a aria-label="3"></a>binom<span class="sc">::</span><span class="fu">binom.confint</span>(<span class="at">x =</span> <span class="dv">16</span>, <span class="at">n =</span> <span class="dv">20</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">method =</span> <span class="st">"all"</span>)</span>
+<span id="cb5-4"><a aria-label="4"></a><span class="do">##           method  x  n      mean     lower     upper</span></span>
+<span id="cb5-5"><a aria-label="5"></a><span class="do">## 1  agresti-coull 16 20 0.8000000 0.5782364 0.9250885</span></span>
+<span id="cb5-6"><a aria-label="6"></a><span class="do">## 2     asymptotic 16 20 0.8000000 0.6246955 0.9753045</span></span>
+<span id="cb5-7"><a aria-label="7"></a><span class="do">## 3          bayes 16 20 0.7857143 0.6134811 0.9421974</span></span>
+<span id="cb5-8"><a aria-label="8"></a><span class="do">## 4        cloglog 16 20 0.8000000 0.5511456 0.9198179</span></span>
+<span id="cb5-9"><a aria-label="9"></a><span class="do">## 5          exact 16 20 0.8000000 0.5633860 0.9426660</span></span>
+<span id="cb5-10"><a aria-label="10"></a><span class="do">## 6          logit 16 20 0.8000000 0.5721531 0.9228665</span></span>
+<span id="cb5-11"><a aria-label="11"></a><span class="do">## 7         probit 16 20 0.8000000 0.5852912 0.9289199</span></span>
+<span id="cb5-12"><a aria-label="12"></a><span class="do">## 8        profile 16 20 0.8000000 0.5946321 0.9331375</span></span>
+<span id="cb5-13"><a aria-label="13"></a><span class="do">## 9            lrt 16 20 0.8000000 0.5946356 0.9331592</span></span>
+<span id="cb5-14"><a aria-label="14"></a><span class="do">## 10     prop.test 16 20 0.8000000 0.5573138 0.9338938</span></span>
+<span id="cb5-15"><a aria-label="15"></a><span class="do">## 11        wilson 16 20 0.8000000 0.5839826 0.9193423</span></span>
+<span id="cb5-16"><a aria-label="16"></a></span>
+<span id="cb5-17"><a aria-label="17"></a>binom<span class="sc">::</span><span class="fu">binom.confint</span>(<span class="at">x =</span> <span class="dv">16</span>, <span class="at">n =</span> <span class="dv">20</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>, <span class="at">method =</span> <span class="st">"agresti-coull"</span>)</span>
+<span id="cb5-18"><a aria-label="18"></a><span class="do">##          method  x  n mean     lower     upper</span></span>
+<span id="cb5-19"><a aria-label="19"></a><span class="do">## 1 agresti-coull 16 20  0.8 0.5782364 0.9250885</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<aside><div>
-<p>[1]: In <code>R</code> “<em>Confidence intervals are obtained by a procedure first given in Clopper and Pearson (1934). This guarantees that the confidence level is at least conf.level, but in general does not give the shortest-length confidence intervals.</em>” (from <code><a href="https://rdrr.io/r/stats/binom.test.html">help(binom.test)</a></code> in <code>R</code>)</p>
-</div></aside></section><section class="slide level2 dark-theme center"><h2>Approximations for the Binomial Test</h2>
-</section><section class="slide level2"><h2>Why?</h2>
-<p>• Adding up all the probabilities to obtain the exact p- value is pretty time-consuming</p>
-<p>• Because of that, two approximations for the p-value of a binomial test exist: the chi-square goodness-of-fit test (next topic) and the normal approximation to the binomial test</p>
-<p>• They can be useful and are very common.</p>
-<p>• In R you can implement the exact binomial test easily, though, as we saw</p>
-
-<aside><div>
-<p>If asked to conduct a binomial test by hand, you can use the chi-squared approximation to get a p-value</p>
-</div></aside></section><section class="slide level2"><h2>Key Points</h2>
-<p>• A proportion is an estimate of a probability.</p>
-<p>• The binomial distribution provides a clear example of building up from simple probability logic to mathematical models of probability.</p>
-<p>• The binomial test tests the null hypothesis that an estimated proportion comes from a population with a specified probability.</p>
-<p>• We can quantify the uncertainty in our estimate of the probability.</p>
-<p>Interactive App: https://shiny.rit.albany.edu/stat/binomial/</p>
 
 
-</section>
+</section></section>
 </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -685,7 +1104,7 @@ p^{x}
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: 'c/t',
+        slideNumber: 'c',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
