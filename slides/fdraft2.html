@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
+
+  <title>BIOL B215: Biostatistics with R – quarto-input2346de73e0b3bce7</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title"><div class="line-block">Lecture 10<br>
+Fitting Probability Models<br>
+to Frequency Data</div></h1>
+  <p class="subtitle">ABD 3e Chapter 8</p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="learning-objectives" class="slide level2">
+<h2>Learning Objectives</h2>
+<p>By the end of this lecture, you should be able to:</p>
+<ul>
+<li>Define frequency data and a proportional model.</li>
+<li>State the null and alternative hypotheses for a chi-squared goodness-of-fit test.</li>
+<li>Calculate expected counts under a specified probability model.</li>
+<li>Compute and interpret the chi-squared test statistic.</li>
+<li>Determine a <span class="math inline">\(P\)</span>-value or critical value and draw a conclusion.</li>
+<li>Evaluate whether the assumptions of the chi-squared test are met.</li>
+<li>Distinguish among the binomial test, chi-squared test for proportions, and chi-squared test of independence.</li>
+</ul>
+</section>
+<section id="when-do-observed-counts-match-what-we-expect" class="slide level2">
+<h2>When Do Observed Counts Match What We Expect?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>In biology, we often observe <strong>counts in categories</strong>:</p>
+<ul>
+<li>Births by day of week</li>
+<li>Genes on chromosomes</li>
+<li>Animals by habitat type</li>
+<li>Individuals by behavior</li>
+</ul>
+<p>But a key question is:</p>
+<blockquote>
+<p>Do the observed counts match what we would expect under a probability model?</p>
+</blockquote>
+<p>This is the central idea behind the <strong>chi-squared goodness-of-fit test</strong>.</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/observed-vs-expected.png" alt="Side-by-side panels labeled Observed and Expected, each showing teal and orange circles arranged in grids with different proportions to illustrate differences between observed counts and model-based expectations."></p>
+<figcaption>Conceptual illustration of the discrepancy between observed category counts and counts predicted under a probability model, the quantity summarized by the chi-squared goodness-of-fit statistic.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="what-is-frequency-data" class="slide level2">
+<h2>What is Frequency Data?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="keyword">Frequency data</span> = counts of observations in each category of a single categorical variable.</p>
+<ul>
+<li>One variable</li>
+<li>Several levels (categories)</li>
+</ul>
+<p>Each row in the table tells us:</p>
+<ul>
+<li>How many observations fall into that category?</li>
+</ul>
+<div class="caption-text">
+<p>Frequency table showing the activities of 88 people at the time they were attacked and killed by tigers near Chitwan National Park, Nepal, from 1979 to 2006 (Table 2.2-1, Whitlock &amp; Schluter 2015)</p>
+</div>
+</div><div class="column" style="width:50%;">
+<div style="font-size: 80%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 58%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Activity</th>
+<th>Frequency (number of people)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Collecting grass or fodder for livestock</td>
+<td>44</td>
+</tr>
+<tr class="even">
+<td>Collecting non-timber forest products</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td>Fishing</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>Herding livestock</td>
+<td>7</td>
+</tr>
+<tr class="odd">
+<td>Disturbing tiger at its kill</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>Collecting fuel wood or timber</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td>Sleeping in a house</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>Walking in forest</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>Using an outside toilet</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td>88</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
+</section>
+<section id="and-what-is-a-model" class="slide level2">
+<h2>And what is a model?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>A <span class="keyword">model</span> is a simplified description of a system used to:</p>
+<ul>
+<li>Explain patterns</li>
+<li>Make predictions</li>
+<li>Test ideas</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Types of models:</p>
+<ul>
+<li><strong>Physical model</strong> – tangible representation</li>
+<li><strong>Verbal model</strong> – conceptual explanation</li>
+<li><strong>Mathematical model</strong> – uses equations or probabilities to make precise predictions</li>
+</ul>
+<p>In this course, we focus on <strong>probability models</strong>.</p>
+</div></div>
+</section>
+<section id="probability-model-definition" class="slide level2 statement-slide" data-menu-title="What is a probability model">
+<h2></h2>
+<p>A <span class="keyword">probability model</span> describes how likely various outcomes are</p>
+</section>
+<section id="example-of-a-probability-model-binomial-model-for-spermatogenesis-genes" class="slide level2">
+<h2>Example of a probability model: binomial model for spermatogenesis genes</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Number of genes on chromosomes should be <strong>proportional</strong> to their length.</li>
+<li>Long chromosome → more genes.</li>
+<li>X chromosome is short → should have few genes.</li>
+<li>If spermatogenesis genes were randomly distributed throughout the genome, the X chromosome should have relatively few (≈ 1.5 genes).</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/mouse-spermatogenesis-genome.jpg"></p>
+<figcaption>Cartoon of the mouse genome. Blue ovals represent spermatogenesis genes. Lines represent chromosomes and are proportional in length to real life. Whitlock &amp; Schluter (2015)</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="the-proportional-model" class="slide level2">
+<h2>The proportional model</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>In many biological problems, the null hypothesis assumes that outcomes occur in fixed proportions.</p>
+<p>A <span class="keyword">proportional model</span> states that:</p>
+<ul>
+<li>Each category has an <strong>expected proportion</strong>.</li>
+<li>The <strong>expected number</strong> of observations in each category depends on:
+<ul>
+<li>The total sample size</li>
+<li>The proportion assigned to that category.</li>
+</ul></li>
+</ul>
+<p>We compare observed counts to these expected counts.</p>
+<p>The <strong>binomial model</strong> is a <em>special case</em> with two categories.</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/habitat-availability.png" alt="Rectangular map divided into green forest and yellow grassland areas, with several small irregular blue wetland patches scattered across the landscape and labeled with percentage cover."></p>
+<figcaption>Habitat availability across a landscape showing forest (50%), grassland (30%), and wetlands (20%) as the expected proportions under a proportional model.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="example-a-proportional-model-with-more-than-two-categories" class="slide level2">
+<h2>Example: A Proportional Model with More Than Two Categories</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Observed data: number of births on each day of the week.</p>
+<p>Null hypothesis (proportional model):</p>
+<ul>
+<li>Births are equally likely on each day.</li>
+<li>Each day should account for about one-seventh of all births.</li>
+</ul>
+<p>If the model is correct:</p>
+<ul>
+<li>Observed frequencies should be close to equal.</li>
+<li>Large deviations suggest the model may not fit.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Do these data appear consistent with equal proportions?</p>
+<p><span class="math inline">\(n=350\)</span> births in the U.S. in 1999</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/births-day-of-week.jpg" alt="Bar chart showing frequency of births for each day of the week from Sunday through Saturday, with counts varying across days rather than being equal."></p>
+<figcaption>Observed number of births by day of the week, used to evaluate whether the distribution is consistent with equal proportions under a proportional model. A random sample of 350 births in the U.S. in 1999. Source: The U.S. National Center for Health Statistics, Ventural et al. (2001)</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="the-chi-squared-goodness-of-fit-test" class="slide level2">
+<h2>The Chi-Squared Goodness-of-Fit Test</h2>
+<p>The <span class="keyword">chi-squared goodness-of-fit test</span> evaluates whether <strong>observed frequency data</strong> are consistent with a specified <strong>probability model</strong>.</p>
+<p>It is used when:</p>
+<ul>
+<li>We have one categorical variable.</li>
+<li>We have counts in two or more categories.</li>
+<li>The null hypothesis specifies expected proportions.</li>
+</ul>
+<p>It asks:</p>
+<blockquote>
+<p>Are the observed frequencies close enough to what the model predicts?</p>
+</blockquote>
+</section>
+<section id="step-1-state-the-null-model" class="slide level2">
+<h2>Step 1: State the Null Model</h2>
+<p>Example: births by day of the week</p>
+<ul>
+<li><p>Null hypothesis (proportional model):</p>
+<p><span class="math inline">\(H_0\)</span>: Births are <strong>equally likely</strong> on each day of the week.</p></li>
+<li><p>Alternative hypothesis:</p>
+<p><span class="math inline">\(H_A\)</span>: Births are <strong>not equally likely</strong> on each day of the week.</p></li>
+</ul>
+</section>
+<section id="to-compute-expected-frequencies-we-use-the-proportions-specified-by-the-null-model" class="slide level2">
+<h2>To compute expected frequencies, we use the proportions specified by the null model</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Important: These data come from a single calendar year (1999)
+<ul>
+<li>1999 had 365 days.</li>
+<li>Not every day of the week occurred exactly 1/7 of the time</li>
+<li>Friday occurred 53 times; all other days occurred 52 times</li>
+</ul></li>
+<li>Under <span class="math inline">\(H_0\)</span>:
+<ul>
+<li><p>Expected proportion for a day = (number of that day in 1999) / 365</p></li>
+<li><p>Expected count = total births × that proportion</p></li>
+<li><p>Proportions are therefore not exactly 1/7</p></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Day</th>
+<th>Number of days in 1999</th>
+<th>Proportion of days in 1999</th>
+<th>Expected frequency of births</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sunday</td>
+<td>52</td>
+<td>52/365</td>
+<td>49.863</td>
+</tr>
+<tr class="even">
+<td>Monday</td>
+<td>52</td>
+<td>52/365</td>
+<td>49.863</td>
+</tr>
+<tr class="odd">
+<td>Tuesday</td>
+<td>52</td>
+<td>52/365</td>
+<td>49.863</td>
+</tr>
+<tr class="even">
+<td>Wednesday</td>
+<td>52</td>
+<td>52/365</td>
+<td>49.863</td>
+</tr>
+<tr class="odd">
+<td>Thursday</td>
+<td>52</td>
+<td>52/365</td>
+<td>49.863</td>
+</tr>
+<tr class="even">
+<td>Friday</td>
+<td>53</td>
+<td>53/365</td>
+<td>50.822</td>
+</tr>
+<tr class="odd">
+<td>Saturday</td>
+<td>52</td>
+<td>52/365</td>
+<td>49.863</td>
+</tr>
+<tr class="even">
+<td><strong>Sum</strong></td>
+<td><strong>365</strong></td>
+<td><strong>1</strong></td>
+<td><strong>350</strong></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="measuring-discrepancy" class="slide level2">
+<h2>Measuring discrepancy</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We need a way to measure the discrepancy between:</p>
+<ul>
+<li>Observed frequencies (data)</li>
+<li>Expected frequencies (null hypothesis)</li>
+</ul>
+<p>The <span class="keyword">chi-square statistic</span> measures total discrepancy across all categories.</p>
+<p><span class="math display">\[
+\chi^2 = \sum \frac{(O - E)^2}{E}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p>For each category:</p>
+<ul>
+<li>Subtract expected from observed<br>
+</li>
+<li>Square the difference<br>
+</li>
+<li>Scale by the expected count<br>
+</li>
+<li>Add across all categories</li>
+</ul>
+<p>Large values of <span class="math inline">\(\chi^2\)</span> indicate greater disagreement with the model.</p>
+</div></div>
+</section>
+<section id="example-one-categorys-contribution-to-chi2" class="slide level2">
+<h2>Example: One Category’s Contribution to <span class="math inline">\(\chi^2\)</span></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>Let’s calculate the chi-squared contribution for <strong>Sunday</strong>.</p>
+<p>Observed births:<br>
+<span class="math inline">\(O = 33\)</span></p>
+<p>Expected births:<br>
+<span class="math inline">\(E = 49.863\)</span></p>
+<p>We plug these into the formula:</p>
+<p><span class="math display">\[
+\frac{(O - E)^2}{E}
+\]</span></p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[
+\frac{(33 - 49.863)^2}{49.863}
+\\=\frac{(-16.863)^2}{49.863}
+\\=\frac{284.36}{49.863}
+\\\approx 5.70
+\]</span></p>
+<p>Sunday contributes <strong>5.70</strong> to the total chi-squared statistic.</p>
+<p>The total <span class="math inline">\(\chi^2\)</span> is the sum of all days’ contributions.</p>
+</div></div>
+</section>
+<section id="summing-category-contributions-to-obtain-chi2" class="slide level2">
+<h2>Summing Category Contributions to Obtain <span class="math inline">\(\chi^2\)</span></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>We repeat for each day of the week</li>
+<li>The chi-squared statistic is the <strong>sum of all category contributions</strong>:</li>
+</ul>
+<p><span class="math display">\[
+\chi^2 = \sum \frac{(O - E)^2}{E}
+\]</span></p>
+<ul>
+<li>Adding the daily contributions gives:</li>
+</ul>
+<p><span class="math display">\[
+\chi^2 = 15.05
+\]</span></p>
+<p>This value summarizes the total discrepancy between observed and expected frequencies.</p>
+</div><div class="column" style="width:50%;">
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Day</th>
+<th>Observed number of births</th>
+<th>Expected number of births</th>
+<th><span class="math display">\[ \frac{(O - E)^2}{E} \]</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sunday</td>
+<td>33</td>
+<td>49.863</td>
+<td><span class="fragment highlight-current-red highlight-current-red-emphasis">5.70</span></td>
+</tr>
+<tr class="even">
+<td>Monday</td>
+<td>41</td>
+<td>49.863</td>
+<td>1.58</td>
+</tr>
+<tr class="odd">
+<td>Tuesday</td>
+<td>63</td>
+<td>49.863</td>
+<td>3.46</td>
+</tr>
+<tr class="even">
+<td>Wednesday</td>
+<td>63</td>
+<td>49.863</td>
+<td>3.46</td>
+</tr>
+<tr class="odd">
+<td>Thursday</td>
+<td>47</td>
+<td>49.863</td>
+<td>0.16</td>
+</tr>
+<tr class="even">
+<td>Friday</td>
+<td>56</td>
+<td>50.822</td>
+<td>0.53</td>
+</tr>
+<tr class="odd">
+<td>Saturday</td>
+<td>47</td>
+<td>49.863</td>
+<td>0.16</td>
+</tr>
+<tr class="even">
+<td>Sum</td>
+<td>1</td>
+<td>350</td>
+<td><span class="fragment highlight-current-red highlight-current-red-emphasis">15.05</span></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="the-sampling-distribution-of-chi2-under-the-null-hypothesis" class="slide level2">
+<h2>The sampling distribution of <span class="math inline">\(\chi^2\)</span> under the null hypothesis</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>Assume the null hypothesis is true.</p></li>
+<li><p>If we repeatedly take random samples of <span class="math inline">\(n = 350\)</span> births and compute <span class="math inline">\(\chi^2\)</span> each time:</p>
+<ul>
+<li>The test statistic varies from sample to sample.</li>
+<li>The collection of those values forms a <strong>sampling distribution</strong>.</li>
+</ul></li>
+<li><p>Tells us how unusual our observed <span class="math inline">\(\chi^2\)</span> value would be under <span class="math inline">\(H_0\)</span>.</p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/chi-squared-six-distribution.jpg" alt="Histogram of simulated chi-squared values with 6 degrees of freedom shown in red bars, overlaid with a smooth black curve representing the theoretical chi-squared distribution."></p>
+<figcaption>Sampling distribution of <span class="math inline">\(\chi^2_6\)</span> under the null hypothesis, with red bars showing the empirical distribution from simulated samples and the black curve showing the theoretical chi-squared distribution with 6 degrees of freedom.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="there-are-many-chi2-sampling-distributions-one-for-each-degrees-of-freedom" class="slide level2">
+<h2>There are many <span class="math inline">\(\chi^2\)</span> sampling distributions – one for each degrees of freedom</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>To find which <span class="math inline">\(\chi^2\)</span> distribution you should use, calculate the <span class="keyword">degrees of freedom</span></li>
+</ul>
+<p><span class="math display">\[
+df=\\(\text{Number of categories})-1\\-(\text{Number of parameters}\\\text{ estimated from the data})
+\]</span></p>
+<p><span class="math display">\[
+df = 7-1-0=6
+\]</span></p>
+<ul>
+<li>Write as <span class="math inline">\(\chi^2_{df}\)</span> , for example <span class="math inline">\(\chi^2_{6}\)</span></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/chi-squared-six-distribution.jpg" alt="Histogram of simulated chi-squared values with 6 degrees of freedom shown in red bars, overlaid with a smooth black curve representing the theoretical chi-squared distribution."></p>
+<figcaption>Sampling distribution of <span class="math inline">\(\chi^2_6\)</span> under the null hypothesis, with red bars showing the empirical distribution from simulated samples and the black curve showing the theoretical chi-squared distribution with 6 degrees of freedom.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="calculating-the-p-value" class="slide level2">
+<h2>Calculating the <span class="math inline">\(P\)</span>-Value</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>The <span class="math inline">\(P\)</span>-value is the probability of obtaining a test statistic at least as large as the observed value, assuming <span class="math inline">\(H_0\)</span> is true.</li>
+<li>For the chi-squared test:
+<ul>
+<li>Larger <span class="math inline">\(\chi^2\)</span> values indicate greater disagreement with the null model.</li>
+<li>If observed = expected, then <span class="math inline">\(\chi^2 = 0\)</span>.</li>
+<li>As discrepancy increases, <span class="math inline">\(\chi^2\)</span> increases.</li>
+</ul></li>
+<li>Therefore: <span class="math display">\[
+P = \operatorname{Pr}(\chi^2 \ge 15.05 \mid H_0)
+\]</span></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>We calculate this probability using the <strong>right tail</strong> of the <span class="math inline">\(\chi^2\)</span> distribution.</li>
+<li>The red region shows the <span class="math inline">\(P\)</span>-value.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/chi-squared-example-tail.jpg" style="width:80.0%" alt="Graph of a chi-squared distribution with 6 degrees of freedom, with a vertical line at 15.05 and the right-tail area shaded to represent the p-value."></p>
+<figcaption>Chi-squared distribution with 6 degrees of freedom. The red area represents the probability of obtaining a value of <span class="math inline">\(\chi^2\)</span> greater than or equal to 15.05 under the null hypothesis.</figcaption>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="making-a-decision-compare-p-to-alpha" class="slide level2">
+<h2>Making a Decision: Compare <span class="math inline">\(P\)</span> to <span class="math inline">\(\alpha\)</span></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>Choose a <strong>significance level</strong> <span class="math inline">\(\alpha\)</span> (e.g., 0.05).</p></li>
+<li><p>Decision rule:</p>
+<ul>
+<li>If <span class="math inline">\(P \le \alpha\)</span>, reject <span class="math inline">\(H_0\)</span>.</li>
+<li>If <span class="math inline">\(P &gt; \alpha\)</span>, fail to reject <span class="math inline">\(H_0\)</span>.</li>
+</ul></li>
+</ul>
+<p>When using software:</p>
+<ul>
+<li>The <span class="math inline">\(P\)</span>-value is computed directly.</li>
+<li>Compare it to <span class="math inline">\(\alpha\)</span> to make your decision.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>When working by hand:</p>
+<ul>
+<li>Instead of computing <span class="math inline">\(P\)</span>, compare the test statistic to a <span class="keyword">critical value</span>.</li>
+<li>The critical value marks the boundary between rejecting and not rejecting <span class="math inline">\(H_0\)</span>.</li>
+<li>Look up the critical value in a chi-squared table (using the correct degrees of freedom).</li>
+</ul>
+<p>Both approaches lead to the same conclusion.</p>
+</div></div>
+</section>
+<section id="critical-value-definition" class="slide level2 statement-slide" data-menu-title="What is a critical value">
+<h2></h2>
+<p>In general, a <span class="keyword">critical value</span> is the value of a test statistic that marks the boundary of a specified area in the tail (or tails) of the sampling distribution under <span class="math inline">\(H_0\)</span>.</p>
+</section>
+<section id="finding-a-critical-value-in-a-chi-squared-table" class="slide level2">
+<h2>Finding a Critical Value in a Chi-Squared Table</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><p>Determine the degrees of freedom:</p>
+<ul>
+<li><span class="math inline">\(df = k - 1\)</span></li>
+<li>Here, <span class="math inline">\(df = 6\)</span></li>
+</ul></li>
+<li><p>Choose a significance level:</p>
+<ul>
+<li><span class="math inline">\(\alpha = 0.05\)</span></li>
+</ul></li>
+<li><p>Locate the intersection of:</p>
+<ul>
+<li>Row for <span class="math inline">\(df = 6\)</span></li>
+<li>Column for <span class="math inline">\(\alpha = 0.05\)</span></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:60%;">
+<p><img data-src="images/clipboard-1307925378.png"></p>
+<p>The critical value is:</p>
+<p><span class="math display">\[
+\chi^2_{0.05,\,6} = 12.59
+\]</span></p>
+<p>Decision rule:</p>
+<ul>
+<li>Reject <span class="math inline">\(H_0\)</span> if <span class="math inline">\(\chi^2 \ge 12.59\)</span></li>
+</ul>
+</div></div>
+</section>
+<section id="interpreting-the-result" class="slide level2">
+<h2>Interpreting the Result</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>After comparing <span class="math inline">\(P\)</span> to <span class="math inline">\(\alpha\)</span>:</p>
+<ul>
+<li><p><strong>If</strong> <span class="math inline">\(P \le \alpha\)</span>:</p>
+<ul>
+<li><p>Reject <span class="math inline">\(H_0\)</span>.</p></li>
+<li><p>The data provide evidence that the observed frequencies differ from the proportions specified by the null model.</p></li>
+</ul></li>
+<li><p><strong>If</strong> <span class="math inline">\(P &gt; \alpha\)</span>:</p>
+<ul>
+<li><p>Fail to reject <span class="math inline">\(H_0\)</span>.</p></li>
+<li><p>The data are consistent with the null model.</p></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>Example:</p>
+<ul>
+<li>Since <span class="math inline">\(\chi^2 = 15.05\)</span> exceeds the critical value of 12.59 (and <span class="math inline">\(P &lt; 0.05\)</span>), we reject <span class="math inline">\(H_0\)</span> and conclude that births were not equally distributed across days of the week in 1999.</li>
+</ul>
+<p>Important:</p>
+<ul>
+<li><p>Rejecting <span class="math inline">\(H_0\)</span> does not prove the model is false.</p></li>
+<li><p>Failing to reject <span class="math inline">\(H_0\)</span> does not prove the model is true.</p></li>
+</ul>
+<p>We are evaluating evidence, not proving certainty.</p>
+</div></div>
+</section>
+<section id="assumptions-of-the-chi-squared-goodness-of-fit-test" class="slide level2">
+<h2>Assumptions of the Chi-Squared Goodness-of-Fit Test</h2>
+<p>For the chi-squared approximation to be valid:</p>
+<p><strong>1. Independence</strong></p>
+<ul>
+<li>Observations are independent.</li>
+<li>Data represent a random sample.</li>
+</ul>
+<p><strong>2. Correct null model</strong></p>
+<ul>
+<li>The null hypothesis specifies the expected proportions.</li>
+</ul>
+<p><strong>3. Expected count conditions</strong></p>
+<ul>
+<li>All expected counts must be ≥ 1.</li>
+<li>No more than 20% of expected counts may be &lt; 5.</li>
+</ul>
+</section>
+<section id="comparing-tests-for-proportions-and-frequency-data" class="slide level2">
+<h2>Comparing Tests for Proportions and Frequency Data</h2>
+</section>
+<section id="how-these-tests-fit-together" class="slide level2">
+<h2>How These Tests Fit Together</h2>
+<div style="font-size: 80%;">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Test</th>
+<th>Scientific Question</th>
+<th>Data Structure</th>
+<th>Distribution Used</th>
+<th>Lecture</th>
+<th>R Function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Binomial test</strong></td>
+<td>Is a single proportion equal to a hypothesized value (e.g., <span class="math inline">\(p = 0.3\)</span>)?</td>
+<td>One group, two outcomes</td>
+<td>Exact binomial</td>
+<td>Lecture 9</td>
+<td><code>binom.test()</code></td>
+</tr>
+<tr class="even">
+<td><strong>Chi-squared test for proportions</strong></td>
+<td>Is a proportion equal to a hypothesized value (large <span class="math inline">\(n\)</span>), or do two group proportions differ?</td>
+<td>One or two groups, two outcomes</td>
+<td>Chi-squared (approximation)</td>
+<td>Lecture 10</td>
+<td><code>prop.test()</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Chi-squared test of independence</strong></td>
+<td>Are two categorical variables associated?</td>
+<td>Two variables, <span class="math inline">\(r \times c\)</span> table</td>
+<td>Chi-squared</td>
+<td>Lecture 12</td>
+<td><code>chisq.test()</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Notes:</p>
+<ul>
+<li>For a 2 × 2 table, <code>prop.test()</code> and the chi-squared test of independence are mathematically equivalent.</li>
+<li>In lab, we used <code>prop.test()</code> because our sample size was large, making the chi-squared approximation appropriate and computationally efficient.</li>
+</ul>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/bbitarello\.github\.io\/b215f2026\/");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
