@@ -234,7 +234,59 @@ Use the variance-to-mean ratio to assess clumping or dispersion.</code></pre>
 <div class="r-fit-text">
 <p><font size="7">Does <font color="#E69F00">data</font> come from a <font color="#56B4E9">given distribution</font> with specified <font color="#56B4E9">parameters</font>?</font></p>
 </div>
-</section><section class="slide level2 dark-theme center"><h2>Using the <span class="math inline">\(\chi^2\)</span> statistic to test if data are Poisson distributed !</h2>
+</section><section class="slide level2"><h2>How These Tests Fit Together</h2>
+<div style="font-size: 80%;">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead><tr class="header">
+<th>Test</th>
+<th>Scientific Question</th>
+<th>Data Structure</th>
+<th>Distribution Used</th>
+<th>Lecture</th>
+<th>R Function</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><strong>Binomial test</strong></td>
+<td>Is a single proportion equal to a hypothesized value (e.g., <span class="math inline">\(p = 0.3\)</span>)?</td>
+<td>One group, two outcomes</td>
+<td>Exact binomial</td>
+<td>Lecture 9</td>
+<td><code><a href="https://rdrr.io/r/stats/binom.test.html">binom.test()</a></code></td>
+</tr>
+<tr class="even">
+<td><strong>Chi-squared test for proportions</strong></td>
+<td>Is a proportion equal to a hypothesized value (large <span class="math inline">\(n\)</span>), or do two group proportions differ?</td>
+<td>One or two groups, two outcomes</td>
+<td>Chi-squared (approximation)</td>
+<td>Lecture 10</td>
+<td><code><a href="https://rdrr.io/r/stats/prop.test.html">prop.test()</a></code></td>
+</tr>
+<tr class="odd">
+<td><strong>Chi-squared test of independence</strong></td>
+<td>Are two categorical variables associated?</td>
+<td>Two variables, <span class="math inline">\(r \times c\)</span> table</td>
+<td>Chi-squared</td>
+<td>Lecture 12</td>
+<td><code><a href="https://rdrr.io/r/stats/chisq.test.html">chisq.test()</a></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Notes:</p>
+<ul>
+<li class="fragment">For a 2 × 2 table, <code><a href="https://rdrr.io/r/stats/prop.test.html">prop.test()</a></code> and the chi-squared test of independence are mathematically equivalent.</li>
+<li class="fragment">
+<code><a href="https://rdrr.io/r/stats/prop.test.html">prop.test()</a></code> can be used when sample size is large, making the chi-squared approximation appropriate and computationally efficient.</li>
+</ul></section><section class="slide level2 center"><h2>Using the <span class="math inline">\(\chi^2\)</span> statistic to test if data are Poisson distributed !</h2>
 <p><a href="images/clipboard-3845085915.png"></a></p>
 </section><section class="slide level2"><h2>Why Poisson? (1/2)</h2>
 <p>We often want to know if events independent in time/space. E.g.:</p>
