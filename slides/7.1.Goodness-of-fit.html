@@ -10,7 +10,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.10.18">
 <meta name="author" content="Bárbara D. Bitarello">
-<meta name="dcterms.date" content="2026-11-16">
+<meta name="dcterms.date" content="2026-11-15">
 <meta name="keywords" content="Goodness-of-fit; chi-squared">
 <title>BIOL B215: Biostatistics with R – 7.1.Goodness-of-fit tests</title>
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -121,6 +121,7 @@
     }
     .reveal .slide:not(.center) {
       height: 100%;
+      overflow-y: auto;
     }
     .reveal .slide.scrollable {
       overflow-y: auto;
@@ -214,7 +215,7 @@ Bárbara D. Bitarello
 </div>
 </div>
 
-  <p class="date">2026-11-16</p>
+  <p class="date">2026-11-15</p>
 </section><section class="slide level2" data-visibility="uncounted"><h2>Acknowledgments</h2>
 <p>Materials from the following sources were used for some of the slides and examples:</p>
 <ul>
@@ -229,7 +230,7 @@ Bárbara D. Bitarello
 <li><p>State the null and alternative hypotheses for a chi-squared goodness-of-fit test.</p></li>
 <li><p>Calculate expected counts under a specified probability model.</p></li>
 <li><p>Compute and interpret the chi-squared test statistic.</p></li>
-<li><p>Determine a P-value or critical value and draw a conclusion.</p></li>
+<li><p>Determine a <span class="math inline">\(P\)</span>-value or critical value and draw a conclusion.</p></li>
 <li><p>Evaluate whether the assumptions of the chi-squared test are met.</p></li>
 <li><p>Distinguish among the binomial test, chi-squared test for proportions, and chi-squared test of independence</p></li>
 </ul></section><section class="slide level2"><h2>Do observed counts match what we expect?</h2>
@@ -266,23 +267,23 @@ Bárbara D. Bitarello
 <span id="cb1-7"><a aria-label="7"></a>    <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
 <span id="cb1-8"><a aria-label="8"></a>    <span class="fu">tab_options</span>(<span class="at">column_labels.background.color =</span> <span class="st">"#365C8DFF"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div class="cell-output-display">
-<div id="cikibrccng" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#cikibrccng table {
+<div id="knzobhwnyt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#knzobhwnyt table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#cikibrccng thead, #cikibrccng tbody, #cikibrccng tfoot, #cikibrccng tr, #cikibrccng td, #cikibrccng th {
+#knzobhwnyt thead, #knzobhwnyt tbody, #knzobhwnyt tfoot, #knzobhwnyt tr, #knzobhwnyt td, #knzobhwnyt th {
   border-style: none;
 }
 
-#cikibrccng p {
+#knzobhwnyt p {
   margin: 0;
   padding: 0;
 }
 
-#cikibrccng .gt_table {
+#knzobhwnyt .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -308,12 +309,12 @@ Bárbara D. Bitarello
   border-left-color: #D3D3D3;
 }
 
-#cikibrccng .gt_caption {
+#knzobhwnyt .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#cikibrccng .gt_title {
+#knzobhwnyt .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -325,7 +326,7 @@ Bárbara D. Bitarello
   border-bottom-width: 0;
 }
 
-#cikibrccng .gt_subtitle {
+#knzobhwnyt .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -337,7 +338,7 @@ Bárbara D. Bitarello
   border-top-width: 0;
 }
 
-#cikibrccng .gt_heading {
+#knzobhwnyt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -349,13 +350,13 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#cikibrccng .gt_bottom_border {
+#knzobhwnyt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#cikibrccng .gt_col_headings {
+#knzobhwnyt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -370,7 +371,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#cikibrccng .gt_col_heading {
+#knzobhwnyt .gt_col_heading {
   color: #FFFFFF;
   background-color: #365C8D;
   font-size: 100%;
@@ -390,7 +391,7 @@ Bárbara D. Bitarello
   overflow-x: hidden;
 }
 
-#cikibrccng .gt_column_spanner_outer {
+#knzobhwnyt .gt_column_spanner_outer {
   color: #FFFFFF;
   background-color: #365C8D;
   font-size: 100%;
@@ -402,15 +403,15 @@ Bárbara D. Bitarello
   padding-right: 4px;
 }
 
-#cikibrccng .gt_column_spanner_outer:first-child {
+#knzobhwnyt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#cikibrccng .gt_column_spanner_outer:last-child {
+#knzobhwnyt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#cikibrccng .gt_column_spanner {
+#knzobhwnyt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -422,11 +423,11 @@ Bárbara D. Bitarello
   width: 100%;
 }
 
-#cikibrccng .gt_spanner_row {
+#knzobhwnyt .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#cikibrccng .gt_group_heading {
+#knzobhwnyt .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -452,7 +453,7 @@ Bárbara D. Bitarello
   text-align: left;
 }
 
-#cikibrccng .gt_empty_group_heading {
+#knzobhwnyt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -467,15 +468,15 @@ Bárbara D. Bitarello
   vertical-align: middle;
 }
 
-#cikibrccng .gt_from_md > :first-child {
+#knzobhwnyt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#cikibrccng .gt_from_md > :last-child {
+#knzobhwnyt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#cikibrccng .gt_row {
+#knzobhwnyt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -494,7 +495,7 @@ Bárbara D. Bitarello
   overflow-x: hidden;
 }
 
-#cikibrccng .gt_stub {
+#knzobhwnyt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -507,7 +508,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#cikibrccng .gt_stub_row_group {
+#knzobhwnyt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -521,15 +522,15 @@ Bárbara D. Bitarello
   vertical-align: top;
 }
 
-#cikibrccng .gt_row_group_first td {
+#knzobhwnyt .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#cikibrccng .gt_row_group_first th {
+#knzobhwnyt .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#cikibrccng .gt_summary_row {
+#knzobhwnyt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -539,16 +540,16 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#cikibrccng .gt_first_summary_row {
+#knzobhwnyt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#cikibrccng .gt_first_summary_row.thick {
+#knzobhwnyt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#cikibrccng .gt_last_summary_row {
+#knzobhwnyt .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -558,7 +559,7 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#cikibrccng .gt_grand_summary_row {
+#knzobhwnyt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -568,7 +569,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#cikibrccng .gt_first_grand_summary_row {
+#knzobhwnyt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -578,7 +579,7 @@ Bárbara D. Bitarello
   border-top-color: #D3D3D3;
 }
 
-#cikibrccng .gt_last_grand_summary_row_top {
+#knzobhwnyt .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -588,11 +589,11 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#cikibrccng .gt_striped {
+#knzobhwnyt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#cikibrccng .gt_table_body {
+#knzobhwnyt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -601,7 +602,7 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#cikibrccng .gt_footnotes {
+#knzobhwnyt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -615,7 +616,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#cikibrccng .gt_footnote {
+#knzobhwnyt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -624,7 +625,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#cikibrccng .gt_sourcenotes {
+#knzobhwnyt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -638,7 +639,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#cikibrccng .gt_sourcenote {
+#knzobhwnyt .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -646,72 +647,72 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#cikibrccng .gt_left {
+#knzobhwnyt .gt_left {
   text-align: left;
 }
 
-#cikibrccng .gt_center {
+#knzobhwnyt .gt_center {
   text-align: center;
 }
 
-#cikibrccng .gt_right {
+#knzobhwnyt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#cikibrccng .gt_font_normal {
+#knzobhwnyt .gt_font_normal {
   font-weight: normal;
 }
 
-#cikibrccng .gt_font_bold {
+#knzobhwnyt .gt_font_bold {
   font-weight: bold;
 }
 
-#cikibrccng .gt_font_italic {
+#knzobhwnyt .gt_font_italic {
   font-style: italic;
 }
 
-#cikibrccng .gt_super {
+#knzobhwnyt .gt_super {
   font-size: 65%;
 }
 
-#cikibrccng .gt_footnote_marks {
+#knzobhwnyt .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#cikibrccng .gt_asterisk {
+#knzobhwnyt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#cikibrccng .gt_indent_1 {
+#knzobhwnyt .gt_indent_1 {
   text-indent: 5px;
 }
 
-#cikibrccng .gt_indent_2 {
+#knzobhwnyt .gt_indent_2 {
   text-indent: 10px;
 }
 
-#cikibrccng .gt_indent_3 {
+#knzobhwnyt .gt_indent_3 {
   text-indent: 15px;
 }
 
-#cikibrccng .gt_indent_4 {
+#knzobhwnyt .gt_indent_4 {
   text-indent: 20px;
 }
 
-#cikibrccng .gt_indent_5 {
+#knzobhwnyt .gt_indent_5 {
   text-indent: 25px;
 }
 
-#cikibrccng .katex-display {
+#knzobhwnyt .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#cikibrccng div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#knzobhwnyt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -857,18 +858,20 @@ Bárbara D. Bitarello
 </div>
 </div></div>
 <aside></aside></section><section class="slide level2"><h2>To compute expected frequencies, we use the proportions specified by the null model</h2>
-<ul>
-<li>Important: These data come from a single calendar year (2023).</li>
-</ul>
 <div class="columns">
 <div class="column">
+<p>Important: These data come from a single calendar year (2023).</p>
 <p>Expected number of births in month <span class="math inline">\(i\)</span> is:</p>
 <p><span class="math inline">\(E[X] = n_{total} × \text{Null proportion}\)</span></p>
 <p><span class="math inline">\(n_{total} = 1245\)</span></p>
 <p><span class="math inline">\(E[X_i] = n_{total} \times \text{expected proportion}_i\)</span></p>
+<p>E.g. January</p>
+<p><span class="math inline">\(E[\text{January}]=1245\times0.08321737=\\103.6056\sim103.6\)</span></p>
+<div class="fragment">
+<p>Do the same for all months</p>
+</div>
 </div><div class="column">
-<div class="cell columns column-output-location" data-layout-align="center">
-<div class="column">
+<div class="cell" data-layout-align="center">
 <details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a aria-label="1"></a>nhl2 <span class="ot">&lt;-</span> nhl <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a aria-label="2"></a>    <span class="fu">mutate</span>(<span class="at">expected.prop =</span> us_births<span class="sc">$</span><span class="st">`</span><span class="at">%births</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
 <span id="cb4-3"><a aria-label="3"></a>    <span class="fu">mutate</span>(<span class="at">expected.n =</span> expected.prop <span class="sc">*</span> <span class="dv">1245</span>) <span class="sc">|&gt;</span></span>
@@ -876,26 +879,24 @@ Bárbara D. Bitarello
 <span id="cb4-5"><a aria-label="5"></a>    <span class="fu">select</span>(<span class="sc">-</span>month.num)</span>
 <span id="cb4-6"><a aria-label="6"></a>nhl2 <span class="sc">|&gt;</span></span>
 <span id="cb4-7"><a aria-label="7"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div><div class="column">
-<div class="cell-output-display">
-<div id="pbuaqnlwou" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#pbuaqnlwou table {
+</details><div class="cell-output-display">
+<div id="dzvqkhjwtx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dzvqkhjwtx table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#pbuaqnlwou thead, #pbuaqnlwou tbody, #pbuaqnlwou tfoot, #pbuaqnlwou tr, #pbuaqnlwou td, #pbuaqnlwou th {
+#dzvqkhjwtx thead, #dzvqkhjwtx tbody, #dzvqkhjwtx tfoot, #dzvqkhjwtx tr, #dzvqkhjwtx td, #dzvqkhjwtx th {
   border-style: none;
 }
 
-#pbuaqnlwou p {
+#dzvqkhjwtx p {
   margin: 0;
   padding: 0;
 }
 
-#pbuaqnlwou .gt_table {
+#dzvqkhjwtx .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -921,12 +922,12 @@ Bárbara D. Bitarello
   border-left-color: #D3D3D3;
 }
 
-#pbuaqnlwou .gt_caption {
+#dzvqkhjwtx .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#pbuaqnlwou .gt_title {
+#dzvqkhjwtx .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -938,7 +939,7 @@ Bárbara D. Bitarello
   border-bottom-width: 0;
 }
 
-#pbuaqnlwou .gt_subtitle {
+#dzvqkhjwtx .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -950,7 +951,7 @@ Bárbara D. Bitarello
   border-top-width: 0;
 }
 
-#pbuaqnlwou .gt_heading {
+#dzvqkhjwtx .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -962,13 +963,13 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#pbuaqnlwou .gt_bottom_border {
+#dzvqkhjwtx .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#pbuaqnlwou .gt_col_headings {
+#dzvqkhjwtx .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -983,7 +984,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#pbuaqnlwou .gt_col_heading {
+#dzvqkhjwtx .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1003,7 +1004,7 @@ Bárbara D. Bitarello
   overflow-x: hidden;
 }
 
-#pbuaqnlwou .gt_column_spanner_outer {
+#dzvqkhjwtx .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1015,15 +1016,15 @@ Bárbara D. Bitarello
   padding-right: 4px;
 }
 
-#pbuaqnlwou .gt_column_spanner_outer:first-child {
+#dzvqkhjwtx .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#pbuaqnlwou .gt_column_spanner_outer:last-child {
+#dzvqkhjwtx .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#pbuaqnlwou .gt_column_spanner {
+#dzvqkhjwtx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1035,11 +1036,11 @@ Bárbara D. Bitarello
   width: 100%;
 }
 
-#pbuaqnlwou .gt_spanner_row {
+#dzvqkhjwtx .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#pbuaqnlwou .gt_group_heading {
+#dzvqkhjwtx .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1065,7 +1066,7 @@ Bárbara D. Bitarello
   text-align: left;
 }
 
-#pbuaqnlwou .gt_empty_group_heading {
+#dzvqkhjwtx .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1080,15 +1081,15 @@ Bárbara D. Bitarello
   vertical-align: middle;
 }
 
-#pbuaqnlwou .gt_from_md > :first-child {
+#dzvqkhjwtx .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#pbuaqnlwou .gt_from_md > :last-child {
+#dzvqkhjwtx .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#pbuaqnlwou .gt_row {
+#dzvqkhjwtx .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1107,7 +1108,7 @@ Bárbara D. Bitarello
   overflow-x: hidden;
 }
 
-#pbuaqnlwou .gt_stub {
+#dzvqkhjwtx .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1120,7 +1121,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#pbuaqnlwou .gt_stub_row_group {
+#dzvqkhjwtx .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1134,15 +1135,15 @@ Bárbara D. Bitarello
   vertical-align: top;
 }
 
-#pbuaqnlwou .gt_row_group_first td {
+#dzvqkhjwtx .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#pbuaqnlwou .gt_row_group_first th {
+#dzvqkhjwtx .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#pbuaqnlwou .gt_summary_row {
+#dzvqkhjwtx .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1152,16 +1153,16 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#pbuaqnlwou .gt_first_summary_row {
+#dzvqkhjwtx .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#pbuaqnlwou .gt_first_summary_row.thick {
+#dzvqkhjwtx .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#pbuaqnlwou .gt_last_summary_row {
+#dzvqkhjwtx .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1171,7 +1172,7 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#pbuaqnlwou .gt_grand_summary_row {
+#dzvqkhjwtx .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1181,7 +1182,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#pbuaqnlwou .gt_first_grand_summary_row {
+#dzvqkhjwtx .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1191,7 +1192,7 @@ Bárbara D. Bitarello
   border-top-color: #D3D3D3;
 }
 
-#pbuaqnlwou .gt_last_grand_summary_row_top {
+#dzvqkhjwtx .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1201,11 +1202,11 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#pbuaqnlwou .gt_striped {
+#dzvqkhjwtx .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#pbuaqnlwou .gt_table_body {
+#dzvqkhjwtx .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1214,7 +1215,7 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#pbuaqnlwou .gt_footnotes {
+#dzvqkhjwtx .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1228,7 +1229,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#pbuaqnlwou .gt_footnote {
+#dzvqkhjwtx .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1237,7 +1238,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#pbuaqnlwou .gt_sourcenotes {
+#dzvqkhjwtx .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1251,7 +1252,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#pbuaqnlwou .gt_sourcenote {
+#dzvqkhjwtx .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1259,72 +1260,72 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#pbuaqnlwou .gt_left {
+#dzvqkhjwtx .gt_left {
   text-align: left;
 }
 
-#pbuaqnlwou .gt_center {
+#dzvqkhjwtx .gt_center {
   text-align: center;
 }
 
-#pbuaqnlwou .gt_right {
+#dzvqkhjwtx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#pbuaqnlwou .gt_font_normal {
+#dzvqkhjwtx .gt_font_normal {
   font-weight: normal;
 }
 
-#pbuaqnlwou .gt_font_bold {
+#dzvqkhjwtx .gt_font_bold {
   font-weight: bold;
 }
 
-#pbuaqnlwou .gt_font_italic {
+#dzvqkhjwtx .gt_font_italic {
   font-style: italic;
 }
 
-#pbuaqnlwou .gt_super {
+#dzvqkhjwtx .gt_super {
   font-size: 65%;
 }
 
-#pbuaqnlwou .gt_footnote_marks {
+#dzvqkhjwtx .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#pbuaqnlwou .gt_asterisk {
+#dzvqkhjwtx .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#pbuaqnlwou .gt_indent_1 {
+#dzvqkhjwtx .gt_indent_1 {
   text-indent: 5px;
 }
 
-#pbuaqnlwou .gt_indent_2 {
+#dzvqkhjwtx .gt_indent_2 {
   text-indent: 10px;
 }
 
-#pbuaqnlwou .gt_indent_3 {
+#dzvqkhjwtx .gt_indent_3 {
   text-indent: 15px;
 }
 
-#pbuaqnlwou .gt_indent_4 {
+#dzvqkhjwtx .gt_indent_4 {
   text-indent: 20px;
 }
 
-#pbuaqnlwou .gt_indent_5 {
+#dzvqkhjwtx .gt_indent_5 {
   text-indent: 25px;
 }
 
-#pbuaqnlwou .katex-display {
+#dzvqkhjwtx .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#pbuaqnlwou div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#dzvqkhjwtx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1425,8 +1426,69 @@ Bárbara D. Bitarello
 </table>
 </div>
 </div>
+</div>
 </div></div>
-</div></div>
+</section><section class="slide level2"><h2>Pause: Check Assumptions of <span class="math inline">\(\chi^2\)</span> tests</h2>
+<ul>
+<li>No expected values <span class="math inline">\(&lt; 1\)</span><br>
+</li>
+<li>No more than <span class="math inline">\(20\%\)</span> of expected values <span class="math inline">\(&lt; 5.\)</span>
+</li>
+</ul>
+<p>Do we meet these?</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<table class="table caption-top" style="font-size: 20px; width: auto !important; margin-left: auto; margin-right: auto;">
+<thead><tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">month</td>
+<td style="text-align: left;">Jan</td>
+<td style="text-align: left;">Feb</td>
+<td style="text-align: left;">Mar</td>
+<td style="text-align: left;">Apr</td>
+<td style="text-align: left;">May</td>
+<td style="text-align: left;">June</td>
+<td style="text-align: left;">Jul</td>
+<td style="text-align: left;">Aug</td>
+<td style="text-align: left;">Sep</td>
+<td style="text-align: left;">Oct</td>
+<td style="text-align: left;">Nov</td>
+<td style="text-align: left;">Dec</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">expected.n</td>
+<td style="text-align: left;">103.6</td>
+<td style="text-align: left;">93.9</td>
+<td style="text-align: left;">103.6</td>
+<td style="text-align: left;">96.7</td>
+<td style="text-align: left;">103.6</td>
+<td style="text-align: left;">105.0</td>
+<td style="text-align: left;">108.1</td>
+<td style="text-align: left;">111.6</td>
+<td style="text-align: left;">105.7</td>
+<td style="text-align: left;">107.1</td>
+<td style="text-align: left;">103.3</td>
+<td style="text-align: left;">102.9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section><section class="slide level2"><h2>Introducing <span class="math inline">\(\chi^2\)</span>
 </h2>
 <p><span class="math inline">\(\chi^2\)</span> summarizes the fit of <strong>categorical</strong> data to expectations.</p>
@@ -1439,23 +1501,23 @@ Bárbara D. Bitarello
 <div class="column">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="inbblwscqw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#inbblwscqw table {
+<div id="wbyclcsaqc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wbyclcsaqc table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#inbblwscqw thead, #inbblwscqw tbody, #inbblwscqw tfoot, #inbblwscqw tr, #inbblwscqw td, #inbblwscqw th {
+#wbyclcsaqc thead, #wbyclcsaqc tbody, #wbyclcsaqc tfoot, #wbyclcsaqc tr, #wbyclcsaqc td, #wbyclcsaqc th {
   border-style: none;
 }
 
-#inbblwscqw p {
+#wbyclcsaqc p {
   margin: 0;
   padding: 0;
 }
 
-#inbblwscqw .gt_table {
+#wbyclcsaqc .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1481,12 +1543,12 @@ Bárbara D. Bitarello
   border-left-color: #D3D3D3;
 }
 
-#inbblwscqw .gt_caption {
+#wbyclcsaqc .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#inbblwscqw .gt_title {
+#wbyclcsaqc .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1498,7 +1560,7 @@ Bárbara D. Bitarello
   border-bottom-width: 0;
 }
 
-#inbblwscqw .gt_subtitle {
+#wbyclcsaqc .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1510,7 +1572,7 @@ Bárbara D. Bitarello
   border-top-width: 0;
 }
 
-#inbblwscqw .gt_heading {
+#wbyclcsaqc .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1522,13 +1584,13 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#inbblwscqw .gt_bottom_border {
+#wbyclcsaqc .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#inbblwscqw .gt_col_headings {
+#wbyclcsaqc .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1543,7 +1605,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#inbblwscqw .gt_col_heading {
+#wbyclcsaqc .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1563,7 +1625,7 @@ Bárbara D. Bitarello
   overflow-x: hidden;
 }
 
-#inbblwscqw .gt_column_spanner_outer {
+#wbyclcsaqc .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1575,15 +1637,15 @@ Bárbara D. Bitarello
   padding-right: 4px;
 }
 
-#inbblwscqw .gt_column_spanner_outer:first-child {
+#wbyclcsaqc .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#inbblwscqw .gt_column_spanner_outer:last-child {
+#wbyclcsaqc .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#inbblwscqw .gt_column_spanner {
+#wbyclcsaqc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1595,11 +1657,11 @@ Bárbara D. Bitarello
   width: 100%;
 }
 
-#inbblwscqw .gt_spanner_row {
+#wbyclcsaqc .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#inbblwscqw .gt_group_heading {
+#wbyclcsaqc .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1625,7 +1687,7 @@ Bárbara D. Bitarello
   text-align: left;
 }
 
-#inbblwscqw .gt_empty_group_heading {
+#wbyclcsaqc .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1640,15 +1702,15 @@ Bárbara D. Bitarello
   vertical-align: middle;
 }
 
-#inbblwscqw .gt_from_md > :first-child {
+#wbyclcsaqc .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#inbblwscqw .gt_from_md > :last-child {
+#wbyclcsaqc .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#inbblwscqw .gt_row {
+#wbyclcsaqc .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1667,7 +1729,7 @@ Bárbara D. Bitarello
   overflow-x: hidden;
 }
 
-#inbblwscqw .gt_stub {
+#wbyclcsaqc .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1680,7 +1742,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#inbblwscqw .gt_stub_row_group {
+#wbyclcsaqc .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1694,15 +1756,15 @@ Bárbara D. Bitarello
   vertical-align: top;
 }
 
-#inbblwscqw .gt_row_group_first td {
+#wbyclcsaqc .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#inbblwscqw .gt_row_group_first th {
+#wbyclcsaqc .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#inbblwscqw .gt_summary_row {
+#wbyclcsaqc .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1712,16 +1774,16 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#inbblwscqw .gt_first_summary_row {
+#wbyclcsaqc .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#inbblwscqw .gt_first_summary_row.thick {
+#wbyclcsaqc .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#inbblwscqw .gt_last_summary_row {
+#wbyclcsaqc .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1731,7 +1793,7 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#inbblwscqw .gt_grand_summary_row {
+#wbyclcsaqc .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1741,7 +1803,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#inbblwscqw .gt_first_grand_summary_row {
+#wbyclcsaqc .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1751,7 +1813,7 @@ Bárbara D. Bitarello
   border-top-color: #D3D3D3;
 }
 
-#inbblwscqw .gt_last_grand_summary_row_top {
+#wbyclcsaqc .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1761,11 +1823,11 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#inbblwscqw .gt_striped {
+#wbyclcsaqc .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#inbblwscqw .gt_table_body {
+#wbyclcsaqc .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1774,7 +1836,7 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#inbblwscqw .gt_footnotes {
+#wbyclcsaqc .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1788,7 +1850,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#inbblwscqw .gt_footnote {
+#wbyclcsaqc .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1797,7 +1859,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#inbblwscqw .gt_sourcenotes {
+#wbyclcsaqc .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1811,7 +1873,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#inbblwscqw .gt_sourcenote {
+#wbyclcsaqc .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1819,72 +1881,72 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#inbblwscqw .gt_left {
+#wbyclcsaqc .gt_left {
   text-align: left;
 }
 
-#inbblwscqw .gt_center {
+#wbyclcsaqc .gt_center {
   text-align: center;
 }
 
-#inbblwscqw .gt_right {
+#wbyclcsaqc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#inbblwscqw .gt_font_normal {
+#wbyclcsaqc .gt_font_normal {
   font-weight: normal;
 }
 
-#inbblwscqw .gt_font_bold {
+#wbyclcsaqc .gt_font_bold {
   font-weight: bold;
 }
 
-#inbblwscqw .gt_font_italic {
+#wbyclcsaqc .gt_font_italic {
   font-style: italic;
 }
 
-#inbblwscqw .gt_super {
+#wbyclcsaqc .gt_super {
   font-size: 65%;
 }
 
-#inbblwscqw .gt_footnote_marks {
+#wbyclcsaqc .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#inbblwscqw .gt_asterisk {
+#wbyclcsaqc .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#inbblwscqw .gt_indent_1 {
+#wbyclcsaqc .gt_indent_1 {
   text-indent: 5px;
 }
 
-#inbblwscqw .gt_indent_2 {
+#wbyclcsaqc .gt_indent_2 {
   text-indent: 10px;
 }
 
-#inbblwscqw .gt_indent_3 {
+#wbyclcsaqc .gt_indent_3 {
   text-indent: 15px;
 }
 
-#inbblwscqw .gt_indent_4 {
+#wbyclcsaqc .gt_indent_4 {
   text-indent: 20px;
 }
 
-#inbblwscqw .gt_indent_5 {
+#wbyclcsaqc .gt_indent_5 {
   text-indent: 25px;
 }
 
-#inbblwscqw .katex-display {
+#wbyclcsaqc .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#inbblwscqw div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#wbyclcsaqc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1992,71 +2054,6 @@ Bárbara D. Bitarello
 <p><span class="math inline">\(\frac{(O_{i}-E_{i})^2}{E_{i}}=\)</span></p>
 <p><span class="math inline">\(\frac{(133-103.6056)^2}{98.9}=\frac{864.0308}{103.6056}=8.339614\)</span></p>
 </div></div>
-</section><section class="slide level2"><h2>Assumptions of <span class="math inline">\(\chi^2\)</span> tests</h2>
-<ul>
-<li>No expected values <span class="math inline">\(&lt; 1\)</span><br>
-</li>
-<li>No more than <span class="math inline">\(20\%\)</span> of expected values <span class="math inline">\(&lt; 5.\)</span>
-</li>
-</ul>
-<div class="fragment">
-<p>Do we meet these?</p>
-</div>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="table caption-top" style="font-size: 20px; width: auto !important; margin-left: auto; margin-right: auto;">
-<thead><tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">month</td>
-<td style="text-align: left;">Jan</td>
-<td style="text-align: left;">Feb</td>
-<td style="text-align: left;">Mar</td>
-<td style="text-align: left;">Apr</td>
-<td style="text-align: left;">May</td>
-<td style="text-align: left;">June</td>
-<td style="text-align: left;">Jul</td>
-<td style="text-align: left;">Aug</td>
-<td style="text-align: left;">Sep</td>
-<td style="text-align: left;">Oct</td>
-<td style="text-align: left;">Nov</td>
-<td style="text-align: left;">Dec</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">expected.n</td>
-<td style="text-align: left;">103.6</td>
-<td style="text-align: left;">93.9</td>
-<td style="text-align: left;">103.6</td>
-<td style="text-align: left;">96.7</td>
-<td style="text-align: left;">103.6</td>
-<td style="text-align: left;">105.0</td>
-<td style="text-align: left;">108.1</td>
-<td style="text-align: left;">111.6</td>
-<td style="text-align: left;">105.7</td>
-<td style="text-align: left;">107.1</td>
-<td style="text-align: left;">103.3</td>
-<td style="text-align: left;">102.9</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
 </section><section class="slide level2"><h2>Repeat for all categories</h2>
 <div class="cell" data-layout-align="center">
 <details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a aria-label="1"></a><span class="co"># squared deviation for each category | output-location: column |</span></span>
@@ -2065,23 +2062,23 @@ Bárbara D. Bitarello
 <span id="cb5-4"><a aria-label="4"></a>nhl3 <span class="sc">|&gt;</span></span>
 <span id="cb5-5"><a aria-label="5"></a>    <span class="fu">gt</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details><div class="cell-output-display">
-<div id="gzfnszjqop" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#gzfnszjqop table {
+<div id="zzhbglqaud" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#zzhbglqaud table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#gzfnszjqop thead, #gzfnszjqop tbody, #gzfnszjqop tfoot, #gzfnszjqop tr, #gzfnszjqop td, #gzfnszjqop th {
+#zzhbglqaud thead, #zzhbglqaud tbody, #zzhbglqaud tfoot, #zzhbglqaud tr, #zzhbglqaud td, #zzhbglqaud th {
   border-style: none;
 }
 
-#gzfnszjqop p {
+#zzhbglqaud p {
   margin: 0;
   padding: 0;
 }
 
-#gzfnszjqop .gt_table {
+#zzhbglqaud .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2107,12 +2104,12 @@ Bárbara D. Bitarello
   border-left-color: #D3D3D3;
 }
 
-#gzfnszjqop .gt_caption {
+#zzhbglqaud .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#gzfnszjqop .gt_title {
+#zzhbglqaud .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -2124,7 +2121,7 @@ Bárbara D. Bitarello
   border-bottom-width: 0;
 }
 
-#gzfnszjqop .gt_subtitle {
+#zzhbglqaud .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -2136,7 +2133,7 @@ Bárbara D. Bitarello
   border-top-width: 0;
 }
 
-#gzfnszjqop .gt_heading {
+#zzhbglqaud .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2148,13 +2145,13 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#gzfnszjqop .gt_bottom_border {
+#zzhbglqaud .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#gzfnszjqop .gt_col_headings {
+#zzhbglqaud .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2169,7 +2166,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#gzfnszjqop .gt_col_heading {
+#zzhbglqaud .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2189,7 +2186,7 @@ Bárbara D. Bitarello
   overflow-x: hidden;
 }
 
-#gzfnszjqop .gt_column_spanner_outer {
+#zzhbglqaud .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2201,15 +2198,15 @@ Bárbara D. Bitarello
   padding-right: 4px;
 }
 
-#gzfnszjqop .gt_column_spanner_outer:first-child {
+#zzhbglqaud .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#gzfnszjqop .gt_column_spanner_outer:last-child {
+#zzhbglqaud .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#gzfnszjqop .gt_column_spanner {
+#zzhbglqaud .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2221,11 +2218,11 @@ Bárbara D. Bitarello
   width: 100%;
 }
 
-#gzfnszjqop .gt_spanner_row {
+#zzhbglqaud .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#gzfnszjqop .gt_group_heading {
+#zzhbglqaud .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2251,7 +2248,7 @@ Bárbara D. Bitarello
   text-align: left;
 }
 
-#gzfnszjqop .gt_empty_group_heading {
+#zzhbglqaud .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2266,15 +2263,15 @@ Bárbara D. Bitarello
   vertical-align: middle;
 }
 
-#gzfnszjqop .gt_from_md > :first-child {
+#zzhbglqaud .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#gzfnszjqop .gt_from_md > :last-child {
+#zzhbglqaud .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#gzfnszjqop .gt_row {
+#zzhbglqaud .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2293,7 +2290,7 @@ Bárbara D. Bitarello
   overflow-x: hidden;
 }
 
-#gzfnszjqop .gt_stub {
+#zzhbglqaud .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2306,7 +2303,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#gzfnszjqop .gt_stub_row_group {
+#zzhbglqaud .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2320,15 +2317,15 @@ Bárbara D. Bitarello
   vertical-align: top;
 }
 
-#gzfnszjqop .gt_row_group_first td {
+#zzhbglqaud .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#gzfnszjqop .gt_row_group_first th {
+#zzhbglqaud .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#gzfnszjqop .gt_summary_row {
+#zzhbglqaud .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2338,16 +2335,16 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#gzfnszjqop .gt_first_summary_row {
+#zzhbglqaud .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#gzfnszjqop .gt_first_summary_row.thick {
+#zzhbglqaud .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#gzfnszjqop .gt_last_summary_row {
+#zzhbglqaud .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2357,7 +2354,7 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#gzfnszjqop .gt_grand_summary_row {
+#zzhbglqaud .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2367,7 +2364,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#gzfnszjqop .gt_first_grand_summary_row {
+#zzhbglqaud .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2377,7 +2374,7 @@ Bárbara D. Bitarello
   border-top-color: #D3D3D3;
 }
 
-#gzfnszjqop .gt_last_grand_summary_row_top {
+#zzhbglqaud .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2387,11 +2384,11 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#gzfnszjqop .gt_striped {
+#zzhbglqaud .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#gzfnszjqop .gt_table_body {
+#zzhbglqaud .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2400,7 +2397,7 @@ Bárbara D. Bitarello
   border-bottom-color: #D3D3D3;
 }
 
-#gzfnszjqop .gt_footnotes {
+#zzhbglqaud .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2414,7 +2411,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#gzfnszjqop .gt_footnote {
+#zzhbglqaud .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2423,7 +2420,7 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#gzfnszjqop .gt_sourcenotes {
+#zzhbglqaud .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2437,7 +2434,7 @@ Bárbara D. Bitarello
   border-right-color: #D3D3D3;
 }
 
-#gzfnszjqop .gt_sourcenote {
+#zzhbglqaud .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2445,72 +2442,72 @@ Bárbara D. Bitarello
   padding-right: 5px;
 }
 
-#gzfnszjqop .gt_left {
+#zzhbglqaud .gt_left {
   text-align: left;
 }
 
-#gzfnszjqop .gt_center {
+#zzhbglqaud .gt_center {
   text-align: center;
 }
 
-#gzfnszjqop .gt_right {
+#zzhbglqaud .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#gzfnszjqop .gt_font_normal {
+#zzhbglqaud .gt_font_normal {
   font-weight: normal;
 }
 
-#gzfnszjqop .gt_font_bold {
+#zzhbglqaud .gt_font_bold {
   font-weight: bold;
 }
 
-#gzfnszjqop .gt_font_italic {
+#zzhbglqaud .gt_font_italic {
   font-style: italic;
 }
 
-#gzfnszjqop .gt_super {
+#zzhbglqaud .gt_super {
   font-size: 65%;
 }
 
-#gzfnszjqop .gt_footnote_marks {
+#zzhbglqaud .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#gzfnszjqop .gt_asterisk {
+#zzhbglqaud .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#gzfnszjqop .gt_indent_1 {
+#zzhbglqaud .gt_indent_1 {
   text-indent: 5px;
 }
 
-#gzfnszjqop .gt_indent_2 {
+#zzhbglqaud .gt_indent_2 {
   text-indent: 10px;
 }
 
-#gzfnszjqop .gt_indent_3 {
+#zzhbglqaud .gt_indent_3 {
   text-indent: 15px;
 }
 
-#gzfnszjqop .gt_indent_4 {
+#zzhbglqaud .gt_indent_4 {
   text-indent: 20px;
 }
 
-#gzfnszjqop .gt_indent_5 {
+#zzhbglqaud .gt_indent_5 {
   text-indent: 25px;
 }
 
-#gzfnszjqop .katex-display {
+#zzhbglqaud .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#gzfnszjqop div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#zzhbglqaud div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2637,6 +2634,8 @@ Bárbara D. Bitarello
 </div>
 <p><font size="10"></font></p>
 <p><span class="math inline">\(\chi^2 = 57.19\)</span></p>
+<p>This value summarizes the total discrepancy between observed and expected frequencies.</p>
+<p>Next: find<span class="math inline">\(P\)</span>-value?</p>
 </section><section class="slide level2"><h2>The sampling distribution of <span class="math inline">\(\chi^2\)</span> under the null hypothesis</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
@@ -2682,7 +2681,7 @@ Bárbara D. Bitarello
 </div>
 </div>
 </div></div>
-</section><section class="slide level2"><h2>Calculating the <span class="math inline">\(P\)</span>-Value</h2>
+</section><section class="slide level2"><h2>Calculating the approximate <span class="math inline">\(P\)</span>-Value</h2>
 <div class="columns">
 <div class="column" style="width:30%;">
 <ul>
@@ -2701,7 +2700,7 @@ Bárbara D. Bitarello
 <li><p>We calculate this probability using the <strong>right tail</strong> of the <span class="math inline">\(\chi^2\)</span> distribution.</p></li>
 <li>
 <p>The gray region shows the <span class="math inline">\(P\)</span>-value. I.e:</p>
-<p><span class="math inline">\(P=\operatorname{Pr}(\chi^2 \ge 57.18762 \mid H_0)=3.073\times 10^-8\)</span></p>
+<p><span class="math inline">\(P=\operatorname{Pr}(\chi^2 \ge 57.18762 \mid H_0)=3.073\times10^{-8}\)</span></p>
 </li>
 </ul>
 <div class="cell" data-layout-align="center">
@@ -2713,39 +2712,16 @@ Bárbara D. Bitarello
 </div>
 </div>
 </div></div>
-</section><section><section class="title-slide slide level1 center" data-visibility="uncounted"><h1>We could stop here</h1>
-<ul>
-<li>If we stop here, we have our <span class="math inline">\(P\)</span>-value and could simply report it and let the reader judge the evidence.</li>
-<li>But NHST expects us to “make a decision”.</li>
-</ul></section><section class="slide level2"><h2>Making a Decision: Compare <span class="math inline">\(P\)</span> to <span class="math inline">\(\alpha\)</span>
-</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li><p>Choose a <strong>significance level</strong> <span class="math inline">\(\alpha\)</span> (e.g., 0.01).</p></li>
-<li><p>Decision rule:</p></li>
-<li><p>If <span class="math inline">\(P \le \alpha\)</span>, reject <span class="math inline">\(H_0\)</span>.</p></li>
-<li><p>If <span class="math inline">\(P &gt; \alpha\)</span>, fail to reject <span class="math inline">\(H_0\)</span>.</p></li>
-</ul>
-<p>When using software:</p>
-<ul>
-<li>The <span class="math inline">\(P\)</span>-value is computed directly.</li>
-<li>Compare it to <span class="math inline">\(\alpha\)</span> to make your decision.</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p>When working <u>by hand</u>:</p>
-<ul>
-<li><p>Instead of computing <span class="math inline">\(P\)</span>, compare the test statistic to a <span class="keyword">critical value</span>.</p></li>
-<li><p>The critical value marks the boundary between rejecting and not rejecting <span class="math inline">\(H_0\)</span>.</p></li>
-<li><p>Look up the critical value in a chi-squared table (using the correct degrees of freedom).</p></li>
-<li><p>Both approaches lead to the same conclusion.</p></li>
-</ul>
-</div></div>
-</section><section id="critical-value-definition" class="slide level2 statement-slide" data-menu-title="What is a critical value"><h2></h2>
-<p>In general, a <span class="keyword">critical value</span> is the value of a test statistic that marks the boundary of a specified area in the tail (or tails) of the sampling distribution under <span class="math inline">\(H_0\)</span>.</p>
-</section><section class="slide level2"><h2>In R</h2>
+</section><section class="slide level2"><h2>Attention</h2>
+<p>The <span class="math inline">\(\chi^2\)</span> distributions are continuous probability distributions, so we use the <em>area under the curve</em> (not the height of the curve) to obtain an <strong>APPROXIMATE</strong> <span class="math inline">\(P\)</span>-value. NOTE: This is always a one-tailed test (even if your <span class="math inline">\(H_{a}\)</span> is two-tailed).</p>
+
+<img data-src="7.1.Goodness-of-fit_files/figure-revealjs/again-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="do">## approx Pval in R</span></span>
+<span id="cb7-2"><a aria-label="2"></a><span class="fu">pchisq</span>(<span class="at">q =</span> <span class="fl">57.18762</span>, <span class="at">df =</span> <span class="dv">11</span>, <span class="at">lower.tail =</span> F)</span>
+<span id="cb7-3"><a aria-label="3"></a><span class="do">## [1] 3.07e-08</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section><section class="slide level2"><h2>
-<span class="math inline">\(\chi^2\)</span> P-Value and Stats Tables</h2>
+<span class="math inline">\(\chi^2\)</span> <span class="math inline">\(P\)</span>-value and Stats Tables</h2>
 <p><font color="#6C8645"><strong>Statistical Table A</strong></font> in your book [old fashioned, for exam].</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -2898,72 +2874,54 @@ Bárbara D. Bitarello
 </table>
 </div>
 </div>
-</section><section class="slide level2"><h2>
-<span class="math inline">\(\chi^2\)</span> P-Value and Stats Tables</h2>
-<p>We had <span class="math inline">\(\chi^2=44.89; df=12-1-0=11\)</span></p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<table class="table caption-top" style="">
-<thead><tr class="header">
-<th data-quarto-table-cell-role="th" style="text-align: right; color: lightgrey !important; background-color: black !important;">df | a</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; color: lightgrey !important; background-color: black !important;">0.1</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; color: lightgrey !important; background-color: black !important;">0.05</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; color: lightgrey !important; background-color: black !important;">10^-2</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; color: lightgrey !important; background-color: black !important;">10^-3</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; color: lightgrey !important; background-color: black !important;">10^-4</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; color: lightgrey !important; background-color: black !important;">10^-5</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; color: lightgrey !important; background-color: black !important;">10^-6</th>
-<th data-quarto-table-cell-role="th" style="text-align: right; color: lightgrey !important; background-color: black !important;">10^-7</th>
-</tr></thead>
-<tbody><tr class="odd">
-<td style="text-align: right;">11</td>
-<td style="text-align: right; min-width: 10; max-width: 10;">17.3</td>
-<td style="text-align: right; min-width: 10; max-width: 10;">19.7</td>
-<td style="text-align: right; min-width: 10; max-width: 10;">24.7</td>
-<td style="text-align: right; min-width: 10; max-width: 10;">31.3</td>
-<td style="text-align: right; min-width: 10; max-width: 10;">37.4</td>
-<td style="text-align: right; min-width: 10; max-width: 10;">43.2</td>
-<td style="text-align: right; min-width: 10; max-width: 10;">48.9</td>
-<td style="text-align: right;">54.4</td>
-</tr></tbody>
-</table>
-</div>
-</div>
-<p>Note: The critical value of a test statistic that marks the boundary of a specified area in the tail (or tails) of the sampling distribution under <span class="math inline">\(H_{0}\)</span>. For <span class="math inline">\(df=11\)</span> and <span class="math inline">\(\alpha=0.05\)</span>, the critical value here is 19.7.</p>
-<p>We can determine that <span class="math inline">\(10^{-6}&lt;P&lt;10^{-5}\)</span></p>
-<div class="cell" data-layout-align="center">
-<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a aria-label="1"></a><span class="co"># find pval for chisq test without stats table</span></span>
-<span id="cb7-2"><a aria-label="2"></a><span class="fu">pchisq</span>(<span class="at">q =</span> <span class="fl">44.89</span>, <span class="at">df =</span> <span class="dv">11</span>, <span class="at">lower.tail =</span> F)</span>
-<span id="cb7-3"><a aria-label="3"></a><span class="do">## [1] 5.07e-06</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-<p>P is very small. Data like these would rarely be generated under the null.</p>
-<p>We reject <span class="math inline">\(H_0\)</span> &amp; conclude that birth months of NHL players do not follow that of the rest of the population.</p>
-<p>Note: This is a one tailed test by definition– we only care if data are too far from expectations, not if they’re too close.</p>
-</section><section class="slide level2"><h2>A note about <span class="math inline">\(P\)</span>-values for <span class="math inline">\(\chi^2\)</span>
-</h2>
+<p>We had <span class="math inline">\(\chi^2=44.89; df=12-1-0=11\)</span>; critical value for <span class="math inline">\(\chi_{11,0.05}^2=19.68\)</span> and for <span class="math inline">\(\chi_{11,0.01}^2=24.72\)</span></p>
+<p>Assuming <span class="math inline">\(\alpha=0.05\)</span>, we can determine that <span class="math inline">\(10^{-6}&lt;P&lt;10^{-5}\)</span>.</p>
+</section><section class="slide level2 center" data-visibility="uncounted"><h2>We could stop here</h2>
 <ul>
-<li>The <span class="math inline">\(\chi^2\)</span> distributions are continuous probability distributions, so we use the <em>area under the curve</em> (not the height of the curve) to obtain an <strong>APPROXIMATE</strong> P-value. NOTE: This is a one-tailed test!</li>
+<li>If we stop here, we have our <span class="math inline">\(P\)</span>-value and could simply report it and let the reader judge the evidence.</li>
+<li>But NHST expects us to “make a decision”.</li>
+</ul></section><section class="slide level2"><h2>Making a Decision: Compare <span class="math inline">\(P\)</span> to <span class="math inline">\(\alpha\)</span>
+</h2>
+<p>In general, a <span class="keyword">critical value</span> is the value of a test statistic that marks the boundary of a specified area in the tail (or tails) of the sampling distribution under <span class="math inline">\(H_0\)</span>.</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>Choose a <strong>significance level</strong> <span class="math inline">\(\alpha\)</span> (e.g., 0.01).</p></li>
+<li><p>Decision rule:</p></li>
+<li><p>If <span class="math inline">\(P \le \alpha\)</span>, reject <span class="math inline">\(H_0\)</span>.</p></li>
+<li><p>If <span class="math inline">\(P &gt; \alpha\)</span>, fail to reject <span class="math inline">\(H_0\)</span>.</p></li>
 </ul>
-
-<img data-src="7.1.Goodness-of-fit_files/figure-revealjs/chisqDist-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section><section class="slide level2"><h2>To summarize what we just did</h2>
+<p>When using software:</p>
+<ul>
+<li>The <span class="math inline">\(P\)</span>-value is computed directly.</li>
+<li>Compare it to <span class="math inline">\(\alpha\)</span> to make your decision.</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p>When working <u>by hand</u>:</p>
+<ul>
+<li><p>Instead of computing <span class="math inline">\(P\)</span>, compare the test statistic to a <span class="keyword">critical value</span>.</p></li>
+<li><p>The critical value marks the boundary between rejecting and not rejecting <span class="math inline">\(H_0\)</span>.</p></li>
+<li><p>Look up the critical value in a chi-squared table (using the correct degrees of freedom).</p></li>
+<li><p>Both approaches lead to the same conclusion.</p></li>
+</ul>
+</div></div>
+</section><section class="slide level2"><h2>Interpreting the results</h2>
+<p>Important:</p>
+<ul>
+<li><p>Rejecting <span class="math inline">\(H0\)</span> does not prove the model is false.</p></li>
+<li><p>Failing to reject <span class="math inline">\(H0\)</span> does not prove the model is true.</p></li>
+</ul>
+<p>We are evaluating evidence, not proving certainty. * <span class="math inline">\(P\)</span> is very small. Data like these would rarely be generated under the null.</p>
+<ul>
+<li>We reject <span class="math inline">\(H_0\)</span> under <span class="math inline">\(\alpha=0.05\)</span> (and 0.01) &amp; conclude that birth months of NHL players do not follow that of the rest of the population.</li>
+</ul></section><section class="slide level2"><h2>To summarize what we just did</h2>
 <p>• This was an example of using the <span class="math inline">\(\chi^2\)</span> goodness-of-fit test to test if the data follows a proportional model</p>
 <p>• The proportional model is a probability model in which the frequency of occurrence of events is proportional to the number of opportunities.</p>
-<p>• Critical values are used in association with statistical tables to determine whether the P-value is below a pre-determined threshold</p>
-<p>• You don’t need critical values when you use something like R to calculate your P-value</p>
-<p>• Always best to report actual p-value than a range</p>
+<p>• Critical values are used in association with statistical tables to determine whether the <span class="math inline">\(P\)</span>-value is below a pre-determined threshold</p>
+<p>• You don’t need critical values when you use something like R to calculate your <span class="math inline">\(P\)</span>-value</p>
+<p>• Real life: Always best to report actual <span class="math inline">\(P\)</span>-value than a range. When doing this by hand, range is fine.</p>
 <p>• <span class="math inline">\(P\)</span>-values are always approximate because is a continuously distributed variable</p>
-</section><section class="slide level2" data-visibility="uncounted"><h2>Extra: What Is A Degree of Freedom? (really)</h2>
-<p><font size="7"> For <span class="math inline">\(\chi^2\)</span> tests,</font><br>
-df = # categories - 1 - # params estimated from data</p>
-<p><font size="7"> More broadly… </font><br>
-How many data points can “wobble around” following initial estimation of your model.</p>
-<p>E.g. <span class="math inline">\(s^2=\frac{\sum (x-\bar x)^2}{n-1}; n=10\)</span></p>
-<p>• First we calculate the mean and then we need to calculate each <span class="math inline">\((x−\bar x)^2\)</span> for each data point.</p>
-<p>• But note that only <span class="math inline">\(n−1\)</span> data points are truly free to have <em>any</em> value. I.e., if you know the value <span class="math inline">\(x\)</span> for 9 of your 10 data points, the last one can be inferred. So this statistic has <span class="math inline">\(n− 1\)</span> degrees of freedom.</p>
-
-
-</section></section><section id="footnotes" class="footnotes footnotes-end-of-document smaller scrollable" role="doc-endnotes"><h2>Footnotes</h2>
+</section><section id="footnotes" class="footnotes footnotes-end-of-document smaller scrollable" role="doc-endnotes"><h2>Footnotes</h2>
 <ol>
 <li id="fn1"><p>https://www.cdc.gov/nchs/nvss/vsrr/provisional-tables.htm</p></li>
 </ol></section>
@@ -3008,7 +2966,7 @@ How many data points can “wobble around” following initial estimation of you
         progress: true,
 
         // Display the page number of the current slide
-        slideNumber: 'c/t',
+        slideNumber: 'c',
 
         // 'all', 'print', or 'speaker'
         showSlideNumber: 'all',
