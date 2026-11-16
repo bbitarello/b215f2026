@@ -276,7 +276,7 @@ Bárbara D. Bitarello
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure><p><img data-src="6.1.Analyzing-Proportions_files/figure-html/oneSamp-1.png" width="672"></p>
+<figure><p><img data-src="6.1.Analyzing-Proportions_files/figure-revealjs/oneSamp-1.png" width="960"></p>
 <figcaption>Top, binomial distribution for 10 trials with p = 0.5; bottom, sample of ten binary trials showing six successes and four failures (X = 6, n = 10).</figcaption></figure>
 </div>
 </div>
@@ -905,7 +905,7 @@ p^{x}
 </div>
 </section><section class="slide level2"><h2>Generate the null &amp; Find P-value</h2>
 
-<img data-src="6.1.Analyzing-Proportions_files/figure-html/binom-1.png" class="quarto-figure quarto-figure-center r-stretch" width="672"><p>Adding the two yellow tails gives us the two tailed <span class="math inline">\(P\)</span>-value<span class="math inline">\(=0.005908966+0.005908966= 0.01181793\)</span>.</p>
+<img data-src="6.1.Analyzing-Proportions_files/figure-revealjs/binom-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"><p>Adding the two yellow tails gives us the two tailed <span class="math inline">\(P\)</span>-value<span class="math inline">\(=0.005908966+0.005908966= 0.01181793\)</span>.</p>
 </section><section class="slide level2"><h2>We conducted a Binomial Test!</h2>
 <p>Actually calculating <span class="math inline">\(P\)</span>-value would look like this:</p>
 <p>Two-tailed <span class="math inline">\(P\)</span>-value:</p>
@@ -973,7 +973,8 @@ p^{x}
 <p>The standard deviation of the sampling distribution of <span class="math inline">\(\hat p\)</span> (designated by <span class="math inline">\(\sigma_{\hat p}\)</span>) is</p>
 <p><span class="math display">\[\sigma_{\hat p}=\sqrt{\frac{p(1-p)}{n}}\]</span></p>
 <p>This is also called the standard error of <span class="math inline">\(p\)</span>. Because <span class="math inline">\(p\)</span> is usually unknown, in practice we have:</p>
-<p><span class="math display">\[SE_{\hat p}=\sqrt{\frac{\hat p(1-\hat p)}{n}}\]</span> # Confidence Interval for a proportion (it’s not normal) {.center}</p>
+<p><span class="math display">\[SE_{\hat p}=\sqrt{\frac{\hat p(1-\hat p)}{n}}\]</span></p>
+</section><section class="slide level2 center"><h2>Confidence Interval for a proportion (it’s not normal)</h2>
 </section><section class="slide level2"><h2>95% CIs for a proportion</h2>
 <ul>
 <li>
@@ -1262,6 +1263,41 @@ p' - 1.96 \sqrt{\frac{p'(1 - p')}{n + 4}}\;&lt;\;p\;&lt;\;p' + 1.96 \sqrt{\frac{
           RevealZoom
         ]
       });
+    </script><script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
     </script><script id="quarto-html-after-body" type="application/javascript">
       window.document.addEventListener("DOMContentLoaded", function (event) {
         const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")

@@ -223,10 +223,10 @@ Bárbara D. Bitarello
 <li><p>Thus, CIs and hypothesis tests often lead to the same conclusion.</p></li>
 </ul>
 </div><div class="column">
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div>
-<figure><p><img data-src="5.3.Hypothesis-Testing_files/figure-revealjs/pvsCI-1.png" class="margin-caption" width="960"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure><p><img data-src="5.3.Hypothesis-Testing_files/figure-revealjs/pvsCI-1.png" class="margin-caption quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -264,7 +264,7 @@ Bárbara D. Bitarello
 <li>This means that a deviation in either tail of the distribution would be worth reporting.</li>
 </ul>
 
-<img data-src="5.3.Hypothesis-Testing_files/figure-revealjs/myps-1.png" class="margin-caption r-stretch" width="960"></section><section id="one-sided-tests" class="slide level2"><h2>One-sided tests</h2>
+<img data-src="5.3.Hypothesis-Testing_files/figure-revealjs/myps-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="one-sided-tests" class="slide level2"><h2>One-sided tests</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -293,7 +293,7 @@ Bárbara D. Bitarello
 <li>If one of the tails of the null distribution is nonsense, calculate a <span class="math inline">\(P\)</span>-value without it. We’ll see that <span class="math inline">\(\chi^2\)</span> tests and F-tests are usually 1-tailed.</li>
 </ul>
 
-<img data-src="5.3.Hypothesis-Testing_files/figure-revealjs/onetail-1.png" class="margin-caption r-stretch" width="960"></section><section id="when-in-doubt-use-a-two-tailed-test" class="slide level2"><h2>When in doubt, use a two-tailed test</h2>
+<img data-src="5.3.Hypothesis-Testing_files/figure-revealjs/onetail-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="when-in-doubt-use-a-two-tailed-test" class="slide level2"><h2>When in doubt, use a two-tailed test</h2>
 <ul>
 <li>When in doubt, use a two-tailed <span class="math inline">\(P\)</span>-value</li>
 <li>The relationship between <span class="math inline">\(P\)</span>-values and CIs is more straightforward</li>
@@ -444,9 +444,8 @@ Bárbara D. Bitarello
 <li>Low variability in the population of interest</li>
 </ol></section><section id="power-increases-with-sample-size" class="slide level2"><h2>Power increases with sample size</h2>
 <p>The exact relationship between several features of the experiment: the significance threshold (<span class="math inline">\(\alpha\)</span>), size of the expected effect, variation present in the population (variance), alternative hypothesis (one or two sided), and sample size.</p>
-<div class="cell columns column-output-location">
-<div class="column">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>sample.size <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">^</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>))</span>
+<div class="cell" data-layout-align="center">
+<details class="code-fold"><summary>Code</summary><div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a aria-label="1"></a>sample.size <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">^</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>))</span>
 <span id="cb1-2"><a aria-label="2"></a><span class="fu">tibble</span>(<span class="at">p_reject =</span> <span class="fu">c</span>(<span class="fu">sapply</span>(sample.size, <span class="cf">function</span>(X) {</span>
 <span id="cb1-3"><a aria-label="3"></a>    <span class="fu">mean</span>(<span class="fu">replicate</span>(<span class="dv">1000</span>, <span class="fu">unlist</span>(<span class="fu">t.test</span>(<span class="fu">rnorm</span>(X), <span class="at">mu =</span> <span class="fl">0.3</span>)[<span class="st">"p.value"</span>]) <span class="sc">&lt;</span></span>
 <span id="cb1-4"><a aria-label="4"></a>        <span class="fl">0.05</span>))</span>
@@ -458,21 +457,18 @@ Bárbara D. Bitarello
 <span id="cb1-10"><a aria-label="10"></a>        <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">" True"</span>, <span class="st">" False"</span>))) <span class="sc">|&gt;</span></span>
 <span id="cb1-11"><a aria-label="11"></a>    <span class="fu">mutate</span>(<span class="at">sample.size =</span> <span class="fu">rep</span>(sample.size, <span class="dv">2</span>)) <span class="sc">|&gt;</span></span>
 <span id="cb1-12"><a aria-label="12"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> sample.size, <span class="at">y =</span> p_reject, <span class="at">color =</span> H_0)) <span class="sc">+</span></span>
-<span id="cb1-13"><a aria-label="13"></a>    <span class="fu">geom_point</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb1-14"><a aria-label="14"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>H_0, <span class="at">labeller =</span> label_both) <span class="sc">+</span></span>
-<span id="cb1-15"><a aria-label="15"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">"log2"</span>) <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.05</span>) <span class="sc">+</span></span>
-<span id="cb1-16"><a aria-label="16"></a>    <span class="fu">theme_light</span>() <span class="sc">+</span> <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="fu">expression</span>(Prob. <span class="sc">~</span> of <span class="sc">~</span></span>
-<span id="cb1-17"><a aria-label="17"></a>    rejecting <span class="sc">~</span> null <span class="sc">~</span> <span class="st">"("</span> <span class="sc">~</span> alpha <span class="sc">~</span> <span class="st">""</span> <span class="sc">==</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">")"</span>)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"The probability of reject the null hypothesis"</span>) <span class="sc">+</span></span>
-<span id="cb1-18"><a aria-label="18"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#0072B2"</span>, <span class="st">"#CC79A7"</span>)) <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">15</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div>
-<figure><p><img data-src="5.3.Hypothesis-Testing_files/figure-revealjs/unnamed-chunk-1-1.png" class="margin-caption" width="960"></p>
-</figure>
+<span id="cb1-13"><a aria-label="13"></a>    <span class="fu">geom_point</span>(<span class="at">show.legend =</span> <span class="cn">FALSE</span>, <span class="at">size =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="fu">geom_smooth</span>(<span class="at">se =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-14"><a aria-label="14"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span>H_0, <span class="at">labeller =</span> label_both) <span class="sc">+</span></span>
+<span id="cb1-15"><a aria-label="15"></a>    <span class="fu">scale_x_continuous</span>(<span class="at">trans =</span> <span class="st">"log2"</span>) <span class="sc">+</span> <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="fl">0.05</span>,</span>
+<span id="cb1-16"><a aria-label="16"></a>    <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span> <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>,</span>
+<span id="cb1-17"><a aria-label="17"></a>    <span class="at">to =</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.1</span>)) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="fu">expression</span>(Prob. <span class="sc">~</span> of <span class="sc">~</span> rejecting <span class="sc">~</span></span>
+<span id="cb1-18"><a aria-label="18"></a>    H[<span class="dv">0</span>] <span class="sc">~</span> <span class="st">"("</span> <span class="sc">~</span> alpha <span class="sc">~</span> <span class="st">""</span> <span class="sc">==</span> <span class="fl">0.05</span> <span class="sc">~</span> <span class="st">")"</span>)) <span class="sc">+</span> <span class="fu">xlab</span>(<span class="st">"Sample size"</span>) <span class="sc">+</span></span>
+<span id="cb1-19"><a aria-label="19"></a>    <span class="fu">ggtitle</span>(stringr<span class="sc">::</span><span class="fu">str_wrap</span>(<span class="st">"The probability of reject the null hypothesis"</span>,</span>
+<span id="cb1-20"><a aria-label="20"></a>        <span class="dv">30</span>)) <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">15</span>, <span class="at">y =</span> <span class="fl">0.9</span>, <span class="at">group =</span> H_0), <span class="at">label =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Pr[TN] increases"</span>,</span>
+<span id="cb1-21"><a aria-label="21"></a>    <span class="dv">9</span>), <span class="fu">rep</span>(<span class="st">"Pr[FP] does NOT</span><span class="sc">\n</span><span class="st">change"</span>, <span class="dv">9</span>)), <span class="at">colour =</span> <span class="st">"black"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
-</div>
-</div></div>
-</section><section id="statistical-significance-neq-biological-importance" class="slide level2"><h2>Statistical Significance <br><span class="math inline">\(\neq\)</span> Biological Importance</h2>
+<img data-src="5.3.Hypothesis-Testing_files/figure-revealjs/unnamed-chunk-1-1.png" class="margin-caption quarto-figure quarto-figure-center r-stretch" width="960"></section><section id="statistical-significance-neq-biological-importance" class="slide level2"><h2>Statistical Significance <br><span class="math inline">\(\neq\)</span> Biological Importance</h2>
 <div class="columns">
 <div class="column">
 <p>E.g. High powered Genome Wide Association Studies (GWAS) often identify loci associated with negligible increases in the chance of acquiring some disease.</p>
